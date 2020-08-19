@@ -1,0 +1,55 @@
+version: 2
+
+references:
+  cf_install: &cf_install
+    run:
+      name: Install cf-cli
+      command: |
+        sudo apt-get install apt-transport-https
+        wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo apt-key add -
+        echo "deb https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list
+        sudo apt-get update
+        sudo apt-get install cf-cli
+  docker_image: &docker_image
+    docker:
+      - image: cimg/base:2020.01
+
+jobs:
+  deploy_to_staging:
+    <<: *docker_image
+    steps:
+      - checkout
+      - *cf_install
+      - run:
+          name: Deploy to staging
+          command: |
+            cf login -a ${CF_API_STAGING} -o ${CF_ORG} -s ${CF_SPACE} -u ${CF_USERNAME} -p ${CF_PASSWORD_STAGING}
+            cf push
+
+  deploy_to_production:
+    <<: *docker_image
+    steps:
+      - checkout
+      - *cf_install
+      - run:
+          name: Deploy to production
+          command: |
+            cf login -a ${CF_API_PRODUCTION} -o ${CF_ORG} -s ${CF_SPACE} -u ${CF_USERNAME} -p ${CF_PASSWORD_PRODUCTION}
+            cf push
+
+workflows:
+  version: 2
+  staging:
+    jobs:
+      - deploy_to_staging:
+          filters:
+            branches:
+              only:
+                - develop
+  master:
+    jobs:
+      - deploy_to_production:
+          filters:
+            branches:
+              only:
+                - master

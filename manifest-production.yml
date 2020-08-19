@@ -1,0 +1,10 @@
+---
+applications:
+- name: desktop 
+  buildpacks:
+    - staticfile_buildpack 
+  memory: 128M
+  disk_quota: 256M
+  instances: 2
+  routes:
+    - route: desktop.gov.au

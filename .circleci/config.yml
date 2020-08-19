@@ -24,7 +24,7 @@ jobs:
           name: Deploy to staging
           command: |
             cf login -a ${CF_API_STAGING} -o ${CF_ORG} -s ${CF_SPACE} -u ${CF_USERNAME} -p ${CF_PASSWORD_STAGING}
-            cf push
+            cf push -f manifest-staging.yml
 
   deploy_to_production:
     <<: *docker_image
@@ -35,7 +35,7 @@ jobs:
           name: Deploy to production
           command: |
             cf login -a ${CF_API_PRODUCTION} -o ${CF_ORG} -s ${CF_SPACE} -u ${CF_USERNAME} -p ${CF_PASSWORD_PRODUCTION}
-            cf push
+            cf push -f manifest-production.yml
 
 workflows:
   version: 2

@@ -28,5 +28,9 @@ exclude:
   - manifest-*.yml
 
 # Plugin settings
-#plugins:
+plugins:
+   - jekyll-last-modified-at
 #  - jekyll-assets  # not compat with jekyll 4.0: https://github.com/envygeeks/jekyll-assets/issues/613
+
+last-modified-at:
+    date-format: '%-d %B %Y'

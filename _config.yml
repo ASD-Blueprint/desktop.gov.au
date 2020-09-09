@@ -1,0 +1,32 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+title: desktop.gov.au 
+description: > # this means to ignore newlines until "baseurl:"
+  Secure Modern Workplace
+baseurl: "" # the subpath of your site, e.g. /blog
+
+markdown: kramdown
+
+sass:
+  style: compressed
+
+# Build settings
+exclude:
+  - Dockerfile
+  - Gemfile
+  - package.json
+  - README.md
+  - CNAME
+  - assets/sass
+  - vendor
+  - manifest-*.yml
+
+# Plugin settings
+#plugins:
+#  - jekyll-assets  # not compat with jekyll 4.0: https://github.com/envygeeks/jekyll-assets/issues/613

@@ -1,0 +1,16 @@
+### Jekyll ###
+_site/
+.sass-cache/
+.jekyll-metadata
+.jekyll-cache
+/vendor
+
+### Jekyll Assets ###
+.asset-cache
+
+### npm ###
+/node_modules
+npm-debug.log
+
+### Bundle ###
+.bundle

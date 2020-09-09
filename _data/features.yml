@@ -1,0 +1,29 @@
+- name: Overview
+  url: /overview.html
+  desc: |
+    An overview of the Blueprint solution package.
+
+- name: Platform
+  url: /platform.html
+  desc: |
+    All supporting components for the Windows 10, iOS and Office 365 components of the design including Intune.
+    
+- name: Office 365
+  url: /office-365.html
+  desc: |
+    Exchange Online, SharePoint Online, OneDrive for Business and Teams.
+
+- name: Client Devices
+  url: /client-devices.html
+  desc: |
+    Windows 10 and iOS components only.
+
+- name: ABACs
+  url: /abacs.html
+  desc: |
+    As Built As Configured.
+
+- name: Security Documentation
+  url: /security-documentation.html
+  desc: |
+    Includes IRAP and Standard Operating Procedures material.

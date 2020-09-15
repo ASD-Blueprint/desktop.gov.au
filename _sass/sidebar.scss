@@ -94,6 +94,7 @@ aside.au-side-nav {
             &.active {
                 > a {
                     border-left-color: $primary-color;
+                    color: $primary-color;
                 }
             }
         }

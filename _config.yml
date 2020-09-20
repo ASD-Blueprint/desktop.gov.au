@@ -30,7 +30,11 @@ exclude:
 # Plugin settings
 plugins:
    - jekyll-last-modified-at
-#  - jekyll-assets  # not compat with jekyll 4.0: https://github.com/envygeeks/jekyll-assets/issues/613
+   - jekyll-spaceship
 
 last-modified-at:
     date-format: '%-d %B %Y'
+  
+jekyll-spaceship:
+  processors:
+      - table-processor

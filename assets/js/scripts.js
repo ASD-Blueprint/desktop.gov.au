@@ -22,9 +22,6 @@ $( document ).ready( function() {
             }
         });
 
-
-    //$('#toc-container').scrollspy();
-
     var ms = new MenuSpy(document.querySelector('#toc-container'));
 
 });

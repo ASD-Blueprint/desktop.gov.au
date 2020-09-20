@@ -11,6 +11,9 @@ body {
     pre {
         white-space: pre-wrap;
     }
+    p {
+        max-width: unset;
+    }
 }
 
 .au-header {
@@ -129,7 +132,17 @@ header.au-header {
 #content-area {
     width: 100% !important;
     display: block;
+    padding: 0 2em;
 }
+
+/* platform.md */
+.table-component {
+    td:first-of-type {
+        width: 30%;
+    }
+}
+
+
 
 .transition {
     -webkit-transition: all 0.25s ease;

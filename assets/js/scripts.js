@@ -21,7 +21,4 @@ $( document ).ready( function() {
                     $('#back-to-top').removeClass('visible');
             }
         });
-
-    var ms = new MenuSpy(document.querySelector('#toc-container'));
-
 });

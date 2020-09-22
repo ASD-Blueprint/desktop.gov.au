@@ -511,3 +511,140 @@ Information Technology (IT) Security refers to protection of networks, servers, 
 * Provide Risk Assessments – Azure Identity Protection, Azure ATP and Microsoft Defender ATP utilise analytics and machine learning to detect and flag unusual/risky behaviour.
 * Provide Visibility into User Behaviour – Microsoft Cloud App Security (MCAS) provides security operations dashboards which provide visibility into the activities being undertaken within the environment.
 * Control Data Exfiltration –Data Loss Prevention policies and MCAS session policies control the flow and protection of information inside and outside of the environment.
+
+### Microsoft Cloud App Security
+
+MCAS is part of Microsoft’s Enterprise Mobility + Security (EM+S) suite of capabilities, providing CASB functionality to reduce the risk of leveraging cloud services, including those offered by Microsoft and third-party providers such as Google, Amazon and Dropbox. To manage the risks presented using cloud services, Microsoft has defined a [cloud app security framework](https://docs.microsoft.com/en-us/cloud-app-security/what-is-cloud-app-security#the-cloud-app-security-framework) which MCAS implements:
+
+* Discover and control the use of Shadow IT – Shadow IT includes cloud services that are in use by users but not assessed and approved by security, including Software-as-a-Service (SaaS), Platform-as-a-Service (PaaS), and Infrastructure-as-a-Service (IaaS) offerings. To protect users and their data these services must be identified so that their risk can be determined, and management controls can be implemented. MCAS enables administrators to assess an extensive library of apps against a wide range of risks.
+* Protect your sensitive information anywhere in the cloud – Once data is uploaded to a cloud service it is harder to control and manage compared to traditional on-premises storage. MCAS enables controls to be applied to data regardless of where it is stored leveraging automated processes and inbuilt policies to both classify and protect information.
+* Protect against cyberthreats and anomalies – Due to the public nature of cloud apps they are exposed to potential malicious activity from external actors. MCAS monitors both user behaviour and app activity to identity anomalies and perform automatic remediation to ensure the confidentiality of data stored in the cloud. This includes identifying indications that a user’s account credentials have been compromised.
+* Assess the compliance of your cloud apps – Performing security assessments of cloud apps and services is both complex and expensive. MCAS provides an overview of the industry and regulatory standards that each identified cloud app has been assessed against to simplify the approval process.
+
+#### Product Architecture
+
+The architecture of MCAS includes several integrated components to address each of the cloud app security framework requirements. The components include log collection and analysis capabilities to detect cloud apps, Application Programming Interface (API) connectors to interface with and control cloud app activity, and reserve proxy capability to enforce conditional access app control policies for authentication to cloud apps.
+
+An overview of these components and how they combine in MCAS is illustrated below in Figure 5. Figure reproduced from [https://docs.microsoft.com/en-us/cloud-app-security/what-is-cloud-app-security#architecture](https://docs.microsoft.com/en-us/cloud-app-security/what-is-cloud-app-security#architecture)
+
+![Figure 5 - MCAS Architecture](/assets/images/platform-product-architecture.png)
+
+Further details including configuration of each of these components is presented later in this document.
+
+#### Data Location
+
+At the time of writing MCAS is hosted from Azure data centres in the United States (US) and Europe ([https://docs.microsoft.com/en-us/cloud-app-security/cas-compliance-trust#data-location](https://docs.microsoft.com/en-us/cloud-app-security/cas-compliance-trust#data-location)). An MCAS tenant account is automatically created in the closest ‘Geo’. For Azure tenants located in Australia, MCAS will use the US Geo.
+
+#### Data Retention
+
+The data retention period for information stored within MCAS varies depending on the specific type of data.  The [four data types](https://docs.microsoft.com/en-us/cloud-app-security/cas-compliance-trust#data-retention) and their respective periods are listed below:
+
+* Activity log – 180 days
+* Discovery data – 90 days
+* Alerts – 180 days
+* Governance log – 120 days
+
+Note, all user activity and security alert information can be exported from MCAS in Comma-Separated Values (CSV) format if longer data retention is required.
+
+#### Administration
+
+MCAS leverages Azure Active Directory (Azure AD) to provide Role-Based Access Control (RBAC) for administration via the web portal. By default, only the Global Administrator and Security Administrator roles have full access to MCAS. Other standard Azure AD roles that have at least read-only access to the portal include Compliance Administrator, Compliance Data Administrator, Security Operator, Security Reader, and Global Reader. 
+
+In addition to the standard Azure AD roles, MCAS also has its own service-specific roles that provide finer grained RBAC [https://docs.microsoft.com/en-us/cloud-app-security/manage-admins](https://docs.microsoft.com/en-us/cloud-app-security/manage-admins). If required, Global and Security Administrators can also grant access to specific users within the MCAS portal.
+
+### MCAS - Cloud Discovery
+
+The MCAS Cloud Discovery design decisions can be found below. MCAS Cloud Discovery components are made up of Log Collectors, Microsoft Defender ATP Integration, Cloud Discovery Enrichment, User Data Anonymisation, Custom Apps and App Filters & Queries.
+
+The cloud discovery component of MCAS enables the detection of cloud apps by analysing logs that are uploaded to it.
+
+#### Design Considerations
+
+There are two types of cloud discovery reports that are generated by MCAS, depending on the specific log source:
+
+* Snapshot reports – generated by manually uploading a log export from a proxy or firewall device, provides on demand analysis at the time the log is uploaded.
+* Continuous reports – leverage native first and third-party integrations to provide ongoing data ingest and analysis without the need for user interaction.
+
+Continuous reports can be generated a few ways such as configuring one or more of the following [automated log upload capabilities](https://docs.microsoft.com/en-us/cloud-app-security/set-up-cloud-discovery):
+
+* Log collector – centralisation of logs from one or more proxy or firewall devices to a Docker-powered collector using Syslog and/or File Transfer Protocol (FTP).
+* Microsoft Defender ATP integration – native integration with Defender ATP logs directly from onboarded endpoint devices running, regardless of whether they connect to cloud services via a managed gateway or directly via the internet.
+
+MCAS supports a wide range of [popular proxy and firewall vendors and products](https://docs.microsoft.com/en-us/cloud-app-security/set-up-cloud-discovery#supported-firewalls-and-proxies-) for both snapshot and continuous reports (via log collectors)  . A custom parser can also be configured for unsupported devices allowing manual attribute mapping.
+
+Once a cloud app has been discovered and its usage reviewed it can be either sanctioned (approved) or unsanctioned (prohibited) via the Discovered Apps tab. Tagging a cloud app as unsanctioned does not block access directly but allows for the generation of a block script that can be downloaded from MCAS and imported into a proxy of firewall appliance.
+
+Note, if MCAS is integrated with Defender ATP, or other options then unsanctioned apps will be blocked automatically without the need to generate block scripts.
+
+#### Design Decisions
+
+The tables below describe the Cloud Discovery design decisions applicable to all agencies and implementation types, as well as any additional design decisions specific to cloud native or hybrid implementations.
+
+##### Cloud Discovery Design Decisions for all agencies and implementation types
+
+Decision Point | Design Decision | Justification
+--- | --- | ---
+Cloud Discovery report type | Continuous reports | To provide continuous visibility while minimising management overhead
+Log collector | Will be deployed to collect logs from the Agency’s existing proxy or firewalls and upload them to MCAS | To provide automatic upload of logs
+Microsoft Defender ATP integration | Enabled | To provide additional visibility from agency endpoints that have been onboarded into the Defender ATP.
+List of sanctioned and unsanctioned cloud apps | To be developed during build with the Agency’s Cyber Intelligence team | Provides visibility within the Agency as to what cloud applications are in use and by which department within the Agency.
+
+### MCAS - Log Collector
+
+A log collector receives logs from supported firewall and proxy devices, providing processing and compression before uploading to MCAS. The compression typically results in outbound traffic from the log collectors being 10% the size of received traffic. Configure automatic log upload for continuous reports at [https://docs.microsoft.com/en-us/cloud-app-security/discovery-docker](https://docs.microsoft.com/en-us/cloud-app-security/discovery-docker)
+
+A log collector can receive logs via FTP - including FTP over Transport Layer Security (TLS) - and Syslog.
+
+There are two supported deployment modes for log collectors:
+
+* Docker container – a Microsoft-provided Docker image for both Windows and Linux operating systems.
+* Virtual appliance – a Microsoft-provided Virtual Machine (VM) image for Hyper-V and VMware hypervisors. Note, the virtual appliance deployment mode is now deprecated.
+
+The Docker container is supported on Windows 10 and Windows Server version 1709 and later, Ubuntu versions 14.04, 16.04 and 18.04, and Red Hat Enterprise Linux (RHEL) and CentOS 7.2 or later. The image can be deployed on VMs either hosted on-premises or within Azure, provided suitable network connectivity from the proxy/firewall devices is available.
+
+#### Design Decisions
+
+The tables below describe the Log Collector design decisions applicable to all agencies and implementation types, as well as any additional design decisions specific to cloud native or hybrid implementations.
+
+Decision Point | Design Decision | Justification
+--- | --- | ---
+Number of log collectors | One | An increase in the number of log collectors may be necessary if there is excessive traffic.
+Log collector deployment mode | Docker container | Maximise support life as virtual appliance has been deprecated.
+Log collector location | Within the Agency Gateway zone | Minimise number of firewall ports to be opened between the existing proxies and the log collector.
+Log collector operating system | Agency’s discretion of supported operating system for MCAS Log Collector. | MCAS supports Windows and Linux (Ubuntu, RHEL, CentOS) operating systems for the Log Collector.
+
+### MCAS - Microsoft Defender ATP Integration
+
+Defender ATP integration enables cloud app and service traffic to be sent from supported Windows 10 devices (1709 or later) to MCAS to provide additional data for continuous reporting.
+
+#### Design Considerations
+
+This capability is enabled from within the Advanced Features settings within Microsoft Defender ATP portal, as shown below in Figure 6. Figure reproduced from [https://docs.microsoft.com/en-us/cloud-app-security/wdatp-integration](https://docs.microsoft.com/en-us/cloud-app-security/wdatp-integration)
+
+![Figure 6 - Defender ATP and MCAS Integration](/assets/images/platform-defender-mcas.png)
+
+#### Design Decisions
+
+The tables below describe the Microsoft Defender ATP integration design decisions applicable to all agencies and implementation types, as well as any additional design decisions specific to cloud native or hybrid implementations.
+
+##### Microsoft Defender ATP integration Design Decisions for all agencies and implementation types
+
+Decision Point | Design Decision | Justification
+--- | --- | ---
+Microsoft Defender ATP portal configuration | Microsoft Cloud App Security enabled | To enable Defender ATP integration with MCAS. Important Note: Microsoft Defender ATP should be configured prior to enabling this feature.
+
+### MCAS - Cloud Discovery Enrichment
+
+To further enrich cloud discovery data MCAS can integrate with Azure AD to replace users identified with Azure AD usernames.
+
+#### Design Considerations
+
+This simplifies identification and investigation of user activity, as well as allowing correlation with API collected activities.
+
+#### Design Decisions
+
+The tables below describe the Cloud Discovery Enrichment design decisions applicable to all agencies and implementation types, as well as any additional design decisions specific to cloud native or hybrid implementations.
+
+Decision Point | Design Decision | Justification
+--- | --- | ---
+User enrichment | Enabled | To identify users by Azure AD username.

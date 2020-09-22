@@ -111,12 +111,6 @@ header.au-header {
     margin-bottom: 5em;
 }
 
-#content-area {
-    h2 {
-        border-bottom: 1px solid #eee;
-    }
-}
-
 .d-flex {
     display: flex;
 }
@@ -134,6 +128,13 @@ header.au-header {
     width: 100% !important;
     display: block;
     padding: 0 2em;
+
+    h2 {
+        border-bottom: 1px solid #eee;
+    }
+}
+@media print {
+    #content-area { padding: 0; }
 }
 
 /* platform.md */

@@ -4,3 +4,6 @@
 {% unless words contains '-' %}
 {{ words | plus: 150 | divided_by: 150 | append: ' minutes to read' }}
 {% endunless %}
+{% if words contains '-' %}
+{{ '< 1 minute to read' }}
+{% endif %}

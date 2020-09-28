@@ -137,6 +137,24 @@ header.au-header {
     #content-area { padding: 0; }
 }
 
+.metadata {
+    color: #666;
+    font-size: 0.9em;
+
+    ul {
+        padding: 0;
+        li {
+            display: inline;
+
+            &:not(:last-of-type):not(:only-of-type)::after {
+                padding-left: 5px;
+                padding-right: 5px;
+                content: "•";
+            }
+        }
+    }
+}
+
 /* platform.md */
 .table-component {
     td:first-of-type {

@@ -41,7 +41,12 @@
                     </div>
                     <div id="content-area">
                         <h1>{{ page.title }}</h1>
-                        <p>{{ page.content | number_of_words }} words, updated {% last_modified_at %}</p>
+                        <div class="metadata">
+                            <ul>
+                                <li>{% include reading-time.html %}</li>
+                                <li>{% last_modified_at %}</li>
+                            </ul>
+                        </div>
                         {{ content }}
                     </div>
                 </div>

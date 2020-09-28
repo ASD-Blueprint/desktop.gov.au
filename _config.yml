@@ -8,7 +8,7 @@
 # Site settings
 title: desktop.gov.au 
 description: > # this means to ignore newlines until "baseurl:"
-  Secure Modern Workplace
+  Protected Utility Program
 baseurl: "" # the subpath of your site, e.g. /blog
 
 markdown: kramdown

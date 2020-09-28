@@ -19,10 +19,10 @@ sass:
 # Build settings
 exclude:
   - Dockerfile
+  - docker-compose.yml
   - Gemfile
   - package.json
   - README.md
-  - CNAME
   - assets/sass
   - vendor
   - manifest-*.yml

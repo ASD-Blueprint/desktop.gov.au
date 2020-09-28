@@ -22,7 +22,7 @@
                                 <li{% if page.url == "/" %} class="active"{% endif %}><a href="/">Home</a></li>
                                 {% for item in site.data.main-navigation %}
                                     {% assign css_class = "" %}
-                                    {% if item.url == page.url %}
+                                    {% if item.url contains page.dir and page.url != "/" and page.name != "404.md" %}
                                         {% assign css_class = "active" | append: css_class %}
                                     {% endif %}
                                     {% if item.right %}

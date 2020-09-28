@@ -1,12 +1,23 @@
-- title: Overview
-  url: /overview.html
+- title: About
+  url: /about.html
 
-- title: Platform
-  url: /platform.html
+- title: Blueprint
+  url: /blueprint/index.html
+  
+  subitems:
+    - title: Overview
+      url: /blueprint/overview.html
 
-- title: Office 365
-  url: /office-365.html
+    - title: Platform
+      url: /blueprint/platform.html
 
-- title: Client Devices
-  url: /client-devices.html 
+    - title: Office 365
+      url: /blueprint/office-365.html
+
+    - title: Client Devices
+      url: /blueprint/client-devices.html 
+
+- title: Skills
+  url: /skills.html
+
 

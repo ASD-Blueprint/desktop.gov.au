@@ -10,7 +10,7 @@
                         {{ content }}
                     </div>
                     <div class="col-sm-6">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/jaysOSvLnpQ?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe width="100%" height="315" src="https://www.youtube.com/embed/jaysOSvLnpQ?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
@@ -35,31 +35,18 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12 mb-3"><h2 class="">Benefits of the program</h2></div>
+                    {% for benefit in page.benefits %}
                     <div class="col-sm-6">
-                        <h3>Operational efficiencies</h3>
-                        <p>Moving to the design will help you make better use of your resources, allowing you to focus on core business activities.</p>
+                        {{ benefit | markdownify }}
                     </div>
-                    <div class="col-sm-6">
-                        <h3>Better communication and collaboration </h3>
-                        <p>The design standardises how we work across government, making communication and collaboration safer and easier within and across agencies.</p>
-                    </div>
-                    <div class="col-sm-6">
-                        <h3>Improved security posture</h3>
-                        <p>The design will guide your agency through the uplift of their cyber security posture and assist you with the Australian Signals Directorate Essential Eight maturity.</p>
-                    </div>
-                    <div class="col-sm-6">
-                        <h3>Build a future-ready workforce</h3>
-                        <p>Increase your staff mobility, workplace flexibility and empower your people with modern ways of working.</p>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
         <div class="container mt-2 mb-3">
             <div class="row">
                 <div class="col-sm-8">
-                    <h2>Community</h2>
-                    <p>We created this community so the DTA could work with other agencies and industry partners who are implementing the Blueprint. It’s a place to work together to overcome common technical obstacles and share lessons learnt. We also want to hear from you about how we can iteratively improve the overall Blueprint design.</p>
-                    <p><a href="https://community.desktop.gov.au/" class="au-btn au-btn--secondary">Join Community</a></p>
+                    {{ page.community[0] | markdownify }}
                 </div>
             </div>
         </div>

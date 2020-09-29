@@ -1,15 +1,15 @@
 - name: Program
-  url: /blueprint/overview.html
+  url: /program/index.html
   desc: |
     An overview of the modern workplace and the Protected Utility Program.
 
 - name: Blueprint
-  url: /blueprint/platform.html
+  url: /blueprint/index.html
   desc: |
     The Blueprint is a design for a secure, modern desktop based on Microsoft 365.
     
 - name: Skills and Capability
-  url: /office-365.html
+  url: /skills.html
   desc: |
     Mobilise and modernise your workforce.
 

@@ -1168,3 +1168,310 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Mail notifications | Enabled for both suspicious activities and health alerts | Notify relevant security teams when unwarranted and unauthorised activities occur.
 Syslog notifications | Enabled for both suspicious activities and health alerts | If the Agency has an existing SIEM solution enable the SIEM to gather all possible security-related events.
+
+### Azure ATP – Integration with Defender ATP
+
+Azure ATP supports native integration with Defender Advanced Threat Protection (Defender ATP).
+
+The purpose of this is to combine Azure ATP’s monitoring of AD and DCs specifically, with Defender ATP’s monitoring of general endpoints, to provide a single interface that combines events and alerts from both.
+
+Table 125 Additional Integration with Defender ATP Design Decisions for hybrid implementations
+
+Decision Point | Design Decision | Justification
+--- | --- | ---
+Integration with Defender ATP | Enabled | To integrate data feeds and alerts from both products.
+
+### Azure ATP – Firewall
+
+As Azure ATP is reliant upon the Azure ATP portal and the Azure ATP sensor firewall ports are required to be opened to allow communication between infrastructure (Domain Controllers and Standalone servers) and Azure ATP. These port configurations are updated frequently and are available online from Microsoft ([Azure ATP Configure Proxy](https://docs.microsoft.com/en-us/azure-advanced-threat-protection/configure-proxy), [Azure ATP Sensor Firewall ports](https://docs.microsoft.com/en-us/azure-advanced-threat-protection/atp-prerequisites)).
+
+It is important to note the traffic between the client and the Azure ATP portal offering is TLS1.2 encrypted. Configuration will occur on the proxy, external gateway and local infrastructure servers of the Agency as required.
+
+Firewall rules and proxy whitelisting will be implemented as part of the Azure ATP solution.
+
+* Azure ATP service location – As mentioned previously Azure ATP data centres are deployed in the United States, Europe, and Asia. The Agency’s Azure ATP instance when created will be in the data centre that is geographically closest to the Agency’s Azure Active Directory service. This will assist in determining which service location to utilise for whitelisting.
+* Maximal security and data privacy – Azure ATP cloud services use certificate based mutual authentication for communication between Azure ATP cloud backend and all Azure ATP sensors. To make the authentication process seamless as possible if the Agency’s environment utilises SSL inspection then the inspection should be configured for mutual authentication.
+
+Further details on the firewall configuration for the solution can be found in the Network Configuration ABAC.
+
+### Azure ATP – Integration with MCAS
+
+MCAS is a Cloud Access Security Broker that provide visibility, control over data travel and powerful analytics to identify and deal with cyberthreats. Integrating Azure ATP with MCAS extends this capability to hybrid environments and presents all Azure ATP Suspicious Activity (SA) alerts to the MCAS dashboard, reducing the need for security analysts to monitor multiple consoles.
+
+To connect Azure ATP to MCAS the user enabling the setting must be an Azure AD Global Admin. Integration is enabled in the MCAS console and does not require configuration from the Azure ATP console. MCAS allows Agencies to access the Azure ATP data within a single monitoring and management portal reducing the number of monitoring consoles required, however the following needs to be considered:
+
+* Alerts – MCAS can display Azure ATP alerts within the Alerts queue. MCAS also provides additional alert filtering not available within Azure ATP.
+* Alerts management – Management of alerts can be performed in both MCAS and Azure ATP portals. Closing alerts in one portal will not necessarily close the same alert in the other portal. It is recommended to choose which portal will be used to manage and remediate alerts to avoid duplicate effort.
+* SIEM notification – both Azure ATP and MCAS can be configured to send alert notification to a SIEM. In the event this is configured duplicate SIEM notifications for the same alerts will be visible within SIEM under different alert ID’s. To avoid this situation, it is recommended to choose which portal will be used to perform alert management and then only this portal is to be configured to send alert notification to a SIEM.
+* Activities – MCAS displays Azure ATP alerts also in the activity log. MCAS provides additional activity filtering not available within Azure ATP.
+
+Table 128 Additional Integration with MCAS Design Decisions for hybrid implementations
+
+Decision Point | Design Decision | Justification
+--- | --- | ---
+Integration with MCAS | Enabled | To integrate data feeds and alerts from both products.
+
+### Microsoft Defender Advanced Threat Protection
+
+Microsoft Defender ATP (formally Windows Defender Advanced Threat Protection) extends the standard Microsoft Defender capabilities to provide additional reporting, pre-breach protection, post-breach detection, automation, and response. Microsoft Defender ATP does not require an agent on the endpoint or any on-premises infrastructure, instead it leverages Microsoft's cloud platform. A single dashboard allows administrators to monitor the compliance and security of all ATP-enabled devices, as well as providing ISO27001 certified Endpoint Detection and Response (EDR) functionality.
+
+Microsoft Defender Advanced Threat Protection can be configured with the following options:
+
+* Data Retention Period - Data Retention Period defines how long gathered telemetry data is stored and available for use in online reporting.
+* Alert Notifications - Alert Notifications are configurable rulesets that allow a person or group of people to receive a notification on the occurrence of a pre-set event.
+* Secure Score Baseline - Secure Score Baseline configures the product baselines for calculating the score of Microsoft Defender security controls on the secure score dashboard. If third-party solutions are in use the corresponding controls should be excluded from the calculations.
+* Administration Roles and Machine Groups - Administration roles provide the ability to configure role-based access and granular options for regulating permissions to portal features and data. Machine groups enabled machines to be organised into groups and apply configured automated remediation levels and assigned administrators.
+
+Table 129 Microsoft Defender ATP Design Decisions for all agencies and implementation types.
+
+{:.table-component}
+Decision Point | Design Decision | Justification
+--- | --- | ---
+Microsoft Defender ATP | Configured | To provide increased security and meet the requirements of this document.
+Sample Collection | Enabled | Required configuration to enable<br>Deep Analysis on files when required. 
+Data storage location | US | As of June 2019, the available Azure data centres to host Windows Defender ATP are located in the US, UK and Europe. All data used by Windows Defender ATP is protected at minimum by Advanced Encryption Standard (AES) 256-bit encryption, both at rest and inflight.  The US has been selected due to policy alignment under the Cloud Act. 
+Data Retention Period | 180 Days | Default configuration and suitable for the organisation’s requirements.
+Alert Notifications | Send Information, Low, Medium, High to Security team. | Alerts will be sent to agency’s Cyber Intelligence team for action.
+Secure Score Baseline | Windows Defender Antivirus<br>Windows Defender Application Control<br>Windows Defender Exploit Guard<br>Windows Defender Application Guard<br>Windows Defender SmartScreen<br>Windows Defender Firewall<br>Windows Defender Credential Guard<br>Windows Defender Attack Surface Reduction | Meets the requirements of this design
+Administration Roles | Full Administrator:<br>Admin_{agency}-securityadmin | Administrative roles will be segregated as per the ACSC Restricting Administrative Privileges (April 2019) guide.
+Machine Groups | All Clients | Machines will be segregated into groups with automated remediation levels assigned the administrators that monitor these groups. Groups will be developed with the Agency and documented in the As-Built-As-Configured documentation.
+Machine onboarding and Configuration | Configured | Onboarding and configuration will be performed by Intune.
+
+### Log Analytics
+
+Log data collected is stored in a Log Analytics workspace.
+
+Log data stored in Log Analytics data can be consumed in various ways:
+
+* Azure Portal -- Azure Portal allows you to create Log queries and analyse the results.
+* Azure Monitor Alert rules -- An alert rule is a search that is automatically run at regular intervals. The results are inspected to determine if an alert in Azure Monitor should be generated.
+* Azure Dashboards -- Dashboards can be used per Azure user to visualise data gathered from Log Analytics, these dashboards can be shared amongst Azure administrators.
+* Export -- Data from Azure Monitor can be imported into Excel or Power BI for further visualisation.
+* PowerShell -- PowerShell from a command line or using Azure Automation, can programmatically retrieve data for various use-cases.
+* Azure Monitor Logs API -- The native API, uses REST to retrieve log data from the workspace.
+
+Log Analytics is billed per gigabyte (GB) of data ingested and retained into the service. When ingesting into a SIEM, data retention periods can be shortened.
+
+Log Analytics is available in certain regions only. At the time of writing, these regions are Australia Southeast (Melbourne) and AU Central (Canberra CDC Fyshwick).
+
+Table 132 Log Analytics Design Decisions for all agencies and implementation types.
+
+Decision Point | Design Decision | Justification
+--- | --- | ---
+Log Analytics Workspace | Deployed | The Log Analytics workspace will primarily be used to store log data for Intune managed workloads.
+Pricing mode | Per GB | Log Analytics pricing is based on data consumed.
+Incurs Subscription Cost? | Yes | Log Analytics pricing is based on data consumed. Data Volume could be reduced to 90 days if the Agency has an existing SIEM for further custom log analysis.
+
+Table 135 Log Analytics configuration for all agencies and implementation types
+
+{:.table-component}
+Configuration | Value | Description
+--- | --- | ---
+Workspace Name | agency-log-workspace | Log workspace name to be confirmed by the Agency
+Azure Subscription | Agency subscription | Configured by Office 365
+Region | Australia Central | Closest location of Log Analytics to the Agency
+Log retention | Retention Period: 1 year<br>Data Volume Cap: Off | One year aligns with other data retention periods in this solution and meets the system requirements
+Log Analytics Contributor Group | rol-agency-log-admin | Log Analytics Contributor group name to be confirmed by the Agency
+
+### Security Information and Event Management
+
+SIEM is a combination of tools and services that provide insights into a network. The tools and services are classed as either Security Information Management (SIM) or Security Event Management (SEM). SIEM tools gather log files from devices for analysis and reporting. Through this process security threats and events can be identified. SIEM tools provide real-time analysis of log and event data to alert administrators to potential issues like security threats. When combined into a SIEM the Agency is provided with:
+
+* Real-time visibility for the Agency’s systems.
+* Centralised event log management meaning data is consolidated from multiple sources across the network.
+* Correlation of events gathered from different logs and security sources.
+* Automated security event notification for administrators.
+
+In a hybrid environment the SIEM can be located either on-premises or in the cloud. In either location, all logs from the environment should be sent to one SIEM. This ensures maximum insight and creates a single pane of glass. To ensure that all logs from the cloud can be ingested by the SIEM compatibility of the SIEM product with Microsoft Office 365, Microsoft Azure, and Azure Monitor should be investigated.
+
+Table 136 SIEM Design Decisions for all agencies and implementation types.
+
+Decision Point | Design Decision | Justification
+--- | --- | ---
+SIEM Solution | Not Configured | SIEM Solution configuration is custom to each agency based on its specific requirements. This Blueprint does not specify a SIEM and as such does not offer configuration guidance, however Agencies should consider their operational requirements in this area. This Blueprint provides guidance on Azure logs, Defender ATP and Office ATP which audit most Azure, Defender, and Office logs for up to two years. These technologies send alert emails to Global Administrators and selected Office 365 administrators.
+Azure log ingestion | Not Configured | SIEM Solution configuration is custom to each agency based on its specific requirements. This Blueprint does not specify a SIEM and as such does not offer configuration guidance, however Agencies should consider their operational requirements in this area. This Blueprint provides guidance on Azure logs, Defender ATP and Office ATP which audit most Azure, Defender, and Office logs for up to two years. These technologies send alert emails to Global Administrators and selected Office 365 administrators.
+Office 365 log ingestion | Not Configured | SIEM Solution configuration is custom to each agency based on its specific requirements. This Blueprint does not specify a SIEM and as such does not offer configuration guidance, however Agencies should consider their operational requirements in this area. This Blueprint provides guidance on Azure logs, Defender ATP and Office ATP which audit most Azure, Defender, and Office logs for up to two years. These technologies send alert emails to Global Administrators and selected Office 365 administrators.
+
+## Client Configuration
+
+### Intune
+
+Microsoft Intune is an Azure service that provides Mobile Device Management (MDM) and Mobile Application Management (MAM) capabilities for Apple iOS, Google Android and Microsoft Windows devices to enhance security and protection.
+
+Intune manages which devices can access corporate data, protects company information by controlling the way data is shared, and enforces device configuration to ensure security requirements are met. It does this via:
+
+* Device Enrolment Profiles – Prior to managing devices in Intune they must be enrolled as either Personal or Corporate devices. These can either be self-enrolled or automatically enrolled.
+* Device Compliance Policies – Device Compliance Policies are rules, such as device PIN length or encryption requirements, that can be applied to devices. These rules must be met before a device is considered compliant. Device Compliance can then be used by services such as Conditional Access.
+* Device Configuration Profiles - Device Configuration Profiles provide the ability to control settings and features on supported endpoints. These include, device and user settings, browser settings and hardware settings. Device Configuration Profiles can be deployed to specific users or devices in Azure AD groups.
+* Device Security Baselines – Security baselines are pre-configured groups of Windows settings that are recommended by Microsoft security teams. The security baselines are templates and are used to create a profile that is specific to the environment for deployment.
+* Client Applications – Client applications can be delivered to devices registered in Intune based on device type and group membership. Application types that can be distributed include store apps, MS Office suite, MS Edge browser, web links, line of business and Win32 applications. Monitoring of application distribution is provided.
+* Software Updates – Software update policies store the configuration of updates without the updates themselves. This prevents the need to approve individual updates allowing for a faster turnaround time. Individual policies can be created and targeted to different groups of devices.
+
+When devices are enrolled into Intune, authorised administrators are able to view hardware details, how the device is used, and what compliance levels currently are for the device’s software, hardware, and operating system.
+
+Additionally, Intune can present a customised Company Portal to end users which can be used to install and launch applications or websites via single sign-on (SSO) authentication.
+
+Intune is a component of EMS and integrates with other EMS components such as Azure AD and Azure Information Protection (AIP) natively. This allows for total granular visibility of all endpoints within the Enterprise Mobility Management sphere and simplifies the approach for management.
+
+To complement this visibility, an Intune Data Warehouse can be deployed to capture and create custom reports from Intune data using a reporting service. This can assist in gaining insight into which users are using Intune, what licences are being used, operating system and device breakdowns, and compliance trends. The Data Warehouse also has the capability to export directly to Power BI and create interactive & dynamic reports.
+
+Intune can also configure Windows Information Protection (WIP) polices. WIP can be deployed to:
+
+* Protect against potential data leakage – WIP protects against potential data leakage without any impact to user functionality.
+* Protect enterprise applications and data - WIP protects against accidental data leakage on enterprise-owned and personal devices. This can occur without changes to the corporate environment or applications.
+
+Within WIP, Network boundaries are created as a network perimeter that controls what applications can be accessed on the network.
+
+Table 140 Additional Intune Design Decisions for cloud native implementations
+
+Decision Point | Design Decision | Justification
+--- | --- | ---
+Co-management | Disabled | Co-Management is disabled as this is not a function that is used in a cloud only solution.
+Enrolled Device Types | Windows 10: 10.0.17134 (minimum)<br>iOS | The use of Windows 10 on designated hardware is mandatory.<br>The following platforms will be disabled:<br>macOS<br>Android
+Device Compliance | Enabled | Device Compliance is enabled. All devices will be Intune enrolled and have a custom set of compliance policies applied.
+Device Enrolment | Enabled | All users must be enrolled to ensure device compliance.
+Company Portal | Enabled | The Company Portal is enabled for application deployment. Applications to be deployed will be set by requirements.
+Conditional Access | Enabled | Conditional Access is enabled. It will leverage device & user compliance to allow or disallow access to the corporate environment.
+Mobile Device Management (MDM) | Enabled | MDM will be used to control what a user can and cannot do on their mobile device defined by policies set by administrators.
+Mobile Application Management (MAM) | Enabled | MAM will be used to ensure that users have access to the apps they need to do their work.
+Windows Information Protection mode | Configured | Default settings prevent copying and pasting of data between ‘work’ locations and other ‘personal’ locations.
+Network Boundaries | Cloud resources | Network boundaries create a list of resources that are considered to be on the enterprise network. These boundaries are used to apply policies that reside in these locations.
+Cloud Resources Protected via Network Boundaries  | SharePoint<br>Office 365 | Different policies will be created depending on the network location of the client.
+Intune Data Warehouse | Not enabled | While this feature is available, it will not be deployed for the solution. 
+**Self Service Group Management** |||
+Owners can manage group membership requests in the Access Panel | No | Group creation and modification is to be locked down and controlled by authorised personnel, such as service desk staff, or Administrators.
+Restrict access to Groups in the Access Panel | No | Accessing groups is an Administrative function and has been locked down to Administrators.
+**Security Groups** |||
+Users can create security groups in Azure portals | No | Group creation and modification is to be locked down and controlled by authorised personnel, such as service desk staff, or Administrators.
+**Office 365 Groups** |||
+Users can create Office 365 groups in the Azure portals | No | Group creation and modification is to be locked down and controlled by authorised personnel, such as service desk staff, or Administrators.
+**Directory-wide Groups** |||
+Enable an "All Users" group in the directory | No | This group is not required. All users to be a member of a controlled group.
+
+### Intune - Mobile Application Management
+
+Mobile Application Management (MAM) allows the management and protection of an Agency's data within an application. It controls data flows into and out of the application container which houses corporate data.
+
+Using MAM, a corporate app that contains sensitive data can be managed on a wide variety of devices. Many productivity apps, such as the Microsoft Office apps, can be managed by Intune MAM. MAM can protect data within the application container using authentication methods and copy/paste controls, but these controls must be balanced with any MDM controls of the device to maintain usability of the solution.
+
+When deploying a hybrid solution, the management of Windows devices should be considered when choosing to implement MAM for clients. Management solutions such as Group Policy and SCCM can provide functionality to control applications which negates the use of MAM on Windows machines.
+
+Table 143 Additional Mobile Application Management Design Decisions for cloud native implementations
+
+Decision Point | Design Decision | Justification
+--- | --- | ---
+Mobile Application Management Method | Windows 10 – Intune<br>iOS - Intune | Mobile applications (Windows 10 and iOS) will be deployed via Intune.
+Applications Managed | Microsoft Azure Information Protection<br>Microsoft Corporate Portal<br>Adobe Reader<br>Microsoft Suite - <br>Outlook<br>Word<br>Excel<br>Teams<br>PowerPoint<br>OneNote<br>OneDrive | These core Microsoft business applications will be managed via Intune as they will be deployed to all Windows 10 and iOS users.
+
+Table 144 Additional Mobile Application Management Design Decisions for hybrid implementations
+
+Decision Point | Design Decision | Justification
+--- | --- | ---
+Mobile Application Management Method | Windows 10 – Not Configured<br>iOS - Intune | Agencies operating in hybrid environments can elect to have Windows 10 applications managed by an existing management solution such as SCCM and Group Policy, or to manage Windows 10 applications via Intune. This Blueprint offers an example of using SCCM as the Windows10 Management tool for illustrative purposes however agencies can elect to have Intune as the primary MAM method for both platforms without affecting cyber security postures.<br>Mobile applications (iOS) will be deployed via Intune.
+Applications Managed | Microsoft Azure Information Protection<br>Microsoft Corporate Portal<br>Adobe Reader<br>Microsoft Suite - <br>Outlook<br>Word<br>Excel<br>Teams<br>PowerPoint<br>OneNote<br>OneDrive | Agencies operating in hybrid environments can elect to have Windows 10 applications managed by an existing management solution such as SCCM and Group Policy, or to manage Windows 10 applications via Intune. This Blueprint offers an example of using SCCM as the Windows10 Management tool for illustrative purposes however agencies can elect to have Intune as the primary MAM method for both platforms without affecting cyber security postures.<br>Mobile applications (iOS) will be deployed via Intune.
+
+### Intune - Enrolment
+
+Device enrolment registers the Windows 10 and iOS devices into the corporate device management solution and ensures the device is then able to be managed by administrators.
+
+Microsoft Intune provides a mechanism for enrolling devices into Azure AD. Once registered the device is populated into Intune policy groups using dynamic membership. This ensures that the device meets the compliance policy, monitored, and secured to the Agency’s security requirements. 
+
+Microsoft Intune provides three separate experience in enrolling the iOS devices into the Agency’s Azure Active directory. The enrolment experiences are:
+
+* Device Enrolment Program (DEP) – Device Enrolment Program is a managed device enrolment process. The devices serial number is registered with Apple Business Manager allows Intune to bypass Assisted Setup by preconfigure device settings. The user’s account will be assigned to the device. The device will be marked as a Supervised device.
+* Device Enrolment Manager (DEM) – Device Enrolment Manager assigns a single Azure Active Directory account as the owner of the device. The end users cannot administer or purchase any apps on the device.
+* User Enrolment – User enrolment process requires users set up the iOS device and manually install Company Portal to register the device as Intune enrolled device. The device will be marked as a BYOD device.
+
+Table 146 Additional Intune Enrolment Design Decisions for cloud native implementations
+
+Decision Point | Design Decision | Justification
+--- | --- | ---
+Windows Enrolment | Configured | Windows 10 devices must be enrolled in Intune prior to management of the device.
+iOS Enrolment | Configured | iOS devices must be enrolled in Intune prior to management of the device.
+
+### Intune - Co-Management
+
+Co-management provides the ability to manage devices via SCCM and Intune. 
+
+For a deployment to be enabled for co-management, devices must be Azure AD joined, be enrolled in Intune and have the SCCM client installed.
+
+Once co-management is enabled, management tasks such as compliance policies, Windows Update policies, resource access policies, and endpoint protection, can be moved from SCCM management over to Intune as required.
+
+Microsoft cloud-hosted services offer the benefit of maintaining cadence with the latest technology updates from Microsoft with reduced effort required by IT BAU teams. Microsoft Intune and Microsoft’s co-management strategy is constantly evolving with additional services published regularly.
+
+Intune deploys and manages first-party Microsoft applications in a simple manner but does not allow for a large amount of customisation of update schedule, granular application deployment or application add-ons. Intune does not provide the ability to deploy and update third-party applications in a simple manner at time of writing.
+
+Intune also provides a patching mechanism which simplifies the deployment of Microsoft first-party updates for applications and Windows 10 but does not allow granular control over patches.
+
+Figure 8 provides an overview of co-management. Figure reproduced from https://docs.microsoft.com/en-us/mem/configmgr/comanage/overview
+
+![Figure 8 Co-management overview](/assets/images/platform-intune-comgmt.png)
+
+Intune Co-Management design considerations and decisions apply to the HYBRID solution.
+
+Table 150 Additional Intune Co-Management Design Decisions for hybrid implementations
+
+Decision Point | Design Decision | Justification
+--- | --- | ---
+Co-management | Enabled | The Microsoft co-management approach will enable Agency to strategically move device management from on-premises to the cloud in a staged manner.
+Compliance policies controlled by | Intune preferred | Compliance and remediation policies to controlled via Intune. Staged migration to be completed from SCCM if previously in use.
+Device Configuration policies controlled by | Intune preferred | Device configuration policies to be controlled via Intune. Staged migration to be completed from SCCM if previously in use.
+Endpoint Protection policies controlled by | Intune preferred | Endpoint protection, including the Windows Defender products and features are controlled via Intune policies. Staged migration to be completed from SCCM if previously in use.
+Resource Access policies controlled by | Intune preferred | Resources in this instance refers to VPN profiles, Wi-Fi profiles, certificate profiles, etc. are controlled via Intune policies. Staged migration to be completed from SCCM if previously in use.
+Office Click-to-Run policies controlled by | Intune preferred | Office Click-to-Run application deployment and updates to be managed through Intune. Staged migration to be completed from SCCM if previously in use.
+Windows Update policies controlled by | Intune preferred | Windows 10 updates will be managed via Intune update rings. Staged migration to be completed from SCCM if previously in use.
+SCCM minimum version | At least SCCM update 1802 | Compatible with co-management and determined by the Agency.
+Enrolled Device Types | Windows 10: 10.0.17134 (minimum) | The use of Windows 10 on designated hardware is mandatory.<br>The following platforms will be disabled:<br>macOS<br>Android<br>iOS<br>Note: iOS is permitted but controlled by Intune only
+Device Compliance | Enabled | Device Compliance is enabled. All devices will be Intune enrolled and have a custom set of compliance policies applied.
+User Enrolment | Enabled | All users must be enrolled to ensure device compliance.
+Company Portal | Enabled | The Company Portal is enabled for application deployment. Applications to be deployed will be set by Agency requirements.
+Conditional Access | Enabled | Conditional Access is enabled. It will leverage device & user compliance to allow or disallow access to the corporate environment.
+Mobile Device Management (MDM) | Enabled | SCCM will be the MDM authority for the solution, with Intune inspecting compliance.
+Mobile Application Management (MAM) | Disabled | Not required as Group Policy will configure application controls.
+
+### Intune - Windows AutoPilot
+
+Windows Autopilot provides the ability to set up and pre-configure new devices without the need for on premises infrastructure. It is also possible to use Windows Autopilot to reset, repurpose and recover devices.
+
+Windows Autopilot provides the ability to:
+
+* Automatically join devices – Azure Active Directory (Azure AD).
+* Auto-enrol devices – Auto-enrol MDM services, such as Microsoft Intune.
+* Restrict the Administrator – Restrict administrator account creation.
+* Create and auto-assign devices – Auto assign to configuration groups based on a device’s profile.
+
+![Figure 9 – Autopilot Deployment](/assets/images/platform-autopilot.png)
+
+Table 152 Additional Intune Windows AutoPilot Design Decisions for cloud native implementations
+
+Decision Point | Design Decision | Justification
+--- | --- | ---
+Automatically Join Devices | Azure Active Directory (Azure AD) | Devices will automatically joint the Azure Active Directory.
+Auto-enrol devices | Configured | Enrolled automatically into Intune MDM.
+Restrict the Local Administrator Account | Configured | Aligns with the ACSC Hardening Microsoft Windows 10 1709 Workstations.
+Create and auto-assign devices | Configured | For ease of management and enrolment for devices within Agency.
+Deployment profile | Refer to DTA – Intune Enrolment -ABAC document | Deployment profile will ensure that all workstations are configured in accordance with the Agency standards with no user intervention.
+
+### Intune - Device Compliance
+
+Device Compliance Policies are rules, such as device PIN length or encryption requirements, that are applied to devices. These policies must be met before a device is considered compliant, the device compliance status can then be used by services such as Conditional Access to grant or disallow access to applications or services.
+
+Microsoft Intune can control access to resources by interrogating endpoints and determining whether they meet a minimum list of features and are judged as “compliant”. Compliance can be assigned a grace period where a device which is not judged as compliant can still access resources for a period or be blocked immediately.
+
+Each compliance policy can be edited to ensure that devices are tested before being allowed access to corporate resources.
+
+Device Compliance Profiles deployed ensure a strong security posture for the entire Windows 10 and iOS fleet. Compliance Policies allow the Agency to ensure that baselines are met prior to access being granted to any corporate applications or data. The Windows 10 compliance policy settings include:
+
+* Device Health – This includes BitLocker status and whether code integrity is enabled.
+* Device Properties – Including a minimum and maximum Operating System version.
+* Configuration Manager Compliance – Whether the endpoint is compliance will all Configuration Manager evaluations. This is especially applicable in a co-managed scenario such as this deployment.
+* System Security – Password compliance, standards, length, and complexity. This also includes device level firewall, TPM, Antivirus, Antispyware, and Microsoft Defender Antimalware settings.
+* Microsoft Defender ATP – Configures the maximum allowed machine risk score, if exceeded the device is marked as noncompliant.
+
+Table 154 Device Compliance Design Decisions for all agencies and implementation types.
+
+Decision Point | Design Decision | Justification
+--- | --- | ---
+Compliance Assessment | Configured | Since mobile devices routinely leave the office environment, and the protection it affords, it is important that organisations develop a mobile device usage policy governing their use.
+
+

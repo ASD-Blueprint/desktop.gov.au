@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Blueprint Overview
+permalink: /blueprint/index.html
 ---
 
 The Digital Transformation Agency (DTA) developed the Protected Utility Blueprint to enable Australian Government Agencies to transition to a secure and collaborative Microsoft 365 platform. The solution is underpinned by proven technologies from the Microsoft Modern Workplace solution (Microsoft 365 including Office 365, Enterprise Mobility + Security, and Windows 10). The Blueprint design is delivered as three distinct documents:

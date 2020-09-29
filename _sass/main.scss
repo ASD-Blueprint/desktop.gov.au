@@ -171,9 +171,20 @@ header.au-header {
     }
 }
 
+table {
+    margin-top: 1em;
+    margin-bottom: 2em;
+    
+    td:first-of-type,
+    td:nth-of-type(2) {
+        width: 30%;
+    }
+}
+
 /* platform.md */
 .table-component {
-    td:first-of-type {
+    td:first-of-type,
+    td:nth-of-type(2) {
         width: 30%;
     }
 }

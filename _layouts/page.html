@@ -19,8 +19,14 @@
                                 {% for item in site.data.main-navigation %}
                                     {% if item.url contains page.dir %}
 
-                                    <h3 class="au-sidenav__title"><a href="{{ item.url }}">{{ item.title }}</a></h3>
                                     <ul class="au-link-list">
+                                        <li class="sidenav-title {% if item.url == page.url %}active{% endif %}"><a href="{{ item.url }}">{{ item.title }}</a>
+                                            {% if item.url == page.url %}
+                                            <nav class="navbar" id="toc-container">
+                                                {% include toc.html class="nav.au-link-list" html=content %}
+                                            </nav>
+                                            {% endif %}
+                                        </li>
                                         {% for subitem in item.subitems %}
                                         <li{% if subitem.url == page.url %} class="active"{% endif %}><a href="{{ subitem.url }}">{{ subitem.title }}</a>
                                     

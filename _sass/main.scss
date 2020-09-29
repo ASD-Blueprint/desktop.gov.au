@@ -240,6 +240,22 @@ table {
         }
     }
 }
+@media (max-width: 767px) {
+    .d-flex {
+        display: block;
+        padding: 0 1em;
+    }
+    #lhs {
+        display: block;
+        height: auto;
+        position: inherit;
+        width: 100%;
+        padding-bottom: 0;
+    }
+    #content-area {
+        padding: 0;
+    }
+}
 
 /* md */
 @media (min-width: 992px) {}

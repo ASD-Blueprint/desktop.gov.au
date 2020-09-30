@@ -1755,3 +1755,73 @@ Restoration tools | Third party backup and restoration tools | Agencies should i
 Items to Backup | Exchange Online<br>SharePoint Online<br>Microsoft Teams<br>OneDrive for Business<br>Office 365 Groups<br>On-premises Exchange<br>On-premises SharePoint | Backups must cover the Microsoft suite of tools at a minimum.
 Retention Policies | At discretion of Agency | Retention policies for the backups should be determined by the Agency and measured against the business, application, regulatory and security requirements.
 
+### Data Availability
+
+Microsoft Azure services are available globally and provides geographical, regional, data centre, virtual infrastructure, and application resiliency. This allows the Microsoft Azure platform and Office 365 to combat and minimise potential disasters such as customers loss of connectivity to data or loss of data.
+
+Data availability is an important part of making sure that end users have access to the data when they require it. The cloud-based service of Microsoft Office 365 will replicate and store Agency’s data in multiple data centres which are geographically dispersed  (see [Exchange data resiliency](https://docs.microsoft.com/en-us/office365/enterprise/office-365-exchange-data-resiliency) and [Office 365 data resiliency](https://docs.microsoft.com/en-us/office365/Enterprise/office-365-data-resiliency-overview)). The Office 365 applications that provide this data availability are:
+
+* Exchange
+* SharePoint
+* OneDrive
+* Teams
+
+The data availability and resiliency of Office 365 cloud service is in-built and managed by Microsoft.
+
+Table 184 Data Availability Design Decisions for all agencies and implementation types.
+
+Decision Point | Design Decision | Justification
+--- | --- | ---
+Data Availability | Configured | Microsoft have in-built data availability into the Office 365 cloud services.
+
+## System Administration
+
+System Administration is the process of managing, troubleshooting, and maintaining the solution. To complete this, system administrators are granted permissions over the solution. The allocation of permissions to administrators should align with the administrator’s role within the organisation and the principle of least privileged access. The allocation of permission to the administrator’s role is captured within the Role Based Access Control (RBAC) policy.
+
+### Administrative Consoles
+
+To manage and configure the solution, administrators will use various administrative consoles. These consoles are a mixture of server based and web-based consoles that exist internally or in the cloud.
+
+Web based administrative consoles are provided by Microsoft however the urls for these consoles constantly change (refer to [Microsoft Security Portals](https://docs.microsoft.com/en-us/microsoft-365/security/mtp/portals?view=o365-worldwide)). The consoles listed below are correct at the time of writing.
+
+Table 187 Administration consoles Design Decisions for all agencies and implementation types.
+
+Decision Point | Design Decision | Justification
+--- | --- | ---
+Azure Portal | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://portal.azure.com](https://portal.azure.com/).<br>Standard users do not have access to the portal.
+Office 365 Admin Center | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://admin.microsoft.com/](https://admin.microsoft.com/)
+Microsoft Defender ATP Portal | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://securitycenter.windows.com/](https://securitycenter.windows.com/)
+MCAS Portal | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://portal.cloudappsecurity.com/](https://portal.cloudappsecurity.com/)
+Microsoft 365 Compliance Center | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://compliance.microsoft.com/](https://compliance.microsoft.com/)
+Microsoft Endpoint Manager Admin Center | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://devicemanagement.microsoft.com/](https://devicemanagement.microsoft.com/)
+Microsoft 365 Security Center | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://security.microsoft.com/](https://security.microsoft.com/)
+Azure ATP Portal | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://portal.atp.azure.com/](https://portal.atp.azure.com/)
+Microsoft Defender Security Intelligence Portal | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://microsoft.com/wdsi/](https://microsoft.com/wdsi/)
+
+### Role Based Access Control (RBAC)
+
+RBAC defines what an end user or administrator can do. In relation to system administration, RBAC provides various roles each of which can only perform certain tasks. For example, help desk staff may be able to only view certain resources, whereas system administrators could view, create, and delete those resources.
+
+When deploying the RBAC model in Azure, there are two scopes where access can be granted. The use of the scopes can be used separately or together depending on the services activated. The scopes include:
+
+* Tenant Scope - Roles within the Tenant Scope allow access to perform tasks at the Tenant and Office 365 administration level. By default, there are 51 built-in RBAC roles that can be assigned at this level to ensure least privilege access is implemented.
+* Subscription Scope – Roles within the Subscription Scope allow access to perform tasks within a subscription. Subscription roles do not have permissions at the Tenant Scope level.
+
+Privileged Identity Management (PIM) can be leveraged to enhance the Azure RBAC model. PIM is an implementation of Just-in-time (JIT) access. JIT access ensures that an administrative account only has privileges when required to complete a function. JIT aligns to the principal of Zero Standing Privilege.
+
+Each PIM role assignment can have the following attributes:
+
+* Activation Duration - the Activation Duration attribute specifies the duration to allow the access request, the maximum is 72 hours.
+* Approver – the Approver attribute specifies the person or people who can approve role activation requests.
+* Notification – the Notification attribute specifies that a pending request is awaiting approval via email.
+* Incident Request Ticket – the Incident Request Ticket attribute specifies that the approver add an incident ticket number to the approval request.
+* Multi-factor Authentication – the Multi-factor Authentication attribute specifies whether MFA is required for activation.
+
+Table 190 RBAC Design Decisions for all agencies and implementation types.
+
+Decision Point | Design Decision | Justification
+--- | --- | ---
+Azure AD Role Based Management | Least Privilege, using PIM | PIM will be utilised to provide Just-in-Time role-based management to ensure elevated access is only provided when required.
+PIM Roles | Authentication Administrator<br>Azure Information Protection Administrator<br>Global Administrator<br>Exchange Service Administrator<br>Helpdesk Administrator<br>Intune Service Administrator<br>Office Apps Administrator<br>Power BI Service Administrator<br>Power Platform Administrator<br>Privileged Role Administrator<br>Security Administrator<br>Security Operator<br>SharePoint Service Administrator<br>Teams Communications Administrator<br>Teams Communications Support Engineer<br>Teams Communications Support Specialist<br>Teams Service Administrator<br>User Account Administrator | The configured PIM roles align to the services utilised within the solution.
+PIM approval | Automatic approval for all roles except for Global Administrator | Approval will only be required for Global Administrators.
+Activation duration | 8 hours | The activation duration will be one workday to ensure that administrative actions are not impeded.

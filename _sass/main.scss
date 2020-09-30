@@ -175,9 +175,11 @@ table {
     margin-top: 1em;
     margin-bottom: 2em;
     
-    td:first-of-type,
-    td:nth-of-type(2) {
-        width: 30%;
+    &:not(.auto) {
+        td:first-of-type,
+        td:nth-of-type(2) {
+            width: 30%;
+        }
     }
 }
 

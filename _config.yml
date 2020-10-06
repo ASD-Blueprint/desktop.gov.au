@@ -32,9 +32,6 @@ plugins:
    - jekyll-last-modified-at
    - jekyll-spaceship
 
-last-modified-at:
-    date-format: '%-d %B %Y'
-  
 jekyll-spaceship:
   processors:
       - table-processor

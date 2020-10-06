@@ -50,7 +50,7 @@
                         <div class="metadata">
                             <ul>
                                 <li>{% include reading-time.html %}</li>
-                                <li>{% last_modified_at %}</li>
+                                <li>{{ page.last_modified_at | date: '%-d %B %Y' }}</li>
                             </ul>
                         </div>
                         {{ content }}

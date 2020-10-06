@@ -18,23 +18,31 @@ ATP | Advanced Threat Protection
 AWS | Amazon Web Services
 BAU | Business as Usual
 BYOD | Bring Your Own Device
+CAS | Client Access Services
 CASB | Cloud Access Security Broker
 CDC | Canberra Data Centre
 CEF | Common Event Format
 CISO | Chief Information Security Officer
+CNAME | Canonical Name
 CRM | Customer Relationship Management
 CSV | Comma Separated Values
 DEM | Device Enrolment Manager
 DEP | Device Enrolment Program
 DLP | Data Loss Prevention
+DKIM | Domain Key Identified Mail 
+DMARC | Domain-based Message Authentication, Reporting and Conformance 
 DNS | Domain Name System
 DTA | Digital Transformation Agency
 EDR | Endpoint Detection and Response
 EMS | Enterprise Mobility & Security
 FQDN | Fully Qualified Domain Name
 FTP | File Transfer Protocol
+GAL | Global Address List
 GCP | Google Cloud Platform
 GDPR | General Data Protection Regulation
+GIF | Graphics Interchange Format
+GMT | Greenwich Mean Time 
+HRIP | Health Records and Information Privacy
 HTTP | Hypertext Transfer Protocol
 HTTPS | Hypertext Transfer Protocol Secure
 IAM | Identity Access Management
@@ -44,7 +52,7 @@ IMAP | Internet Message Access Protocol
 ISM | Information Security Manual
 ISO | International Standards Organisation
 JIT | Just in Time
-JPEG | Joint Photographic Experts Group
+JPG<br>JPEG | Joint Photographic Experts Group
 LDAP | Lightweight Directory Access Protocol
 LOB | Line Of Business
 MAM | Mobile Application Management

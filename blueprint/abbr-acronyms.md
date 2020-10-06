@@ -62,14 +62,20 @@ MFA | Multi-Factor Authentication
 MIM | Microsoft Identity Manager
 NNR | Network Name Resolution
 NTLM | New Technology LAN Manager
+OAB | Offline Address Book
 OATH | Open Authentication
 OAUTH | Open Authentication
 OTP | One-Time Password
+OWA | Outlook on the Web
 PEM | Privacy Enhanced Mail
 PHS | Password hash synchronisation
 PII | Personally Identifiable Information
 PIM | Privileged Identity Management
 PIN | Personal Identification Number
+PNG | Portable Network Graphics
+POP | Post Office Protocol 
+PSPF | Protective Security Policy Framework 
+PST | Personal Storage Table
 PTA | Pass-Through Authentication
 RBAC | Role Based Access Control
 RDP | Remote Desktop Protocol
@@ -78,6 +84,7 @@ RFC | Request for Comment
 RHEL | Red Hat Enterprise Linux
 RPO | Recovery Point Objective
 RTO | Recovery Time Objective
+SAN | Subject Alternate Name
 SCCM | Microsoft Software Center 
 SEM | Security Event Management
 SIEM | Security Information and Event Management
@@ -87,9 +94,13 @@ SLA | Service Level Agreement
 SMS | Short Message Service
 SMTP | Simple Mail Transport Protocol
 SOE | Standard Operating Environment
+SPAM | Unsolicited Commercial Email
+SPF | Sender Policy Framework 
 SQL | Structured Query Language
 SSL | Secure Sockets Layer
 SSO | Single Sign On
+SVG | Scalable Vector Graphics
+SWIFT | Society for Worldwide Interbank Financial Telecommunication 
 TBA | To be advised
 TCP | Transmission Control Protocol
 TLS | Transport Layer Security
@@ -100,6 +111,7 @@ UEBA | User Entity Behavioural Analytics
 UPN | User Principal Name
 URL | Uniform Resource Locator
 US | United States
+VIP | Virtual IP address
 VPN | Virtual Private Network
 WIP | Windows Information Protection
 WPAD | Web Proxy Auto-Discovery Protocol

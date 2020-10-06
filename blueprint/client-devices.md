@@ -228,8 +228,7 @@ Table 26 Operating System Design Decisions for all agencies and implementation t
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Windows 10 Edition | Windows 10 Enterprise 64-bit | Enterprise is required to support BitLocker.
-The 64-bit edition of Windows is required to support security such as BitLocker and Windows Defender Application Control (WDAC) as specified by ACSC Windows 10 hardening guide.
+Windows 10 Edition | Windows 10 Enterprise 64-bit | Enterprise is required to support BitLocker.<br>The 64-bit edition of Windows is required to support security such as BitLocker and Windows Defender Application Control (WDAC) as specified by ACSC Windows 10 hardening guide.
 Windows 10 Servicing Channels | Semi-Annual Channel | Semi-Annual Channel is the recommended ring to deploy to most enterprise clients, especially those with Office 365. 
 Windows 10 Build | 1909 | At the time of writing build 1909 is the latest Semi-annual Channel release and recommended by Microsoft. 
 

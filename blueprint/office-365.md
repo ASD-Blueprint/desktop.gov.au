@@ -14,7 +14,7 @@ SharePoint Online | SharePoint online is an online collaboration and file storag
 OneDrive for Business | OneDrive is a file hosting and file synchronisation solution.
 Microsoft Teams | Teams is a cloud hosted unified communications platform. It provides chat, meetings, file storage, and application integrations.
 Power Platform | The Power Platform includes PowerApps, Power BI, and Microsoft Flow.
-Security and Compliance | Office 365 provides Security and Compliance tools which can be utilised to implement an organisation’s Information Management Policy and to assist with information governance.
+Security and Compliance | Office 365 provides Security and Compliance tools which can be utilised to implement an organisation's Information Management Policy and to assist with information governance.
 Exchange Online Protection | Exchange Online protection is a cloud hosted email security service (Mail Gateway) that acts to filter spam and scan for viruses on email entering and leaving Exchange Online.
 Office 365 Advanced Threat Protection (ATP) | Office 365 ATP is a cloud-based mail threat protection service. The service provides protection against unknown malware and viruses through the use of robust zero-day protection and inclusion of features to safeguard an organisation from harmful links in real time.
 
@@ -33,9 +33,9 @@ For each component within the document there is a brief description of the conte
 
 Office 365 is a global service which is offered in many different physical regions. Choosing a region to store data is required to ensure that the data of the Agency does not get transferred or stored offshore.
 
-Office 365 tenant residency is critical when setting up the Agency’s Office 365 tenant. The region where the Office 365 tenant is set up determines where the data is store. Details of Office 365 data residency can be found from [Microsoft's site](https://products.office.com/en-au/where-is-your-data-located).
+Office 365 tenant residency is critical when setting up the Agency's Office 365 tenant. The region where the Office 365 tenant is set up determines where the data is store. Details of Office 365 data residency can be found from [Microsoft's site](https://products.office.com/en-au/where-is-your-data-located).
 
-Office 365 tenant data residency consideration is required to ensure the Agency’s Office 365 tenant is created and data is stored in Australia.
+Office 365 tenant data residency consideration is required to ensure the Agency's Office 365 tenant is created and data is stored in Australia.
 
 Table 6 Office 365 Region Design Decisions for all agencies and implementation types.
 
@@ -67,8 +67,8 @@ Table 12 describes the Licencing Configuration for all agencies and implementati
 
 Configuration | Value | Description
 --- | --- | ---
-Admin Licence Group | rol-AgencyName-Administrator | This is the group that the Agency administrators belong to.
-User Licence Groups | rol-AgencyName-Users | This is the group that the Agency non-administrator users belong to.
+Admin Licence Group | `rol-AgencyName-Administrator` | This is the group that the Agency administrators belong to.
+User Licence Groups | `rol-AgencyName-Users` | This is the group that the Agency non-administrator users belong to.
 
 ### Self Service Purchase
 
@@ -89,7 +89,7 @@ Power Automate (Flow) self-service purchase  | Disabled | Only administrators ar
 
 ### Themes
 
-Office 365 Themes provide a method to customise the portal’s look and feel for users.
+Office 365 Themes provide a method to customise the portal's look and feel for users.
 
 The logo of the organisation can be added to the top navigation panel. Themes assist users with familiarisation and adoption of the new system.
 
@@ -107,7 +107,7 @@ Configuration | Value | Description
 --- | --- | ---
 Logo Image | Agency logo is recommended | Under 10 KB, 200 x 30 pixels in JPG, PNG, GIF, or SVG format. SVG is the preferred format.
 Background Image | Agency logo is recommended | 15 KB or less, 1366 x 50 pixels in JPG, PNG, or GIF format. This is in line with Microsoft best practice.
-Prevent users from overriding their theme | Yes | Flip this toggle to prevent users from choosing their own theme from the Microsoft theme gallery. This is enabled to maintain cadence between potential personal tenancies and the ‘corporate’ environment.
+Prevent users from overriding their theme | Yes | Flip this toggle to prevent users from choosing their own theme from the Microsoft theme gallery. This is enabled to maintain cadence between potential personal tenancies and the 'corporate' environment.
 Navigation bar colour | Default | Based on Agency branding standards. To maintain cadence with corporate standards.
 Text and icon colour | Default | Based on Agency branding standards.
 Accent Colour | Default | Based on Agency branding standards.
@@ -136,7 +136,7 @@ Modern Authentication | Enabled | Modern authentication is a group of technologi
 MyAnalytics | Enabled | Provides users with details about their usage of Office 365
 External Office 365 group content sharing | Enabled | External collaboration will be conducted in Microsoft Teams which relies on Office 365 groups
 ‎Office‎ software download settings | Disabled | Only one instance of the Office Suite is to be installed per user on their Government issued device. Office applications will be deployed to users via the Business Store.
-Office What’s New management preview | Disabled | System admins will be responsible for communication to users.
+Office What's New management preview | Disabled | System admins will be responsible for communication to users.
 Office on the web | Disabled | Do not allow users to open files in third party storage
 Reports | Disabled | Disable data reporting to Microsoft on Office 365 usage.
 SharePoint | Enabled | New and Existing guests must sign in or provide a verification code when accessing SharePoint data.
@@ -230,10 +230,10 @@ To minimise latency, a customer network can route user requests to the closest O
 
 The following achieves optimal Office 365 connectivity and performance:
 
-* Local DNS resolution and Internet egress - Provision local DNS servers in each location and ensure that Office 365 connections egress to the internet as close as possible to the user’s location. This configuration minimises latency and improves connectivity to the closest Office 365 entry point.
+* Local DNS resolution and Internet egress - Provision local DNS servers in each location and ensure that Office 365 connections egress to the internet as close as possible to the user's location. This configuration minimises latency and improves connectivity to the closest Office 365 entry point.
 * Add regional egress points - If the Agency network has multiple locations but only one egress point, add regional egress points to enable users to connect to the closest Office 365 entry point. This configuration minimises latency and improves connectivity to the closest Office 365 entry point.
 * Bypass proxies and inspection devices - Configure browsers to send Office 365 traffic directly to egress points and bypass proxies. Configure edge routers and firewalls to permit Office 365 traffic without inspection. This configuration minimises latency and reduces the load on network devices.
-* Enable split tunnelling connection for VPN users - If a VPN solution is required Always on VPN should be integrated into the agency infrastructure. For VPN users, enable Office 365 connections to connect directly from the user’s network rather than over the VPN tunnel by implementing split tunnelling. This configuration minimises latency and improves connectivity to the closest Office 365 entry point.
+* Enable split tunnelling connection for VPN users - If a VPN solution is required Always on VPN should be integrated into the agency infrastructure. For VPN users, enable Office 365 connections to connect directly from the user's network rather than over the VPN tunnel by implementing split tunnelling. This configuration minimises latency and improves connectivity to the closest Office 365 entry point.
 
 Optimisation design considerations and decisions apply to all agencies and implementation types.
 
@@ -307,8 +307,8 @@ Table 36 Mail Exchange Records Design Decisions for cloud native implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Authoritative DNS MX Record | `<Mail Gateway>` | This is the ingress point for the mail for the Agency, the mx records will point to the Agency gateway
-Mail Exchanger/s | `<Mail Gateway>` | This is the ingress point for the mail for the Agency, the mx records will point to the Agency gateway
+Authoritative DNS MX Record | `{Mail Gateway}` | This is the ingress point for the mail for the Agency, the mx records will point to the Agency gateway
+Mail Exchanger/s | `{Mail Gateway}` | This is the ingress point for the mail for the Agency, the mx records will point to the Agency gateway
 
 Table 37 Mail Exchange Records Design Decisions for hybrid implementations
 
@@ -340,11 +340,11 @@ Configuration | Value | Description
 Certificate details | Configured | Certificate to be issued from the gateway hosting the GovLink connection.
 Virtual IP address (VIP) | Configured | Virtual IP Address details will be provided by the gateway provider.
 **Exchange Online Receive Connector** |||
-Name | `Inbound-connector-from-<GATEWAY>` | Describes the source and directionality of mail.
+Name | `Inbound-connector-from-{GATEWAY}` | Describes the source and directionality of mail.
 Retain internal mail headers | Unchecked | Internal Mail headers are stripped off messages.
 On-premises server identification method and value | Identify by Senders Domain. Reject email messages if they are not sent over TLS. Require subject name matching <DOMAIN> | Ensures mail is being sent over an encrypted connection to a known domain.
 **Exchange Online Send Connector** |||
-Name | `outbound-connector-to-<GATEWAY>` | Describes the source and directionality of mail.
+Name | `outbound-connector-to-{GATEWAY}` | Describes the source and directionality of mail.
 Retain internal mail headers | Checked | When reporting spam that slips past the filters, it is essential that we receive the full message headers from a message
 When to use the connector | \\* (All Mail) | All mail should use the connector
 Message routing | Route through these smart hosts. | This should be used route mail to the gateway.
@@ -352,7 +352,7 @@ Connector Authentication settings | Always use TLS issued by a trusted Certifica
 
 ### Autodiscover
 
-Autodiscover is a mechanism for the configuration of a user’s email client with minimal user input. The required input from the user is their email address and password.
+Autodiscover is a mechanism for the configuration of a user's email client with minimal user input. The required input from the user is their email address and password.
 
 Autodiscover for a cloud environment varies from the process utilised when on-premises Exchange is leveraged. With a cloud environment, an Autodiscover Endpoint representing the domain is not available. Instead, DNS redirection and Hypertext Transfer Protocol Secure (HTTPS) redirection is leveraged to direct the Autodiscover client to a trusted Autodiscover Endpoint. The high-level process is:
 
@@ -375,7 +375,7 @@ Table 41 Autodiscover Design Decisions for cloud native implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Autodiscover | CNAME autodiscover autodiscover.outlook.com | Autodiscover will improve the user experience and is required to configure a user’s Outlook profile and inbox.
+Autodiscover | CNAME autodiscover autodiscover.outlook.com | Autodiscover will improve the user experience and is required to configure a user's Outlook profile and inbox.
 
 Table 42 Autodiscover Design Decisions for the HYBRID solution
 
@@ -399,7 +399,7 @@ Table 43 SPF, DKIM, & DMARC Design Decisions for all agencies and implementation
 Decision Point | Design Decision | Justification
 --- | --- | ---
 SPF | Configured | Configuration of SPF record(s) are required as a baseline for the deployment.
-DKIM | Configured | DKIM is a public/private key signing process used to verify the content of an email.<br>DKIM signing is enabled on emails originating from an organisation’s domains.
+DKIM | Configured | DKIM is a public/private key signing process used to verify the content of an email.<br>DKIM signing is enabled on emails originating from an organisation's domains.
 DMARC | Configured | One DMARC policy is to be configured per Agency domain. This is to be configured at the gateway that the Agency consumes.<br>DMARC records are configured for all domains such that emails are rejected if they fail SPF or DKIM checks.
 
 ### Accepted Domains
@@ -416,7 +416,7 @@ Table 46 Accepted Domain Design Decisions for all agencies and implementation ty
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Configure Additional Accepted Domains | Configured | Required to integrate with additional agencies. Any additional Agencies that require access to the system are to be included.
-Authoritative Domains | Configured | The `<agency-tenant>.onmicrosoft.com` authoritative domain is created during the enablement of Office 365 and represents the Exchange Online Organisations SMTP address space. The additional authoritative domains are required as each Agency will have a corresponding authoritative domain.
+Authoritative Domains | Configured | The `{agency-tenant}.onmicrosoft.com` authoritative domain is created during the enablement of Office 365 and represents the Exchange Online Organisations SMTP address space. The additional authoritative domains are required as each Agency will have a corresponding authoritative domain.
 
 Table 48 Additional Accepted Domain Design Decisions for hybrid implementations
 
@@ -446,8 +446,8 @@ Table 52 Remote Domain Configuration for all agencies and implementation types
 
 Policy Setting | Configuration | Description
 --- | --- | ---
-Name: * |||
-Domain Name | *<br>Note - * means all external agencies | Name of the remote domain.
+Name: `*` |||
+Domain Name | `*`<br>Note - * means all external agencies | Name of the remote domain.
 Out of Office Automatic Replies | Allow Only External Out of Office replies - Selected | Allows the limiting of the type of client automatic replies.
 Automatic Replies | Allow Automatic Replies – Unchecked<br>Allow automatic forwarding - Unchecked | Allows the limiting of automatic replies and automatic forwards.
 Message Reporting | Allow Delivery Reports - Ticked<br>Allow Non-delivery Reports – Ticked<br>Allow Meeting Forward Notifications - Unchecked | Allows the limiting of delivery reports, no-delivery reports, and meeting forward notifications. 
@@ -499,7 +499,7 @@ Table 57 Mail Migration Design Decisions for all agencies and implementation typ
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Office 365 Tenant | Single tenant | Exchange Online services will be hosted within the Agency’s secure Office 365 tenant.
+Office 365 Tenant | Single tenant | Exchange Online services will be hosted within the Agency's secure Office 365 tenant.
 
 Table 58 Additional Mail Migration Design Decisions for cloud native implementations
 
@@ -539,7 +539,7 @@ Exchange Mailbox Size | 100GB per user | Included with Office 365 E3 / E5 licenc
 Language | English | The default language is English, users will have the ability to adjust this if required.
 Default time zone | GMT +10 | The default time zone is GMT +10 however this will be adjusted based on user location.
 Exchange Message Size Limits | Up to 90MB | Default setting. Note that message limits may be smaller when sending messages to external mail recipients (can be as low as 10MB).
-Custom Primary SMTP Addressing | first.last@agency.gov.au<br>Usernames are recommended to follow the Universal Principal Name (UPN) format of the user, which is `first.last@<agency>.gov.au`. | The primary SMTP address will be changed from `first.last@<tenant>.onmicrosoft.com` to ensure email continues to function in the same manner.
+Custom Primary SMTP Addressing | first.last@agency.gov.au<br>Usernames are recommended to follow the Universal Principal Name (UPN) format of the user, which is `first.last@{agency}.gov.au` | The primary SMTP address will be changed from `first.last@{tenant}.onmicrosoft.com` to ensure email continues to function in the same manner
 Exchange Online PowerShell | Disabled for standard users | Standard users have no need to access Exchange Online via Powershell
 
 ### Authentication Policies
@@ -559,7 +559,7 @@ Authentication Policy Configuration | Configured | Authentication Policy will be
 
 ### Outlook on the Web Policies
 
-Formerly known as Outlook Web App or Outlook Web Access, Outlook on the Web (OWA) policies, are used to control the availability of features and settings in Outlook on the Web. There are no security concerns with enabling OWA however agencies may wish to consider internal agency policies to inform decisions. A decision to disable OWA will not alter an agency’s cyber security posture.
+Formerly known as Outlook Web App or Outlook Web Access, Outlook on the Web (OWA) policies, are used to control the availability of features and settings in Outlook on the Web. There are no security concerns with enabling OWA however agencies may wish to consider internal agency policies to inform decisions. A decision to disable OWA will not alter an agency's cyber security posture.
 
 A mailbox can only be assigned one OWA policy and every mailbox must have a policy assigned.
 
@@ -595,7 +595,7 @@ Archive configuration | Configured |
 
 Mailbox Auditing provides visibility into the access and modification of user mailboxes by owners, delegates, and administrators.
 
-Once enabled on a user’s mailbox, the activities subject to audit appear within the Office 365 audit log. This information is then available for security to review and run analysis. It is recommended that this audit log be exported to a centralised logging service.
+Once enabled on a user's mailbox, the activities subject to audit appear within the Office 365 audit log. This information is then available for security to review and run analysis. It is recommended that this audit log be exported to a centralised logging service.
 
 Table 72 Mailbox Auditing Design Decisions for all agencies and implementation types.
 
@@ -619,7 +619,7 @@ Owner Audited Actions | HardDelete<br>MoveToDeletedItems<br>SoftDelete<br>Update
 
 ### Journaling
 
-Journaling within Exchange is the recording of email communications as part of an organisation’s retention strategy.
+Journaling within Exchange is the recording of email communications as part of an organisation's retention strategy.
 
 Journaling can assist with achieving compliance with government regulations. A Journal rule can be scoped to:
 
@@ -630,7 +630,7 @@ Journaling can assist with achieving compliance with government regulations. A J
 
 Office 365 supports the use of journaling with the caveat that an Exchange Online mailbox cannot be used as a journaling mailbox. When configuring a mailbox for journaling, it must reside on an Exchange server. Journal reports can be delivered to a separate system to the Exchange Online instance. 
 
-Within Office 365, additional options are available to be leveraged in an organisation’s retention strategy. These include:
+Within Office 365, additional options are available to be leveraged in an organisation's retention strategy. These include:
 
 * Retention Policies
 * Litigation hold
@@ -672,7 +672,7 @@ Table 82 Shared Mailbox Design Decisions for all agencies and implementation typ
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Shared mailbox delegation (Full Access, Send As, Send on Behalf) | Configured via mail-enabled Security groups which are hidden from the Global Address book | Mail-enabled security groups limit the management overhead associated with mailbox delegation when compared to direct delegations. A security group is required to be mail-enabled to appear within Office 365.
-Naming standard for security groups | Configured | To distinguish between a security groups managing a shared mailbox a naming standard will be followed.<br>e.g. `GMSG_<mailboxname>`
+Naming standard for security groups | Configured | To distinguish between a security groups managing a shared mailbox a naming standard will be followed.<br>e.g. `GMSG_{mailboxname}`
 Shared Mailbox user account | Disabled | Default configuration. Accounts will remain disabled to reduce system attack surface.
 
 ### Resource Mailboxes
@@ -695,13 +695,13 @@ Decision Point | Design Decision | Justification
 Room Mailboxes | Configured | There is a requirement for booking rooms within the solution. Rooms will be configured with a mailbox so that users can book them through their calendars.
 Equipment Mailboxes  | Configured | There is a requirement for booking equipment within the solution. Equipment will be configured with a mailbox so that users can book them through their calendars.
 Room Lists | Configured | There is a requirement for booking rooms within the solution. Room Assets will be configured with a list so that users can book them through their calendars.
-Naming standards for Resource mailboxes | Configured<br>e.g. `RES_<location>` | To distinguish between resource mailboxes a naming standard will be followed for each resource mailbox.
+Naming standards for Resource mailboxes | Configured<br>e.g. `RES_{location}` | To distinguish between resource mailboxes a naming standard will be followed for each resource mailbox.
 
 ### Distribution Lists
 
 A distribution list is a grouping of mail recipients that is addressed as a single recipient. Distribution lists are used to send e-mail to groups of people without having to enter each recipient's individual address. Distributions lists can be established to receive and distribute internal, external, or internal and external email.
 
-This saves the sender from needing to enter each individual email address when emailing a group. These groups/lists are generally leveraged for emailing an entire team or project. Only internal agency employees can send emails to the “Agency-all” distribution list.
+This saves the sender from needing to enter each individual email address when emailing a group. These groups/lists are generally leveraged for emailing an entire team or project. Only internal agency employees can send emails to the "Agency-all" distribution list.
 
 Distribution lists are created in different ways depending on the Exchange architecture:
 
@@ -718,7 +718,7 @@ Table 89 Additional Distribution List Design Decisions for cloud native implemen
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Distribution Groups creation | Cloud Created | Management activities for Exchange Online will occur within the portal. The use of cloud created distribution groups also allows for the groups to be upgraded to Office 365 groups at a later stage.
-Distribution Naming Policy | Configured<br>The naming convention will be AgencyName-PolicyName | Naming policies streamline the management of Distribution lists and allow for groups to be easily sorted. 
+Distribution Naming Policy | Configured<br>The naming convention will be `AgencyName-PolicyName` | Naming policies streamline the management of Distribution lists and allow for groups to be easily sorted. 
 
 Table 90 Additional Distribution List Design Decisions for hybrid implementations
 
@@ -749,7 +749,7 @@ Table 91 Office 365 Group Design Decisions for all agencies and implementation t
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Office 365 Group creation restrictions | Configured <br>Only administrators can create/configure Office 365 groups. | This will ensure that groups are approved before being created, ensuring all groups have a purpose.<br>This setting also affects Exchange, SharePoint and Teams.
-Naming Policy | grp-AgencyName-SecurityGroup-Role | Exchange groups will be named like the following AgencyName-Agency e.g. grp-DTA-ExchangeMailbox-ITHelpdesk
+Naming Policy | `grp-AgencyName-SecurityGroup-Role` | Exchange groups will be named like the following AgencyName-Agency e.g. `grp-DTA-ExchangeMailbox-ITHelpdesk`
 Group Expiration  | All groups - annually | Group Expiration is required to simplify the management overhead associated with groups and to limit Azure AD clutter.
 
 ### Address Book / Address List
@@ -766,7 +766,7 @@ Table 94 Address Book and Address List Design Decisions for all agencies and imp
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Custom Address Lists | Configured | Custom address lists can be configured by Agency administrators, however one initial custom list, <AgencyName-All>, should be manually created.
+Custom Address Lists | Configured | Custom address lists can be configured by Agency administrators, however one initial custom list, `AgencyName-All`, should be manually created.
 GAL and OAB | Generated | These will be generated so that users can send emails within the organisation in accordance with Microsoft best practice.
 
 ## SharePoint Online
@@ -928,7 +928,7 @@ OneDrive for Business is a cloud-based, secure, personal document store. It allo
 
 OneDrive data can be configured to automatically synchronise data, ensuring the user does not need to download files every time they wish to access them.
 
-On deletion of a user’s account content can be deleted or retained for a specified period.
+On deletion of a user's account content can be deleted or retained for a specified period.
 
 ### Sharing
 
@@ -954,7 +954,7 @@ OneDrive | Only people in your organisation | No external sharing allowed.
 **Advanced settings for external sharing** |||
 Allow or block sharing with people on specific domains | Unchecked | Specific domains are not defined, meaning that content is permitted to be shared with all users within the directory (internal).
 External users must accept sharing invitation using the same account that the invitations were sent to | Checked | Required to ensure users are authenticated before accepting sharing invitation
-Let external users share items they don’t own | Unchecked | Restricts external users (guests) from re-sharing content.
+Let external users share items they don't own | Unchecked | Restricts external users (guests) from re-sharing content.
 **Other settings** |||
 Display to owner the names of people who viewed their files | Checked | Ensure owner is are aware of who it has been shared with
 
@@ -962,7 +962,7 @@ Display to owner the names of people who viewed their files | Checked | Ensure o
 
 OneDrive and SharePoint can synchronise content locally through the OneDrive for Business client.
 
-Content can be “pinned” for offline use, ensuring that specific content is available offline, and changes are merged later.
+Content can be "pinned" for offline use, ensuring that specific content is available offline, and changes are merged later.
 
 The Sync Administration screen provides control Synchronising of File in OneDrive and SharePoint.
 
@@ -1020,7 +1020,7 @@ The implementation of OneDrive for Business can be coupled with a migration from
 This migration can take the form of one of the following:
 
 * OneDrive (SharePoint 2010/2013) – Administrators can move an existing OneDrive site hosted to SharePoint Online. Administrators can also leverage the capability of a Hybrid configuration to automatically redirect users to their OneDrive for Business post migration.
-* Network and local file shares – Most users will have a personal drive or a designated location on the network to save work which may not have a function assigned. To free up network storage and extend the ability to access files in the cloud, administrators can move files from a specific network path to the user’s OneDrive for Business site.
+* Network and local file shares – Most users will have a personal drive or a designated location on the network to save work which may not have a function assigned. To free up network storage and extend the ability to access files in the cloud, administrators can move files from a specific network path to the user's OneDrive for Business site.
 
 If a migration is not required, the deployment is referred to as a greenfield deployment.
 
@@ -1030,7 +1030,7 @@ Access to OneDrive can be controlled to ensure Agency data is protected. This in
 * Only allowing access from applications that use modern authentication
 * Only syncing to PCs joined to a specific domain
 
-On deletion of a user’s account content will be deleted. The deletion period can be customised however it is recommended that the data be archived in an external system or migrated to a SharePoint Site.
+On deletion of a user's account content will be deleted. The deletion period can be customised however it is recommended that the data be archived in an external system or migrated to a SharePoint Site.
 
 Table 130 Content Migration Design Decisions for all agencies and implementation types.
 
@@ -1080,7 +1080,7 @@ Table 136 Dynamic Security Groups Design Decisions for all agencies and implemen
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Naming Policy | `grp-<Agency>-<GroupName>` | Assists in MOGs and standardisation of Agency configuration.
+Naming Policy | `grp-{Agency}-{GroupName}` | Assists in MOGs and standardisation of Agency configuration.
 Welcome Email | Disabled | The welcome email will be disabled to reduce the amount of generic correspondence being sent to users. 
 
 ### Organisation Wide Configuration
@@ -1182,7 +1182,7 @@ Table 151 Power Apps and Power Automate Design Decisions for all agencies and im
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Data Policies for Power Automate and Power Apps | Configured<br>Access only to SharePoint, OneDrive for Business, Office 365 Users, Planner, Outlook for 365, and Teams | Data Lost Prevention configures the connectors that can be used in Power Apps and Power Automate <br>The Agency should evaluate the connectors to ensure it fits to the Agency’s requirement.
+Data Policies for Power Automate and Power Apps | Configured<br>Access only to SharePoint, OneDrive for Business, Office 365 Users, Planner, Outlook for 365, and Teams | Data Lost Prevention configures the connectors that can be used in Power Apps and Power Automate <br>The Agency should evaluate the connectors to ensure it fits to the Agency's requirement.
 Environment Administrator | Configured<br>Access to Environment Administrator is assigned to a security group for Power App and Power Automate | Security group should be used to be assigned as Environment Administrator for PowerApps and Power Automate.<br>Environment Administrator will be allowed to create additional environment and configure the connector policies.
 
 ### Power BI
@@ -1212,7 +1212,7 @@ Third Party integration | Disable | Disable third party integration, such as Arc
 
 ## Security and Compliance
 
-Office 365 provides Security and Compliance tools which can be utilised to implement an organisation’s Information Management Policy and to assist with information governance. The Office 365 Security and Compliance tools provides the ability to govern and monitor the following components:
+Office 365 provides Security and Compliance tools which can be utilised to implement an organisation's Information Management Policy and to assist with information governance. The Office 365 Security and Compliance tools provides the ability to govern and monitor the following components:
 
 * SharePoint Online
 * OneDrive for Business
@@ -1251,7 +1251,7 @@ Classification labels are published to users using Label Policies. Label Policie
 
 * Manually - The label is applied manually by the end-user
 * Automatically applied based on the location of the document - Labels can be configured to automatically apply based on the location of the document. For example, SharePoint
-* Automatically applied based on detected Sensitive Information Type - Labels can be configured to automatically apply based on the type of sensitive information found. For example, documents containing Australia driver’s license numbers
+* Automatically applied based on detected Sensitive Information Type - Labels can be configured to automatically apply based on the type of sensitive information found. For example, documents containing Australia driver's license numbers
 
 At the time of writing, Sensitivity labels cannot be configured to satisfy some specific requirements listed in the Protective Security Policy Framework (PSPF). The PSPF requires the protective marking to be applied to email messages via either:
 
@@ -1281,7 +1281,7 @@ Office 365 retention policies assist with meeting these requirements by providin
 * Apply a single policy to the entire organisation or just to specific locations or users
 * Apply a policy to all content or just content meeting certain conditions, such as content containing specific keywords or specific types of sensitive information
 
-When information is subject to a retention policy, end-users can continue to edit and work with the content as if nothing has changed because the content is retained in place, in its original location. But if someone edits or deletes content that is subject to the policy, a copy is saved to a secure location where it’s retained while the policy is in effect.
+When information is subject to a retention policy, end-users can continue to edit and work with the content as if nothing has changed because the content is retained in place, in its original location. But if someone edits or deletes content that is subject to the policy, a copy is saved to a secure location where it's retained while the policy is in effect.
 
 Table 163 Retention policy Design Decisions for all agencies and implementation types.
 
@@ -1294,22 +1294,22 @@ Table 166 describes the Retention Policies configuration applicable to agencies 
 Configuration | Value | Description
 --- | --- | ---
 **Name: Exchange Indefinite Hold** |||
-Retention configuration | Retain the data “Forever” | How long the data is to be held by the policy.
+Retention configuration | Retain the data "Forever" | How long the data is to be held by the policy.
 Location | Exchange email – All users included | The Office 365 location where the policy applies.
 **Name: SharePoint Indefinite Hold** |||
-Retention configuration | Retain the data “Forever” | How long the data is to be held by the policy.
+Retention configuration | Retain the data "Forever" | How long the data is to be held by the policy.
 Location | SharePoint Sites – All Sites | The Office 365 location where the policy applies.
 **Name: OneDrive Indefinite Hold** |||
-Retention configuration | Retain the data “Forever” | How long the data is to be held by the policy.
+Retention configuration | Retain the data "Forever" | How long the data is to be held by the policy.
 Location | OneDrive Accounts – All Accounts | The Office 365 location where the policy applies.
 **Name: Office 365 Groups Indefinite Hold** |||
-Retention configuration | Retain the data “Forever” | How long the data is to be held by the policy.
+Retention configuration | Retain the data "Forever" | How long the data is to be held by the policy.
 Location | Office 365 Groups – All Groups | The Office 365 location where the policy applies.
 **Name: Teams Channel Messages Indefinite Hold** |||
-Retention configuration | Retain the data “Forever” | How long the data is to be held by the policy.
+Retention configuration | Retain the data "Forever" | How long the data is to be held by the policy.
 Location | Teams channel messages – All teams included | The Office 365 location where the policy applies.
 **Name: Teams chats Indefinite Hold** |||
-Retention configuration | Retain the data “Forever” | How long the data is to be held by the policy.
+Retention configuration | Retain the data "Forever" | How long the data is to be held by the policy.
 Location | Teams chats messages – All users included | The Office 365 location where the policy applies.
 
 Table 167 Retention Policy Configuration applicable to agencies leveraging a hybrid implementation
@@ -1360,7 +1360,7 @@ Configuration | Value | Description
 --- | --- | ---
 **Name: Australian Privacy Act** |||
 Locations | Protect content in Exchange email, Teams chats, channel messages, OneDrive and SharePoint documents.  | The locations where the policy will apply.
-Content type | Australian Driver’s Licence number<br>Australian Passport number | The types of sensitive information being detected. 
+Content type | Australian Driver's Licence number<br>Australian Passport number | The types of sensitive information being detected. 
 Sharing detection | With people outside my organisation | When the policy is applied.
 Notify users | Enabled | Users are notified when the policy is triggered. They are also provided policy tips for managing sensitive information. 
 Amount of instances | 5 | The amount of sensitive information required to trigger the policy (10 is the default).
@@ -1491,7 +1491,7 @@ Transport Rules are a set of rules enforced on mail transiting through the Excha
 
 Transport Rules follow the following basic structure:
 
-* Conditions – Conditions identify which mail the transport rule applies to. These conditions largely target either information gained from message headers (e.g. the ‘to’, ‘from’ or ‘CC’ fields) or message properties (e.g., size, attachments, subject, body, message classification). A single rule can have multiple conditions apply
+* Conditions – Conditions identify which mail the transport rule applies to. These conditions largely target either information gained from message headers (e.g. the 'to', 'from' or 'CC' fields) or message properties (e.g., size, attachments, subject, body, message classification). A single rule can have multiple conditions apply
 * Exceptions – Exceptions are an optional component of a Transport Rule and define the mail exempt from the rule
 * Actions – Actions are used to define what actions to undertake on the messages matching the conditions and which do not match any exemption. These actions include rejecting, deleting, redirecting the emails, and adding recipients, prefixes, and disclaimers. A single rule can have multiple actions applied however some actions are incompatible with others
 * Properties – Properties are used to define anything which do not fall into another category. This includes enforcing or testing the rule
@@ -1510,7 +1510,7 @@ Content Filtering polices allow for:
 
 * The customisation of response on SPAM detection
 * Marking emails as SPAM based on language detected
-* Marking emails as SPAM based on the sender or sender’s domain
+* Marking emails as SPAM based on the sender or sender's domain
 * Increasing the SPAM score if certain content is present in the email
 * Marking emails as SPAM if certain content is present in the email
 
@@ -1575,7 +1575,7 @@ Table 193 Safe Links Configuration applicable to all agencies and implementation
 Configuration | Value | Description
 --- | --- | ---
 **Settings that apply to content across Office 365** |||
-Block the following URL’s | No URLs defined | Managing the Blocked URL list is an ongoing administrative task. Agencies will need to consider the resourcing requirements of maintaining a blocked URL list.
+Block the following URL's | No URLs defined | Managing the Blocked URL list is an ongoing administrative task. Agencies will need to consider the resourcing requirements of maintaining a blocked URL list.
 **Settings that apply to content except mail** |||
 Use safe links in Office 365 ProPlus, Office for iOS and Android | Checked | Safe links will be checked by default within these Office 365 applications.
 For the locations selected above: Do not track when users click safe links | Unchecked | Information about when end-users click safe links in the Office 365 documents will be tracked.
@@ -1601,7 +1601,7 @@ Protect files in SharePoint, OneDrive, and Microsoft Teams | Ticked | If a file 
 Turn on Safe Documents for Office clients | Ticked | Before a user is allowed to trust a file opened in Office 365 ProPlus, the file will be verified by Microsoft Defender Advanced Threat Protection.
 Warning  | Dynamic Delivery | Dynamic Delivery ensures attachments are scanned and detected malware is quarantined. It also includes attachment previewing capabilities for most PDFs and Office files during scanning.
 Redirect attachment on detection. Send the blocked, monitored or replaced attachment to an email address  | Enable Redirect - Ticked | This will send blocked or replaced email messages with an attachment that is identified as malicious to a selected email address.
-Apply the above selection of malware scanning for attachments times out or error occurs | Ticked | Will redirect an end-user’s email messages to a selected email address even if a time out or error occurs when malware scanning an attachment. This allows legitimate emails to be recovered and malware to be investigated. 
+Apply the above selection of malware scanning for attachments times out or error occurs | Ticked | Will redirect an end-user's email messages to a selected email address even if a time out or error occurs when malware scanning an attachment. This allows legitimate emails to be recovered and malware to be investigated. 
 Applied to | Configured | All Agency domains (e.g., dta.gov.au).
 
 ### Anti-Phishing
@@ -1631,4 +1631,4 @@ Add trust senders and domains | Not configured | When users interact with domain
 **Spoofing Policy** |||
 Spoofing filter settings | Enable antispoofing protection: On | Allows the Agency to filter email from senders who are spoofing domains.
 Enable Unauthenticated Sender Feature | Enable Unauthenticated Sender: On | Displays a notification to users in Outlook when a sender fails authentication checks.
-Actions | If email is sent by someone who’s not allowed to spoof your domain: Quarantine the message | Specify an action in an event an unauthorised user spoofs a domain.
+Actions | If email is sent by someone who's not allowed to spoof your domain: Quarantine the message | Specify an action in an event an unauthorised user spoofs a domain.

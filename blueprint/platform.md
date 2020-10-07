@@ -142,7 +142,7 @@ Emergency access or 'break-glass' accounts are accounts used to restore access t
 
 * They are not to be associated with any individual user.
 * They will use a different authorisation mechanism than standard administrative accounts.
-* They are cloud only accounts that use the ‘*.onmicrosoft.com' domain.
+* They are cloud only accounts that use the '*.onmicrosoft.com' domain.
 * The passwords to these accounts are set to never expire or be cleaned up or removed due to inactivity.
 * The accounts are to be given the Global Administrator role assigned permanently.
 * At least one of the accounts is to be excluded from Multi Factor Authentication (MFA).
@@ -161,7 +161,7 @@ Table 12 Emergency access account configuration for all agencies and implementat
 Configuration | Value | Description
 --- | --- | ---
 Username | Any value that is not associated to a specific user. | Accounts are not to be associated with any individual user.
-Account type | Accounts are cloud only accounts that use the ‘*.onmicrosoft.com' domain. | Only *.onmicrosoft.com accounts should be used as per Microsoft best practice.
+Account type | Accounts are cloud only accounts that use the '*.onmicrosoft.com' domain. | Only *.onmicrosoft.com accounts should be used as per Microsoft best practice.
 Password Expiry | Passwords are set to never expire. | Ensures the passwords for these accounts are valid in an emergency.
 Roles | Emergency Access accounts will be assigned the Global Administrator role. | The accounts are to be given the Global Administrator role assigned permanently.
 MFA | Both Emergency Access accounts will be excluded from MFA. | Multi Factor Authentication (MFA) device may not be available when the emergency access account is required.
@@ -208,7 +208,7 @@ Azure MFA provides multiple verification methods, such as:
 
 * Call to phone – Call to phone places an automated voice call to a phone number defined by the user.
 * Verification code from mobile app – The Microsoft Authenticator app generates a new verification code every 30 seconds. The user enters the verification code into the sign-in interface.
-* Notification through mobile app – Sends a push notification to a user's phone or registered device using the Microsoft Authenticator app. The user views the notification and selects “Approve” to complete the verification process.
+* Notification through mobile app – Sends a push notification to a user's phone or registered device using the Microsoft Authenticator app. The user views the notification and selects "Approve" to complete the verification process.
 * Text message to phone – Sends a text message that contains a verification code that is used as the authentication token. The user is prompted to enter the verification code into the sign-in interface. This process is called one-way SMS.
 * OAuth hardware token verification code – OATH is an open standard that specifies how one-time password (OTP) codes are generated. Various vendor tokens are supported.
 
@@ -220,7 +220,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 MFA | Configured – Mobile App – soft token code | Native Azure MFA will be configured to secure access to applications and desktops from outside of the environment, and any system administration functions. Use of a mobile app for verification instead of SMS message or phone call reduces any possibility of hack by cloning or swapping a sim card.<br> The ACSC recommends implementing soft tokens without push notifications.
 Hardware Token Support | Allowed (supported OATH tokens only)  | The default method will be to use soft tokens which will meet maturity level 2 of the essential 8, although hardware tokens will be allowed. Hardware token support is required to support some use cases. Some working locations may not allow mobile phones, or users may have a specific physical token, biometrics or smartcard justification. Having hard tokens is a requirement to achieve Essential 8, level 3 maturity for multifactor authentication.
-Trusted IP | Not configured | Conditional Access policies will be used in place of the legacy ‘Trusted IP' feature. Trusted egress IP addresses will be defined by Conditional Access.
+Trusted IP | Not configured | Conditional Access policies will be used in place of the legacy 'Trusted IP' feature. Trusted egress IP addresses will be defined by Conditional Access.
 MFA for Administration | Configured | Administration through the Azure Portal and other Cloud Apps will require MFA.
 MFA for User Apps | Configured | MFA is required.
 
@@ -282,7 +282,7 @@ User Identity Source | On-premises Active Directory | The on-premises Active Dir
 
 ### Domain
 
-When a new Azure AD tenant is created it is assigned a default domain name. This domain is internet routable and aligns to “{tenant name}.onmicrosoft.com”. A second internet routable domain name is also provisioned if Exchange Online is activated within the tenant. The second internet routable domain aligns to “{tenant name}.mail.onmicrosoft.com”.
+When a new Azure AD tenant is created it is assigned a default domain name. This domain is internet routable and aligns to "{tenant name}.onmicrosoft.com". A second internet routable domain name is also provisioned if Exchange Online is activated within the tenant. The second internet routable domain aligns to "{tenant name}.mail.onmicrosoft.com".
 
 On-premises domains can also be registered to the tenant to be used by Azure and Exchange Online. These domains can then be used for receiving email and/or be utilised as the User Principal Name (UPN).
 
@@ -492,7 +492,7 @@ Further details including configuration of each of these components is presented
 
 #### Data Location
 
-At the time of writing MCAS is hosted from Azure data centres in the United States (US) and Europe ([https://docs.microsoft.com/en-us/cloud-app-security/cas-compliance-trust#data-location](https://docs.microsoft.com/en-us/cloud-app-security/cas-compliance-trust#data-location)). An MCAS tenant account is automatically created in the closest ‘Geo'. For Azure tenants located in Australia, MCAS will use the US Geo.
+At the time of writing MCAS is hosted from Azure data centres in the United States (US) and Europe ([https://docs.microsoft.com/en-us/cloud-app-security/cas-compliance-trust#data-location](https://docs.microsoft.com/en-us/cloud-app-security/cas-compliance-trust#data-location)). An MCAS tenant account is automatically created in the closest 'Geo'. For Azure tenants located in Australia, MCAS will use the US Geo.
 
 #### Data Retention
 
@@ -1177,7 +1177,7 @@ Company Portal | Enabled | The Company Portal is enabled for application deploym
 Conditional Access | Enabled | Conditional Access is enabled. It will leverage device & user compliance to allow or disallow access to the corporate environment.
 Mobile Device Management (MDM) | Enabled | MDM will be used to control what a user can and cannot do on their mobile device defined by policies set by administrators.
 Mobile Application Management (MAM) | Enabled | MAM will be used to ensure that users have access to the apps they need to do their work.
-Windows Information Protection mode | Configured | Default settings prevent copying and pasting of data between ‘work' locations and other ‘personal' locations.
+Windows Information Protection mode | Configured | Default settings prevent copying and pasting of data between 'work' locations and other 'personal' locations.
 Network Boundaries | Cloud resources | Network boundaries create a list of resources that are considered to be on the enterprise network. These boundaries are used to apply policies that reside in these locations.
 Cloud Resources Protected via Network Boundaries  | SharePoint<br>Office 365 | Different policies will be created depending on the network location of the client.
 Intune Data Warehouse | Not enabled | While this feature is available, it will not be deployed for the solution. 
@@ -1299,7 +1299,7 @@ Deployment profile | Refer to DTA – Intune Enrolment -ABAC document | Deployme
 
 Device Compliance Policies are rules, such as device PIN length or encryption requirements, that are applied to devices. These policies must be met before a device is considered compliant, the device compliance status can then be used by services such as Conditional Access to grant or disallow access to applications or services.
 
-Microsoft Intune can control access to resources by interrogating endpoints and determining whether they meet a minimum list of features and are judged as “compliant”. Compliance can be assigned a grace period where a device which is not judged as compliant can still access resources for a period or be blocked immediately.
+Microsoft Intune can control access to resources by interrogating endpoints and determining whether they meet a minimum list of features and are judged as "compliant". Compliance can be assigned a grace period where a device which is not judged as compliant can still access resources for a period or be blocked immediately.
 
 Each compliance policy can be edited to ensure that devices are tested before being allowed access to corporate resources.
 

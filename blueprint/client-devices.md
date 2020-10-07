@@ -62,7 +62,7 @@ Drivers allow hardware and software to function within a SOE. Drivers are essent
 
 Drivers that are essential to the hardware platform can be deployed in the base reference image, during device deployment task sequence through SCCM, via Microsoft Intune or later by Microsoft Windows Update. Drivers such as network drivers are critical during the deployment phase, whereas a microphone driver is not. The more generic a reference image, the lower the deployment and maintenance costs.
 
-Other drivers like printer drivers can be deployed after the end user has logged onto the device using either a “Follow Me Print” or “Defined print queue list” selected by the end user.
+Other drivers like printer drivers can be deployed after the end user has logged onto the device using either a "Follow Me Print" or "Defined print queue list" selected by the end user.
 
 Table 10 Drivers and Peripherals Design Decisions for all agencies and implementation types.
 
@@ -216,7 +216,7 @@ Windows 10 is available in several editions these include:
 
 * Home – minimal management and deployment features and cannot be joined to either an on-premises or Azure AD domain. It is targeted from home use only
 * Professional – this edition includes management and deployment features and can be joined to both an on-premises and Azure AD domain
-* Enterprise – this edition has additional enterprise security features as well as the UE-V and App-V clients built in and only distributable through Microsoft’s Volume Licensing Program
+* Enterprise – this edition has additional enterprise security features as well as the UE-V and App-V clients built in and only distributable through Microsoft's Volume Licensing Program
 
 Servicing of Windows 10 falls into three distinct channels or rings:
 
@@ -243,7 +243,7 @@ Windows 10 licensing has evolved significantly since the initial release by Micr
 
 Office 365 products require licensing to enable full functionality and support. The available activation methods are:
 
-* Office 365 based activation - Office 365 is Microsoft’s productivity solution in the cloud. Office 365 has two sets of suites: one for the small and medium business segment and one for the enterprise segment. These suites are sold across different channels and programs designed to meet each segment’s needs. Products are assigned to users and then activated through the online Microsoft Office 365 licensing service
+* Office 365 based activation - Office 365 is Microsoft's productivity solution in the cloud. Office 365 has two sets of suites: one for the small and medium business segment and one for the enterprise segment. These suites are sold across different channels and programs designed to meet each segment's needs. Products are assigned to users and then activated through the online Microsoft Office 365 licensing service
 
 For agencies looking to alternate licensing arrangements, at a minimum, Microsoft recommends the following licensing in addition to the VSA 4 Common Cloud Commitment:
 
@@ -316,7 +316,7 @@ Alarms and Clock | Removed | A versatile combination of alarm clock app, world c
 Bing | Removed | Weather and News
 Calculator | Provisioned | A calculator that includes standard, scientific, and programmer modes, as well as a unit converter.
 Camera | Removed | The redesigned Camera is faster and simpler than ever before.
-Mail and Calendar | Removed | The Mail and Calendar apps provides access to a user’s email, schedule, and contacts. This access will be granted through Outlook.
+Mail and Calendar | Removed | The Mail and Calendar apps provides access to a user's email, schedule, and contacts. This access will be granted through Outlook.
 Maps | Removed | Provides search functionality for places to get directions, contact numbers, business info, and reviews.
 Microsoft OneDrive | OneDrive personal removed. OneDrive for Business will be used. | OneDrive is a cloud storage, file hosting service that allows a user to synchronise files and later access them from a web browser or mobile device.
 Microsoft Solitaire Collection | Removed | Microsoft Solitaire Collection on Windows 10.
@@ -356,12 +356,12 @@ Microsoft Store for Business | Disabled | Meets ACSC Windows 10 1909 hardening g
 
 Enterprise applications provide organisations and end users the functionality they require to perform day to day activities.
 
-Applications can be delivered to the user’s desktop by one of the following methods:
+Applications can be delivered to the user's desktop by one of the following methods:
 
 * Intune – Ideally suited for Windows 10 only deployments. The only option for delivering application to iOS clients.
 * SCCM – Ideally suited where an agency has a large existing investment of packaged applications. The only option for delivering application to servers. Only option for delivering virtual applications. 
 
-Self-Service applications are requested by users directly. They can be delivered via Software Centre which is installed as part of the SCCM client or Company Portal which is available as part of Intune and the Microsoft 365 tenant. As of SCCM version 1802 “user-available” apps now appear in Software Centre under the applications tab where they were previously available in the Application Catalogue
+Self-Service applications are requested by users directly. They can be delivered via Software Centre which is installed as part of the SCCM client or Company Portal which is available as part of Intune and the Microsoft 365 tenant. As of SCCM version 1802 "user-available" apps now appear in Software Centre under the applications tab where they were previously available in the Application Catalogue
 
 Packaging methodology should be inherited from existing Agency procedures as each application has unique requirements. It is possible to repacked existing applications into an msix format which is compatible with both Intune and SCCM delivery.
 
@@ -449,9 +449,9 @@ Alternate Browsers | Internet Explorer 11 | To ensure compatibility with legacy 
 
 ### Tablet Mode
 
-Tablet Mode is an adaptive user experience feature in Windows 10 that optimises the look and behaviour of applications and the Windows shell for the physical form factor and end-user’s usage preferences.
+Tablet Mode is an adaptive user experience feature in Windows 10 that optimises the look and behaviour of applications and the Windows shell for the physical form factor and end-user's usage preferences.
 
-Tablet Mode is a feature that switches a device experience from tablet mode to desktop mode and back. The primary way for an end-user to enter and exit "tablet mode” is manually through the Action Centre. In addition, Original Equipment Manufacturers (OEMs) can report hardware transitions (for example, transformation of 2-in-1 device from clamshell to tablet and vice versa), enabling automatic switching between the two modes.
+Tablet Mode is a feature that switches a device experience from tablet mode to desktop mode and back. The primary way for an end-user to enter and exit "tablet mode" is manually through the Action Centre. In addition, Original Equipment Manufacturers (OEMs) can report hardware transitions (for example, transformation of 2-in-1 device from clamshell to tablet and vice versa), enabling automatic switching between the two modes.
 
 Table 54 Tablet Mode Design Decisions for all agencies and implementation types.
 
@@ -509,7 +509,7 @@ A custom OEM logo can also be displayed below the Windows logo.
 
 The system Computer Description can also be used to display the build date, time and SOE version.
 
-The Manufacturer value is used in the title string displayed in the support section, being "Manufacturer support". If the actual computer manufacturer were to be populated, then the support section heading would be “HP support”, for example, which would be misleading for users. Setting the Manufacturer value to “Agency” would set the support section heading to “Agency support”.
+The Manufacturer value is used in the title string displayed in the support section, being "Manufacturer support". If the actual computer manufacturer were to be populated, then the support section heading would be "HP support", for example, which would be misleading for users. Setting the Manufacturer value to "Agency" would set the support section heading to "Agency support".
 
 Table 63 System Properties Design Decisions for all agencies and implementation types.
 
@@ -559,15 +559,15 @@ Require Password on Wake | Configured | Users will be required to enter their pa
 
 ### Profiles, Personalization, and Folder Redirection
 
-Profiles are a collection of data and settings for each user of a Windows computer. Examples of data captured as part of a user’s profile are user settings, desktop shortcuts, and application settings.
+Profiles are a collection of data and settings for each user of a Windows computer. Examples of data captured as part of a user's profile are user settings, desktop shortcuts, and application settings.
 
-Profile configuration values are specific to a single user and are stored in a single folder known as the ‘User Profile’. These configuration parameters (themes, window colour, wallpapers, and application settings) determine the look and feel of the operating environment for a specific user.
+Profile configuration values are specific to a single user and are stored in a single folder known as the 'User Profile'. These configuration parameters (themes, window colour, wallpapers, and application settings) determine the look and feel of the operating environment for a specific user.
 
 Microsoft includes several standard options for user profiles. Alternatively, technologies such as Microsoft UE-V or FSLogix can be used to address user profile and personalisation requirements. If no user profile is configured, a desktop local profile is used, which does not backup options but performs well.
 
 Microsoft provide the following profile management solutions:
 
-* Local Profiles – Local user profiles are stored on the workstation. When the user logs on for the first time, a local user profile is created for the user and stored by default in `C:\Users\%USERNAME%`. Whenever a user logs on to the workstation, the user’s local user profile is loaded. When the user logs off the workstation, any configuration changes made to the user’s profile are saved in the user’s profile
+* Local Profiles – Local user profiles are stored on the workstation. When the user logs on for the first time, a local user profile is created for the user and stored by default in `C:\Users\%USERNAME%`. Whenever a user logs on to the workstation, the user's local user profile is loaded. When the user logs off the workstation, any configuration changes made to the user's profile are saved in the user's profile
 * Mandatory Profiles – Mandatory profiles are a profile that does not save profile changes and are enforced at each logon
 * Roaming Profiles – Roaming user profiles are stored in a central location on the network, which is generally a shared folder on a server. When the user logs on to a workstation, the roaming user profile is downloaded from the network location and loaded onto the workstation. When the user logs off the workstation, any profile changes are saved to the network share. In addition to maintaining a copy of the roaming profile on the network share, Windows also keeps a locally cached copy of the roaming profile on each workstation that the user logs on. 
 
@@ -662,7 +662,7 @@ It is vital to have a robust and reliable patch management solution based on ind
 
 For Microsoft Windows environments the primary patching technologies are:
 
-* Windows Server Update Service – WSUS enables administrators to deploy the most recent Microsoft updates. A WSUS server connects directly to Microsoft Update or an “upstream” WSUS server. This allows administrators to control what updates are applied and when, rather than having every computer on the network going to the Internet and installing every available update immediately
+* Windows Server Update Service – WSUS enables administrators to deploy the most recent Microsoft updates. A WSUS server connects directly to Microsoft Update or an "upstream" WSUS server. This allows administrators to control what updates are applied and when, rather than having every computer on the network going to the Internet and installing every available update immediately
 * Microsoft System Centre Configuration Manager (SCCM) –SCCM integrates with a WSUS server to deliver patch management. WSUS obtains updates from the internet and SCCM is used to approve and deploy the updates. Using SCCM to deploy software updates allows for more control over many aspects of the process such as targeting, maintenance windows, scheduling, and reporting
 * Microsoft Intune – Windows Update for Business provides management policies for several types of updates to Windows 10 devices
   * Feature updates: feature updates contain security and quality revisions, significant feature additions and changes; they are released semi-annually in March and September
@@ -694,7 +694,7 @@ IPv6 can be enabled or disabled within Windows 10 depending on the network to wh
 
 Windows 10 provides support for several wireless networking technologies that allow devices to connect to a wireless network. The two most popular technologies supported in Windows currently are Wi-Fi and Mobile Broadband networking.
 
-802.1x ensures that only appropriate users or devices can connect to a protected network and that data is secure at the radio transmission level. The Single Sign-On (SSO) feature executes Layer 2 network authentication at the appropriate time given the network security configuration, integrating with the user’s Windows logon experience.
+802.1x ensures that only appropriate users or devices can connect to a protected network and that data is secure at the radio transmission level. The Single Sign-On (SSO) feature executes Layer 2 network authentication at the appropriate time given the network security configuration, integrating with the user's Windows logon experience.
 
 Table 83 Networking Design Decisions for all agencies and implementation types.
 
@@ -763,7 +763,7 @@ Microsoft Office is available in two release cycles and within those release cyc
 
 Microsoft Office has two release cycles:
 
-* Office 365 – Office 365 combines the Microsoft Office desktop suite with cloud-based versions of Microsoft’s communications and collaboration services—including Microsoft Exchange Online, Microsoft SharePoint Online, Office Online, and Microsoft Teams. Office 365 is upgraded with new features on a regular basis
+* Office 365 – Office 365 combines the Microsoft Office desktop suite with cloud-based versions of Microsoft's communications and collaboration services—including Microsoft Exchange Online, Microsoft SharePoint Online, Office Online, and Microsoft Teams. Office 365 is upgraded with new features on a regular basis
 * Traditional Office – Traditional Office is sold as a one-time purchase and provides Office applications for a single computer. There are no upgrade options which means to upgrade to the next major release, another copy of Office will have to be procured. Traditional Office is not upgraded with new features for the life of the release
 
 Within these release cycles, you can choose the architecture of 32-bit or 64-bit. Microsoft Office provides 32-bit or 64-bit version to be installed on Windows 10 devices. Microsoft 64-bit version of Office will be automatically chosen to be installed, unless 32-bit version is installed. The 64-bit version of Office provides ability working with larger datasets and files. However, 64-bit version of Office does not support legacy macros, and COM Add-In.
@@ -834,7 +834,7 @@ The OneDrive for Business client has access to two distinct primary rings and an
 * Enterprise Ring – The enterprise ring rolls out changes after validated in the Production ring, reducing the risk of issues. This ring enables administrators to deploy updates from an internal network location and control the timing of the deployment (within a 60-day window). This is the recommended update ring for most large scale or high-risk organisations
 * Insiders Ring – Insider ring users will receive builds that let them preview new features coming to OneDrive
 
-The Windows Known Folder feature of OneDrive for Business enables administrators to easily move files in a users’ Desktop, Documents, and Pictures folders to OneDrive.
+The Windows Known Folder feature of OneDrive for Business enables administrators to easily move files in a users' Desktop, Documents, and Pictures folders to OneDrive.
 
 OneDrive Files On-Demand enables users to view, search for, and interact with files stored in OneDrive from within File Explorer without downloading them all to the local device. The feature delivers a unified look and feel for both OneDrive and local files whilst saving on space normally taken up on the local hard drive.
 
@@ -849,7 +849,7 @@ Sync Client Update Ring | Enterprise | As per Microsoft recommendations for larg
 OneDrive Personal Account | Disabled | Personal accounts will be disabled. OneDrive for Business accounts will be used
 Default Location | `%userprofile%` | Default OneDrive folder location is suitable for the Windows 10 SOE
 Allow Changing Default Location | Disabled | As per Microsoft recommendation for shared devices users will be prevented from changing the default OneDrive folder location
-Files On-Demand | Enabled | Files On-Demand will be configured to save storage space on users’ computers and minimize the network impact of sync
+Files On-Demand | Enabled | Files On-Demand will be configured to save storage space on users' computers and minimize the network impact of sync
 Backup - Sync Windows Known Folders | Enabled | Syncing Windows known folders to OneDrive for Business will be configured for the Windows 10 SOE. This will enable the users Documents, Pictures and Desktop folders to be saved in OneDrive automatically
 Network settings – Upload | Do not limit | Allow dynamic network configuration to provide best performance
 Network settings – Download | Do not limit | Allow dynamic network configuration to provide best performance
@@ -985,7 +985,7 @@ Microsoft Edge Settings | Configured | Default configuration, meets security req
 
 ### Windows Defender Application Control
 
-Application control is a crucial line of defence for protecting enterprises given today’s threat landscape, and it has an inherent advantage over traditional antivirus solutions. Specifically, application control moves away from the traditional application trust model where all applications are assumed trustworthy by default to one where applications must earn trust in order to run. ASD frequently cite application control as one of the most effective means for addressing the threat of executable file-based malware (.exe, .dll, etc.).
+Application control is a crucial line of defence for protecting enterprises given today's threat landscape, and it has an inherent advantage over traditional antivirus solutions. Specifically, application control moves away from the traditional application trust model where all applications are assumed trustworthy by default to one where applications must earn trust in order to run. ASD frequently cite application control as one of the most effective means for addressing the threat of executable file-based malware (.exe, .dll, etc.).
 
 Windows Defender Application Control (WDAC) helps mitigate these types of security threats by restricting the applications that users can run and the code that runs in the System Core (kernel). WDAC policies also block unsigned scripts and MSIs, and Windows PowerShell runs in Constrained Language Mode.
 
@@ -1006,7 +1006,7 @@ Windows 10 provides various user account types or identity providers. This secti
 
 * Local Accounts - A local account is an account on a single Windows system. Local accounts are not replicated and cannot access to corporate resources. They allow access to local storage only. It may be desirable to disable, rename and scramble the passwords for the in-built local accounts
 * Active Directory Domain - Domain identities are used to grant access to corporate resources and are implemented using Active Directory Domain Services. Administrators manage domain identities and ensure that users have access to the appropriate resources when group policies or any profile management solution is applied to the account. Domain identities are recommended if personalisation data will be stored in a corporate datacentre and will be synchronised to multiple corporate devices
-* Azure Active Directory (Azure AD) - Azure AD is Microsoft’s cloud directory and identity management service. Azure AD includes a full suite of identity management capabilities. Azure AD is a prerequisite for Microsoft Intune mobile device management including Conditional Access
+* Azure Active Directory (Azure AD) - Azure AD is Microsoft's cloud directory and identity management service. Azure AD includes a full suite of identity management capabilities. Azure AD is a prerequisite for Microsoft Intune mobile device management including Conditional Access
 * Microsoft Account - A Microsoft Account is an email address issued by or linked to a Microsoft authentication service. A Microsoft Account is a public version of an Azure Active Directory account. If this account is disabled certain features such as Windows Store cannot function.
 
 Table 117 Identity Providers Design Decisions for all agencies and implementation types.
@@ -1118,7 +1118,7 @@ The default Administrator account cannot be deleted or locked out, but it can be
 
 If there is a requirement to utilise the local Administrator account in an on-premises environment, Microsoft provides Local Administrator Password Solution (LAPS), an Active Directory integrated Access Control List (ACL) protected password management tool.
 
-LAPS allows system administrators the ability to set a different, random password for the common local administrator account on each computer in the domain and store the password for the computer’s local administrator account in Active Directory, secured in a confidential attribute in the computer’s corresponding Active Directory object.
+LAPS allows system administrators the ability to set a different, random password for the common local administrator account on each computer in the domain and store the password for the computer's local administrator account in Active Directory, secured in a confidential attribute in the computer's corresponding Active Directory object.
 
 Table 129 Local Administrator Design Decisions for all agencies and implementation types.
 
@@ -1156,7 +1156,7 @@ Microsoft Intune provides a mechanism for enrolling devices into Azure AD. Once 
 
 Microsoft Intune provides three separate experience in enrolling the iOS devices into the Agencies Azure Active directory. The enrolment experiences are: 
 
-* Device Enrolment Program (DEP) – Device Enrolment Program is a managed device enrolment process. The devices serial number is registered with Apple Business Manager allows Intune to bypass Assisted Setup by preconfigure device settings. The user’s account will be assigned to the device. The device will be marked as a Supervised device.
+* Device Enrolment Program (DEP) – Device Enrolment Program is a managed device enrolment process. The devices serial number is registered with Apple Business Manager allows Intune to bypass Assisted Setup by preconfigure device settings. The user's account will be assigned to the device. The device will be marked as a Supervised device.
 * Device Enrolment Manager (DEM) – Device Enrolment Manager assigns a single Azure Active Directory account as the owner of the device. The end users cannot administer or purchase any apps on the device
 * User Enrolment – User enrolment process requires users set up the iOS device and manually install Company Portal to register the device as Intune enrolled device. The device will be marked as a BYOD device
 
@@ -1226,7 +1226,7 @@ Send organisation data to unmanaged apps | Policy managed apps with Open In/Shar
 Save copies of organisation data | SharePoint and OneDrive for Business only | Ensure all data is saved within the Agencies tenant
 Organisation data notification | Block organisation Data | Prevents Agency information being displayed on the lock screen
 Microsoft Edge Configuration | Configured.<br>Set Microsoft Edge proxy and homepage URL to Agencies Intranet | Configured so Microsoft Edge is able to access Agencies internal websites
-Microsoft Outlook | Configured.<br>Ensure Contact list is added into Outlook Contact list rather than device | Configured so Agencies contact list is maintained within managed application rather than the phone’s contact details
+Microsoft Outlook | Configured.<br>Ensure Contact list is added into Outlook Contact list rather than device | Configured so Agencies contact list is maintained within managed application rather than the phone's contact details
 
 ### Remote Wipe iOS Devices
 
@@ -1240,6 +1240,6 @@ Table 145 Remote wipe iOS devices Design Decisions for all agencies and implemen
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Device Lost Mode | Enabled | Lost mode sends notification to the device’s lock screen.
+Device Lost Mode | Enabled | Lost mode sends notification to the device's lock screen.
 Device remote wipe | Device will be remote wiped of corporate data (Factory Reset). | To minimize the security if the device is lost or not return to the Agency.<br>Intune remotely wipe and reset the iOS device when a user is off-boarded. This allows the device to be reassign to other users in the Agency. 
 

@@ -22,7 +22,7 @@
       url: /blueprint/client-devices.html
 
     - title: As Built As Configured
-      url: /blueprint/abacs.html
+      url: /blueprint/abac.html
     
     - title: Security
       url: /blueprint/security.html 

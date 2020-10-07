@@ -1,5 +1,9 @@
+html {
+    scroll-behavior: smooth;
+}
 body {
     margin: 0;
+    position: relative;
 }
 .au-body {
     h2, h3 {
@@ -7,6 +11,9 @@ body {
     }
     pre {
         white-space: pre-wrap;
+    }
+    p {
+        max-width: unset;
     }
 }
 
@@ -88,6 +95,9 @@ header.au-header {
 .mt-2 {
     margin-top: 2em;
 }
+.mt-3 {
+    margin-top: 3em;
+}
 .mt-4 {
     margin-top: 4em;
 }
@@ -97,6 +107,9 @@ header.au-header {
 .mb-2 {
     margin-bottom: 2em;
 }
+.mb-3 {
+    margin-bottom: 3em;
+}
 .mb-4 {
     margin-bottom: 4em;
 }
@@ -104,11 +117,81 @@ header.au-header {
     margin-bottom: 5em;
 }
 
+.d-flex {
+    display: flex;
+}
+#lhs {
+    width: 280px;
+    position: sticky;
+    top: 0;
+    padding-bottom: 32px;
+    overflow-y: auto;
+    height: 100vh;
+    flex-shrink: 0;
+    display: block;
+}
 #content-area {
+    width: 100% !important;
+    display: block;
+    padding: 0 2em;
+
     h2 {
         border-bottom: 1px solid #eee;
     }
 }
+@media print {
+    #content-area { padding: 0; }
+}
+
+.metadata {
+    color: #666;
+    font-size: 0.9em;
+
+    ul {
+        padding: 0;
+        li {
+            display: inline;
+
+            &:not(:last-of-type):not(:only-of-type)::after {
+                padding-left: 5px;
+                padding-right: 5px;
+                content: "•";
+            }
+        }
+    }
+}
+
+#benefits {
+    background: rgb(252,255,243);
+    background: linear-gradient(121deg, rgba(252,255,243,1) 20%, rgba(212,248,255,1) 75%);
+    padding: 3em 0;
+
+    .col-sm-6 {
+        margin-bottom: 2em;
+    }
+}
+
+table {
+    margin-top: 1em;
+    margin-bottom: 2em;
+    
+    &:not(.auto) {
+        td:first-of-type,
+        td:nth-of-type(2) {
+            width: 30%;
+        }
+    }
+}
+
+/* platform.md */
+.table-component {
+    td:first-of-type,
+    td:nth-of-type(2) {
+        width: 30%;
+    }
+}
+
+
 
 .transition {
     -webkit-transition: all 0.25s ease;
@@ -157,6 +240,22 @@ header.au-header {
         footer.au-footer {
             margin-top: 5em;
         }
+    }
+}
+@media (max-width: 767px) {
+    .d-flex {
+        display: block;
+        padding: 0 1em;
+    }
+    #lhs {
+        display: block;
+        height: auto;
+        position: inherit;
+        width: 100%;
+        padding-bottom: 0;
+    }
+    #content-area {
+        padding: 0;
     }
 }
 

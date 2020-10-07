@@ -1,12 +1,38 @@
-- title: Overview
-  url: /overview.html
+- title: Program
+  url: /program/index.html
 
-- title: Platform
-  url: /platform.html
+  subitems:
+    - title: Modern Workplace
+      url: /program/platform.html
 
-- title: Office 365
-  url: /office-365.html
+    - title: PUP 
+      url: /program/office-365.html
 
-- title: Client Devices
-  url: /client-devices.html 
+- title: Blueprint
+  url: /blueprint/index.html
+  
+  subitems:
+    - title: Platform
+      url: /blueprint/platform.html
 
+    - title: Office 365
+      url: /blueprint/office-365.html
+
+    - title: Client Devices
+      url: /blueprint/client-devices.html
+
+    - title: As Built As Configured
+      url: /blueprint/abacs.html
+    
+    - title: Security
+      url: /blueprint/security.html 
+
+    - title: Abbreviations and Acronyms
+      url: /blueprint/abbr-acronyms.html 
+
+- title: Community
+  url: https://community.desktop.gov.au/
+
+- title: Contact Us
+  url: https://community.desktop.gov.au/contact-us/
+  right: right

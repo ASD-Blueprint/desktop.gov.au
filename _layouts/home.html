@@ -10,16 +10,16 @@
                         {{ content }}
                     </div>
                     <div class="col-sm-6">
-                        
+                        <iframe title="Introductory video of the Protected Utility Program" width="100%" height="315" src="https://www.youtube.com/embed/jaysOSvLnpQ?rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="container">
+        <div class="container mt-2 mb-3">
             <div class="row">
                 <ul class="au-card-list au-card-list--matchheight">
                 {% for feature in site.data.features %}
-                <li class="col-sm-4 col-xs-12">
+                <li class="col-sm-6 col-md-4 col-xs-12">
                     <div class="au-card au-card--shadow au-card--clickable">
                         <div class="au-card__inner">
                             <h2 class="au-card__title"><a href="{{ feature.url }}" class="au-card--clickable__link">{{ feature.name | textuaize }}</a></h2>
@@ -29,6 +29,25 @@
                 </li>
                 {% endfor %}
                 </ul>
+            </div>
+        </div>
+        <div id="benefits">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 mb-3"><h2 class="">Benefits of the program</h2></div>
+                    {% for benefit in page.benefits %}
+                    <div class="col-sm-6">
+                        {{ benefit | markdownify }}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="container mt-2 mb-3">
+            <div class="row">
+                <div class="col-sm-8">
+                    {{ page.community[0] | markdownify }}
+                </div>
             </div>
         </div>
     </section>

@@ -1,29 +1,19 @@
-- name: Overview
-  url: /overview.html
+- name: Program
+  url: /program/index.html
   desc: |
-    An overview of the Blueprint solution package.
+    An overview of the modern workplace and the Protected Utility Program.
 
-- name: Platform
-  url: /platform.html
+- name: Blueprint
+  url: /blueprint/index.html
   desc: |
-    All supporting components for the Windows 10, iOS and Office 365 components of the design including Intune.
+    The Blueprint is a design for a secure, modern desktop based on Microsoft 365.
     
-- name: Office 365
-  url: /office-365.html
+- name: Skills and Capability
+  url: /skills.html
   desc: |
-    Exchange Online, SharePoint Online, OneDrive for Business and Teams.
+    Mobilise and modernise your workforce.
 
-- name: Client Devices
-  url: /client-devices.html
+- name: Funding
+  url: /funding.html
   desc: |
-    Windows 10 and iOS components only.
-
-- name: ABACs
-  url: /abacs.html
-  desc: |
-    As Built As Configured.
-
-- name: Security Documentation
-  url: /security-documentation.html
-  desc: |
-    Includes IRAP and Standard Operating Procedures material.
+    Support for agencies readiness and transition.

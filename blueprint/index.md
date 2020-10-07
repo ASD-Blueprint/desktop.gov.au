@@ -1,6 +1,7 @@
 ---
 layout: page
-title: Solution Overview
+title: Blueprint Overview
+permalink: /blueprint/index.html
 ---
 
 The Digital Transformation Agency (DTA) developed the Protected Utility Blueprint to enable Australian Government Agencies to transition to a secure and collaborative Microsoft 365 platform. The solution is underpinned by proven technologies from the Microsoft Modern Workplace solution (Microsoft 365 including Office 365, Enterprise Mobility + Security, and Windows 10). The Blueprint design is delivered as three distinct documents:
@@ -14,7 +15,7 @@ The Blueprint is accompanied by Configuration Guides and Security Documentation 
 The Blueprint contains guidance for best practice deployment incorporating advice from the Australian Government Information Security Manual (ISM), Microsoft, the ACSC Essential Eight and the ACSC hardening guidelines for Microsoft Windows 10 and iOS. There are two types of deployment method covered in this Blueprint:
 
 * **Cloud Native** – Where an agency assumes an architecture that is based on consuming the Microsoft 365 offerings as a service, with no additional investment in on-premises infrastructure, and
-* **Hybrid** – Where an agency adopts the Microsoft 365 offerings while continuing to leverage some new or existing on-premises infrastructure in a ‘hybrid’ configuration. In many cases, design decisions are common across both deployment methods. Where specific elements differ for cloud and hybrid deployments, this Blueprint provides the common components applicable to all deployments and then offer further guidance for each deployment types.
+* **Hybrid** – Where an agency adopts the Microsoft 365 offerings while continuing to leverage some new or existing on-premises infrastructure in a 'hybrid' configuration. In many cases, design decisions are common across both deployment methods. Where specific elements differ for cloud and hybrid deployments, this Blueprint provides the common components applicable to all deployments and then offer further guidance for each deployment types.
 
 DTA manages a community of practice for adoptors, practitioners, and other interested parties. The community provides a direct channel to DTA as well as fosters discussion between community members. To keep up to date with Blueprint development and discussion, please visit [desktop.gov.au](https://desktop.gov.au/).
 
@@ -31,7 +32,7 @@ Where to Start | This section describes how an organisation should consume the B
 Design Considerations | Factors affecting the design decisions, particularly the intended security level of the environment and understanding reliance on existing infrastructure (hybrid) or moving to a cloud native architecture
 Security | This section provides an overview of the security documentation that is provided
 Design Decisions | This section describes high-level design decisions underpinning the Blueprint
-Essential 8 Maturity | This section describes the Blueprint’s Essential Eight compliance and rationale
+Essential 8 Maturity | This section describes the Blueprint's Essential Eight compliance and rationale
 
 Where appropriate, guidance has been split into separate documents targeting either Cloud Native or Hybrid implementations.
 
@@ -94,7 +95,7 @@ For each component in the solution, these design documents provide:
 * the decision itself and 
 * the justification for that decision.
 
-Example As-Built As-Configured (ABAC) documents are also provided, which detail the specific technical configurations, including the settings and values, of an environment based on the Blueprint. The use of place holders like ‘agency.gov.au’ and ‘tenant-name’ are used in the ABAC documents where appropriate. The ABAC documents do not provide justification for individual settings. Due to differences in configuration between the cloud and hybrid solutions, two sets of ABAC documents are provided. The list of ABAC documents is covered above in Section 1.2 Document Structure.
+Example As-Built As-Configured (ABAC) documents are also provided, which detail the specific technical configurations, including the settings and values, of an environment based on the Blueprint. The use of place holders like 'agency.gov.au' and 'tenant-name' are used in the ABAC documents where appropriate. The ABAC documents do not provide justification for individual settings. Due to differences in configuration between the cloud and hybrid solutions, two sets of ABAC documents are provided. The list of ABAC documents is covered above in Section 1.2 Document Structure.
 
 ## Blueprint Components
 
@@ -122,13 +123,13 @@ The Blueprint includes guidance for cloud native and hybrid deployments, which c
 * has multiple active directories 
 * has significant investment in on-premises infrastructure with serviceable life.
 
-A hybrid implementation can choose to enable SCCM or Intune for client management depending on the cloud maturity level of the agency. This Blueprint provides guidance on integration between SCCM and Intune for hybrid deployments however agencies with existing infrastructure may decide to migrate device management from SCCM to Intune with no impact to an agency’s existing cyber security posture.
+A hybrid implementation can choose to enable SCCM or Intune for client management depending on the cloud maturity level of the agency. This Blueprint provides guidance on integration between SCCM and Intune for hybrid deployments however agencies with existing infrastructure may decide to migrate device management from SCCM to Intune with no impact to an agency's existing cyber security posture.
 
 ### Agency Classification
 
-The Blueprint is based on a principle of ‘engineered to PROTECTED’ to enhance the cyber security postures of adopting agencies. It is suitable for agencies aiming for PROTECTED and below.
+The Blueprint is based on a principle of 'engineered to PROTECTED' to enhance the cyber security postures of adopting agencies. It is suitable for agencies aiming for PROTECTED and below.
 
-For agencies that wish to implement the Blueprint at a PROTECTED level, some components are required to be configured differently to enable connectivity to supporting systems. These components are required for the transfer of PROTECTED information outside of an agency’s environment, however their absence does not diminish the cyber security postures of agencies implementing this Blueprint below a PROTECTED level, and include:
+For agencies that wish to implement the Blueprint at a PROTECTED level, some components are required to be configured differently to enable connectivity to supporting systems. These components are required for the transfer of PROTECTED information outside of an agency's environment, however their absence does not diminish the cyber security postures of agencies implementing this Blueprint below a PROTECTED level, and include:
 
 * GovLink mail gateway
 * Information Protection
@@ -204,7 +205,7 @@ This Blueprint does not include design information for a Secure Internet Gateway
 Accompanying the Blueprint is a set of security documentation to enable an agency to conduct a security assessment. These include:
 
 * System Security Plan (SSP)
-* Statement of Applicability  (SoA)
+* Statement of Applicability (SoA) - this is now referred to as the System Security Plan Annex
 * Security Risk Management Plan (SRMP)
 * Incident Response Plan (IRP)
 * Standard Operating Procedures (SOPs)
@@ -219,7 +220,7 @@ Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Azure AD Identity Protection | Configured | Azure AD Identity Protection is a tool that allows organisations to accomplish three key tasks: {::nomarkdown}<ul><li>{:/}Automate the detection and remediation of identity-based risks.{::nomarkdown}</li><li>{:/}Investigate risks using data in the portal.{::nomarkdown}</li><li>{:/}Export risk detection data to a utility for further analysis.{::nomarkdown}</li></ul>{:/}
+Azure AD Identity Protection | Configured | Azure AD Identity Protection is a tool that allows organisations to accomplish three key tasks: <ul><li>Automate the detection and remediation of identity-based risks.</li><li>Investigate risks using data in the portal.</li><li>Export risk detection data to a utility for further analysis.</li></ul>
 Azure AD Multi-Factor Authentication (MFA) | Configured | Azure AD MFA will be enabled to meet ACSC hardening and Essential Eight compliance. This is discussed in the Platform Design document.
 Enterprise Collaboration | Microsoft Teams and SharePoint Online | Microsoft Teams and SharePoint Online will be utilised for Enterprise Collaboration.
 Enterprise Email | Exchange Online | Exchange Online and Microsoft Outlook will be deployed for the Enterprise Email solution.
@@ -254,7 +255,7 @@ Windows Updates and Patches | Configured | Configuration of Windows and third-pa
 
 The Essential Eight represents security guidance from the ACSC that prioritises a list of mitigation strategies to assist organisations in protecting their systems against a range of cyber threats.
 
-This section summarises the Blueprint’s maturity level against the Essential Eight. It is important to note that any modifications outside of the Blueprint will require a gap analysis to determine the security implications.
+This section summarises the Blueprint's maturity level against the Essential Eight. It is important to note that any modifications outside of the Blueprint will require a gap analysis to determine the security implications.
 
 Table 8 describes how the Blueprint addresses each strategy identified by ACSC, and the maturity level attainable by implementing this Blueprint. 
 
@@ -262,10 +263,10 @@ Essential Eight Design Decisions
 
 ACSC Strategy | Solution | Jusitification | Maturity Level
 --- | --- | --- | ---
-Application Whitelisting | [Windows Defender Application Control](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control) (WDAC) managed by Intune. | Application whitelisting will prevent all non-approved applications (including malicious code) from executing. WDAC provides all the features of AppLocker with additional functionality and simpler management from within Intune. It is also possible to implement the latest recommended block rules from Microsoft. | 3
-Patch Applications | Intune or SCCM used to patch applications on a regular basis. | As direct internet connectivity has been stipulated, applications will be set to auto update. Firmware can be update if an executable file is packaged and deployed via Intune. Note: 0.1 Full Time Equivalent (FTE) minimum is estimated to cover the work required. | 3
+Application Whitelisting | [Windows Defender Application Control](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control) (WDAC) managed by Intune. | Application whitelisting will prevent all non-approved applications (including malicious code) from executing.<br><br>WDAC provides all the features of AppLocker with additional functionality and simpler management from within Intune. It is also possible to implement the latest recommended block rules from Microsoft. | 3
+Patch Applications | Intune or SCCM used to patch applications on a regular basis. | As direct internet connectivity has been stipulated, applications will be set to auto update.<br><br>Firmware can be update if an executable file is packaged and deployed via Intune.<br><br>Note: 0.1 Full Time Equivalent (FTE) minimum is estimated to cover the work required. | 3
 Configure Microsoft Office Macro Settings | Hardening to be implemented as per the ACSC via Intune. | Only signed macros will be enabled via Intune policies. | 3
-User Application Hardening | Hardening to be implemented as per the ACSC via Intune. | Web advertisements that are java or flash based will be blocked. ‘Other’ web adverts will not be controlled. Web browsers are configured to block or disable support for Flash content for Internet Explorer and Edge. Web browsers are configured to block Java from the Internet for Internet Explorer and Edge. Office 365 applications block flash content by default. Object Linking and Embedding will be disabled by Intune policy. | 2
-Restrict Administrative Privileges | Intune, Azure AD and Privileged Identity Manager (PIM) controls. | Restriction of administrative privileges for admin accounts will prevent adversaries using these accounts to gain full access to information and systems. WDAC policies are applied to admin users to prevent the ability to run email and web browsers. Admin users will log on with their normal accounts and then authenticate to the Office 365 tenant for management using their privileged account to administer the system. | 3
-Multi-factor Authentication | Multi-factor authentication solution is provided by Azure MFA for all remote users and administrators. | Stronger user authentication makes it harder for adversaries to access sensitive information and systems. MFA is enabled for all with a soft token. Hard tokens would require an IaaS server in Azure and will not be implemented. | 2
-Daily Backups | Data redundancy and availability configured with native tools. | Configuration settings of Office 365 and Intune are backed up through the ABAC’s. Documents, Desktops and Pictures are redirected to OneDrive using Windows Known Folders providing a backup of data to the cloud. Office 365 data is replicated by Microsoft to at least two geographically dispersed data centres. Exchange Online has a recover deleted items from server option. Cloud based files have Recycle bin and Restore options in addition to retention policies. Retention policies are created that ensure that data is retained forever for: {::nomarkdown}<ul><li>{:/}Exchange{::nomarkdown}</li><li>{:/}SharePoint{::nomarkdown}</li><li>{:/}OneDrive{::nomarkdown}</li><li>{:/}Office 365 Groups{::nomarkdown}</li><li>{:/}Skype for Business{::nomarkdown}</li><li>{:/}Exchange Public Folders{::nomarkdown}</li><li>{:/}Teams channel messages{::nomarkdown}</li><li>{:/}Teams chats{::nomarkdown}</li></ul>{:/}Workstation configuration is stored in Intune (AutoPilot rebuild) or SCCM task sequence.
+User Application Hardening | Hardening to be implemented as per the ACSC via Intune. | Web advertisements that are java or flash based will be blocked. 'Other' web adverts will not be controlled.<br><br>Web browsers are configured to block or disable support for Flash content for Internet Explorer and Edge.<br><br>Web browsers are configured to block Java from the Internet for Internet Explorer and Edge.<br><br>Office 365 applications block flash content by default.<br><br>Object Linking and Embedding will be disabled by Intune policy. | 2
+Restrict Administrative Privileges | Intune, Azure AD and Privileged Identity Manager (PIM) controls. | Restriction of administrative privileges for admin accounts will prevent adversaries using these accounts to gain full access to information and systems.<br><br>WDAC policies are applied to admin users to prevent the ability to run email and web browsers.<br><br>Admin users will log on with their normal accounts and then authenticate to the Office 365 tenant for management using their privileged account to administer the system. | 3
+Multi-factor Authentication | Multi-factor authentication solution is provided by Azure MFA for all remote users and administrators. | Stronger user authentication makes it harder for adversaries to access sensitive information and systems.<br><br>MFA is enabled for all with a soft token. Hard tokens would require an IaaS server in Azure and will not be implemented. | 2
+Daily Backups | Data redundancy and availability configured with native tools. | Configuration settings of Office 365 and Intune are backed up through the ABACs.<br><br>Documents, Desktops and Pictures are redirected to OneDrive using Windows Known Folders providing a backup of data to the cloud.<br><br>Office 365 data is replicated by Microsoft to at least two geographically dispersed data centres.<br><br>Exchange Online has a recover deleted items from server option.<br><br>Cloud based files have Recycle bin and Restore options in addition to retention policies.<br><br>Retention policies are created that ensure that data is retained forever for:<br><br>* Exchange<br>* SharePoint<br>* OneDrive<br>* Office 365 Groups<br>* Skype for Business<br>* Exchange Public Folders<br>* Teams channel messages<br>* Teams chats<br><br>Workstation configuration is stored in Intune (AutoPilot rebuild) or SCCM task sequence.

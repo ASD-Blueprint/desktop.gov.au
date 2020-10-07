@@ -13,6 +13,10 @@ aside.au-side-nav {
             }
         }
     }
+    .sidenav-title {
+        font-size: 1.5em;
+    }
+
     > ul {
         > li {
             border-bottom: none;
@@ -92,9 +96,20 @@ aside.au-side-nav {
                 font-size: 1em;
             }
             &.active {
+                display: block;
+
+                > ul > li {
+                    display: block;
+                }
+
                 > a {
                     border-left-color: $primary-color;
+                    color: $primary-color;
                 }
+            }
+
+            li {
+                display: none;
             }
         }
     }

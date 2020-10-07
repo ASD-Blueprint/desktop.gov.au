@@ -1,3 +1,8 @@
 ## Desktop.gov.au Documentation
 
-cfy push -f manifest-staging.yml --random-route
+Develop locally
+```docker-compose up```
+
+Push to CF
+```cfy push docs5 -f manifest-staging.yml --random-route```
+

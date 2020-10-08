@@ -1,17 +1,13 @@
 - title: Program
   url: /program/index.html
 
-  subitems:
-    - title: Modern Workplace
-      url: /program/platform.html
-
-    - title: PUP 
-      url: /program/office-365.html
-
 - title: Blueprint
   url: /blueprint/index.html
   
   subitems:
+    - title: Solution Overview
+      url: /blueprint/overview.html
+
     - title: Platform
       url: /blueprint/platform.html
 

@@ -7,13 +7,8 @@
   url: /blueprint/index.html
   desc: |
     The Blueprint is a design for a secure, modern desktop based on Microsoft 365.
-    
-- name: Skills and Capability
-  url: /skills.html
+   
+- name: Community
+  url: https://community.desktop.gov.au/
   desc: |
-    Mobilise and modernise your workforce.
-
-- name: Funding
-  url: /funding.html
-  desc: |
-    Support for agencies readiness and transition.
+    Work with peers and access the full documentation set in our community. 

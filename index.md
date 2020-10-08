@@ -28,6 +28,8 @@ Welcome to the website for the Protected Utility Program. The Protected Utility 
 
 The purpose of the Program is to standardise how Government agencies operate their desktops, which, in turn, standardises how government agencies communicate and collaborate and ensures a secure environment up to the Protected classification.  
 
-This website helps you understand [why your agency should adopt the Blueprint](), [how you can implement the Blueprint]() and [how we can help you](). 
+We do this by helping agencies transition to the cloud and adopt the Protected Utility Blueprint, which was released by the Program in March 2020. 
 
-We also encourage you to join our [online community]() for the Protected Utility Program.
+This website helps you understand why your agency should adopt the Blueprint, how you can implement the Blueprint and how we can help you. 
+
+We also encourage you to join our [online community](https://community.desktop.gov.au/) for the Protected Utility Program.

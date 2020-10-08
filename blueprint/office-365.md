@@ -307,8 +307,8 @@ Table 36 Mail Exchange Records Design Decisions for cloud native implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Authoritative DNS MX Record | `{Mail Gateway}` | This is the ingress point for the mail for the Agency, the mx records will point to the Agency gateway
-Mail Exchanger/s | `{Mail Gateway}` | This is the ingress point for the mail for the Agency, the mx records will point to the Agency gateway
+Authoritative DNS MX Record | `<Mail Gateway>` | This is the ingress point for the mail for the Agency, the mx records will point to the Agency gateway
+Mail Exchanger/s | `<Mail Gateway>` | This is the ingress point for the mail for the Agency, the mx records will point to the Agency gateway
 
 Table 37 Mail Exchange Records Design Decisions for hybrid implementations
 
@@ -340,15 +340,15 @@ Configuration | Value | Description
 Certificate details | Configured | Certificate to be issued from the gateway hosting the GovLink connection.
 Virtual IP address (VIP) | Configured | Virtual IP Address details will be provided by the gateway provider.
 **Exchange Online Receive Connector** |||
-Name | `Inbound-connector-from-{GATEWAY}` | Describes the source and directionality of mail.
+Name | `Inbound-connector-from-<GATEWAY>` | Describes the source and directionality of mail.
 Retain internal mail headers | Unchecked | Internal Mail headers are stripped off messages.
-On-premises server identification method and value | Identify by Senders Domain. Reject email messages if they are not sent over TLS. Require subject name matching <DOMAIN> | Ensures mail is being sent over an encrypted connection to a known domain.
+On-premises server identification method and value | Identify by Senders Domain. Reject email messages if they are not sent over TLS. Require subject name matching `<DOMAIN>` | Ensures mail is being sent over an encrypted connection to a known domain.
 **Exchange Online Send Connector** |||
-Name | `outbound-connector-to-{GATEWAY}` | Describes the source and directionality of mail.
+Name | `outbound-connector-to-<GATEWAY>` | Describes the source and directionality of mail.
 Retain internal mail headers | Checked | When reporting spam that slips past the filters, it is essential that we receive the full message headers from a message
 When to use the connector | \\* (All Mail) | All mail should use the connector
 Message routing | Route through these smart hosts. | This should be used route mail to the gateway.
-Connector Authentication settings | Always use TLS issued by a trusted Certificate Authority with a SAN matching <DOMAIN> | Ensures mail is being sent over an encrypted connection to a known domain.
+Connector Authentication settings | Always use TLS issued by a trusted Certificate Authority with a SAN matching `<DOMAIN>` | Ensures mail is being sent over an encrypted connection to a known domain.
 
 ### Autodiscover
 
@@ -408,7 +408,7 @@ Accepted Domains are SMTP namespaces configured within Exchange Online. Only ema
 
 Accepted Domains consist of the following types:
 
-* Authoritative Domains - Authoritative Domains are domains where the Exchange Organisation accepts messages addressed to recipients and is responsible for generating non-delivery reports. On creation of an Exchange Online organisation the tenant domain Fully Qualified Domain Name (FQDN) and the <tenantname>.onmail.onmicrosoft.com FQDN are automatically populated as an Authoritative Domains; and
+* Authoritative Domains - Authoritative Domains are domains where the Exchange Organisation accepts messages addressed to recipients and is responsible for generating non-delivery reports. On creation of an Exchange Online organisation the tenant domain Fully Qualified Domain Name (FQDN) and the `<tenantname>.onmail.onmicrosoft.com` FQDN are automatically populated as an Authoritative Domains; and
 * Relay Domains - Relay Domains are often called Non-Authoritative Domains. The Exchange Organisation will accept the messages addressed to the recipients; however, it is not responsible for generating non-delivery reports. Hybrid Exchange leverages Relay Domains and mail connectors to relay messages between both on-premises infrastructure and Exchange Online.
 
 Table 46 Accepted Domain Design Decisions for all agencies and implementation types.
@@ -416,7 +416,7 @@ Table 46 Accepted Domain Design Decisions for all agencies and implementation ty
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Configure Additional Accepted Domains | Configured | Required to integrate with additional agencies. Any additional Agencies that require access to the system are to be included.
-Authoritative Domains | Configured | The `{agency-tenant}.onmicrosoft.com` authoritative domain is created during the enablement of Office 365 and represents the Exchange Online Organisations SMTP address space. The additional authoritative domains are required as each Agency will have a corresponding authoritative domain.
+Authoritative Domains | Configured | The `<agency-tenant>.onmicrosoft.com` authoritative domain is created during the enablement of Office 365 and represents the Exchange Online Organisations SMTP address space. The additional authoritative domains are required as each Agency will have a corresponding authoritative domain.
 
 Table 48 Additional Accepted Domain Design Decisions for hybrid implementations
 
@@ -539,7 +539,7 @@ Exchange Mailbox Size | 100GB per user | Included with Office 365 E3 / E5 licenc
 Language | English | The default language is English, users will have the ability to adjust this if required.
 Default time zone | GMT +10 | The default time zone is GMT +10 however this will be adjusted based on user location.
 Exchange Message Size Limits | Up to 90MB | Default setting. Note that message limits may be smaller when sending messages to external mail recipients (can be as low as 10MB).
-Custom Primary SMTP Addressing | first.last@agency.gov.au<br>Usernames are recommended to follow the Universal Principal Name (UPN) format of the user, which is `first.last@{agency}.gov.au` | The primary SMTP address will be changed from `first.last@{tenant}.onmicrosoft.com` to ensure email continues to function in the same manner
+Custom Primary SMTP Addressing | first.last@agency.gov.au<br>Usernames are recommended to follow the Universal Principal Name (UPN) format of the user, which is `first.last@<agency>.gov.au` | The primary SMTP address will be changed from `first.last@<tenant>.onmicrosoft.com` to ensure email continues to function in the same manner
 Exchange Online PowerShell | Disabled for standard users | Standard users have no need to access Exchange Online via Powershell
 
 ### Authentication Policies
@@ -672,7 +672,7 @@ Table 82 Shared Mailbox Design Decisions for all agencies and implementation typ
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Shared mailbox delegation (Full Access, Send As, Send on Behalf) | Configured via mail-enabled Security groups which are hidden from the Global Address book | Mail-enabled security groups limit the management overhead associated with mailbox delegation when compared to direct delegations. A security group is required to be mail-enabled to appear within Office 365.
-Naming standard for security groups | Configured | To distinguish between a security groups managing a shared mailbox a naming standard will be followed.<br>e.g. `GMSG_{mailboxname}`
+Naming standard for security groups | Configured | To distinguish between a security groups managing a shared mailbox a naming standard will be followed.<br>e.g. `GMSG_<mailboxname>`
 Shared Mailbox user account | Disabled | Default configuration. Accounts will remain disabled to reduce system attack surface.
 
 ### Resource Mailboxes
@@ -695,7 +695,7 @@ Decision Point | Design Decision | Justification
 Room Mailboxes | Configured | There is a requirement for booking rooms within the solution. Rooms will be configured with a mailbox so that users can book them through their calendars.
 Equipment Mailboxes  | Configured | There is a requirement for booking equipment within the solution. Equipment will be configured with a mailbox so that users can book them through their calendars.
 Room Lists | Configured | There is a requirement for booking rooms within the solution. Room Assets will be configured with a list so that users can book them through their calendars.
-Naming standards for Resource mailboxes | Configured<br>e.g. `RES_{location}` | To distinguish between resource mailboxes a naming standard will be followed for each resource mailbox.
+Naming standards for Resource mailboxes | Configured<br>e.g. `RES_<location>` | To distinguish between resource mailboxes a naming standard will be followed for each resource mailbox.
 
 ### Distribution Lists
 
@@ -1080,7 +1080,7 @@ Table 136 Dynamic Security Groups Design Decisions for all agencies and implemen
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Naming Policy | `grp-{Agency}-{GroupName}` | Assists in MOGs and standardisation of Agency configuration.
+Naming Policy | `grp-<Agency>-<GroupName>` | Assists in MOGs and standardisation of Agency configuration.
 Welcome Email | Disabled | The welcome email will be disabled to reduce the amount of generic correspondence being sent to users. 
 
 ### Organisation Wide Configuration

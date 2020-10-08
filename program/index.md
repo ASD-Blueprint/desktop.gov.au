@@ -10,9 +10,9 @@ We do this by helping agencies transition to the cloud and adopt the Protected U
 
 We partner with smaller agencies and assess their cloud readiness, support their transition to Microsoft 365 – which includes establishing cloud connectivity, training, security advice and assurance – and provide change management support so agencies can successfully implement a modern workplace.
 
-We also support larger agencies to adopt the Blueprint. In our [online community]() for the Protected Utility Program, we provide a range of tools and support mechanisms to help agencies through the process. 
+We also support larger agencies to adopt the Blueprint. In our [online community](https://community.desktop.gov.au/) for the Protected Utility Program, we provide a range of tools and support mechanisms to help agencies through the process. 
 
-The DTA, in conjunction with Microsoft, also provide [training]() to public servants to increase cloud skills and capability across the Australian Public Service. 
+The DTA, in conjunction with Microsoft, also provide training to public servants to increase cloud skills and capability across the Australian Public Service. 
 
 ## Implementation options 
 

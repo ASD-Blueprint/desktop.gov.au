@@ -26,6 +26,7 @@ exclude:
   - assets/sass
   - vendor
   - manifest-*.yml
+  - Staticfile
 
 # Plugin settings
 plugins:

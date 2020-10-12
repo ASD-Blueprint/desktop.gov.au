@@ -167,13 +167,12 @@ table {
         text-align: left;
     }
     .au-header__brand .au-header__brand-image {
-        max-width: 200px;
-        border-right: 1px solid $gray;
+        max-width: 300px;
         padding-right: 1em;
     }
     .au-header__brand .au-header__brand-image+.au-header__text {
-        margin-left: 220px;
-        margin-top: 0.5em;
+        margin-left: 320px;
+        margin-top: 0;
         float: none;
     }
     .au-main-nav {
@@ -193,6 +192,13 @@ table {
     }
 }
 @media (max-width: 767px) {
+    a.au-header__brand {
+        display: inline;
+    }
+    .au-header__brand .au-header__brand-image {
+        max-width: 300px;
+        padding-right: 1em;
+    }
     .d-flex {
         display: block;
         padding: 0 1em;

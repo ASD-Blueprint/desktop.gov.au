@@ -183,7 +183,7 @@ Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Azure AD Identity Protection | Configured | Azure AD Identity Protection is a tool that allows organisations to accomplish three key tasks: <ul><li>Automate the detection and remediation of identity-based risks.</li><li>Investigate risks using data in the portal.</li><li>Export risk detection data to a utility for further analysis.</li></ul>
+Azure AD Identity Protection | Configured | Azure AD Identity Protection is a tool that allows organisations to accomplish three key tasks:<br><br>* Automate the detection and remediation of identity-based risks.<br>* Investigate risks using data in the portal.<br>* Export risk detection data to a utility for further analysis.
 Azure AD Multi-Factor Authentication (MFA) | Configured | Azure AD MFA will be enabled to meet ACSC hardening and Essential Eight compliance. This is discussed in the Platform Design document.
 Enterprise Collaboration | Microsoft Teams and SharePoint Online | Microsoft Teams and SharePoint Online will be utilised for Enterprise Collaboration.
 Enterprise Email | Exchange Online | Exchange Online and Microsoft Outlook will be deployed for the Enterprise Email solution.

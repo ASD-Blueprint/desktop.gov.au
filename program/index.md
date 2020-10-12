@@ -4,15 +4,15 @@ title: Program
 permalink: /program/index.html
 ---
 
-The purpose of the Program is to standardise how Government agencies operate their desktops, which, in turn, standardises how government agencies communicate and collaborate and ensures a secure environment up to the Protected classification.  
+The Protected Utility Program helps agencies transition to cloud-based capability and adopt the Blueprint.  
 
-We do this by helping agencies transition to the cloud and adopt the Protected Utility Blueprint, which was released by the Program in March 2020. 
+We do this by partnering with agencies to assess their cloud readiness and support their transition to the Blueprint. This can include establishing cloud connectivity, training, security advice and assurance, as well as change management support so agencies can successfully implement a modern workplace.
 
-We partner with smaller agencies and assess their cloud readiness, support their transition to Microsoft 365 – which includes establishing cloud connectivity, training, security advice and assurance – and provide change management support so agencies can successfully implement a modern workplace.
+We also provide agencies with a range of tools and support mechanisms, such as the Protected Utility Program online community, to help them through the process. 
 
-We also support larger agencies to adopt the Blueprint. In our [online community](https://community.desktop.gov.au/) for the Protected Utility Program, we provide a range of tools and support mechanisms to help agencies through the process. 
+The DTA, in conjunction with Microsoft, also provide training to public servants to increase their cloud skills and capability. 
 
-The DTA, in conjunction with Microsoft, also provide training to public servants to increase cloud skills and capability across the Australian Public Service. 
+The aim of the Program is to standardise how Government agencies operate their desktops, which, in turn, standardises how government agencies communicate and collaborate, and helps achieve a cyber security uplift across government.
 
 ## Implementation options 
 

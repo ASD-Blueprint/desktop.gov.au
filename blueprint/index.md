@@ -4,41 +4,14 @@ title: Blueprint
 permalink: /blueprint/index.html
 ---
 
-The Protected Utility Blueprint was first released in March 2020. Developed in partnership with Microsoft, it is the design for a secure, modern desktop based on Microsoft 365. The purpose of the Blueprint is to standardise how Government agencies operate their desktop, which, in turn, standarises how Government agencies communicate and collaborate and ensures a secure environment up to the Protected classification.
+The Protected Utility Blueprint is a set of documents, including configuration guides, to support agencies implement a modern desktop. It was developed in partnership with Microsoft and tested with independent security assessors. 
 
-This section provides a detailed overview of the Blueprint. If you want to download the full suite of Blueprint documents, you can access it in the [community](https://community.desktop.gov.au/). It includes:
+The Blueprint design is delivered as three distinct documents:
 
-* Solution Overview
-* Platform Design
-* Office 365 Design
-* Client Devices Design
-* As Built As Configured documents for both Coud Native and Hybrid environments
-  * Client Devices
-  * Conditional Access Policies
-  * Office 365
-  * Platform
-* As Built As Configured documents for Cloud Native environments
-  * Intune Applications
-  * Intune Compliance
-  * Intune Configuration
-  * Intune Enrolment
-  * Intune Security Baselines
-  * Intune Software Updates
-* As Built As Configured documents for Hybrid environments
-  * Intune Applications for iOS Devices
-  * Intune Applications for Windows Devices
-  * Intune Compliance for iOS Devices
-  * Intune Compliance for Windows Devices
-  * Intune Configuration for iOS Devices
-  * Intune Configuration for Windows Devices
-  * Intune Enrolment for iOS Devices
-  * Intune Enrolment for Windows Devices
-  * Intune Security Baselines for Windows Devices
-  * Network Configuration
-* Security documents
-  * Incident Response Plan
-  * Security Risk Management Plan
-  * System Security Plan
-  * System Security Plan (Annex)
-* Standard operating procedures
+*	Platform Design – All supporting components for the Windows 10, iOS and Office 365 components of the design including Intune.
+*	Client Devices Design – Windows 10 and iOS components only.
+*	Office 365 Design – Exchange Online, SharePoint Online, OneDrive for Business and Teams.
 
+The Blueprint is accompanied by Configuration Guides and Security Documentation designed to the Australian Cyber Security Centre (ACSC) PROTECTED requirements for Information and Communication Technology (ICT) systems handling and managing Government information. These artefacts provide a standard and proven approach for Microsoft 365, aimed to fast track the adoption of the Microsoft Modern Workplace experience.
+
+The Blueprint contains guidance for best practice deployment incorporating advice from the Australian Government Information Security Manual (ISM), Microsoft, the ACSC Essential Eight and the ACSC hardening guidelines for Microsoft Windows 10 and iOS. 

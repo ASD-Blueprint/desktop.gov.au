@@ -10,6 +10,12 @@ references:
         echo "deb https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list
         sudo apt-get update
         sudo apt-get install cf-cli
+  app_prereqs: &app_prereqs
+    run:
+      name: Application pre-requisites
+      command: |
+        gem update --system
+        gem install bundler
   build_site: &build_site
     run:
       name: Build site
@@ -26,6 +32,7 @@ jobs:
     steps:
       - checkout
       - *cf_install
+      - *app_prereqs
       - *build_site
       - run:
           name: Deploy to staging
@@ -38,6 +45,7 @@ jobs:
     steps:
       - checkout
       - *cf_install
+      - *app_prereqs
       - *build_site
       - run:
           name: Deploy to production

@@ -7,4 +7,4 @@ buildpack: staticfile_buildpack
 stack: cflinuxfs3
 
 applications:
-- name: docs
+- name: desktop

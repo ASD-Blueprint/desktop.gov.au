@@ -3,23 +3,6 @@ layout: page
 title: Solution Overview
 ---
 
-The Digital Transformation Agency (DTA) developed the Protected Utility Blueprint to enable Australian Government Agencies to transition to a secure and collaborative Microsoft 365 platform. The solution is underpinned by proven technologies from the Microsoft Modern Workplace solution (Microsoft 365 including Office 365, Enterprise Mobility + Security, and Windows 10). The Blueprint design is delivered as three distinct documents:
-
-* **Platform Design** – All supporting components for the Windows 10, iOS and Office 365 components of the design including Intune.
-* **Client Devices Design** – Windows 10 and iOS components only.
-* **Office 365 Design** – Exchange Online, SharePoint Online, OneDrive for Business and Teams.
-
-The Blueprint is accompanied by Configuration Guides and Security Documentation designed to the Australian Cyber Security Centre (ACSC) PROTECTED requirements for Information and Communication Technology (ICT) systems handling and managing Government information. These artefacts provide a standard and proven approach for Microsoft 365, aimed to fast track the adoption of the Microsoft Modern Workplace experience.
-
-The Blueprint contains guidance for best practice deployment incorporating advice from the Australian Government Information Security Manual (ISM), Microsoft, the ACSC Essential Eight and the ACSC hardening guidelines for Microsoft Windows 10 and iOS. There are two types of deployment method covered in this Blueprint:
-
-* **Cloud Native** – Where an agency assumes an architecture that is based on consuming the Microsoft 365 offerings as a service, with no additional investment in on-premises infrastructure, and
-* **Hybrid** – Where an agency adopts the Microsoft 365 offerings while continuing to leverage some new or existing on-premises infrastructure in a 'hybrid' configuration. In many cases, design decisions are common across both deployment methods. Where specific elements differ for cloud and hybrid deployments, this Blueprint provides the common components applicable to all deployments and then offer further guidance for each deployment types.
-
-DTA manages a community of practice for adoptors, practitioners, and other interested parties. The community provides a direct channel to DTA as well as fosters discussion between community members. To keep up to date with Blueprint development and discussion, please visit [desktop.gov.au](https://desktop.gov.au/).
-
-## Document Structure
-
 The Solution Overview document is the first in the Blueprint series and is designed for non-technical audiences who have a general understanding of what they want to achieve from their IT system. This document provides a high-level overview, some of the key design decisions and Essential Eight compliance and maturity level.
 
 A summary of this document can be found in Table 2.

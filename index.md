@@ -24,11 +24,9 @@ community:
 
 ## Protected Utility Program
 
-Welcome to the website for the Protected Utility Program. The Protected Utility Program is a taskforce within the Digital Transformation Agency (DTA). 
+Welcome to the website for the Protected Utility Program. The Program standardises how Government agencies operate their desktops, improves collaboration within and across agencies, and helps achieve a cyber security uplift across government.
 
-The purpose of the Program is to standardise how Government agencies operate their desktops, which, in turn, standardises how government agencies communicate and collaborate and ensures a secure environment up to the Protected classification.  
-
-We do this by helping agencies transition to the cloud and adopt the Protected Utility Blueprint, which was released by the Program in March 2020. 
+The Program helps agencies transition to cloud-based capability and adopt the Blueprint.  
 
 This website helps you understand why your agency should adopt the Blueprint, how you can implement the Blueprint and how we can help you. 
 

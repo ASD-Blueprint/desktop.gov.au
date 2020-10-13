@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: page.lang | default: 'en' }}" class="no-js">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-61222473-38"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-61222473-38');
+</script>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+<meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+<link rel="stylesheet" href="/assets/css/styles.css">
+<link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="194x194" href="/assets/images/favicons/favicon-194x194.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicons/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicons/favicon-16x16.png">
+</head>
+{% assign extra_body_class = "" %}
+{% if page.layout == 'home' %}
+    {% assign extra_body_class = " home" | append: extra_body_class %}
+{% endif %}
+<body class="au-grid{{ extra_body_class }}" data-spy="scroll" data-target="#toc-container">
+<nav class="au-skip-link">
+    <a class="au-skip-link__link" href="#content">Skip to main content</a>
+    <a class="au-skip-link__link" href="#mainmenu">Skip to main navigation</a>
+</nav>
+
+<header class="au-header au-header--dark" role="banner">
+    <div class="container">
+        <div class="row">
+            <div class="logo col-md-12">
+                <a href="{{ site.url }}/">
+                    <img class="hidden-print" alt="Australian Government Digital Transformation Agency logo" src="/assets/images/dta.svg" data-fallback="/assets/images/dta-300.png">
+                    <h1>{{ site.title }}</h1>
+                </a>
+            </div>
+        </div>
+    </div>
+    {% include main-navigation.html %}
+</header>

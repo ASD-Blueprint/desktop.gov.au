@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+    ports:
+      - "80:4000"
+    volumes:
+      - ".:/workdir"

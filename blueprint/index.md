@@ -20,7 +20,7 @@ The Blueprint contains guidance for best practice deployment incorporating advic
 * **Cloud Native** – Where an agency assumes an architecture that is based on consuming the Microsoft 365 offerings as a service, with no additional investment in on-premises infrastructure, and
 * **Hybrid** – Where an agency adopts the Microsoft 365 offerings while continuing to leverage some new or existing on-premises infrastructure in a 'hybrid' configuration. In many cases, design decisions are common across both deployment methods. Where specific elements differ for cloud and hybrid deployments, this Blueprint provides the common components applicable to all deployments and then offer further guidance for each deployment types.
 
-DTA manages a community of practice for adoptors, practitioners, and other interested parties. The community provides a direct channel to DTA as well as fosters discussion between community members. To keep up to date with Blueprint development and discussion, please visit [desktop.gov.au](https://desktop.gov.au/).
+DTA manages a community of practice for adoptors, practitioners, and other interested parties. The community provides a direct channel to DTA as well as fosters discussion between community members.
 
 If you want to download the full suite of Blueprint documents, you can access it in the [community](https://community.desktop.gov.au/). It includes:
 

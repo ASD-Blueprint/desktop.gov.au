@@ -13,13 +13,6 @@ benefits:
 - | 
   ### Build a future-ready workforce
   Increase your staff mobility, workplace flexibility and empower your people with modern ways of working.
-community:
-- |
-  ## Community
-  We created the Protected Utility community so the DTA can work with other agencies and industry partners who are implementing the Blueprint. It's a place to work together to overcome common technical obstacles, share lessons learnt and provide feedback to enhance the overall Blueprint design. We also bring you expert advice about implementing the Blueprint, security and cloud adoption.
-
-  {:.au-btn.au-btn--secondary}
-  [Join Community](https://community.desktop.gov.au/)
 ---
 
 ## Protected Utility Program

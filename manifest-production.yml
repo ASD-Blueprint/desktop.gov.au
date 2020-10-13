@@ -1,13 +1,10 @@
 ---
-path: _site/
-instances: 2
-memory: 64M
-disk_quota: 256M
-buildpack: staticfile_buildpack
-stack: cflinuxfs3
-
 applications:
 - name: desktop
-
-routes:
-- route: desktop.gov.au
+  instances: 3
+  memory: 64M
+  disk_quota: 256M
+  buildpack: staticfile_buildpack
+  stack: cflinuxfs3
+  routes:
+  - route: desktop.gov.au

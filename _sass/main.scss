@@ -159,6 +159,20 @@ table {
     transition: all 0.5s ease;
 }
 
+header .logo {
+    a {
+        text-decoration: none;
+    }
+    img {
+        max-width: 350px;
+    }
+    h1 {
+        color: #fff;
+        margin: 0;
+    }
+}
+
+
 /* sm */
 @media (min-width: 768px) {
     header.au-header {

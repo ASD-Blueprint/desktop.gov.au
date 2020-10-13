@@ -63,9 +63,6 @@ body {
         border-bottom: 1px solid #eee;
     }
 }
-@media print {
-    #content-area { padding: 0; }
-}
 
 .metadata {
     color: #666;
@@ -237,3 +234,12 @@ header .logo {
 
 /* lg */
 @media (min-width: 1200px) {}
+
+@media print {
+    header .logo {
+        h1 {
+            color: #000;
+        }
+    }
+    #content-area { padding: 0; }
+}

@@ -8,3 +8,6 @@ stack: cflinuxfs3
 
 applications:
 - name: desktop
+
+routes:
+- route: desktop.gov.au

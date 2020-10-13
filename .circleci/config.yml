@@ -10,6 +10,12 @@ references:
         echo "deb https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list
         sudo apt-get update
         sudo apt-get install cf-cli
+  build_site: &build_site
+    run:
+      name: Build site
+      command: |
+        bundle install --path=vendor/bundle
+        JEKYLL_ENV=production bundle exec jekyll build
   docker_image: &docker_image
     docker:
       - image: cimg/base:2020.01
@@ -20,6 +26,7 @@ jobs:
     steps:
       - checkout
       - *cf_install
+      - *build_site
       - run:
           name: Deploy to staging
           command: |
@@ -31,6 +38,7 @@ jobs:
     steps:
       - checkout
       - *cf_install
+      - *build_site
       - run:
           name: Deploy to production
           command: |

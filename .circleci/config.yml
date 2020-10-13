@@ -18,7 +18,7 @@ references:
         JEKYLL_ENV=production bundle exec jekyll build
   docker_image: &docker_image
     docker:
-      - image: cimg/base:2020.01
+      - image: circleci/ruby:2.6.6-stretch
 
 jobs:
   deploy_to_staging:

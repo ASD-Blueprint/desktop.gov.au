@@ -3,9 +3,7 @@ layout: page
 title: Client Devices
 ---
 
-This document covers the information as described in Table 5.
-
-Table 5 Document Structure
+This document covers the following topics.
 
 Section | Description
 --- | ---
@@ -35,14 +33,14 @@ The hardware platform chosen to support the Standard Operating Environment (SOE)
 
 The selected processor architecture and associated firmware capability directly influence the supportability of applications and security features of an operating system. The minimum hardware requirements listed below will ensure that the system runs reliably and is supported by the vendor, Microsoft.
 
-Table 6 Hardware Requirements Design Decisions for all agencies and implementation types.
+Hardware Requirements Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Laptop Model | Any device that meets the below requirements and the Agency procurement processes | To meet the Agency requirements.
 Desktop Model | Any device that meets the below requirements and the Agency procurement processes | To meet the Agency requirements.
 
-Table 9 provides the minimum hardware configuration for the Windows 10 SOE applicable to all agencies and implementation types.
+Minimum hardware configuration for the Windows 10 SOE applicable to all agencies and implementation types.
 
 Component | Description | Justification
 --- | --- | ---
@@ -64,7 +62,7 @@ Drivers that are essential to the hardware platform can be deployed in the base 
 
 Other drivers like printer drivers can be deployed after the end user has logged onto the device using either a "Follow Me Print" or "Defined print queue list" selected by the end user.
 
-Table 10 Drivers and Peripherals Design Decisions for all agencies and implementation types.
+Drivers and Peripherals Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -101,7 +99,7 @@ UEFI 2.3.1 is a requirement for the use of Device Guard.
 
 Secure Boot is required for the use of Credential Guard.
 
-Table 13 Firmware Configuration Design Decisions for all agencies and implementation types.
+Firmware Configuration Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -117,7 +115,7 @@ With a TPM, private portions of key pairs are kept separate from the memory cont
 
 A TPM of specific version number is required to support Windows 10 features such as Windows Hello and Bitlocker to help meet ACSC hardening guidelines for the OS.
 
-Table 16 Trusted Platform Module Design Decisions for all agencies and implementation types.
+Trusted Platform Module Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -139,13 +137,13 @@ Windows 10 deployments will be based on either a deployment which is cloud nativ
 * Cloud native – Image on the workstation will be modified using Autopilot and Intune. The OEM image in use should be from a trusted vendor or custom-built by the agency and provided to the OEM vendor for implementation prior to being dispatched to the agency. Alternatively, an offline image will need to be created by the agency and applied to the workstation prior to Autopilot and Intune. The offline image should be light weight consisting of the base Windows image and required base drivers only.
 * Hybrid – OEM image or SCCM task sequence should be used as the base for Windows 10, with Intune and Autopilot applied over the top of the image for further customisation. The OEM image in use should be from a trusted vendor or custom built by the agency and provided to the OEM vendor for implementation prior to being dispatched to the agency. Alternatively, an agency specific SCCM task sequence including the Windows image and base drivers. This image will then be further customised with Intune and Autopilot.
 
-Table 20 Additional Deployment Design Decisions for cloud native implementations
+Deployment Design Decisions for cloud native implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Deployment method | Agency light weight base image with Autopilot and Intune deployments applied as during enrolment | An agency specific light weight base image provides the benefit of removing all OEM applications and firmware prior to onboarding to the agency through Intune & Autopilot.
 
-Table 21 Additional Deployment Design Decisions for hybrid implementations
+Deployment Design Decisions for hybrid implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -163,9 +161,7 @@ A hybrid deployment gives the option of co-management which enables the agency t
 
 Hybrid deployments can choose to enable SCCM or Intune for client management depending on the cloud maturity level of the agency. It is not a requirement of agencies undertaking hybrid implementations to use SCCM. This Blueprint provides guidance on integration between SCCM and Intune for hybrid deployments however agencies with existing infrastructure may alternatively elect to migrate device management from SCCM to Intune, which will not affect cyber security postures.
 
-Table 22 describes the various management methods that can be used to manage Windows 10 in a Microsoft 365 environment.
-
-Table 22 Management methods available
+Management methods that can be used to manage Windows 10 in a Microsoft 365 environment.
 
 Microsoft 365 Implementation | SCCM Implementation | Management Method for Windows 10 | Benefits
 --- | --- | --- | ---
@@ -173,9 +169,9 @@ Cloud native | SCCM is not possible with cloud native | Intune | No on-premises 
 Hybrid with Intune management | Suitable for:<br> * No SCCM or<br>* SCCM with co-management enabled and Workloads set to Intune | Intune | Existing on-premises SCCM infrastructure with Hybrid Azure AD joined workstation. Well suited for an agency that does not have SCCM or does not want to use SCCM to manage workstations.
 Hybrid with SCCM management | SCCM with co-management enabled and Workloads set to SCCM | SCCM | Existing on-premises SCCM infrastructure with Hybrid Azure AD joined workstations. Well suited for an agency that has a significant investment in SCCM and requires a more gradual migration to Intune. Individual Workloads can be targeted and pilot-tested in Intune.
 
-Figure 2 displays an overview diagram of SCCM Co-Management.
+The following image displays an overview diagram of SCCM Co-Management.
 
-![Figure 2 SCCM Co-Management diagram](/assets/images/cd-sccm-comgmt.png)
+![SCCM Co-Management diagram](/assets/images/cd-sccm-comgmt.png)
 
 With co-management enabled, the agency can choose which workloads remain on-premises and which workloads are offloaded to Intune. The workloads are:
 
@@ -191,13 +187,13 @@ With co-management disabled and no cloud integration, the agency will rely on on
 
 There are many benefits to going cloud native or hybrid co-management utilising workloads weighted to Intune. The workstations can be managed from any internet-connected location whether that be in the office or a remote location (home, client site etc).
 
-Table 24 Additional Management Design Decisions for cloud native implementations
+Management Design Decisions for cloud native implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Management method | Cloud native Intune management | Cloud native implementation offers a simple and efficient implementation. Single console to manage both Windows 10 and iOS.
 
-Table 25 Additional Management Design Decisions for hybrid implementations
+Management Design Decisions for hybrid implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -224,7 +220,7 @@ Servicing of Windows 10 falls into three distinct channels or rings:
 * Semi-Annual Channel – Semi-Annual Channel receives feature update releases twice per year and is designed for the broad population of general-purpose devices within an organisation.
 * Long-Term Servicing Channel – Long-Term Servicing Channel (LTSC) receives releases much more gradually (expected every 2 - 3 years) and is designed for special purpose devices such as those used in Point of Sale (POS) systems or controlling factory or medical equipment, and those machines without Microsoft Office. Additionally, a number of applications are not supported on LTSC Windows devices, for example Microsoft Edge, Microsoft Store, and Microsoft Mail, amongst others.
 
-Table 26 Operating System Design Decisions for all agencies and implementation types.
+Operating System Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -267,7 +263,7 @@ This alternate configuration will not provide access to Azure Active Directory P
 
 While this meets the Microsoft minimum guidance and will comply with the requirements of the ISM, the exclusion of these two features reduces the effectiveness of the security controls. Specifically, the Just-In-Time administrative access provided by PIM and the automated responses to detected suspicious activities will not be available.
 
-Table 29 Activation and Licencing Design Decisions for all agencies and implementation types.
+Activation and Licencing Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -281,7 +277,7 @@ Windows 10 incorporates optional features that can be enabled to offer additiona
 
 When deploying a Windows 10 SOE, removing unnecessary features from the standard installation creates a simpler image to maintain. In Windows if a feature is not required or used within an environment, its removal means a faster deployment and a simpler user experience.
 
-Table 32 Windows Features Design Decisions for all agencies and implementation types.
+Windows Features Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -302,13 +298,13 @@ Universal Windows Platform (UWP) applications are applications that run on Windo
 
 UWP applications cannot access user resources unless the application specifically declares a need to use those resources. This ensures a clear connection between apps and the types of resources the app has access to.
 
-Table 35 Universal Windows Platform Applications Design Decisions for all agencies and implementation types.
+Universal Windows Platform Applications Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Windows 10 SOE Footprint | Reduce | The Agency will reduce the size of the Windows 10 SOE footprint by configuring the settings in Table 38 unless the Agency has a specific requirement for these applications to be enabled.
 
-Table 38 describes the Universal Windows Platform Application configuration applicable to all agencies and implementation types
+Universal Windows Platform Application configuration applicable to all agencies and implementation types
 
 Configuration | Value | Description
 --- | --- | ---
@@ -345,7 +341,7 @@ The Microsoft Store for Business allows organisations to purchase applications i
 
 Licensing can also be managed through the Microsoft Store for Business and administrators can reclaim and reuse application licenses.
 
-Table 39 Microsoft Store Design Decisions for all agencies and implementation types.
+Microsoft Store Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -365,7 +361,7 @@ Self-Service applications are requested by users directly. They can be delivered
 
 Packaging methodology should be inherited from existing Agency procedures as each application has unique requirements. It is possible to repacked existing applications into an msix format which is compatible with both Intune and SCCM delivery.
 
-Table 43 Additional Enterprise Applications Design Decisions for cloud native implementations
+Enterprise Applications Design Decisions for cloud native implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -373,7 +369,7 @@ Application Delivery Technologies | Deployed via Intune | Applications deployed 
 Self Service | Company Portal | Allow users to install the apps needed while ensuring the SOE remains as light weight as possible.
 Packaging Methodology | Agency preference | Applications will be packaged according to agency internal packaging standards and delivered via Intune
 
-Table 44 Additional Enterprise Applications Design Decisions for hybrid implementations
+Enterprise Applications Design Decisions for hybrid implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -391,7 +387,7 @@ Users can adjust power and performance options via the system tray power slider 
 * Better Performance - Better Performance is the default slider mode that slightly favours performance over battery life and is appropriate for users who want to trade-off power for better performance of applications
 * Best Performance - Best Performance prioritizes performance over battery life
 
-Table 45 Power Management Design Decisions for all agencies and implementation types.
+Power Management Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -425,7 +421,7 @@ Configuration of Cortana features can be managed by GPO or modern management (su
 
 Windows Search is text-based and is built into the local operating system.
 
-Table 48 Windows Search and Cortana Design Decisions for all agencies and implementation types.
+Windows Search and Cortana Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -440,7 +436,7 @@ Microsoft Edge Chromium is a web browser for Windows 10. It has been developed t
 
 Alternate browsers may also be deployed to support specific business needs or requirements.
 
-Table 51 Internet Browser Design Decisions for all agencies and implementation types.
+Internet Browser Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -453,7 +449,7 @@ Tablet Mode is an adaptive user experience feature in Windows 10 that optimises 
 
 Tablet Mode is a feature that switches a device experience from tablet mode to desktop mode and back. The primary way for an end-user to enter and exit "tablet mode" is manually through the Action Centre. In addition, Original Equipment Manufacturers (OEMs) can report hardware transitions (for example, transformation of 2-in-1 device from clamshell to tablet and vice versa), enabling automatic switching between the two modes.
 
-Table 54 Tablet Mode Design Decisions for all agencies and implementation types.
+Tablet Mode Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -465,7 +461,7 @@ Fast User Switching allows more than one concurrent connection to a Windows 10 d
 
 Fast User Switching creates potential security risks around session-jacking and credential breaches. If one user reboots or shuts down the computer while another user is logged on, the other user may lose work as applications may not automatically save documents.
 
-Table 57 Fast User Switching Design Decisions for all agencies and implementation types.
+Fast User Switching Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -481,7 +477,7 @@ Custom themes can be deployed to workstations either enforcing the theme or allo
 
 Although a system is capable of being assessed as PROTECTED, banners and backgrounds should not be set to PROTECTED in the SOE or desktop background until an IRAP assessment has been completed.
 
-Table 60 Corporate Branding Design Decisions for all agencies and implementation types.
+Corporate Branding Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -511,7 +507,7 @@ The system Computer Description can also be used to display the build date, time
 
 The Manufacturer value is used in the title string displayed in the support section, being "Manufacturer support". If the actual computer manufacturer were to be populated, then the support section heading would be "HP support", for example, which would be misleading for users. Setting the Manufacturer value to "Agency" would set the support section heading to "Agency support".
 
-Table 63 System Properties Design Decisions for all agencies and implementation types.
+System Properties Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -534,7 +530,7 @@ The default Start Menu layout can be configured for all users that use the devic
 * Partial enforcement – The start menu is deployed centrally and can be altered by users. An application group is deployed for corporate shortcuts and users can then add applications to the start menu in a separate application group. The centrally deployed application group cannot be altered.
 * No enforcement – No start menu is defined centrally, and users can make any modification to the start menu.
 
-Table 66 Start Menu Design Decisions for all agencies and implementation types.
+Start Menu Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -548,7 +544,7 @@ Screensavers should be applied at regular intervals in instances that a user may
 
 Configuration can be applied to restrict the end-user ability to configure or change the screen saver settings.
 
-Table 69 Screen Saver Design Decisions for all agencies and implementation types.
+Screen Saver Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -573,27 +569,27 @@ Microsoft provide the following profile management solutions:
 
 Windows 10 provides two main roaming profile technologies in User Experience Virtualization (UE-V) and FSLogix. FSLogix is now the preferred Roaming Profile option as it provides a consistently higher performance than UE-V and can provide a cloud-based roaming profile when configured with suitable Azure cloud storage blobs.
 
-Table 72 Profiles, Personalization, and Folder Redirection Design Decisions for all agencies and implementation types.
+Profiles, Personalization, and Folder Redirection Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Folder Redirection | Redirect Windows Known Folders | Users can continue using the folders they are familiar with. Files are automatically backed up to the users OneDrive folder in the cloud
 
-Table 73 Additional Profiles, Personalization, and Folder Redirection Design Decisions for cloud native implementations
+Additional Profiles, Personalization, and Folder Redirection Design Decisions for cloud native implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Profile Type | Local Profiles | Local profiles will be configured to support end-user assigned devices. This configuration assumes that users will not share devices and do not require profile backups.<br>Enterprise State Roaming will be enabled for key backup of key user settings.
 Known Folder Redirection Configuration  | Configured as listed below in Table 75 | To enable user personalisation and provide backup of essential user data.
 
-Table 74 Additional Profiles, Personalization, and Folder Redirection Design Decisions for hybrid implementations
+Additional Profiles, Personalization, and Folder Redirection Design Decisions for hybrid implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Profile Type | Roaming Profiles | Roaming profiles will be configured to support end-user assigned devices. A roaming profile management product is recommended by the vendor, Microsoft.<br>This configuration assumes that users can share devices.
 Known Folder Redirection Configuration  | Configured as listed below in Table 76 | To enable user personalisation and backup of essential user data
 
-Table 75 Known Folder Redirection Configuration applicable to agencies leveraging a cloud native implementation
+Known Folder Redirection Configuration applicable to agencies leveraging a cloud native implementation
 
 Folder | Path
 --- | ---
@@ -609,7 +605,7 @@ Music | Not Configured
 Pictures | `C:\Users\%username%\OneDrive\Pictures`
 Videos | Not Configured
 
-Table 76 Known Folder Redirection Configuration applicable to agencies leveraging a hybrid implementation
+Known Folder Redirection Configuration applicable to agencies leveraging a hybrid implementation
 
 Folder | Path
 --- | ---
@@ -641,7 +637,7 @@ The following support components are available to support Windows 10:
   * Remote Control within SCCM is this is configured in a hybrid deployment
   * Microsoft Teams assuming the user can share the desktop
 
-Table 77 Operational Support Design Decisions for all agencies and implementation types.
+Operational Support Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -674,7 +670,7 @@ Update rings are policies that are assigned to groups of devices. Intune can def
 
 To deploy patches to endpoints as quickly as possible, client-side settings should not restrict or delay the installation of patches where it does not interfere with critical operation or cause loss of data due to unexpected reboots.
 
-Table 80 Windows Update and Patching Design Decisions for all agencies and implementation types.
+Windows Update and Patching Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -696,7 +692,7 @@ Windows 10 provides support for several wireless networking technologies that al
 
 802.1x ensures that only appropriate users or devices can connect to a protected network and that data is secure at the radio transmission level. The Single Sign-On (SSO) feature executes Layer 2 network authentication at the appropriate time given the network security configuration, integrating with the user's Windows logon experience.
 
-Table 83 Networking Design Decisions for all agencies and implementation types.
+Networking Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -707,7 +703,7 @@ Broadband | Not Configured | If Agency devices have Subscriber Identity Module (
 Network Bridging | Disabled | As per ACSC hardening guidance for Windows 10 1909 and security and compliance requirements.
 Wake on LAN (WoL) | Configured via existing SCCM solution if in use | Wake on LAN configured to allow existing SCCM management tasks to operate on computers regardless of power status.
 
-Table 86 Wireless Configuration applicable to all agencies and implementation types
+Wireless Configuration applicable to all agencies and implementation types
 
 Configuration | Value | Description
 --- | --- | ---
@@ -743,14 +739,14 @@ BranchCache provides two modes of operation being:
 * Peer Cache: Is a built-in Configuration Manager solution that allows the clients to share content with other clients directly from their local cache providing Delivery Optimisation. 
 * Microsoft Connected Cache: With SCCM version 1910 a SCCM distribution point can be configured as a Microsoft Connected Cache server allowing it to act as an on-demand cache for content downloaded by Delivery Optimisation. 
 
-Table 88 Additional Delivery Optimisation Design Decisions for cloud native implementations
+Delivery Optimisation Design Decisions for cloud native implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Delivery Optimisation Method / Feature - single subnet per physical office | HTTP blended with peering behind same NAT | Good for single subnet per office as content will be peered per office only. This will not saturate WAN connections
 Delivery Optimisation Method / Feature - single subnet spanning multiple physical offices | HTTP blended with peering across private group | Provides the ability to group workstations so only the groupings can peer content
 
-Table 89 Additional Delivery Optimisation Design Decisions for hybrid implementations where SCCM is the update delivery mechanism
+Delivery Optimisation Design Decisions for hybrid implementations where SCCM is the update delivery mechanism
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -770,7 +766,7 @@ Within these release cycles, you can choose the architecture of 32-bit or 64-bit
 
 Pro Plus is an optional configuration which installed Office 365 locally on a client machine 
 
-Table 90 Microsoft Office Edition Design Decisions for all agencies and implementation types.
+Microsoft Office Edition Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -792,7 +788,7 @@ The Microsoft Office feature section includes the details of the following compo
 * Microsoft Word
 * Microsoft OneDrive Desktop
 
-Table 93 Office Features Design Decisions for all agencies and implementation types.
+Office Features Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -811,7 +807,7 @@ Language packs add additional display, help, and proofing tools to Microsoft Off
 
 If additional language packs are installed it is also likely that keyboards other than US will be required.
 
-Table 96 Office Language Pack Design Decisions for all agencies and implementation types.
+Office Language Pack Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -840,7 +836,7 @@ OneDrive Files On-Demand enables users to view, search for, and interact with fi
 
 OneDrive allows users to work on content that is stored online in the cloud as well as store and synchronise content locally through the OneDrive for Business client. Synchronising this content between the client device and OneDrive storage can consume a considerable amount of bandwidth especially if the internet connection is slow. The OneDrive for Business client provides the capability to shape upload and download rates for synchronising content hence reducing the impact on the network. If the internet connection is too slow the end user can continue to work on the content locally and the content will be automatically synchronised by OneDrive for Business client when the internet connection speed improves.
 
-Table 99 OneDrive for Business Design Decisions for all agencies and implementation types.
+OneDrive for Business Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -886,7 +882,7 @@ Microsoft Defender Exploit guard comprises of the below features:
 * Network protection – Network protection extends the malware and social engineering protection offered by Microsoft Defender SmartScreen in Microsoft Edge to cover network traffic and connectivity on agency devices
 * Controlled Folder Access – Controlled folder access protects files in key system folders from changes made by malicious and suspicious apps
 
-Table 102 Microsoft Defender Design Decisions for all agencies and implementation types.
+Microsoft Defender Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -905,7 +901,7 @@ The Windows 10 security baseline settings support Windows 10 version 1809 and la
 
 The Windows 10 security baseline configures Windows settings as advised by the relevant Microsoft security teams. This baseline configures default settings in accordance with vendor best practice and increases the overall security of the client device whilst still allowing it to function correctly.
 
-Table 105 Windows 10 Security Baselines Design Decisions for all agencies and implementation types.
+Windows 10 Security Baselines Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -953,7 +949,7 @@ The Microsoft Defender ATP security baseline settings support Windows 10 version
 
 The Defender ATP security baseline configures Defender settings as advised by the relevant Microsoft security teams. This baseline configures default settings in accordance with vendor best practice and increases the overall security of the client device whilst still allowing it to function correctly.
 
-Table 108 Defender ATP security baseline Design Decisions for all agencies and implementation types.
+Defender ATP security baseline Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -977,7 +973,7 @@ The Microsoft Edge security baseline settings support Edge version 80 and later.
 
 The Microsoft Edge security baseline has pre-configured groups of Windows settings and the default settings as advised by the relevant Microsoft security teams.
 
-Table 111 Microsoft Edge security baseline Design Decisions for all agencies and implementation types.
+Microsoft Edge security baseline Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -989,7 +985,7 @@ Application control is a crucial line of defence for protecting enterprises give
 
 Windows Defender Application Control (WDAC) helps mitigate these types of security threats by restricting the applications that users can run and the code that runs in the System Core (kernel). WDAC policies also block unsigned scripts and MSIs, and Windows PowerShell runs in Constrained Language Mode.
 
-Table 114 Application Whitelisting Design Decisions for all agencies and implementation types.
+Application Whitelisting Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1009,7 +1005,7 @@ Windows 10 provides various user account types or identity providers. This secti
 * Azure Active Directory (Azure AD) - Azure AD is Microsoft's cloud directory and identity management service. Azure AD includes a full suite of identity management capabilities. Azure AD is a prerequisite for Microsoft Intune mobile device management including Conditional Access
 * Microsoft Account - A Microsoft Account is an email address issued by or linked to a Microsoft authentication service. A Microsoft Account is a public version of an Azure Active Directory account. If this account is disabled certain features such as Windows Store cannot function.
 
-Table 117 Identity Providers Design Decisions for all agencies and implementation types.
+Identity Providers Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1019,14 +1015,14 @@ Microsoft Accounts | Disabled | In line with the ACSC Windows 10 1909 hardening 
 Windows Hello for Business | Disabled | Does not meet security requirements.
 Windows Hello for Business Configuration Method | Disabled | Does not meet security requirements.
 
-Table 118 Additional Identity Providers Design Decisions for cloud native implementations
+Additional Identity Providers Design Decisions for cloud native implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Azure Active Directory Accounts | Enabled | Machines will be Azure AD Joined
 Domain Accounts | Disabled | Machine will be Azure AD Joined
 
-Table 119 Additional Identity Providers Design Decisions for hybrid implementations
+Additional Identity Providers Design Decisions for hybrid implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1052,7 +1048,7 @@ Desktop Analytics is replacing Windows Analytics and Configuration Manager (SCCM
 * Issue identification - Potential issues are highlighted with upgrading and patching Windows by analysing captured data from Microsoft clients and organisational data. Potential mitigations can then be recommended
 * Configuration Manager integration - Extends the on-premises infrastructure by allowing data to be analysed in order to assist in the deployment and management of Windows devices
 
-Table 122 Additional Desktop Analytics Design Decisions for hybrid implementations
+Desktop Analytics Design Decisions for hybrid implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1075,11 +1071,11 @@ Telemetry level options are:
 * Enhanced – Additional insights, including how Windows and Windows apps are used, how they perform, advanced reliability info, and info from both the Basic and the Security levels
 * Full – All info necessary to identify and help to fix problems, plus info from the Security, Basic, and Enhanced levels
 
-Figure 3 shows the information in each of the different Telemetry Collection levels.
+The following image shows the information in each of the different Telemetry Collection levels.
 
-![Figure 3 Telemetry Options](/assets/images/cd-telemetry.png)
+![Telemetry Options](/assets/images/cd-telemetry.png)
 
-Table 123 Telemetry Collection Design Decisions for all agencies and implementation types.
+Telemetry Collection Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1100,7 +1096,7 @@ The ACSC provides guidelines in securing systems against malicious macros and re
 
 Email and web content filtering is recommended to be implemented by the ACSC to ensure that macros are not delivered to users via email by malicious actors.
 
-Table 126 Office Macro Hardening Design Decisions for all agencies and implementation types.
+Office Macro Hardening Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1120,7 +1116,7 @@ If there is a requirement to utilise the local Administrator account in an on-pr
 
 LAPS allows system administrators the ability to set a different, random password for the common local administrator account on each computer in the domain and store the password for the computer's local administrator account in Active Directory, secured in a confidential attribute in the computer's corresponding Active Directory object.
 
-Table 129 Local Administrator Design Decisions for all agencies and implementation types.
+Local Administrator Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1140,7 +1136,7 @@ iOS follows a yearly major release cycle. With every major release of iOS, older
 
 iOS devices should be configured to adhere to the ACSC hardening requirements to provide secure access to corporate information. ACSC recommends that the latest version of iOS is used in order to have the most secure operating system present on the device.
 
-Table 132 iOS Devices Design Decisions for all agencies and implementation types.
+iOS Devices Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1160,7 +1156,7 @@ Microsoft Intune provides three separate experience in enrolling the iOS devices
 * Device Enrolment Manager (DEM) – Device Enrolment Manager assigns a single Azure Active Directory account as the owner of the device. The end users cannot administer or purchase any apps on the device
 * User Enrolment – User enrolment process requires users set up the iOS device and manually install Company Portal to register the device as Intune enrolled device. The device will be marked as a BYOD device
 
-Table 135 Enrolling iOS Design Decisions for all agencies and implementation types.
+Enrolling iOS Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1176,7 +1172,7 @@ MDM provides the capability to configure iOS devices. These devices must be conf
 * Branding – The Agencies branding for lock screen, wallpapers, and reporting if the device is lost can be configured.
 * Device features – Configures device features, for example, AirDrop and Bluetooth pairing, within iOS devices.
 
-Table 138 Securing iOS devices Design Decisions for all agencies and implementation types.
+Securing iOS devices Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1184,7 +1180,7 @@ Mobile Device Management | Mobile devices will be managed using Intune | Leverag
 Security policies and hardening requirements | Security policies will be enforced on all mobile devices managed by the Agency | Security policies will be configured in line with the ACSC Security Configuration Guide – Apple iOS 12 Devices.
 Device Features | Disabled | AirDrop, Bluetooth pairing, AirPrint
 
-Table 141 Mobile Device Management Configuration applicable to all agencies and implementation types
+Mobile Device Management Configuration applicable to all agencies and implementation types
 
 Configuration | Value | Description
 --- | --- | ---
@@ -1214,7 +1210,7 @@ MAM provides the capability to configure iOS device applications. These configur
 * Managed Application configuration – Configure and secure managed application configuration within the device. These configurations allow and isolate managed applications to resides next to unmanaged applications.
 * Per-app VPN - Secure communication between applications on devices, and the Office 365 tenant. This will require the Agencies VPN device setup to accept communication from the VPN connection from managed apps.
 
-Table 142 Securing iOS Design Decisions for all agencies and implementation types.
+Securing iOS Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1236,7 +1232,7 @@ Intune provides the ability to reset the device (factory reset) or remove manage
 
 The Agency has indicated that the device must be able to be remotely wipe in case it is lost. This is to ensure information cannot be recovered in any circumstances.
 
-Table 145 Remote wipe iOS devices Design Decisions for all agencies and implementation types.
+Remote wipe iOS devices Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---

@@ -5,7 +5,7 @@ title: Solution Overview
 
 The Solution Overview document is the first in the Blueprint series and is designed for non-technical audiences who have a general understanding of what they want to achieve from their IT system. This document provides a high-level overview, some of the key design decisions and Essential Eight compliance and maturity level.
 
-A summary of this document can be found in Table 2.
+A summary of this document can be found below.
 
 Heading | Description
 --- | ---
@@ -203,7 +203,7 @@ The Essential Eight represents security guidance from the ACSC that prioritises 
 
 This section summarises the Blueprint's maturity level against the Essential Eight. It is important to note that any modifications outside of the Blueprint will require a gap analysis to determine the security implications.
 
-Table 8 describes how the Blueprint addresses each strategy identified by ACSC, and the maturity level attainable by implementing this Blueprint. 
+The following table describes how the Blueprint addresses each strategy identified by ACSC, and the maturity level attainable by implementing this Blueprint.
 
 Essential Eight Design Decisions
 

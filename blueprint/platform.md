@@ -9,9 +9,7 @@ Each section of the document provides a description of the relevant technology c
 
 It is important to consider that even if a product is licenced for use by Microsoft, it may not be included in this Blueprint if it is not required for all agencies. Additionally, an organisation may have requirements that will need to be considered outside of this Blueprint.
 
-This document covers the information as described in Table 5.
-
-Table 5 Document Structure
+This document covers the following topics.
 
 Section | Description
 --- | ---
@@ -29,7 +27,6 @@ The following tables in this section lists the components that are in scope for 
 
 ### Platform Design
 
-{:.table-component}
 Component | Inclusions
 --- | ---
 Azure Active Directory | Domains<br>User Accounts<br>Agency Collaboration<br>Multifactor Authentication<br>Conditional Access
@@ -41,7 +38,6 @@ System Administration | Administrative Consoles<br>Role bases Access Control
 
 ### Office 365 Design
 
-{:.table-component}
 Component | Inclusions
 --- | ---
 Office 365 Organisation | Residency<br>License<br>Self Service Purchase<br>Themes<br>Office 365 Services and Add-Ins<br>Role Based Access Control<br>Customer Lockbox
@@ -57,7 +53,6 @@ Office 365 Advanced Threat Protection | Safe Links<br>Safe Attachments<br>Anti-P
 
 ### Client Devices
 
-{:.table-component}
 Component | Inclusions
 --- | ---
 Windows 10 | Hardware<br>Deployment<br>Customisations<br>Security
@@ -95,7 +90,7 @@ Azure IAM is configured using:
 
 Where an Agency has already determined that a HYBRID solution is required, [additional considerations](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-overview) will apply and these should also be reviewed.
 
-Table 6 Azure AD Design Decisions for all agencies and implementation types.
+Azure AD Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -115,7 +110,7 @@ Custom Domain Names | Configured | {agency}.onmicrosoft.com<br>{agency}.gov.au
 Mobility (MDM and MAM) | Not Configured | Default settings.
 Company Branding | Configured | Agency specific logos will be required.
 
-Table 7 Additional Azure AD Design Decisions for cloud native implementations
+Additional Azure AD Design Decisions for cloud native implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -124,7 +119,7 @@ App registration | Not Configured | Default settings.
 Password Reset | Configured | For self-service password reset, users will need to provide an alternate email address, mobile app and phone number during registration. To reset their password, they will need to provide two methods of verification.
 Identity Format | Configured | Usernames will conform to firstname.lastname{sequence number}<br>Note: The sequence number is only required if duplicate names would be created.
 
-Table 8 Additional Azure AD Design Decisions for hybrid implementations
+Additional Azure AD Design Decisions for hybrid implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -150,13 +145,13 @@ Emergency access or 'break-glass' accounts are accounts used to restore access t
 * The accounts are stored on paper, in two or three separate parts, in secure, fireproof safes that are in disparate locations.
 * Use of these accounts is monitored and only used in genuine emergencies.
 
-Table 9 Emergency access account Design Decisions for all agencies and implementation types.
+Emergency access account Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Emergency Access accounts | Configured | Two emergency access accounts will be configured in alignment to Microsoft and security best practice.
 
-Table 12 Emergency access account configuration for all agencies and implementation types
+Emergency access account configuration for all agencies and implementation types
 
 Configuration | Value | Description
 --- | --- | ---
@@ -184,7 +179,7 @@ Azure AD Identity Protection uses the following mechanisms to detect anomalous a
 
 Azure AD Identity Protection provides mechanisms for logging and reporting functionality that simplify investigation activities.
 
-Table 13 Azure AD Identity Protection Design Decisions for all agencies and implementation types.
+Azure AD Identity Protection Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -214,7 +209,7 @@ Azure MFA provides multiple verification methods, such as:
 
 Azure MFA integrates with Azure AD Conditional Access polices, or the Trusted IP ranges feature to determine under what circumstances and user's physical location a challenge for additional authentication is required . Conditional Access polices are the recommended method to determine MFA conditions.
 
-Table 16 Azure AD Multifactor Authentication Design Decisions for all agencies and implementation types.
+Azure AD Multifactor Authentication Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -240,13 +235,13 @@ When a user attempts to access an application or system from any device, one or 
 
 Based on the above conditions, the user will either be allowed, prompted for multi-factor authentication, or blocked.
 
-Table 19 Conditional Access Design Decisions for all agencies and implementation types.
+Conditional Access Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Conditional Access Enabled| Device Based | To meet security and business requirements. This allows only approved and agency issued devices access to the Agency's resources.
 
-Table 21 Additional Conditional Access Design Decisions for hybrid implementations
+Additional Conditional Access Design Decisions for hybrid implementations
 
 Configuration | Value | Description
 --- | --- | ---
@@ -274,7 +269,7 @@ Active Directory is an on-premises directory service which stores identity infor
 
 Additional features and capabilities are available within Active Directory when the Forest and Domain Functional levels are raised. The Functional level of Active Directory is linked to several items including the operating system of the domain controllers. To access all features and capabilities the highest functional level is required. For hybrid identity a minimum Forest Functional level of 2003 is required. To use additional hybrid identity features such as password writeback a minimum Forest Functional level of 2008 R2 is required.
 
-Table 25 Additional Active Directory Design Decisions for hybrid implementations
+Active Directory Design Decisions for hybrid implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -286,7 +281,7 @@ When a new Azure AD tenant is created it is assigned a default domain name. This
 
 On-premises domains can also be registered to the tenant to be used by Azure and Exchange Online. These domains can then be used for receiving email and/or be utilised as the User Principal Name (UPN).
 
-Table 28 Additional Domain Design Decisions for hybrid implementations
+Domain Design Decisions for hybrid implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -331,9 +326,7 @@ When the above are all true, the external user can be invited generating an invi
 
 B2B only requires a small amount of user information (name, and email), however it is recommended that CISOs consuming this document creates a process outside of technology that ensures Agency identity requirements are met. The identity requirements should include the properties listed in the table below and the external user's nationality and clearances held.
 
-Table 29 describes the identity properties that should be a minimum requirement before collaboration is enabled for all agencies and implementation types.
-
-Table 29 Identity properties for all agencies and implementation types
+The following table describes the identity properties that should be a minimum requirement before collaboration is enabled for all agencies and implementation types.
 
 Field | Example | Justification
 --- | --- | ---
@@ -351,15 +344,13 @@ Photo | ID.JPEG | Viewing and identifying the user.
 
 In addition to the above, Conditional Access policies should be enforced requiring external individuals to use MFA, block legacy authentication, and block from disallowed locations.
 
-Table 30 describes the minimal conditional access policies that should be applied by the partner agency for all agencies and implementation types.
-
-Table 30 Conditional Access Policies for all agencies and implementation types
+The following table describes the minimal conditional access policies that should be applied by the partner agency for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Conditional Access Policies | **BLOCK - Legacy Authentication**:<br>This global policy blocks all connections from unsecure legacy protocols like ActiveSync, IMAP, PO3, etc.<br>**BLOCK - Countries not Allowed:**<br>This global policy blocks all connections from countries not in the Allowed countries whitelist. | Minimises the risk of the user in the partner organisation using credentials that have been compromised.
 
-Table 31 Azure AD design decisions in relation to inter-Agency collaboration for all agencies and implementation types
+Azure AD design decisions in relation to inter-Agency collaboration for all agencies and implementation types
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -378,9 +369,9 @@ AAD Connect can be deployed in several patterns. These patterns follow the guidi
 
 As only one AAD Connect instance can be actively synchronising at a time high availability is not possible. A warm standby can be configured using a second AAD Connect server in Staging mode.
 
-Figure 2 illustrates the user identity synchronisation between the Agency's on-premises AD to Azure AD.
+The following illustrates the user identity synchronisation between the Agency's on-premises AD to Azure AD.
 
-![Figure 2 AD Connect Identity Synchronisation](/assets/images/platform-ad-connect-id-sync.png)
+![AD Connect Identity Synchronisation](/assets/images/platform-ad-connect-id-sync.png)
 
 Within the AAD Connect client the synchronisation process can be customised in several ways including:
 
@@ -393,13 +384,13 @@ Each of the above customisations provide control over what directory information
 
 When AAD Connect is leveraged, a user would be created within the on-premises directory service (Active Directory) and then synchronised via the AAD Connect client into Azure AD (the cloud-based directory service).
 
-Figure 3 illustrates a typical user account provisioning workflow for a hybrid configuration.
+The following illustrates a typical user account provisioning workflow for a hybrid configuration.
 
-![Figure 3 User Provisioning Workflow](/assets/images/platform-user-provisioning-workflow.png)
+![User Provisioning Workflow](/assets/images/platform-user-provisioning-workflow.png)
 
 Firewall rules will be implemented for AAD Connect. Further details on firewall configuration can be found in the Network Configuration ABAC.
 
-Table 36 Additional AAD Connect Design Decisions for hybrid implementations
+AAD Connect Design Decisions for hybrid implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -415,7 +406,7 @@ Exchange Hybrid | Configured | Exchange will be used in a hybrid configuration w
 Exchange Mail Public Folders | Not Configured | The Agency does not leverage Public folders currently, therefore this setting is not required.
 Directory extension attribute synchronisation | Not Configured | Not required for this solution.
 
-Table 37 AAD Connect configuration applicable to agencies leveraging a hybrid implementation.
+AAD Connect configuration applicable to agencies leveraging a hybrid implementation.
 
 Configuration | Value | Description
 --- | --- | ---
@@ -440,21 +431,17 @@ In a hybrid scenario, authentication support is required outside the corporate n
 * Pass-through authentication (PTA) – This feature allows users to login to Azure services including Office 365 using their on-premises credentials. When authenticating, the user enters their credentials into an Azure authentication service. The service encrypts the credentials and place the request in a queue. The on-premises PTA agents read the queue and perform the decryption and validation against Active Directory. The outcome of the validation is sent via the PTA agent to the Azure authentication service to complete the user's authentication request. Through the process no credentials are stored within Azure AD.
 * Federation integration (AD FS) – Active Directory Federation Services (AD FS) allows users to login to Office 365 services using the organisations existing federation infrastructure. A federation trust is established between the corporate network and Azure AD with the authentication method being handled on-premises.
 
-Figure 4 illustrates the pass-through authentication method and how it communicates across the network.
+The following illustrates the pass-through authentication method and how it communicates across the network.
 
-![Figure 4 Authentication Architecture](/assets/images/platform-authentication-architecture.png)
+![Authentication Architecture](/assets/images/platform-authentication-architecture.png)
 
-Table 38 describes the ports and protocols used in a hybrid configuration between on the PTA Agent and Azure AD. The hardware requirements for PTA agents are available in Appendix 1: AAD Connect and PTA agent hardware requirements.
-
-Table 38 Pass-through Authentication Outbound Ports and Protocols
+The following table describes the ports and protocols used in a hybrid configuration between on the PTA Agent and Azure AD. The hardware requirements for PTA agents are available in Appendix 1: AAD Connect and PTA agent hardware requirements.
 
 Protocol | Port | Description
 --- | --- | ---
 HTTP | 80 (TCP/UDP) | Enable outbound HTTP traffic for security validation such as SSL. Also needed for the connector auto-update capability to function properly.
 
 Authentication Method design considerations and decisions apply to the HYBRID solution.
-
-Table 41 Additional Authentication Method Design Decisions for hybrid implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -533,7 +520,7 @@ Once a cloud app has been discovered and its usage reviewed it can be either san
 
 Note, if MCAS is integrated with Defender ATP, or other options then unsanctioned apps will be blocked automatically without the need to generate block scripts.
 
-Table 42 Cloud Discovery Design Decisions for all agencies and implementation types.
+Cloud Discovery Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -555,7 +542,7 @@ There are two supported deployment modes for log collectors:
 
 The Docker container is supported on Windows 10 and Windows Server version 1709 and later, Ubuntu versions 14.04, 16.04 and 18.04, and Red Hat Enterprise Linux (RHEL) and CentOS 7.2 or later. The image can be deployed on VMs either hosted on-premises or within Azure, provided suitable network connectivity from the proxy/firewall devices is available.
 
-Table 45 Log Collector Design Decisions for all agencies and implementation types.
+Log Collector Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -572,7 +559,7 @@ This capability is enabled from within the Advanced Features settings within Mic
 
 ![Figure 6 - Defender ATP and MCAS Integration](/assets/images/platform-defender-mcas.png)
 
-Table 48 Microsoft Defender ATP integration Design Decisions for all agencies and implementation types.
+Microsoft Defender ATP integration Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -584,7 +571,7 @@ To further enrich cloud discovery data MCAS can integrate with Azure AD to repla
 
 This simplifies identification and investigation of user activity, as well as allowing correlation with API collected activities.
 
-Table 51 Cloud Discovery Enrichment Design Decisions for all agencies and implementation types.
+Cloud Discovery Enrichment Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -596,7 +583,7 @@ To protect the privacy of users MCAS supports anonymisation of usernames when lo
 
 Security analysts can resolve encrypted usernames on demand to assist in investigations, and each username conversion is recorded in the Governance log. In addition to usernames, MCAS can also anonymise Windows 10 machine names.
 
-Table 54 User Data Anonymisation Design Decisions for all agencies and implementation types.
+User Data Anonymisation Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -609,7 +596,7 @@ In addition to the extensive library of cloud apps that are natively available i
 
 This allows Cloud Discovery to identify these custom cloud apps from uploaded firewall and proxy logs and enables security analysts to filter on them specifically.
 
-Table 57 Custom Apps Design Decisions for all agencies and implementation types.
+Custom Apps Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -619,7 +606,7 @@ Custom Apps | Configured on demand | Custom apps will be added to Cloud Discover
 
 MCAS supports the creation and assignment of custom app tags from within the portal. Security analysts can create and apply custom tags to allow them to filter and query results specific to an area of interest. For example, a custom tag may be created for a business unit and that tag applied to only the applications that are approved for their use (i.e. Procurement). An analyst can then quickly filter based on this tag to review the use of these applications.
 
-Table 60 App Filters and Queries Design Decisions for all agencies and implementation types.
+App Filters and Queries Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -650,7 +637,7 @@ At the time of writing, the following API app connectors are [available in MCAS]
 
 To connect to each cloud app via API MCAS requires an account within that app that has administrative privileges with full access to all objects stored within it. The name of this specific privilege level is specific to each cloud app, e.g. Global Admin for Office 365 and Super Admin for G Suite. It is recommended that a dedicated account is used for integration with MCAS for each connected app.
 
-Table 63 App Connectors Design Decisions for all agencies and implementation types.
+App Connectors Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -672,7 +659,7 @@ At the time of writing, the Office 365 app connector supports the following [Off
 
 Note, that Exchange and Power BI require that auditing has been enabled in the Office Security and Compliance Centre.
 
-Table 66 Office 365 App Connectors Design Decisions for all agencies and implementation types.
+Office 365 App Connectors Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -696,7 +683,7 @@ Note, Access and Sessions policies are covered in additional detail in the Condi
 
 In addition to the policy types listed above, MCAS provides pre-configured policy templates that can be used to streamline policy development and enforcement. Custom policies can also be created by specifying a trigger 
 
-Table 69 Policies Design Decisions for all agencies and implementation types.
+Policies Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -712,7 +699,7 @@ Azure ATP provides User Entity Behavioural Analytics (UEBA) by monitoring authen
 
 Integrating Azure ATP with MCAS extends this capability to hybrid environments and presents all Azure ATP Suspicious Activity (SA) alerts to the MCAS dashboard, reducing the need for security analysts to monitor multiple consoles. To connect Azure ATP to MCAS the user enabling the setting must be an Azure AD Global Admin. Integration is enabled in the MCAS console and does not require configuration from the Azure ATP console.
 
-Table 72 Azure ATP integration Design Decisions for all agencies and implementation types.
+Azure ATP integration Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -730,7 +717,7 @@ Note, files that are detected as malware and are stored in either SharePoint Onl
 
 Before a file policy can be configured to use the admin quarantine a folder location for it must first be identified. Only a single admin quarantine folder location is configured for each MCAS instance and is used by all file policies that leverage this capability. A user notification can also be configured to provide an explanation to users when they attempt to access a quarantined file.
 
-Table 75 Admin quarantine Design Decisions for all agencies and implementation types.
+Admin quarantine Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -743,7 +730,7 @@ Azure Information Protection (AIP) provides document and email classification la
 
 To enable MCAS to inspect the content of files that have been protected by AIP it must be granted that permission in Azure AD. This is done via a guided activity initiated from the MCAS portal.
 
-Table 78 Azure Information Protection Design Decisions for all agencies and implementation types.
+Azure Information Protection Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -757,7 +744,7 @@ MCAS can be configured to monitor all activities generated within those subscrip
 
 Similar to Azure ATP integration, this centralises alerts into the MCAS dashboard, reducing the need for security analysts to monitor multiple consoles. The Azure Security Centre standard tier license must be acquired and enabled for one or more subscriptions within the tenant.
 
-Table 81 Azure Security Design Decisions for all agencies and implementation types.
+Azure Security Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -769,7 +756,7 @@ As previously described, file policies can be used to manage documents stored in
 
 There are no design considerations.
 
-Table 84 MCAS Files Design Decisions for all agencies and implementation types.
+MCAS Files Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -792,7 +779,7 @@ Examples of the Conditional Access App Control policies that can be configured t
 
 Note, to use Conditional Access App Control an Azure AD Premium P1 license is required in addition to the MCAS license.
 
-Table 87 Conditional Access App Control Protection Design Decisions for all agencies and implementation types.
+Conditional Access App Control Protection Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -805,7 +792,7 @@ In the event of a system outage or downtime MCAS can be configured with a Defaul
 
 This is a deployment wide setting which can be configured to either prevent users from accessing an app if normal policy cannot be enforced, or to provide unrestricted access if this occurs.
 
-Table 90 Default Behaviour Design Decisions for all agencies and implementation types.
+Default Behaviour Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -817,7 +804,7 @@ When using Conditional Access App Control to manage access and sessions, MCAS pr
 
 If user notifications are enabled administrators can either use a Microsoft-provided default message or provide their own, which will include their organisational logo (if it has been uploaded to MCAS).
 
-Table 93 User Monitoring Design Decisions for all agencies and implementation types.
+User Monitoring Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -835,7 +822,7 @@ MCAS and Conditional Access App Control support three methods to identified mana
 
 A combination of multiple of these methods can be configured if required to identify devices within a diverse environment. Devices that are present in Intune, as well as those that are registered to Azure AD (hybrid joined), are automatically synchronised to MCAS. To use client certificates to identify devices either a trusted root or intermediate certificate must be uploaded to MCAS in Privacy-Enhanced Mail (PEM) format.
 
-Table 96 Device Identification Design Decisions for all agencies and implementation types.
+Device Identification Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -847,7 +834,7 @@ Specific users can be identified that can enable currently unsupported cloud app
 
 These users can be identified by either email or User Principal Name (UPN) and must be configured within the MCAS console. Once an app is onboarded by a specified user a feedback bar will be presented as part of the application to enable developers and testers to provide feedback directly back to Microsoft's Cloud App Security team.
 
-Table 99 App Onboarding/Maintenance Design Decisions for all agencies and implementation types.
+App Onboarding/Maintenance Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -870,7 +857,7 @@ By creating API tokens within the MCAS portal external applications can connect 
 
 A common use-case for this is to generate block scripts from a third-party network appliance, or to resolve alerts that have been investigated through a connected SIEM product.
 
-Table 102 API token Design Decisions for all agencies and implementation types.
+API token Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -888,14 +875,14 @@ At the time of writing the SIEM agent only supports Micro Focus ArcSight and gen
 
 In addition to the SIEM agent, MCAS supports native integration with Azure Sentinel and the Microsoft Security Graph API. Azure Sentinel is Microsoft's cloud native SIEM offering, while the Security Graph API provides additional partner integration solutions, e.g. the Microsoft Graph Security API Add-On for Splunk.
 
-Table 106 Additional SIEM agents Design Decisions for cloud native implementations
+SIEM agents Design Decisions for cloud native implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Azure Sentinel integration | Configured | To support integration between MCAS and Microsoft cloud native SIEM solution.
 Azure Sentinel license | Yes | To enable Azure Sentinel integration an Azure Sentinel license is required.
 
-Table 107 Additional SIEM agents Design Decisions for hybrid implementations
+SIEM agents Design Decisions for hybrid implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -909,7 +896,7 @@ In addition to integration with third-party SIEMs, MCAS also supports integratio
 
 Integration between external DLP solution and MCAS is performed via the Internet Content Adaptation Protocol (ICAP) protocol which is tunnelled over TLS. This allows MCAS to use the external DLP engine to scan content identified in connected cloud apps for policy violations.
 
-Table 108 External DLP Design Decisions for all agencies and implementation types.
+External DLP Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -921,7 +908,7 @@ MCAS supports playbook-based automation by integrating with Microsoft Flow (also
 
 Specific MCAS alerts can be configured as playbook triggers, automating pre-approved responses and minimising security analyst intervention. Playbooks are created in Microsoft Flow and made available to MCAS via the Cloud App Security connector. The use of playbooks requires a Microsoft Flow plan.
 
-Table 111 Playbooks Design Decisions for all agencies and implementation types.
+Playbooks Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -960,7 +947,7 @@ Azure ATP relies on Network Name Resolution (NNR) to correlate between raw activ
 
 Microsoft recommends using all the above methods, however if this is not possible the Agency should use the DNS lookup method and at least one of the other methods available at [https://docs.microsoft.com/en-us/azure-advanced-threat-protection/atp-nnr-policy](https://docs.microsoft.com/en-us/azure-advanced-threat-protection/atp-nnr-policy).
 
-Table 116 Additional Azure ATP Design Decisions for hybrid implementations
+Azure ATP Design Decisions for hybrid implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -986,7 +973,7 @@ Azure AD provides the basis for the Azure ATP role groups. When Azure ATP is ena
 
 Note, in addition to the role groups described above, any tenant Global and Security Admins can login to the Azure ATP portal.
 
-Table 119 Additional Role group Design Decisions for hybrid implementations
+Role group Design Decisions for hybrid implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1005,7 +992,7 @@ Azure ATP does not require a Simple Mail Transfer Protocol (SMTP) server to be c
 * Transport protocol, either Transport Control Protocol (TCP), User Datagram Protocol (UDP) or Transport Layer Security (TLS) / Secured Syslog.
 * Request For Comments (RFC) 3164 or 5424 format.
 
-Table 122 Additional Notification Design Decisions for hybrid implementations
+Notification Design Decisions for hybrid implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1018,7 +1005,7 @@ Azure ATP supports native integration with Defender Advanced Threat Protection (
 
 The purpose of this is to combine Azure ATP's monitoring of AD and DCs specifically, with Defender ATP's monitoring of general endpoints, to provide a single interface that combines events and alerts from both.
 
-Table 125 Additional Integration with Defender ATP Design Decisions for hybrid implementations
+Integration with Defender ATP Design Decisions for hybrid implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1048,7 +1035,7 @@ To connect Azure ATP to MCAS the user enabling the setting must be an Azure AD G
 * SIEM notification – both Azure ATP and MCAS can be configured to send alert notification to a SIEM. In the event this is configured duplicate SIEM notifications for the same alerts will be visible within SIEM under different alert ID's. To avoid this situation, it is recommended to choose which portal will be used to perform alert management and then only this portal is to be configured to send alert notification to a SIEM.
 * Activities – MCAS displays Azure ATP alerts also in the activity log. MCAS provides additional activity filtering not available within Azure ATP.
 
-Table 128 Additional Integration with MCAS Design Decisions for hybrid implementations
+Integration with MCAS Design Decisions for hybrid implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1065,9 +1052,8 @@ Microsoft Defender Advanced Threat Protection can be configured with the followi
 * Secure Score Baseline - Secure Score Baseline configures the product baselines for calculating the score of Microsoft Defender security controls on the secure score dashboard. If third-party solutions are in use the corresponding controls should be excluded from the calculations.
 * Administration Roles and Machine Groups - Administration roles provide the ability to configure role-based access and granular options for regulating permissions to portal features and data. Machine groups enabled machines to be organised into groups and apply configured automated remediation levels and assigned administrators.
 
-Table 129 Microsoft Defender ATP Design Decisions for all agencies and implementation types.
+Microsoft Defender ATP Design Decisions for all agencies and implementation types.
 
-{:.table-component}
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Microsoft Defender ATP | Configured | To provide increased security and meet the requirements of this document.
@@ -1097,7 +1083,7 @@ Log Analytics is billed per gigabyte (GB) of data ingested and retained into the
 
 Log Analytics is available in certain regions only. At the time of writing, these regions are Australia Southeast (Melbourne) and AU Central (Canberra CDC Fyshwick).
 
-Table 132 Log Analytics Design Decisions for all agencies and implementation types.
+Log Analytics Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1105,9 +1091,8 @@ Log Analytics Workspace | Deployed | The Log Analytics workspace will primarily 
 Pricing mode | Per GB | Log Analytics pricing is based on data consumed.
 Incurs Subscription Cost? | Yes | Log Analytics pricing is based on data consumed. Data Volume could be reduced to 90 days if the Agency has an existing SIEM for further custom log analysis.
 
-Table 135 Log Analytics configuration for all agencies and implementation types
+Log Analytics configuration for all agencies and implementation types
 
-{:.table-component}
 Configuration | Value | Description
 --- | --- | ---
 Workspace Name | agency-log-workspace | Log workspace name to be confirmed by the Agency
@@ -1127,7 +1112,7 @@ SIEM is a combination of tools and services that provide insights into a network
 
 In a hybrid environment the SIEM can be located either on-premises or in the cloud. In either location, all logs from the environment should be sent to one SIEM. This ensures maximum insight and creates a single pane of glass. To ensure that all logs from the cloud can be ingested by the SIEM compatibility of the SIEM product with Microsoft Office 365, Microsoft Azure, and Azure Monitor should be investigated.
 
-Table 136 SIEM Design Decisions for all agencies and implementation types.
+SIEM Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1165,7 +1150,7 @@ Intune can also configure Windows Information Protection (WIP) polices. WIP can 
 
 Within WIP, Network boundaries are created as a network perimeter that controls what applications can be accessed on the network.
 
-Table 140 Additional Intune Design Decisions for cloud native implementations
+Intune Design Decisions for cloud native implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1199,14 +1184,14 @@ Using MAM, a corporate app that contains sensitive data can be managed on a wide
 
 When deploying a hybrid solution, the management of Windows devices should be considered when choosing to implement MAM for clients. Management solutions such as Group Policy and SCCM can provide functionality to control applications which negates the use of MAM on Windows machines.
 
-Table 143 Additional Mobile Application Management Design Decisions for cloud native implementations
+Mobile Application Management Design Decisions for cloud native implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Mobile Application Management Method | Windows 10 – Intune<br>iOS - Intune | Mobile applications (Windows 10 and iOS) will be deployed via Intune.
 Applications Managed | Microsoft Azure Information Protection<br>Microsoft Corporate Portal<br>Adobe Reader<br>Microsoft Suite - <br>Outlook<br>Word<br>Excel<br>Teams<br>PowerPoint<br>OneNote<br>OneDrive | These core Microsoft business applications will be managed via Intune as they will be deployed to all Windows 10 and iOS users.
 
-Table 144 Additional Mobile Application Management Design Decisions for hybrid implementations
+Mobile Application Management Design Decisions for hybrid implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1225,7 +1210,7 @@ Microsoft Intune provides three separate experience in enrolling the iOS devices
 * Device Enrolment Manager (DEM) – Device Enrolment Manager assigns a single Azure Active Directory account as the owner of the device. The end users cannot administer or purchase any apps on the device.
 * User Enrolment – User enrolment process requires users set up the iOS device and manually install Company Portal to register the device as Intune enrolled device. The device will be marked as a BYOD device.
 
-Table 146 Additional Intune Enrolment Design Decisions for cloud native implementations
+Intune Enrolment Design Decisions for cloud native implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1246,13 +1231,11 @@ Intune deploys and manages first-party Microsoft applications in a simple manner
 
 Intune also provides a patching mechanism which simplifies the deployment of Microsoft first-party updates for applications and Windows 10 but does not allow granular control over patches.
 
-Figure 8 provides an overview of co-management. Figure reproduced from https://docs.microsoft.com/en-us/mem/configmgr/comanage/overview
+The following figure provides an overview of co-management. Figure reproduced from https://docs.microsoft.com/en-us/mem/configmgr/comanage/overview
 
-![Figure 8 Co-management overview](/assets/images/platform-intune-comgmt.png)
+![Co-management overview](/assets/images/platform-intune-comgmt.png)
 
 Intune Co-Management design considerations and decisions apply to the HYBRID solution.
-
-Table 150 Additional Intune Co-Management Design Decisions for hybrid implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1283,9 +1266,9 @@ Windows Autopilot provides the ability to:
 * Restrict the Administrator – Restrict administrator account creation.
 * Create and auto-assign devices – Auto assign to configuration groups based on a device's profile.
 
-![Figure 9 – Autopilot Deployment](/assets/images/platform-autopilot.png)
+![Autopilot Deployment](/assets/images/platform-autopilot.png)
 
-Table 152 Additional Intune Windows AutoPilot Design Decisions for cloud native implementations
+Intune Windows AutoPilot Design Decisions for cloud native implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1311,7 +1294,7 @@ Device Compliance Profiles deployed ensure a strong security posture for the ent
 * System Security – Password compliance, standards, length, and complexity. This also includes device level firewall, TPM, Antivirus, Antispyware, and Microsoft Defender Antimalware settings.
 * Microsoft Defender ATP – Configures the maximum allowed machine risk score, if exceeded the device is marked as noncompliant.
 
-Table 154 Device Compliance Design Decisions for all agencies and implementation types.
+Device Compliance Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1339,20 +1322,20 @@ Custom profiles can be created for a platform although this should be considered
 
 In a co-managed state, these settings may be superfluous to existing Group Policies and SOE settings.
 
-Table 157 Device Configuration Design Decisions for all agencies and implementation types.
+Device Configuration Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
 iOS policies | Configured | Intune policies are applied easing management.
 Device security policies | Configured by exception | Security baselines as discussed below provide a better option when the settings are available.
 
-Table 158 Additional Device Configuration Design Decisions for cloud native implementations
+Additional Device Configuration Design Decisions for cloud native implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Windows 10 and later polices | Configured | Intune policies are applied easing management.
 
-Table 159 Additional Device Configuration Design Decisions for hybrid implementations
+Additional Device Configuration Design Decisions for hybrid implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1372,7 +1355,7 @@ These baselines provide robust security guidelines and are generated by Microsof
 
 In the case of a co-managed / hybrid scenario, security baselines should only be used when they do not conflict with settings deployed through SCCM and Group Policy.
 
-Table 161 Additional Security Baselines Design Decisions for cloud native implementations
+Security Baselines Design Decisions for cloud native implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1380,7 +1363,7 @@ Windows 10 Security Baselines | Configured | System configuration is managed via
 Microsoft Defender ATP Baselines | Configured | System configuration is managed via Intune.
 Microsoft Edge Baseline | Configured | System configuration is managed via Intune.
 
-Table 162 Additional Security Baselines Design Decisions for hybrid implementations
+Security Baselines Design Decisions for hybrid implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1394,7 +1377,7 @@ Application protection policies are rules that ensure an Agency's data remains s
 
 An application protection policy can be a rule that is enforced when the user attempts to access or move "corporate" data, or a set of actions that are prohibited or monitored when the user is inside the app.
 
-Table 163 Information Protection Design Decisions for all agencies and implementation types.
+Information Protection Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1416,7 +1399,7 @@ Fast and slow update rings can be configured and assigned to different groups or
 
 When deploying a hybrid solution, the software and patch updates of Windows devices should be considered. Other management solutions such as SCCM and Windows Server Update Service (WSUS) may be servicing the Windows devices for the updates hence duplicating processes.
 
-Table 166 Software Updates Design Decisions for all agencies and implementation types.
+Software Updates Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1433,7 +1416,7 @@ iOS devices will be enrolled with the Intune Agency Portal to gain secure access
 
 After devices are enrolled, they become managed. Agencies can assign policies and apps to the device through a mobile device management (MDM) provider, such as Intune.
 
-Table 169 Intune iOS Design Decisions for all agencies and implementation types.
+Intune iOS Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1452,13 +1435,13 @@ There are several tools available to apply registry settings such as:
 
 The ACSC provides the Microsoft Windows and Office 365 hardening guides that defines group policy settings along with other recommendations to significantly reduce the attack surface available to malicious attacks.
 
-Table 173 Additional Registry settings Design Decisions for cloud native implementations
+Registry settings Design Decisions for cloud native implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Registry Setting Method | Intune | The Agency will use Intune to implement and modify user and computer registry settings to comply with ACSC Windows and Office 365 Pro Plus hardening guides.
 
-Table 174 Additional Registry settings Design Decisions for hybrid implementations
+Registry settings Design Decisions for hybrid implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1490,7 +1473,7 @@ Applications types that can be managed include:
 
 When deploying a hybrid solution, the application lifecycle method should be considered as other management solutions such as SCCM may be performing the same service.
 
-Table 175 Applications Design Decisions for all agencies and implementation types.
+Applications Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1513,14 +1496,14 @@ For a user to leverage an available printer, connectivity and a device driver is
 
 When deploying a hybrid solution, the allocation of printers to users should be considered. Other management solutions such as Group Policy and SCCM may be servicing the allocation of printers to devices.
 
-Table 179 Additional Printing Design Decisions for cloud native implementations
+Printing Design Decisions for cloud native implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Printer addition restrictions | Configured | Configured using scripts deployed via Intune. Printers must be supported out of the box in Windows 10.
 Unsecure location Printing | Configured | Out of office printing is to be restricted as adequate controls for the creation, storage and destruction of classified content cannot be implemented 
 
-Table 180 Additional Printing Design Decisions for hybrid implementations
+Printing Design Decisions for hybrid implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1572,7 +1555,7 @@ Workstation configuration is stored in Intune. (AutoPilot rebuild).
 
 When deploying a hybrid solution, the cloud based native Office 365 tools will not meet an Agencies requirement for on-premises and cloud backups. Agencies will need to investigate third party backup solutions which can backup data on-premises or in the cloud.
 
-Table 181 RPO, RTO and Retention Periods Design Decisions for all agencies and implementation types.
+RPO, RTO and Retention Periods Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1582,7 +1565,7 @@ Online SharePoint | RPO – 24 hours from backup or better<br>RTO - < 48 hours o
 Teams | RPO – 24 hours from backup or better<br>RTO - < 48 hours or better | RPO and RTO in relation to cloud backups is for guidance only. Agencies are required to measure these against the business, application, regulatory and security requirements.
 OneDrive for Business | RPO – 24 hours from backup or better<br>RTO - < 48 hours or better | RPO and RTO in relation to cloud backups is for guidance only. Agencies are required to measure these against the business, application, regulatory and security requirements.
 
-Table 182 Additional RPO, RTO and Retention Periods Design Decisions for cloud native implementations
+Additional RPO, RTO and Retention Periods Design Decisions for cloud native implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1590,7 +1573,7 @@ Restoration tools | Microsoft backup and restoration tools | The Agency will lev
 Items to Backup | Exchange Online<br>SharePoint Online<br>Microsoft Teams<br>OneDrive for Business<br>Office 365 Groups | Backups must cover the Microsoft suite of tools at a minimum.
 Retention Policies | Up to maximum allowable days per Microsoft Office 365 application | For guidance only. Agencies are required to measure these against the business, application, regulatory and security requirements.
 
-Table 183 Additional RPO, RTO and Retention Periods Design Decisions for hybrid implementations
+Additional RPO, RTO and Retention Periods Design Decisions for hybrid implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1611,7 +1594,7 @@ Data availability is an important part of making sure that end users have access
 
 The data availability and resiliency of Office 365 cloud service is in-built and managed by Microsoft.
 
-Table 184 Data Availability Design Decisions for all agencies and implementation types.
+Data Availability Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1627,7 +1610,7 @@ To manage and configure the solution, administrators will use various administra
 
 Web based administrative consoles are provided by Microsoft however the urls for these consoles constantly change (refer to [Microsoft Security Portals](https://docs.microsoft.com/en-us/microsoft-365/security/mtp/portals?view=o365-worldwide)). The consoles listed below are correct at the time of writing.
 
-Table 187 Administration consoles Design Decisions for all agencies and implementation types.
+Administration consoles Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1660,7 +1643,7 @@ Each PIM role assignment can have the following attributes:
 * Incident Request Ticket – the Incident Request Ticket attribute specifies that the approver add an incident ticket number to the approval request.
 * Multi-factor Authentication – the Multi-factor Authentication attribute specifies whether MFA is required for activation.
 
-Table 190 RBAC Design Decisions for all agencies and implementation types.
+RBAC Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---

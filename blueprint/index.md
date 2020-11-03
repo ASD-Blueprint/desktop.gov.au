@@ -44,3 +44,5 @@ For adoptors, practitioners, and other interested parties, DTA manages a [Protec
   * Security risk management plan
   * System security plan, plus annex
 * Standard operating procedures
+
+Visit the community webpage to [download all the blueprint artefacts](https://community.desktop.gov.au/).

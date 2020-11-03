@@ -1,51 +1,38 @@
 ---
 layout: page
-title: Solution Overview
+title: Solution overview
 ---
 
-The Solution Overview document is the first in the Blueprint series and is designed for non-technical audiences who have a general understanding of what they want to achieve from their IT system. This document provides a high-level overview, some of the key design decisions and Essential Eight compliance and maturity level.
+This overview covers the blueprint's purpose, its components, and design considerations and decisions. It also maps blueprint solutions to Essential Eight security strategies.
 
-A summary of this document can be found below.
+## Purpose of the blueprint
 
-Heading | Description
---- | ---
-Purpose of the Blueprint | This section describes how the Blueprint can accelerate the implementation of a secure Microsoft Modern Workplace solution
-Where to Start | This section describes how an organisation should consume the Blueprint
-Design Considerations | Factors affecting the design decisions, particularly the intended security level of the environment and understanding reliance on existing infrastructure (hybrid) or moving to a cloud native architecture
-Security | This section provides an overview of the security documentation that is provided
-Design Decisions | This section describes high-level design decisions underpinning the Blueprint
-Essential 8 Maturity | This section describes the Blueprint's Essential Eight compliance and rationale
-
-Where appropriate, guidance has been split into separate documents targeting either Cloud Native or Hybrid implementations.
-
-## Purpose of the Blueprint
-
-The Blueprint empowers agencies to provide their workforce with secure, flexible, and mobile solutions by pairing the Blueprint with mobile devices (laptops and iPhones) and onsite printing capabilities.
-
-The Blueprint is designed with a security focus and employs native Microsoft technologies that provide seamless integration and improved end-user experience. Third-party software recommendations are provided where appropriate for Government use.
+The Protected Utility blueprint empowers agencies to provide their workforce with secure, flexible, and mobile solutions. The blueprint is designed with a security focus. It uses native Microsoft technologies that are integrated and provide a quality end-user experience.
 
 ## Where to start
 
-The Solution Overview (this document) provides a general overview and is suitable for all audiences.
+This overview is suitable for all users as a starting point.
 
-To fully understand the Blueprint, the following design documents are provided:
+The blueprint is made up of another 3 main artefacts:
 
-* **Platform Design** – All supporting components for the Windows 10, iOS and Office 365 components of the design including Intune.
-* **Client Devices Design** – Windows 10 and iOS components only.
+* **Platform design** – All supporting components for the Windows 10, iOS and Office 365 (including Intune)
+* **Client devices design** – Windows 10 and iOS components only
 * **Office 365 Design** – Exchange Online, SharePoint Online, OneDrive for Business and Teams.
 
-For each component in the solution, these design documents provide:
+For each component in the solution, the blueprint artefacts provide:
 
-* a brief description of the components, 
-* the decision points that are required, 
-* the decision itself and 
-* the justification for that decision.
+* a brief description of the component 
+* decision points 
+* the decision itself 
+* a justification for that decision.
 
-Example As-Built As-Configured (ABAC) documents are also provided, which detail the specific technical configurations, including the settings and values, of an environment based on the Blueprint. The use of place holders like 'agency.gov.au' and 'tenant-name' are used in the ABAC documents where appropriate. The ABAC documents do not provide justification for individual settings. Due to differences in configuration between the cloud and hybrid solutions, two sets of ABAC documents are provided. The list of ABAC documents is covered above in Section 1.2 Document Structure.
+Example <as-built-as-configured (ABAC) documents> detail specific technical configurations, wich include the settings and values of an environment based on the blueprint. 
 
-## Blueprint Components
+The use of placeholders like 'agency.gov.au' and 'tenant-name' are used in the ABAC documents where appropriate. The ABAC documents do not provide justification for individual settings. Two sets of ABAC documents cover the differences between configuring cloud and hybrid solutions.
 
-The Blueprint is designed to be deployed by inhouse agency IT staff, third-party integrators, or a managed service provider as a new deployment, with minimal requirement for further design decisions or design documentation. The Blueprint provides the information, rationale and configuration settings to allow an agency to implement the below components to achieve a secure desktop.
+## Blueprint components
+
+The blueprint provides the information, rationale and configuration settings to allow an agency to implement the following components:
 
 * **Cloud Identity** – Azure Active Directory configuration including Multi-Factor Authentication (MFA) and Conditional Access allowing log in from anywhere and appropriate security policies to be applied
 * **Office 365** – Configuration of Exchange Online, SharePoint Online, Microsoft Teams and OneDrive for Business allowing cloud-based file storage

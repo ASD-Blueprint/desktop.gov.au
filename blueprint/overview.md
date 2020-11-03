@@ -34,21 +34,21 @@ The use of placeholders like 'agency.gov.au' and 'tenant-name' are used in the A
 
 The blueprint provides the information, rationale and configuration settings to allow an agency to implement the following components:
 
-* **Cloud Identity** – Azure Active Directory configuration including Multi-Factor Authentication (MFA) and Conditional Access allowing log in from anywhere and appropriate security policies to be applied
+* **Cloud identity** – Azure Active Directory configuration, including Multi-Factor Authentication (MFA) and conditional access, allows log in from anywhere and appropriate security policies to be applied
 * **Office 365** – Configuration of Exchange Online, SharePoint Online, Microsoft Teams and OneDrive for Business allowing cloud-based file storage
-* **Device Management** – Management of security and configuration profiles for enrolled devices including the testing against security baselines and confirmation of security compliance. Some endpoint management of iOS devices due to the limitations of not utilising supervisor mode in addition to Windows 10 devices
+* **Device management** – Management of security and configuration profiles for enrolled devices (includes testing against security baselines and confirmation of security compliance)
 * **Applications** – Delivery and configuration of applications appropriate to the user
-* **Security Stack** – Security configuration of Office 365 and endpoint devices to achieve the Essential Eight compliance shown at the end of this document
-* **Autopilot deployment** – Configuration of Autopilot to allow for automated deployment (and redeployment when required) of devices with no user interaction
-* **Support** – A flexible support model where system administration and Role Based Access Control is provided regardless of whether the support is carried out by in house staff, third party contractors or a managed service provider
+* **Security stack** – Security configuration of Office 365 and endpoint devices to implement Essential Eight strategies
+* **Autopilot deployment** – Configuration of Autopilot allows for automated deployment (and redeployment when required) of devices with no user interaction
+* **Support** – A flexible support model with system administration and role-based access control, whether the support is carried out by in-house staff, third party contractors or a managed service provider
 
-An agency may deviate from the Blueprint on any technology, licencing requirements, security, platform or design decisions noting that this may affect the security posture and will affect the security documentation set that complements this Blueprint. 
+An agency can choose to deviate from the Blueprint on any technology, licensing requirement, security aspect, platform or design decision. Deviations may affect the agency's security posture and will affect the blueprint's security documentation. 
 
-## Design Considerations
+## Design considerations
 
-### Implementation Type
+### Implementation type
 
-The Blueprint includes guidance for cloud native and hybrid deployments, which can also be for staged deployments to leverage hybrid configurations as a transition step to cloud native transformation. DTA can assist agencies in developing strategic roadmaps for transition, however high-level considerations for cloud and hybrid deployments often include decisions of whether an agency:
+The blueprint includes guidance for cloud native and hybrid deployments (implementation types). It can also be for staged deployments to leverage hybrid configurations as a transition step to cloud native transformation. DTA can assist agencies in developing strategic roadmaps for transition, however high-level considerations for cloud and hybrid deployments often include decisions of whether an agency:
 
 * requires Microsoft Exchange servers on premises.
 * requires an on-premises SharePoint instance.

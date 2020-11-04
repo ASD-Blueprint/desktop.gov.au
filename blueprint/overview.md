@@ -153,7 +153,7 @@ The extra risks and considerations include:
 
 Considerations need to be assessed for security risk on a case-by-case basis.
 
-Collaboration is initially controlled by whitelisting allowed domains. Individual users from those whitelisted external domains can then be invited individually to participate into Microsoft Teams as guests. Details about configuration are covered in <DTA Platform design> and in the <Office 365 as-built-as-configured artefact>.
+Collaboration is initially controlled by whitelisting allowed domains. Individual users from those whitelisted external domains can then be invited individually to participate into Microsoft Teams as guests. Details about configuration are covered in the Platform design and in the Office 365 as-built-as-configured artefact.
 
 ### Secure Internet Gateway
 

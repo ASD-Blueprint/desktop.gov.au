@@ -17,7 +17,7 @@ The blueprint is made up of another 3 main artefacts:
 
 * **Platform design** – All supporting components for the Windows 10, iOS and Office 365 (including Intune)
 * **Client devices design** – Windows 10 and iOS components only
-* **Office 365 Design** – Exchange Online, SharePoint Online, OneDrive for Business and Teams.
+* **Office 365 design** – Exchange Online, SharePoint Online, OneDrive for Business and Teams.
 
 For each component in the solution, the blueprint artefacts provide:
 

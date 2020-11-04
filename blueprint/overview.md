@@ -26,7 +26,7 @@ For each component in the solution, the blueprint artefacts provide:
 * the decision itself 
 * a justification for that decision.
 
-Example <as-built-as-configured (ABAC) documents> detail specific technical configurations, wich include the settings and values of an environment based on the blueprint. 
+Example as-built-as-configured (ABAC) documents detail specific technical configurations, wich include the settings and values of an environment based on the blueprint. 
 
 The use of placeholders like 'agency.gov.au' and 'tenant-name' are used in the ABAC documents where appropriate. The ABAC documents do not provide justification for individual settings. Two sets of ABAC documents cover the differences between configuring cloud and hybrid solutions.
 
@@ -75,7 +75,7 @@ Components that transfer Protected information outside of an agency's environmen
 * collaboration components
 
 ### GovLink
-GovLink enables secure communication between Commonwealth entities across public infrastructure. GovLink provides secure, encrypted and trusted communication across the internet. This allows the Commonwealth to transmit and receive information up to the security classification of Protected. More information is available at [GovLink](https://www.finance.gov.au/government/whole-government-information-communications-technology-services/govlink)
+GovLink enables secure communication between Commonwealth entities across public infrastructure. GovLink provides secure, encrypted and trusted communication across the internet. This allows the Commonwealth to transmit and receive information up to the security classification of Protected. More information is available at [GovLink](https://www.finance.gov.au/government/whole-government-information-communications-technology-services/govlink).
 
 Protected email email must be sent and received over GovLink. There is no native solution to allow a direct interface between the Office 365/Exchange Online environment and GovLink.
 
@@ -116,10 +116,10 @@ For organisations that do not need to send Protected emails (and do not need to 
 
 The blueprint provides guidance about applying Microsoft sensitivity labels. The unified labelling client that underpins Microsoft sensitivity labels is built into Office 365. The sensitivity labels are available for use in:
 * emails (thick client and Outlook Web Access)
-*	documents (all office documents, including the web versions of the applications).
+* documents (all office documents, including the web versions of the applications).
 
 It’s not possible to force some clients to apply sensitivity labels to documents, even if this option is selected in the policy. This is a known issue and current workarounds include:
-*	assigning a default label (users must then select the correct label)
+* assigning a default label (users must then select the correct label)
 * using a third-party product to provide labelling and classifications in line with the PSPF
 * undergoing a business change and user training program to ensure that classifications are applied. 
 
@@ -131,7 +131,8 @@ Labelling for Microsoft Teams has recently been released for general availabilit
 
 The blueprint enables cross-agency collaboration between 2 consenting agencies using Teams, SharePoint Online and Planner.
 
-The Teams application provides the following collaboration functionality using several Microsoft supporting products: 
+The Teams application provides the following collaboration functionality using several Microsoft supporting products:
+
 * individual and group chat/instant messaging
 * individual and group voice call
 * individual and group video call
@@ -146,8 +147,9 @@ The Teams application provides the following collaboration functionality using s
 Collaboration between organisations assessed and operating at the same security level is straightforward. Collaboration between organisations operating on networks that have been assessed at different security levels presents extra considerations and risk. 
 
 The extra risks and considerations include:
-•	personnel clearances
-•	physical security requirements and the secure creation, storage and destruction of physical artefacts. 
+
+* personnel clearances
+* physical security requirements and the secure creation, storage and destruction of physical artefacts. 
 
 Considerations need to be assessed for security risk on a case-by-case basis.
 
@@ -155,7 +157,7 @@ Collaboration is initially controlled by whitelisting allowed domains. Individua
 
 ### Secure Internet Gateway
 
-This blueprint does not include design information for a Secure Internet Gateway (SIG). A SIG is listed as a requirement in the Protective Security Policy Framework (PSPF) (section 11, part C.4). 
+This blueprint does not include design information for a Secure Internet Gateway (SIG). A SIG is listed as a requirement in the Protective Security Policy Framework (PSPF) [Robust ICT Systems](https://www.protectivesecurity.gov.au/information/robust-ict-systems/Pages/default.aspx). 
 
 ## Security
 
@@ -169,7 +171,7 @@ The blueprint's security artefacts enable an agency to conduct a security assess
 
 ## Design Decisions
 
-The bueprint is developed against a set of high-level design decisions to enable a secure user experience. 
+The blueprint is developed against a set of high-level design decisions to enable a secure user experience. 
 
 The following tables describe the design decisions applicable to all agencies and implementation types, and any additional design decisions specific to cloud native or hybrid implementations.
 

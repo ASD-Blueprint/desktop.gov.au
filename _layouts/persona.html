@@ -1,0 +1,85 @@
+{% assign this_persona = false %}
+{% for persona in site.data.personas %}
+    {% if persona.title == page.title %}
+        {% assign this_persona = persona %}
+    {% endif %}
+{% endfor %}
+{% include header.html %}
+
+<main class="main" id="content" aria-label="Content">
+    <section class="au-body">
+        <div class="container">
+            <div class="row mt-2">
+                <div class="col-12 d-flex">
+                    <div id="lhs" class="hidden-print">
+                        <aside class="au-side-nav au-accordion" aria-label="side navigation">
+                            <button 
+                                class="au-side-nav__toggle au-accordion__title au-accordion--closed" 
+                                aria-controls="sidebar-nav-container"
+                                aria-expanded="false"  
+                                onclick="return AU.accordion.Toggle( this )"
+                            >
+                                In this section
+                            </button>
+                            <div id="sidebar-nav-container" class="au-side-nav__content au-accordion--closed au-accordion__body">
+                                {% for item in site.data.main-navigation %}
+                                    {% if item.url contains page.dir %}
+
+                                    <ul class="au-link-list">
+                                        <li class="sidenav-title {% if item.url == page.url %}active{% endif %}"><a href="{{ item.url }}">{{ item.title }}</a>
+                                            {% if item.url == page.url %}
+                                            <nav class="navbar" id="toc-container">
+                                                {% include toc.html class="nav.au-link-list" html=content %}
+                                            </nav>
+                                            {% endif %}
+                                        </li>
+                                        {% for subitem in item.subitems %}
+                                        <li{% if subitem.url == page.url %} class="active"{% endif %}><a href="{{ subitem.url }}">{{ subitem.title }}</a>
+                                    
+                                            {% if subitem.url == page.url %}
+                                            <nav class="navbar" id="toc-container">
+                                                {% include toc.html class="nav.au-link-list" html=content %}
+                                            </nav>
+                                            {% endif %}
+                                    
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </aside>
+                    </div>
+                    <div id="content-area">
+                        <h1>{{ page.title }}</h1>
+                        <div class="metadata">
+                            <ul>
+                                <li>{% include reading-time.html %}</li>
+                                <li>{{ page.last_modified_at | date: '%-d %B %Y' }}</li>
+                            </ul>
+                        </div>
+                        {{ content }}
+                    </div>
+                    <div id="personal-profile">
+                        <ul class="au-card-list au-card-list--matchheight">
+                            <li class="col-xs-12">
+                                <div class="au-card au-card--shadow">
+                                    <img class="au-responsive-media-img" src="{{ this_persona.img }}">
+                                    <div class="au-card__inner">
+                                        {{ this_persona.desc | markdownify }}
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <p><strong>Internet connection</strong><br>{{ this_persona.internet }}</p>
+                        <p><strong>Devices</strong><br>{{ this_persona.devices }}</p>
+                        <p><strong>Cyber knowledge</strong><br>{{ this_persona.cyber }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+{% include footer.html %}

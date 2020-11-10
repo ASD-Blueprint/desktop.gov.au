@@ -1,6 +1,10 @@
 - title: Program
   url: /program/index.html
 
+  subitems:
+    - title: User Experiences
+      url: /program/ux.html
+
 - title: Blueprint
   url: /blueprint/index.html
   

@@ -31,6 +31,7 @@ body {
     padding: 1em 0;
 }
 
+.au-table__header,
 .au-table__cell {
     vertical-align: top;
 }
@@ -95,6 +96,10 @@ body {
 table {
     margin-top: 1em;
     margin-bottom: 2em;
+
+    ul {
+        padding-left: 0;
+    }
     
     &:not(.auto) {
         td:first-of-type,

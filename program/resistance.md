@@ -36,7 +36,7 @@ timeline:
   tools: |
     * Excel
   feeling: |
-    * :( 
+    * :( Angry – they have to find a “fix” for the tool
 - title: Go on holidays
   actions: |
     * Handover to person covering

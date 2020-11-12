@@ -68,7 +68,7 @@ jobs:
 
 workflows:
   version: 2
-  master:
+  feature:
     jobs:
       - deploy_feature_branch:
           filters:

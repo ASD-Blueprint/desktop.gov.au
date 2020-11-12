@@ -55,27 +55,54 @@
                         <h1>{{ page.title }}</h1>
                         <div class="metadata">
                             <ul>
-                                <li>{% include reading-time.html %}</li>
                                 <li>{{ page.last_modified_at | date: '%-d %B %Y' }}</li>
                             </ul>
                         </div>
+                        <div id="personal-profile" class="col-md-4">
+                            <ul class="au-card-list au-card-list--matchheight">
+                                <li class="col-xs-12">
+                                    <div class="au-card au-card--shadow">
+                                        <img class="au-responsive-media-img" src="{{ this_persona.img }}">
+                                        <div class="au-card__inner">
+                                            {{ this_persona.desc | markdownify }}
+                                            <p><strong>Internet connection</strong><br>{{ this_persona.internet }}</p>
+                                            <p><strong>Devices</strong><br>{{ this_persona.devices }}</p>
+                                            <p><strong>Cyber knowledge</strong><br>{{ this_persona.cyber }}</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                         {{ content }}
-                    </div>
-                    <div id="personal-profile">
-                        <ul class="au-card-list au-card-list--matchheight">
-                            <li class="col-xs-12">
-                                <div class="au-card au-card--shadow">
-                                    <img class="au-responsive-media-img" src="{{ this_persona.img }}">
-                                    <div class="au-card__inner">
-                                        {{ this_persona.desc | markdownify }}
+                        <div class="timeline mt-3">
+                            {% for item in page.timeline %}
+                            <div class="panel">
+                                <div class="panel-title">
+                                    <h3>{{ item.title }}</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="container-fuild">
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <h4>Actions / tasks</h4>
+                                                {{ item.actions | markdownify }}
+                                                <h4>Pain points</h4>
+                                                {{ item.pain_points | markdownify }}
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <h4>Interactions / tools</h4>
+                                                {{ item.tools | markdownify }}
+                                                <h4>Feeling</h4>
+                                                {{ item.feeling | markdownify }}
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </li>
-                        </ul>
-                        <p><strong>Internet connection</strong><br>{{ this_persona.internet }}</p>
-                        <p><strong>Devices</strong><br>{{ this_persona.devices }}</p>
-                        <p><strong>Cyber knowledge</strong><br>{{ this_persona.cyber }}</p>
+                            </div>
+                            {% endfor %}
+                        </div>
                     </div>
+                    
                 </div>
             </div>
         </div>

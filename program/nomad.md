@@ -1,10 +1,10 @@
 ---
 layout: persona
-title: The hopper
+title: The nomad
 timeline:
 - title: First day
   actions: |
-    * Find my TFN
+    * Find TFN
     * Provide bank account details
     * Get photo for security pass
     * Get work devices
@@ -21,7 +21,8 @@ timeline:
     * Help Desk
   feeling: |
     * :) Excited - starting new job
-    * :) Understanding - they know there's always issues
+    * :) Understanding – knows there are always issues
+    * :( Exasperated – needs to do this all over again soon, especially when doing 2+ contracts at a time
 - title: Onboarding
   actions: |
     * Go through Security induction
@@ -54,48 +55,43 @@ timeline:
     * Shared drive
     * Org Chart
   feeling: |
-    * :( Overwhelmed - a lot to do &amp; so many new systems
-    * :\| Insecure - "did I make the right choice?"
-    * :) Excited - they finally get to do some work
+    * :( Exasperated – always loses a lot of time learning new systems
+    * :( Tired – has to carry 2+ laptops all the time and switch between them
 ---
 
 ## Bio
 
-They started working in Government as part of a grad program, and they scored a permanent position. They have been in the Department ever since and love the perks of being a public servant. They however need a change and are looking to change to a different department / agency / team.
+They have worked in both government and private sector, but realised they wanted the freedom to try new projects and experience new environments. They decided to start doing contract work as it pays better and allows the flexibility needed for them to start a family. 
 
 ## Understanding the interaction
 
 ### Thoughts / opinions / feelings
 
-* I love the work I do, but I want a new challenge
-* Having to repeat the same information is quite tedious
-* Going through the clearance process and remembering my details is so frustrating
-* Having to learn a new system is going to be super tedious
+* I really enjoy being exposed to numerous projects and departments
+* When my contract end is in sight, I am not relaxed until I have the next job lined up
+* Having to go through the IT onboarding process every time I start a new contract is such a waste of my time
 
 ### Pain points
 
-* I need to find my TFN
-* Not looking forward to doing an onboarding process again
-* I will have to find information again if I need to get another type of security clearance
+* I have to go through a lot of onboarding
+* It takes me time to be able to access everything I need due to IT glitches
+* I have to carry multiple laptops and electronics
 * The Agency I used to work for had old and slow computers, and I expect the same poor experience
 
 ### Want to achieve / get out of interaction
 
-* Seamless transition between teams /  departments / agencies
-* Ability to quickly pick up the systems since they are consistent across departments
+* Seamless transition between contracts
 
 ### Motivation to use MWP?
 
-* Once you learn how to use it, it is the same across any other department, making transition to another role a lot easier
+* No longer having to go through the IT onboarding process – being able to use my own personal device will make moving between contracts so much easier
 
 ## User journey
 
 Modern workplace benefits:
 
-* Faster device setup
-* Interface is more intuitive
-* Sees more consistency across Departments
+* Can swap between accounts using just one laptop
+* Consistency in systems
+* Does not lose work in the cloud and can securely switch between projects 
 
-The time it takes IT to provision a new device is reduced by **75%**.
-
-Using Intune and EMS makes it possible to streamline and automate **1,633** device provisioning events per year.
+Contractors who work on more than one project can use the same device without compromising security.

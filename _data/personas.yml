@@ -9,11 +9,11 @@
     - personal-mobile
   cyber: 3
 
-- title: The traveler
+- title: The traveller
   desc: The nature of my work requires me to constantly move, so I need to be able to quickly access the information I need while I am on the move
   age: 41
-  img: /assets/images/traveler.png
-  url: traveler.html
+  img: /assets/images/traveller.png
+  url: traveller.html
   internet: 2
   devices: 
     - corporate-laptop

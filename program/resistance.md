@@ -93,11 +93,11 @@ They have been working in Public Service all their life as it was their dream jo
 
 * My job is safe and I can be more efficientOthers can pickup the work and I can finally go on holiday
 
-## User journey
-
-Modern workplace benefits:
+## Modern workplace benefits
 
 * System is easier to learn and navigate
 * Shared documents, channels and Wiki summaries are accessible through the cloud for easier task delegation
 
 Though user adoption of new tools may remain a challenge, intuitive sharing and storage of “alternative methods” used by staff can help avoid the loss of organisational knowledge when they are not available.
+
+## User journey

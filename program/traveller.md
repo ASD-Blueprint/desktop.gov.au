@@ -10,7 +10,7 @@ timeline:
     * Go back to office / desk
     * Try to do work / review docs
   pain_points: |
-    -
+    None
   tools: |
     * Email
     * Laptop
@@ -54,7 +54,7 @@ timeline:
     * Printer
   feeling: |
     * :( Rushed – needs to finish on time to go pickup kids
-    * :\| Hungry – didn’t eat lunch or didn’t finish lunch
+    * :| Hungry – didn’t eat lunch or didn’t finish lunch
     * :( Anxious – there’s still so much work to do
     * :) Happy to be home with kids
 - title: Evening (6pm - 8pm)
@@ -64,9 +64,9 @@ timeline:
     * Prepare children for bed
     * Watch the news / TV show
   pain_points: |
-    -
+    None
   tools: |
-    -
+    None
   feeling: |
     * :) Happy – gets some family time
     * :( Burned out – there’s so much stuff to do  at home
@@ -119,9 +119,7 @@ They are rarely at the office and are constantly travelling due to the work they
 
 * Easier to do things on the go, which means less work when they are back on their desk
 
-## User journey
-
-Modern workplace benefits:
+## Modern workplace benefits
 
 * Reduced meeting timewith chat and channelfunctionality
 * Saves up to 4 hours a week from collaboration and information sharing
@@ -132,3 +130,5 @@ Teams reduces the total number and duration of meetings.
 Meetings conducted via Teams are more reliable and of very high audio-video quality, resulting in less time spent addressing setup and call-quality issues. 
 
 Information workers save time from collaboration and information sharing, specifically around co-authoring and reviewing documents.
+
+## User journey

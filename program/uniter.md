@@ -96,9 +96,7 @@ Has worked in different Government departments and specialised in their field of
 
 * The tools and systems will make it easier for teams to communicate and collaborate, plus it's easier for everyone to get access to the same information
 
-## User journey
-
-Modern workplace benefits:
+## Modern workplace benefits
 
 * Easier to collaborate within and across Agencies
 * Built-in restrictions help appropriate use of document classification
@@ -107,3 +105,5 @@ Modern workplace benefits:
 Employees who work with outside organisations save time by having a shared workspace. Teams can be extended to customers, suppliers, and other outside parties.
 
 Built-in security features enable correct handling of information up to PROTECTED.
+
+## User journey

@@ -68,9 +68,7 @@ They recently made the move to work in the Public Service and know they need cer
 
 * MWP offers a range of tools that are similar to others preferred in the industry (Trello, Team Gantt, Zoom, Skype).MWP should also facilitate process automation
 
-## User journey
-
-Modern workplace benefits:
+## Modern workplace benefits
 
 * Some tools are replaceable with Microsoft apps
 * Microsoft Business Store has a suite of virtual apps with easy access 
@@ -79,3 +77,5 @@ Modern workplace benefits:
 Though IT approval for certain tools is unlikely to be shorter or easier do to, certain apps (e.g. Power BI) can be available as part of the suite through the portal.
 
 There is still a need for financial delegation when acquiring a new software licence. 
+
+## User journey

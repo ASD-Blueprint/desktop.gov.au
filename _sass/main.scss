@@ -97,6 +97,25 @@ body {
     float: right;
 }
 
+ul.feeling {
+    list-style: none;
+    padding: 0 !important;
+
+    li {
+        display: flex;
+        margin-bottom: 1em;
+
+        p {
+            margin-top: 0;
+        }
+
+        svg {
+            min-width: 50px;
+            margin-right: 8px;
+        }
+    }
+}
+
 table {
     margin-top: 1em;
     margin-bottom: 2em;

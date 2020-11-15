@@ -35,7 +35,7 @@ timeline:
     * Emails
     * Intranet
   feeling: |
-    * :\| Bored - want to start real work
+    * :| Bored - want to start real work
     * :( Annoyed - too much onboarding &amp; already know most of this stuff
 - title: Start work
   actions: |
@@ -55,7 +55,7 @@ timeline:
     * Org Chart
   feeling: |
     * :( Overwhelmed - a lot to do &amp; so many new systems
-    * :\| Insecure - "did I make the right choice?"
+    * :| Insecure - "did I make the right choice?"
     * :) Excited - they finally get to do some work
 ---
 
@@ -88,9 +88,7 @@ They started working in Government as part of a grad program, and they scored a 
 
 * Once you learn how to use it, it is the same across any other department, making transition to another role a lot easier
 
-## User journey
-
-Modern workplace benefits:
+## Modern workplace benefits
 
 * Faster device setup
 * Interface is more intuitive
@@ -99,3 +97,5 @@ Modern workplace benefits:
 The time it takes IT to provision a new device is reduced by **75%**.
 
 Using Intune and EMS makes it possible to streamline and automate **1,633** device provisioning events per year.
+
+## User journey

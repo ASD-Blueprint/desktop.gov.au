@@ -36,7 +36,7 @@ timeline:
     * Emails
     * Intranet
   feeling: |
-    * :\| Bored - want to start real work
+    * :| Bored - want to start real work
     * :( Annoyed - too much onboarding &amp; already know most of this stuff
 - title: Start work
   actions: |
@@ -86,12 +86,12 @@ They have worked in both government and private sector, but realised they wanted
 
 * No longer having to go through the IT onboarding process – being able to use my own personal device will make moving between contracts so much easier
 
-## User journey
-
-Modern workplace benefits:
+## Modern workplace benefits
 
 * Can swap between accounts using just one laptop
 * Consistency in systems
 * Does not lose work in the cloud and can securely switch between projects 
 
 Contractors who work on more than one project can use the same device without compromising security.
+
+## User journey

@@ -97,6 +97,21 @@ body {
     float: right;
 }
 
+ul.devices {
+    padding-left: 0;
+    margin-bottom: 2em;
+
+    li {
+        margin-top: 0.5em;
+    }
+
+    svg {
+        margin-right: 8px;
+        min-width: 24px;
+        min-height: 24px;
+    }
+}
+
 ul.feeling {
     list-style: none;
     padding: 0 !important;

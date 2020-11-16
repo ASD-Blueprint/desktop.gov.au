@@ -7,7 +7,7 @@ timeline:
     * Learn a new tool as been launched
     * Look at new tool / system
   pain_points: |
-    -
+    None
   tools: |
     * Email
   feeling: |

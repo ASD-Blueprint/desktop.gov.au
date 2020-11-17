@@ -4,8 +4,8 @@
 {% for persona in site.data.personas %}
     {% if persona.title == page.title %}
         {% assign this_persona = persona %}
-        {% if forloop.index > 1 %}{% assign prev_persona_index = forloop.index | minus: 1 %}{% endif %}
-        {% if forloop.index < site.data.personas.size %}{% assign next_persona_index = forloop.index | plus: 1 %}{% endif %}
+        {% if forloop.index > 0 %}{% assign prev_persona_index = forloop.index | minus: 2 %}{% endif %}
+        {% if forloop.index < site.data.personas.size %}{% assign next_persona_index = forloop.index %}{% endif %}
         {% break %}
     {% endif %}
 {% endfor %}

@@ -191,8 +191,8 @@
                             {% endfor %}
                         </div>
                         <ul class="pagination au-link-list au-link-list--inline">
-                            {% if prev_persona_index != -1 %}<li><a class="au-btn au-btn--secondary" href="{{ site.data.personas[prev_persona_index].url }}"><span>Prev:</span> {{ site.data.personas[prev_persona_index].title }}</a></li>{% endif %}
-                            {% if next_persona_index != -1 %}<li class="pull-right text-right"><a class="au-btn au-btn--secondary" href="{{ site.data.personas[next_persona_index].url }}"><span>Next:</span> {{ site.data.personas[next_persona_index].title }}</a></li>{% endif %}
+                            {% if prev_persona_index != -1 %}<li><a href="{{ site.data.personas[prev_persona_index].url }}"><span>Prev:</span> {{ site.data.personas[prev_persona_index].title }}</a></li>{% endif %}
+                            {% if next_persona_index != -1 %}<li class="pull-right text-right"><a href="{{ site.data.personas[next_persona_index].url }}"><span>Next:</span> {{ site.data.personas[next_persona_index].title }}</a></li>{% endif %}
                         </ul>
                     </div>
                 </div>

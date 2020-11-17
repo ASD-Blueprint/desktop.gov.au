@@ -4,7 +4,7 @@ title: Program
 permalink: /program/index.html
 ---
 
-The modern workplace uses cloud-based solutions to empower teams to be creative and work together, securely.
+The modern workplace uses cloud-based solutions to empower teams to be more productive and work together.
 
 The nature of work has changed. Employees expect to work securely from anywhere, on any device, and collaboratively. Organisations need to provide that empowerment, but they also need to protect sensitive information.
 

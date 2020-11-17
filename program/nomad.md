@@ -4,7 +4,7 @@ title: The nomad
 timeline:
 - title: First day
   actions: |
-    * Find TFN
+    * Find tax file number
     * Provide bank account details
     * Get photo for security pass
     * Get work devices
@@ -15,10 +15,10 @@ timeline:
   tools: |
     * Folders
     * Emails
-    * Letters / Mail
-    * Online Bnaking
+    * Letters / mail
+    * Online banking
     * Forms
-    * Help Desk
+    * Help desk
   feeling: |
     * :) Excited - starting new job
     * :) Understanding – knows there are always issues
@@ -26,13 +26,13 @@ timeline:
 - title: Onboarding
   actions: |
     * Go through Security induction
-    * Go through OH&amp;S induction
+    * Go through work health & safety induction
     * Go through e-learning onboarding modules
   pain_points: |
     * Very repetitive
     * Can't skip through things they already know
   tools: |
-    * LMS / e-Learning platform
+    * e-Learning platform
     * Emails
     * Intranet
   feeling: |
@@ -53,13 +53,11 @@ timeline:
   tools: |
     * Intranet
     * Shared drive
-    * Org Chart
+    * Organisation chart
   feeling: |
     * :( Exasperated – always loses a lot of time learning new systems
     * :( Tired – has to carry 2+ laptops all the time and switch between them
 ---
-
-## Bio
 
 They have worked in both government and private sector, but realised they wanted the freedom to try new projects and experience new environments. They decided to start doing contract work as it pays better and allows the flexibility needed for them to start a family. 
 
@@ -67,7 +65,7 @@ They have worked in both government and private sector, but realised they wanted
 
 ### Thoughts / opinions / feelings
 
-* I really enjoy being exposed to numerous projects and departments
+* I really enjoy being exposed to numerous projects and agencies
 * When my contract end is in sight, I am not relaxed until I have the next job lined up
 * Having to go through the IT onboarding process every time I start a new contract is such a waste of my time
 
@@ -76,7 +74,7 @@ They have worked in both government and private sector, but realised they wanted
 * I have to go through a lot of onboarding
 * It takes me time to be able to access everything I need due to IT glitches
 * I have to carry multiple laptops and electronics
-* The Agency I used to work for had old and slow computers, and I expect the same poor experience
+* The agency I used to work for had old and slow computers, and I expect the same poor experience
 
 ### Want to achieve / get out of interaction
 

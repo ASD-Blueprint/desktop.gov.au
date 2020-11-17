@@ -4,7 +4,7 @@ title: The resistance
 timeline:
 - title: New tool / system introduced
   actions: |
-    * Learn a new tool as been launched
+    * Learn a new tool as its been launched
     * Look at new tool / system
   pain_points: |
     None
@@ -50,10 +50,10 @@ timeline:
     * Text messages
   feeling: |
     * :) Happy – gets to go on holidays
-    * :( Annoyed – keeps getting call / tests with questions on where to find things
+    * :( Annoyed – keeps getting calls and texts with questions on where to find things
 - title: Back from holidays
   actions: |
-    * Lot's of backlog work
+    * Lots of backlog work
     * Needs to spend time catching up 
   pain_points: |
     * Too many emails to go through
@@ -66,8 +66,6 @@ timeline:
     * :( Frustrated – “Why is there so much work? What was the point of the handover?”
     * :( Annoyed – part of them wishes they hadn’t gone on holidays
 ---
-
-## Bio
 
 They have been working in Public Service all their life as it was their dream job due to the benefits that came with the job. They have been in the same government department all their life, they have figured out workarounds and processes that make them very efficient in their role – any knowledge will be lost if they leave. They like leaving work at work, and they believe technology is the reason the world is in chaos and why there's no "compassion" or "empathy" anymore. 
 
@@ -87,7 +85,8 @@ They have been working in Public Service all their life as it was their dream jo
 
 ### Want to achieve / get out of interaction
 
-* Quick and easy to learn and implementSimplify processes and not have to come up with a workaround 
+* Quick and easy to learn and implement
+* Simplify processes and not have to come up with a workaround 
 
 ### Motivation to use modern workplace?
 
@@ -97,7 +96,7 @@ They have been working in Public Service all their life as it was their dream jo
 ## Modern workplace benefits
 
 * System is easier to learn and navigate
-* Shared documents, channels and Wiki summaries are accessible through the cloud for easier task delegation
+* Shared documents, channels and wiki summaries are accessible through the cloud for easier task delegation
 
 Though user adoption of new tools may remain a challenge, intuitive sharing and storage of “alternative methods” used by staff can help avoid the loss of organisational knowledge when they are not available.
 

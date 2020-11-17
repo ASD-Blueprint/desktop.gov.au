@@ -35,15 +35,12 @@ timeline:
     * Systems are different – need to relearn platform
     * Documents are in different folders – they are hard to find
     * Some information is out of date 
-    * Org chart is hard to navigate
   tools: |
     * Browser
   feeling: |
     * :( Exasperated – always loses a lot of time learning new systems
     * :) Happy – finally gets their tool
 ---
-
-## Bio
 
 They recently made the move to work in the Public Service and know they need certain tools that are not always available to everyone due to their specialisation. They are also always looking at the latest technology to be able to be more efficient in their role. 
 
@@ -58,7 +55,7 @@ They recently made the move to work in the Public Service and know they need cer
 
 * Not having access to my preferred tools is slowing me down
 * Every time I need approval for a tool I need to do a lot of follow up emails
-* The Agency I used to work for had old and slow computers, and I expect the same poor experience
+* The agency I used to work for had old and slow computers, and I expect the same poor experience
 
 ### Want to achieve / get out of interaction
 

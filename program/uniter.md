@@ -5,7 +5,7 @@ timeline:
 - title: Identify collaboration opportunity
   actions: |
     * Identifies / gets given initiative
-    * Realises better results can be achieved if other Departments / Agencies are involved
+    * Realises better results can be achieved if other agencies are involved
   pain_points: |
     * Needs to find the right people to talk to
   tools: |
@@ -13,8 +13,8 @@ timeline:
     * Emails
     * Websites
   feeling: |
-    * :) Excited – looking forward to work with other Agencies for the Australian people
-- title: Getting Agencies / Departments on board
+    * :) Excited – looking forward to work with other agencies for the Australian people
+- title: Getting agencies on board
   actions: |
     * Engages other leaders to get collaboration going
     * Leaders agree to collaboration
@@ -41,7 +41,7 @@ timeline:
     * Everyone has different systems – so security consistency is hard to achieve
     * Information needs to be shared with secure hard drives
     * Everything is password protected – hard to remember so many passwords
-    * Having to share passwords with these many people makes the security measures pointless
+    * Having to share passwords with so many people makes the security measures pointless
   tools: |
     * Email
     * Phone calls
@@ -54,7 +54,7 @@ timeline:
     * Work on initiative / project
   pain_points: |
     * A lot of emails to communicate – information gets lost
-    * Not all files / info are being shared so there's a lot of back and forth asking for things
+    * Not all information is shared so there's a lot of back and forth asking for things
     * Coordinating meetings requires a lot of emails as you don't know who is available when
     * Conference calls are hard – too many interruptions
     * Hard to keep track of versions
@@ -68,8 +68,6 @@ timeline:
     * :( Frustrated – this is going slower than they wanted to and achieving collaboration is hard
     * :) Happy that collaboration is happening
 ---
-
-## Bio
 
 Has worked in different Government departments and specialised in their field of knowledge. Has contacts in numerous partner agencies and knows that collaborating will be advantageous for everyone. Their child works in the private sector and has shown some of the collaboration tools they use while visiting the grandkids. 
 
@@ -92,18 +90,18 @@ Has worked in different Government departments and specialised in their field of
 * A better way to collaborate across departments to achieve a common goal
 * Less waste of tax payers money
 
-### Motivation to use MWP?
+### Motivation to use modern workplace?
 
 * The tools and systems will make it easier for teams to communicate and collaborate, plus it's easier for everyone to get access to the same information
 
 ## Modern workplace benefits
 
-* Easier to collaborate within and across Agencies
+* Easier to collaborate within and across agencies
 * Built-in restrictions help appropriate use of document classification
 * Protected access reduces the risk of password sharing
 
 Employees who work with outside organisations save time by having a shared workspace. Teams can be extended to customers, suppliers, and other outside parties.
 
-Built-in security features enable correct handling of information up to PROTECTED.
+Built-in security features enable correct handling of information up to Protected.
 
 ## User journey

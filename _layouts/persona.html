@@ -1,7 +1,12 @@
 {% assign this_persona = false %}
+{% assign prev_persona_index = -1 %}
+{% assign next_persona_index = -1 %}
 {% for persona in site.data.personas %}
     {% if persona.title == page.title %}
         {% assign this_persona = persona %}
+        {% if forloop.index > 1 %}{% assign prev_persona_index = forloop.index | minus: 1 %}{% endif %}
+        {% if forloop.index < site.data.personas.size %}{% assign next_persona_index = forloop.index | plus: 1 %}{% endif %}
+        {% break %}
     {% endif %}
 {% endfor %}
 {% assign circle = '<svg width="1em" height="1em" viewBox="0 0 16 16" fill="#45C2F0" xmlns="http://www.w3.org/2000/svg">
@@ -185,8 +190,11 @@
                             </div>
                             {% endfor %}
                         </div>
+                        <ul class="pagination au-link-list au-link-list--inline">
+                            {% if prev_persona_index != -1 %}<li><a class="au-btn au-btn--secondary" href="{{ site.data.personas[prev_persona_index].url }}"><span>Prev:</span> {{ site.data.personas[prev_persona_index].title }}</a></li>{% endif %}
+                            {% if next_persona_index != -1 %}<li class="pull-right text-right"><a class="au-btn au-btn--secondary" href="{{ site.data.personas[next_persona_index].url }}"><span>Next:</span> {{ site.data.personas[next_persona_index].title }}</a></li>{% endif %}
+                        </ul>
                     </div>
-                    
                 </div>
             </div>
         </div>

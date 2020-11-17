@@ -1,5 +1,5 @@
 - title: The hopper
-  desc: I like my job, but would like to experience working for another team / Government agency / department to further my skills
+  desc: I like my job, but would like to experience working for another agency to further my skills
   age: 27
   img: /assets/images/hopper.png
   url: hopper.html
@@ -22,7 +22,7 @@
   cyber: 3
 
 - title: The uniter
-  desc: I believe we can achieve better outcomes if we stop working in siloes and we start collaborating among teams / departments / agencies
+  desc: I believe we can achieve better outcomes if we stop working in siloes and start collaborating with other teams and agencies
   age: 54
   img: /assets/images/uniter.png
   url: uniter.html

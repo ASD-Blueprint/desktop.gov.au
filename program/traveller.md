@@ -14,7 +14,7 @@ timeline:
   tools: |
     * Email
     * Laptop
-    * Mobile / Tablet
+    * Mobile / tablet
   feeling: |
     * :( Overwhelmed - has 200+ emails already
     * :( Tired – needs a few coffees to make it through the morning
@@ -30,7 +30,7 @@ timeline:
   tools: |
     * Email
     * Laptop
-    * Mobile / Tablet
+    * Mobile / tablet
   feeling: |
     * :( Overwhelmed - can't seem to catch up on emails
     * :( Rushed - there's not enough hours in the day
@@ -50,7 +50,7 @@ timeline:
   tools: |
     * Email
     * Laptop
-    * Mobile / Tablet
+    * Mobile / tablet
     * Printer
   feeling: |
     * :( Rushed – needs to finish on time to go pickup kids
@@ -70,7 +70,7 @@ timeline:
   feeling: |
     * :) Happy – gets some family time
     * :( Burned out – there’s so much stuff to do  at home
-    * :( Anxious– wants to relax but there’s paperwork waiting to be done
+    * :( Anxious – wants to relax but there’s paperwork waiting to be done
 - title: Night (8pm - 11pm)
   actions: |
     * Do some work 
@@ -91,8 +91,6 @@ timeline:
     * :( Anxious – just wants to finish & go to bed
 ---
 
-## Bio
-
 They are rarely at the office and are constantly travelling due to the work they need to do. They look forward to the weekend so they can spend time with their family, so they work late to finish their admin / paperwork to avoid sacrificing their family weekends. 
 
 ## Understanding the interaction
@@ -108,20 +106,20 @@ They are rarely at the office and are constantly travelling due to the work they
 * Unreliable internet connection
 * I can't get too much work done until I get to my desk
 * I end up doing a lot of overtime work
-* The Agency I work for has old and slow computers, and I have the same poor experience 
+* The agency I work for has old and slow computers, and I have the same poor experience 
 
 ### Want to achieve / get out of interaction
 
 * Be able to review documents on the go
 * Be able to do admin on the go
 
-### Motivation to use MWP?
+### Motivation to use modern workplace?
 
-* Easier to do things on the go, which means less work when they are back on their desk
+* Easier to do things on the go, which means less work when they are back at their desk
 
 ## Modern workplace benefits
 
-* Reduced meeting timewith chat and channelfunctionality
+* Reduced meeting time with chat functionality
 * Saves up to 4 hours a week from collaboration and information sharing
 * Can work on documents on the go 
 

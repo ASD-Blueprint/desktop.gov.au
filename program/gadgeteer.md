@@ -64,9 +64,10 @@ They recently made the move to work in the Public Service and know they need cer
 
 * Easier approval process
 
-### Motivation to use MWP?
+### Motivation to use modern workplace?
 
-* MWP offers a range of tools that are similar to others preferred in the industry (Trello, Team Gantt, Zoom, Skype).MWP should also facilitate process automation
+* Modern workplace offers a range of tools that are similar to others preferred in the industry (Trello, Team Gantt, Zoom, Skype)
+* Modern workplace should also facilitate process automation
 
 ## Modern workplace benefits
 

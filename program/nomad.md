@@ -82,7 +82,7 @@ They have worked in both government and private sector, but realised they wanted
 
 * Seamless transition between contracts
 
-### Motivation to use MWP?
+### Motivation to use modern workplace?
 
 * No longer having to go through the IT onboarding process – being able to use my own personal device will make moving between contracts so much easier
 

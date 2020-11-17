@@ -89,9 +89,10 @@ They have been working in Public Service all their life as it was their dream jo
 
 * Quick and easy to learn and implementSimplify processes and not have to come up with a workaround 
 
-### Motivation to use MWP?
+### Motivation to use modern workplace?
 
-* My job is safe and I can be more efficientOthers can pickup the work and I can finally go on holiday
+* My job is safe and I can be more efficient
+* Others can pickup the work and I can finally go on holiday
 
 ## Modern workplace benefits
 

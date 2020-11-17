@@ -97,6 +97,25 @@ body {
     float: right;
 }
 
+ul.pagination {
+    display: block !important;
+
+    a {
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+        span {
+            display: block;
+            font-weight: bold;
+            font-size: 0.85em;
+            color: #000;
+        }
+    }
+}
+
 ul.devices {
     padding-left: 0;
     margin-bottom: 2em;
@@ -149,6 +168,9 @@ table {
 
 .text-centered {
     text-align: center;
+}
+.text-right {
+    text-align: right;
 }
 .mt-2 {
     margin-top: 2em;

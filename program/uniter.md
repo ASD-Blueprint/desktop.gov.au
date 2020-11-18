@@ -35,7 +35,6 @@ timeline:
     * Agree on security requirements / measures
     * Share documentation / knowledge / information
     * Start to collaborate
-    * Share documentation / knowledge / information
   pain_points: |
     * Lots of back and forth emails just to coordinate a meeting time where everyone can meet
     * Everyone has different systems – so security consistency is hard to achieve

@@ -27,6 +27,19 @@ references:
       - image: circleci/ruby:2.6.6-stretch
 
 jobs:
+  deploy_feature_branch:
+    <<: *docker_image
+    steps:
+      - checkout
+      - *cf_install
+      - *app_prereqs
+      - *build_site
+      - run:
+          name: Deploy feature branch
+          command: |
+            cf login -a ${CF_API_STAGING} -o ${CF_ORG} -s ${CF_SPACE} -u ${CF_USERNAME} -p ${CF_PASSWORD_STAGING}
+            cf push desktop-${CIRCLE_BRANCH} -f manifest-staging.yml
+
   deploy_to_staging:
     <<: *docker_image
     steps:
@@ -55,6 +68,13 @@ jobs:
 
 workflows:
   version: 2
+  feature:
+    jobs:
+      - deploy_feature_branch:
+          filters:
+            branches:
+              only:
+                - /feature-.*/
   staging:
     jobs:
       - deploy_to_staging:

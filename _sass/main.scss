@@ -31,6 +31,7 @@ body {
     padding: 1em 0;
 }
 
+.au-table__header,
 .au-table__cell {
     vertical-align: top;
 }
@@ -92,9 +93,70 @@ body {
     }
 }
 
+#personal-profile {
+    float: right;
+}
+
+ul.pagination {
+    display: block !important;
+
+    a {
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+        span {
+            display: block;
+            font-weight: bold;
+            font-size: 0.85em;
+            color: #000;
+        }
+    }
+}
+
+ul.devices {
+    padding-left: 0;
+    margin-bottom: 2em;
+
+    li {
+        margin-top: 0.5em;
+    }
+
+    svg {
+        margin-right: 8px;
+        min-width: 24px;
+        min-height: 24px;
+    }
+}
+
+ul.feeling {
+    list-style: none;
+    padding: 0 !important;
+
+    li {
+        display: flex;
+        margin-bottom: 1em;
+
+        p {
+            margin-top: 0;
+        }
+
+        svg {
+            min-width: 50px;
+            margin-right: 8px;
+        }
+    }
+}
+
 table {
     margin-top: 1em;
     margin-bottom: 2em;
+
+    ul {
+        padding-left: 0;
+    }
     
     &:not(.auto) {
         td:first-of-type,
@@ -106,6 +168,9 @@ table {
 
 .text-centered {
     text-align: center;
+}
+.text-right {
+    text-align: right;
 }
 .mt-2 {
     margin-top: 2em;

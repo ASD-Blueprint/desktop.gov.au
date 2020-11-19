@@ -68,7 +68,7 @@ timeline:
     * :) Happy that collaboration is happening
 ---
 
-Has worked in different Government departments and specialised in their field of knowledge. Has contacts in numerous partner agencies and knows that collaborating will be advantageous for everyone. Their child works in the private sector and has shown some of the collaboration tools they use while visiting the grandkids. 
+I worked in different government departments specialising in my field of knowledge. I have contacts in numerous partner agencies and know that collaborating will be advantageous for all. My child works in the private sector and has shown some of the collaboration tools they use while visiting the grandkids.
 
 ## Understanding the interaction
 

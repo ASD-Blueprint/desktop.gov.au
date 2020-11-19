@@ -59,7 +59,7 @@ timeline:
     * :) Excited - they finally get to do some work
 ---
 
-They started working in Government as part of a grad program, and they scored a permanent position. They have been in the Department ever since and love the perks of being a public servant. They however need a change and are looking to change to a different agency.
+I started working in Government as part of a graduate program, and accepted a permanent position once it finished. I have been in the Department ever since and love the perks of being a public servant. However, I am looking to change to a different agency.
 
 ## Understanding the interaction
 

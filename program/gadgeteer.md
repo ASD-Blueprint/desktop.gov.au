@@ -42,7 +42,7 @@ timeline:
     * :) Happy – finally gets their tool
 ---
 
-They recently made the move to work in the Public Service and know they need certain tools that are not always available to everyone due to their specialisation. They are also always looking at the latest technology to be able to be more efficient in their role. 
+I recently made the move to work in the Public Service and know I need certain tools that are not always available to everyone due to their specialisation. I'm always looking at the latest technology to be able to be more efficient in my role.
 
 ## Understanding the interaction
 

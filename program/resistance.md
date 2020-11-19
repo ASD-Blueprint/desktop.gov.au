@@ -67,7 +67,7 @@ timeline:
     * :( Annoyed – part of them wishes they hadn’t gone on holidays
 ---
 
-They have been working in Public Service all their life as it was their dream job due to the benefits that came with the job. They have been in the same government department all their life, they have figured out workarounds and processes that make them very efficient in their role – any knowledge will be lost if they leave. They like leaving work at work, and they believe technology is the reason the world is in chaos and why there's no "compassion" or "empathy" anymore. 
+I have been working in the Public Service all my life as it was my dream job due to the benefits that came with the job. I have been in the same government department all my life, have figured out workarounds and processes that make me very efficient in my role – any knowledge will be lost if I leave. I like leaving work at work, and believe technology is the reason the world is in chaos and why there's no "compassion" or "empathy" anymore.
 
 ## Understanding the interaction
 

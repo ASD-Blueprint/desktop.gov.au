@@ -91,7 +91,7 @@ timeline:
     * :( Anxious – just wants to finish & go to bed
 ---
 
-They are rarely at the office and are constantly travelling due to the work they need to do. They look forward to the weekend so they can spend time with their family, so they work late to finish their admin / paperwork to avoid sacrificing their family weekends. 
+I am rarely in the office as I'm constantly travelling due to the work I do. I look forward to the weekend so I can spend time with family, so I work late to finish admin / paperwork to avoid sacrificing my weekend.
 
 ## Understanding the interaction
 

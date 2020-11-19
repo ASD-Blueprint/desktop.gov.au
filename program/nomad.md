@@ -59,7 +59,7 @@ timeline:
     * :( Tired – has to carry 2+ laptops all the time and switch between them
 ---
 
-They have worked in both government and private sector, but realised they wanted the freedom to try new projects and experience new environments. They decided to start doing contract work as it pays better and allows the flexibility needed for them to start a family. 
+I have worked in both government and private sectors, but realised I wanted the freedom to try new projects and experience new environments. I decided to start doing contract work as it pays better and allows the flexibility needed to start a family.
 
 ## Understanding the interaction
 

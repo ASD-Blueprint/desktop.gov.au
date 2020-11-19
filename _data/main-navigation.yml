@@ -2,8 +2,8 @@
   url: /program/index.html
 
   subitems:
-    - title: User Experiences
-      url: /program/ux.html
+    - title: User personas
+      url: /program/personas.html
 
 - title: Blueprint
   url: /blueprint/index.html

@@ -32,6 +32,7 @@ In many cases, design decisions are common across both deployment methods. Where
 
 For adoptors, practitioners, and other interested parties, DTA manages a [Protected Utility Program community of practice](https://community.desktop.gov.au/). The community provides a direct channel to DTA and encourages discussion between community members.
 
+{: .no_toc}
 ## Full list of blueprint artefacts
 
 * Solution overview

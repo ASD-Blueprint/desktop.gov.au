@@ -2,10 +2,10 @@
 layout: persona
 title: The resistance
 timeline:
-- title: New tool / system introduced
+- title: New tool/system introduced
   actions: |
     * Learn a new tool as its been launched
-    * Look at new tool / system
+    * Look at new tool/system
   pain_points: |
     None
   tools: |
@@ -57,7 +57,7 @@ timeline:
     * Needs to spend time catching up 
   pain_points: |
     * Too many emails to go through
-    * Only 1/2 the work got done
+    * Only half the work got done
   tools: |
     * Email
     * Tools
@@ -71,7 +71,7 @@ I have been working in the Public Service all my life as it was my dream job due
 
 ## Understanding the interaction
 
-### Thoughts / opinions / feelings
+### Thoughts, opinions, feelings
 
 * I feel like I can't take leave because work depends on me too much
 * I am indispensable and irreplaceable – without me things fall apart

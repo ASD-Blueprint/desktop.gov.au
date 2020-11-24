@@ -46,7 +46,7 @@ I recently made the move to work in the Public Service and know I need certain t
 
 ## Understanding the interaction
 
-### Thoughts / opinions / feelings
+### Thoughts, opinions, feelings
 
 * A part of me misses working in the private sector, it was so much easier for me to access and test new tools
 * I am frustrated by all the bureaucracy and red tape I have to go through to achieve my goals and objectives at work

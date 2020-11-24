@@ -8,21 +8,21 @@ timeline:
     * Provide bank account details
     * Get photo for security pass
     * Get work devices
-    * Setup computer / laptop  
+    * Setup computer/laptop  
   pain_points: |
     * Runs into IT issues: log-in not working, setup not working etc
     * Needs to find all details
   tools: |
     * Folders
     * Emails
-    * Letters / mail
+    * Letters/mail
     * Online banking
     * Forms
     * Help desk
   feeling: |
     * :) Excited - starting new job
-    * :) Understanding – knows there are always issues
-    * :( Exasperated – needs to do this all over again soon, especially when doing 2+ contracts at a time
+    * :) Understanding - knows there are always issues
+    * :( Exasperated - needs to do this all over again soon, especially when doing 2+ contracts at a time
 - title: Onboarding
   actions: |
     * Go through Security induction
@@ -63,7 +63,7 @@ I have worked in both government and private sectors, but realised I wanted the 
 
 ## Understanding the interaction
 
-### Thoughts / opinions / feelings
+### Thoughts, opinions, feelings
 
 * I really enjoy being exposed to numerous projects and agencies
 * When my contract end is in sight, I am not relaxed until I have the next job lined up

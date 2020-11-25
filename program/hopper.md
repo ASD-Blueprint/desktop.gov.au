@@ -15,7 +15,7 @@ timeline:
   tools: |
     * Folders
     * Emails
-    * Letters / mail
+    * Letters/mail
     * Online banking
     * Forms
     * Help desk
@@ -63,7 +63,7 @@ I started working in Government as part of a graduate program, and accepted a pe
 
 ## Understanding the interaction
 
-### Thoughts / opinions / feelings
+### Thoughts, opinions, feelings
 
 * I love the work I do, but I want a new challenge
 * Having to repeat the same information is quite tedious

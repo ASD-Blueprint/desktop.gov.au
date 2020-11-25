@@ -4,7 +4,7 @@ title: The uniter
 timeline:
 - title: Identify collaboration opportunity
   actions: |
-    * Identifies / gets given initiative
+    * Identifies/gets given initiative
     * Realises better results can be achieved if other agencies are involved
   pain_points: |
     * Needs to find the right people to talk to
@@ -32,8 +32,8 @@ timeline:
 - title: Prepare for collaboration
   actions: |
     * Meetings to introduce teams
-    * Agree on security requirements / measures
-    * Share documentation / knowledge / information
+    * Agree on security requirements/measures
+    * Share documentation/knowledge/information
     * Start to collaborate
   pain_points: |
     * Lots of back and forth emails just to coordinate a meeting time where everyone can meet
@@ -47,10 +47,10 @@ timeline:
     * Hard drives
   feeling: |
     * :( Very annoyed – “if briefing is this hard to do / coordinate how can they expect for the project to run smoothly?”
-- title: Work on project / initiative
+- title: Work on project/initiative
   actions: |
     * Collaborate
-    * Work on initiative / project
+    * Work on initiative/project
   pain_points: |
     * A lot of emails to communicate – information gets lost
     * Not all information is shared so there's a lot of back and forth asking for things
@@ -72,7 +72,7 @@ I worked in different government departments specialising in my field of knowled
 
 ## Understanding the interaction
 
-### Thoughts / opinions / feelings
+### Thoughts, opinions, feelings
 
 * I want to show taxpayers that we are making the most with their money
 * I believe our job is to help the Australian public in one way or another

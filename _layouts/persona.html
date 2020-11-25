@@ -173,13 +173,13 @@
                                     <div class="container-fuild">
                                         <div class="row">
                                             <div class="col-xs-6">
-                                                <h4>Actions / tasks</h4>
+                                                <h4>Actions/tasks</h4>
                                                 {{ item.actions | markdownify }}
                                                 <h4>Pain points</h4>
                                                 {{ item.pain_points | markdownify }}
                                             </div>
                                             <div class="col-xs-6">
-                                                <h4>Interactions / tools</h4>
+                                                <h4>Interactions/tools</h4>
                                                 {{ item.tools | markdownify }}
                                                 <h4>Feeling</h4>
                                                 {{ item.feeling | replace: ':)', happy | replace: ':|', neutral | replace: ':(', sad | markdownify | replace: '<ul>', '<ul class="feeling">' }}

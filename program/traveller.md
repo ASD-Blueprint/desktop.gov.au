@@ -6,31 +6,31 @@ timeline:
   actions: |
     * Get to work
     * Read emails
-    * Go to different locations / meetings
-    * Go back to office / desk
-    * Try to do work / review docs
+    * Go to different locations/meetings
+    * Go back to office/desk
+    * Try to do work/review docs
   pain_points: |
     None
   tools: |
     * Email
     * Laptop
-    * Mobile / tablet
+    * Mobile/tablet
   feeling: |
     * :( Overwhelmed - has 200+ emails already
     * :( Tired – needs a few coffees to make it through the morning
 - title: Midday (11am - 1pm)
   actions: |
     * Read emails
-    * Go to different locations / meetings
-    * Go back to office / desk
-    * Try to do work / review docs
+    * Go to different locations/meetings
+    * Go back to office/desk
+    * Try to do work/review docs
     * Get lunch and eat at desk or on way to meeting (when they remember)
   pain_points: |
     * Often forgets to eat lunch
   tools: |
     * Email
     * Laptop
-    * Mobile / tablet
+    * Mobile/tablet
   feeling: |
     * :( Overwhelmed - can't seem to catch up on emails
     * :( Rushed - there's not enough hours in the day
@@ -38,11 +38,11 @@ timeline:
 - title: Afternoon (1pm - 6pm)
   actions: |
     * Read emails
-    * Go to another location / meeting
-    * Go back to office / desk
+    * Go to another location/meeting
+    * Go back to office/desk
     * Print documents to review
     * Go pick up children from school
-    * Take kids to activities /  help with homework
+    * Take kids to activities/help with homework
     * Have a snack
     * Start making dinner
   pain_points: |
@@ -50,7 +50,7 @@ timeline:
   tools: |
     * Email
     * Laptop
-    * Mobile / tablet
+    * Mobile/tablet
     * Printer
   feeling: |
     * :( Rushed – needs to finish on time to go pickup kids
@@ -62,7 +62,7 @@ timeline:
     * Wait for partner to get home
     * Have dinner with family
     * Prepare children for bed
-    * Watch the news / TV show
+    * Watch the news/TV show
   pain_points: |
     None
   tools: |
@@ -91,11 +91,11 @@ timeline:
     * :( Anxious – just wants to finish & go to bed
 ---
 
-I am rarely in the office as I'm constantly travelling due to the work I do. I look forward to the weekend so I can spend time with family, so I work late to finish admin / paperwork to avoid sacrificing my weekend.
+I am rarely in the office as I'm constantly travelling due to the work I do. I look forward to the weekend so I can spend time with family, so I work late to finish admin/paperwork to avoid sacrificing my weekend.
 
 ## Understanding the interaction
 
-### Thoughts / opinions / feelings
+### Thoughts, opinions, feelings
 
 * I am exhausted – there's not enough hours in the day for me to do everything I need to do
 * I am stressed and on the weekend I need to take care of my house and my family, I rarely have time to relax

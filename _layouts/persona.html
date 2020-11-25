@@ -112,7 +112,6 @@
                                         <img class="au-responsive-media-img" src="{{ this_persona.img }}">
                                         <div class="au-card__inner">
                                             {{ this_persona.desc | markdownify }}
-                                            <p><strong>Age:</strong> {{ this_persona.age }}</p>
                                             <p><strong>Internet connection</strong><br>
                                                 {% for i in (1..this_persona.internet) %}
                                                     {{ circle_fill }}

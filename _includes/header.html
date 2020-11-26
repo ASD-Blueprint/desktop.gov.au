@@ -13,6 +13,7 @@
 <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
 <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
 <link rel="stylesheet" href="/assets/css/styles.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.3.1/themes/algolia-min.css" integrity="sha256-HB49n/BZjuqiCtQQf49OdZn63XuKFaxcIHWf0HNKte8=" crossorigin="anonymous">
 <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png">
@@ -33,11 +34,20 @@
 <header class="au-header au-header--dark" role="banner">
     <div class="container">
         <div class="row">
-            <div class="logo col-md-12">
+            <div class="logo col-md-8">
                 <a href="{{ site.url }}/">
                     <img class="hidden-print" alt="Australian Government Digital Transformation Agency logo" src="/assets/images/dta.svg" data-fallback="/assets/images/dta-300.png">
                     <h1>{{ site.title }}</h1>
                 </a>
+            </div>
+            <div class="col-md-4">
+                <form id="site-search" role="search" aria-label="sitewide" class="au-search au-search--dark au-search--icon">    
+                    <label for="keywords" class="au-search__label">Search this website</label>
+                    <input type="search" placeholder="Search this site" id="keywords" name="search" autocomplete="off" class="au-text-input au-text-input--dark">
+                    <div class="au-search__btn">
+                        <button class="au-btn au-btn--dark" type="submit"><span class="au-search__submit-btn-text">Search</span></button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

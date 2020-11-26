@@ -23,8 +23,8 @@ references:
         echo "" >> _config.yml
         echo "algolia:" >> _config.yml
         echo "  application_id: \"${ALGOLIA_APPLICATION_ID}\"" >> _config.yml
-        echo "  index_name: \"${ALGOLIA_INDEX_NAME\"" >> _config.yml
-        echo "  search_only_api_key: \"${ALGOLIA_SEARCH_ONLY_API_KEY\"" >> _config.yml
+        echo "  index_name: \"${ALGOLIA_INDEX_NAME}\"" >> _config.yml
+        echo "  search_only_api_key: \"${ALGOLIA_SEARCH_ONLY_API_KEY}\"" >> _config.yml
   index_site: &index_site
     run:
       name: Index content

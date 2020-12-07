@@ -52,6 +52,7 @@ $( document ).ready( function() {
 				class: 'au-body'
 			}).appendTo('body');
 			search_results_div.append('<div class="container"><div class="row"><div class="col-sm-12"><span id="close-search" title="Close search overlay">x</span><h1>Search results</h1>' + search_input + '<ul></ul></div></div></div>');
+			$('#overlay-keywords').focus();
 		}
 
 		show_search_results(keywords);

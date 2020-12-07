@@ -4,6 +4,7 @@ _site/
 .jekyll-metadata
 .jekyll-cache
 /vendor
+_config-extras.yml
 
 ### Jekyll Assets ###
 .asset-cache

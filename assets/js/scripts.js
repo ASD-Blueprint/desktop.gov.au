@@ -26,7 +26,12 @@ $( document ).ready( function() {
 		$('#search-results ul li').remove();
 		$('#search-results').show();
 
-		search_index.search(keywords).then(({hits}) => {
+		search_index.search(keywords).then(({hits, nbHits}) => {
+			$html_num_matches = nbHits + ' match';
+			if ( nbHits != 1 ) $html_num_matches += 'es';
+			$html_num_matches += ' found';
+			$('#overlay-number-of-results').html($html_num_matches);
+			
 			$.each(hits, function(key, result) {
 				href = result.url;
 				if ('anchor' in result) href += '#' + result.anchor;
@@ -36,14 +41,21 @@ $( document ).ready( function() {
 					if (result.headings.length > 0)
 						section = ' &sdot; ' + result.headings.join(' &sdot; ');
 				
-				$('#search-results ul').append('<li><h2><a href="' + href + '">' + result.title + ' ' + section + '</a></h2><p>' + result._highlightResult.content.value + '</p></li>');
+				title = ('title' in result) ? result.title : '';
+				body = ('content' in result) ? result.content : '';
+				if ('_highlightResult' in result) {
+					if ('title' in result._highlightResult) title = result._highlightResult.title.value;
+					if ('content' in result._highlightResult) body =  result._highlightResult.content.value;
+				}
+
+				$('#search-results ul').append('<li><h2><a href="' + href + '">' + title + ' ' + section + '</a></h2><p>' + body + '</p></li>');
 			});
 		});
 	}
 
 	$('#site-search').submit(function(e) {
 		e.preventDefault();
-		keywords = escape($('#keywords').val());
+		keywords = sanitizeHTML($('#keywords').val());
 
 		search_input = '<form id="overlay-site-search" role="search" aria-label="sitewide" class="au-search au-search--icon"><label for="keywords" class="au-search__label">Search this website</label><input type="search" autocomplete="off" placeholder="Search this site" id="overlay-keywords" name="search" class="au-text-input" value="' + keywords + '"><div class="au-search__btn"><button class="au-btn" type="submit"><span class="au-search__submit-btn-text">Search</span></button></div></form>';
 		if ( $('#search-results').length == 0 ) {
@@ -51,7 +63,7 @@ $( document ).ready( function() {
 				id: 'search-results',
 				class: 'au-body'
 			}).appendTo('body');
-			search_results_div.append('<div class="container"><div class="row"><div class="col-sm-12"><span id="close-search" title="Close search overlay">x</span><h1>Search results</h1>' + search_input + '<ul></ul></div></div></div>');
+			search_results_div.append('<div class="container"><div class="row"><div class="col-sm-12"><span id="close-search" title="Close search overlay">x</span><h1>Search results</h1>' + search_input + '<p id="overlay-number-of-results"></p><ul></ul></div></div></div>');
 			$('#overlay-keywords').focus();
 		}
 
@@ -60,11 +72,17 @@ $( document ).ready( function() {
 
 	$(document).on('submit', '#overlay-site-search', function(e) {
 		e.preventDefault();
-		keywords = escape($('#overlay-keywords').val());
+		keywords = sanitizeHTML($('#overlay-keywords').val());
 		show_search_results(keywords);
 	});
 
 	$(document).on('click', '#close-search', function() {
 		$('#search-results').remove();
 	});
+
+	var sanitizeHTML = function (str) {
+		return str.replace(/[^\w. ]/gi, function (c) {
+			return '&#' + c.charCodeAt(0) + ';';
+		});
+	};
 });

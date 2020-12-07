@@ -63,7 +63,7 @@ $( document ).ready( function() {
 				id: 'search-results',
 				class: 'au-body'
 			}).appendTo('body');
-			search_results_div.append('<div class="container"><div class="row"><div class="col-sm-12"><span id="close-search" title="Close search overlay">x</span><h1>Search results</h1>' + search_input + '<p id="overlay-number-of-results"></p><ul></ul></div></div></div>');
+			search_results_div.append('<div class="container"><div class="row"><div class="col-sm-12"><span id="close-search" title="Close search overlay">x</span><h1>Search results</h1>' + search_input + '<p id="overlay-number-of-results"></p><ul></ul><p id="overlay-search-attribution" class="text-right"><img src="/assets/images/search-by-algolia-light-background.png" alt="Search powered by algolia"></p></div></div></div>');
 			$('#overlay-keywords').focus();
 		}
 

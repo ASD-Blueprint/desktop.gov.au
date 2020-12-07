@@ -39,7 +39,7 @@ $( document ).ready( function() {
 				section = '';
 				if ('headings' in result)
 					if (result.headings.length > 0)
-						section = ' &sdot; ' + result.headings.join(' &sdot; ');
+						section = '<p class="metadata">Heading: ' + result.headings.join(' &rarr; ') + '</p>';
 				
 				title = ('title' in result) ? result.title : '';
 				body = ('content' in result) ? result.content : '';
@@ -48,7 +48,7 @@ $( document ).ready( function() {
 					if ('content' in result._highlightResult) body =  result._highlightResult.content.value;
 				}
 
-				$('#search-results ul').append('<li><h2><a href="' + href + '">' + title + ' ' + section + '</a></h2><p>' + body + '</p></li>');
+				$('#search-results ul').append('<li><h2><a href="' + href + '">' + title + '</a></h2><p>' + body + '</p>' + section + '</li>');
 			});
 		});
 	}

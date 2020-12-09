@@ -16,6 +16,19 @@ references:
       command: |
         sudo gem update --system
         gem install bundler
+  integrate_search: &integrate_search
+    run:
+      name: Integrate with Algolia Search
+      command: |
+        echo "" >> _config.yml
+        echo "algolia:" >> _config.yml
+        echo "  application_id: \"${ALGOLIA_APPLICATION_ID}\"" >> _config.yml
+        echo "  index_name: \"${ALGOLIA_INDEX_NAME}\"" >> _config.yml
+        echo "  search_only_api_key: \"${ALGOLIA_SEARCH_ONLY_API_KEY}\"" >> _config.yml
+  index_site: &index_site
+    run:
+      name: Index content
+      command: ALGOLIA_API_KEY="${ALGOLIA_ADMIN_API_KEY}" bundle exec jekyll algolia
   build_site: &build_site
     run:
       name: Build site
@@ -33,6 +46,7 @@ jobs:
       - checkout
       - *cf_install
       - *app_prereqs
+      - *integrate_search
       - *build_site
       - run:
           name: Deploy feature branch
@@ -46,6 +60,7 @@ jobs:
       - checkout
       - *cf_install
       - *app_prereqs
+      - *integrate_search
       - *build_site
       - run:
           name: Deploy to staging
@@ -59,6 +74,8 @@ jobs:
       - checkout
       - *cf_install
       - *app_prereqs
+      - *integrate_search
+      - *index_site
       - *build_site
       - run:
           name: Deploy to production

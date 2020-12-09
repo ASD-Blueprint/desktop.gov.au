@@ -28,7 +28,7 @@ Also refer to [Jekyll Spaceship](https://github.com/jeffreytse/jekyll-spaceship#
 
 ### Site search
 
-Site search is provided by Algolia and is automatically integrated into deployed environments via CircleCI. If you are deploying to a local environment and need search, create a `_config-extras_.yml` file in the root of your working directory substituting with correct values. Note that this file is not committed into the repository.
+Site search is provided by Algolia and is automatically integrated into deployed environments via CircleCI. If you are deploying to a local environment and need search, create a `_config-extras.yml` file in the root of your working directory substituting with correct values. Note that this file is not committed into the repository.
 
 ```
 algolia:

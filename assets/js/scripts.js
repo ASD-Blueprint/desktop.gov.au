@@ -52,6 +52,7 @@ $( document ).ready( function() {
 					$('#search-results ul').append('<li><h2><a href="' + href + '">' + title + '</a></h2><p>' + body + '</p>' + section + '</li>');
 				});
 			});
+			$('#overlay-keywords').blur();
 		}
 		else {
 			$('#overlay-keywords').focus();

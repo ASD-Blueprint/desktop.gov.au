@@ -26,31 +26,36 @@ $( document ).ready( function() {
 		$('#search-results ul li').remove();
 		$('#search-results').show();
 
-		search_index.search(keywords).then(({hits, nbHits}) => {
-			$html_num_matches = nbHits + ' match';
-			if ( nbHits != 1 ) $html_num_matches += 'es';
-			$html_num_matches += ' found';
-			$('#overlay-number-of-results').html($html_num_matches);
-			
-			$.each(hits, function(key, result) {
-				href = result.url;
-				if ('anchor' in result) href += '#' + result.anchor;
-
-				section = '';
-				if ('headings' in result)
-					if (result.headings.length > 0)
-						section = '<p class="metadata">Heading: ' + result.headings.join(' &rarr; ') + '</p>';
+		if (keywords.trim().length > 0) {
+			search_index.search(keywords).then(({hits, nbHits}) => {
+				$html_num_matches = nbHits + ' match';
+				if ( nbHits != 1 ) $html_num_matches += 'es';
+				$html_num_matches += ' found';
+				$('#overlay-number-of-results').html($html_num_matches);
 				
-				title = ('title' in result) ? result.title : '';
-				body = ('content' in result) ? result.content : '';
-				if ('_highlightResult' in result) {
-					if ('title' in result._highlightResult) title = result._highlightResult.title.value;
-					if ('content' in result._highlightResult) body =  result._highlightResult.content.value;
-				}
+				$.each(hits, function(key, result) {
+					href = result.url;
+					if ('anchor' in result) href += '#' + result.anchor;
 
-				$('#search-results ul').append('<li><h2><a href="' + href + '">' + title + '</a></h2><p>' + body + '</p>' + section + '</li>');
+					section = '';
+					if ('headings' in result)
+						if (result.headings.length > 0)
+							section = '<p class="metadata">Heading: ' + result.headings.join(' &rarr; ') + '</p>';
+					
+					title = ('title' in result) ? result.title : '';
+					body = ('content' in result) ? result.content : '';
+					if ('_highlightResult' in result) {
+						if ('title' in result._highlightResult) title = result._highlightResult.title.value;
+						if ('content' in result._highlightResult) body =  result._highlightResult.content.value;
+					}
+
+					$('#search-results ul').append('<li><h2><a href="' + href + '">' + title + '</a></h2><p>' + body + '</p>' + section + '</li>');
+				});
 			});
-		});
+		}
+		else {
+			$('#overlay-keywords').focus();
+		}
 	}
 
 	$('#site-search').submit(function(e) {

@@ -27,7 +27,7 @@ $( document ).ready( function() {
 		$('#search-results').show();
 
 		if (keywords.trim().length > 0) {
-			search_index.search(keywords).then(({hits, nbHits}) => {
+			search_index.search(keywords, {hitsPerPage: 100}).then(({hits, nbHits}) => {
 				$html_num_matches = nbHits + ' match';
 				if ( nbHits != 1 ) $html_num_matches += 'es';
 				$html_num_matches += ' found';

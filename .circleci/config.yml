@@ -75,6 +75,7 @@ jobs:
       - *cf_install
       - *app_prereqs
       - *integrate_search
+      - *index_site
       - *build_site
       - run:
           name: Deploy to production

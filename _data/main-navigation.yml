@@ -9,7 +9,7 @@
   url: /blueprint/index.html
   
   subitems:
-    - title: Solution Overview
+    - title: Solution overview
       url: /blueprint/overview.html
 
     - title: Platform
@@ -18,7 +18,7 @@
     - title: Office 365
       url: /blueprint/office-365.html
 
-    - title: Client Devices
+    - title: Client devices
       url: /blueprint/client-devices.html
 
     - title: As Built As Configured
@@ -33,6 +33,6 @@
 - title: Community
   url: https://community.desktop.gov.au/
 
-- title: Contact Us
+- title: Contact us
   url: https://community.desktop.gov.au/contact-us/
   right: right

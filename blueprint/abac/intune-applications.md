@@ -1,0 +1,435 @@
+---
+layout: page
+title: Intune applications
+menu: abac
+---
+
+The following Intune applications can be found in the Azure Portal at `Search > Intune > Client apps | Apps`
+
+## Privileged access
+
+* Name: `Privileged Access`
+* Type: `Web link`
+  * App information
+    * Name: `Privileged Access`
+    * Description: `Azure Portal`
+    * Publisher: `Microsoft`
+    * App URL: `https://portal.azure.com/#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickstart`
+    * Require a managed browser to open this link: `No`
+    * Category: `Productivity`
+    * Show this as a featured app in the Company Portal: `No`
+    * Information URL: -
+    * Privacy URL: -
+    * Developer: -
+    * Owner: -
+    * Notes: -
+    * Logo: -
+  * Scope tags: `Default`
+  * Assignments
+    * Required: `grp-iPhone-Devices`, `grp-iOS-Devices`, `rol-Agency-Users`
+    * Available for enrolled devices: -
+    * Available with or without enrollment: -
+    * Uninstall: -
+
+## Configuration Manager Trace (CMTrace) install
+
+* Name: `CMTrace Install`
+* Type: `Windows app (Win32)`
+  * App information
+    * Name: `CMTrace Install`
+    * Description: `Install CMTrace.exe and create shortcut on desktop to Intune log location to monitor.`
+    * Publisher: `Microsoft`
+    * Category: -
+    * Show this as a featured app in the Company Portal: `Yes`
+    * Information URL: -
+    * Privacy URL: -
+    * Developer: -
+    * Owner: -
+    * Notes: -
+    * Logo: -
+  * Program
+    * Install command: `powershell.exe -executionpolicy bypass -file CMTraceInstall.ps1`
+    * Uninstall command: `powershell.exe -executionpolicy bypass -file CMTraceRemove.ps1`
+    * Install behaviour: `System`
+    * Device restart behavior: `App install may force a device restart`
+    * Return codes: 
+```
+0 Success
+1707 Success
+3010 Soft reboot
+1641 Hard reboot
+1618 Retry
+```
+  * Requirements
+    * Operating system architecture: `x64`
+    * Minimum operating system: `Windows 10 1903`
+    * Disk space required (MB): -
+    * Physical memory required (MB): -
+    * Minimum number of logical processors required: -
+    * Minimum CPU speed required (MHz): -
+    * Additional requirement rules: -
+  * Detection rules
+    * Rules format: `Manually configure detection rules`
+    * Detection rules: `File %windir%`
+  * Dependencies: -
+  * Scope tags: `Default`
+  * Assignments
+    * Required: -
+    * Available for enrolled devices: -
+    * Uninstall: -
+
+## Company portal
+
+* Name: `Company Portal`
+* Type: `Web link`
+  * App information
+    * Name: `Company Portal`
+    * Description: `Company Portal`
+    * Publisher: `Microsoft`
+    * App URL: `https://portal.manage.microsoft.com/`
+    * Require a managed browser to open this link: `No`
+    * Category: `Business`
+    * Show this as a featured app in the Company Portal: `Yes`
+    * Information URL: -
+    * Privacy URL: -
+    * Developer: -
+    * Owner: -
+    * Notes: -
+    * Logo: -
+  * Scope tags: `Default`
+  * Assignments
+    * Required: `rol-Agency-Users`
+    * Available for enrolled devices: -
+    * Available with or without enrollment: -
+    * Uninstall: -
+
+## Defender Advanced Threat Protection (ATP) registry recommendations
+
+* Name: `Defender ATP Registry Recommendations`
+* Type: `Windows app (Win32)`
+  * App information
+    * Name: `Defender ATP Registry Recommendations`
+    * Description: `Registry settings as per MS Defender ATP recommendations`
+    * Publisher: `<Agency Name>`
+    * Category: -
+    * Show this as a featured app in the Company Portal: `No`
+    * Information URL: -
+    * Privacy URL: -
+    * Developer: -
+    * Owner: -
+    * Notes: -
+    * Logo: -
+  * Program
+    * Install command: `%SystemRoot%\sysnative\WindowsPowerShell\v1.0\powershell.exe -executionpolicy bypass -file DefenderATP.ps1`
+    * Uninstall command: `%SystemRoot%\sysnative\WindowsPowerShell\v1.0\powershell.exe -executionpolicy bypass -file DefenderATP.ps1`
+    * Install behaviour: `System`
+    * Device restart behavior: `App install may force a device restart`
+    * Return codes: 
+```
+0 Success
+1707 Success
+3010 Soft reboot
+1641 Hard reboot
+1618 Retry
+```
+  * Requirements
+    * Operating system architecture: `x64`
+    * Minimum operating system: `Windows 10 1903`
+    * Disk space required (MB): -
+    * Physical memory required (MB): -
+    * Minimum number of logical processors required: -
+    * Minimum CPU speed required (MHz): -
+    * Additional requirement rules: -
+  * Detection rules
+    * Rules format: `Manually configure detection rules`
+    * Detection rules: `Registry Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters`
+  * Dependencies: -
+  * Scope tags: `Default`
+  * Assignments
+    * Required: `rol-Agency-Users`
+    * Available for enrolled devices: -
+    * Uninstall: -
+
+## Expand Windows Defender Application Control (WDAC) policies
+
+* Name: `Expand WDAC Policies`
+* Type: `Windows app (Win32)`
+  * App information
+    * Name: `Expand WDAC Policies`
+    * Description: `Install WDAC policies to C:\Windows\System32\CodeIntegrity\CiPolicies\Active`
+    * Publisher: `<Agency Name>`
+    * Category: -
+    * Show this as a featured app in the Company Portal: `No`
+    * Information URL: -
+    * Privacy URL: -
+    * Developer: -
+    * Owner: -
+    * Notes: -
+    * Logo: -
+  * Program
+    * Install command: `%SystemRoot%\sysnative\WindowsPowerShell\v1.0\powershell.exe -executionpolicy bypass -file Expand.ps1`
+    * Uninstall command: `%SystemRoot%\sysnative\WindowsPowerShell\v1.0\powershell.exe -executionpolicy bypass -file Expand.ps1`
+    * Install behaviour: `System`
+    * Device restart behavior: `App install may force a device restart`
+    * Return codes: 
+```
+0 Success
+1707 Success
+3010 Soft reboot
+1641 Hard reboot
+1618 Retry
+```
+  * Requirements
+    * Operating system architecture: `x64`
+    * Minimum operating system: `Windows 10 1903`
+    * Disk space required (MB): -
+    * Physical memory required (MB): -
+    * Minimum number of logical processors required: -
+    * Minimum CPU speed required (MHz): -
+    * Additional requirement rules: -
+  * Detection rules
+    * Rules format: `Manually configure detection rules`
+    * Detection rules: `File %SystemRoot%\System32\CodeIntegrity\CiPolicies\Active`
+  * Dependencies: -
+  * Scope tags: `Default`
+  * Assignments
+    * Required: `rol-Agency-test`
+    * Available for enrolled devices: -
+    * Uninstall: -
+
+## Microsoft Authenticator
+
+* Name: `Microsoft Authenticator`
+* Type: `iOS store app`
+  * App information
+    * Name: `Microsoft Authenticator`
+    * Description: `Sign in is easy, convenient, and secure when you use Microsoft Authenticator. Use your phone, not your password, to log into your Microsoft account. You simply have to enter your username, then approve the notification sent to your phone. Your fingerprint, face ID, or PIN will provide a second layer of security in this two step verification process. After, you'll have access to all your Microsoft products`
+    * Publisher: `Microsoft Corporation`
+    * Appstore URL: `https://apps.apple.com/us/app/microsoft-authenticator/id983156458?uo=4`
+    * Minimum operating system: `iOS 8.0`
+    * Applicable device type: `iPad`, `iPhone and iPod`
+    * Category: -
+    * Show this as a featured app in the Company Portal: `Yes`
+    * Information URL: -
+    * Privacy URL: -
+    * Developer: -
+    * Owner: -
+    * Notes: -
+    * Logo: ![Microsoft Authenticator](/assets/images/abac/microsoft-authenticator.png)
+  * Scope tags: `Default`
+  * Assignments
+    * Required: `grp-Windows-10-Devices`, `rol-Agency-Administrators`, `rol-Agency-Users`
+    * Available for enrolled devices: -
+    * Available with or without enrollment: -
+    * Uninstall: -
+
+## Microsoft Edge
+
+* Name: `Microsoft Edge`
+* Type: `iOS store app`
+  * App information
+    * Name: `Microsoft Edge`
+    * Description: `Introducing the new Microsoft Edge . It’s time to expect more. More privacy. More control. More productivity. More value. Browse anywhere with one continuous experience from your phone to your computer and other signed-in devices. Microsoft Edge gives you the tools to protect your privacy online with features like tracking prevention, AdBlock Plus and InPrivate mode. Organise the web in a way that cuts through the clutter, making it easier to find, view and manage your content on-the-go. With world class compatibility, performance and new features, the new Microsoft Edge is the only browser you’ll ever need.`
+    * Publisher: `Microsoft Corporation`
+    * Appstore URL: `https://apps.apple.com/us/app/microsoft-edge/id1288723196?uo=4`
+    * Minimum operating system: `iOS 8.0`
+    * Applicable device type: `iPad`, `iPhone and iPod`
+    * Category: -
+    * Show this as a featured app in the Company Portal: `Yes`
+    * Information URL: -
+    * Privacy URL: -
+    * Developer: -
+    * Owner: -
+    * Notes: -
+    * Logo: ![Microsoft Edge](/assets/images/abac/microsoft-edge.png)
+  * Scope tags: `Default`
+  * Assignments
+    * Required: `grp-Windows-10-Devices`, `rol-Agency-Administrators`, `rol-Agency-Users`
+    * Available for enrolled devices: -
+    * Available with or without enrollment: -
+    * Uninstall: -
+
+## Microsoft Edge for Windows 10
+
+* Name: `Microsoft Edge for Windows 10`
+* Type: `Microsoft Edge (Windows 10)`
+  * App information
+    * Name: `Microsoft Edge for Windows 10`
+    * Description: `Microsoft Edge is the browser for business with modern and legacy web compatibility, new privacy features such as Tracking prevention, and built-in productivity tools such as enterprise-grade PDF support and access to Office and corporate search right from a new tab.`
+    * Publisher: `Microsoft`
+    * Category: `Productivity`
+    * Show this as a featured app in the Company Portal: `Yes`
+    * Information URL: `https://www.microsoft.com/en-us/windows/microsoft-edge`
+    * Privacy URL: `https://privacy.microsoft.com/en-US/privacystatement`
+    * Developer: `Microsoft`
+    * Owner: `Microsoft`
+    * Notes: -
+    * Channel: `Stable`
+    * Language: `Operating system default`
+    * Logo: ![Microsoft Edge for Windows 10](/assets/images/abac/microsoft-edge-for-windows-10.png)
+  * Scope tags: `Default`
+  * Assignments
+    * Required: `All devices`, `All users`
+    * Available for enrolled devices: -
+    * Available with or without enrollment: -
+    * Uninstall: -
+
+## Microsoft Excel
+
+* Name: `Microsoft Excel`
+* Type: `iOS store app`
+  * App information
+    * Name: `Microsoft Excel`
+    * Description: `Microsoft Excel, the spreadsheet app, lets you create, view, edit, and share your files quickly and easily. Manage spreadsheets, tables and workbooks attached to email messages from your phone with this powerful productivity app from Microsoft.`
+    * Publisher: `Microsoft Corporation`
+    * Appstore URL: `https://apps.apple.com/us/app/microsoft-excel/id586683407?uo=4`
+    * Minimum operating system: `iOS 12.0`
+    * Applicable device type: `iPad`, `iPhone and iPod`
+    * Category: -
+    * Show this as a featured app in the Company Portal: `Yes`
+    * Information URL: -
+    * Privacy URL: -
+    * Developer: -
+    * Owner: -
+    * Notes: -
+    * Logo: ![Microsoft Excel](/assets/images/abac/microsoft-excel.png)
+  * Scope tags: `Default`
+  * Assignments
+    * Required: `grp-Windows-10-Devices`, `rol-Agency-Administrators`, `rol-Agency-Users`
+    * Available for enrolled devices: -
+    * Available with or without enrollment: -
+    * Uninstall: -
+
+## Microsoft OneDrive
+
+* Name: `Microsoft OneDrive`
+* Type: `iOS store app`
+  * App information
+    * Name: `Microsoft OneDrive`
+    * Description: `Do more wherever you go with Microsoft OneDrive. Get to and share your documents, photos, and other files from your iOS device, computer (PC or Mac), and any other devices you use. Use the Office mobile apps to stay productive and work together, no matter where you are. The OneDrive app for iOS lets you easily work with your personal and work files when you're on the go.`
+    * Publisher: `Microsoft Corporation`
+    * Appstore URL: `https://apps.apple.com/us/app/microsoft-onedrive/id477537958?uo=4`
+    * Minimum operating system: `iOS 12.0`
+    * Applicable device type: `iPad`, `iPhone and iPod`
+    * Category: -
+    * Show this as a featured app in the Company Portal: `Yes`
+    * Information URL: -
+    * Privacy URL: -
+    * Developer: -
+    * Owner: -
+    * Notes: -
+    * Logo: ![Microsoft OneDrive](/assets/images/abac/microsoft-onedrive.png)
+  * Scope tags: `Default`
+  * Assignments
+    * Required: `grp-Windows-10-Devices`, `rol-Agency-Administrators`, `rol-Agency-Users`
+    * Available for enrolled devices: -
+    * Available with or without enrollment: -
+    * Uninstall: -
+
+## Microsoft Outlook
+
+* Name: `Microsoft Outlook`
+* Type: `iOS store app`
+  * App information
+    * Name: `Microsoft Outlook`
+    * Description: `Outlook lets you bring all your email accounts and calendars in one convenient spot. Whether it's staying on top of your inbox or scheduling the next big thing, we make it easy to be your most productive, organized, and connected self.`
+    * Publisher: `Microsoft Corporation`
+    * Appstore URL: `https://apps.apple.com/us/app/microsoft-outlook/id951937596?uo=4`
+    * Minimum operating system: `iOS 12.0`
+    * Applicable device type: `iPad`, `iPhone and iPod`
+    * Category: `Productivity`
+    * Show this as a featured app in the Company Portal: `Yes`
+    * Information URL: -
+    * Privacy URL: -
+    * Developer: -
+    * Owner: -
+    * Notes: -
+    * Logo: ![Microsoft Outlook](/assets/images/abac/microsoft-outlook.png)
+  * Scope tags: `Default`
+  * Assignments
+    * Required: `grp-Windows-10-Devices`, `rol-Agency-Administrators`, `rol-Agency-Users`
+    * Available for enrolled devices: -
+    * Available with or without enrollment: -
+    * Uninstall: -
+
+## Microsoft Teams
+
+* Name: `Microsoft Teams`
+* Type: `iOS store app`
+  * App information
+    * Name: `Microsoft Teams`
+    * Description: `Microsoft Teams is your hub for teamwork in Office 365. All your team conversations, files, meetings, and apps live together in a single shared workspace, and you can take it with you on your favourite mobile device. Whether you’re sprinting towards a deadline or sharing your next big idea, Teams can help you achieve more.`
+    * Publisher: `Microsoft Corporation`
+    * Appstore URL: `https://apps.apple.com/us/app/microsoft-teams/id1113153706?uo=4`
+    * Minimum operating system: `iOS 12.0`
+    * Applicable device type: `iPad`, `iPhone and iPod`
+    * Category: -
+    * Show this as a featured app in the Company Portal: `Yes`
+    * Information URL: -
+    * Privacy URL: -
+    * Developer: -
+    * Owner: -
+    * Notes: -
+    * Logo: ![Microsoft Teams](/assets/images/abac/microsoft-teams.png)
+  * Scope tags: `Default`
+  * Assignments
+    * Required: `grp-Windows-10-Devices`, `rol-Agency-Administrators`, `rol-Agency-Users`
+    * Available for enrolled devices: -
+    * Available with or without enrollment: -
+    * Uninstall: -
+
+## Microsoft Word
+
+* Name: `Microsoft Word`
+* Type: `iOS store app`
+  * App information
+    * Name: `Microsoft Word`
+    * Description: `The trusted Word app lets you create, edit, view, and share your files with others quickly and easily. Send, view and edit Office docs attached to emails from your phone with this powerful word processing app from Microsoft.`
+    * Publisher: `Microsoft Corporation`
+    * Appstore URL: `https://apps.apple.com/us/app/microsoft-word/id586447913?uo=4`
+    * Minimum operating system: `iOS 12.0`
+    * Applicable device type: `iPad`, `iPhone and iPod`
+    * Category: -
+    * Show this as a featured app in the Company Portal: `Yes`
+    * Information URL: -
+    * Privacy URL: -
+    * Developer: -
+    * Owner: -
+    * Notes: -
+    * Logo: ![Microsoft Word](/assets/images/abac/microsoft-word.png)
+  * Scope tags: `Default`
+  * Assignments
+    * Required: `grp-Windows-10-Devices`, `rol-Agency-Administrators`, `rol-Agency-Users`
+    * Available for enrolled devices: -
+    * Available with or without enrollment: -
+    * Uninstall: -
+
+## Office 365 monthly targeted
+
+* Name: `Office 365 monthly targeted`
+* Type: `Office 365 ProPlus Suite (Windows 10)`
+  * App information
+    * Name: `Office 365 monthly targeted`
+    * Description: `Office 365 monthly targeted`
+    * Publisher: `Microsoft`
+    * Category: `Productivity`
+    * Show this as a featured app in the Company Portal: `Yes`
+    * Information URL: -
+    * Privacy URL: -
+    * Developer: `Microsoft`
+    * Owner: `Microsoft`
+    * Notes: -
+    * Logo: ![Microsoft Office](/assets/images/abac/microsoft-office.png)
+  * App suite configuration
+    * Apps to be installed as part of the suite: `Excel, OneDrive Desktop, Outlook, PowerPoint, Publisher, Skype for Business, Teams, Word`
+    * Architecture: `64-bit`
+    * Update channel: `Monthly (Targeted)`
+    * Remove other versions: `Yes`
+    * Version to install: `Latest`
+    * Use shared computer activation: `Yes`
+    * Accept the Microsoft Software License Terms on behalf of users: `Yes`
+    * Apps to be installed as part of the suite: `No languages selected`
+  * Scope tags: `Default`
+  * Assignments
+    * Required: `grp-SecBaselines`
+    * Uninstall: -

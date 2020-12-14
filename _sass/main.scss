@@ -231,6 +231,10 @@ body.home {
     }
 }
 
+code {
+    word-break: break-word;
+}
+
 
 /* sm */
 @media (min-width: 768px) {

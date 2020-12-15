@@ -6,7 +6,7 @@ menu: security
 
 This Security Risk Management Plan (SRMP) has been developed to demonstrate the reduction in risk that can be achieved by implementing the CloudSystem to secure access to Microsoft Office 365 services from Windows 10 endpoints and iOS mobile devices. 
 
-Each risk has been assessed in the context of the controls implemented by the CloudSystem directly, those implemented by Microsoft as part of the Office 365 service, as well as those that are expected to be implemented by Australian Government Agencies that will leverage the CloudSystem. The risk matrix, including definitions of likelihood and consequence, is provided at Appendix B. Agencies leveraging the CloudSystem should review the risk ratings and align them to their internal risk management framework as applicable.
+Each risk has been assessed in the context of the controls implemented by the CloudSystem directly, those implemented by Microsoft as part of the Office 365 service, as well as those that are expected to be implemented by Australian Government Agencies that will leverage the CloudSystem. The risk matrix, including definitions of likelihood and consequence, is provided at [Risk Matrix](/assets/files/security/risk-matrix.pdf). Agencies leveraging the CloudSystem should review the risk ratings and align them to their internal risk management framework as applicable.
 
 The residual risk to the Agency has been assessed as Medium. This can be further reduced to Medium-Low by implementing the additional treatments detailed in this document. It is an Agency’s responsibility to accept the risks and associated residual risk rating as described within this document.
 
@@ -38,8 +38,6 @@ R19 | Users declassifying emails without the owner’s permission  | High | Medi
 
 ## Introduction
 
-### Overview
-
 This SRMP has been prepared by the DTA to support Agencies planning to leverage the CloudSystem. The document demonstrates the controls implemented by the CloudSystem that reduce the risk of leveraging Office 365 for environments that have been accredited to hold up to and including PROTECTED security classified information.
 
 PROTECTED is used throughout the document to describe the maximum security classification of information able to be managed by the system. Where PROTECTED is used, the security markings described by the Protective Security Policy Framework (PSPF) such as OFFICIAL and OFFICIAL: Sensitive are inferred.
@@ -58,11 +56,11 @@ Agencies should make themselves aware of any risks identified in the IRAP assess
 
 ### Methodology
 
-The assessment of the threats and risks presented in this SRMP has been performed in accordance with industry best practice in line with AS/NZS ISO 31000:2009. The risk matrix that was used in the assessment of risk ratings is included in this document at Appendix B.
+The assessment of the threats and risks presented in this SRMP has been performed in accordance with industry best practice in line with AS/NZS ISO 31000:2009. The risk matrix that was used in the assessment of risk ratings is included in this document at [Risk Matrix](/assets/files/security/risk-matrix.pdf).
 
 ## Risk assessment
 
-Detailed assessment of the risks to the operation of the system are outlined in the following tables which demonstrate the controls required to manage risks within the solution. All risk ratings have been updated to align with the risk matrix identified in Appendix B.
+Detailed assessment of the risks to the operation of the system are outlined in the following tables which demonstrate the controls required to manage risks within the solution. All risk ratings have been updated to align with the risk matrix identified in [Risk Matrix](/assets/files/security/risk-matrix.pdf).
 
 ### R01 Inadequate privileged account management
 

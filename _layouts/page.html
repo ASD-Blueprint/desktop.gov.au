@@ -1,6 +1,8 @@
 {% assign menu = site.data.main-navigation %}
 {% if page.menu == 'abac' %}
 {% assign menu = site.data.abac-navigation %}
+{% elsif page.menu == 'security' %}
+{% assign menu = site.data.security-navigation %}
 {% endif %}
 
 {% include header.html %}
@@ -22,7 +24,7 @@
                             </button>
                             <div id="sidebar-nav-container" class="au-side-nav__content au-accordion--closed au-accordion__body">
                                 {% for item in menu %}
-                                    {% if item.url contains page.dir or page.menu == 'abac' %}
+                                    {% if item.url contains page.dir or page.menu == 'abac' or page.menu == 'security' %}
 
                                     <ul class="au-link-list">
                                         <li class="sidenav-title {% if item.url == page.url %}active{% endif %}"><a href="{{ item.url }}">{{ item.title }}</a>

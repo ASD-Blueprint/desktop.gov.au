@@ -1,0 +1,27 @@
+- title: Security
+  url: /blueprint/security.html
+
+  subitems:
+    - title: Incident response plan
+      url: /blueprint/security/incident-response-plan.html
+
+    - title: Security risk management plan
+      url: /blueprint/security/security-risk-management-plan.html
+
+    - title: System security plan
+      url: /blueprint/security/system-security-plan.html
+
+    - title: System security plan annex
+      url: /assets/files/DTA - Cloud-Native Blueprint - System Security Plan Annex.xlsx
+
+    - title: Hybrid incident response plan
+      url: /blueprint/security/hybrid-incident-response-plan.html
+
+    - title: Hybrid security risk management plan
+      url: /blueprint/security/hybrid-security-risk-management-plan.html
+
+    - title: Hybrid system security plan
+      url: /blueprint/security/hybrid-system-security-plan.html
+
+    - title: Hybrid system security plan annex
+      url: /assets/files/DTA - Hybrid Blueprint - System Security Plan Annex.xlsx

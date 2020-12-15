@@ -358,7 +358,7 @@ Devices are allowed to authenticate to Intune for enrolment.
     * Persistent browser session: `False`
 * Enable policy: `On`
 
-## Grant - Mobile Device Access
+## Grant - mobile device access
 
 Grants access to managed mobile devices that are enrolled and compliant in Intune. An approved Microsoft app is required.
 

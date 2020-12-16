@@ -27,6 +27,8 @@ This IRP is based on the four step National Institute of Standards and Technolog
 
 ![Figure 1 Incident Response Process](/assets/images/security/cloud-incident-response-process.png)
 
+Each of the four incident response phases are detailed in the following sections of this document.
+
 ### Preparation
 The preparation phase of the incident response life cycle is a shared responsibility between the project team and Agency cyber security personnel. The project team is responsible for the design, implementation, and security assessment of the solution. This includes performing a risk assessment and determining which specific Information Security Manual (ISM) controls to implement to reduce and manage the risk of security incidents. The following documentation has been produced for the CloudSystem and it is recommended that the Agencies cyber security personnel familiarise themselves with the content to aid them in their preparation to manage an incident:
 

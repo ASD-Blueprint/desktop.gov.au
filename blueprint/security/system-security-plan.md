@@ -465,7 +465,7 @@ This section is applicable as the CloudSystem includes mobile devices.
 
 The CloudSystem leverages Microsoft Intune to provide both Mobile Device Management (MDM) Mobile Application Management (MAM) controls to protect mobile devices and data stored on them. Both Windows laptops and iOS devices will be enrolled within Intune and tagged as Corporate devices, allowing policies to be centrally managed and deployed. This includes configuring storage encryption, disabling unneeded features and controlling application behaviour.
 
-iOS devices are lightly managed and partially comply with the ACSC ‘Security Configuration Guide - Apple iOS 12 Devices’ and Information Security Manual (ISM) to maximise usability for the target users. Note: Agencies should do a risk assessment before deciding to change settings relating mobile devices.
+iOS devices are lightly managed and partially comply with the ACSC ‘[Security Configuration Guide - Apple iOS 12 Devices](https://www.cyber.gov.au/publications/security-configuration-guide-apple-ios-12-devices)’ and Information Security Manual (ISM) to maximise usability for the target users. Note: Agencies should do a risk assessment before deciding to change settings relating mobile devices.
 
 Bluetooth provides users with ease of use when paired with devices such as a in-build car speaker for conference calls.
 
@@ -473,7 +473,7 @@ Users can reset certain security settings in Personal Hotspot and Passcode for s
 
 To provide ease of use and maintain productivity users can download apps from the App Store. The agency can track, and monitor apps found on managed devices that have been enrolled in Intune. Details on how to view and report on discovered apps can be found in the ‘DTA - Cloud-Native Blueprint - Security Standard Operating Procedures (August 2020)’.
 
-The risk of lightly managed iOS devices is addressed in the ‘DTA - Cloud-Native Blueprint - Security Risk Management Plan (August 2020)’ at R17.
+The risk of lightly managed iOS devices is addressed in the ‘[DTA - Cloud-Native Blueprint - Security Risk Management Plan (August 2020)](security-risk-management-plan.html\)’ at [R17](security-risk-management-plan.html#r17-mobile-device-compromised).
 
 #### Security controls provided by the CloudSystem
 

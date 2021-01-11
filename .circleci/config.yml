@@ -45,10 +45,10 @@ jobs:
     docker:
       - image: pandoc/latex
     steps:
-      - checkout
       - run:
           name: Install git-cli
           command: apk add git
+      - checkout
       - run:
           name: Build docx and pdf files
           command: ./_util/export-documents.sh

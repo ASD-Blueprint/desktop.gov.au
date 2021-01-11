@@ -2,6 +2,7 @@
 layout: page
 title: System security plan
 menu: security
+download: true
 ---
 
 ## Introduction

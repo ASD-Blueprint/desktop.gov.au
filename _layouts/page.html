@@ -58,6 +58,7 @@
                             <ul>
                                 <li>{% include reading-time.html %}</li>
                                 <li>{{ page.last_modified_at | date: '%-d %B %Y' }}</li>
+                                {% if page.download %}{% assign filename = page.name | replace: '.md', '' %}<li>Download: <a href="/assets/files/{{ filename }}.docx">docx</a>, <a href="/assets/files/{{ filename }}.pdf">pdf</a></li>{% endif %}
                             </ul>
                         </div>
                         {{ content }}

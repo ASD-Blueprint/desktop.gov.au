@@ -2,6 +2,7 @@
 layout: page
 title: Hybrid incident response plan
 menu: security
+download: true
 ---
 
 This Incident Response Plan (IRP) has been prepared to support to the Digital Transformation Agency (DTA) HybridSystem. The document provides guidance for responding to cyber security incidents that may occur in relation to an Agency’s operation of the HybridSystem.
@@ -127,7 +128,7 @@ Medium | Minor impact on achievement of outcomes and performance<br><br>Requires
 Low | Insignificant impact on achievement of outcomes and performance | Some adverse publicity<br><br>Minor loss of stakeholder confidence
 
 Agency cyber security personnel should use the above table to define the criticality of incidents based on the data available to them at the time of detection and analysis. If this data is updated or found to be inaccurate Agency cyber security personnel should re-assess the criticality of the related incident(s). The criticality of an incident should be used to determine the resources, timeframes and reporting requirements related to it.
- 
+
 #### Azure service outages
 
 An additional data source that can be leveraged by Agency cyber security personnel when analysing potential security incidents is the Azure status dashboard. This dashboard is published by Microsoft and reports on the current status of all Azure-based services, including any current warnings or errors. An example of the dashboard is shown below in Figure 3.
@@ -233,7 +234,7 @@ Note, as of the time of writing the Azure AD Identity Secure Score feature is no
 The outcomes of all post-incident meetings should be recorded in the report prepared for each incident. This ensures there is a document chain of events for the incident including tasks that will now be undertaken due to the analysis of the incident, but potentially not directly related (for example applying an additional control to prevent a future incident). This report may be the subject of an internal or external audit in accordance with the Agencies reporting requirements and therefore should be treated as a formally controlled document and stored in accordance with existing policies. Additionally, any information collected as part of the incident response should be either be directly included in the report, or its storage location referenced, as applicable.
 
 All other aspects of the ‘lessons learnt’ meetings and reporting requirements should be undertaken in accordance with the recommendations provided in the Agency’s overarching IRP.
- 
+
 ## Coordination with external resources
 
 In some cases, Agency cyber security personnel may require the assistance of additional external resources to aid in one or more phases of the Incident Response Life Cycle. When this is required, Agency cyber security personnel should follow existing Agency policies and procedures to appropriately engage and communicate with external resources to assist with incident management and response.

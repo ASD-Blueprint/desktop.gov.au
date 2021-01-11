@@ -2,6 +2,7 @@
 layout: page
 title: Incident response plan
 menu: security
+download: true
 ---
 
 This Incident Response Plan (IRP) has been prepared to support the Digital Transformation Agency (DTA) CloudSystem. The document provides guidance for responding to cyber security incidents that may occur in relation to an Agency’s operation of the CloudSystem.

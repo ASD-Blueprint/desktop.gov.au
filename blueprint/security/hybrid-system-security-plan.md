@@ -2,6 +2,7 @@
 layout: page
 title: Hybrid system security plan
 menu: security
+download: true
 ---
 
 ## Introduction

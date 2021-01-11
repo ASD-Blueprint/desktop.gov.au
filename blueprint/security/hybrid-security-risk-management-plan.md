@@ -2,6 +2,7 @@
 layout: page
 title: Hybrid security risk management plan
 menu: security
+download: true
 ---
 
 This Security Risk Management Plan (SRMP) has been developed to demonstrate the reduction in risk that can be achieved by implementing the HybridSystem to secure access to Microsoft Office 365 services from Windows 10 endpoints and iOS mobile devices. 

@@ -107,6 +107,8 @@ workflows:
     jobs:
       - build_attachments
       - deploy_feature_branch:
+          requires:
+            - build_attachments
           filters:
             branches:
               only:

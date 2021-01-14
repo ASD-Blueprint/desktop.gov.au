@@ -163,7 +163,7 @@ user | \Microsoft Publisher 2016\Security | Publisher Automation Security Level 
 ### Agency-DeliveryOptimisation
 
 * Name: `Agency-DeliveryOptimisation`
-* Description: zzz
+* Description: -
 * Type: `Windows 10 and later`
 * Profile Type: `Delivery Optimization`
 * Configuration settings
@@ -182,7 +182,7 @@ user | \Microsoft Publisher 2016\Security | Publisher Automation Security Level 
   * Maximum cache size (in %): `20`
 * Scope tags: `Default`
 * Assignments
-  * Included groups: zzz
+  * Included groups: All devices
   * Excluded groups: -
 
 ### Agency-DisableAdobeFlashIE-User
@@ -195,7 +195,7 @@ user | \Microsoft Publisher 2016\Security | Publisher Automation Security Level 
   * Turn off Adobe Flash in Internet Explorer and prevent applications from using Internet Explorer technology to instantiate Flash objects: `None`
 * Scope tags: `Default`
 * Assignments
-  * Included groups: zzz
+  * Included groups: All users, All devices
   * Excluded groups: -
 
 ### Agency-MicrosoftStore-User
@@ -209,11 +209,11 @@ user | \Microsoft Publisher 2016\Security | Publisher Automation Security Level 
     * Name: `BlockWindows10Store`
     * Description: `Not configured`
     * OMA-URI: `./Vendor/MSFT/Policy/Config/ApplicationManagement/RequirePrivateStoreOnly`
-    * Data Type: `Integer` zzz
-    * Integer value: `1` zzz
+    * Data Type: `Integer`
+    * Integer value: `1` 
 * Scope tags: `Default`
 * Assignments
-  * Included groups: zzz
+  * Included groups: All users, All devices
   * Excluded groups: -
 
 ### Agency-MSDefenderATP
@@ -228,7 +228,7 @@ user | \Microsoft Publisher 2016\Security | Publisher Automation Security Level 
   * Expedite telemetry reporting frequency: `Enabled`
 * Scope tags: `Default`
 * Assignments
-  * Included groups: zzz
+  * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`
   * Excluded groups: -
 
 ### Agency-Network-Boundary
@@ -239,11 +239,11 @@ user | \Microsoft Publisher 2016\Security | Publisher Automation Security Level 
 * Profile Type: `Network Boundary`
 * Configuration settings
   * Network Boundary
-    * Boundary type: `Value`
-    * Cloud resources: `dtadesktop.sharepoint.com|dtadesktop-my.sharepoint.com|dtadesktop-files.sharepoint.com|tasks.office.com|protection.office.com|meet.lync.com|teams.microsoft.com|www.yammer.com|yammer.com|persona.yammer.com|outlook.office.com|outlook.office365.com|attachments.office.net|dtadesktop.crm.dynamics.com|dtadesktop.visualstudio.com|dtadesktop.powerbi.com`
+    * Boundary type: `Cloud resources`
+    * Value: `dtadesktop.sharepoint.com|dtadesktop-my.sharepoint.com|dtadesktop-files.sharepoint.com|tasks.office.com|protection.office.com|meet.lync.com|teams.microsoft.com|www.yammer.com|yammer.com|persona.yammer.com|outlook.office.com|outlook.office365.com|attachments.office.net|dtadesktop.crm.dynamics.com|dtadesktop.visualstudio.com|dtadesktop.powerbi.com`
 * Scope tags: `Default`
 * Assignments
-  * Included groups: zzz
+  * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`
   * Excluded groups: -
 
 ### Agency-OneDrive-Device
@@ -298,11 +298,11 @@ user | \OneDrive | Prevent users from syncing personal OneDrive accounts |  | tr
     * Name: `Set TimeZone`
     * Description: `Set TimeZone`
     * OMA-URI: `./Device/Vendor/MSFT/Policy/TimeLanguageSettings/ConfigureTimeZone`
-    * Value: `String` zzz
-    * Value: `AUS Eastern Standard Time` zzz
+    * Data type: `String`
+    * Value: `AUS Eastern Standard Time`
 * Scope tags: `Default`
 * Assignments
-  * Included groups: zzz
+  * Included groups: `grp-Windows-10-Devices`, `rol-Agency-Administrators`, `rol-Agency-Users`
   * Excluded groups: -
 
 ### Wi-Fi Configuration
@@ -324,37 +324,38 @@ user | \OneDrive | Prevent users from syncing personal OneDrive accounts |  | tr
   * Company proxy settings: `None`
 * Scope tags: `Default`
 * Assignments
-  * Included groups: zzz
+  * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`
   * Excluded groups: `grp-Virtual-Machines`
 
 ### iOS device restrictions
 
 * Name: `iOS device restrictions`
 * Description: -
-* Type: `iOS/iPadOS` zzz
+* Type: `iOS/iPadOS`
 * Profile Type: `Device restrictions`
 * Configuration settings
-  * Password: `Require`
-  * Simple passwords: `Block`
-  * Required password type: `Alphanumeric`
-  * Minimum password length: `14`
-  * Number of sign-in failures: `4`
-  * Maximum minutes after screen lock before password is required: `Immediately`
-  * Maximum minutes of inactivity until screen locks: `3`
-  * Password expiration (days): `365`
-  * Touch ID and Face ID unlock: `Require`
-* Cloud and Storage
-  * Encrypted backup: `Require`
+  * Cloud and Storage
+    * Force encrypted backup: `Require`
+  * Password
+    * Require password: `Require`
+    * Simple passwords: `Block`
+    * Required password type: `Alphanumeric`
+    * Minimum password length: `14`
+    * Number of sign-in failures: `4`
+    * Maximum minutes after screen lock before password is required: `Immediately`
+    * Maximum minutes of inactivity until screen locks: `3`
+    * Password expiration (days): `365`
+    * Touch ID and Face ID unlock: `Require`
 * Scope tags: `Default`
 * Assignments
-  * Included groups: zzz
+  * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`
   * Excluded groups: `grp-Windows-10-Devices`
 
 ### iOS email configuration
 
 * Name: `iOS email configuration`
 * Description: -
-* Type: `iOS/iPadOS` zzz
+* Type: `iOS/iPadOS` 
 * Profile Type: `Email`
 * Configuration settings
   * Email server: `outlook.office365.com`
@@ -369,11 +370,9 @@ user | \OneDrive | Prevent users from syncing personal OneDrive accounts |  | tr
   * Allow messages to be moved to other email accounts: `Disable`
   * Allow email to be sent from third party applications: `Disable`
   * Synchronize recently used email addresses : `Disable`
-* Cloud and Storage
-  * Encrypted backup: `Require`
 * Scope tags: `Default`
 * Assignments
-  * Included groups: zzz
+  * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`
   * Excluded groups: `grp-Windows-10-Devices`
 
 ### SecBaselineFix-AT
@@ -411,12 +410,12 @@ computer | \Windows Components\Internet Explorer\Security Features\Add-On Manage
     * Obfuscated js/vbs/ps/macro code: `Block`
     * js/vbs executing payload downloaded from Internet (no exceptions): `Block`
     * Untrusted and unsigned processes that run from USB: `Block`
-    * Execution of executable content (exe, dll, ps, js, vbs, etc.) dropped from email (webmail/mail client) (no exceptions): zzz
+    * Execution of executable content (exe, dll, ps, js, vbs, etc.) dropped from email (webmail/mail client) (no exceptions): `Block`
     * Folder protection : `Audit only`
     * Network protection: `Enable`
 * Scope tags: `Default`
 * Assignments
-  * Included groups: zzz
+  * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`
   * Excluded groups: `grp-NCSC-Devices`, `grp-ACSC-Devices`
 
 ### Windows 10 BitLocker
@@ -445,7 +444,7 @@ computer | \Windows Components\Internet Explorer\Security Features\Add-On Manage
     * Write access to removable data-drive not protected by BitLocker: `Block`
 * Scope tags: `Default`
 * Assignments
-  * Included groups: zzz
+  * Included groups: `grp-Security-Baseilnes`, `rol-Agency-Administrators`, `rol-Agency-Users`
   * Excluded groups: -
 
 ### Windows 10 Enterprise activation
@@ -459,14 +458,12 @@ computer | \Windows Components\Internet Explorer\Security Features\Add-On Manage
   * Product Key: `#####-#####-#####-#####-#####`
 * Scope tags: `Default`
 * Assignments
-  * Included groups: zzz
+  * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`
   * Excluded groups: -
-
-Applicabillity rules zzz
-
-Rule | Property | Value
---- | --- | ---
-Assign profile if | OS edition | Windows 10 Professional
+* Applicability Rules
+  * Rule: `Assign profile if`
+  * Property: `OS edition`
+  * Value: `Windows 10 Professional`
 
 ### Windows Defender ATP offboarding
 
@@ -479,7 +476,7 @@ Assign profile if | OS edition | Windows 10 Professional
     * Name: `Defender ATP offboarding`
     * Description: `Not configured`
     * OMA-URI: `./Device/Vendor/MSFT/WindowsAdvancedThreatProtection/Offboarding`
-    * Data Type: `String` zzz
+    * Data Type: `String`
     * Value: `{"body":"{\"orgIds\":[\"ec4ecef5-068d-4d33-8baf-93bca8a6bdc8\"],\"orgId\":\"ec4ecef5-068d-4d33-8baf-93bca8a6bdc8\",\"expirationTimestamp\":132255273658317066,\"version\":\"1.24\"}","sig":"lA+/Tjbd3aBLuue1eugXQ0CuKTX4zB2xyK22XNgTo9GGQnEY1NNHPKYCthtUWZs/hhYJOaOTfVaM4qf+tgsWeakiMO3D1+SXQJWx4HIAQFsDyXqq0H4mgXVEll4ggwdWw+cM+1gPqmB8vL9rNl+AOIu+w/kqoIwnODINXV8+G+1Ako3zgmvkAN+OeslY0QIonjMh6u9kaHY+pV/RFJBierBOEJSEJTOmj4MufT21r5fkPITwarMuXXZDzOPna16WehawzvoomRVUGcJ+Qs89h0gTOGAleWCnEjInMGWNNymdFxKVkyAy0yv8pYpiOJgfgZCJyj0Szd4MJeCGEscS0w==","sha256sig":"BdDJy+l+wVnSwEoyYiThOEnSCGY8smqXQ3NGeXTfwjWD/gP41+QE0MefYba8LW+pI+2IOCJGmxlo2qf59bPTWP8kX5vieXARhT3pCuIKsBb0/JnaZ1Y+7wvTTM/xNIV/he4DkDfVinIhIUF1AkmCGZCqFyF36MO/l7GUZsDp3Ru4R1o6ObVFQCGkJ6DQUtfmp5MZS5Ee8TNiHOvB64O62O93CKmdJZkc/1D77TSuc4VYQzj5MN7zgY4/kl65lD1koMTHZG67dJvGzafAyUrEA5eLO61TrG8dDPVMjvc887OhLu4hnAKtr0hs2sU4tChzmb1l9/6bXUzY007iYdHLaA==","cert":"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","chain":["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"]}`
 * Scope tags: `Default`
 * Assignments
@@ -488,7 +485,7 @@ Assign profile if | OS edition | Windows 10 Professional
 
 ## Scripts
 
-The following can be found at `Intune > Devices > zzz`
+The following can be found at `Intune > Devices > Scripts`
 
 ### Intune log folder shortcut
 
@@ -500,7 +497,7 @@ The following can be found at `Intune > Devices > zzz`
   * Run script in 64 bit PowerShell Host: `No`
 * Scope tags: `Default`
 * Assignments
-  * Included groups: zzz
+  * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`
   * Excluded groups: -
 
 ```powershell

@@ -9,8 +9,11 @@ set -o pipefail
 items="./blueprint/security/hybrid-incident-response-plan
 ./blueprint/security/hybrid-security-risk-management-plan
 ./blueprint/security/hybrid-system-security-plan
+./blueprint/security/hybrid-standard-operating-procedures.md
 ./blueprint/security/incident-response-plan
-./blueprint/security/security-risk-management-plan ./blueprint/security/system-security-plan"
+./blueprint/security/security-risk-management-plan
+./blueprint/security/system-security-plan
+./blueprint/security/standard-operating-procedures.md"
 
 set -- $items
 while [ -n "$1" ]; do

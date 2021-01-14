@@ -6,14 +6,15 @@
 set -o errexit
 set -o pipefail
 
+# remove file extension ".md" from items
 items="./blueprint/security/hybrid-incident-response-plan
 ./blueprint/security/hybrid-security-risk-management-plan
 ./blueprint/security/hybrid-system-security-plan
-./blueprint/security/hybrid-standard-operating-procedures.md
+./blueprint/security/hybrid-standard-operating-procedures
 ./blueprint/security/incident-response-plan
 ./blueprint/security/security-risk-management-plan
 ./blueprint/security/system-security-plan
-./blueprint/security/standard-operating-procedures.md"
+./blueprint/security/standard-operating-procedures"
 
 set -- $items
 while [ -n "$1" ]; do

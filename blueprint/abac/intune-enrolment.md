@@ -4,9 +4,9 @@ title: Intune enrolment
 menu: abac
 ---
 
-The following is configuration for Windows Autopilot available at zzz
-
 ## Automatic enrolment
+
+`Intune > Devices > Enroll devices > Automatic Enrollment`
 
 Item | Configuration
 --- | ---
@@ -15,12 +15,15 @@ Groups | 1 Group selected
 MDM terms of use URL | `https://portal.manage.microsoft.com/TermsofUse.aspx`
 MDM discovery URL | `https://enrolment.manage.microsoft.com/enrolmentserver/discovery.svc`
 MDM Compliance URL | `https://portal.manage.microsoft.com/?portalAction=Compliance`
-MAM user scope | Some - grp-Agency-IntuneEnrolment
+MAM user scope | Some
+Groups | grp-Agency-IntuneEnrolment
 MAM terms of use URL | Not configured
 MAM discovery URL | `https://wip.mam.manage.microsoft.com/Enroll`
 MAM compliance URL | Not configured`
 
 ## Enrolment status page
+
+`Intune > Devices > Enroll devices > Enrollment Status Page`
 
 * Name: `All users and all devices`
 * Description: `This is the default enrolment status screen configuration applied with the lowest priority to all users and all devices regardless of group membership`
@@ -40,9 +43,12 @@ MAM compliance URL | Not configured`
 
 ## Deployment profiles
 
+`Intune > Devices > Enroll devices > Deployment Profiles`
+
 * Name: `IntuneEnrollerDevices`
 * Description: `Devices enrolled in Intune via autopilot`
 * Convert all targeted devices to Autopilot: `No`
+* Device type: `Windows PC`
 * Out-of-box experience (OOBE)
   * Deployment mode: `User-Driven`
   * Join to Azure AD as: `Azure AD Joined`
@@ -61,6 +67,8 @@ MAM compliance URL | Not configured`
   * Excluded groups: -
 
 ## Windows Hello for Business
+
+`Intune > Devices > Enroll devices > Windows Hello for Business`
 
 Item | Configuration
 --- | ---

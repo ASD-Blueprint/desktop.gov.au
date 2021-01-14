@@ -3,11 +3,18 @@ layout: page
 title: Security
 ---
 
-The following Security and Standard Operation Procedure documents are available for download in our [Community](https://community.desktop.gov.au/) section:
+For cloud-native environments:
 
-* Security documents
-  * Incident Response Plan
-  * Security Risk Management Plan
-  * System Security Plan
-  * System Security Plan (Annex)
-* Standard operating procedures
+* [Incident response plan](/blueprint/security/incident-response-plan.html)
+* [Security risk management plan](/blueprint/security/security-risk-management-plan.html)
+* [System security plan](/blueprint/security/system-security-plan.html)
+* [System security plan (annex)](/assets/files/security/system-security-plan-annex.xlsx)
+* [Standard operating procedures](/blueprint/security/standard-operating-procedures.html)
+
+For hybrid environments:
+
+* [Incident response plan](/blueprint/security/)
+* [Security risk management plan](/blueprint/security/)
+* [System security plan](/blueprint/security/)
+* [System security plan (annex)](/assets/files/security/hybrid-system-security-plan-annex.xlsx)
+* [Standard operating procedures](/blueprint/security/hybrid-standard-operating-procedures.html)

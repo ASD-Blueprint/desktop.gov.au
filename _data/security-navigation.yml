@@ -12,7 +12,10 @@
       url: /blueprint/security/system-security-plan.html
 
     - title: System security plan annex
-      url: /assets/files/DTA - Cloud-Native Blueprint - System Security Plan Annex.xlsx
+      url: /assets/files/security/system-security-plan-annex.xlsx
+    
+    - title: Standard operating procedures
+      url: /blueprint/security/standard-operating-procedures.html
 
     - title: Hybrid incident response plan
       url: /blueprint/security/hybrid-incident-response-plan.html
@@ -24,4 +27,7 @@
       url: /blueprint/security/hybrid-system-security-plan.html
 
     - title: Hybrid system security plan annex
-      url: /assets/files/DTA - Hybrid Blueprint - System Security Plan Annex.xlsx
+      url: /assets/files/security/hybrid-system-security-plan-annex.xlsx
+
+    - title: Hybrid standard operating procedures
+      url: /blueprint/security/hybrid-standard-operating-procedures.html

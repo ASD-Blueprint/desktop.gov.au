@@ -83,6 +83,15 @@ body {
     }
 }
 
+body.padded-images {
+    #content-area {
+        img {
+            padding: 1em;
+            border: 1px solid #eee;
+        }
+    }
+}
+
 #benefits {
     background: rgb(252,255,243);
     background: linear-gradient(121deg, rgba(252,255,243,1) 20%, rgba(212,248,255,1) 75%);

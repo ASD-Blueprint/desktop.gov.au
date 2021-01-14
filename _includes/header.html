@@ -23,6 +23,8 @@
 {% assign extra_body_class = "" %}
 {% if page.layout == 'home' %}
     {% assign extra_body_class = " home" | append: extra_body_class %}
+{% elsif page.body_class %}
+    {% assign extra_body_class = " " | append: page.body_class | append: extra_body_class %}
 {% endif %}
 <body class="au-grid{{ extra_body_class }}" data-spy="scroll" data-target="#toc-container">
 <nav class="au-skip-link">

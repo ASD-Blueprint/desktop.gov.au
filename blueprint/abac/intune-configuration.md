@@ -240,7 +240,7 @@ user | \Microsoft Publisher 2016\Security | Publisher Automation Security Level 
 * Configuration settings
   * Network Boundary
     * Boundary type: `Cloud resources`
-    * Value: `dtadesktop.sharepoint.com|dtadesktop-my.sharepoint.com|dtadesktop-files.sharepoint.com|tasks.office.com|protection.office.com|meet.lync.com|teams.microsoft.com|www.yammer.com|yammer.com|persona.yammer.com|outlook.office.com|outlook.office365.com|attachments.office.net|dtadesktop.crm.dynamics.com|dtadesktop.visualstudio.com|dtadesktop.powerbi.com`
+    * Value: `<Agency>.sharepoint.com|<Agency>-my.sharepoint.com|<Agency>-files.sharepoint.com|tasks.office.com|protection.office.com|meet.lync.com|teams.microsoft.com|www.yammer.com|yammer.com|persona.yammer.com|outlook.office.com|outlook.office365.com|attachments.office.net|<Agency>.crm.dynamics.com|<Agency>.visualstudio.com|<Agency>.powerbi.com`
 * Scope tags: `Default`
 * Assignments
   * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`
@@ -262,12 +262,12 @@ Configuration settings
 ClassType | CategoryPath | DisplayName | Value | Enabled
 --- | --- | --- | --- | --- 
 machine | All Settings\OneDrive | Silently sign in users to the OneDrive sync client with their Windows credentials |  | true
-machine | All Settings\OneDrive | Silently move Windows known folders to OneDrive | 4da78362-d2a4-4007-8e6c-97a224d2ca1f;0 | true
+machine | All Settings\OneDrive | Silently move Windows known folders to OneDrive | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | true
 machine | All Settings\OneDrive | Prevent users from syncing libraries and folders shared from other organizations |  | true
 machine | All Settings\OneDrive | Require users to confirm large delete operations |  | true
 machine | All Settings\OneDrive | Set the sync client update ring | Enterprise | true
 machine | All Settings\OneDrive | Prevent users from redirecting their Windows known folders to their PC |  | true
-machine | All Settings\OneDrive | Use OneDrive Files On-Demand | 4da78362-d2a4-4007-8e6c-97a224d2ca1f;0 | true
+machine | All Settings\OneDrive | Use OneDrive Files On-Demand | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | true
 
 ### Agency-OneDrive-User
 
@@ -290,7 +290,7 @@ user | \OneDrive | Prevent users from syncing personal OneDrive accounts |  | tr
 ### Agency-TimeZoneEST
 
 * Name: `Agency-TimeZoneEST`
-* Description: -
+* Description: `AUS Eastern Standard Time`
 * Type: `Windows 10 and later`
 * Profile Type: `Custom`
 * Configuration settings

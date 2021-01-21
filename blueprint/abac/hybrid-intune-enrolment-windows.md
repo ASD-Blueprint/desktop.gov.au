@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Hybrid - enrolment for Windows devices
+title: Hybrid - Intune enrolment for Windows devices
 menu: abac
 ---
 

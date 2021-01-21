@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Hybrid - enrolment for iOS devices
+title: Hybrid - Intune enrolment for iOS devices
 menu: abac
 ---
 

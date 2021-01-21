@@ -10,6 +10,8 @@ The ABAC settings for the Agency Intune Profiles can be found below. This includ
 
 Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting.
 
+The following can be found at `Intune > Devices > Configuration profiles`
+
 ### ACSC-Jan2020-MacroSecurity
 
 * Name: `ACSC-Jan2020-MacroSecurity`

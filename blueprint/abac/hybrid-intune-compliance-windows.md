@@ -37,9 +37,9 @@ menu: abac
     * Real-time protection: `Required`
   * Microsoft Defender ATP
     * Require the device to be at or under the machine risk score: `medium`
-  * Actions for noncompliance
-    * Action: `Mark device noncompliant`
-    * Scedule: `Immediately`
+* Actions for noncompliance
+  * Action: `Mark device noncompliant`
+  * Scedule: `Immediately`
 * Scope tags: `Default`
 * Assignments
   * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`

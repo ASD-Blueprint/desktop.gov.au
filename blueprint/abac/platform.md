@@ -361,7 +361,7 @@ Company Portal
     * Name: `Office365`
     * Value:
 ```
-dtadesktop.sharepoint.com|dtadesktop-my.sharepoint.com|dtadesktop-files.sharepoint.com|tasks.office.com|protection.office.com|meet.lync.com|teams.microsoft.com|www.yammer.com|yammer.com|persona.yammer.com|outlook.office.com|outlook.office365.com|attachments.office.net|dtadesktop.crm.dynamics.com|dtadesktop.visualstudio.com|dtadesktop.powerbi.com
+Agency.sharepoint.com|Agency-my.sharepoint.com|Agency-files.sharepoint.com|tasks.office.com|protection.office.com|meet.lync.com|teams.microsoft.com|www.yammer.com|yammer.com|persona.yammer.com|outlook.office.com|outlook.office365.com|attachments.office.net|Agency.crm.dynamics.com|Agency.visualstudio.com|Agency.powerbi.com
 ```
     * Enterprise Proxy Servers list is authoritative (do not auto-detect): `Off`
     * Enterprise IP Ranges list is authoritative (do not auto-detect): `Off`
@@ -425,7 +425,7 @@ Microsoft Visio Viewer
   * Functionality
     * Sync app with native contacts app: `Block`
     * Printing org data: `Block`
-    * Restrict web content transfer with other apps: `Intune Managed Browser`
+    * Restrict web content transfer with other apps: `Microsoft Edge`
     * Org data notifications: `Allow`
 * Access requirements
   * PIN for access: `Not required`

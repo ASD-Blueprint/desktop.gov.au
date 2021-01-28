@@ -565,6 +565,6 @@ Approved apps that guest users can access (requires MFA).
 * Session
     * Use app enforced restrictions: `N/A`
     * Use Conditional Access App Control: `False`
-    * Sign-in frequency" `False`
+    * Sign-in frequency: `False`
     * Persistent browser session: `False`
 * Enable policy: `On`

@@ -126,7 +126,7 @@ Figure 1 has been included to show order of the task sequence.
 
 ![Figure 1 Windows 10 Task Sequence](/assets/images/abac/windows-10-task-sequence.png)
 
-### Autopilot
+## Autopilot
 
 Once the Task Sequence has been completed the Windows OOBE (Out Of the Box Experience) will start at next power cycle of the workstation. Autopilot will start its process to apply the additional Agency customisations.
 

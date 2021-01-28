@@ -17,6 +17,10 @@ This global policy blocks all connections from unsecure legacy protocols like Ac
       * Select users and groups: `All users`
     * Exclude
       * Excluded users and groups: `Excluded from CA`
+  * Cloud apps or actions
+    * Select what policy this applies to: `Cloud apps`
+    * Include: `All Cloud Apps`
+    * Exclude: `None`
   * Conditions
     * Sign-in risk
       * Configure: `No`
@@ -410,7 +414,7 @@ Grants access to managed mobile devices that are enrolled and compliant in Intun
     * Persistent browser session: `False`
 * Enable policy: `On`
 
-## Windows Device Access
+## Windows device access
 
 Grants access to managed Windows devices that are Azure AD joined.
 

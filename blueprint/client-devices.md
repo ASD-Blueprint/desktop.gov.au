@@ -582,7 +582,7 @@ Decision Point | Design Decision | Justification
 Profile Type | Local Profiles | Local profiles will be configured to support end-user assigned devices. This configuration assumes that users will not share devices and do not require profile backups.<br>Enterprise State Roaming will be enabled for key backup of key user settings.
 Known Folder Redirection Configuration  | Configured as listed below in Table 75 | To enable user personalisation and provide backup of essential user data.
 
-Table 74Additional Profiles, Personalization, and Folder Redirection Design Decisions for hybrid implementations
+Table 74 Additional Profiles, Personalization, and Folder Redirection Design Decisions for hybrid implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---

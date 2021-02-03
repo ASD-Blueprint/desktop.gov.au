@@ -784,7 +784,7 @@ Azure ATP portal | [https://portal.atp.azure.com](https://portal.atp.azure.com)
 
 The HybridSystem protects access to these portals through authentication via Azure AD and enforcement of MFA and location-based policies through Conditional Access. Privileges within the HybridSystem are controlled through the RBAC model. The Conditional Access policies and RBAC model also extend to the administration of endpoint devices that are deployed as part of the HybridSystem.
 
-The administration of existing resources leverage by the HybridSystem are listed in Table 5. 
+The administration of existing resources leverage by the HybridSystem are listed in Table 5.
 
 Table 5 Microsoft Management Portals
 

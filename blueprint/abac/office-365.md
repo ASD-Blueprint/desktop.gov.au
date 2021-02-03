@@ -126,8 +126,6 @@ Allow Basic Authentication PowerShell | True
 
 ### Outlook Web Access policy
 
-zzz the table below have many 'name' properties, table may need to be separated
-
 Table 9 describes the Outlook Web Access Policy configuration settings.
 
 Configuration Item | Value
@@ -1383,8 +1381,7 @@ Table 24 describes the Sensitivity label configuration settings.
 
 Table 25 lists the Sensitivity label policy configuration.
 
-zzz
-Office 365 Security & compliance > Information protection >Label polices > agency acronym sensitivity labels
+`Office 365 Security & compliance > Information protection > Label polices > agency acronym sensitivity labels`
 
 Item | Configuration
 --- | ---
@@ -1396,6 +1393,175 @@ Policy settings | Label is mandatory<br>Users must provide justification to remo
 
 ### Data Loss Prevention (DLP) compliance policy
 
-Table 26 describes the DLP compliance policy configuration settings.
-
-zzz
+* Name: `Australia Privacy Act`
+  * Enabled: `True`
+  * Workload: `Exchange, SharePoint, OneDriveForBusiness, Teams`
+  * Mode: `Enable`
+  * Type: `DLP`
+  * Exchange Location:
+    * DisplayName: `All`
+    * Name: `All`
+    * ImmutableIdentity: `All`
+    * Type: `Tenant`
+    * Workload: `Exchange`
+    * SchemaVersion: `2`
+  * SharePoint Location:
+    * DisplayName: `All`
+    * Name: `All`
+    * ImmutableIdentity: `All`
+    * Type: `Tenant`
+    * Workload: `SharePoint`
+    * SchemaVersion: `2`
+  * SharePoint Location Exception: `Not Configured`
+  * OneDrive Location:
+    * DisplayName: `All`
+    * Name: `All`
+    * ImmutableIdentity: `All`
+    * Type: `Tenant`
+    * Workload: `OneDriveForBusiness`
+    * SchemaVersion: `2`
+  * OneDrive Location Exception: `Not Configured`
+  * Exchange On-Premises Location: `Not Configured`
+  * SharePoint On-Premises Location: `Not Configured`
+  * SharePoint On-Premises Location Exception: `Not Configured`
+  * Teams Location: 
+    * DisplayName: `All`
+    * Name: `All`
+    * ImmutableIdentity: `All`
+    * Type: `Tenant`
+    * Workload: `Teams`
+    * SchemaVersion: `2`
+  * Teams Location Exception: `Not Configured`
+  * Exchange Sender: `Not Configured`
+  * Exchange Sender Member Of: `Not Configured`
+  * Exchange Sender Exception: `Not Configured`
+  * Exchange Sender Member Of Exception: `Not Configured`
+* Name: `Australia Personally Identifiable Information (PII) Data`
+  * Enabled: `True`
+  * Workload: `Exchange, SharePoint, OneDriveForBusiness, Teams`
+  * Mode: `Enable`
+  * Type: `DLP`
+  * Exchange Location:
+    * DisplayName: `All`
+    * Name: `All`
+    * ImmutableIdentity: `All`
+    * Type: `Tenant`
+    * Workload: `Exchange`
+    * SchemaVersion: `2`
+  * SharePoint Location:
+    * DisplayName: `All`
+    * Name: `All`
+    * ImmutableIdentity: `All`
+    * Type: `Tenant`
+    * Workload: `SharePoint`
+    * SchemaVersion: `2`
+  * SharePoint Location Exception: `Not Configured`
+  * OneDrive Location:
+    * DisplayName: `All`
+    * Name: `All`
+    * ImmutableIdentity: `All`
+    * Type: `Tenant`
+    * Workload: `OneDriveForBusiness`
+    * SchemaVersion: `2`
+  * OneDrive Location Exception: `Not Configured`
+  * Exchange On-Premises Location: `Not Configured`
+  * SharePoint On-Premises Location: `Not Configured`
+  * SharePoint On-Premises Location Exception: `Not Configured`
+  * Teams Location: 
+    * DisplayName: `All`
+    * Name: `All`
+    * ImmutableIdentity: `All`
+    * Type: `Tenant`
+    * Workload: `Teams`
+    * SchemaVersion: `2`
+  * Teams Location Exception: `Not Configured`
+  * Exchange Sender: `Not Configured`
+  * Exchange Sender Member Of: `Not Configured`
+  * Exchange Sender Exception: `Not Configured`
+  * Exchange Sender Member Of Exception: `Not Configured`
+* Name: `Australia Health Records Act (HRIP Act)`
+  * Enabled: `True`
+  * Workload: `Exchange, SharePoint, OneDriveForBusiness, Teams`
+  * Mode: `Enable`
+  * Type: `DLP`
+  * Exchange Location:
+    * DisplayName: `All`
+    * Name: `All`
+    * ImmutableIdentity: `All`
+    * Type: `Tenant`
+    * Workload: `Exchange`
+    * SchemaVersion: `2`
+  * SharePoint Location:
+    * DisplayName: `All`
+    * Name: `All`
+    * ImmutableIdentity: `All`
+    * Type: `Tenant`
+    * Workload: `SharePoint`
+    * SchemaVersion: `2`
+  * SharePoint Location Exception: `Not Configured`
+  * OneDrive Location:
+    * DisplayName: `All`
+    * Name: `All`
+    * ImmutableIdentity: `All`
+    * Type: `Tenant`
+    * Workload: `OneDriveForBusiness`
+    * SchemaVersion: `2`
+  * OneDrive Location Exception: `Not Configured`
+  * Exchange On-Premises Location: `Not Configured`
+  * SharePoint On-Premises Location: `Not Configured`
+  * SharePoint On-Premises Location Exception: `Not Configured`
+  * Teams Location: 
+    * DisplayName: `All`
+    * Name: `All`
+    * ImmutableIdentity: `All`
+    * Type: `Tenant`
+    * Workload: `Teams`
+    * SchemaVersion: `2`
+  * Teams Location Exception: `Not Configured`
+  * Exchange Sender: `Not Configured`
+  * Exchange Sender Member Of: `Not Configured`
+  * Exchange Sender Exception: `Not Configured`
+  * Exchange Sender Member Of Exception: `Not Configured`
+* Name: `Detect Australian Drivers licence numbers`
+  * Enabled: `True`
+  * Workload: `Exchange, SharePoint, OneDriveForBusiness, Teams`
+  * Mode: `TestWithNotifications`
+  * Type: `DLP`
+  * Exchange Location:
+    * DisplayName: `All`
+    * Name: `All`
+    * ImmutableIdentity: `All`
+    * Type: `Tenant`
+    * Workload: `Exchange`
+    * SchemaVersion: `2`
+  * SharePoint Location:
+    * DisplayName: `All`
+    * Name: `All`
+    * ImmutableIdentity: `All`
+    * Type: `Tenant`
+    * Workload: `SharePoint`
+    * SchemaVersion: `2`
+  * SharePoint Location Exception: `Not Configured`
+  * OneDrive Location:
+    * DisplayName: `All`
+    * Name: `All`
+    * ImmutableIdentity: `All`
+    * Type: `Tenant`
+    * Workload: `OneDriveForBusiness`
+    * SchemaVersion: `2`
+  * OneDrive Location Exception: `Not Configured`
+  * Exchange On-Premises Location: `Not Configured`
+  * SharePoint On-Premises Location: `Not Configured`
+  * SharePoint On-Premises Location Exception: `Not Configured`
+  * Teams Location: 
+    * DisplayName: `All`
+    * Name: `All`
+    * ImmutableIdentity: `All`
+    * Type: `Tenant`
+    * Workload: `Teams`
+    * SchemaVersion: `2`
+  * Teams Location Exception: `Not Configured`
+  * Exchange Sender: `Not Configured`
+  * Exchange Sender Member Of: `Not Configured`
+  * Exchange Sender Exception: `Not Configured`
+  * Exchange Sender Member Of Exception: `Not Configured`

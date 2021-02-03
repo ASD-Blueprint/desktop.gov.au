@@ -302,7 +302,7 @@ Universal Windows Platform Applications Design Decisions for all agencies and im
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Windows 10 SOE Footprint | Reduce | The Agency will reduce the size of the Windows 10 SOE footprint by configuring the settings in Table 38 unless the Agency has a specific requirement for these applications to be enabled.
+Windows 10 SOE Footprint | Reduce | The Agency will reduce the size of the Windows 10 SOE footprint by configuring the settings in the next table unless the Agency has a specific requirement for these applications to be enabled.
 
 Universal Windows Platform Application configuration applicable to all agencies and implementation types
 
@@ -575,21 +575,21 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Folder Redirection | Redirect Windows Known Folders | Users can continue using the folders they are familiar with. Files are automatically backed up to the users OneDrive folder in the cloud
 
-Additional Profiles, Personalization, and Folder Redirection Design Decisions for cloud native implementations
+Table 73 Additional Profiles, Personalization, and Folder Redirection Design Decisions for cloud native implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Profile Type | Local Profiles | Local profiles will be configured to support end-user assigned devices. This configuration assumes that users will not share devices and do not require profile backups.<br>Enterprise State Roaming will be enabled for key backup of key user settings.
 Known Folder Redirection Configuration  | Configured as listed below in Table 75 | To enable user personalisation and provide backup of essential user data.
 
-Additional Profiles, Personalization, and Folder Redirection Design Decisions for hybrid implementations
+Table 74Additional Profiles, Personalization, and Folder Redirection Design Decisions for hybrid implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Profile Type | Roaming Profiles | Roaming profiles will be configured to support end-user assigned devices. A roaming profile management product is recommended by the vendor, Microsoft.<br>This configuration assumes that users can share devices.
 Known Folder Redirection Configuration  | Configured as listed below in Table 76 | To enable user personalisation and backup of essential user data
 
-Known Folder Redirection Configuration applicable to agencies leveraging a cloud native implementation
+Table 75 Known Folder Redirection Configuration applicable to agencies leveraging a cloud native implementation
 
 Folder | Path
 --- | ---
@@ -703,7 +703,7 @@ Broadband | Not Configured | If Agency devices have Subscriber Identity Module (
 Network Bridging | Disabled | As per ACSC hardening guidance for Windows 10 1909 and security and compliance requirements.
 Wake on LAN (WoL) | Configured via existing SCCM solution if in use | Wake on LAN configured to allow existing SCCM management tasks to operate on computers regardless of power status.
 
-Wireless Configuration applicable to all agencies and implementation types
+Table 86 Wireless Configuration applicable to all agencies and implementation types
 
 Configuration | Value | Description
 --- | --- | ---

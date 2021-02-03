@@ -507,14 +507,14 @@ Last | Ungrouped devices (default) | Semi - require approval for all folders
   * Microsoft Defender ATP Viewer
     * Description: `Viewer privileges`
     * View Data
-      * Security options
-      * Thread and vulnerability management
+      * Security operations
+      * Threat and vulnerability management
     * Assigned user groups: `rol-agency-security-defenderatp-viewer`
   * Microsoft Defender ATP Remediation
     * Description: `Investigate and remediate alerts`
     * View Data
-      * Security options
-      * Thread and vulnerability management
+      * Security operations
+      * Threat and vulnerability management
     * Active remediation actions
       * Security operations
       * Threat and vulnerability management - Exception handling
@@ -730,7 +730,6 @@ Data retention policy | Medium (x2) | Excluded N/As
 GDPR – Report data breaches | Medium (x2) | Excluded N/As
 GDPR – Data protection | Medium (x2) | Excluded N/As
 GDPR – User ownership | Medium (x2) | Excluded N/As
-
 
 ### Log Analytics
 

@@ -3,28 +3,33 @@ layout: page
 title: As Built As Configured (ABAC)
 ---
 
-The following As Built As Configured documents are available for download in our [Community](https://community.desktop.gov.au/) section:
+For cloud-native environments:
 
-* As Built As Configured documents for both Coud Native and Hybrid environments
-  * Client Devices
-  * Conditional Access Policies
-  * Office 365
-  * Platform
-* As Built As Configured documents for Cloud Native environments
-  * Intune Applications
-  * Intune Compliance
-  * Intune Configuration
-  * Intune Enrolment
-  * Intune Security Baselines
-  * Intune Software Updates
-* As Built As Configured documents for Hybrid environments
-  * Intune Applications for iOS Devices
-  * Intune Applications for Windows Devices
-  * Intune Compliance for iOS Devices
-  * Intune Compliance for Windows Devices
-  * Intune Configuration for iOS Devices
-  * Intune Configuration for Windows Devices
-  * Intune Enrolment for iOS Devices
-  * Intune Enrolment for Windows Devices
-  * Intune Security Baselines for Windows Devices
-  * Network Configuration
+* [Conditional access policies](/blueprint/abac/conditional-access-policies.html)
+* [Office 365](/blueprint/abac/office-365.html)
+* [Platform](/blueprint/abac/platform.html)
+* Intune
+  * [Applications](/blueprint/abac/intune-applications.html)
+  * [Compliance](/blueprint/abac/intune-compliance.html)
+  * [Configuration](/blueprint/abac/intune-configuration.html)
+  * [Enrolment](/blueprint/abac/intune-enrolment.html)
+  * [Security baselines](/blueprint/abac/intune-security-baselines.html)
+  * [Software updates](/blueprint/abac/intune-software-updates.html)
+
+For hybrid environments:
+
+* [Client devices](/blueprint/abac/hybrid-client-devices.html)
+* [Conditional access policies](/blueprint/abac/hybrid-conditional-access-policies.html)
+* [Network configuration](/blueprint/abac/hybrid-network-configuration.html)
+* [Office 365](/blueprint/abac/hybrid-office-365.html)
+* [Platform](/blueprint/abac/hybrid-platform.html)
+* Intune
+  * [Applications for iOS devices](/blueprint/abac/hybrid-intune-applications-ios.html)
+  * [Applications for Windows devices](/blueprint/abac/hybrid-intune-applications-windows.html)
+  * [Compliance for iOS devices](/blueprint/abac/hybrid-intune-compliance-ios.html)
+  * [Compliance for Windows devices](/blueprint/abac/hybrid-intune-compliance-windows.html)
+  * [Configuration for iOS devices](/blueprint/abac/hybrid-intune-configuration-ios.html)
+  * [Configuration for Windows devices](/blueprint/abac/hybrid-intune-configuration-windows.html)
+  * [Enrolment for iOS devices](/blueprint/abac/hybrid-intune-enrolment-ios.html)
+  * [Enrolment for Windows devices](/blueprint/abac/hybrid-intune-enrolment-windows.html)
+  * [Security baselines for Windows devices](/blueprint/abac/hybrid-intune-security-baselines-windows.html)

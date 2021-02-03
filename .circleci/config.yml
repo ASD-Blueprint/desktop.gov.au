@@ -40,10 +40,28 @@ references:
       - image: circleci/ruby:2.6.6-stretch
 
 jobs:
+  build_attachments:
+    working_directory: ~/workspace
+    docker:
+      - image: pandoc/latex
+    steps:
+      - run:
+          name: Install git-cli
+          command: apk add git
+      - checkout
+      - run:
+          name: Build docx and pdf files
+          command: ./_util/export-documents.sh
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+
   deploy_feature_branch:
     <<: *docker_image
     steps:
-      - checkout
+      - attach_workspace:
+          at: .
       - *cf_install
       - *app_prereqs
       - *integrate_search
@@ -87,7 +105,10 @@ workflows:
   version: 2
   feature:
     jobs:
+      - build_attachments
       - deploy_feature_branch:
+          requires:
+            - build_attachments
           filters:
             branches:
               only:

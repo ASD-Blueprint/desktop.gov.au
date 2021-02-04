@@ -1,11 +1,6 @@
 ## Desktop.gov.au
 
-A website for the Protected Utility Program with an introduction and the following Blueprint documents:
-
-* Solution Overview
-* Platform Design
-* Client Devices Design
-* Office 365 Design
+A website for the Protected Utility Program with all Blueprint documents.
 
 All contributions welcome.
 

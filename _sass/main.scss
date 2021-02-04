@@ -6,7 +6,7 @@ body {
     position: relative;
 }
 .au-body {
-    h2, h3 {
+    h2, h3, h4 {
         font-weight: 300;
     }
     pre {
@@ -79,6 +79,15 @@ body {
                 padding-right: 5px;
                 content: "•";
             }
+        }
+    }
+}
+
+body.padded-images {
+    #content-area {
+        img {
+            padding: 1em;
+            border: 1px solid #eee;
         }
     }
 }
@@ -229,6 +238,10 @@ body.home {
     footer.au-footer {
         margin-top: 0;
     }
+}
+
+code {
+    word-break: break-word;
 }
 
 

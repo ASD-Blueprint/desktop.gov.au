@@ -1152,6 +1152,7 @@ Voice Calling Design Decisions for all agencies and implementation types.
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Telstra calling for Office 365 | Not configured | Agencies may require dial in and dial out functionality. This arrangement will need to be organised, paid for and configured by agencies that require this functionality. The configuration will not be covered in this blueprint.
+Telstra calling for Office 365 | Security Assessment | Agencies wishing to use Telstra Calling for Office 365 or another similar services should undertake a security assessment to ensure that the product addresses their security requirements.
 
 ## Power Platform
 

@@ -247,7 +247,7 @@ Configuration | Value | Description
 --- | --- | ---
 Conditional Access Policies | BLOCK - Legacy Authentication | This global policy blocks all connections from insecure legacy protocols like ActiveSync, IMAP, POP3, etc.
 ^^ | BLOCK - High-Risk Sign-Ins | This global policy blocks all high-risk authentications (requires Azure AD Premium P2).
-^^ | BLOCK - Countries not Allowed | This global policy blocks all connections from countries not in the Allowed countries whitelist.
+^^ | BLOCK - Countries not Allowed | This global policy blocks all connections from countries not in the Allowed countries list.
 ^^ | GRANT - Terms of Use | This global policy forces Terms of Use on all authentications.
 ^^ | GRANT - Browser Access | General browser access policy that grants authentication from a browser on any device with MFA requirement.
 ^^ | SESSION - Block Unmanaged Browser File Downloads | Browsers on unmanaged devices can never download files and attachments from SharePoint Online and Exchange Online.
@@ -348,7 +348,7 @@ The following table describes the minimal conditional access policies that shoul
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Conditional Access Policies | **BLOCK - Legacy Authentication**:<br>This global policy blocks all connections from unsecure legacy protocols like ActiveSync, IMAP, PO3, etc.<br>**BLOCK - Countries not Allowed:**<br>This global policy blocks all connections from countries not in the Allowed countries whitelist. | Minimises the risk of the user in the partner organisation using credentials that have been compromised.
+Conditional Access Policies | **BLOCK - Legacy Authentication**:<br>This global policy blocks all connections from unsecure legacy protocols like ActiveSync, IMAP, PO3, etc.<br>**BLOCK - Countries not Allowed:**<br>This global policy blocks all connections from countries not in the Allowed countries list. | Minimises the risk of the user in the partner organisation using credentials that have been compromised.
 
 Azure AD design decisions in relation to inter-Agency collaboration for all agencies and implementation types
 
@@ -916,11 +916,11 @@ Playbooks | Not configured | Not configured by default however an Agency can det
 
 ### MCAS - Firewall
 
-Microsoft Cloud App Security is a cloud-based service that helps keep the organisation secure from threats by collecting data from a Cloud based tenant and Hybrid on-premises infrastructure and analysing this data. To achieve this firewall rules and proxy whitelisting needs to be in place to allow communication between all the components.
+Microsoft Cloud App Security is a cloud-based service that helps keep the organisation secure from threats by collecting data from a Cloud based tenant and Hybrid on-premises infrastructure and analysing this data. To achieve this firewall rules and proxy allow lists needs to be in place to allow communication between all the components.
 
-Firewall rules and proxy whitelisting will be implemented as part of the Microsoft Cloud App Security solution. 
+Firewall rules and proxy allow lists will be implemented as part of the Microsoft Cloud App Security solution. 
 
-Further details on firewall configuration and proxy whitelisting for the solution can be found in the Network Configuration ABAC.
+Further details on firewall configuration and proxy allow lists for the solution can be found in the Network Configuration ABAC.
 
 ### Azure Advanced Threat Protection
 
@@ -1017,9 +1017,9 @@ As Azure ATP is reliant upon the Azure ATP portal and the Azure ATP sensor firew
 
 It is important to note the traffic between the client and the Azure ATP portal offering is TLS1.2 encrypted. Configuration will occur on the proxy, external gateway and local infrastructure servers of the Agency as required.
 
-Firewall rules and proxy whitelisting will be implemented as part of the Azure ATP solution.
+Firewall rules and proxy allow lists will be implemented as part of the Azure ATP solution.
 
-* Azure ATP service location – As mentioned previously Azure ATP data centres are deployed in the United States, Europe, and Asia. The Agency's Azure ATP instance when created will be in the data centre that is geographically closest to the Agency's Azure Active Directory service. This will assist in determining which service location to utilise for whitelisting.
+* Azure ATP service location – As mentioned previously Azure ATP data centres are deployed in the United States, Europe, and Asia. The Agency's Azure ATP instance when created will be in the data centre that is geographically closest to the Agency's Azure Active Directory service. This will assist in determining which service location to utilise for generating allow lists.
 * Maximal security and data privacy – Azure ATP cloud services use certificate based mutual authentication for communication between Azure ATP cloud backend and all Azure ATP sensors. To make the authentication process seamless as possible if the Agency's environment utilises SSL inspection then the inspection should be configured for mutual authentication.
 
 Further details on the firewall configuration for the solution can be found in the Network Configuration ABAC.

@@ -10,6 +10,7 @@ For cloud-native environments:
 * [System security plan](/blueprint/security/system-security-plan.html)
 * [System security plan (annex)](/assets/files/security/system-security-plan-annex.xlsx)
 * [Standard operating procedures](/blueprint/security/standard-operating-procedures.html)
+* [Continuous monitoring plan](/blueprint/security/continuous-monitoring-plan.html)
 
 For hybrid environments:
 
@@ -18,3 +19,4 @@ For hybrid environments:
 * [System security plan](/blueprint/security/)
 * [System security plan (annex)](/assets/files/security/hybrid-system-security-plan-annex.xlsx)
 * [Standard operating procedures](/blueprint/security/hybrid-standard-operating-procedures.html)
+* [Continuous monitoring plan](/blueprint/security/hybrid-continuous-monitoring-plan.html)

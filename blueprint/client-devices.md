@@ -17,7 +17,7 @@ For each component within the document there is a brief description of the conte
 
 ## Assumptions
 
-* ACSC Windows 10 hardening guidelines are being adhered to.
+* ACSC Windows 10 hardening guidelines have been broadly implemented as outlined within the SSP and SSP Annex.
 * The Intune Console is the preferred method to manage all settings regardless of a cloud native or hybrid implementation. Although a combination of the System Center Configuration Manager (SCCM) Console and Group Policy Objects (GPOs) would  be able to achieve the same settings in a hybrid environment, this Blueprint does not include SCCM and GPOs example configurations due to the level of dissimilarities and per agency customisation in existing SCCM and GPOs configurations across Commonwealth entities.
 * Minimum version of SCCM 1710 is required for co-management, recommended at least 1910.
 
@@ -67,7 +67,7 @@ Drivers and Peripherals Design Decisions for all agencies and implementation typ
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Driver Integration | Configured | Deployed via Microsoft Windows Update which aligns with the ACSC guidance
-Approved Peripheral Devices | Configured | The SOE will whitelist approved peripheral devices using Intune
+Approved Peripheral Devices | Configured | The SOE will enforce a list of approved peripheral devices using Intune
 Unapproved Peripheral Devices | Blocked | The SOE will block installation of unapproved peripheral devices using Intune
 Signed Device Driver Store | Configured | Deployed via Microsoft Windows Update which aligns with the ACSC guidance
 Peripheral Drivers | Configured | Deployed via Microsoft Windows Update which aligns with the ACSC guidance
@@ -226,7 +226,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Windows 10 Edition | Windows 10 Enterprise 64-bit | Enterprise is required to support BitLocker.<br>The 64-bit edition of Windows is required to support security such as BitLocker and Windows Defender Application Control (WDAC) as specified by ACSC Windows 10 hardening guide.
 Windows 10 Servicing Channels | Semi-Annual Channel | Semi-Annual Channel is the recommended ring to deploy to most enterprise clients, especially those with Office 365. 
-Windows 10 Build | 1909 | At the time of writing build 1909 is the latest Semi-annual Channel release and recommended by Microsoft. See [technet.microsoft.com/en-us/windows/release-info.aspx](https://technet.microsoft.com/en-us/windows/release-info.aspx)
+Windows 10 Build | 1909 | At the time of writing build 1909 is the latest Semi-annual Channel release and recommended by Microsoft (refer to [technet.microsoft.com/en-us/windows/release-info.aspx](https://technet.microsoft.com/en-us/windows/release-info.aspx)). At the time of writing build 1909 remains the most recent version to have undergone formal evaluation (refer to [Common Criteria evaluations](https://www.commoncriteriaportal.org/products/)).
 
 ### Activation and Licencing
 
@@ -549,9 +549,9 @@ Screen Saver Design Decisions for all agencies and implementation types.
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Screen Saver | Disabled | Not required, the device will be configured to sleep after 15 minutes
-Machine Inactivity | Configured – 900 seconds | This is defined as per ACSC 1709 Windows 10 Hardening guide
+Machine Inactivity | Configured – 900 seconds | This is defined as per ACSC 1909 Windows 10 Hardening guide
 Users Can Configure the Screen Saver | No | Disable the ability for users to configure the screen saver for all Windows 10 SOE devices
-Require Password on Wake | Configured | Users will be required to enter their password on machine wake up. This is defined as per ACSC 1709 Windows 10 Hardening guide
+Require Password on Wake | Configured | Users will be required to enter their password on machine wake up. This is defined as per ACSC 1909 Windows 10 Hardening guide
 
 ### Profiles, Personalization, and Folder Redirection
 
@@ -676,10 +676,10 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Patching technology | Agency preference of Intune, SCCM or WSUS  | For cloud native deployments, Intune is the only option available.<br><br>For hybrid deployments, all three options are available for implementation. Intune provides a simpler approach to patching whilst SCCM and WSUS provide more granular control of patch deployment.
 Patching Testing Method | Pilot and Production  | Allows early deployment and test of Windows updates to selected users prior to the full release of updates to the remaining users.<br><br>The Pilot group will be a select number of users who will actively provide feedback on updates before rollout to all users
-Feature Updates | Enabled | Meets ACSC hardening guidance for Windows 10 1709
-Quality Updates | Enabled | Meets ACSC hardening guidance for Windows 10 1709
-Driver Updates | Enabled | Meets ACSC hardening guidance for Windows 10 1709
-Microsoft Product Updates | Enabled | Meets ACSC hardening guidance for Windows 10 1709
+Feature Updates | Enabled | Meets ACSC hardening guidance for Windows 10 1909
+Quality Updates | Enabled | Meets ACSC hardening guidance for Windows 10 1909
+Driver Updates | Enabled | Meets ACSC hardening guidance for Windows 10 1909
+Microsoft Product Updates | Enabled | Meets ACSC hardening guidance for Windows 10 1909
 Patching Frequency | Existing Agency patch scheduling based on patch criticality | The Agencies existing patch schedule should reflect:<br><br>* **Extreme risk**: within 2 days<br>* **High risk or lower**: within 7-14 days<br><br>Meets ACSC assessing security vulnerabilities and applying patches assessment guidance
 
 ### Networking
@@ -985,12 +985,12 @@ Application control is a crucial line of defence for protecting enterprises give
 
 Windows Defender Application Control (WDAC) helps mitigate these types of security threats by restricting the applications that users can run and the code that runs in the System Core (kernel). WDAC policies also block unsigned scripts and MSIs, and Windows PowerShell runs in Constrained Language Mode.
 
-Application Whitelisting Design Decisions for all agencies and implementation types.
+Application Control Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Application Whitelisting Product | WDAC | Microsoft recommended product for [application whitelisting](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control#choose-when-to-use-wdac-or-applocker) 
-Whitelisted method | A combination of publisher certificate and path rules and will be used. | Controlled via Intune to align with the ACSC Windows 10 1909 hardening guidance. WDAC policies are natively supported in Intune and SCCM co-management
+Application Control method | A combination of publisher certificate and path rules and will be used. | Controlled via Intune to align with the ACSC Windows 10 1909 hardening guidance. WDAC policies are natively supported in Intune and SCCM co-management
 Microsoft Block Rules | Configured | To align with the ACSC Windows 10 1909 hardening guidance.
 Intelligent Security Graph connection | Configured | In accordance with Microsoft best practice.
 
@@ -1140,7 +1140,7 @@ iOS Devices Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-iOS version | iOS 13 or above | To align with the ACSC Security Configuration guide – iOS version enforcement of n or n-1 will allow for testing of patches and internal applications before deploying operating system updates.<br><br>Apple applies the n-1 rule to incremental updates, all other versions are no longer signed. <br><br>Once a version is not signed a device cannot be restored to it.
+iOS version | iOS 13 or above | To align with the ACSC Security Configuration guide – iOS version enforcement of n or n-1 will allow for testing of patches and internal applications before deploying operating system updates.<br><br>Apple applies the n-1 rule to incremental updates, all other versions are no longer signed. <br><br>Once a version is not signed a device cannot be restored to it. iOS 13 has not undergone an ASD Cryptographic Evaluation (ACE) whereas iOS 12 has undergone an ACE. Agencies will need to evaluate whether iOS 13 fits their requirements from an encryption standpoint.
 iOS Devices | iPhone XS and above | iPhone X and older are all vulnerable to the exploit Checkm8 and should be avoided.
 Jailbroken/rooted devices | Blocked | Prevents jail broken devices from accessing Agency information. 
 
@@ -1186,7 +1186,7 @@ Configuration | Value | Description
 --- | --- | ---
 **Security** |||
 Supervised Mode | Enable | Agency iPhones are managed devices. This is in line with the ACSC iOS Secure Configuration Hardening guide for PROTECTED devices.
-Device passcode | Device passcode of 12 characters or above | iOS devices, by default, is encrypted once a passcode is provided to the device. Configured in line with the ACSC iOS Secure Configuration Hardening guide for PROTECTED devices.
+Device passcode | Device passcode of 14 characters or above | iOS devices, by default, is encrypted once a passcode is provided to the device. Configured in line with ISM requirements on password length.
 Biometrics | Disable | This is in line with the ACSC iOS Secure Configuration Hardening guide for PROTECTED devices.
 Mobile Device Management | Enable | Mobile Device Management provides the Agency better auditing tools on the device. In line with ACSC iOS Secure Configuration Hardening guide for PROTECTED devices
 Maximum Auto-Lock  | 2 minutes | Auto Lock will lock a device if it is inactive for specified time

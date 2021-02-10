@@ -31,19 +31,3 @@ There are 2 deployment types covered in this blueprint:
 In many cases, design decisions are common across both deployment methods. Where specific elements differ for cloud and hybrid deployments, the blueprint provides the common components applicable to all deployments. It then offers further guidance for each deployment type.
 
 For adoptors, practitioners, and other interested parties, DTA manages a [Protected Utility Program community of practice](https://community.desktop.gov.au/). The community provides a direct channel to DTA and encourages discussion between community members.
-
-{: .no_toc}
-## Full list of blueprint artefacts
-
-* Solution overview
-* Platform design
-* Office 365 design
-* Client devices design
-* As-built-as-configured documents
-* Security documents
-  * Incident response plan
-  * Security risk management plan
-  * System security plan, plus annex
-* Standard operating procedures
-
-Visit the community webpage to [download all the blueprint artefacts](https://community.desktop.gov.au/).

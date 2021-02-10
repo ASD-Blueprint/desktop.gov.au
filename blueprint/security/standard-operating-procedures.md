@@ -10,7 +10,7 @@ body_class: padded-images
 
 The authorisation and approval of users being granted access to the system is out of scope of this SOP.
 
-Asset management of devices used by the agency and being connected to the systems is out of scope of this SOP
+Asset management of devices used by the agency and being connected to the systems is out of scope of this SOP.
 
 Before a device can be used there are a number of procedures that must be completed for it to be onboarded correctly, these include:
 
@@ -1382,8 +1382,9 @@ The following sections describe how to maintain and manage DLP and its policies,
 
 Before completing the procedures detailed in this document, the following prerequisites should be met: 
 
-* It is recommended that the reader/administrator performing the procedures in the document has certification and/or experience with Office 365 and Microsoft Azure. 
-* Identified their sensitive info types, classification labels/types, and retention labels.
+* It is recommended that the reader/administrator performing the procedures in the document has:
+  * certification and/or experience with Office 365 and Microsoft Azure, and 
+  * Identified their sensitive info types, classification labels/types, and retention labels.
 
 ### Implement new policy
 

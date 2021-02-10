@@ -33,14 +33,14 @@ Each of the four incident response phases are detailed in the following sections
 ### Preparation
 The preparation phase of the incident response life cycle is a shared responsibility between the project team and Agency cyber security personnel. The project team is responsible for the design, implementation, and security assessment of the solution. This includes performing a risk assessment and determining which specific Information Security Manual (ISM) controls to implement to reduce and manage the risk of security incidents. The following documentation has been produced for the CloudSystem and it is recommended that the Agencies cyber security personnel familiarise themselves with the content to aid them in their preparation to manage an incident:
 
-* DTA – Blueprint – Solution Overview (August 2020) which describes the solution, which features have been enabled/disabled for the Agency, and how the solution has been structured.
-* DTA – Blueprint – Platform Design (August 2020) which describes the technologies used that make up the ‘platform’ portion of the solution and how they are implemented.
-* DTA – Blueprint – Client Devices Design (August 2020) which describes the technologies used that make up the Windows 10 portion of the solution and how it is implemented.
-* DTA – Blueprint – Office 365 Design (August 2020) which describes the technologies used that make up the Office 365 portion of the solution and how it is implemented.
-* DTA – Cloud-Only Blueprint – Security Risk Management Plan (August 2020) (SRMP) which includes the details of the risk assessment performed and the recommended treatments. 
-* DTA – Cloud-Only Blueprint – System Security Plan (August 2020) (SSP) which describes how controls identified in the SSP Annex are implemented by the system.
-* DTA – Cloud-Only Blueprint – System Security Plan Annex (August 2020) which states the compliance of the solution with the June 2020 version of the ISM.
-* DTA – Cloud-Only Blueprint – Security Standard Operating Procedures (August 2020) which describe the steps required to perform multiple operational tasks within the environment.
+* DTA – Blueprint – Solution Overview (October 2020) which describes the solution, which features have been enabled/disabled for the Agency, and how the solution has been structured.
+* DTA – Blueprint – Platform Design (October 2020) which describes the technologies used that make up the ‘platform’ portion of the solution and how they are implemented.
+* DTA – Blueprint – Client Devices Design (October 2020) which describes the technologies used that make up the Windows 10 portion of the solution and how it is implemented.
+* DTA – Blueprint – Office 365 Design (October 2020) which describes the technologies used that make up the Office 365 portion of the solution and how it is implemented.
+* DTA – Cloud-Only Blueprint – Security Risk Management Plan (October 2020) (SRMP) which includes the details of the risk assessment performed and the recommended treatments. 
+* DTA – Cloud-Only Blueprint – System Security Plan (October 2020) (SSP) which describes how controls identified in the SSP Annex are implemented by the system.
+* DTA – Cloud-Only Blueprint – System Security Plan Annex (October 2020) which states the compliance of the solution with the June 2020 version of the ISM.
+* DTA – Cloud-Only Blueprint – Security Standard Operating Procedures (October 2020) which describe the steps required to perform multiple operational tasks within the environment.
 
 In addition to having ongoing access to the above documentation it is assumed that Agency cyber security personnel have access to tools and resources as described in the Agency IRP.
 
@@ -96,7 +96,7 @@ Figure 2 shows an example of an alert from Defender ATP which detected a suspici
 
 ![Figure 2 Suspicious sequence of activities](/assets/images/security/suspicious-sequence-activities.png)
 
-When the Agency’s cyber security personnel receive an alert, they should perform analysis to determine the cause and any potential impact, including recommended actions within the Microsoft Defender Security Center portal. If an alert occurs during an approved change window and relates directly to the contents of the change, for example an unapproved/not whitelisted executable runs during an application deployment, then it is unlikely that a security incident has occurred. However, if an alert is triggered outside of a change window and without an obvious cause then the probability of the event being a security incident probable.
+When the Agency’s cyber security personnel receive an alert, they should perform analysis to determine the cause and any potential impact, including recommended actions within the Microsoft Defender Security Center portal. If an alert occurs during an approved change window and relates directly to the contents of the change, for example an unapproved/not allowed executable runs during an application deployment, then it is unlikely that a security incident has occurred. However, if an alert is triggered outside of a change window and without an obvious cause then the probability of the event being a security incident probable.
 
 Note, Microsoft assign a criticality to each alert based on an internal rating system. It is up to the Agency’s cyber security team to make their own assessment of the criticality of all potential security incidents in accordance with the Agency’s overarching IRP. 
 
@@ -113,7 +113,7 @@ For both the Incidents and Alerts queue Agency cyber security personnel can sele
 
 #### Incident criticality assignment
 
-Regardless of the detection source for a potential incident, all incidents should be assigned a criticality in a consistent manner. In accordance with guidance issued by the Agency’s Information Technology Security Adviser (ITSA) or other personnel responsible for the daily operational information security of the Agency, all incidents should be assigned a system specific criticality. The criticality ratings for incidents have been developed from a number of Federal Government Agencies’ overarching risk frameworks, specifically the consequence definitions. These definitions are listed below.
+Regardless of the detection source for a potential incident, all incidents should be assigned a criticality in a consistent manner. In accordance with guidance issued by the Agency’s Chief Information Security Officer (CISO) or other personnel responsible for the daily operational information security of the Agency, all incidents should be assigned a system specific criticality. The criticality ratings for incidents have been developed from a number of Federal Government Agencies’ overarching risk frameworks, specifically the consequence definitions. These definitions are listed below.
 
 Note, if incident criticality definitions are included in the Agency IRP cyber security personnel should use those in preference to the criticalities defined below. The Business Impact Levels (BILs) defined in the Protective Security Policy Framework (PSPF) should also be considered in the assessment of incident criticalities.
 

@@ -16,7 +16,8 @@ items="./blueprint/security/hybrid-incident-response-plan
 ./blueprint/security/security-risk-management-plan
 ./blueprint/security/system-security-plan
 ./blueprint/security/standard-operating-procedures
-./blueprint/security/continuous-monitoring-plan"
+./blueprint/security/continuous-monitoring-plan
+./blueprint/security/cloud-assessment-and-authorisation-alignment"
 
 set -- $items
 while [ -n "$1" ]; do

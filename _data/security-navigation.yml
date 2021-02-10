@@ -2,6 +2,9 @@
   url: /blueprint/security.html
 
   subitems:
+    - title: Cloud assessment and authorisation alignment
+      url: /blueprint/security/cloud-assessment-and-authorisation-alignment.html
+    
     - title: Incident response plan
       url: /blueprint/security/incident-response-plan.html
 

@@ -58,11 +58,11 @@ Considerations for implementation often include whether an agency has or require
 * multiple active directories 
 * significant investment in on-premises infrastructure with serviceable life.
 
-A hybrid implementation can use SCCM or Intune for client management, depending on the agency's cloud maturity. 
+A hybrid implementation can use Microsoft System Center Configuration Manager (SCCM) or Intune for client management, depending on the agency's cloud maturity. 
 
 Blueprint aretfacts provide guidance on integration between SCCM and Intune for hybrid deployments. Agencies with existing infrastructure can migrate device management from SCCM to Intune with no impact to the agency's existing cyber security posture.
 
-### Agency Classification
+### Agency classification
 
 The Blueprint is based on a principle of 'engineered to Protected' to enhance the cyber security postures of adopting agencies. It is suitable for agencies aiming for Protected and below.
 
@@ -75,13 +75,14 @@ Components that transfer Protected information outside of an agency's environmen
 * collaboration components
 
 ### GovLink
+
 GovLink enables secure communication between Commonwealth entities across public infrastructure. GovLink provides secure, encrypted and trusted communication across the internet. This allows the Commonwealth to transmit and receive information up to the security classification of Protected. More information is available at [GovLink](https://www.finance.gov.au/government/whole-government-information-communications-technology-services/govlink).
 
 Protected email email must be sent and received over GovLink. There is no native solution to allow a direct interface between the Office 365/Exchange Online environment and GovLink.
 
 DTA can provide further advice to agencies and reference sites of how other Commonwealth entities have achieved this connection.
 
-### Information Management
+### Information management
 
 Each agency determines information management approaches specific to its operational requirements. 
 
@@ -91,7 +92,7 @@ The following information management tools are available within the Blueprint:
 * **Microsoft Teams** is for data to be shared in a read-write format with work colleagues and/or external guests. Every team member has read-write access. People who are not members of the team do not need access. Besides document collaboration team members can chat, use voice and video call, share screens, and attend online meetings.
 * **SharePoint Online** is for data that needs to be published internally. Users may need to access the data in a read-only manner. At this point the data should be moved to SharePoint. SharePoint by default allows for document owners (full control), contributors (read-write) and visitors (read-only). Internal staff and external guests may be added to any of these groups according to the permission they need. 
 
-### Information Protection
+### Information protection
 
 Information protection covers the application of labels to documents and emails according to the classification of the content.
 
@@ -111,14 +112,17 @@ Email gateway rules are available in the network configuration ABAC artefact.
 For organisations that send Protected emails through a GovLink mail gateway, the labelling product, and the gateway itself, must support the inspection of the email headers.
 
 For organisations that do not need to send Protected emails (and do not need to send emails through GovLink), the blueprint recommends Microsoft sensitivity labels. However, agencies should decide for themselves on an approach that:
+
 * meets the requirements of the Protective Security Policy Framework (PSPF)
 * best suits operational requirements. 
 
 The blueprint provides guidance about applying Microsoft sensitivity labels. The unified labelling client that underpins Microsoft sensitivity labels is built into Office 365. The sensitivity labels are available for use in:
+
 * emails (thick client and Outlook Web Access)
 * documents (all office documents, including the web versions of the applications).
 
 It’s not possible to force some clients to apply sensitivity labels to documents, even if this option is selected in the policy. This is a known issue and current workarounds include:
+
 * assigning a default label (users must then select the correct label)
 * using a third-party product to provide labelling and classifications in line with the PSPF
 * undergoing a business change and user training program to ensure that classifications are applied. 
@@ -153,9 +157,9 @@ The extra risks and considerations include:
 
 Considerations need to be assessed for security risk on a case-by-case basis.
 
-Collaboration is initially controlled by whitelisting allowed domains. Individual users from those whitelisted external domains can then be invited individually to participate into Microsoft Teams as guests. Details about configuration are covered in the Platform design and in the Office 365 as-built-as-configured artefact.
+Collaboration is initially controlled by lists of allowed domains. Individual users from those allowed external domains can then be invited individually to participate into Microsoft Teams as guests. Details about configuration are covered in the Platform design and in the Office 365 as-built-as-configured artefact.
 
-### Secure Internet Gateway
+### Secure internet gateway
 
 This blueprint does not include design information for a Secure Internet Gateway (SIG). A SIG is listed as a requirement in the Protective Security Policy Framework (PSPF) [Robust ICT Systems](https://www.protectivesecurity.gov.au/information/robust-ict-systems/Pages/default.aspx). 
 
@@ -164,12 +168,12 @@ This blueprint does not include design information for a Secure Internet Gateway
 The blueprint's security artefacts enable an agency to conduct a security assessment. Relevant documentation an agency can develop from the artefacts include:
 
 * a system security plan
-* a statement of applicability (using the system security plan annex)
+* a system security plan annex (previously referred to as the Statement of Applicability - SOA)
 * a security risk management plan
 * an incident response plan
 * standard operating pocedures.
 
-## Design Decisions
+## Design decisions
 
 The blueprint is developed against a set of high-level design decisions to enable a secure user experience. 
 
@@ -210,7 +214,7 @@ Device standard operating environment deployment | Configured | Device configura
 Workstation policy management | Configured | Workstation policy will be deployed and managed using Microsoft Intune or SCCM.
 Windows updates and patches | Configured | Configuration of Windows and third-party updates will be managed using Microsoft Intune or SCCM.
 
-## Essential Eight Maturity
+## Essential eight maturity
 
 The Essential Eight represents security guidance from the ACSC. It prioritises mitigation strategies to assist organisations in protecting their systems against a range of cyber threats.
 
@@ -222,10 +226,10 @@ Essential Eight design decisions
 
 ACSC strategy | Solution | Jusitification | Maturity level
 --- | --- | --- | ---
-Application whitelisting | [Windows Defender Application Control](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control) (WDAC) managed by Intune. | Application whitelisting will prevent all non-approved applications (including malicious code) from executing.<br><br>WDAC provides all the features of AppLocker with additional functionality and simpler management from within Intune. It is also possible to implement the latest recommended block rules from Microsoft. | 3
-Patch applications | Intune or SCCM used to patch applications on a regular basis. | As direct internet connectivity has been stipulated, applications will be set to auto update.<br><br>Firmware can be update if an executable file is packaged and deployed via Intune.<br><br>Note: 0.1 Full Time Equivalent (FTE) minimum is estimated to cover the work required. | 3
+Application control | [Windows Defender Application Control](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control) (WDAC) managed by Intune. | Application control will prevent all non-approved applications (including malicious code) from executing.<br><br>WDAC provides all the features of AppLocker with additional functionality and simpler management from within Intune. It is also possible to implement the latest recommended block rules from Microsoft. | 3
+Patch applications | Intune or SCCM used to patch applications on a regular basis. | As direct internet connectivity has been stipulated, applications will be set to auto update.<br><br>Firmware can be updated if an executable file is packaged and deployed via Intune.<br><br>Note: 0.1 Full Time Equivalent (FTE) minimum is estimated to cover the work required. | 3
 Configure Microsoft Office macro settings | Hardening to be implemented as per the ACSC via Intune. | Only signed macros will be enabled via Intune policies. | 3
 User application hardening | Hardening to be implemented as per the ACSC via Intune. | Web advertisements that are java or Flash based will be blocked. 'Other' web adverts will not be controlled.<br><br>Web browsers are configured to block or disable support for Flash content for Internet Explorer and Edge.<br><br>Web browsers are configured to block Java from the Internet for Internet Explorer and Edge.<br><br>Office 365 applications block Flash content by default.<br><br>Object linking and embedding will be disabled by Intune policy. | 2
 Restrict administrative privileges | Intune, Azure AD and Privileged Identity Manager (PIM) controls. | Restriction of administrative privileges for admin accounts will prevent adversaries using these accounts to gain full access to information and systems.<br><br>Windows Defender Application Control policies are applied to admin users to prevent the ability to run email and web browsers.<br><br>Admin users will log on with their normal accounts and then authenticate to the Office 365 tenant for management using their privileged account to administer the system. | 3
-Multi-factor authentication | Multi-factor authentication solution is provided by Azure MFA for all remote users and administrators. | Stronger user authentication makes it harder for adversaries to access sensitive information and systems.<br><br>MFA is enabled for all with a soft token. Hard tokens would require an IaaS server in Azure and will not be implemented. | 2
+Multi-factor authentication | Multi-factor authentication solution is provided by Azure MFA for all remote users and administrators. | Stronger user authentication makes it harder for adversaries to access sensitive information and systems.<br><br>MFA is enabled for all with a soft token.<br><br>Hard tokens would require an Infrastructure-as-a-Service (IaaS) server in Azure and will not be implemented. | 2
 Daily backups | Data redundancy and availability configured with native tools. | Configuration settings of Office 365 and Intune are backed up through the ABACs.<br><br>Documents, Desktops and Pictures are redirected to OneDrive using Windows Known Folders providing a backup of data to the cloud.<br><br>Office 365 data is replicated by Microsoft to at least two geographically dispersed data centres.<br><br>Exchange Online has a recover deleted items from server option.<br><br>Cloud based files have Recycle bin and Restore options in addition to retention policies.<br><br>Retention policies are created that ensure that data is retained forever for:<br><br>* Exchange<br>* SharePoint<br>* OneDrive<br>* Office 365 Groups<br>* Skype for Business<br>* Exchange Public Folders<br>* Teams channel messages<br>* Teams chats<br><br>Workstation configuration is stored in Intune (AutoPilot rebuild) or SCCM task sequence. | 2

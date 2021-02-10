@@ -2,6 +2,9 @@
   url: /blueprint/security.html
 
   subitems:
+    - title: Cloud assessment and authorisation alignment
+      url: /blueprint/security/cloud-assessment-and-authorisation-alignment.html
+    
     - title: Incident response plan
       url: /blueprint/security/incident-response-plan.html
 
@@ -16,6 +19,9 @@
     
     - title: Standard operating procedures
       url: /blueprint/security/standard-operating-procedures.html
+    
+    - title: Continuous monitoring plan
+      url: /blueprint/security/continuous-monitoring-plan.html
 
     - title: Hybrid incident response plan
       url: /blueprint/security/hybrid-incident-response-plan.html
@@ -31,3 +37,6 @@
 
     - title: Hybrid standard operating procedures
       url: /blueprint/security/hybrid-standard-operating-procedures.html
+    
+    - title: Hybrid continuous monitoring plan
+      url: /blueprint/security/hybrid-continuous-monitoring-plan.html

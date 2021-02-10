@@ -69,7 +69,7 @@ menu: abac
 `Search > Azure Active Directory > Groups > Expiration`
 
 * Group lifetime (in days): `365`
-* Email contact for groups with no owners: `itsa@<Agency>.gov.au`
+* Email contact for groups with no owners: `Office365_Group_Expiration@<Agency>.gov.au`
 * Enable expiration for these Microsoft 365 groups: `None`
 
 `Search > Azure Active Directory > Groups > Naming policy`

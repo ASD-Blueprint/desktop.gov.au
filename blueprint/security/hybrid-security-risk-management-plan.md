@@ -29,7 +29,7 @@ R09 | Cyber security incident not detected | High | Medium | Medium
 R10 | Inability to recover from a data loss event | Medium | Low | Low
 R11 | Operating System vulnerability allows exploitation | High | Medium | Medium
 R12 | Application vulnerability allows exploitation | High | Medium | Medium
-R13 | Attacker bypasses application whitelisting capability | High | Medium | Medium
+R13 | Attacker bypasses application control capability | High | Medium | Medium
 R14 | Password spray attack directed at Azure AD | High | Medium | Medium
 R15 | Lack of availability due to cloud service provider outage | Medium | Low | Low
 R16 | Privileged Access Workstations not implemented for administration | High | Medium | Medium
@@ -69,7 +69,7 @@ Detailed assessment of the risks to the operation of the system are outlined in 
 
 #### Risk overview
 
-If a privileged account were to be compromised, the environment could be accessed by staff without a legitimate need to know. Once inside, the unauthorised user could use the account to make malicious changes, such as the addition, alteration or deletion of data. Depending on the nature of the account used, the unauthorised user could bring down the environment.
+If a privileged account were to be compromised or system privileges were incorrectly assigned , the environment could be accessed by staff without a legitimate need to know. Once inside, the unauthorised user could use the account to make malicious changes, such as the addition, alteration or deletion of data. Depending on the nature of the account used, the unauthorised user could bring down the environment.
 
 #### Assets affected
 
@@ -136,6 +136,9 @@ If a privileged account were to be compromised, the environment could be accesse
 * Forward logs to a Security Information and Event Management (SIEM) solution
 * Administrator training provided for specific technologies utilised within the HybridSystem
 * Agency training for security and system administrators for the use of Security Centre / Sentinel
+* Monitoring of events within Security Centre / Sentinel
+* Service accounts are created as part of the group “Managed Service Accounts”
+* Privileged accounts are managed as part of the group “Protected Users” security group
 
 #### Target likelihood
 
@@ -153,7 +156,7 @@ If a privileged account were to be compromised, the environment could be accesse
 
 #### Risk overview
 
-A user sends an OFFICIAL: Sensitive or PROTECTED classified mail/attachment, or personal information (as defined by the Privacy Act 1988) to an authorised recipient resulting in a data spill.
+A user sends an OFFICIAL: Sensitive or PROTECTED classified mail/attachment, or personal information (as defined by the Privacy Act 1988) to an unauthorised  recipient resulting in a data spill.
 
 #### Assets affected
 
@@ -188,6 +191,7 @@ A user sends an OFFICIAL: Sensitive or PROTECTED classified mail/attachment, or 
   * User awareness training to staff
 * HybridSystem treatments
   * Protective markings applied to email by users based on the classification of the content of emails, including attachments
+  * Data transfer logs are retained
 
 #### Residual likelihood
 
@@ -264,7 +268,7 @@ An unauthorised user attempts to access data hosted within Microsoft’s Office 
   * Exchange Online Protection (EOP) provides built in protection for Exchange Online mailboxes
   * Microsoft’s Cyber Defence Operations Centre helps protect, detect, and respond to Office 365 cloud service threats in real time
 * HybridSystem treatments
-  * Password complexity is enforced in line with Information Security Manual (ISM) standards
+  * Password complexity is enforced in line with Information Security Manual (ISM) standards, and users are required to change passwords on first use
   * Conditional Access enforces MFA for all users and administrators
   * Office 365 audit logging enabled to provide the ability to audit actions undertaken within the Office 365 services
   * Office 365 Advanced Threat Protection (ATP) Safe Links, ATP Safe Attachments, ATP for SharePoint Online, OneDrive for Business, and Microsoft Teams and ATP Anti-Phishing capabilities enabled to reduce the likelihood of malicious code infiltrating
@@ -272,6 +276,10 @@ An unauthorised user attempts to access data hosted within Microsoft’s Office 
   * Microsoft Cloud App Security (MCAS) enabled and app connectors and policies configured to detect risky behaviours, violations, or suspicious data points and activities within Office 365
   * Sender Policy Framework (SPF), Domain based Message Authentication, Reporting and Conformance (DMARC), and DomainKeys Identified Mail (DKIM) records are configured to mitigate spoofing of emails being sent into the organisation 
   * Office 365 services are only utilised within Australian regions
+  * Credential Guard is enabled and credential theft is blocked through Microsoft Defender Exploit Guard
+  * Pass through authentication (PTA) method is utilized for credentials in Azure authentication
+  * Data transfer logs are retained
+
 
 #### Residual likelihood
 
@@ -305,7 +313,7 @@ None
 
 #### Risk overview
 
-An unauthorised user (malicious insider) attempts to disable cloud-based security capabilities (e.g., Azure MFA) increasing the risk of further exploitation.
+An malicious insider attempts to disable cloud-based security capabilities (e.g., Azure MFA) increasing the risk of further exploitation.
 
 #### Assets affected
 
@@ -339,7 +347,8 @@ An unauthorised user (malicious insider) attempts to disable cloud-based securit
   * Azure AD Identity Protection configured to alert on detected identity-based and sign-in risks
   * Azure AD PIM provides JIT privileged access
   * Leverage built-in Azure AD / Office 365 Role Groups to implement a robust RBAC model
-  * All Azure AD and Office 365 logs are centralised into a single Log 
+  * All Azure AD and Office 365 logs are centralised into a single Log Analytics workspace
+  * Microsoft's attack surface reduction rules are enabled
 
 #### Residual likelihood
 
@@ -487,9 +496,11 @@ Malicious code introduced to the environment by one or more vectors leading to t
   * Windows Defender ATP is enabled to provide reporting, pre-breach protection, post-breach detection, automation, and response on hosted desktops and platform servers
   * Office 365 ATP Safe Links, ATP Safe Attachments, ATP for SharePoint Online, OneDrive for Business, Microsoft Teams, and ATP Anti-Phishing capabilities enabled to reduce the likelihood of malicious code infiltrating the environment
   * Azure Advanced Threat Protection (Azure ATP) monitors privileged (sensitive) accounts for suspicious activities
-  * Windows Defender Application Control (WDAC) provides application whitelisting functionality to block unauthorised executables from running
+  * Windows Defender Application Control (WDAC) provides application control functionality to block unauthorised executables from running
   * Windows Defender Exploit Guard (WDEG) ‘exploit protection’ feature is enabled
-  * Hardening of Windows 10 desktops including application whitelisting to ACSC recommended practices
+  * Hardening of Windows 10 desktops including application control to ACSC recommended practices
+  * Microsoft's attack surface reduction rules are enabled
+  * Data transfer logs are retained
 
 #### Residual likelihood
 
@@ -562,10 +573,14 @@ An unauthorised user attempts to access email within mailboxes hosted in Exchang
 #### Ongoing and completed treatments
 
 * HybridSystem treatments
-  * Password complexity is enforced in line with ISM standards
+  * Password complexity is enforced in line with ISM standards, and users are required to change passwords on first use
   * Conditional Access enforces MFA for all users and administrators
   * Conditional Access blocks access to Office 365 from external networks
+  * Service provider networks are segregated from DTA networks through the use of a Secure Internet Gateway (SIG)
   * Legacy authentication blocked via Conditional Access policies
+  * Credential Guard is enabled and credential theft is blocked through Microsoft Defender Exploit Guard
+  * Pass through authentication (PTA) method is utilized for credentials in Azure authentication
+  * Data transfer logs are retained
 
 #### Residual likelihood
 
@@ -715,6 +730,9 @@ An intrusion is not detected leading to a threat of malicious activity and possi
   * Azure Advanced Threat Protection (Azure ATP) monitors privileged (sensitive) accounts for suspicious activities
   * MCAS enabled and app connectors and policies configured to detect risky behaviours, violations, or suspicious data points and activities within Office 365
   * All Azure AD and Office 365 logs are centralised into a single Log Analytics workspace
+  * Credential Guard is enabled and credential theft is blocked through Microsoft Defender Exploit Guard
+  * Pass through authentication (PTA) method is utilized for credentials in Azure authentication
+  * Data transfer logs are retained
 
 #### Residual likelihood
 
@@ -793,7 +811,7 @@ The failure of backup procedures leading to the inability to restore critical sy
   * Cloud-based files have Recycle bin and Restore options
   * Exchange Online has a recover deleted items from server option
   * Retention policies will be created that ensure that 3 months of data is retained for Office 365 services
-  * Workstation configuration is stored in Intune or Microsoft System Center Configuration Manager (SCCM)
+  * Workstation configuration is stored in Intune or Microsoft System Center Configuration Manager (SCCM), and Standard Operating Environments (SOEs) are to be used
   * SOPs provided for administrators
 
 #### Residual likelihood
@@ -869,6 +887,7 @@ Security vulnerabilities are discovered within the operating system versions uti
   * Windows Update for Business and Microsoft Intune are enabled and configured to automatically update Windows 10 on endpoints
   * Multiple software update rings provide staged approach to updates
   * Intune or SCCM can deploy firmware patches as executable files as required
+  * Microsoft's attack surface reduction rules are enabled
 
 #### Residual likelihood
 
@@ -946,6 +965,7 @@ Security vulnerabilities are discovered within applications utilised by the solu
   * User Account Control (UAC) enabled to enforce the elevation of privileges to help prevent vulnerability exploitation
   * WDEG ‘exploit protection’ feature is enabled 
   * Local administrator account renamed and disabled via Intune policy
+  * Microsoft's attack surface reduction rules are enabled
 
 #### Residual likelihood
 
@@ -977,11 +997,11 @@ Security vulnerabilities are discovered within applications utilised by the solu
 
 2 – Medium
 
-### R13 Attacker bypasses application whitelisting capability
+### R13 Attacker bypasses application control capability
 
 #### Risk overview
 
-An attacker attempts to bypass the whitelisting restrictions enforced on endpoints utilised.
+An attacker attempts to bypass the application controls enforced on endpoints.
 
 #### Assets affected
 
@@ -1014,10 +1034,11 @@ An attacker attempts to bypass the whitelisting restrictions enforced on endpoin
 #### Ongoing and completed treatments
 
 * HybridSystem treatments
-  * WDAC provides application whitelisting functionality to block unauthorised executables from running
+  * WDAC provides application control functionality to block unauthorised executables from running
   * WDAC policies configured centrally from Intune or SCCM
   * WDEG ‘exploit protection’ feature is enabled
   * Windows Defender ATP is enabled to provide reporting, pre-breach protection, post-breach detection, automation, and response on hosted desktops and platform servers
+  * Microsoft's attack surface reduction rules are enabled
 
 #### Residual likelihood
 
@@ -1089,10 +1110,12 @@ An attacker attempts to gain access by attempting to logon using a number of dif
   * Mandatory security awareness training by the Agency to educate users on the importance of using strong passwords or passphrases
 * HybridSystem treatments
   * Conditional Access enforces MFA for all users and administrators
-  * Password complexity is enforced in line with ISM standards
+  * Password complexity is enforced in line with ISM standards, and users are required to change passwords on first use
   * Azure AD Smart Lockout configured to lock out accounts for a period of time after a number of invalid attempts
   * Azure AD Identity Protection configured to alert on detected identity-based and sign-in risks
   * Azure Advanced Threat Protection (Azure ATP) monitors privileged (sensitive) accounts for suspicious activities
+  * Credential Guard is enabled and credential theft is blocked through Microsoft Defender Exploit Guard
+  * Pass through authentication (PTA) method is utilized for credentials in Azure authentication
 
 #### Residual likelihood
 
@@ -1197,7 +1220,7 @@ None
 
 #### Risk overview
 
-Privileged Access Workstations (PAWs) are not in scope.
+An adversary compromises privileged access mechanisms due to the lack of implementation of Privileged Access Workstations (PAWs) within the design. 
 
 Administration of the system is undertaken by authorised privileged users by connecting from a PROTECTED level endpoint to PROTECTED level services and systems.
 
@@ -1230,12 +1253,14 @@ Administration of the system is undertaken by authorised privileged users by con
 
 * HybridSystem treatments
   * Conditional Access only allows access to administrative portals from endpoints
-  * All endpoints are hardened using the Australian Cyber Security Centre (ACSC) [guidance for Windows 10](https://www.cyber.gov.au/publications/hardening-microsoft-windows-10-build-1709)
+  * All endpoints are hardened using the [Australian Cyber Security Centre (ACSC) guidance for Windows 10](https://www.cyber.gov.au/publications/hardening-microsoft-windows-10-build-1709)
   * Windows Defender ATP is enabled to provide reporting, pre-breach protection, post-breach detection, automation, and response on hosted desktops and platform servers
-  * WDAC provides application whitelisting functionality to block unauthorised executables from running
+  * WDAC provides application control functionality to block unauthorised executables from running
   * WDEG ‘exploit protection’ feature is enabled
   * Conditional Access enforces MFA for all privileged users
   * Azure AD Identity Protection configured to alert on detected identity-based and sign-in risks
+  * Credential Guard is enabled and credential theft is blocked through Microsoft Defender Exploit Guard
+  * Pass through authentication (PTA) method is utilized for credentials in Azure authentication
 
 #### Residual likelihood
 
@@ -1320,6 +1345,7 @@ Note, the HybridSystem does not include the use of devices using the Android ope
   * Conditional Access policies only allow access from specified countries
   * Conditional Access policies block sign-ins that are determined to be high risk
   * Intune enforces configuration policies for iOS devices including requirement for unlock code, device encryption (native iOS AES-256 encryption), minimum software version and jailbreak detection
+  * Data transfer logs are retained
 
 #### Residual likelihood
 
@@ -1397,6 +1423,7 @@ An administrator enables a cloud service - or new feature within an existing clo
   * Leverage built-in Azure AD / Office 365 Role Groups to implement a robust Role-Based Access Control (RBAC) model minimising the number of users that can onboard a new service or enable additional features
   * MCAS is configured to log activity by all users including Global Admins providing an audit trail for new services
   * Azure AD PIM is enabled and requires Global Admins to provide a reason when requesting elevated privileges. PIM will also log the start time and end time of the elevated privileges
+  * Data transfer logs are retained
 
 #### Residual likelihood
 
@@ -1570,7 +1597,7 @@ An unauthorised user (malicious) gains access to the database exposing configura
 
 #### Assets affected
 
-* SharePoint Configuration settings and 
+* SharePoint Configuration settings
 
 #### Threat sources
 

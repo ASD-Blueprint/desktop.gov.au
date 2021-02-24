@@ -2,30 +2,28 @@
 layout: engagement
 title: Engagement
 timeline:
-- title: Step 1 - Review the Blueprint
+- title: Step 1 - Review the blueprint
   body: |
-    * The customer agency [reviews the Blueprint], understanding the general overview, benefits, and what it offers them. 
+    The customer agency [reviews the blueprint](/blueprint/), understanding the general overview, benefits, and what it offers them. 
 - title: Step 2 - Request support
   body: |
-    * The customer agency contacts Protected Utility at [protectedutility@dta.gov.au] with an [initial request email]. 
+    The customer agency contacts Protected Utility at [protectedutility@dta.gov.au](mailto:protectedutility@dta.gov.au) with an [initial request email]().
 - title: Step 3 - Initial workshop
   body: | 
-    * The DTA organises an initial workshop with representatives from the customer agency to understand their sponsorship arrangements, high level strategy, business need, budget, and governance. There may be multiple initial workshops.
-- title: Decision Point - Undertake Discovery?
+    The DTA organises an initial workshop with representatives from the customer agency to understand their sponsorship arrangements, high level strategy, business need, budget, and governance. There may be multiple initial workshops.
+- title: Decision point - undertake discovery?
   body: | 
     Based on the initial workshop, the DTA and the customer agency may determine one of the following options:
     
-    * Undertake a 4-8 week {discovery phase] to greater understand strategy, the ICT environment, risks, and processes, and understand the agency's business readiness to use the Blueprint. 
-    * Undertake a [change management and planning] phase to transition to using the Blueprint from a people, change, and process perspective. 
-    * Undertake a [change management and planning] phase to transition to using the Blueprint from a people, change, and process perspective. 
+    * Undertake a 4-8 week [discovery phase]() to greater understand strategy, the ICT environment, risks, and processes, and understand the agency's business readiness to use the blueprint. 
+    * Undertake a [change management and planning]() phase to transition to using the blueprint from a people, change, and process perspective. 
+    * Undertake a [change management and planning]() phase to transition to using the blueprint from a people, change, and process perspective. 
     * Discontinue engagement with the PU and manage their own ICT services under a 'Do It Yourself' 
 
-    The DTA will provide a [Letter of intent] to formalise the agreement.  
+    The DTA will provide a [Letter of Intent]() to formalise the agreement.  
 ---
 
-## About
-
-During engagement, the customer reviews the Protected Utility Blueprint and may register an account on the Community Portal. The customer then reaches out to the DTA to understand what the Blueprint can offer, and what is required to use it.  
+During engagement, the customer reviews the Protected Utility blueprint and may register an account on the Community Portal. The customer then reaches out to the DTA to understand what the blueprint can offer, and what is required to use it.  
 
 ## Roles
 
@@ -34,13 +32,13 @@ During engagement, the customer reviews the Protected Utility Blueprint and may 
 
 ## Tools, templates and guidance
 
-* The [Protected Utility Blueprint] document. 
+* The [Protected Utility blueprint](/blueprint/) document. 
 
 ## Enabling services
 
-* The [community.desktop.gov.au] community portal: for asking questions, FAQ, and understanding which agencies are using the Blueprint. 
-* The desktop.gov.au website: for information, the latest version of the Blueprint, and knowledge articles.  
-* The protectedutility@dta.gov.au mailbox: for initial enquiries. 
+* The [community portal](https://community.desktop.gov.au/): for asking questions, FAQ, and understanding which agencies are using the blueprint. 
+* The [desktop.gov.au](https://desktop.gov.au/) website: for information, the latest version of the blueprint, and knowledge articles.  
+* The [protectedutility@dta.gov.au](mailto:protectedutility@dta.gov.au) mailbox: for initial enquiries. 
 
 ## Benefits
 
@@ -50,12 +48,12 @@ During engagement, the customer reviews the Protected Utility Blueprint and may 
 
 ## Risks if ignored
 
-* The value of using the Blueprint may not be maximised.
-* Skills, best practice and lessons learnt might not feed back into future updates to the Blueprint. 
+* The value of using the blueprint may not be maximised.
+* Skills, best practice and lessons learnt might not feed back into future updates to the blueprint. 
 * Agencies might implement their own technology and business change without the community or Program's support, thus leading to individual and more expensive procurements. 
 
 ## What success looks like
 
-* The DTA and the customer agency have established a path forward for how the customer might use the Blueprint. There is an understanding of the customer's business need and high-level ICT and business strategy. There is a signed letter of intent outlining what the DTA will provide for the customer. 
+* The DTA and the customer agency have established a path forward for how the customer might use the blueprint. There is an understanding of the customer's business need and high-level ICT and business strategy. There is a signed letter of intent outlining what the DTA will provide for the customer. 
 
 ## Tasks and activities

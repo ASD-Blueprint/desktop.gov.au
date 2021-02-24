@@ -2,13 +2,13 @@
 layout: engagement
 title: Engagement
 timeline:
-- title: Step 1 - Review the blueprint
+- title: Step 1 - review the blueprint
   body: |
     The customer agency [reviews the blueprint](/blueprint/), understanding the general overview, benefits, and what it offers them. 
-- title: Step 2 - Request support
+- title: Step 2 - request support
   body: |
     The customer agency contacts Protected Utility at [protectedutility@dta.gov.au](mailto:protectedutility@dta.gov.au) with an [initial request email]().
-- title: Step 3 - Initial workshop
+- title: Step 3 - initial workshop
   body: | 
     The DTA organises an initial workshop with representatives from the customer agency to understand their sponsorship arrangements, high level strategy, business need, budget, and governance. There may be multiple initial workshops.
 - title: Decision point - undertake discovery?

@@ -92,16 +92,6 @@ body.padded-images {
     }
 }
 
-#benefits {
-    background: rgb(252,255,243);
-    background: linear-gradient(121deg, rgba(252,255,243,1) 20%, rgba(212,248,255,1) 75%);
-    padding: 3em 0;
-
-    .col-sm-6 {
-        margin-bottom: 2em;
-    }
-}
-
 #personal-profile {
     float: right;
 }
@@ -235,6 +225,16 @@ header .logo {
 }
 
 body.home {
+    #benefits {
+        background: rgb(252,255,243);
+        background: linear-gradient(121deg, rgba(252,255,243,1) 20%, rgba(212,248,255,1) 75%);
+        padding: 3em 0;
+    
+        .col-sm-6 {
+            margin-bottom: 2em;
+        }
+    }
+    
     footer.au-footer {
         margin-top: 0;
     }

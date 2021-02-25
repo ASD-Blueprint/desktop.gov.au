@@ -4,6 +4,9 @@
   subitems:
     - title: User personas
       url: /program/personas.html
+    
+    - title: Engagement model
+      url: /program/engagement-model.html
 
 - title: Blueprint
   url: /blueprint/index.html

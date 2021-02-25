@@ -16,9 +16,7 @@
                                 In this section
                             </button>
                             <div id="sidebar-nav-container" class="au-side-nav__content au-accordion--closed au-accordion__body">
-                                {% for item in site.data.main-navigation %}
-                                    {% if item.url contains page.dir %}
-
+                                {% for item in site.data.engagement-navigation %}
                                     <ul class="au-link-list">
                                         <li class="sidenav-title {% if item.url == page.url %}active{% endif %}"><a href="{{ item.url }}">{{ item.title }}</a>
                                             {% if item.url == page.url %}
@@ -39,8 +37,6 @@
                                         </li>
                                         {% endfor %}
                                     </ul>
-
-                                    {% endif %}
                                 {% endfor %}
                             </div>
                         </aside>

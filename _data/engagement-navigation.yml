@@ -1,0 +1,27 @@
+- title: Engagement model
+  url: /program/engagement-model.html
+
+  subitems:
+    - title: Engagement
+      url: /program/engagement/engagement.html
+    
+    - title: Discovery
+      url: /program/engagement/discovery.html
+
+    - title: Deploy
+      url: /program/engagement/deploy.html
+
+    - title: Transition
+      url: /program/engagement/transition.html
+
+    - title: Adoption
+      url: /program/engagement/adoption.html
+    
+    - title: Evaluation
+      url: /program/engagement/evaluation.html
+    
+    - title: Case studies
+      url: /program/engagement/case-studies.html
+
+    - title: Frequently asked questions
+      url: /program/engagement/faq.html

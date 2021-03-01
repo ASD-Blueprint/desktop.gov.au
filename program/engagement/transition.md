@@ -32,7 +32,7 @@ Body: |
 
 During transition, agencies adopt the business change required to work in a modern, secure M365 desktop environment. Benefits are realised iteratively, and the necessary improvements are made to enable this. This includes adapting the business processes to suit the new technology landscape. The customer is independent, empowered, and able to drive its own outcomes. Technology support is provided by the vendor. Lessons learnt and knowledge are shared through a WoG community of practice led by the DTA.   
 
-Transition can happen before or after Deploy() (product management). The transition phase may also be implemented iteratively, alongside Deploy. 
+Transition can happen before or after [Deploy]() (product management). The transition phase may also be implemented iteratively, alongside Deploy. 
 
 The DTA may co-fund transition activities with agencies.  
 

@@ -2,13 +2,13 @@
 layout: engagement 
 title: Deploy 
 timeline: 
-- title: Step 1 – Execution Plan 
+- title: Step 1 – Execution Plan
   body: | 
-    The agency will understand what is to be acquired and implemented in their ICT environment.  
+        The agency will understand what is to be acquired and implemented in their ICT environment.  
 - title: Step 2 – Product analysis, build, deploy, and evaluate 
   body: | 
-    Throughout Deploy, the agency’s technology partner will begin to deploy modern desktop services. In an agile format, this will mean defining requirements (user stories) in a     sprint, designing a feature set, building and deploying the feature, and evaluating what went well and what requires improvement in the next sprint.  
- - title: Next steps  
+    The strategy partner vendor will facilitate workshops to understand the business and ICT environment that the agency operates in. A [people, process, technology analysis]() will be conducted.  
+- title: Next steps  
   body: | 
     After Deploy, the agency will need to determine its next steps. This may include, for example: 
     * Undergoing change planning in [Transition]().  

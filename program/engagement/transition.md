@@ -1,5 +1,14 @@
 ---
 layout: engagement 
+title: Discovery 
+timeline: 
+- title: Step 1 – Strategy Analysis 
+  body: | 
+    The strategy partner vendor will facilitate workshops to understand the business and ICT environment that the agency operates in. A [people, process, technology analysis]() will be conducted.
+---
+
+---
+layout: engagement 
 title: Transition 
 timeline:
 - title: Step 1 – Change Readiness Assessment 

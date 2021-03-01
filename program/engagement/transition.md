@@ -38,8 +38,8 @@ The DTA may co-fund transition activities with agencies.
 
 ## Roles 
 
-* The DTA. 
-* The customer agency. 
+* The DTA
+* The customer agency
 * Organisational Change Management (OCM) partner (optional) 
 
 ## Tools, Templates and Guidance 
@@ -76,5 +76,3 @@ The DTA may co-fund transition activities with agencies.
 ## What success looks like  
 
 Leaders and staff support a move to modern desktop and there is a clear vision and rationale for change. Staff are ready and have adequate skills to adopt modern desktop services. Relevant business processes, change, and culture are conducive to using modern desktop services. Risks relating to change have appropriate mitigations.  
-
-## Tasks and Activities 

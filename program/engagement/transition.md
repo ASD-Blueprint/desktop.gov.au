@@ -2,19 +2,11 @@
 layout: engagement 
 title: Discovery 
 timeline: 
-- title: Step 1 – Strategy Analysis 
+- title: Step 1 – Change Readiness Assessment
   body: | 
-    The strategy partner vendor will facilitate workshops to understand the business and ICT environment that the agency operates in. A [people, process, technology analysis]() will be conducted.
+    If not already covered in the [change impact assessment] in Discovery, the agency will undergo a [change readiness assessment]. This will help understand which divisions  within the agency are ready to adopt the modern desktop. The assessment may include skills, culture, willingness to adopt the change, leadership and staff support, and other drivers and risks to a successful adoption. During change readiness, there will also be a decision point from the DTA to decide how much funding support it can offer agencies during transition().
 ---
 
----
-layout: engagement 
-title: Transition 
-timeline:
-- title: Step 1 – Change Readiness Assessment 
-  body: |
-  If not already covered in the [change impact assessment] in Discovery, the agency will undergo a [change readiness assessment]. This will help understand which divisions  within the agency are ready to adopt the modern desktop. The assessment may include skills, culture, willingness to adopt the change, leadership and staff support, and other drivers and risks to a successful adoption. During change readiness, there will also be a decision point from the DTA to decide how much funding support it can offer agencies during transition.   
----
 
 - title: Step 2 – Change strategy (optional) 
     Body: | 

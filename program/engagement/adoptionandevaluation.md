@@ -20,10 +20,10 @@ The customer agency consumes modern desktop services. Additionally, the customer
 ## Tools, templates and guidance 
 
 * The [Protected Utility blueprint](/blueprint/) document.  
-* [Community survey] 
-* [Newsletter] 
-* [WoG training calendar] 
-* [Retro workshop plan] 
+* [Community survey]()
+* [Newsletter]() 
+* [WoG training calendar]() 
+* [Retro workshop plan]() 
 
 ## Enabling services 
 

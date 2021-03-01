@@ -54,5 +54,3 @@ Deploy can happen before or after transition (change management), or could be im
 ## What success looks like  
 
 * Modern desktop services based on the Blueprint design are available to use on the customer’s ICT environment.  
-
-## Tasks and Activities 

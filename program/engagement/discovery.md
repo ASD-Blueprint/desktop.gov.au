@@ -42,10 +42,10 @@ The discovery phase is funded by the DTA.
 
 ## Tools, Templates and Guidance 
 
-* [Risk assessment] or [Change impact assessment]() 
+* [Risk assessment]() or [Change impact assessment]() 
 * [Procurement Plan]() 
-* [Statement of Work] and [Section 23]() 
-* [Business needs] or [User stories]() 
+* [Statement of Work]() and [Section 23]() 
+* [Business needs]() or [User stories]() 
 * [Strategy analysis]() 
 * [Target Operating Model]() 
 

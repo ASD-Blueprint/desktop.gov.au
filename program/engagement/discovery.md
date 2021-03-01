@@ -1,11 +1,11 @@
 ---
 layout: engagement 
 title: Discovery 
-  timeline: 
+timeline: 
 - title: Step 1 – Strategy Analysis 
   body: | 
     The strategy partner vendor will facilitate workshops to understand the business and ICT environment that the agency operates in. A [people, process, technology analysis]() will be conducted.  
-  - title: Step 2 – Understand risks  
+- title: Step 2 – Understand risks  
   body: | 
     Throughout Discovery, the strategy partner will elect and capture risks and change impacts associated with adopting a modern desktop based on the Blueprint. A [SWOT analysis]() may assist this understanding.  
 - title: Step 3 – Understand technology maturity | 

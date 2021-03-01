@@ -16,6 +16,32 @@ timeline:
     * Discontinue the process (exit).  
 --- 
 
+---
+layout: engagement
+title: Engagement
+timeline:
+- title: Step 1 - Review the blueprint
+  body: |
+    The customer agency [reviews the blueprint](/blueprint/), understanding the general overview, benefits, and what it offers them. 
+- title: Step 2 - Request support
+  body: |
+    The customer agency contacts Protected Utility at [protectedutility@dta.gov.au](mailto:protectedutility@dta.gov.au) with an [initial request email]().
+- title: Step 3 - Initial workshop
+  body: | 
+    The DTA organises an initial workshop with representatives from the customer agency to understand their sponsorship arrangements, high level strategy, business need, budget, and governance. There may be multiple initial workshops.
+- title: Decision point - Undertake discovery?
+  body: | 
+    Based on the initial workshop, the DTA and the customer agency may determine one of the following options:
+    
+    * Undertake a 4-8 week [discovery phase]() to greater understand strategy, the ICT environment, risks, and processes, and understand the agency's business readiness to use the blueprint. 
+    * Undertake a [change management and planning]() phase to transition to using the blueprint from a people, change, and process perspective. 
+    * Undertake a [change management and planning]() phase to transition to using the blueprint from a people, change, and process perspective. 
+    * Discontinue engagement with the PU and manage their own ICT services under a 'Do It Yourself' 
+
+    The DTA will provide a [Letter of Intent]() to formalise the agreement.  
+---
+
+
 ## About 
 
 During deploy, the customer implements Microsoft Office 365. Often, a vendor is required to assist the customer through this process.  A second approach to market may be required to procure technical and organisational change management (OCM) services to accomplish the transition.  

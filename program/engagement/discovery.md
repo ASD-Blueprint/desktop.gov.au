@@ -8,13 +8,13 @@ timeline:
 - title: Step 2 – Understand risks  
   body: | 
     Throughout Discovery, the strategy partner will elect and capture risks and change impacts associated with adopting a modern desktop based on the Blueprint. A [SWOT analysis]() may assist this understanding.  
-- title: Step 3 – Understand technology maturity | 
+- title: Step 3 – Understand technology maturity 
   body: | 
     The agency’s technology environment and roadmap, including applications, licensing, hardware & peripherals, and technical support will be assessed. This technology environment will be compared to the Blueprint design.   
-- title: Step 4 – Understand change impacts | 
+- title: Step 4 – Understand change impacts  
   body: | 
     Based on the risk, technology, and strategy analysis, change impacts will be captured in a [change impact assessment]().   
-- title: Step 5 – Security analysis | 
+- title: Step 5 – Security analysis 
   body: | 
     If not already considered in the risk analysis, security requirements and obligations will be assessed against the Blueprint and relevant [Protected Security Policy Framework (PSPF)]() policies.   
 - title: Step 6 – Develop business case 
@@ -36,8 +36,8 @@ The discovery phase is funded by the DTA.
 
 ## Roles 
 
-* The DTA. 
-* The customer agency. 
+* The DTA
+* The customer agency
 * Strategy partner (optional) 
 
 ## Tools, Templates and Guidance 

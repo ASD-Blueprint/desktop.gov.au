@@ -68,5 +68,3 @@ The discovery phase is funded by the DTA.
 ## What success looks like  
 
 * Having carried out Discovery, agencies have a clear understanding of the change impacts a modern desktop might bring.  
-
-## Tasks and Activities 

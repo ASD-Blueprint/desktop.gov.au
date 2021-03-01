@@ -24,7 +24,7 @@ Deploy can happen before or after transition (change management), or could be im
 
 ## Roles 
 
-* The DTA. 
+* The DTA
 * The customer agency
 * Technology partner (optional) 
 

@@ -4,7 +4,7 @@ title: Discovery
 timeline: 
 - title: Step 1 – Strategy Analysis 
   body: | 
-    The strategy partner vendor will facilitate workshops to understand the business and ICT environment that the agency operates in. A [people, process, technology analysis]() will be conducted.  
+    The strategy partner vendor will facilitate workshops to understand the business and ICT environment that the agency operates in. A [people, process, and technology (POPIT) analysis]() will be conducted.  
 - title: Step 2 – Understand risks  
   body: | 
     Throughout Discovery, the strategy partner will elect and capture risks and change impacts associated with adopting a modern desktop based on the Blueprint. A [SWOT analysis]() may assist this understanding.  
@@ -25,7 +25,7 @@ timeline:
     After discovery, the agency will need to determine its next steps based on the change impact assessment and associated recommendations. This may include, for example: 
     
     * Undergoing change planning in Transition, by partnering with the DTA in a [Do it with you]() model. 
-    * Acquiring and deploying relevant technology in Deploy. 
+    * Acquiring and deploying relevant technology in [Deploy](). 
     * Discontinue the process (exit). 
     * Switching to a [Do It Yourself model]() and undertaking their own change management and technology journey to use the Blueprint.    
 --- 

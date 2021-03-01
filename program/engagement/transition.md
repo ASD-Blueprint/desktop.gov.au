@@ -5,12 +5,27 @@ timeline:
 - title: Step 1 – Change Readiness Assessment
   body: | 
     If not already covered in the [change impact assessment] in Discovery, the agency will undergo a [change readiness assessment]. This will help understand which divisions  within the agency are ready to adopt the modern desktop. The assessment may include skills, culture, willingness to adopt the change, leadership and staff support, and other drivers and risks to a successful adoption. During change readiness, there will also be a decision point from the DTA to decide how much funding support it can offer agencies during transition().
+- title: Step 2 – Change Strategy
+  body: | 
+    A [change strategy]() will outline the way in which the change to modern desktop will be managed. This is so that the value of the Blueprint c an be maximised, and risks to successful adoption minimised. The Change Strategy will determine a vision for change, who will be communicated with and when (i.e a [Communication Plan], a [Skills and Training Needs Assessment] or learning strategy, and a clear [Benefits] register or strategy.
+- title: Step 3 – Change Plan
+  body: | 
+    A [change plan]() will outline the concrete steps to be enacted in the short-term. 
+- title: Step 4 – Enact the change
+  body: | 
+    Change will be implemented in this step based on the change plan.
+---
+    
+ - title: Step 1 – Change Readiness Assessment
+  body: | 
+    If not already covered in the [change impact assessment] in Discovery, the agency will undergo a [change readiness assessment]. This will help understand which divisions  within the agency are ready to adopt the modern desktop. The assessment may include skills, culture, willingness to adopt the change, leadership and staff support, and other drivers and risks to a successful adoption. During change readiness, there will also be a decision point from the DTA to decide how much funding support it can offer agencies during transition().
+    
 ---
 
 
 - title: Step 2 – Change strategy (optional) 
     Body: | 
-        A [change strategy]() will outline the way in which the change to modern desktop will be managed. This is so that the value of the Blueprint c an be maximised, and risks to successful adoption minimised. The Change Strategy will determine a vision for change, who will be communicated with and when (i.e a [Communication Plan], a [Skills and Training Needs Assessment] or learning strategy, and a clear [Benefits] register or strategy.  
+          
 - title: Step 3 – Change Plan  
     Body: | 
         A [change plan]() will outline the concrete steps to be enacted in the short-term.  

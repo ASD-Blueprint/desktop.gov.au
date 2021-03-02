@@ -2,6 +2,11 @@
 layout: engagement
 title: Protected Utility engagement model
 timeline:
+- title: Step 1 – Enact continual service improvements
+  body: | 
+    The customer puts in place continual service improvements to their modern desktop suite. They may do this through continuing a support agreement with a technology partner, or their own in-house ICT and change capability.
+---
+
 - title: 1. Engagement
   body: |
     During engagement, the customer agency [reviews the blueprint](/blueprint/), understanding the general overview, benefits, and what it offers them. The customer may register an account on the [Community Portal](www.community.desktop.gov.au). The customer then reaches out to the DTA to understand what the blueprint can offer, and what is required to use it.  

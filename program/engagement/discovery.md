@@ -24,7 +24,7 @@ timeline:
   body: | 
     After discovery, the agency will need to determine its next steps based on the change impact assessment and associated recommendations. This may include, for example: 
     
-    * Undergoing change planning in Transition, by partnering with the DTA in a [Do it with you]() model. 
+    * Undergoing change planning in [Transition](/transition.md), by partnering with the DTA in a [Do it with you]() model. 
     * Acquiring and deploying relevant technology in [Deploy](). 
     * Discontinue the process (exit). 
     * Switching to a [Do It Yourself model]() and undertaking their own change management and technology journey to use the Blueprint.    

@@ -4,17 +4,17 @@ title: Discovery
 timeline: 
 - title: Step 1 – Strategy Analysis 
   body: | 
-    The strategy partner vendor will facilitate workshops to understand the business and ICT environment that the agency operates in. A [people, process, technology analysis]() will be conducted.  
+    The strategy partner vendor will facilitate workshops to understand the business and ICT environment that the agency operates in. A [people, process, and technology (POPIT) analysis]() will be conducted.  
 - title: Step 2 – Understand risks  
   body: | 
     Throughout Discovery, the strategy partner will elect and capture risks and change impacts associated with adopting a modern desktop based on the Blueprint. A [SWOT analysis]() may assist this understanding.  
-- title: Step 3 – Understand technology maturity | 
+- title: Step 3 – Understand technology maturity 
   body: | 
     The agency’s technology environment and roadmap, including applications, licensing, hardware & peripherals, and technical support will be assessed. This technology environment will be compared to the Blueprint design.   
-- title: Step 4 – Understand change impacts | 
+- title: Step 4 – Understand change impacts  
   body: | 
     Based on the risk, technology, and strategy analysis, change impacts will be captured in a [change impact assessment]().   
-- title: Step 5 – Security analysis | 
+- title: Step 5 – Security analysis 
   body: | 
     If not already considered in the risk analysis, security requirements and obligations will be assessed against the Blueprint and relevant [Protected Security Policy Framework (PSPF)]() policies.   
 - title: Step 6 – Develop business case 
@@ -25,7 +25,7 @@ timeline:
     After discovery, the agency will need to determine its next steps based on the change impact assessment and associated recommendations. This may include, for example: 
     
     * Undergoing change planning in Transition, by partnering with the DTA in a [Do it with you]() model. 
-    * Acquiring and deploying relevant technology in Deploy. 
+    * Acquiring and deploying relevant technology in [Deploy](). 
     * Discontinue the process (exit). 
     * Switching to a [Do It Yourself model]() and undertaking their own change management and technology journey to use the Blueprint.    
 --- 
@@ -36,8 +36,8 @@ The discovery phase is funded by the DTA.
 
 ## Roles 
 
-* The DTA. 
-* The customer agency. 
+* The DTA
+* The customer agency
 * Strategy partner (optional) 
 
 ## Tools, Templates and Guidance 
@@ -68,5 +68,3 @@ The discovery phase is funded by the DTA.
 ## What success looks like  
 
 * Having carried out Discovery, agencies have a clear understanding of the change impacts a modern desktop might bring.  
-
-## Tasks and Activities 

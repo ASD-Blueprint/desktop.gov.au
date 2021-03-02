@@ -2,6 +2,26 @@
 layout: engagement
 title: Protected Utility engagement model
 timeline:
+- title: 1. Engagement
+  body: | 
+    During engagement, the customer agency [reviews the blueprint](/blueprint/), understanding the general overview, benefits, and what it offers them. The customer may register an account on the [Community Portal](www.community.desktop.gov.au). The customer then reaches out to the DTA to understand what the blueprint can offer, and what is required to use it.
+- title: 2. Discovery
+  body: | 
+    During [discovery](discovery.md), the customer and the DTA, guided by a strategy partner vendor, work together to understand the agency’s business and technical environment, understand its mission and strategy, work to mitigate any adoption risks, and understand drivers and blockers to using M365. The DTA funds Discovery.
+- title: Step 1 – Enact continual service improvements
+- ---
+- 
+  body: | 
+    The customer puts in place continual service improvements to their modern desktop suite. They may do this through continuing a support agreement with a technology partner, or their own in-house ICT and change capability.
+- title: Step 1 – Enact continual service improvements
+  body: | 
+    The customer puts in place continual service improvements to their modern desktop suite. They may do this through continuing a support agreement with a technology partner, or their own in-house ICT and change capability.
+- title: Step 1 – Enact continual service improvements
+  body: | 
+    The customer puts in place continual service improvements to their modern desktop suite. They may do this through continuing a support agreement with a technology partner, or their own in-house ICT and change capability.
+- title: Step 1 – Enact continual service improvements
+  body: | 
+    The customer puts in place continual service improvements to their modern desktop suite. They may do this through continuing a support agreement with a technology partner, or their own in-house ICT and change capability.
 - title: Step 1 – Enact continual service improvements
   body: | 
     The customer puts in place continual service improvements to their modern desktop suite. They may do this through continuing a support agreement with a technology partner, or their own in-house ICT and change capability.

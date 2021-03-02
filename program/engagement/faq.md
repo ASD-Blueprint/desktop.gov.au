@@ -18,33 +18,23 @@ The [Protected Utility Blueprint](/blueprint), released publicly in March 20
 ## What benefit does the Blueprint provide me if I use it? 
 
 * Employees can work remotely on Protected documents and information, from anywhere in the world. 
-
 * Employees can collaborate together on documents in real time, use video conferencing, instant messaging, and create document repositories to store and share information.  
-
 * Organisations can move away from using unsecure, aging, and bespoke legacy system, and move to a modern, secure, and configurable systems that are well-supported by enterprise vendors such as Microsoft.  
-
 * Organisations can share lessons learnt and best practice in deploying and configuring these enterprise systems and using the Blueprint on a Community Portal (). They can also share lessons learnt about the business change required to enable using the technology.  
-
 * Organisations can procure modern technology procured through WoG panels, achieving greater value for money.  
-
 * In future updates the Blueprint, employees will be able to video conference, send emails, and collaborate on documents with employees from other organisations that use the Blueprint.  
 
 ## What benefit does Protected Utility provide the Australian public? 
 
 * The Government is strengthening the security of its networks and systems by implementing modern Protected Utility desktop technology with effective cyber security controls. This protects public information held on these systems by various agencies.   
-
 * The Government is developing an APS workforce which uses modern technology following the Protected Utility Blueprint. This retains and recruits APS talent. Additionally, this enables a remote and flexible workforce across Australia. This has an indirect benefit of providing employment opportunities in the Australian public.  
-
 * Through the Protected Utility Program, the Government is investing in common platforms, services, and processes across the public service. This reduces the cost of individual agencies using individual applications to achieve a similar result. Additionally, it frees agency funds to deliver other public services.   
 
 ## What is the Protected Utility Program? 
 
 The DTA was funded for $9.5M in 2020-21 and $9.7M in 2019-20 to:
-
 * Develop a Blueprint which standardises the design for a secure modern desktop based on Microsoft 365 technologies.  
-
 * Support the transition of up to six Commonwealth agencies, identified in conjunction with the Australian Cyber Security Centre (ACSC), to the Blueprint.    
-
 The Program is not building a technology platform. Instead, it enables agencies to improve their ICT capability through a consistent approach for collaboration and business operations.    
 
 ## How can I start using the Blueprint? 
@@ -64,17 +54,11 @@ Under this model, you carry out your own discovery, change management, and techn
 The Protected Utility Program has directly supported the following agencies:  
 
 * Australian Electoral Commission (AEC)  
-
 * Bureau of Meteorology (BOM)
-
 * Department of Education, Skills and Employment (DESE)  
-
 * Department of Parliamentary Services (DPS)
-
 * Department of Social Services (DSS)
-
 * Inspector-General of Taxation (IGT)
-
 * Office of the Commonwealth Ombudsman (OCO)
 
 The DTA plans to support another four agencies prior to the end of June 2021.  
@@ -90,25 +74,20 @@ Approximately 42 agencies have accessed the IT administrator training prov
 ### Agency transition support – engagement, discovery and change readiness  
 
 * By the Program’s end in 30 June 2021, the Program will have supported more than 10 agencies by delivering change readiness assessments, change implementation roadmaps, benefits realisation plans, training needs analyst, security management plans and operational model risk assessments. 
-  
 * The Program is assisting agencies to migrate from aging and often unsecure legacy systems by adopting the Blueprint. This helps agencies focus on core business objectives and not on managing their ICT infrastructure.  
 
 ### A design for a secure modern desktop – Protected Utility Blueprint   
 
 * Released publicly in March 2020, the Protected Utility Blueprint is a design to create a common, secure operating environment. This environment uses several Microsoft 365 (M365) cloud applications.   
-
 * The Blueprint helps agencies manage information up to the PROTECTED level. This improves cyber security maturity against the Australian Signals Directorate (ASD) Essential Eight cyber mitigations.   
-
 * The Blueprint enables contemporary office productivity tools to be adopted consistently. For example, common and interoperable document collaboration, email, and video conferencing.   
 
 ### A community collaboration forum – community.desktop.gov.au  
 
 * In October 2020 the Program is established desktop.gov.au to increase WofG community collaboration to improve and continue the use of the Blueprint.
-   
 * Through the forum there has been newsletters, a survey, and knowledge articles published. It also hosts the Blueprint on the GitHub platform to collaborate globally with developers.    
 
 ### Skills uplift through M365 training – APS Digital Profession   
 
 * From November 2020, digital skills and capability training have been delivered for IT administrators and end-users in M365 and Azure. This training will continue until end of June 2021.   
-
 * The Program identified the digital skills and capability training needed through discovery with multiple agencies and is delivering in partnership with Microsoft.  

@@ -87,13 +87,13 @@ Approximately 42 agencies have accessed the IT administrator training prov
 
 ## What has the Protected Utility Program delivered so far? 
 
-Agency transition support – engagement, discovery and change readiness  
+### Agency transition support – engagement, discovery and change readiness  
 
 * By the Program’s end in 30 June 2021, the Program will have supported more than 10 agencies by delivering change readiness assessments, change implementation roadmaps, benefits realisation plans, training needs analyst, security management plans and operational model risk assessments. 
   
 * The Program is assisting agencies to migrate from aging and often unsecure legacy systems by adopting the Blueprint. This helps agencies focus on core business objectives and not on managing their ICT infrastructure.  
 
-A design for a secure modern desktop – Protected Utility Blueprint   
+### A design for a secure modern desktop – Protected Utility Blueprint   
 
 * Released publicly in March 2020, the Protected Utility Blueprint is a design to create a common, secure operating environment. This environment uses several Microsoft 365 (M365) cloud applications.   
 
@@ -101,13 +101,13 @@ A design for a secure modern desktop – Protected Utility Blueprint  
 
 * The Blueprint enables contemporary office productivity tools to be adopted consistently. For example, common and interoperable document collaboration, email, and video conferencing.   
 
-A community collaboration forum – desktop.gov.au  
+### A community collaboration forum – community.desktop.gov.au  
 
 * In October 2020 the Program is established desktop.gov.au to increase WofG community collaboration to improve and continue the use of the Blueprint.
    
 * Through the forum there has been newsletters, a survey, and knowledge articles published. It also hosts the Blueprint on the GitHub platform to collaborate globally with developers.    
 
-Skills uplift through M365 training – APS Digital Profession   
+### Skills uplift through M365 training – APS Digital Profession   
 
 * From November 2020, digital skills and capability training have been delivered for IT administrators and end-users in M365 and Azure. This training will continue until end of June 2021.   
 

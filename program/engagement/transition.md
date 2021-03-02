@@ -1,6 +1,6 @@
 ---
 layout: engagement 
-title: Discovery 
+title: Transition
 timeline: 
 - title: Step 1 – Change Readiness Assessment
   body: | 
@@ -40,38 +40,56 @@ The DTA may co-fund transition activities with agencies.
 ## Roles 
 
 * The DTA
+
 * The customer agency
+
 * Organisational Change Management (OCM) partner (optional) 
 
 ## Tools, Templates and Guidance 
 
 * [Change readiness assessment]() 
+
 * [Change strategy]() 
+
 * [Change plan]() 
+
 * [Benefits register]() 
+
 * [Training and skills analysis]() 
+
 * [Closure letter]() 
 
 ## Enabling Services 
 * The community.desktop.gov.au community portal: for asking questions, FAQ, and understanding which agencies are using the [Blueprint](/blueprint).  
+
 * The desktop.gov.au website: for information, the latest version of the Blueprint, and knowledge articles. 
 
 ## Benefits 
 
 * Agencies have a greater understanding of the business change required to successfully use the Blueprint. 
+
 * Agencies have a greater ability to mitigate business change risks. 
+
 * Agencies have a greater cyber risk awareness which improves their cyber security.  
+
 * Agencies have a greater understanding of the skills and training needs to successfully adopt the Blueprint. 
+
 * Agency staff will have more engagement and buy-in to using modern desktop services.    
+
 * Agencies can reduce the impediments to business change that typically accompany technology transitions.  
+
 * Agencies can plan how to maximise the use of the Blueprint.  
 
 ## Risks if ignored 
 
-* Business models, processes, practices and culture may not suit the new technology.   
+* Business models, processes, practices and culture may not suit the new technology.  
+ 
 * Agencies may not achieve value for money for the new modern desktop. 
+
 * Agencies may disengage or disempower staff, leading to lower productivity, turnover, or a lack of uptake in using the new modern desktop.  
+
 * Leaders may not fully embrace the value of their staff using a modern desktop.    
+
 * Staff may not develop the skills required to maximise the use of modern desktop. 
 
 ## What success looks like  

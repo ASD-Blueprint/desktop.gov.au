@@ -7,7 +7,7 @@ Since its inception in 2019, the Protected Utility Program has supported several
 
 ## Australian Electoral Commission (AEC) 
 
-The DTA supported the AEC by providing funding and procurement leadership for change management activities to fully adopt the Blueprint.  
+The DTA supported the AEC by providing funding and procurement leadership for change management activities to fully adopt the Blueprint. The DTA enabled the AEC to develop an implementation roadmap and change readiness assessment to enable modern M365 services using the Blueprint. 
 
 ## Australian National Audit Office (ANAO)
 

@@ -1,3 +1,8 @@
+--- 
+layout: engagement 
+title: Frequently asked questions
+---
+
 ## What does ‘Protected Utility’ mean? 
 
 ‘Protected Utility’ means working on documents, spreadsheets, and other common desktop applications in a secure environment classified up to the Protected level. Protected Utility also means being able to work on these applications anywhere in the world using an internet connection and a device.  

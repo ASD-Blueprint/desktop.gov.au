@@ -1,10 +1,10 @@
 ---
 layout: engagement 
-title: Transition
+title: 
 timeline: 
 - title: Step 1 – Change Readiness Assessment
   body: | 
-    If not already covered in the [change impact assessment] in Discovery, the agency will undergo a [change readiness assessment]. This will help understand which divisions  within the agency are ready to adopt the modern desktop. The assessment may include skills, culture, willingness to adopt the change, leadership and staff support, and other drivers and risks to a successful adoption. During change readiness, there will also be a decision point from the DTA to decide how much funding support it can offer agencies during transition().
+    If not already covered in the [change impact assessment]() in Discovery, the agency will undergo a [change readiness assessment]. This will help understand which divisions  within the agency are ready to adopt the modern desktop. The assessment may include skills, culture, willingness to adopt the change, leadership and staff support, and other drivers and risks to a successful adoption. During change readiness, there will also be a decision point from the DTA to decide how much funding support it can offer agencies during Transition.
 - title: Step 2 – Change Strategy
   body: | 
     A [change strategy]() will outline the way in which the change to modern desktop will be managed. This is so that the value of the Blueprint c an be maximised, and risks to successful adoption minimised. The Change Strategy will determine a vision for change, who will be communicated with and when (i.e a [Communication Plan], a [Skills and Training Needs Assessment] or learning strategy, and a clear [Benefits] register or strategy.

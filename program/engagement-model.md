@@ -8,7 +8,6 @@ timeline:
 - title: 2. Discovery
   body: | 
     During [discovery](discovery.md), the customer and the DTA, guided by a strategy partner vendor, work together to understand the agency’s business and technical environment, understand its mission and strategy, work to mitigate any adoption risks, and understand drivers and blockers to using M365. The DTA funds Discovery.
-- title: Step 1 – Enact continual service improvements
 - title: 3. Deploy
   body: | 
     During [deploy](/deploy.md), the customer implements Microsoft Office 365. Often, a vendor (a technology partner or systems integrator) is required to assist the customer through this process. A second approach to market may be required to procure technical and organisational change management (OCM) services to accomplish the transition.
@@ -17,7 +16,7 @@ timeline:
     During [transition](/transition.md), agencies adopt the business change required to work in a modern, secure M365 desktop environment. Benefits are realised iteratively, and the necessary improvements are made to enable this. This includes adapting the business processes to suit the new technology landscape. The customer is independent, empowered, and able to drive its own outcomes. Technology support is provided by the vendor. Lessons learnt and knowledge are shared through a WoG community of practice led by the DTA. Transition can happen before or after Deploy (product management). The transition phase may also be implemented iteratively, alongside Deploy. The DTA may co-fund transition activities with agencies.
 - title: 5. Adoption and Evaluation
   body: | 
-    During [transition](/transition.md), agencies adopt the business change required to work in a modern, secure M365 desktop environment. Benefits are realised iteratively, and the necessary improvements are made to enable this. This includes adapting the business processes to suit the new technology landscape. The customer is independent, empowered, and able to drive its own outcomes. Technology support is provided by the vendor. Lessons learnt and knowledge are shared through a WoG community of practice led by the DTA.
+    During adoption and evaluation, the customer agency consumes modern desktop services. Additionally, the customer shares lessons learnt, asks questions of the community, and seeks to understand what worked well and what didn’t. These lessons learnt are harvested through surveys, community discussions, and workshops with the DTA. This improves best practice across WoG.
 ---
 
 The Protected Utility engagement model outlines how customer agencies access [the DTA Protected Utility Program](/faq), and how agencies can maximise the use of [the blueprint](/blueprint) for modern desktop services. A [downloadable visual of the Engagement model]() is available for use. 

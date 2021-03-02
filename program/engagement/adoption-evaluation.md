@@ -4,7 +4,7 @@ title: Adoption and Evaluation
 timeline: 
 - title: Step 1 – Enact continual service improvements
   body: | 
-        The customer puts in place continual service improvements to their modern desktop suite. They may do this through continuing a support agreement with a technology partner, or their own in-house ICT and change capability.
+    The customer puts in place continual service improvements to their modern desktop suite. They may do this through continuing a support agreement with a technology partner, or their own in-house ICT and change capability.
 - title: Step 2 – Knowledge Sharing and Community Participation 
   body: | 
     The customer agency engages with the community. For example, they may complete the ongoing [Protected Utility survey](), post threads on the [Community Portal], engage in evaluation workshops (also called ‘retros’), and [attend WoG modern desktop training]. This feedback will then be used to iteratively improve the Blueprint design, desktop services, and community consultation across government.  

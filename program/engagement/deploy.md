@@ -7,7 +7,7 @@ timeline:
         The agency will understand what is to be acquired and implemented in their ICT environment.  
 - title: Step 2 – Product analysis, build, deploy, and evaluate 
   body: | 
-    The strategy partner vendor will facilitate workshops to understand the business and ICT environment that the agency operates in. A [people, process, technology analysis]() will be conducted.  
+    In this step, the customer agency (optionally guided by a technology partner) will design, install, and deploy products onto the ICT environment. This may be done using an agile approach and 'sprints', whereby M365 technology capability is rolled out in a series of sprints.  
 - title: Next steps  
   body: | 
     After Deploy, the agency will need to determine its next steps. This may include, for example: 
@@ -17,9 +17,9 @@ timeline:
     * Discontinue the process (exit).  
 --- 
 
-During deploy, the customer implements Microsoft Office 365. Often, a vendor is required to assist the customer through this process.  A second approach to market may be required to procure technical and organisational change management (OCM) services to accomplish the transition.  
+During deploy, the customer implements Microsoft Office 365. Often, a vendor (a technology partner or systems integrator) is required to assist the customer through this process.  A second approach to market may be required to procure technical services to accomplish the deployment.  
 
-Deploy can happen before or after transition (change management), or could be implemented iteratively, alongside Transition. 
+Deploy can happen before or after [transition (change management)](), or could be implemented iteratively, alongside Transition. 
 
 ## Roles 
 

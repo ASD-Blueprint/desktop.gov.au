@@ -18,10 +18,15 @@ The DTA is assisting agencies to adopt the Blueprint, helping them uplift their 
 ## What benefit does the Blueprint provide me if I use it? 
 
 * Employees can work remotely on Protected documents and information, from anywhere in the world. 
+
 * Employees can collaborate together on documents in real time, use video conferencing, instant messaging, and create document repositories to store and share information.  
+
 * Organisations can move away from using unsecure, aging, and bespoke legacy system, and move to a modern, secure, and configurable systems that are well-supported by enterprise vendors such as Microsoft.  
+
 * Organisations can share lessons learnt and best practice in deploying and configuring these enterprise systems and using the Blueprint on a Community Portal (). They can also share lessons learnt about the business change required to enable using the technology.  
+
 * Organisations can procure modern technology procured through WoG panels, achieving greater value for money.  
+
 * In future updates the Blueprint, employees will be able to video conference, send emails, and collaborate on documents with employees from other organisations that use the Blueprint.  
 
 ## What benefit does Protected Utility provide the Australian public? 
@@ -36,6 +41,7 @@ Through the Protected Utility Program, the Government is investing in common pla
 
 The DTA was funded for $9.5M in 2020-21 and $9.7M in 2019-20 to:
 * Develop a Blueprint which standardises the design for a secure modern desktop based on Microsoft 365 technologies.  
+
 * Support the transition of up to six Commonwealth agencies, identified in conjunction with the Australian Cyber Security Centre (ACSC), to the Blueprint.    
 The Program is not building a technology platform. Instead, it enables agencies to improve their ICT capability through a consistent approach for collaboration and business operations.    
 

@@ -29,4 +29,4 @@ The Model has five approximate stages. These stages are fluid and may happen con
 4. [Transition](/transition.md)
 5. [Adoption and Evaluation](/adoption-evaluation.md)
 
-This model contains suggestions, tools, templates and guidance for successfully adopting the Blueprint. It is not intended to be a prescriptive, 'tick the box', one-size-fits all model. Instead, it is intended for agencies to use as required and adapt to their business needs and modernisation journey. 
+This model contains suggestions, tools, templates and guidance for successfully adopting the Blueprint. It is not intended to be a prescriptive, 'tick the box', or one-size-fits all model. Instead, it is intended for agencies to use as required and adapt to their business needs and modernisation journey. 

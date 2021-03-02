@@ -63,19 +63,19 @@ Under this model, you carry out your own discovery, change management, and techn
 
 The Protected Utility Program has directly supported the following agencies:  
 
-* Australian Electoral Commission (AEC)​  
+* Australian Electoral Commission (AEC)  
 
-* Bureau of Meteorology (BOM).
+* Bureau of Meteorology (BOM)
 
-* Department of Education, Skills and Employment (DESE)​  
+* Department of Education, Skills and Employment (DESE)  
 
-* Department of Parliamentary Services (DPS)​  
+* Department of Parliamentary Services (DPS)
 
-* Department of Social Services (DSS)​  
+* Department of Social Services (DSS)
 
-* Inspector-General of Taxation (IGT).
+* Inspector-General of Taxation (IGT)
 
-* Office of the Commonwealth Ombudsman (OCO)​  
+* Office of the Commonwealth Ombudsman (OCO)
 
 The DTA plans to support another four agencies prior to the end of June 2021.  
 

@@ -15,8 +15,6 @@ timeline:
     * Acquiring and deploying more relevant technology (i.e undertaking Deploy() again and implementing more features). 
     * Discontinue the process (exit).  
 --- 
-## About 
-
 During deploy, the customer implements Microsoft Office 365. Often, a vendor is required to assist the customer through this process.  A second approach to market may be required to procure technical and organisational change management (OCM) services to accomplish the transition.  
 
 Deploy can happen before or after transition (change management), or could be implemented iteratively, alongside Transition. 

@@ -17,8 +17,7 @@ timeline:
     
     * Undertake a 4-8 week [discovery phase]() to greater understand strategy, the ICT environment, risks, and processes, and understand the agency's business readiness to use the blueprint. 
     * Undertake a [change management and planning]() phase to transition to using the blueprint from a people, change, and process perspective. 
-    * Undertake a [change management and planning]() phase to transition to using the blueprint from a people, change, and process perspective. 
-    * Discontinue engagement with the PU and manage their own ICT services under a 'Do It Yourself' 
+    * Discontinue engagement with the PU and manage their own ICT services under a ['Do It Yourself' model](/faq.md). 
 
     The DTA will provide a [Letter of Intent]() to formalise the agreement.  
 ---

@@ -34,7 +34,7 @@ Deploy can happen before or after transition (change management), or could be im
 
 ## Enabling Services 
 
-* The community.desktop.gov.au community portal: for asking questions, FAQ, and understanding which agencies are using the [Blueprint](/blueprint).  
+* The community.desktop.gov.au community portal: for asking questions, [FAQ](/faq.md), and understanding which agencies are using the [Blueprint](/blueprint).  
 * The desktop.gov.au website: for information, the latest version of the Blueprint, and knowledge articles. 
 
 ## Benefits 

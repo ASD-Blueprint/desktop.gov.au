@@ -34,8 +34,8 @@ This model contains suggestions, tools, templates and guidance for successfully 
 
 The engagement model is designed in accordance with the following principles:
 
-1.	Best practice: The model is based on the American Association of Change Management Professionals' Change Management guide, as well as applied experience in business analysis, technology and change management. 
-2.	Clear: Each step is clearly and simply described. 
+1.	Best practice: The model is based on the American Association of Change Management Professionals' Change Management Standard, as well as applied experience in business analysis, technology and change. 
+2.	Clear: Roles, activities, and steps are simply described. 
 3.	Ownership is with the customer, supported by DTA: Each customer owns its own objectives and technology environment, while the DTA seeks to guide and partner with organisations.  
 4.	Understand related work: Understand and link existing people, process and technology initiatives to the process model, so it is relevant and not developed in a vacuum. 
 5.	Executive-championed: The model must be understood and agreed on by relevant senior executives within DTA and the customer agency. 

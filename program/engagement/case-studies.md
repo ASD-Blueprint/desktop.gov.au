@@ -1,3 +1,8 @@
+--- 
+layout: engagement 
+title: Case studies
+---
+
 Since its inception in 2019, the Protected Utility Program has supported several agencies to use the Blueprint. This page contains some of the case studies.  
 
 ## Australian Electoral Commission (AEC).  

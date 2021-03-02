@@ -11,8 +11,8 @@ timeline:
 - title: Next steps  
   body: | 
     After Deploy, the agency will need to determine its next steps. This may include, for example: 
-    * Undergoing change planning in [Transition]().  
-    * Acquiring and deploying more relevant technology (i.e undertaking Deploy() again and implementing more features). 
+    * Undergoing business change planning in [Transition]().  
+    * Acquiring and deploying more relevant technology (i.e undertaking Deploy again and implementing more features). 
     * Discontinue the process (exit).  
 --- 
 During deploy, the customer implements Microsoft Office 365. Often, a vendor is required to assist the customer through this process.  A second approach to market may be required to procure technical and organisational change management (OCM) services to accomplish the transition.  

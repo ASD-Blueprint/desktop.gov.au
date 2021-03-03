@@ -16,10 +16,7 @@ timeline:
     Change will be implemented in this step based on the change plan.
 - title: Step 5 – Security Assessment
   body: | 
-    A security assessment will be conducted to understand if the modern desktop services, applications, and data are secure and compliant with the [Information Security Manual (ISM)]() and other cyber security policies.
-- title: Step 5 – Security Assessment
-  body: | 
-    A security assessment will be conducted to understand if the modern desktop services, applications, and data are secure and compliant with the [Information Security Manual (ISM)]() and other cyber security policies.
+    A security assessment will be conducted to understand if the modern desktop services, applications, and data are secure and compliant with the [Information Security Manual (ISM)](https://www.cyber.gov.au/acsc/view-all-content/ism) and other cyber security policies.
 - title: Step 6 - Training and Communications
   body: | 
     During this step, staff will be supported in upskilling to use modern desktop services. This may involve e-Learning, face to face training, and peer training. Communications material will also be developed to support the change.
@@ -27,13 +24,13 @@ timeline:
   body: | 
     * After Transition, the customer agency must consider its next steps. These may include:  
     * Undergoing further change planning in [Transition]() again. 
-    * Undergoing technology build and deployment in [Deploy]() 
+    * Undergoing technology build and deployment in [Deploy](deploy.html) 
     * Move to [Adoption]() and start to realise the benefits of a modern desktop. 
 ---
 
 During transition, agencies adopt the business change required to work in a modern, secure M365 desktop environment. Benefits are realised iteratively, and the necessary improvements are made to enable this. This includes adapting the business processes to suit the new technology landscape. The customer is independent, empowered, and able to drive its own outcomes. Technology support is provided by the vendor. Lessons learnt and knowledge are shared through a WoG community of practice led by the DTA.   
 
-Transition can happen before or after [Deploy]() (product management). The transition phase may also be implemented iteratively, alongside Deploy. 
+Transition can happen before or after [Deploy](deploy.html) (product management). The transition phase may also be implemented iteratively, alongside Deploy. 
 
 The DTA may co-fund transition activities with agencies.  
 

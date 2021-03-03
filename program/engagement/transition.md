@@ -25,7 +25,7 @@ timeline:
     * After Transition, the customer agency must consider its next steps. These may include:  
     * Undergoing further change planning in [Transition]() again. 
     * Undergoing technology build and deployment in [Deploy](deploy.html) 
-    * Move to [Adoption]() and start to realise the benefits of a modern desktop. 
+    * Move to [Adoption](adoption-evalutaion.html) and start to realise the benefits of a modern desktop. 
 ---
 During transition, agencies adopt the business change required to work in a modern, secure M365 desktop environment. Benefits are realised iteratively, and the necessary improvements are made to enable this. This includes adapting the business processes to suit the new technology landscape. The customer is independent, empowered, and able to drive its own outcomes. Technology support is provided by the vendor. Lessons learnt and knowledge are shared through a WoG community of practice led by the DTA.   
 

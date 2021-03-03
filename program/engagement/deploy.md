@@ -12,14 +12,14 @@ timeline:
   body: | 
     After Deploy, the agency will need to determine its next steps. This may include, for example: 
 
-    * Undergoing business change planning in [Transition]().  
+    * Undergoing business change planning in [Transition](transition.html).  
     * Acquiring and deploying more relevant technology (i.e undertaking Deploy again and implementing more features). 
     * Discontinue the process (exit).  
 --- 
 
 During deploy, the customer implements Microsoft Office 365. Often, a vendor (a technology partner or systems integrator) is required to assist the customer through this process.  A second approach to market may be required to procure technical services to accomplish the deployment.  
 
-Deploy can happen before or after [transition (change management)](), or could be implemented iteratively, alongside Transition. 
+Deploy can happen before or after [transition (change management)](transition.html), or could be implemented iteratively, alongside Transition. 
 
 ## Roles 
 
@@ -36,7 +36,7 @@ Deploy can happen before or after [transition (change management)](), or could b
 
 ## Enabling Services 
 
-* The community.desktop.gov.au community portal: for asking questions, [FAQ](./faq.html), and understanding which agencies are using the [Blueprint](/blueprint).  
+* The community.desktop.gov.au community portal: for asking questions, [FAQ](faq.html), and understanding which agencies are using the [Blueprint](/blueprint).  
 * The desktop.gov.au website: for information, the latest version of the Blueprint, and knowledge articles. 
 
 ## Benefits 

@@ -54,7 +54,7 @@ The DTA may co-fund transition activities with agencies.
 
 ## Enabling Services 
 
-* The community.desktop.gov.au community portal: for asking questions, FAQ, and understanding which agencies are using the [Blueprint](/blueprint).  
+* The [community portal](https://www.community.desktop.gov.au): for asking questions, FAQ, and understanding which agencies are using the [Blueprint](/blueprint).  
 * The desktop.gov.au website: for information, the latest version of the Blueprint, and knowledge articles. 
 
 ## Benefits 

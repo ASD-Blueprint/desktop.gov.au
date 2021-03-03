@@ -41,7 +41,7 @@ During engagement, the customer reviews the Protected Utility blueprint and may 
 
 ## Benefits
 
-* The customer can access a self-service document to standardise and modernise their ICT, 24/7. 
+* The customer can access a self-service design to standardise and modernise their ICT, 24/7. 
 * The customer receives support in understanding how they use a modern desktop. 
 * The customer can connect with other agencies to learn best practice, manage common pitfalls, and ask questions. 
 

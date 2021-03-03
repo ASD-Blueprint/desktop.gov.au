@@ -4,7 +4,7 @@ title: Protected Utility engagement model
 timeline:
 - title: 1. Engagement
   body: | 
-    During engagement, the customer agency [reviews the blueprint](/blueprint/), understanding the general overview, benefits, and what it offers them. The customer may register an account on the [Community Portal](https://www.community.desktop.gov.au). The customer then reaches out to the DTA to understand what the blueprint can offer, and what is required to use it.
+    During engagement, the customer agency [reviews the blueprint](https://desktop.gov.au/), understanding the general overview, benefits, and what it offers them. The customer may register an account on the [Community Portal](https://www.community.desktop.gov.au). The customer then reaches out to the DTA to understand what the blueprint can offer, and what is required to use it.
 - title: 2. Discovery
   body: | 
     During [discovery](engagement/discovery.html), the customer and the DTA, guided by a strategy partner vendor, work together to understand the agency’s business and technical environment, understand its mission and strategy, work to mitigate any adoption risks, and understand drivers and blockers to using M365. The DTA funds Discovery.
@@ -19,7 +19,7 @@ timeline:
     During adoption and evaluation, the customer agency consumes modern desktop services. Additionally, the customer shares lessons learnt, asks questions of the community, and seeks to understand what worked well and what didn’t. These lessons learnt are harvested through surveys, community discussions, and workshops with the DTA. This improves best practice across WoG.
 ---
 
-The Protected Utility engagement model outlines how customer agencies access [the DTA Protected Utility Program](/engagement/faq.html), and how agencies can maximise the use of [the blueprint](https://wwww.desktop.gov.au) for modern desktop services. A [downloadable visual of the Engagement model](/assets/files/engagement-model.pdf) is available for use. 
+The Protected Utility engagement model outlines how customer agencies access [the DTA Protected Utility Program](engagement/faq.html), and how agencies can maximise the use of [the blueprint](https://wwww.desktop.gov.au) for modern desktop services. A [downloadable visual of the Engagement model](/assets/files/engagement-model.pdf) is available for use. 
 
 The Model has five approximate stages. These stages are fluid and may happen concurrently or in cycles:
 1. [Engagement](engagement/engagement.html)

@@ -19,7 +19,7 @@ timeline:
     During [adoption and evaluation](adoption-evaluation.html), the customer agency consumes modern desktop services. Additionally, the customer shares lessons learnt, asks questions of the community, and seeks to understand what worked well and what didn’t. These lessons learnt are harvested through surveys, community discussions, and workshops with the DTA. This improves best practice across WoG.
 ---
 
-The Protected Utility engagement model outlines how customer agencies access [the DTA Protected Utility Program](https://www.desktop.gov.au), and how agencies can maximise the use of [the blueprint](/blueprint) for modern desktop services. A [downloadable visual of the Engagement model](/assets/files/engagement-model.pdf) is available for use. 
+The Protected Utility engagement model outlines how customer agencies access [the DTA Protected Utility Program](https://www.desktop.gov.au), and how agencies can maximise the use of [the blueprint](/blueprint) for modern desktop services. A [downloadable visual of the Engagement model](engagement/engagement-model.pdf) is available for use. 
 
 The Model has five approximate stages. These stages are fluid and may happen concurrently or in cycles:
 1. [Engagement](engagement/engagement.html)

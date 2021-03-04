@@ -16,7 +16,7 @@ timeline:
     Based on the risk, technology, and strategy analysis, change impacts will be captured in a [change impact assessment]().   
 - title: Step 5 – Security analysis 
   body: | 
-    If not already considered in the risk analysis, security requirements and obligations will be assessed against the Blueprint and relevant [Protected Security Policy Framework (PSPF)]() policies.   
+    If not already considered in the risk analysis, security requirements and obligations will be assessed against the Blueprint and relevant [Protected Security Policy Framework (PSPF)](https://www.protectivesecurity.gov.au/) policies.   
 - title: Step 6 – Develop business case 
   body: | 
     A business case for change will be developed. This highlights the recommended path forward in terms of a) technology b) business change. It will also contain relevant high-level options, costs, benefits, disbenefits, assumptions and constraints.  
@@ -24,8 +24,8 @@ timeline:
   body: | 
     After discovery, the agency will need to determine its next steps based on the change impact assessment and associated recommendations. This may include, for example: 
     
-    * Undergoing change planning in [Transition](/transition.md), by partnering with the DTA in a [Do it with you]() model. 
-    * Acquiring and deploying relevant technology in [Deploy](). 
+    * Undergoing change planning in [Transition](transition.html), by partnering with the DTA in a [Do it with you](faq.html) model. 
+    * Acquiring and deploying relevant technology in [Deploy](deploy.html). 
     * Discontinue the process (exit). 
     * Switching to a [Do It Yourself model]() and undertaking their own change management and technology journey to use the Blueprint.    
 --- 

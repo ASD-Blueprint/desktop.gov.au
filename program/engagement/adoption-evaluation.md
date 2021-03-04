@@ -7,7 +7,7 @@ timeline:
     The customer puts in place continual service improvements to their modern desktop suite. They may do this through continuing a support agreement with a technology partner, or their own in-house ICT and change capability.
 - title: Step 2 – Knowledge Sharing and Community Participation 
   body: | 
-    The customer agency engages with the community. For example, they may complete the ongoing [Protected Utility survey](), post threads on the [Community Portal](https://www.community.desktop.gov.au), engage in evaluation workshops (also called ‘retros’), and [attend WoG modern desktop training](). This feedback will then be used to iteratively improve the Blueprint design, desktop services, and community consultation across government.  
+    The customer agency engages with the community. For example, they may complete the ongoing [Protected Utility survey](), post threads on the [Community Portal](https://community.desktop.gov.au), engage in evaluation workshops (also called ‘retros’), and [attend WoG modern desktop training](). This feedback will then be used to iteratively improve the Blueprint design, desktop services, and community consultation across government.  
 --- 
 
 During adoption and evaluation, the customer agency consumes modern desktop services. Additionally, the customer shares lessons learnt, asks questions of the community, and seeks to understand what worked well and what didn’t. These lessons learnt are harvested through surveys, community discussions, and workshops with the DTA. This improves best practice across WoG. 

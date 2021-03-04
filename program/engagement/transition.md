@@ -16,7 +16,7 @@ timeline:
     Change will be implemented in this step based on the change plan.
 - title: Step 5 – Security Assessment
   body: | 
-    A security assessment will be conducted to understand if the modern desktop services, applications, and data are secure and compliant with the [Information Security Manual (ISM)](https://www.cyber.gov.au/acsc/view-all-content/ism) and other cyber security policies.
+    A security assessment will be conducted to understand if the modern desktop services, applications, and data are secure and compliant with the [Information Security Manual (ISM)](https://cyber.gov.au/acsc/view-all-content/ism) and other cyber security policies.
 - title: Step 6 - Training and Communications
   body: | 
     During this step, staff will be supported in upskilling to use modern desktop services. This may involve e-Learning, face to face training, and peer training. Communications material will also be developed to support the change.

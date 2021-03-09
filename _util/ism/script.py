@@ -1,10 +1,49 @@
+import argparse
+import sys
+import os
 import pandas as pd
 import xml.etree.ElementTree as ET
 
+ism_file = ''
+sspa_file = ''
+tree = ''
+df = ''
 
-# read in ISM xml file
-#tree = ET.parse('ISM - List of Security Controls (October 2020).xml')
-tree = ET.parse('ISM - List of Security Controls (January 2021).xml')
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--ism', help='Location of Information Security Manual XML file', action='store')
+parser.add_argument('--sspa', help='Location of the System Security Plan Annex XLSX file', action='store')
+args = parser.parse_args()
+
+if len(sys.argv) > 1:
+    if args.ism != None:
+        ism_file = args.ism
+        if os.path.isfile(ism_file):
+            tree = ET.parse(ism_file)
+        else:
+            print('ISM XML file not found')
+            exit(1)
+    else:
+        print('Please provide ISM XML file location')
+        exit(1)
+
+    if args.sspa != None:
+        sspa_file = args.sspa
+        if os.path.isfile(sspa_file):
+            df = pd.read_excel(sspa_file, engine='openpyxl', sheet_name=1)
+        else:
+            print('SSP Annex XLSX file not found')
+            exit(1)
+    else:
+        print('Please provide SSPA XLSX file location')
+        exit(1)
+else:
+    print('Please provide file locations\n')
+    parser.print_help()
+    exit()
+
+
+# Read in the ISM XML
 root = tree.getroot()
 ism = {}
 
@@ -29,11 +68,11 @@ for control in root.findall('.//Control'):
 
 
 
-# read in Blueprint's SSP Annex spreadsheet
-df = pd.read_excel (r'DTA - Cloud-Native Blueprint - System Security Plan Annex (October 2020 v2 Edits).xlsx', engine='openpyxl', sheet_name=1)
+# Read in the Blueprint's SSP Annex spreadsheet
 sspa = {}
 for i in df.index:
     if not pd.isnull(df['Identifier'][i]):
+        # strip out leading 0, then convert back to a string for comparison
         identifier = str(int(df['Identifier'][i]))
         if identifier not in sspa:
             sspa[identifier] = {
@@ -48,14 +87,33 @@ for i in df.index:
 
 
 
-# show controls not covered
-diff = {}
+# locate ISM controls not covered in the SSP Annex
+diff_a = {}
 for identifier in ism:
     if str(identifier) not in sspa:
-        diff[identifier] = ism[identifier]
+        diff_a[identifier] = ism[identifier]
 
-print("ISM: {}\nSSPAnnex: {}\n".format(len(ism), len(sspa)))
 import json
-print(json.dumps(diff, indent=4))
+
+# output ISM controls that do not appear in the SSP Annex
+print('--- ISM controls not covered in the SSP Annex ---')
+print(json.dumps(diff_a, indent=4))
+print('\n')
 
 
+# locate SSP Annex controls no longer relevant in the ISM
+# likely these controls have been removed from the ISM
+diff_b = {}
+for identifier in sspa:
+    if str(identifier) not in ism:
+        diff_b[identifier] = sspa[identifier]
+
+# output ISM controls that do not appear in the SSP Annex
+print('--- SSP Annex controls no longer appear in the ISM ---')
+print('These may need to be removed from the SSP Annex')
+print(json.dumps(diff_b, indent=4))
+print('\n')
+
+
+print('--- Summary ---')
+print("ISM: {}\nSSP Annex: {}\nISM controls to be added: {}\nSSPA controls to be removed: {}\n".format(len(ism), len(sspa), len(diff_a), len(diff_b)))

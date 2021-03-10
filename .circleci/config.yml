@@ -27,6 +27,12 @@ references:
         echo "  index_name: \"${ALGOLIA_INDEX_NAME}\"" >> _config.yml
         echo "  search_only_api_key: \"${ALGOLIA_SEARCH_ONLY_API_KEY}\"" >> _config.yml
         echo "  nodes_to_index: \"p\"" >> _config.yml
+  integrate_web_analytics: &integrate_web_analytics
+    run:
+      name: Integrate with Google Analytics
+      command: |
+        echo "" >> _config.yml
+        echo "google_analytics: \"${GOOGLE_ANALYTICS}\"" >> _config.yml
   index_site: &index_site
     run:
       name: Index content
@@ -95,6 +101,7 @@ jobs:
           at: .
       - *cf_install
       - *app_prereqs
+      - *integrate_web_analytics
       - *integrate_search
       - *index_site
       - *build_site

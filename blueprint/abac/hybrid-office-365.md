@@ -750,7 +750,7 @@ Owner Audited Actions | ApplyRecord<br>Create<br>HardDelete<br>MailboxLogin<br>M
 
 ### Journaling
 
-`Exchange Admin Centre > compliance management > journal rules` is not configured.`
+`Exchange Admin Centre > compliance management > journal rules` is not configured.
 
 ### Mailbox retention
 

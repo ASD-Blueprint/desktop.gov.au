@@ -5,7 +5,7 @@ This script identifies controls that differ between the ACSC's Information Secur
 * controls that are not currently covered by the SSPA that need to be added
 * SSPA controls that no longer appear in the ISM and need to be removed
 
-Although this script was created for the SSPA documents supplied with the Protected Utility program, you can use it to analyse other SSPA documents as long as they are in the same format.
+Although this script was created for the [SSPA documents](https://desktop.gov.au/blueprint/security.html) supplied with the Protected Utility program, you can use it to analyse other SSPA documents as long as they follow the same format.
 
 ### What you need
 

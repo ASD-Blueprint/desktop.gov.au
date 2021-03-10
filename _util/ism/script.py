@@ -1,6 +1,13 @@
+# A Python 3 script to display differences between an ACSC's ISM XML file
+# and a System Security Plan Annex XSLX document
+#
+# This script lives at https://github.com/govau/desktop.gov.au/tree/master/_util/ism
+#
+
 import argparse
 import sys
 import os
+import json
 import pandas as pd
 import xml.etree.ElementTree as ET
 
@@ -22,10 +29,10 @@ if len(sys.argv) > 1:
             tree = ET.parse(ism_file)
         else:
             print('ISM XML file not found')
-            exit(1)
+            exit(4)
     else:
         print('Please provide ISM XML file location')
-        exit(1)
+        exit(2)
 
     if args.sspa != None:
         sspa_file = args.sspa
@@ -33,14 +40,14 @@ if len(sys.argv) > 1:
             df = pd.read_excel(sspa_file, engine='openpyxl', sheet_name=1)
         else:
             print('SSP Annex XLSX file not found')
-            exit(1)
+            exit(5)
     else:
         print('Please provide SSPA XLSX file location')
-        exit(1)
+        exit(3)
 else:
     print('Please provide file locations\n')
     parser.print_help()
-    exit()
+    exit(1)
 
 
 # Read in the ISM XML
@@ -87,28 +94,26 @@ for i in df.index:
 
 
 
-# locate ISM controls not covered in the SSP Annex
+# Determine ISM controls not covered in the SSP Annex
 diff_a = {}
 for identifier in ism:
     if str(identifier) not in sspa:
         diff_a[identifier] = ism[identifier]
 
-import json
-
-# output ISM controls that do not appear in the SSP Annex
+# Output ISM controls that do not appear in the SSP Annex
 print('--- ISM controls not covered in the SSP Annex ---')
 print(json.dumps(diff_a, indent=4))
 print('\n')
 
 
-# locate SSP Annex controls no longer relevant in the ISM
-# likely these controls have been removed from the ISM
+# Determine SSP Annex controls no longer relevant in the ISM
+# These controls have likely been removed from the ISM
 diff_b = {}
 for identifier in sspa:
     if str(identifier) not in ism:
         diff_b[identifier] = sspa[identifier]
 
-# output ISM controls that do not appear in the SSP Annex
+# Output ISM controls that do not appear in the SSP Annex
 print('--- SSP Annex controls no longer appear in the ISM ---')
 print('These may need to be removed from the SSP Annex')
 print(json.dumps(diff_b, indent=4))
@@ -116,4 +121,4 @@ print('\n')
 
 
 print('--- Summary ---')
-print("ISM: {}\nSSP Annex: {}\nISM controls to be added: {}\nSSPA controls to be removed: {}\n".format(len(ism), len(sspa), len(diff_a), len(diff_b)))
+print("ISM: {}\nSSP Annex: {}\nISM controls to be added: {}\nSSP Annex controls to be removed: {}\n".format(len(ism), len(sspa), len(diff_a), len(diff_b)))

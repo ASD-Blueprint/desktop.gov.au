@@ -108,7 +108,13 @@ workflows:
   version: 2
   build_and_deploy:
     jobs:
-      - build_attachments
+      - build_attachments:
+          filters:
+            branches:
+              only:
+                - /feature-.*/
+                - develop
+                - master
       - deploy_feature_branch:
           requires:
             - build_attachments

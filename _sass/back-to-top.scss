@@ -13,7 +13,13 @@
         visibility: hidden;
         opacity: 0;
         z-index: 100;
+        border: 1px solid rgba(0,0,0,0);
+        text-align: center;
+        padding: 5px 10px;
 
+        &:hover {
+            border: 1px solid #ccc;
+        }
         &.visible {
             visibility: visible;
             opacity: 1;
@@ -21,13 +27,7 @@
         a {
             color: #999;
             text-decoration: none;
-            border: 1px solid rgba(0,0,0,0);
-            padding: 5px 10px;
             outline: none;
-
-            &:hover {
-                    border: 1px solid #ccc;
-            }
         }
         i {
             font-size: 0.85em;

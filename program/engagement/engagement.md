@@ -15,11 +15,11 @@ timeline:
   body: | 
     Based on the initial workshop, the DTA and the customer agency may determine one of the following options:
     
-    * Undertake a 4-8 week [discovery phase]() to greater understand strategy, the ICT environment, risks, and processes, and understand the agency's business readiness to use the blueprint. 
-    * Undertake a [change management and planning]() phase to transition to using the blueprint from a people, change, and process perspective. 
+    * Undertake a 4-8 week [discovery phase](discovery.html) to greater understand strategy, the ICT environment, risks, and processes, and understand the agency's business readiness to use the blueprint. 
+    * Undertake a [change management and planning](transition.html) phase to transition to using the blueprint from a people, change, and process perspective. 
     * Discontinue engagement with the PU and manage their own ICT services under a ['Do It Yourself' model](faq.html). 
 
-    The DTA will provide a [Letter of Intent]() to formalise the agreement.  
+    The DTA will provide a Letter of Intent to formalise the agreement.  
 ---
 
 During engagement, the customer reviews the Protected Utility blueprint and may register an account on the Community Portal. The customer then reaches out to the DTA to understand what the blueprint can offer, and what is required to use it.  

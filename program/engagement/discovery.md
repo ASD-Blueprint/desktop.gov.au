@@ -2,18 +2,18 @@
 layout: engagement 
 title: Discovery 
 timeline: 
-- title: Step 1 – Strategy Analysis 
+- title: Step 1 – Strategy analysis 
   body: | 
-    The strategy partner vendor will facilitate workshops to understand the business and ICT environment that the agency operates in. A [people, process, and technology (POPIT) analysis]() will be conducted.  
+    The strategy partner vendor will facilitate workshops to understand the business and ICT environment that the agency operates in. A people, process, and technology (POPIT) analysis will be conducted.  
 - title: Step 2 – Understand risks  
   body: | 
-    Throughout Discovery, the strategy partner will elect and capture risks and change impacts associated with adopting a modern desktop based on the Blueprint. A [SWOT analysis]() may assist this understanding.  
+    Throughout Discovery, the strategy partner will elect and capture risks and change impacts associated with adopting a modern desktop based on the Blueprint. A SWOT analysis may assist this understanding.  
 - title: Step 3 – Understand technology maturity 
   body: | 
     The agency’s technology environment and roadmap, including applications, licensing, hardware & peripherals, and technical support will be assessed. This technology environment will be compared to the Blueprint design.   
 - title: Step 4 – Understand change impacts  
   body: | 
-    Based on the risk, technology, and strategy analysis, change impacts will be captured in a [change impact assessment]().   
+    Based on the risk, technology, and strategy analysis, change impacts will be captured in a change impact assessment.
 - title: Step 5 – Security analysis 
   body: | 
     If not already considered in the risk analysis, security requirements and obligations will be assessed against the Blueprint and relevant [Protected Security Policy Framework (PSPF)](https://www.protectivesecurity.gov.au/) policies.   
@@ -24,10 +24,10 @@ timeline:
   body: | 
     After discovery, the agency will need to determine its next steps based on the change impact assessment and associated recommendations. This may include, for example: 
     
-    * Undergoing change planning in [Transition](transition.html), by partnering with the DTA in a [Do it with you](faq.html) model. 
+    * Undergoing change planning in [Transition](transition.html), by partnering with the DTA in a [Do it with you](faq.html#what-is-the-do-it-with-you-model) model. 
     * Acquiring and deploying relevant technology in [Deploy](deploy.html). 
     * Discontinue the process (exit). 
-    * Switching to a [Do It Yourself model]() and undertaking their own change management and technology journey to use the Blueprint.    
+    * Switching to a [Do It Yourself model](faq.html#what-is-the-do-it-yourself-model) and undertaking their own change management and technology journey to use the Blueprint.    
 --- 
 
 During discovery, the customer and the DTA, guided by a strategy partner vendor, work together to understand the agency’s business and technical environment, understand its mission and strategy, work to mitigate any adoption risks, and understand drivers and blockers to using M365. 
@@ -40,19 +40,19 @@ The discovery phase is funded by the DTA.
 * The customer agency
 * Strategy partner (optional) 
 
-## Tools, Templates and Guidance 
+## Tools, templates and guidance 
 
-* [Risk assessment]() or [Change impact assessment]() 
-* [Procurement Plan]() 
-* [Statement of Work]() and [Section 23]() 
-* [Business needs]() or [User stories]() 
-* [Strategy analysis]() 
-* [Target Operating Model]() 
+* Risk assessment or Change impact assessment
+* Procurement Plan
+* Statement of Work and Section 23
+* Business needs or user stories
+* Strategy analysis
+* Target Operating Model
 
-## Enabling Services 
+## Enabling services 
 
-* The community.desktop.gov.au community portal: for asking questions, FAQ, and understanding which agencies are using the Blueprint.  
-* The desktop.gov.au website: for information, the latest version of the Blueprint, and knowledge articles.   
+* The [community.desktop.gov.au](https://community.desktop.gov.au/) community portal: for asking questions, FAQ, and understanding which agencies are using the Blueprint.  
+* The [desktop.gov.au](https://desktop.gov.au/) website: for information, the latest version of the Blueprint, and knowledge articles.   
 
 ## Benefits 
 

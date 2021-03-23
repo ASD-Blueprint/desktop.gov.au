@@ -2,28 +2,28 @@
 layout: engagement 
 title: Transition
 timeline: 
-- title: Step 1 – Change Readiness Assessment
+- title: Step 1 – Change readiness assessment
   body: | 
-    If not already covered in the [change impact assessment]() in Discovery, the agency will undergo a [change readiness assessment]. This will help understand which divisions  within the agency are ready to adopt the modern desktop. The assessment may include skills, culture, willingness to adopt the change, leadership and staff support, and other drivers and risks to a successful adoption. During change readiness, there will also be a decision point from the DTA to decide how much funding support it can offer agencies during Transition.
-- title: Step 2 – Change Strategy
+    If not already covered in the change impact assessment in Discovery, the agency will undergo a change readiness assessment. This will help understand which divisions  within the agency are ready to adopt the modern desktop. The assessment may include skills, culture, willingness to adopt the change, leadership and staff support, and other drivers and risks to a successful adoption. During change readiness, there will also be a decision point from the DTA to decide how much funding support it can offer agencies during Transition.
+- title: Step 2 – Change strategy
   body: | 
-    A [change strategy]() will outline the way in which the change to modern desktop will be managed. This is so that the value of the Blueprint c an be maximised, and risks to successful adoption minimised. The Change Strategy will determine a vision for change, who will be communicated with and when (i.e a [Communication Plan], a [Skills and Training Needs Assessment] or learning strategy, and a clear [Benefits] register or strategy.
-- title: Step 3 – Change Plan
+    A change strategy will outline the way in which the change to modern desktop will be managed. This is so that the value of the Blueprint c an be maximised, and risks to successful adoption minimised. The Change Strategy will determine a vision for change, who will be communicated with and when (i.e a Communication Plan, a Skills and Training Needs Assessment or learning strategy, and a clear Benefits register or strategy.
+- title: Step 3 – Change plan
   body: | 
-    A [change plan]() will outline the concrete steps to be enacted in the short-term. 
+    A change plan will outline the concrete steps to be enacted in the short-term. 
 - title: Step 4 – Enact the change
   body: | 
     Change will be implemented in this step based on the change plan.
-- title: Step 5 – Security Assessment
+- title: Step 5 – Security assessment
   body: | 
     A security assessment will be conducted to understand if the modern desktop services, applications, and data are secure and compliant with the [Information Security Manual (ISM)](https://www.cyber.gov.au/acsc/view-all-content/ism) and other cyber security policies.
-- title: Step 6 - Training and Communications
+- title: Step 6 - Training and communications
   body: | 
     During this step, staff will be supported in upskilling to use modern desktop services. This may involve e-Learning, face to face training, and peer training. Communications material will also be developed to support the change.
 - title: Next steps
   body: | 
     * After Transition, the customer agency must consider its next steps. These may include:  
-    * Undergoing further change planning in [Transition]() again. 
+    * Undergoing further change planning in Transition again. 
     * Undergoing technology build and deployment in [Deploy](deploy.html) 
     * Move to [Adoption](adoption-evaluation.html) and start to realise the benefits of a modern desktop. 
 ---
@@ -39,19 +39,19 @@ The DTA may co-fund transition activities with agencies.
 * The customer agency
 * Organisational Change Management (OCM) partner (optional) 
 
-## Tools, Templates and Guidance 
+## Tools, templates and guidance 
 
-* [Change readiness assessment]() 
-* [Change strategy]() 
-* [Change plan]() 
-* [Benefits register]() 
-* [Training and skills analysis]() 
-* [Closure letter]() 
+* Change readiness assessment
+* Change strategy
+* Change plan
+* Benefits register
+* Training and skills analysis
+* Closure letter
 
-## Enabling Services 
+## Enabling services 
 
 * The [community portal](https://community.desktop.gov.au): for asking questions, FAQ, and understanding which agencies are using the [Blueprint](/blueprint).  
-* The desktop.gov.au website: for information, the latest version of the Blueprint, and knowledge articles. 
+* The [desktop.gov.au](https://desktop.gov.au/) website: for information, the latest version of the Blueprint, and knowledge articles. 
 
 ## Benefits 
 

@@ -2,9 +2,9 @@
 layout: engagement 
 title: Deploy 
 timeline: 
-- title: Step 1 – Execution Plan
+- title: Step 1 – Execution plan
   body: | 
-        The agency will understand what is to be acquired and implemented in their ICT environment.  
+    The agency will understand what is to be acquired and implemented in their ICT environment.  
 - title: Step 2 – Product analysis, build, deploy, and evaluate 
   body: | 
     In this step, the customer agency (optionally guided by a technology partner) will design, install, and deploy products onto the ICT environment. This may be done using an agile approach and 'sprints', whereby M365 technology capability is rolled out in a series of sprints.  
@@ -27,17 +27,17 @@ Deploy can happen before or after [transition (change management)](transition.ht
 * The customer agency
 * Technology partner (optional) 
 
-## Tools, Templates and Guidance 
+## Tools, templates and guidance 
 
 * User guides 
 * User stories 
 * Sprint plan 
 * Feature log 
 
-## Enabling Services 
+## Enabling services 
 
-* The community.desktop.gov.au community portal: for asking questions, [FAQ](faq.html), and understanding which agencies are using the [Blueprint](/blueprint).  
-* The desktop.gov.au website: for information, the latest version of the Blueprint, and knowledge articles. 
+* The [community.desktop.gov.au](https://community.desktop.gov.au/) community portal: for asking questions, [FAQ](faq.html), and understanding which agencies are using the [Blueprint](/blueprint).  
+* The [desktop.gov.au](https://desktop.gov.au/) website: for information, the latest version of the Blueprint, and knowledge articles. 
 
 ## Benefits 
 

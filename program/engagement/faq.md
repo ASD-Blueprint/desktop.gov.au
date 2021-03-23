@@ -20,7 +20,7 @@ The DTA is assisting agencies to adopt the Blueprint, helping them uplift their 
 * Employees can work remotely on Protected documents and information, from anywhere in the world. 
 * Employees can collaborate together on documents in real time, use video conferencing, instant messaging, and create document repositories to store and share information.  
 * Organisations can move away from using unsecure, aging, and bespoke legacy system, and move to a modern, secure, and configurable systems that are well-supported by enterprise vendors such as Microsoft.  
-* Organisations can share lessons learnt and best practice in deploying and configuring these enterprise systems and using the Blueprint on a Community Portal (). They can also share lessons learnt about the business change required to enable using the technology.  
+* Organisations can share lessons learnt and best practice in deploying and configuring these enterprise systems and using the Blueprint on a [Community Portal](https://community.desktop.gov.au/). They can also share lessons learnt about the business change required to enable using the technology.  
 * Organisations can procure modern technology procured through WoG panels, achieving greater value for money.  
 * In future updates the Blueprint, employees will be able to video conference, send emails, and collaborate on documents with employees from other organisations that use the Blueprint.  
 
@@ -35,17 +35,26 @@ Through the Protected Utility Program, the Government is investing in common pla
 ## What is the Protected Utility Program? 
 
 The DTA was funded for $9.5M in 2020-21 and $9.7M in 2019-20 to:
+
 * Develop a Blueprint which standardises the design for a secure modern desktop based on Microsoft 365 technologies.  
-* Support the transition of up to six Commonwealth agencies, identified in conjunction with the Australian Cyber Security Centre (ACSC), to the Blueprint.    
-The Program is not building a technology platform. Instead, it enables agencies to improve their ICT capability through a consistent approach for collaboration and business operations.    
+* Support the transition of up to 6 Commonwealth agencies, identified in conjunction with the Australian Cyber Security Centre (ACSC), to the Blueprint.    
+
+The Program is not building a technology platform. Instead, it enables agencies to improve their ICT capability through a consistent approach for collaboration and business operations.
 
 ## How can I start using the Blueprint? 
 
-You can start by first reviewing the [Blueprint][/blueprint]. Then, the DTA offers two models to fully adopt it: Do it With You, and Do it Yourself.  
+You can start by first reviewing the [Blueprint](/blueprint). Then, the DTA offers two models to fully adopt it:
+
+1. Do it With You, and 
+2. Do it Yourself.  
 
 ## What is the ‘Do it With You’ model? 
 
-Under this model, the DTA will partner with you to undertake a Discovery phase. This phase will help you understand your business and IT strategy, risks and barriers to using the Blueprint, drivers for using the Blueprint, and other business change you might need to manage to use modern desktop services. The DTA will fund this phase. Finally, the DTA can help you plan for change in a Transition phase. This will help you plan for change, assess your change readiness, and transition to using the Blueprint. The DTA will help you fund this phase in a co-design model. Part of these phases may involve procuring organisational change or technology partners to help you start using Protected utility services. This option is particularly useful if you have a smaller budget and don’t have an ICT and change capability.  
+Under this model, the DTA will partner with you to undertake a Discovery phase. This phase will help you understand your business and IT strategy, risks and barriers to using the Blueprint, drivers for using the Blueprint, and other business change you might need to manage to use modern desktop services. The DTA will fund this phase.
+
+Finally, the DTA can help you plan for change in a Transition phase. This will help you plan for change, assess your change readiness, and transition to using the Blueprint. The DTA will help you fund this phase in a co-design model.
+
+Part of these phases may involve procuring organisational change or technology partners to help you start using Protected utility services. This option is particularly useful if you have a smaller budget and don’t have an ICT and change capability.  
 
 ## What is the ‘Do it Yourself’ model? 
 
@@ -63,7 +72,7 @@ The Protected Utility Program has directly supported the following agencies:�
 * Inspector-General of Taxation (IGT)
 * Office of the Commonwealth Ombudsman (OCO)
 
-The DTA plans to support another four agencies prior to the end of June 2021.  
+The DTA plans to support another 4 agencies prior to the end of June 2021.  
 
 ## What agencies have read the Blueprint so far? 
 
@@ -79,11 +88,17 @@ By the Program’s end in 30 June 2021, the Program will have supported more
 
 ### A design for a secure modern desktop – Protected Utility Blueprint   
 
-Released publicly in March 2020, the Protected Utility Blueprint is a design to create a common, secure operating environment. This environment uses several Microsoft 365 (M365) cloud applications.  The Blueprint helps agencies manage information up to the PROTECTED level. This improves cyber security maturity against the Australian Signals Directorate (ASD) Essential Eight cyber mitigations. The Blueprint enables contemporary office productivity tools to be adopted consistently. For example, common and interoperable document collaboration, email, and video conferencing.   
+Released publicly in March 2020, the Protected Utility Blueprint is a design to create a common, secure operating environment. This environment uses several Microsoft 365 (M365) cloud applications.
+
+The Blueprint helps agencies manage information up to the PROTECTED level. This improves cyber security maturity against the Australian Signals Directorate (ASD) Essential Eight cyber mitigations.
+
+The Blueprint enables contemporary office productivity tools to be adopted consistently. For example, common and interoperable document collaboration, email, and video conferencing.   
 
 ### A community collaboration forum – community.desktop.gov.au  
 
-In October 2020 the Program is established desktop.gov.au to increase WofG community collaboration to improve and continue the use of the Blueprint. Through the forum there has been newsletters, a survey, and knowledge articles published. It also hosts the Blueprint on the GitHub platform to collaborate globally with developers.    
+In October 2020 the Program established the community portal to increase WofG community collaboration to improve and continue the use of the Blueprint. Through the forum there have been newsletters, a survey, and knowledge articles published.
+
+In February 2021, we moved the Blueprint to Github to enable collaboration from all facets of our community to users globally.
 
 ### Skills uplift through M365 training – APS Digital Profession   
 

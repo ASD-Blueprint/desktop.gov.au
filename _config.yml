@@ -27,6 +27,8 @@ exclude:
   - vendor
   - manifest-*.yml
   - Staticfile
+  - .jekyll-cache
+  - .git
 
 # Plugin settings
 plugins:

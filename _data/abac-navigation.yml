@@ -2,6 +2,9 @@
   url: /blueprint/abac.html
 
   subitems:
+    - title: Client devices
+      url: /blueprint/abac/client-devices.html
+
     - title: Conditional access policies
       url: /blueprint/abac/conditional-access-policies.html
 

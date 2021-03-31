@@ -305,6 +305,38 @@ user | \OneDrive | Prevent users from syncing personal OneDrive accounts |  | tr
   * Included groups: `grp-Windows-10-Devices`, `rol-Agency-Administrators`, `rol-Agency-Users`
   * Excluded groups: -
 
+### Agency-WDACEnablement
+
+* Name: `Agency-WDACEnablement`
+* Description: `WDAC enablement policy`
+* Type: `Windows 10 and later`
+* Profile Type: `Endpoint protection`
+* Configuration settings
+  * Application control code integrity policies: `Enforce`
+  * Trust apps with good reputation: `Not configured`
+* Assignments
+  * Included groups: `grp-Windows-10-Devices`, `rol-Agency-Users`
+  * Excluded groups: -
+
+### Agency-WDACBasePolicy
+
+The policy GUID in the OMA-URI must be unique to your environment. 
+
+* Name: `Agency-WDACBasePolicy`
+* Description: `WDAC base enforcement policy`
+* Type: `Windows 10 and later`
+* Profile Type: `Custom`
+* Configuration settings
+  * OMA-URI Settings
+    * Name: `Baseline WDAC policy`
+    * Description: `Enforce baseline WDAC policy`
+    * OMA-URI: ` ./Vendor/MSFT/ApplicationControl/Policies/Policy GUID/Policy`
+    * Data type: `Base64`
+    * Certificate file: `binary format policy file`
+* Assignments
+  * Included groups: `grp-Windows-10-Devices`, `rol-Agency-Users`
+  * Excluded groups: -
+
 ### Wi-Fi Configuration
 
 * Name: `WiFi SSID`

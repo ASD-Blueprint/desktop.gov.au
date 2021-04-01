@@ -983,16 +983,35 @@ Microsoft Edge Settings | Configured | Default configuration, meets security req
 
 Application control is a crucial line of defence for protecting enterprises given today's threat landscape, and it has an inherent advantage over traditional antivirus solutions. Specifically, application control moves away from the traditional application trust model where all applications are assumed trustworthy by default to one where applications must earn trust in order to run. ASD frequently cite application control as one of the most effective means for addressing the threat of executable file-based malware (.exe, .dll, etc.).
 
-Windows Defender Application Control (WDAC) helps mitigate these types of security threats by restricting the applications that users can run and the code that runs in the System Core (kernel). WDAC policies also block unsigned scripts and MSIs, and Windows PowerShell runs in Constrained Language Mode.
+Windows Defender Application Control (WDAC) helps mitigate these types of security threats by restricting the applications that users can run and the code that runs in the System Core (kernel). WDAC policies also:
+* Enforce Constrained Language mode for Windows Powershell
+* Enforce the use of drivers signed by Windows Hardware Quality labs and produced by partners who have an Extended Verification certificate.
+* Block unsigned and unapproved scripts, MSIs, Universal Windows Store Applications, and .NET applications.
+
+To reduce management overhead, WDAC allows for the use of managed installers; such as Microsoft Endpoint Configuration Manager. When configured, items deployed via the mangaged installer are added into the allow list. 
 
 Application Control Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Application Whitelisting Product | WDAC | Microsoft recommended product for [application whitelisting](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control#choose-when-to-use-wdac-or-applocker) 
-Application Control method | A combination of publisher certificate and path rules and will be used. | Controlled via Intune to align with the ACSC Windows 10 1909 hardening guidance. WDAC policies are natively supported in Intune and SCCM co-management
+User Mode Code Integity | Enabled | Restricts both kernel-mode and user-mode binaries. This aligns with the ACSC Windows 10 1909 hardening guidance.
+Windows Hardware Quality Labs Signing | Required |  Blocks the execution of legacy drivers and ensures drivers have passed [Windows Hardware Certification Testing](https://docs.microsoft.com/en-us/windows-hardware/drivers/install/whql-release-signature) 
+Flight Signing | Disabled  | Restricts the use of non production release binaries. Flightroot-signed binaries will not be trusted.
+Unsigned System Integrity Policy | Disabled | Requires the policy to be signed.
+EV Signers | Required  | Blocks the execution of drivers created by a partner without a Extended Verification (EV) certificate.
+Advanced Boot Options Menu | Disabled | Restricts access to the advanced boot options menu. 
+Boot Audit on Failure | Enabled | Enables investigation when a driver fails on boot. 
+Script Enforcement | Enabled  |  Restricts powershell scripts and interactive sessions to constrained language mode. This aligns with the ACSC guidance on hardening Powershell.
+Enforce Store Applications | Enabled | Enforces WDAC policies on Universal Windows applications.
+Update Policy No Reboot | Enabled | Ensures new policies can be applied without reboot.
+Allow Supplemental Policies | Intune deployed: Enabled; Group Policy deployed: Disabled | Supplemental polices allow for policies to be targeted to users/groups. This is however not supported when policies are deployed by Group Policy.
+Dynamic Code Security | Enabled | Enforces WDAC policies on .NET applications and dynamically-loaded libraries.
+Managed Installer | Enabled | Allow lists applications deployed using a managed installer such as Microsoft Endpoint Configuration Manager.
+Hypervisor-protected code integrity | Enabled | To align with the ACSC Windows 10 1909 hardening guidance.
+Application Control method | A combination of publisher certificate and path rules and will be used. | Controlled via Intune for cloud managed devices and Group policy for hybrid devices.
 Microsoft Block Rules | Configured | To align with the ACSC Windows 10 1909 hardening guidance.
-Intelligent Security Graph connection | Configured | In accordance with Microsoft best practice.
+Intelligent Security Graph connection | Disabled | The Intelligent Security Graph connection allows applications to be run if they are deemed as good and there is no explict block rule configured. 
 
 ### Identity Providers
 

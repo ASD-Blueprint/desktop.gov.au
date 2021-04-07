@@ -5,6 +5,7 @@ title: As Built As Configured (ABAC)
 
 For cloud-native environments:
 
+* [Client devices](/blueprint/abac/client-devices.html)
 * [Conditional access policies](/blueprint/abac/conditional-access-policies.html)
 * [Office 365](/blueprint/abac/office-365.html)
 * [Platform](/blueprint/abac/platform.html)

@@ -7,10 +7,15 @@ menu: abac
 The ABAC settings for the Agency workstation configuration can be found below. This includes the Windows Defender Application Control configuration. 
 
 Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting.
+## Application Control
 
-## WDAC Policy - Baseline Policy
+### WDAC Policy - Baseline Policy
 
 This is the base application control policy. Additional policies can be added in addition to this policy in the form of supplementary policies.
+
+Prior to the deployment of the below policy it must be signed. Details on signing policy can be found in the [WDAC Policy - Policy Signing](/blueprint/abac/client-devices.html#wdac-policy---policy-signing) section.
+
+**Implementation of WDAC should be first completed in Audit mode and monitored. This can be completed by adding a rule Enabled:Audit Mode**
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -164,9 +169,13 @@ This is the base application control policy. Additional policies can be added in
 </SiPolicy>
 ```
 
-## WDAC Policy - Microsoft Deny Policy
+### WDAC Policy - Microsoft Deny Policy
 
-This is a supplementary application control policy which enforces Microsoft's recommended Deny rules. This policy can be merged into the base if required. 
+This is a supplementary application control policy which enforces Microsoft's recommended [Deny rules](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-block-rules). This policy can be merged into the base if required. 
+
+Prior to the deployment of the below policy it must be signed. Details on signing policy can be found in the [WDAC Policy - Policy Signing](/blueprint/abac/client-devices.html#wdac-policy---policy-signing) section.
+
+**Implementation of WDAC should be first completed in Audit mode and monitored. This can be completed by adding a rule Enabled:Audit Mode**
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -3746,7 +3755,25 @@ This is a supplementary application control policy which enforces Microsoft's re
   </Settings>
 </SiPolicy>
 ```
+### WDAC Policy - Policy Signing
 
-## WDAC Policy - Deployment
+Prior to deployment of the WDAC policy it must be signed using an internal Certificate Authority code signing certificate or a purchased code signing certificate.
+
+The procedure to sign the policy is as follows:
+* Add-SignerRule -FilePath `Path to the XML policy file` -CertificatePath `Path to exported .cer certificate` -Kernel -User –Update
+* ConvertFrom-CIPolicy -XmlFilePath `Path to the XML policy file` -BinaryFilePath `Binary output location`
+* `Path to signtool.exe` sign -v /n `Certificate Subject name` -p7 . -p7co 1.3.6.1.4.1.311.79.1 -fd sha256 `Binary policy location`
+
+### WDAC Policy - Deployment
 
 The above policies are deployed through Microsoft Endpoint Manager/Intune. The deployment configuration is available within the [Intune Configuration](/blueprint/abac/intune-configuration.html#agency-wdacenablement) section.
+
+### WDAC Policy - Removal
+
+To remove a signed WDAC policy from a machine it must be replaced with another signed policy with the 6 Enabled: Unsigned System Integrity Policy rule option enabled. The new policy must be signed with the certificate used to sign the existing policy.
+
+Once replaced the machine must be rebooted and the WDAC deployment method disabled. Once complete, the policy files can be removed from the following locations:
+* EFI System Partition\Microsoft\Boot\SIPolicy.p7b
+* OS Volume\Windows\System32\CodeIntegrity\SIPolicy.p7b
+* OS Volume\Windows\System32\CodeIntegrity\ `Policy GUID`.cip
+* EFI System Partition\Microsoft\Boot\ `Policy GUID`.cip

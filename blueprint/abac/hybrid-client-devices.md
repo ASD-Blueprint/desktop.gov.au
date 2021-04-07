@@ -186,9 +186,15 @@ This is an example AutopilotConfigurationFile.json only. This file will be agenc
   "CloudAssignedLanguage": "os-default"
 }
 ```
-## WDAC Policy - Core Policy
+## Application Control
+
+### WDAC Policy - Core Policy
 
 This is the core application control policy. Additional policies can be not be added when utilising Group Policy as the deployment mechanism. All additional rules will need to be merged into this core policy.
+
+Prior to the deployment of the below policy it must be signed. Details on signing policy can be found in the [WDAC Policy - Policy Signing](/blueprint/abac/hybrid-client-devices.html#wdac-policy---policy-signing) section.
+
+**Implementation of WDAC should be first completed in Audit mode and monitored. This can be completed by adding a rule Enabled:Audit Mode**
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
@@ -3768,7 +3774,25 @@ This is the core application control policy. Additional policies can be not be a
   </Settings>
 </SiPolicy>
 ```
+### WDAC Policy - Policy Signing
 
-## WDAC Policy - Deployment
+Prior to deployment of the WDAC policy it must be signed using an internal Certificate Authority code signing certificate or a purchased code signing certificate.
+
+The procedure to sign the policy is as follows:
+* Add-SignerRule -FilePath `Path to the XML policy file` -CertificatePath `Path to exported .cer certificate` -Kernel -User –Update
+* ConvertFrom-CIPolicy -XmlFilePath `Path to the XML policy file` -BinaryFilePath `Binary output location`
+* `Path to signtool.exe` sign -v /n `Certificate Subject name` -p7 . -p7co 1.3.6.1.4.1.311.79.1 -fd sha256 `Binary policy location`
+
+### WDAC Policy - Deployment
 
 The above policy is deployed through Group Policy. The deployment configuration is available within the [Platform Configuration](/blueprint/abac/hybrid-platform.html#application-control) section.
+
+### WDAC Policy - Removal
+
+To remove a signed WDAC policy from a machine it must be replaced with another signed policy with the 6 Enabled: Unsigned System Integrity Policy rule option enabled. The new policy must be signed with the certificate used to sign the existing policy.
+
+Once replaced the machine must be rebooted and the WDAC deployment method disabled. Once complete, the policy files can be removed from the following locations:
+* EFI System Partition\Microsoft\Boot\SIPolicy.p7b
+* OS Volume\Windows\System32\CodeIntegrity\SIPolicy.p7b
+* OS Volume\Windows\System32\CodeIntegrity\ `Policy GUID`.cip
+* EFI System Partition\Microsoft\Boot\ `Policy GUID`.cip

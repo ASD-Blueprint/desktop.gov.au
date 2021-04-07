@@ -2624,7 +2624,7 @@ The ABAC settings for the Agency Application Control can be found below. This in
 
 #### Group Policy
 
-Note, in order to deploy via group policy, all supplementary policies must be merged into the base policy. Also the base policy must be stored in a location where all devices can access it (i.e. Sysvol).  
+Note, in order to deploy via group policy, all supplementary policies must be merged into the base policy. Also the base policy must be stored in a location where all devices can access it (i.e. Sysvol). The XML file must also be converted to Binary via the Convertfrom-CIPolicy PowerShell command. The XML files are located within the [Hybrid Client Devices](/blueprint/abac/hybrid-client-devices.html#wdac-policy---core-policy) section.
 
 * Group policy
   * Type: `Computer Policy`

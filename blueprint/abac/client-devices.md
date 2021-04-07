@@ -179,7 +179,7 @@ Prior to the deployment of the below policy it must be signed. Details on signin
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<SiPolicy xmlns="urn:schemas-microsoft-com:sipolicy" PolicyType="Base Policy">
+<SiPolicy xmlns="urn:schemas-microsoft-com:sipolicy" PolicyType="Supplemental Policy">
   <VersionEx>10.0.0.0</VersionEx>
   <PlatformID>{2E07F7E4-194C-4D20-B7C9-6F44A6C5A234}</PlatformID>
   <Rules>
@@ -208,10 +208,10 @@ Prior to the deployment of the below policy it must be signed. Details on signin
       <Option>Enabled:Managed Installer</Option>
     </Rule>
     <Rule>
-      <Option>Enabled:Allow Supplemental Policies</Option>
+      <Option>Enabled:Dynamic Code Security</Option>
     </Rule>
     <Rule>
-      <Option>Enabled:Dynamic Code Security</Option>
+      <Option>Enabled:Unsigned System Integrity Policy</Option>
     </Rule>
   </Rules>
   <!--EKUS-->
@@ -3739,17 +3739,17 @@ Prior to the deployment of the below policy it must be signed. Details on signin
     <CiSigner SignerId="ID_SIGNER_S_316_1_2_0_2_1" />
   </CiSigners>
   <HvciOptions>0</HvciOptions>
-  <BasePolicyID>{8DB7BE09-BED8-45AD-AC15-2211082B1796}</BasePolicyID>
-  <PolicyID>{8DB7BE09-BED8-45AD-AC15-2211082B1796}</PolicyID>
+  <BasePolicyID>{8B43435D-3FE4-4EE3-9684-843BF21BB922}</BasePolicyID>
+  <PolicyID>{DF77AED4-F6AF-4CAC-91F2-A00A904FD96F}</PolicyID>
   <Settings>
-    <Setting Provider="PolicyInfo" Key="Information" ValueName="Name">
-      <Value>
-        <String>AllowMicrosoft_040121</String>
-      </Value>
-    </Setting>
     <Setting Provider="PolicyInfo" Key="Information" ValueName="Id">
       <Value>
         <String>040121</String>
+      </Value>
+    </Setting>
+    <Setting Provider="PolicyInfo" Key="Information" ValueName="Name">
+      <Value>
+        <String>AllowMicrosoft_040121</String>
       </Value>
     </Setting>
   </Settings>

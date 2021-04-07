@@ -998,7 +998,7 @@ Application Whitelisting Product | WDAC | Microsoft recommended product for [app
 User Mode Code Integity | Enabled | Restricts both kernel-mode and user-mode binaries. This aligns with the ACSC Windows 10 1909 hardening guidance.
 Windows Hardware Quality Labs Signing | Required |  Blocks the execution of legacy drivers and ensures drivers have passed [Windows Hardware Certification Testing](https://docs.microsoft.com/en-us/windows-hardware/drivers/install/whql-release-signature) 
 Flight Signing | Disabled  | Restricts the use of non production release binaries. Flightroot-signed binaries will not be trusted.
-Unsigned System Integrity Policy | Disabled | Requires the policy to be signed, this prevents administrative tampering and kernel mode exploit access.
+Unsigned System Integrity Policy | Agency Decision | The use of signed policies prevent administrative tampering and kernel mode exploit access. However, it does increase the administrative overhead associated with management and updating of policies. There is no current ACSC guidance on the configuration of signed integrity polices. 
 EV Signers | Required  | Blocks the execution of drivers created by a partner without a Extended Verification (EV) certificate.
 Advanced Boot Options Menu | Disabled | Restricts access to the advanced boot options menu. 
 Boot Audit on Failure | Enabled | Enables investigation when a driver fails on boot. 

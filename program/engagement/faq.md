@@ -34,7 +34,7 @@ Through the Protected Utility Program, the Government is investing in common pla
 
 ## What is the Protected Utility Program? 
 
-The DTA was funded for $9.5M in 2020-21 and $9.7M in 2019-20 to:
+The DTA was funded to:
 
 * Develop a Blueprint which standardises the design for a secure modern desktop based on Microsoft 365 technologies.  
 * Support the transition of up to 6 Commonwealth agencies, identified in conjunction with the Australian Cyber Security Centre (ACSC), to the Blueprint.    

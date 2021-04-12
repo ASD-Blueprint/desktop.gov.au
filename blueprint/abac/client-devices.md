@@ -10,7 +10,7 @@ Please note, if a setting is not mentioned in the below, it should be assumed to
 
 ## Application Control
 
-WDAC utilise one or more policies to defined what drivers and files are whitelisted to run on a Windows 10 devices. Multiple policies can only be leveraged when the policies are deployed utilising Microsoft Endpoint Manager and the Application Control Configuration Service Provider (CSP). When multiple policy files are leveraged the fall into one of the following scenarios:
+WDAC utilise one or more policies to defined what drivers and files are whitelisted to run on a Windows 10 devices. Multiple policies can only be leveraged when the policies are deployed utilising Microsoft Endpoint Manager and the Application Control Configuration Service Provider (CSP). Multiple policies will not work on machines pre 1903. When multiple policy files are leveraged the fall into one of the following scenarios:
 * **Enforce and Audit Side-by-side** - A base policy configured to enforce and a second base policy configured to audit. This is used to test a new base policy prior to enforcement.
 * **Multiple Base Policies Enforced** - Two or more base policies configured in enforce mode. For applications to run they must be whitelisted in both.
 * **Supplementary Policies** - A base policy and one or more supplementary policies in enforce mode. For applications to run they must only be whitelisted in one of the policies.  
@@ -103,6 +103,8 @@ Set-RuleOption -FilePath $WDACPolicy -Option 3 -Delete
 
 Supplementary policies expand on the base policy and allow for whitelisting to be targeted to users and/or groups. Supplementary pollcies can contain both allow and deny rules. A supplementary policy is a base policy until it is linked as a supplementary policy to another base policy. 
 
+Supplementary policies will not work on machines pre 1903. If you are deploying to pre 1903 machines they must be merged into the base policy. [Merge policy](/blueprint/abac/hybrd-client-devices.html#wdac-policy---whitelisting-an-application) instructions are available in the hybrid client whitelisting section.
+
 #### Whitelisting an application
 
 Whitelisting of an application utilising WDAC can be completed utilising a number of methods including Hash (ACSC recommended), file path, and certificate based. Depending on the application, the chosen method of whitelisting may change. Hash whitelisting offers the highest degree of security however it increases the management overhead associated with whitelisting. 
@@ -123,6 +125,22 @@ $directory = the path to be scanned
 New-CIPolicy -Level $whitelistlevel -FilePath $Outputlocation -Fallback $fallbacklevel  -ScanPath $directory -UserPEs
 ```
 3. Convert the new base policy to a supplementary policy.
+
+#### Whitelisting all errors in the event log
+
+Whitelisting of an applications blocked or audited by WDAC can be completed utilising PowerShell. This is normally conducted when testing policies as it is important to test a sample of individual application functionality. 
+
+Post identification of the appropriate whitelisting method, the following procedure is used to whitelist the applications identified in the event log:
+
+1.  Within an administrative PowerShell session run the following command
+```powershell
+$whitelistlevel = the chosen method of whitelist e.g. hash
+$Outputlocation = the path to output the policy file
+$fallbacklevel = the backup method of whitelist e.g. publisher
+New-CIPolicy -Level $whitelistlevel -FilePath $Outputlocation -Fallback $fallbacklevel  -audit -UserPEs
+```
+2. Convert the new base policy to a supplementary policy.
+
 
 #### Linking to the base policy
 

@@ -292,6 +292,21 @@ New-CIPolicy -Level $whitelistlevel -FilePath $Outputlocation -Fallback $fallbac
 ```
 3. Merge the new base policy with the existing base policy.
 
+#### Whitelisting all errors in the event log
+
+Whitelisting of an applications blocked or audited by WDAC can be completed utilising PowerShell. This is normally conducted when testing policies as it is important to test a sample of individual application functionality. 
+
+Post identification of the appropriate whitelisting method, the following procedure is used to whitelist the applications identified in the event log:
+
+1.  Within an administrative PowerShell session run the following command
+```powershell
+$whitelistlevel = the chosen method of whitelist e.g. hash
+$Outputlocation = the path to output the policy file
+$fallbacklevel = the backup method of whitelist e.g. publisher
+New-CIPolicy -Level $whitelistlevel -FilePath $Outputlocation -Fallback $fallbacklevel  -audit -UserPEs
+```
+2. Merge the new base policy with the existing base policy.
+
 #### Merging with the base policy
 
 To merge base policies together the following procedure is used:

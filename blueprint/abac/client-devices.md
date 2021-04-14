@@ -23,11 +23,11 @@ Once implemented, the procedure to remove one or more WDAC policies can be found
 
 The base policy contains the whitelist for the operating system, base applications, and drivers. It can be generated based upon an existing image (i.e a gold image) or leveraging a predefined Microsoft baseline.  
 
-![WDAC Base policy](/assets/images/WDAC_base.png)
+![WDAC Base policy](/assets/images/WDAC_base.svg "WDAC Base Policy creation should utilise a gold image where available else a Microsoft baseline. The Managed Installer function should also be leveraged where a managed installer is in use in the environment")
 
 #### Gold Image Base
 
-A base policy generated from a gold image machine should only be utlised where all Windows 10 machines in the environment utilise the same image. The procedure to generate the policy is as follows:
+A base policy generated from a gold image machine should only be utilised where all Windows 10 machines in the environment utilise the same image. The procedure to generate the policy is as follows:
 
 1. Deploy the image to a standard organisational Windows 10 device.
 2. Ensure all standard software is installed (e.g. Microsoft Office).
@@ -75,7 +75,7 @@ The procedure to leverage this policy is as follows:
 3. Remove all flighting related signers (note they will also need to be removed from the signing scenarios)
 4. Using an administrative PowerShell session run
 ```powershell
-$WDACPolicy = path to policy file
+$WDACPolicy = {path to policy file}
 Set-RuleOption -FilePath $WDACPolicy -Option 0 # Enabled UMCI
 Set-RuleOption -FilePath $WDACPolicy -Option 1 # Enable Boot Menu Protection
 Set-RuleOption -FilePath $WDACPolicy -Option 2 # Require WHQL
@@ -111,32 +111,30 @@ Whitelisting of an application utilising WDAC can be completed utilising a numbe
 
 If the managed installer option within the base policy is enabled, whitelisting of applications deployed via the managed installer is not required. 
 
-![WDAC Whitelisting Application policy](/assets/images/WDAC_Intune.png)
+![WDAC Whitelisting Application policy](/assets/images/WDAC_Intune.svg "Where additional applications are required they should leverage the hash of the files or the publisher file name and version. Once whitelisted they must be linked to the base policy and deployed as a supplementary policy")
 
 Post identification of the appropriate whitelisting method, the following procedure is used to whitelist the application:
 
 1.  Within an administrative PowerShell session navigate to the install directory of the application
 2.  Run the following command
 ```powershell
-$whitelistlevel = the chosen method of whitelist e.g. hash
-$Outputlocation = the path to output the policy file
-$fallbacklevel = the backup method of whitelist e.g. publisher
-$directory = the path to be scanned
+$whitelistlevel = {the chosen method of whitelist e.g. hash}
+$Outputlocation = {the path to output the policy file}
+$fallbacklevel = {the backup method of whitelist e.g. publisher}
+$directory = {the path to be scanned}
 New-CIPolicy -Level $whitelistlevel -FilePath $Outputlocation -Fallback $fallbacklevel  -ScanPath $directory -UserPEs
 ```
 3. Convert the new base policy to a supplementary policy.
 
 #### Whitelisting all errors in the event log
 
-Whitelisting of an applications blocked or audited by WDAC can be completed utilising PowerShell. This is normally conducted when testing policies as it is important to test a sample of individual application functionality. 
-
-Post identification of the appropriate whitelisting method, the following procedure is used to whitelist the applications identified in the event log:
+Applications which are not whitelisted will be logged in the code integrity event log on execution. These applications can be whitelisted using the following procedure:
 
 1.  Within an administrative PowerShell session run the following command
 ```powershell
-$whitelistlevel = the chosen method of whitelist e.g. hash
-$Outputlocation = the path to output the policy file
-$fallbacklevel = the backup method of whitelist e.g. publisher
+$whitelistlevel = {the chosen method of whitelist e.g. hash}
+$Outputlocation = {the path to output the policy file}
+$fallbacklevel = {the backup method of whitelist e.g. publisher}
 New-CIPolicy -Level $whitelistlevel -FilePath $Outputlocation -Fallback $fallbacklevel  -audit -UserPEs
 ```
 2. Convert the new base policy to a supplementary policy.
@@ -144,15 +142,15 @@ New-CIPolicy -Level $whitelistlevel -FilePath $Outputlocation -Fallback $fallbac
 
 #### Linking to the base policy
 
-To convert a base policy to a supplementary policy of another base policy they must be linked. Upon linking the policyID of the suppplementary policy will be set to a new GUID. This new guid is required when deploying the supplementary policy via Microsoft Endpoint Manager. 
+To convert a base policy to a supplementary policy of another base policy they must be linked. Upon linking the policyID of the supplementary policy will be set to a new GUID. This new guid is required when deploying the supplementary policy via Microsoft Endpoint Manager. 
 
 The procedure to link the policies is as follows:
 1. Using an administrative PowerShell session run
 ```powershell
-$SupWDACPolicy = path to the supplementary policy file
-$SupWDACPolicyName = Name of the supplementary policy
-$WDACPolicy = path to the policy file
-$WDACPolicyID = base policy id available within the base policy PolicyID tags
+$SupWDACPolicy = {path to the supplementary policy file}
+$SupWDACPolicyName = {Name of the supplementary policy}
+$WDACPolicy = {path to the policy file}
+$WDACPolicyID = {base policy id available within the base policy PolicyID tags}
 Set-CIPolicyIdInfo -FilePath $SupWDACPolicy -PolicyName $SupWDACPolicyName -SupplementsBasePolicyID $WDACPolicyID -BasePolicyToSupplementPath $WDACPolicy
 ```
 
@@ -161,9 +159,12 @@ Set-CIPolicyIdInfo -FilePath $SupWDACPolicy -PolicyName $SupWDACPolicyName -Supp
 Prior to deployment of the WDAC policy it can be signed using an internal Certificate Authority code signing certificate or a purchased code signing certificate.
 
 The procedure to sign the policy is as follows:
-* Add-SignerRule -FilePath `Path to the XML policy file` -CertificatePath `Path to exported .cer certificate` -Kernel -User –Update
-* ConvertFrom-CIPolicy -XmlFilePath `Path to the XML policy file` -BinaryFilePath `Binary output location`
-* `Path to signtool.exe` sign -v /n `Certificate Subject name` -p7 . -p7co 1.3.6.1.4.1.311.79.1 -fd sha256 `Binary policy location`
+* Using an administrative PowerShell session run
+```powershell
+Add-SignerRule -FilePath {Path to the XML policy file} -CertificatePath {Path to exported .cer certificate} -Kernel -User –Update
+ConvertFrom-CIPolicy -XmlFilePath {Path to the XML policy file} -BinaryFilePath `Binary output location`
+{Path to signtool.exe} sign -v /n {Certificate Subject name} -p7 . -p7co 1.3.6.1.4.1.311.79.1 -fd sha256 {Binary policy location}
+```
 
 ### WDAC Policy - Deployment
 
@@ -175,7 +176,7 @@ The above policies are deployed through Microsoft Endpoint Manager/Intune. The d
 
 The procedure to remove signed policies is as follows:
 1. Create a new signed policy with `6 Enabled: Unsigned System Integrity Policy` enabled.
-2. Deploy the policy and rempve the previous policy from deployment.
+2. Deploy the policy and remove the previous policy from deployment.
 3. Reboot the machine.
 4. Disable the WDAC deployment method.
 5. On the machine verify the following files have been deleted (if they have not then delete them)

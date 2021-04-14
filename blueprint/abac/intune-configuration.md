@@ -319,7 +319,7 @@ The policy GUID in the OMA-URI must be unique to your environment. It can be fou
   * OMA-URI Settings
     * Name: `Baseline WDAC policy`
     * Description: `Enforce baseline WDAC policy`
-    * OMA-URI: ` ./Vendor/MSFT/ApplicationControl/Policies/Policy GUID/Policy`
+    * OMA-URI: `./Vendor/MSFT/ApplicationControl/Policies/Policy GUID/Policy`
     * Data type: `Base64`
     * Certificate file: `binary format policy file`
 * Assignments
@@ -340,7 +340,7 @@ The policy GUID in the OMA-URI must be unique to your environment. It can be fou
   * OMA-URI Settings
     * Name: `Supplementary WDAC policy`
     * Description: `Allow additional applications`
-    * OMA-URI: ` ./Vendor/MSFT/ApplicationControl/Policies/Policy GUID/Policy`
+    * OMA-URI: `./Vendor/MSFT/ApplicationControl/Policies/Policy GUID/Policy`
     * Data type: `Base64`
     * Certificate file: `binary format policy file`
 * Assignments

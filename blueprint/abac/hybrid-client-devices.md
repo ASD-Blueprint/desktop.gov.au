@@ -268,7 +268,7 @@ Set-RuleOption -FilePath $WDACPolicy -Option 19 # Enable Dynamic Code Security
 Set-RuleOption -FilePath $WDACPolicy -Option 3 -Delete
 ```
 7. Deploy the file locally in enforce mode and validate no additional files require whitelisting
-8. [Deploy the file globally](/blueprint/abac/client-devices.html#wdac-policy---deployment) 
+8. [Deploy the file globally](/blueprint/abac/hybrid-platform.html#application-control) 
 
 
 ### WDAC Policy - Whitelisting an application

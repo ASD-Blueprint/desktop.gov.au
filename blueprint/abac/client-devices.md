@@ -69,7 +69,6 @@ Set-RuleOption -FilePath $WDACPolicy -Option 3 -Delete
 Microsoft have developed a number of base policies which provide the whitelisting rules for a standard Windows 10 image. These base policies are located on any Windows 10 machine under `%windir%\schemas\CodeIntegrity\ExamplePolicies`. Within that directory, the policy titled `DefaultWindows_Audit.xml` should be leveraged as the base policy. It includes the rules necessary to ensure that Windows, 3rd party hardware and software kernel drivers, and Windows Store apps will run.  
 
 The procedure to leverage this policy is as follows:
-
 1. Make a copy of the policy and place it into a working directory (i.e. My documents)
 2. Open the policy in a XML editor such as Visual Studio code or notepad.
 3. Remove all flighting related signers (note they will also need to be removed from the signing scenarios)

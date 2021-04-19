@@ -8,24 +8,24 @@ The ABAC settings for the Agency workstation configuration can be found below. T
 
 Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting.
 
-## Application Control
+## Application control
 
 WDAC utilise one or more policies to defined what drivers and files are whitelisted to run on a Windows 10 devices. Multiple policies can only be leveraged when the policies are deployed utilising Microsoft Endpoint Manager and the Application Control Configuration Service Provider (CSP). Multiple policies will not work on machines pre 1903. When multiple policy files are leveraged the fall into one of the following scenarios:
 * **Enforce and Audit Side-by-side** - A base policy configured to enforce and a second base policy configured to audit. This is used to test a new base policy prior to enforcement.
 * **Multiple Base Policies Enforced** - Two or more base policies configured in enforce mode. For applications to run they must be whitelisted in both.
 * **Supplementary Policies** - A base policy and one or more supplementary policies in enforce mode. For applications to run they must only be whitelisted in one of the policies.  
 
-These WDAC policies can be signed to ensure that they cannot be tampered with. Details on signing policy can be found in the [WDAC Policy - Policy Signing](/blueprint/abac/client-devices.html#wdac-policy---policy-signing) section.
+These WDAC policies can be signed to ensure that they cannot be tampered with. Details on signing policy can be found in the [WDAC policy - policy signing](#wdac-policy---policy-signing) section.
 
-Once implemented, the procedure to remove one or more WDAC policies can be found in the [WDAC Policy - Removal](/blueprint/abac/client-devices.html#wdac-policy---removal) section.
+Once implemented, the procedure to remove one or more WDAC policies can be found in the [WDAC policy - removal](#wdac-policy---removal) section.
 
-### WDAC Policy - Baseline Policy
+### WDAC policy - baseline
 
 The base policy contains the whitelist for the operating system, base applications, and drivers. It can be generated based upon an existing image (i.e a gold image) or leveraging a predefined Microsoft baseline.  
 
-![WDAC Base policy](/assets/images/WDAC_base.svg "WDAC Base Policy creation should utilise a gold image where available else a Microsoft baseline. The Managed Installer function should also be leveraged where a managed installer is in use in the environment")
+![WDAC base policy](/assets/images/WDAC_base.svg "WDAC Base Policy creation should utilise a gold image where available else a Microsoft baseline. The Managed Installer function should also be leveraged where a managed installer is in use in the environment")
 
-#### Gold Image Base
+#### Gold image base
 
 A base policy generated from a gold image machine should only be utilised where all Windows 10 machines in the environment utilise the same image. The procedure to generate the policy is as follows:
 
@@ -62,14 +62,14 @@ Set-RuleOption -FilePath $WDACPolicy -Option 19 # Enable Dynamic Code Security
 Set-RuleOption -FilePath $WDACPolicy -Option 3 -Delete
 ```
 9. Deploy the file locally in enforce mode and validate no additional files require whitelisting
-10. [Deploy the file globally](/blueprint/abac/client-devices.html#wdac-policy---deployment) 
+10. [Deploy the file globally](#wdac-policy---deployment) 
 
-
-#### Predefined Microsoft Base 
+#### Predefined Microsoft base 
 
 Microsoft have developed a number of base policies which provide the whitelisting rules for a standard Windows 10 image. These base policies are located on any Windows 10 machine under `%windir%\schemas\CodeIntegrity\ExamplePolicies`. Within that directory, the policy titled `DefaultWindows_Audit.xml` should be leveraged as the base policy. It includes the rules necessary to ensure that Windows, 3rd party hardware and software kernel drivers, and Windows Store apps will run.  
 
 The procedure to leverage this policy is as follows:
+
 1. Make a copy of the policy and place it into a working directory (i.e. My documents)
 2. Open the policy in a XML editor such as Visual Studio code or notepad.
 3. Remove all flighting related signers (note they will also need to be removed from the signing scenarios)
@@ -96,14 +96,13 @@ Set-RuleOption -FilePath $WDACPolicy -Option 19 # Enable Dynamic Code Security
 Set-RuleOption -FilePath $WDACPolicy -Option 3 -Delete
 ```
 7. Deploy the file locally in enforce mode and validate no additional files require whitelisting
-8. [Deploy the file globally](/blueprint/abac/client-devices.html#wdac-policy---deployment) 
+8. [Deploy the file globally](#wdac-policy---deployment) 
 
-
-### WDAC Policy - Supplementary Policy
+### WDAC policy - supplementary policy
 
 Supplementary policies expand on the base policy and allow for whitelisting to be targeted to users and/or groups. Supplementary pollcies can contain both allow and deny rules. A supplementary policy is a base policy until it is linked as a supplementary policy to another base policy. 
 
-Supplementary policies will not work on machines pre 1903. If you are deploying to pre 1903 machines they must be merged into the base policy. [Merge policy](/blueprint/abac/hybrid-client-devices.html#wdac-policy---whitelisting-an-application) instructions are available in the hybrid client whitelisting section.
+Supplementary policies will not work on machines pre 1903. If you are deploying to pre 1903 machines they must be merged into the base policy. [Merge policy](hybrid-client-devices.html#wdac-policy---whitelisting-an-application) instructions are available in the hybrid client whitelisting section.
 
 #### Whitelisting an application
 
@@ -111,7 +110,7 @@ Whitelisting of an application utilising WDAC can be completed utilising a numbe
 
 If the managed installer option within the base policy is enabled, whitelisting of applications deployed via the managed installer is not required. 
 
-![WDAC Whitelisting Application policy](/assets/images/WDAC_Intune.svg "Where additional applications are required they should leverage the hash of the files or the publisher file name and version. Once whitelisted they must be linked to the base policy and deployed as a supplementary policy")
+![WDAC whitelisting application policy](/assets/images/WDAC_Intune.svg "Where additional applications are required they should leverage the hash of the files or the publisher file name and version. Once whitelisted they must be linked to the base policy and deployed as a supplementary policy")
 
 Post identification of the appropriate whitelisting method, the following procedure is used to whitelist the application:
 
@@ -126,7 +125,7 @@ New-CIPolicy -Level $whitelistlevel -FilePath $Outputlocation -Fallback $fallbac
 ```
 3. Convert the new base policy to a supplementary policy.
 
-#### Whitelisting all errors in the event log
+#### Whitelisting errors in the event log
 
 Applications which are not whitelisted will be logged in the code integrity event log on execution. These applications can be whitelisted using the following procedure:
 
@@ -138,7 +137,6 @@ $fallbacklevel = {the backup method of whitelist e.g. publisher}
 New-CIPolicy -Level $whitelistlevel -FilePath $Outputlocation -Fallback $fallbacklevel  -audit -UserPEs
 ```
 2. Convert the new base policy to a supplementary policy.
-
 
 #### Linking to the base policy
 
@@ -154,7 +152,7 @@ $WDACPolicyID = {base policy id available within the base policy PolicyID tags}
 Set-CIPolicyIdInfo -FilePath $SupWDACPolicy -PolicyName $SupWDACPolicyName -SupplementsBasePolicyID $WDACPolicyID -BasePolicyToSupplementPath $WDACPolicy
 ```
 
-### WDAC Policy - Policy Signing
+### WDAC policy - policy signing
 
 Prior to deployment of the WDAC policy it can be signed using an internal Certificate Authority code signing certificate or a purchased code signing certificate.
 
@@ -166,13 +164,13 @@ ConvertFrom-CIPolicy -XmlFilePath {Path to the XML policy file} -BinaryFilePath 
 {Path to signtool.exe} sign -v /n {Certificate Subject name} -p7 . -p7co 1.3.6.1.4.1.311.79.1 -fd sha256 {Binary policy location}
 ```
 
-### WDAC Policy - Deployment
+### WDAC policy - deployment
 
-The above policies are deployed through Microsoft Endpoint Manager/Intune. The deployment configuration is available within the [Intune Configuration](/blueprint/abac/intune-configuration.html#agency-wdacbasepolicy) section.
+The above policies are deployed through Microsoft Endpoint Manager/Intune. The deployment configuration is available within the [Intune Configuration](intune-configuration.html#agency-wdacbasepolicy) section.
 
-### WDAC Policy - Removal
+### WDAC policy - removal
 
-#### Signed Policies
+#### Signed policies
 
 The procedure to remove signed policies is as follows:
 1. Create a new signed policy with `6 Enabled: Unsigned System Integrity Policy` enabled.
@@ -180,17 +178,17 @@ The procedure to remove signed policies is as follows:
 3. Reboot the machine.
 4. Disable the WDAC deployment method.
 5. On the machine verify the following files have been deleted (if they have not then delete them)
-    * OS Volume\Windows\System32\CodeIntegrity\ `Policy GUID`.cip
-    * EFI System Partition\Microsoft\Boot\ `Policy GUID`.cip
+  * `OS Volume\Windows\System32\CodeIntegrity\{Policy GUID}.cip`
+  * `EFI System Partition\Microsoft\Boot\{Policy GUID}.cip`
 6. Reboot the machine.
 
-#### Unsigned Policies
+#### Unsigned policies
 
 The procedure to remove unsigned policies is as follows:
 1. Disable the WDAC deployment method. 
 2. On the machine verify the following files have been deleted (if they have not then delete them)
-    * OS Volume\Windows\System32\CodeIntegrity\ `Policy GUID`.cip
-    * EFI System Partition\Microsoft\Boot\ `Policy GUID`.cip
+  * `OS Volume\Windows\System32\CodeIntegrity\{Policy GUID}.cip`
+  * `EFI System Partition\Microsoft\Boot\{Policy GUID}.cip`
 3. Reboot the machine.
 
 ### Appendix 1: Sample supplementary policies

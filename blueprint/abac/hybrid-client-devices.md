@@ -186,19 +186,20 @@ This is an example AutopilotConfigurationFile.json only. This file will be agenc
   "CloudAssignedLanguage": "os-default"
 }
 ```
-## Application Control
 
-WDAC utilise one or more policies to defined what drivers and files are whitelisted to run on a Windows 10 devices. Multiple policies can only be leveraged when the policies are deployed utilising Microsoft Endpoint Manager and the Application Control Configuration Service Provider (CSP). When deployed utilising Group Policy, all policies must be merged into the single policy. This policy can be signed to ensure that it cannot be tampered with. Details on signing policy can be found in the [WDAC Policy - Policy Signing](/blueprint/abac/hybrid-client-devices.html#wdac-policy---policy-signing) section.
+## Application control
 
-Once implemented, the procedure to remove the WDAC policy can be found in the [WDAC Policy - Removal](/blueprint/abac/hybrid-client-devices.html#wdac-policy---removal) section.
+WDAC utilise one or more policies to defined what drivers and files are whitelisted to run on a Windows 10 devices. Multiple policies can only be leveraged when the policies are deployed utilising Microsoft Endpoint Manager and the Application Control Configuration Service Provider (CSP). When deployed utilising Group Policy, all policies must be merged into the single policy. This policy can be signed to ensure that it cannot be tampered with. Details on signing policy can be found in the [WDAC policy - policy signing](#wdac-policy---policy-signing) section.
 
-### WDAC Policy - Baseline Policy
+Once implemented, the procedure to remove the WDAC policy can be found in the [WDAC policy - removal](#wdac-policy---removal) section.
+
+### WDAC policy - baseline policy
 
 The base policy contains the whitelist for the operating system, base applications, and drivers. It can be generated based upon an existing image (i.e a gold image) or leveraging a predefined Microsoft baseline.  
 
 ![WDAC Base policy](/assets/images/WDAC_base.svg "WDAC Base Policy creation should utilise a gold image where available else a Microsoft baseline. The Managed Installer function should also be leveraged where a managed installer is in use in the environment")
 
-#### Gold Image Base
+#### Gold image base
 
 A base policy generated from a gold image machine should only be utlised where all Windows 10 machines in the environment utilise the same image. The procedure to generate the policy is as follows:
 
@@ -234,10 +235,9 @@ Set-RuleOption -FilePath $WDACPolicy -Option 19 # Enable Dynamic Code Security
 Set-RuleOption -FilePath $WDACPolicy -Option 3 -Delete
 ```
 9. Deploy the file locally in enforce mode and validate no additional files require whitelisting
-10. [Deploy the file globally](/blueprint/abac/hybrid-client-devices.html#wdac-policy---deployment) 
+10. [Deploy the file globally](#wdac-policy---deployment) 
 
-
-#### Predefined Microsoft Base 
+#### Predefined Microsoft base 
 
 Microsoft have developed a number of base policies which provide the whitelisting rules for a standard Windows 10 image. These base policies are located on any Windows 10 machine under `%windir%\schemas\CodeIntegrity\ExamplePolicies`. Within that directory, the policy titled `DefaultWindows_Audit.xml` should be leveraged as the base policy. It includes the rules necessary to ensure that Windows, 3rd party hardware and software kernel drivers, and Windows Store apps will run.  
 
@@ -268,21 +268,20 @@ Set-RuleOption -FilePath $WDACPolicy -Option 19 # Enable Dynamic Code Security
 Set-RuleOption -FilePath $WDACPolicy -Option 3 -Delete
 ```
 7. Deploy the file locally in enforce mode and validate no additional files require whitelisting
-8. [Deploy the file globally](/blueprint/abac/hybrid-platform.html#application-control) 
+8. [Deploy the file globally](hybrid-platform.html#application-control) 
 
-
-### WDAC Policy - Whitelisting an application
+### WDAC policy - whitelisting an application
 
 Whitelisting of an application utilising WDAC can be completed utilising a number of methods including Hash (ACSC recommended), file path, and certificate based. Depending on the application, the chosen method of whitelisting may change. Hash whitelisting offers the highest degree of security however it increases the management overhead associated with whitelisting. 
 
 If the managed installer option within the base policy is enabled, whitelisting of applications deployed via the managed installer is not required. 
 
-![WDAC Whitelisting Application policy](/assets/images/WDAC_SCCM.svg "Where additional applications are required they should leverage the hash of the files or the publisher file name and version. Once whitelisted they must be merged into the base policy")
+![WDAC whitelisting application policy](/assets/images/WDAC_SCCM.svg "Where additional applications are required they should leverage the hash of the files or the publisher file name and version. Once whitelisted they must be merged into the base policy")
 
 Post identification of the appropriate whitelisting method, the following procedure is used to whitelist the application:
 
-1.  Within an administrative PowerShell session navigate to the install directory of the application
-2.  Run the following command
+1. Within an administrative PowerShell session navigate to the install directory of the application
+2. Run the following command
 ```powershell
 $whitelistlevel = {the chosen method of whitelist e.g. hash}
 $Outputlocation = {the path to output the policy file}
@@ -292,7 +291,7 @@ New-CIPolicy -Level $whitelistlevel -FilePath $Outputlocation -Fallback $fallbac
 ```
 3. Merge the new base policy with the existing base policy.
 
-#### Whitelisting all errors in the event log
+#### Whitelisting errors in the event log
 
 Applications which are not whitelisted will be logged in the code integrity event log on execution. These applications can be whitelisted using the following procedure:
 
@@ -316,22 +315,25 @@ $MergedCIPolicy= {location to output the policy}
 Merge-CIPolicy -PolicyPaths $InitialCIPolicy,$AuditCIPolicy -OutputFilePath $MergedCIPolicy
 ```
 
-### WDAC Policy - Policy Signing
+### WDAC policy - policy signing
 
 Prior to deployment of the WDAC policy it can be signed using an internal Certificate Authority code signing certificate or a purchased code signing certificate.
 
 The procedure to sign the policy is as follows:
-* Add-SignerRule -FilePath {Path to the XML policy file} -CertificatePath {Path to exported .cer certificate} -Kernel -User –Update
-* ConvertFrom-CIPolicy -XmlFilePath {Path to the XML policy file} -BinaryFilePath {Binary output location}
-* {Path to signtool.exe} sign -v /n {Certificate Subject name} -p7 . -p7co 1.3.6.1.4.1.311.79.1 -fd sha256 {Binary policy location}
 
-### WDAC Policy - Deployment
+```powershell
+Add-SignerRule -FilePath {Path to the XML policy file} -CertificatePath {Path to exported .cer certificate} -Kernel -User –Update
+ConvertFrom-CIPolicy -XmlFilePath {Path to the XML policy file} -BinaryFilePath {Binary output location}
+{Path to signtool.exe} sign -v /n {Certificate Subject name} -p7 . -p7co 1.3.6.1.4.1.311.79.1 -fd sha256 {Binary policy location}
+```
 
-The above policy is deployed through Group Policy. The deployment configuration is available within the [Platform Configuration](/blueprint/abac/hybrid-platform.html#application-control) section.
+### WDAC policy - deployment
 
-### WDAC Policy - Removal
+The above policy is deployed through Group Policy. The deployment configuration is available within the [Platform Configuration](hybrid-platform.html#application-control) section.
 
-#### Signed Policies
+### WDAC policy - removal
+
+#### Signed policies
 
 The procedure to remove signed policies is as follows:
 1. Create a new signed policy with `6 Enabled: Unsigned System Integrity Policy` enabled.
@@ -339,17 +341,17 @@ The procedure to remove signed policies is as follows:
 3. Reboot the machine.
 4. Disable the WDAC deployment method.
 5. On the machine verify the following files have been deleted (if they have not then delete them)
-    * OS Volume\Windows\System32\CodeIntegrity\ `Policy GUID`.cip
-    * EFI System Partition\Microsoft\Boot\ `Policy GUID`.cip
+  * `OS Volume\Windows\System32\CodeIntegrity\{Policy GUID}.cip`
+  * `EFI System Partition\Microsoft\Boot\{Policy GUID}.cip`
 6. Reboot the machine.
 
-#### Unsigned Policies
+#### Unsigned policies
 
 The procedure to remove unsigned policies is as follows:
 1. Disable the WDAC deployment method. 
 2. On the machine verify the following files have been deleted (if they have not then delete them)
-    * OS Volume\Windows\System32\CodeIntegrity\ `Policy GUID`.cip
-    * EFI System Partition\Microsoft\Boot\ `Policy GUID`.cip
+  * `OS Volume\Windows\System32\CodeIntegrity\{Policy GUID}.cip`
+  * `EFI System Partition\Microsoft\Boot\{Policy GUID}.cip`
 3. Reboot the machine.
 
 ### Appendix 1: Example merged base policy

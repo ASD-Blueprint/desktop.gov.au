@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Client Devices
+title: Client devices
 ---
 
 This document covers the following topics.
@@ -21,13 +21,13 @@ For each component within the document there is a brief description of the conte
 * The Intune Console is the preferred method to manage all settings regardless of a cloud native or hybrid implementation. Although a combination of the System Center Configuration Manager (SCCM) Console and Group Policy Objects (GPOs) would  be able to achieve the same settings in a hybrid environment, this Blueprint does not include SCCM and GPOs example configurations due to the level of dissimilarities and per agency customisation in existing SCCM and GPOs configurations across Commonwealth entities.
 * Minimum version of SCCM 1710 is required for co-management, recommended at least 1910.
 
-## Windows 10 Hardware
+## Windows 10 hardware
 
 While most modern hardware will be capable of running Windows 10, making sure the right choice of hardware is made will ensure that the Standard Operating Environment runs efficiently. This section focuses on the technical requirements to support Windows 10 features described in this design.
 
 The style of hardware will also need to be considered, whether a typical desktop model which will be permanently located on a desk or a laptop model to facilitate a more mobile workforce. The DTA recommends that, within operational constraints, agencies consider a laptop deployment to increase the flexibility and mobility of an agency workforce. 
 
-### Hardware Requirements
+### Hardware requirements
 
 The hardware platform chosen to support the Standard Operating Environment (SOE) is key to its stability and provides the components that can be configured by the operating system and applications.
 
@@ -54,7 +54,7 @@ Microphone | Required for speech recognition (optional) | Speech recognition is 
 BIOS | Minimum UEFI 2.3.1  | Required to support Secure Boot, Windows Defender Device Guard, Windows Defender Credential Guard, Windows Defender Exploit Guard and Kernel DMA Protection
 TPM | Minimum version 2.0  | Required to support Intune Autopilot and SCCM
 
-### Drivers and Peripherals
+### Drivers and peripherals
 
 Drivers allow hardware and software to function within a SOE. Drivers are essentially written code that allows Windows to recognise physical components of a computer such as printers, keyboards, mouse, graphics cards and peripherals. It is critical these drivers are supported on the Operating System version and are deployed at the right time.
 
@@ -74,7 +74,7 @@ Peripheral Drivers | Configured | Deployed via Microsoft Windows Update which al
 Workstation Device Drivers | Configured | Deployed via Microsoft Windows Update which aligns with the ACSC guidance
 Printer Drivers | Configured | Deployed via Microsoft Windows Update which aligns with the ACSC guidance
 
-### Firmware Configuration
+### Firmware configuration
 
 The firmware is the software that provides the interface between the hardware and the operating system. Firmware configuration and capabilities can directly influence the security features of an operating system.
 
@@ -107,7 +107,7 @@ UEFI version | At least 2.3.1 | This is minimum UEFI version required for Device
 Secure Boot | Enabled | Secure Boot is a requirement for the use of Windows Credential Guard and provides greater security protection for users
 Secure Boot Configuration Method | Configured via Intune | Meets ACSC Windows 10 1909 hardening guidelines.
 
-### Trusted Platform Module
+### Trusted platform module
 
 A Trusted Platform Module (TPM) is a microchip designed to provide basic security-related functions, primarily involving encryption keys. The TPM is usually installed on the motherboard of a computer or laptop and communicates with the rest of the system using a hardware bus.
 
@@ -122,7 +122,7 @@ Decision Point | Design Decision | Justification
 TPM | Enabled in BIOS/UEFI from hardware vendor or manually configured | Required for Windows 10 and BitLocker
 TPM Version | 2.0 | Meets ACSC Windows 10 1909 hardening guidelines
 
-## Windows 10 Deployment & Management
+## Windows 10 deployment & management
 
 The type of deployment and management methods used for the Standard Operating Environment (SOE) will vary depending on the use of either a cloud native or hybrid configuration. Cloud native will typically utilise pre-installed or offline custom images with Autopilot for the deployment method and utilise Intune as the ongoing management method.
 
@@ -200,11 +200,11 @@ Decision Point | Design Decision | Justification
 Management method | Hybrid with SCCM co-management enabled. | Intune integration is required to enable features such as Conditional Access. <br>SCCM co-management offers flexibility for the agency to take advantage of cloud services immediately or pilot and move individual workloads across when ready while leveraging existing configuration on-premises.
 Management tool | Agency preference for Intune or SCCM managing endpoints in co-management. | Each agency has a different level of investment and different maturity in SCCM and cloud products. Co-management has several options to meet the unique requirements of each agency.
 
-## Windows 10 Standard Operating Environment
+## Windows 10 standard operating environment
 
 The Standard Operating Environment (SOE) consists of the customisations to Windows 10 that will vary between environments. The customisations are largely cosmetic and functional in nature to ensure that end users can operate efficiently.
 
-### Operating System
+### Operating system
 
 The operating system allows software application to interface with the hardware. The operating system manages input and output device components like the mouse, keyboard, network and storage.
 
@@ -228,7 +228,7 @@ Windows 10 Edition | Windows 10 Enterprise 64-bit | Enterprise is required to su
 Windows 10 Servicing Channels | Semi-Annual Channel | Semi-Annual Channel is the recommended ring to deploy to most enterprise clients, especially those with Office 365. 
 Windows 10 Build | 1909 | At the time of writing build 1909 is the latest Semi-annual Channel release and recommended by Microsoft (refer to [technet.microsoft.com/en-us/windows/release-info.aspx](https://technet.microsoft.com/en-us/windows/release-info.aspx)). At the time of writing build 1909 remains the most recent version to have undergone formal evaluation (refer to [Common Criteria evaluations](https://www.commoncriteriaportal.org/products/)).
 
-### Activation and Licencing
+### Activation and licencing
 
 License keys and activation processes are leveraged by Microsoft to ensure that the device or user is eligible to use the feature or run the product (i.e. Windows 10).
 
@@ -271,7 +271,7 @@ Licensing for Microsoft Windows 10 Enterprise 1909<br>Microsoft Office 365 E5 | 
 Windows Activation Method | Windows 10 Subscription | All devices will meet the requirements for Subscription Activation (1909 and internet access), and this is the simplest solution to implement and manage.
 Office Activation Method | Office 365 Subscription | All devices meet the requirement for Office 365 activation (internet access) and this is the simplest solution to implement and manage.
 
-### Windows Features
+### Windows features
 
 Windows 10 incorporates optional features that can be enabled to offer additional functionality.
 
@@ -292,7 +292,7 @@ Microsoft XPS Doc Writer | Enabled | Enables user support for Microsoft XPS Doc 
 Remote Differential Compression Application Programming Interface (API) Support | Enabled | Required for application compatibility
 Windows PowerShell | Enabled | Support administration scripting activities.
 
-### Universal Windows Platform Applications
+### Universal Windows Platform applications
 
 Universal Windows Platform (UWP) applications are applications that run on Windows 10 and newer devices. Developers can build line of business Windows Store apps using standard programming languages. The Windows Runtime (WinRT) supports C#, C++, JavaScript and Visual Basic.
 
@@ -348,7 +348,7 @@ Decision Point | Design Decision | Justification
 Microsoft Public Store | Disabled | Meets ACSC Windows 10 1909 hardening guidelines and aligns with security and compliance requirements
 Microsoft Store for Business | Disabled | Meets ACSC Windows 10 1909 hardening guidelines and aligns with security and compliance requirements
 
-### Enterprise Applications
+### Enterprise applications
 
 Enterprise applications provide organisations and end users the functionality they require to perform day to day activities.
 
@@ -428,7 +428,7 @@ Decision Point | Design Decision | Justification
 Cortana  | Disabled | As per the ACSC hardening guidelines the Cortana feature will be disabled to comply with security requirements.
 Windows Search  | Enabled and configured for local content | Windows search will be limited to local items only to prevent data leakage.
 
-### Internet Browser
+### Internet browser
 
 The internet browser is a software application used for accessing web pages. This browser may be built into the operating system or installed later.
 
@@ -443,7 +443,7 @@ Decision Point | Design Decision | Justification
 Default Browser | Microsoft Edge Chromium – Stable edition | To ensure compatibility and performance with modern web pages. 
 Alternate Browsers | Internet Explorer 11 | To ensure compatibility with legacy web pages. 
 
-### Tablet Mode
+### Tablet mode
 
 Tablet Mode is an adaptive user experience feature in Windows 10 that optimises the look and behaviour of applications and the Windows shell for the physical form factor and end-user's usage preferences.
 
@@ -455,7 +455,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Tablet Mode | Enabled by default on devices that support it. | To provide the option to manipulate Tablet Mode behaviour through the Action Centre on supported devices.
 
-### Fast User Switching
+### Fast user switching
 
 Fast User Switching allows more than one concurrent connection to a Windows 10 device, however only one session can be active at a time.
 
@@ -467,7 +467,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Fast User Switching | Disabled | Meets ACSC Windows 10 1909 hardening guidelines
 
-### Corporate Branding
+### Corporate branding
 
 Organisational branding enables a consistent corporate user experience.
 
@@ -491,7 +491,7 @@ Windows Colour | Default  | Default theme is suitable for purposes
 Corporate Account Picture | Default | The default Windows 10 user icon will be displayed as the user account picture
 User Ability to Change Account Picture | Disabled | Disabled to provide a consistent configuration for all agency users.
 
-### System Properties
+### System properties
 
 The System Properties window can be customised in several ways. Within the System Properties window, the Manufacturer and Model values can be displayed.
 
@@ -536,7 +536,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Start Menu Layout Enforced | Partially | Corporate application group will be enforced, with the rest of the application group able to be customised by users. End-users can customise the Start Menu to suit specific needs, including the ability to resize, reorganise and choose whether to list most recent shortcuts
 
-### Screen Saver
+### Screen saver
 
 The screen saver was originally designed prevent burn-in on Cathode Ray Tube (CRT) and plasma screens. Modern usage of the screen saver allows the operating system to detect a period of inactivity and lock or blank the screen reducing power usage.
 
@@ -553,7 +553,7 @@ Machine Inactivity | Configured – 900 seconds | This is defined as per ACSC 19
 Users Can Configure the Screen Saver | No | Disable the ability for users to configure the screen saver for all Windows 10 SOE devices
 Require Password on Wake | Configured | Users will be required to enter their password on machine wake up. This is defined as per ACSC 1909 Windows 10 Hardening guide
 
-### Profiles, Personalization, and Folder Redirection
+### Profiles, personalization, and folder redirection
 
 Profiles are a collection of data and settings for each user of a Windows computer. Examples of data captured as part of a user's profile are user settings, desktop shortcuts, and application settings.
 
@@ -621,7 +621,7 @@ Music | Not Configured
 Pictures | `\\\\server\share\Users\%username%\OneDrive\Pictures`
 Videos | Not Configured
 
-### Operational Support
+### Operational support
 
 Windows 10 and supporting management tools offer various SOE support features to allow support personnel to access a machine remotely or provide users with the option to perform automated repairs.
 
@@ -648,7 +648,7 @@ Remote Desktop | Enabled | To meet operating support requirements for the Agency
 Remote Desktop Client | Enabled | Remote Desktop will be enabled for Windows 10 devices
 Remote Control via Teams | Enabled | Users can share desktop within the Microsoft Teams application
 
-### Windows Update and Patching
+### Windows update and patching
 
 Many updates released for operating systems and application contain bug fixes and security updates. Vulnerabilities can be exploited by malicious code or hackers and need to be patched as soon as possible.
 
@@ -713,7 +713,7 @@ Prohibit installation and configuration of Network Bridge | Enabled | Meets ACSC
 Single Sign On 802.1x | Enabled | Meets ACSC hardening guidance for Windows 10 1909 and aligns with security and compliance requirements
 Wireless Profile Configuration | Configured | Will be configured depending on the Agency requirements
 
-### Delivery Optimisation
+### Delivery optimisation
 
 Delivery optimisation makes use of configurable peer-to-peer or caching technologies to decrease the internet bandwidth consumed by patches and updates.
 
@@ -753,7 +753,7 @@ Decision Point | Design Decision | Justification
 Delivery Optimisation Method / Feature | BranchCache | Existing SCCM solution exists with BranchCache Delivery Optimisation feature enabled
 Mode of operation | Distributed Cache Mode | Existing SCCM solution exists with BranchCache configured in Distribute Cache Mode
 
-### Microsoft Office Edition
+### Microsoft Office edition
 
 Microsoft Office is available in two release cycles and within those release cycles there are multiple editions.
 
@@ -772,7 +772,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Microsoft Office Version | Office 365 Pro Plus 64-bit | Aligns with modernisation vision and provides access to the latest and most updated features.
 
-### Office Features
+### Office features
 
 The Office 365 ProPlus features include the application set that will be provided to the users.
 
@@ -801,7 +801,7 @@ Microsoft Office Publisher | Enabled | Required to enable user productivity
 Microsoft Teams | Enabled  | Required to enable user productivity
 Microsoft Office Access | Disabled | Not installed by default
 
-### Office Language Pack
+### Office language pack
 
 Language packs add additional display, help, and proofing tools to Microsoft Office. Multiple language packs can be installed to support specific user requirements.
 
@@ -852,7 +852,7 @@ Network settings – Download | Do not limit | Allow dynamic network configurati
 File Collaboration Policy | Enabled | File collaboration will be enabled to allow users to work collaboratively and increase productivity
 Sync Conflict Policy | Let me choose to merge changes or keep copies | The OneDrive sync conflict policy will be configured to allow the user to choose
 
-## Windows 10 Security
+## Windows 10 security
 
 Security settings are applied to the Standard Operating Environment largely to slow down and prevent malicious adversaries and payloads from causing harm to an Agency. The security settings should not prevent legitimate users from conducting work and should provide them with the correct amount of access to the environment to allow them to operate without impeding the work.
 
@@ -895,7 +895,7 @@ Microsoft Defender Smart Screen Configuration | Enabled and configured | Meets A
 Microsoft Defender Credential Guard Configuration | Enabled and configured | Aligns with security and compliance requirements. Enabled without lock allows Microsoft Defender Credential Guard to be managed remotely
 Microsoft Defender Firewall Configuration | Enabled and configured | Meets ACSC Windows 10 1909 hardening guidelines and aligns with security and compliance requirements
 
-### Windows 10 Security Baselines
+### Windows 10 security baselines
 
 The Windows 10 security baseline settings support Windows 10 version 1809 and later.
 
@@ -943,7 +943,7 @@ Windows Hello for Business | Disabled | Does not meet security requirements.
 Windows Ink Workspace | Configured | Default configuration, meets security requirements.
 Windows PowerShell | Configured | Default configuration, meets security requirements.
 
-### Microsoft Defender ATP Baseline
+### Microsoft Defender ATP baseline
 
 The Microsoft Defender ATP security baseline settings support Windows 10 version 1809 and later.
 
@@ -967,7 +967,7 @@ Microsoft Defender Security Center | Configured | Blocking the use of Exploit Gu
 Smart Screen | Configured | Application protection interface for end users
 Windows Hello for Business | Disabled | Does not meet security requirements.
 
-### Microsoft Edge Security Baseline
+### Microsoft Edge Security baseline
 
 The Microsoft Edge security baseline settings support Edge version 80 and later.
 
@@ -983,18 +983,39 @@ Microsoft Edge Settings | Configured | Default configuration, meets security req
 
 Application control is a crucial line of defence for protecting enterprises given today's threat landscape, and it has an inherent advantage over traditional antivirus solutions. Specifically, application control moves away from the traditional application trust model where all applications are assumed trustworthy by default to one where applications must earn trust in order to run. ASD frequently cite application control as one of the most effective means for addressing the threat of executable file-based malware (.exe, .dll, etc.).
 
-Windows Defender Application Control (WDAC) helps mitigate these types of security threats by restricting the applications that users can run and the code that runs in the System Core (kernel). WDAC policies also block unsigned scripts and MSIs, and Windows PowerShell runs in Constrained Language Mode.
+Windows Defender Application Control (WDAC) helps mitigate these types of security threats by restricting the applications that users can run and the code that runs in the System Core (kernel). WDAC policies also:
+* Enforce Constrained Language mode for Windows PowerShell
+* Enforce the use of drivers signed by Windows Hardware Quality labs and produced by partners who have an Extended Verification certificate.
+* Block unsigned and unapproved scripts, MSIs, Universal Windows Store Applications, and .NET applications.
+
+To reduce management overhead, WDAC allows for the use of managed installers; such as Microsoft Endpoint Configuration Manager. When configured, items deployed via the managaged installer are added into the allow list. 
+
+When deploying WDAC it is important that it is deployed utilising audit mode prior to enforcement. 
 
 Application Control Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Application Whitelisting Product | WDAC | Microsoft recommended product for [application whitelisting](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control#choose-when-to-use-wdac-or-applocker) 
-Application Control method | A combination of publisher certificate and path rules and will be used. | Controlled via Intune to align with the ACSC Windows 10 1909 hardening guidance. WDAC policies are natively supported in Intune and SCCM co-management
-Microsoft Block Rules | Configured | To align with the ACSC Windows 10 1909 hardening guidance.
-Intelligent Security Graph connection | Configured | In accordance with Microsoft best practice.
+User Mode Code Integrity | Enabled | Restricts both kernel-mode and user-mode binaries. This aligns with the ACSC Windows 10 1909 hardening guidance.
+Windows Hardware Quality Labs Signing | Required |  Blocks the execution of legacy drivers and ensures drivers have passed [Windows Hardware Certification Testing](https://docs.microsoft.com/en-us/windows-hardware/drivers/install/whql-release-signature) 
+Flight Signing | Disabled  | Restricts the use of non production release binaries. Flightroot-signed binaries will not be trusted.
+Unsigned System Integrity Policy | Agency Decision | The use of signed policies prevent administrative tampering and kernel mode exploit access. However, it does increase the administrative overhead associated with management and updating of policies. There is no current ACSC guidance on the configuration of signed integrity polices. 
+EV Signers | Required  | Blocks the execution of drivers created by a partner without a Extended Verification (EV) certificate.
+Advanced Boot Options Menu | Disabled | Restricts access to the advanced boot options menu. 
+Boot Audit on Failure | Enabled | Enables investigation when a driver fails on boot. 
+Script Enforcement | Enabled  |  Restricts PowerShell scripts and interactive sessions to constrained language mode. This aligns with the ACSC guidance on hardening PowerShell.
+Enforce Store Applications | Enabled | Enforces WDAC policies on Universal Windows applications.
+Update Policy No Reboot | Enabled | Ensures new policies can be applied without reboot.
+Allow Supplemental Policies | Intune deployed: Enabled; Group Policy deployed: Disabled | Supplemental polices allow for policies to be targeted to users/groups. This is however not supported when policies are deployed by Group Policy.
+Dynamic Code Security | Enabled | Enforces WDAC policies on .NET applications and dynamically-loaded libraries.
+Managed Installer | Enabled | Allow lists applications deployed using a managed installer such as Microsoft Endpoint Configuration Manager.
+Hypervisor-protected code integrity | Enabled | To align with the ACSC Windows 10 1909 hardening guidance.
+Application Control method | A combination of publisher certificate and path rules and will be used. | Controlled via Intune for cloud managed devices and Group policy for hybrid devices.
+Microsoft Block Rules | Configured | To align with the ACSC Windows 10 1909 hardening guidance. The latest Microsoft recommended block rules for [Windows 10](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-block-rules) and [Drivers](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-driver-block-rules) are available online at Microsoft website.
+Intelligent Security Graph connection | Disabled | The Intelligent Security Graph connection allows applications to be run if they are deemed as good and there is no explicit block rule configured. 
 
-### Identity Providers
+### Identity providers
 
 The identity providers section considers the different methods of logging on to the Windows 10 device. The local administrator account is addressed in a separate section.
 
@@ -1029,7 +1050,7 @@ Decision Point | Design Decision | Justification
 Azure Active Directory Accounts | Enabled | Machines will be Hybrid Azure AD Joined
 Domain Accounts | Enabled | Users will log onto devices using credentials which originate in an on-premises domain.<br>Machines will also be joined to the Agency domain
 
-### Desktop Analytics
+### Desktop analytics
 
 Desktop Analytics is a service which provides insight and intelligence to an organisation to make informed decisions about the update readiness of the Windows clients. Desktop Analytics is a Microsoft cloud service that integrates with Configuration Manager (SCCM). The data collected from the organisation is pooled together with many of other systems that are connected to the Microsoft cloud services.
 
@@ -1055,7 +1076,7 @@ Decision Point | Design Decision | Justification
 Desktop Analytics  | Enable and configure | In line with the ACSC hardening guideline policy recommendations and meets requirements for future Desktop Analytics use
 Data Location | United States | The Windows diagnostic data (non-business data) is encrypted using SSL and sent to and processed at a Microsoft-managed secure data centre located in the United States. This service is only hosted in the United States<br><br>The diagnostic data cannot be seen by another customer nor unauthorised Microsoft personnel<br><br>Note: As the diagnostic data is located offshore this may raise data sovereignty questions for the Agency, for which internal decisions might need to be made
 
-### Telemetry Collection
+### Telemetry collection
 
 Windows 10 and Windows Server include the Connected User Experiences and Telemetry component, which uses Event Tracing for Windows (ETW) trace logging technology that gathers and stores diagnostic data events and data.
 
@@ -1082,7 +1103,7 @@ Decision Point | Design Decision | Justification
 Allow Telemetry  | Enabled | In line with the ACSC hardening guideline policy recommendations and meets requirements for future Desktop Analytics use.
 Telemetry Level | 2 – Enhanced | Microsoft recommend Enhanced Limited for Desktop Analytics
 
-### Office Macro Hardening
+### Office macro hardening
 
 Microsoft Office files can include Visual Basic for Applications (VBA) programming code (macro) embedded into the document.
 
@@ -1104,7 +1125,7 @@ Implementation approach | Only digitally signed macros are enabled | In line wit
 Email and Web Content Filtering | Enabled | In line with the ACSC Microsoft Office Macro security policy recommendation
 Configuration Method | Agency preference | Macro hardening can be configured via the Agencies existing Group Policies or Intune as well as Attack Surface Reduction in Windows Defender Exploit Guard
 
-### Local Administrator
+### Local administrator
 
 The default local Administrator account is a highly privileged user account found on every Windows operating system. The Administrator account is the first account that is created during the installation for all Windows client operating systems.
 
@@ -1130,7 +1151,7 @@ LAPS | Not Configured | Not required for the solution. The local Administrator a
 
 ACSC guidance for mobile devices currently only covers iOS devices. Due to this, the recommendation is to utilise iOS for Agency devices to ensure that the environment is following security guidelines.
 
-### iOS Devices
+### iOS devices
 
 iOS follows a yearly major release cycle. With every major release of iOS, older iPhone devices are deprecated from support, hence security updates will not be available to these devices. 
 
@@ -1144,7 +1165,7 @@ iOS version | iOS 13 or above | To align with the ACSC Security Configuration gu
 iOS Devices | iPhone XS and above | iPhone X and older are all vulnerable to the exploit Checkm8 and should be avoided.
 Jailbroken/rooted devices | Blocked | Prevents jail broken devices from accessing Agency information. 
 
-### Enrolling iOS Devices
+### Enrolling iOS devices
 
 Device enrolment registers the iOS devices into the corporate device management solution and ensures the device is then able to be managed by administrators.
 
@@ -1162,7 +1183,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Enrolment method | Device Enrolment Program | Devices will be pre-configured before the device is handed over to the end user. This in line with the ACSC iOS Secure Configuration Hardening guide for PROTECTED devices.
 
-### Securing iOS Devices
+### Securing iOS devices
 
 Intune provides ability to configure iOS configuration settings for securing, configuring and applications on iOS devices. These configurations are managed via Mobile Device Management (MDM) as an Intune policy. MDM allows the Agency to deploy consistent configuration on enrolled iOS devices.
 
@@ -1200,7 +1221,7 @@ Managed Open-In | Enable  | Managed Open-In is enable segregates between corpora
 Allow documents from managed sources in unmanaged destination | Disable | The Agencies data cannot be moved between managed and unmanaged application destination. This is to prevent PROTECTED from being transferred to an unmanaged application or location
 Treat AirDrop as unmanaged destination | Disable | AirDrop provides the ability to wirelessly transfer documents between Apple devices. Setting AirDrop as an unmanaged destination prevents users from accidentally transferring Agency data to unsecure applications or locations
 
-### Securing iOS Applications
+### Securing iOS applications
 
 Mobile Application Management (MAM) in Intune allows configuration of managed applications within an iOS device. Managed applications enclose Agency applications within an application bubble. This bubble prevents accidental data spillage by preventing cutting and pasting, as well as allowing data sharing within the application bubble.
 
@@ -1224,7 +1245,7 @@ Organisation data notification | Block organisation Data | Prevents Agency infor
 Microsoft Edge Configuration | Configured.<br>Set Microsoft Edge proxy and homepage URL to Agencies Intranet | Configured so Microsoft Edge is able to access Agencies internal websites
 Microsoft Outlook | Configured.<br>Ensure Contact list is added into Outlook Contact list rather than device | Configured so Agencies contact list is maintained within managed application rather than the phone's contact details
 
-### Remote Wipe iOS Devices
+### Remote wipe iOS devices
 
 iOS devices can be used to access information while away from the office. The device is used to access the Agencies intranet, documents and for collaboration purpose. 
 
@@ -1238,4 +1259,3 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Device Lost Mode | Enabled | Lost mode sends notification to the device's lock screen.
 Device remote wipe | Device will be remote wiped of corporate data (Factory Reset). | To minimize the security if the device is lost or not return to the Agency.<br>Intune remotely wipe and reset the iOS device when a user is off-boarded. This allows the device to be reassign to other users in the Agency. 
-

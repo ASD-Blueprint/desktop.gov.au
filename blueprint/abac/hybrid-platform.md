@@ -2594,3 +2594,40 @@ Data Type | DRTO – Backups < 100 Days
 --- | ---
 Critical servers / services | `< 48 hours`
 Non-Critical servers / services | `> 48 hours`
+
+## Application control
+
+The ABAC settings for the Agency Application Control can be found below. This includes Windows Defender Application Control settings within System Center Configuration Manager (SCCM) and Group Policy. Please note, if a setting is not mentioned below, it should be assumed to have been left at its default setting.
+
+### Windows Defender Application Control
+
+#### SCCM managed installer
+
+* Device Collection
+  * Name: `WDAC-DeploymentCollection`
+  * Description: `Collection used to deploy Managed Installer WDAC policy`
+  * Limiting collection: `All Desktop and Server Clients`
+  * Membership Rule
+    * Type: `Query rule`
+    * Name: `Windows 10 Machine Query`
+    * Query: `select SMS_R_SYSTEM.ResourceID, SMS_R_SYSTEM.ResourceType, SMS_R_SYSTEM.Name, SMS_R_SYSTEM.SMSUniqueIdentifier, SMS_R_SYSTEM.ResourceDomainORWorkgroup, SMS_R_SYSTEM.Client from SMS_R_System where SMS_R_System.OperatingSystemNameandVersion like "%Workstation%" and SMS_R_System.OperatingSystemNameandVersion like "%10.0%" `
+  * Use incremental updates for this collection: `enabled`
+  * Schedule a full update on this collection: `enabled`
+* Application Control Policy
+  * Name: `Agency-WDAC-ManagedInstaller`
+  * Description: -
+  * Enforcement mode: `Enforcement enabled - Only allow trusted executables to run`
+  * Authorize software that is trusted by the Intelligent Security Graph: `Disabled`
+  * Trusted files or folders: `Add as required`
+  * Deployment collection: `WDAC-DeploymentCollection`
+  * Schedule: `Simple schedule`
+
+#### Group policy
+
+Note, in order to deploy via group policy, all supplementary policies must be merged into the base policy. Also the base policy must be stored in a location where all devices can access it (i.e. Sysvol). The XML file must also be converted to Binary via the `Convertfrom-CIPolicy` PowerShell command. The XML files are located within the [Hybrid Client Devices](hybrid-client-devices.html#application-control) section.
+
+* Group policy
+  * Type: `Computer Policy`
+  * Link location: `Windows 10 Computer OU`
+  * Settings:
+    * Administrative Templates/system/device guard/Deploy Windows Defender Application Control: `Enabled - Path to policy location on share`

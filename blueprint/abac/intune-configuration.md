@@ -305,6 +305,48 @@ user | \OneDrive | Prevent users from syncing personal OneDrive accounts |  | tr
   * Included groups: `grp-Windows-10-Devices`, `rol-Agency-Administrators`, `rol-Agency-Users`
   * Excluded groups: -
 
+### Agency-WDACBasePolicy
+
+To deploy the policy via Microsoft Defender, the XML file must be converted to Binary via the `Convertfrom-CIPolicy` PowerShell command. Sample XML files are located within the [Client Devices](client-devices.html#application-control) section.
+
+The policy GUID in the OMA-URI must be unique to your environment. It can be found in the XML file within the PolicyID tags.
+
+* Name: `Agency-WDACBasePolicy`
+* Description: `WDAC base enforcement policy`
+* Type: `Windows 10 and later`
+* Profile Type: `Custom`
+* Configuration settings
+  * OMA-URI Settings
+    * Name: `Baseline WDAC policy`
+    * Description: `Enforce baseline WDAC policy`
+    * OMA-URI: `./Vendor/MSFT/ApplicationControl/Policies/Policy GUID/Policy`
+    * Data type: `Base64`
+    * Certificate file: `binary format policy file`
+* Assignments
+  * Included groups: `grp-Windows-10-Devices`, `rol-Agency-Users`
+  * Excluded groups: -
+
+### Agency-WDACSubPolicy-AppName
+
+To deploy the policy via Microsoft Defender, the XML file must be converted to Binary via the `Convertfrom-CIPolicy` PowerShell command. Sample XML files are located within the [Client Devices](client-devices.html#application-control) section.
+
+The policy GUID in the OMA-URI must be unique to your environment. It can be found in the XML file within the PolicyID tags.
+
+* Name: `Agency-WDACBasePolicy`
+* Description: `WDAC Supplementary policy`
+* Type: `Windows 10 and later`
+* Profile Type: `Custom`
+* Configuration settings
+  * OMA-URI Settings
+    * Name: `Supplementary WDAC policy`
+    * Description: `Allow additional applications`
+    * OMA-URI: `./Vendor/MSFT/ApplicationControl/Policies/Policy GUID/Policy`
+    * Data type: `Base64`
+    * Certificate file: `binary format policy file`
+* Assignments
+  * Included groups: `grp-Windows-10-Devices`, `rol-Agency-Users`
+  * Excluded groups: -
+
 ### Wi-Fi Configuration
 
 * Name: `WiFi SSID`

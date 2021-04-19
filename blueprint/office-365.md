@@ -70,7 +70,7 @@ Configuration | Value | Description
 Admin Licence Group | `rol-AgencyName-Administrator` | This is the group that the Agency administrators belong to.
 User Licence Groups | `rol-AgencyName-Users` | This is the group that the Agency non-administrator users belong to.
 
-### Self Service Purchase
+### Self service purchase
 
 Self-Service purchase add-ins for Office 365 allows users of Office 365 to purchase 3rd party add-ins to be added into Office 365 tenancy.
 
@@ -113,7 +113,7 @@ Text and icon colour | Default | Based on Agency branding standards.
 Accent Colour | Default | Based on Agency branding standards.
 Show the users name on the top navigation bar when the user is signed in | Yes | The users name will be shown to identify who is signed in.
 
-### Office 365 Services and Add-Ins
+### Office 365 services and add-ins
 
 Office 365 centrally manages Office services and add-ins. Office services and add-ins can enhance both the way information is accessed and the way business is conducted. Enabling Services and Add-ins also comes with risks (such as the risk of data loss). Out of the box several services and add-ins are configured within the portal.
 
@@ -144,7 +144,7 @@ External Sway sharing | Disabled | External collaboration will be conducted in t
 User owned apps and services | Disabled | Applications will be delivered via the Business Store, there is no need to have the Official Store enabled.
 Whiteboard | Disabled | Microsoft Whiteboard is not hosted in Australia.
 
-### Role Based Access Control
+### Role based access control
 
 Role Based Access Control (RBAC) defines what an end user or administrator can do. In relation to system administration, RBAC provides various roles each of which can only perform certain tasks. For example, help desk staff may be able to only view certain resources, whereas system administrators could view, create, and delete those resources. Office 365 provides a subset of administrative roles available in Microsoft Azure.
 
@@ -176,7 +176,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Customer Lockbox | Enable | This is to ensure the Agency approves and log interaction with Microsoft Support Engineers.
 
-## Office 365 Connectivity
+## Office 365 connectivity
 
 Office 365 is a publicly facing SaaS offering and firewall ports are required to be opened to allow communication between infrastructure and desktops and Office 365. These ports configurations are updated frequently and are available online from (Microsoft)[https://docs.microsoft.com/en-au/office365/enterprise/urls-and-ip-address-ranges].
 
@@ -186,7 +186,7 @@ Configuration will occur on the proxy and external gateway of the Agency as requ
 
 Further details on the firewall configuration for the solution can be found in the Network Configuration ABAC.
 
-### Mail Flow and Gateway
+### Mail flow and gateway
 
 Mail flow is the path taken by an email from the sender to a receiver. A Mail Gateway acts as the central egress and ingress point for mail traffic into an organisation.
 
@@ -257,7 +257,7 @@ Add regional egress points | Configured if required | Regional Egress Points are
 Bypass proxies and inspection devices | Configured | Proxys are not configured in this solution due to the workstations being directly connected to the internet.
 Enable split tunnelling connection for VPN users | Configured | Split tunnelling is configured in this solution to enable workstations to directly connect to Microsoft services. If a VPN solution is required Always on VPN should be integrated into the agency infrastructure
 
-### Exchange Hybrid
+### Exchange hybrid
 
 Exchange Online can be used standalone or integrated with an on-premises Exchange Server(s), extending the organisations messaging farm in a hybrid configuration. 
 
@@ -293,7 +293,7 @@ Decision Point | Design Decision | Justification
 Exchange Hybrid Deployment | Exchange 2016-based | The Agency will use their existing Exchange 2016 server to establish the hybrid connection.
 Edge Transport Server | Configured | The Agency will leverage an Edge Transport server to prevent the exposure of internal Exchange servers directly to the internet.
 
-### Mail Exchange Records
+### Mail Exchange records
 
 Mail Exchange (MX) records specify the mail server responsible for accepting mail on behalf of the domain.
 
@@ -313,7 +313,7 @@ Decision Point | Design Decision | Justification
 Authoritative DNS MX Record | Configured | If the agency hosts mail for more than one domain a MX record for each is required. These records are listed.
 Mail Exchanger/s | Configured | If the Agency requires its on-premises mail gateways to continue to be used, the Virtual IP (VIP) of the gateways is used.
 
-### Mail Connectors
+### Mail connectors
 
 Mail connectors use TLS to secure communication and can customise the way mail flows into and out of the organisation.
 
@@ -396,7 +396,7 @@ SPF | Configured | Configuration of SPF record(s) are required as a baseline for
 DKIM | Configured | DKIM is a public/private key signing process used to verify the content of an email.<br>DKIM signing is enabled on emails originating from an organisation's domains.
 DMARC | Configured | One DMARC policy is to be configured per Agency domain. This is to be configured at the gateway that the Agency consumes.<br>DMARC records are configured for all domains such that emails are rejected if they fail SPF or DKIM checks.
 
-### Accepted Domains
+### Accepted domains
 
 Accepted Domains are SMTP namespaces configured within Exchange Online. Only emails addressed to users within the nominated domains are accepted.
 
@@ -418,7 +418,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Relay Domains | Configured | This setting is required to be configured in a Hybrid Exchange scenario.
 
-### Remote Domains
+### Remote domains
 Remote Domains allow administrators to control the type of replies and format of messages users send to the destination domain.
 
 Administrators can configure Exchange to allow (or block) the following:
@@ -479,7 +479,7 @@ Microsoft Exchange Online is a cloud-hosted messaging solution that has the capa
 
 Agencies should also refer to [Mail Flow and Gateway](#mail-flow-and-gateway) for more information on mail flows, mail gateways and the use of GovLink.
 
-### Mail Migration
+### Mail migration
 
 The implementation of Exchange Online can be coupled with a migration from the existing on-premises Exchange infrastructure. If a migration is not required, the deployment is referred to as a greenfield deployment of Exchange Online.
 
@@ -507,7 +507,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Deployment Type | Hybrid Migration | User mailboxes should be migrated from the on-premises Exchange environment.
 
-### User Mailbox Configuration
+### User mailbox configuration
 
 User Mailboxes are Exchange Mailboxes that are associated with a user account. Usually one mailbox is associated to one user account.
 
@@ -536,7 +536,7 @@ Exchange Message Size Limits | Up to 90MB | Default setting. Note that message l
 Custom Primary SMTP Addressing | first.last@agency.gov.au<br>Usernames are recommended to follow the Universal Principal Name (UPN) format of the user, which is `first.last@<agency>.gov.au` | The primary SMTP address will be changed from `first.last@<tenant>.onmicrosoft.com` to ensure email continues to function in the same manner
 Exchange Online PowerShell | Disabled for standard users | Standard users have no need to access Exchange Online via Powershell
 
-### Authentication Policies
+### Authentication policies
 
 Authentication policies control the authentication methods which can be used to access Exchange Mailboxes.
 
@@ -551,7 +551,7 @@ Decision Point | Design Decision | Justification
 Basic Authentication | Disabled | Basic Authentication has known exploits, Modern Authentication is preferred.
 Authentication Policy Configuration | Configured | Authentication Policy will be deployed to meet the security requirements of the Agency and be deployed in conjunction with the Agency security requirements.
 
-### Outlook on the Web Policies
+### Outlook on the Web policies
 
 Formerly known as Outlook Web App or Outlook Web Access, Outlook on the Web (OWA) policies, are used to control the availability of features and settings in Outlook on the Web. There are no security concerns with enabling OWA however agencies may wish to consider internal agency policies to inform decisions. A decision to disable OWA will not alter an agency's cyber security posture.
 
@@ -571,7 +571,7 @@ Outlook on the Web | Enabled | OWA will be enabled to allow users to access thei
 Third party file provider integration | Disabled | Only Microsoft file providers are approved for integration, no third-party file providers will be configured. This decreases security risk associated with third-party tools.
 Office 365 group creation by users | Disabled | Groups can only be created by administrators, not users. This will ensure that the GAL is the most up to date and that there is a consistent naming convention utilised.
 
-### Mailbox Archive
+### Mailbox archive
 
 Office 365 Mailbox Archives provide an unlimited email storage space for users. A mailbox archive is an additional mailbox storage space.
 
@@ -585,7 +585,7 @@ Mailbox Archive | Enabled | The archive mailbox is required to control primary m
 Mailbox Archive Policy  | Enabled | The use of automated archive mailbox policies improves the user experience and ensures that primary mailbox sizes are controlled.
 Archive configuration | Configured | 
 
-### Mailbox Auditing
+### Mailbox auditing
 
 Mailbox Auditing provides visibility into the access and modification of user mailboxes by owners, delegates, and administrators.
 
@@ -637,7 +637,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Configure Journaling | Not Configured | In place of Journaling, Litigation hold and retention policies in conjunction with eDiscovery will be leveraged by the Agency to meet investigation requirements. 
 
-### Litigation Hold
+### Litigation hold
 
 Litigation hold preserves a mailbox and its contents from being modified or removed for e-Discovery purposes. A user can continue to send and receive email whilst litigation hold is enabled, even delete an item from the mailbox, and Office 365 will retain the items for discovery purposes.
 
@@ -651,7 +651,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Litigation hold | Configured as required on selected users | Litigation hold requirements are unique to each Agency and user.
 
-### Shared Mailboxes
+### Shared mailboxes
 
 A Shared Mailbox is a mailbox which allows one or more users read and send messages. Shared Mailboxes also allow the sharing of a calendar between multiple people.
 
@@ -669,7 +669,7 @@ Shared mailbox delegation (Full Access, Send As, Send on Behalf) | Configured vi
 Naming standard for security groups | Configured | To distinguish between a security groups managing a shared mailbox a naming standard will be followed.<br>e.g. `GMSG_<mailboxname>`
 Shared Mailbox user account | Disabled | Default configuration. Accounts will remain disabled to reduce system attack surface.
 
-### Resource Mailboxes
+### Resource mailboxes
 
 A Resource Mailbox is a mailbox which is assigned to a resource as opposed to a user.
 
@@ -691,7 +691,7 @@ Equipment Mailboxes  | Configured | There is a requirement for booking equipment
 Room Lists | Configured | There is a requirement for booking rooms within the solution. Room Assets will be configured with a list so that users can book them through their calendars.
 Naming standards for Resource mailboxes | Configured<br>e.g. `RES_<location>` | To distinguish between resource mailboxes a naming standard will be followed for each resource mailbox.
 
-### Distribution Lists
+### Distribution lists
 
 A distribution list is a grouping of mail recipients that is addressed as a single recipient. Distribution lists are used to send e-mail to groups of people without having to enter each recipient's individual address. Distributions lists can be established to receive and distribute internal, external, or internal and external email.
 
@@ -721,7 +721,7 @@ Decision Point | Design Decision | Justification
 Distribution Groups creation | Hybrid Created | Management activities for Exchange Online will occur on the on-premises Exchange server.
 Distribution Naming Policy | Configured | Naming policies streamline the management of Distribution lists and allow for groups to be easily sorted. 
 
-### Office 365 Groups
+### Office 365 groups
 
 Office 365 Groups are an extension on the traditional mail Distribution Lists, Mail-enabled Security groups and Shared Mailboxes.
 
@@ -746,7 +746,7 @@ Office 365 Group creation restrictions | Configured <br>Only administrators can 
 Naming Policy | `grp-AgencyName-SecurityGroup-Role` | Exchange groups will be named like the following AgencyName-Agency e.g. `grp-DTA-ExchangeMailbox-ITHelpdesk`
 Group Expiration  | All groups - annually | Group Expiration is required to simplify the management overhead associated with groups and to limit Azure AD clutter.
 
-### Address Book / Address List
+### Address book / address list
 
 The Outlook Address Lists, Global Address List (GAL), and Offline Address Book (OAB) are collections of mail-enabled objects.
 
@@ -765,7 +765,7 @@ GAL and OAB | Generated | These will be generated so that users can send emails 
 
 ## SharePoint Online
 
-### SharePoint Sites
+### SharePoint sites
 
 SharePoint Online provides the ability to create Intranet sites and Team Sites for groups or agencies to collaborate and manage their documents. A SharePoint site allows members of a team or  from other teams to contribute content on a single platform. The information is limited to the members of the team or project.
 
@@ -784,7 +784,7 @@ Enable Idle Session sign outs | Sign out users after 1 hr<br>Give users this muc
 Only allow access from specific IP address locations | Not configured | Access to be controlled via Conditional Access policies.
 Only allow access from apps that use modern authentication | Enabled | Default settings
 
-### SharePoint Hybrid
+### SharePoint hybrid
 
 In a hybrid configuration SharePoint Online integrates with an existing on-premises SharePoint Servers, extending the functionality and access between the two environments. Enhanced search results and site redirection provides administrators the control on which location a user access information.
 
@@ -800,7 +800,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 SharePoint Hybrid | SharePoint Hybrid Search will be configured. | To allow searching capabilities between SharePoint on-premises and SharePoint Online. 
 
-### Application Management
+### Application management
 
 Application management allows the Agency to control who can purchase third party applications for SharePoint Online. These apps can be purchased from [Microsoft App Store](https://appsource.microsoft.com/en-us/marketplace/apps?product=sharepoint) and used within SharePoint Online itself.
 
@@ -815,7 +815,7 @@ Decision Point | Design Decision | Justification
 Users to have the ability to get apps from marketplace | Not Configured | Only administrators are approved to assign or purchase application.
 Allow third party apps from the store be open office documents in the browser | Not Configured | This setting increases the security of the solution by ensuring documents in the browser cannot start third party apps for Office.
 
-### Web Parts
+### Web parts
 
 SharePoint Online provides spaces for users to customise their SharePoint page to include web parts into the page. Web Parts are additional functional parts that can be added into SharePoint pages to enhance productivity and usability for the site.
 
@@ -831,7 +831,7 @@ Decision Point | Design Decision | Justification
 Microsoft published webpart | Enabled | Microsoft published webparts cannot be disabled in SharePoint. 
 Third Party published webpart | Disabled | Third party web parts will be disabled due to potential unsecure data flow outside of Office 365. If a third party published webpart is identified for use in future, the organisation will undertake a risk assessment before implementation. 
 
-### Sharing and Access Controls
+### Sharing and access controls
 
 Sharing and Access controls provide granular control over external sharing and access to SharePoint Online. Sharing and Access control is essential for securing SharePoint Online document and information sharing.
 
@@ -897,7 +897,7 @@ Allow access only from a specific IP address range | Off | Define a trusted netw
 **Apps that do not use modern Authentication** |||
 Apps that do not use modern Authentication | Block access | Some third-party apps and previous versions of Office cannot enforce device-based restrictions. Use this setting to block all access from these apps.
 
-### Legacy Features
+### Legacy features
 
 Legacy features allow for backwards compatibility for legacy capabilities from SharePoint on-premises to SharePoint Online. Legacy features are enabled only when there is a reason to do so, as they restrict the features available in SharePoint Online.
 
@@ -952,7 +952,7 @@ Let external users share items they don't own | Unchecked | Restricts external u
 **Other settings** |||
 Display to owner the names of people who viewed their files | Checked | Ensure owner is are aware of who it has been shared with
 
-### Storage and Synchronisation
+### Storage and synchronisation
 
 OneDrive and SharePoint can synchronise content locally through the OneDrive for Business client.
 
@@ -1007,7 +1007,7 @@ Other users invite additional external users to shared files | Checked | OneDriv
 External users accept invitations to access files | Checked | OneDrive will notify users when external users accept an invitation to access files. 
 An anonymous access link is created  | Checked | OneDrive will notify users when an anonymous access link is created
 
-### Content Migration
+### Content migration
 
 The implementation of OneDrive for Business can be coupled with a migration from an existing on-premises SharePoint farm infrastructure.
 
@@ -1060,7 +1060,7 @@ Team creation permission | Selected administrators | Teams will be created by se
 Administrative action over Teams after creation | Team Owners | Team Owners will either be selected administrators (for Teams such as branches with many users) or managers and their delegates (such as in a section with relatively small user counts). Team owners will be assigned logically at creation time and updated as required.
 Team membership allocation | Manual by administrators or Team Owners | Team membership will be allocated manually initially with dynamic group allocation investigated in a future project phase when the logic for group membership is developed.
 
-### Dynamic Security group
+### Dynamic security group
 
 Dynamic Security Groups are Azure AD security groups that are populated based on device and/or user attributes.
 
@@ -1077,7 +1077,7 @@ Decision Point | Design Decision | Justification
 Naming Policy | `grp-<Agency>-<GroupName>` | Assists in MOGs and standardisation of Agency configuration.
 Welcome Email | Disabled | The welcome email will be disabled to reduce the amount of generic correspondence being sent to users. 
 
-### Organisation Wide Configuration
+### Organisation wide configuration
 
 Microsoft Teams is a collaboration platform that enable the Agency to work collaboratively with external agencies. This allows Agency users to collaborate internally, with trusted guest users and set up meetings with external users. 
 
@@ -1095,7 +1095,7 @@ External Access | Configured:<br>(Example) Allow dta.gov.au | Allow only dta.gov
 Guest Access | Configured:<br>Guest Access: Enabled | Allows people outside of the agency to access teams and channels.
 Teams Setting | Configured<br>Disable all third-party file storage | This is to ensure departmental users do not save file outside of the Office 365 tenant.
 
-### Policies & Settings
+### Policies & settings
 
 Microsoft Teams provides ability to create policies around messaging, meetings, calling, video, and guest access. These settings can be configured in policies and assigned to individual users within the organisation.
 
@@ -1117,7 +1117,7 @@ Live events Policies | Configured<br>Who can join live events:<br>Everyone in Or
 Messaging Policy | Configured | Messaging policy dictates how messaging is used in Teams. These includes usage of Giphy, Memes and stickers in messages.
 Teams app | Configured<br>Global Policy:<br>Block specific app from Microsoft Apps<br>* Forms<br>* Yammer<br>Block all Third-Party Apps<br>Block all Tenant Apps | Microsoft Forms and Yammer are hosted in United States. This will cause data sovereignty issue for the Agency <br>All Third-Party Apps are blocked. These Third-Party apps needs to be evaluated individually.<br>Tenant Apps are custom developed applications created by the Agency. This should be enabled if it is required. 
 
-### Unified Communication
+### Unified communication
 
 Teams provides a Unified Communication (UC) capability which allows users to participate in audio-visual conferencing in meetings and on-demand.
 
@@ -1137,7 +1137,7 @@ Individual and group voice calls | Configured | Default functionality
 Individual and group video calls | Configured | Default functionality
 Individual and group chat | Configured | Default functionality
 
-### Voice Calling
+### Voice calling
 
 Enables agencies to make calls to landlines or mobiles within Microsoft Teams.
 
@@ -1154,7 +1154,7 @@ Decision Point | Design Decision | Justification
 Telstra calling for Office 365 | Not configured | Agencies may require dial in and dial out functionality. This arrangement will need to be organised, paid for and configured by agencies that require this functionality. The configuration will not be covered in this blueprint.
 Telstra calling for Office 365 | Security Assessment | Agencies wishing to use Telstra Calling for Office 365 or another similar services should undertake a security assessment to ensure that the product addresses their security requirements.
 
-## Power Platform
+## Power platform
 
 Power Platform combines the power of PowerApps, Power BI, and Microsoft Flow into one business application platform. This enables quick and easy app building and data insights.
 
@@ -1233,7 +1233,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Alert Policies Status | Default Alert Policies enabled | Custom alert policies are not required for the initial phase. Custom alert policies will be considered in a future project phase.
 
-### Classification Labels
+### Classification labels
 
 Classification labels which is located under the Office 365 Security & Compliance Center offers the ability to both control the data flow of sensitive information and control the retention of data. Classifications labels consists of the following:
 
@@ -1266,7 +1266,7 @@ Retention Labels | Enabled | Labels are recommended to be applied to automate re
 Labelling Policy | Enabled | Users will apply labels manually initially. Automatic labelling will be developed in a future project stage after considering potential impacts on backups and productivity changes
 Subject line modification | Configured | Exchange mail flow rules are configured to modify the subject line in accordance with PSPF guidance
 
-### Retention Policies
+### Retention policies
 
 Business information is required to be managed in order to comply with industry and government regulations and internal policies that require data to be retained for a certain period.
 
@@ -1386,7 +1386,7 @@ Number of instances | 10 | The amount of sensitive information required to trigg
 Send incident reports | Enabled  | User and nominated administrator are notified when the policy is triggered.
 Restrict access or encrypt the content | Disabled | Access to the content that triggers the policy can be encrypted or and access limited. 
 
-### Audit and Logging
+### Audit and logging
 
 The Office 365 Security & Compliance Center provides the ability to monitor and review user and administrator activities across the Office 365 applications from the past 90 days.
 
@@ -1425,11 +1425,11 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Unified Audit Logging | Enabled<br>One-year retention | To provide visibility into the actions being undertaken within the Office 365 environment.
 
-## Exchange Online Protection
+## Exchange Online protection
 
 Exchange Online Protection has a feature known as Connection filtering which verifies the identity of the sender using SPF, DKIM, DMARC and Microsoft intelligence.
 
-### Connection Filtering
+### Connection filtering
 
 Connection filtering within Exchange Online Protection refers to the verification of the sender using SPF, DKIM, DMARC and Microsoft intelligence.
 
@@ -1474,7 +1474,7 @@ Administrator notifications | Notify administrators about undelivered messages f
 Notify administrators about undelivered messages from external senders | Administrators will be notified when messages are undelivered.
 Allowed File type filtering | Disabled | This is the default setting configured when Exchange Online is enabled and is Microsoft best practice. This ensures that all file types are inspected for malware with no exceptions.
 
-### Policy Filtering
+### Policy filtering
 
 Policy filtering within Office 365 Exchange Online Protection refers to the enforcement of Transport Rules.
 
@@ -1497,7 +1497,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Mail flow rules | Configured | Mail flow rules within the environment are required to enforce business rules and process.
 
-### Content Filtering
+### Content filtering
 
 Content Filtering within Exchange Online Protection refers to SPAM management and SPAM policies.
 
@@ -1527,7 +1527,7 @@ Office 365 ATP provides the following capabilities:
 * Safe Attachments - Office 365 ATP Safe Attachments provides sandbox execution of attachments to detect and delete malicious content.
 * Anti-Phishing - Office 365 ATP Anti-Phishing provides machine learning capabilities to detect advanced phishing campaigns.
 
-### Safe Links
+### Safe links
 
 ATP Safe Links can help protect an organisation by providing time-of-click verification of web addresses (URLs) in email messages and Office documents. Protection is defined through ATP Safe Links policies that are configured by an organisation.
 
@@ -1576,7 +1576,7 @@ Use safe links in Office 365 ProPlus, Office for iOS and Android | Checked | Saf
 For the locations selected above: Do not track when users click safe links | Unchecked | Information about when end-users click safe links in the Office 365 documents will be tracked.
 For the locations selected above: Do not let users click through safe links to original URL  | Checked | If end-users click on safe links in Office 365 documents, then they will be directed to a warning page and will not be presented with an option to continue to the original link.
 
-### Safe Attachments
+### Safe attachments
 
 The ATP Safe Attachments feature checks email attachments after the email is received but before it is delivered to the user mailbox.
 

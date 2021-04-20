@@ -4,6 +4,18 @@ A website for the Protected Utility Program with all Blueprint documents.
 
 All contributions welcome.
 
+**Table of contents**
+
+- [Desktop.gov.au](#desktopgovau)
+- [Style sheet for content](#style-sheet-for-content)
+  - [Terms in body text](#terms-in-body-text)
+  - [Capitalisation](#capitalisation)
+  - [Links](#links)
+  - [Numbers](#numbers)
+  - [Words list](#words-list)
+- [How to develop locally](#how-to-develop-locally)
+  - [Site search](#site-search)
+
 ## Style sheet for content
 
 Please follow the content guidance when writing material for this website.

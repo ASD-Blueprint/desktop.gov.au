@@ -15,7 +15,7 @@ All contributions welcome.
   - [Words list](#words-list)
 - [How to develop locally](#how-to-develop-locally)
   - [Site search](#site-search)
-  - [FAQ](#faq)
+  - [Frequently asked questions](#frequently-asked-questions)
     - [What is this website built on?](#what-is-this-website-built-on)
     - [Why is the navigation not updating after adding a new page?](#why-is-the-navigation-not-updating-after-adding-a-new-page)
 
@@ -108,7 +108,7 @@ algolia:
   search_only_api_key: "CCC"
 ```
 
-### FAQ
+### Frequently asked questions
 
 #### What is this website built on?
 

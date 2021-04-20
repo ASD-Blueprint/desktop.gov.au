@@ -15,6 +15,9 @@ All contributions welcome.
   - [Words list](#words-list)
 - [How to develop locally](#how-to-develop-locally)
   - [Site search](#site-search)
+  - [FAQ](#faq)
+    - [What is this website built on?](#what-is-this-website-built-on)
+    - [Why is the navigation not updating after adding a new page?](#why-is-the-navigation-not-updating-after-adding-a-new-page)
 
 ## Style sheet for content
 
@@ -104,3 +107,15 @@ algolia:
   index_name: "BBB"
   search_only_api_key: "CCC"
 ```
+
+### FAQ
+
+#### What is this website built on?
+
+desktop.gov.au uses [Jekyll](https://jekyllrb.com/) to generate a static site and is hosted on [cloud.gov.au](https://cloud.gov.au/). It adheres to the [Jamstack](https://jamstack.org/) principles focussing on speed, security and hosting portability.
+
+#### Why is the navigation not updating after adding a new page?
+
+This site is content heavy and can take over 30 seconds to generate for each change. As a result, we use the [incremental switch](https://jekyllrb.com/docs/configuration/incremental-regeneration/#incremental-regeneration) to flag Jekyll to rebuild only what it thinks has been changed which shortens the build time to under 1 second.
+
+If you've added a new page to the site, modified the name of a page, or applied site wide content changes (not including CSS or JS), the best remedy is to remove the `_site` directory and restart your docker instance which would initiate a full site rebuild. You can then carry out your content changes with sub second velocity.

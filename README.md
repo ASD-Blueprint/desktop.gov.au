@@ -17,6 +17,7 @@ All contributions welcome.
   - [Site search](#site-search)
   - [Frequently asked questions](#frequently-asked-questions)
     - [What is this website built on?](#what-is-this-website-built-on)
+    - [Can I contribute without a local development environment?](#can-i-contribute-without-a-local-development-environment)
     - [Why is the navigation not updating after adding a new page?](#why-is-the-navigation-not-updating-after-adding-a-new-page)
 
 ## Style sheet for content
@@ -114,8 +115,16 @@ algolia:
 
 desktop.gov.au uses [Jekyll](https://jekyllrb.com/) to generate a static site and is hosted on [cloud.gov.au](https://cloud.gov.au/). It adheres to the [Jamstack](https://jamstack.org/) principles focussing on speed, security and hosting portability.
 
+#### Can I contribute without a local development environment?
+
+Yes of course, but you first need a Github account.
+
+The easiest method is to first view our [list of issues](issues), add to the ticket if a similar one exists or [create a new issue](issues/new) if not. Try to place as much detail as possible to help us identify what the problem is and don't forget to include the page you were on that has the issue.
+
+Alternatively, you can suggest changes by making your amendments directly on Github. At the end of the process, you will submit a pull request which will allow us to provide feedback and incorporate it back into the repository. [Microsoft describes this method](https://github.com/MicrosoftDocs/microsoft-365-docs#overview) for updating their documentation which is highly relevant here.
+
 #### Why is the navigation not updating after adding a new page?
 
-This site is content heavy and can take over 30 seconds to generate for each change. As a result, we use the [incremental switch](https://jekyllrb.com/docs/configuration/incremental-regeneration/#incremental-regeneration) to flag Jekyll to rebuild only what it thinks has been changed which shortens the build time to under 1 second.
+This site is content heavy and can take over 30 seconds to generate for each change. As a result, we use the [incremental switch](https://jekyllrb.com/docs/configuration/incremental-regeneration/#incremental-regeneration) to flag Jekyll to rebuild only what it thinks has changed which shortens the build time to under 1 second.
 
 If you've added a new page to the site, modified the name of a page, or applied site wide content changes (not including CSS or JS), the best remedy is to remove the `_site` directory and restart your docker instance which would initiate a full site rebuild. You can then carry out your content changes with sub second velocity.

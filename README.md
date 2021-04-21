@@ -119,7 +119,7 @@ desktop.gov.au uses [Jekyll](https://jekyllrb.com/) to generate a static site an
 
 Yes of course, but you first need a Github account.
 
-The easiest method is to first view our [list of issues](issues), add to the ticket if a similar one exists or [create a new issue](issues/new) if not. Try to place as much detail as possible to help us identify what the problem is and don't forget to include the page you were on that has the issue.
+The easiest method is to first view our [list of issues](https://github.com/govau/desktop.gov.au/issues), add to the ticket if a similar one exists or [create a new issue](https://github.com/govau/desktop.gov.au/issues/new) if not. Try to place as much detail as possible to help us identify what the problem is and don't forget to include the page you were on that has the issue.
 
 Alternatively, you can suggest changes by making your amendments directly on Github. At the end of the process, you will submit a pull request which will allow us to provide feedback and incorporate it back into the repository. [Microsoft describes this method](https://github.com/MicrosoftDocs/microsoft-365-docs#overview) for updating their documentation which is highly relevant here.
 

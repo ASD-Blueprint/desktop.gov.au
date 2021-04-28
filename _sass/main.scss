@@ -234,14 +234,20 @@ body.home {
             margin-bottom: 2em;
         }
     }
-    
-    footer.au-footer {
-        margin-top: 0;
-    }
 }
 
 code {
     word-break: break-word;
+}
+
+#feedback {
+    background-color: #f4f4f4;
+    margin-top: 5em;
+    padding: 2em 0;
+}
+
+footer.au-footer {
+    margin-top: 0;
 }
 
 
@@ -273,11 +279,6 @@ code {
     .right-aligned {
         /* similar to .pull-right but for main menu items */
         float: right !important;
-    }
-    body:not(.home) {
-        footer.au-footer {
-            margin-top: 5em;
-        }
     }
 }
 @media (max-width: 767px) {

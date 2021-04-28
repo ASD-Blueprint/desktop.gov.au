@@ -307,7 +307,7 @@ user | \OneDrive | Prevent users from syncing personal OneDrive accounts |  | tr
 
 ### Agency-WDACBasePolicy
 
-To deploy the policy via Microsoft Defender, the XML file must be converted to Binary via the Convertfrom-CIPolicy PowerShell command. The XML files are located within the [Client Devices](/blueprint/abac/client-devices.html) section.
+To deploy the policy via Microsoft Defender, the XML file must be converted to Binary via the `Convertfrom-CIPolicy` PowerShell command. Sample XML files are located within the [Client Devices](client-devices.html#application-control) section.
 
 The policy GUID in the OMA-URI must be unique to your environment. It can be found in the XML file within the PolicyID tags.
 
@@ -326,9 +326,9 @@ The policy GUID in the OMA-URI must be unique to your environment. It can be fou
   * Included groups: `grp-Windows-10-Devices`, `rol-Agency-Users`
   * Excluded groups: -
 
-  ### Agency-WDACSubPolicy-AppName
+### Agency-WDACSubPolicy-AppName
 
-To deploy the policy via Microsoft Defender, the XML file must be converted to Binary via the Convertfrom-CIPolicy PowerShell command. The XML files are located within the [Client Devices](/blueprint/abac/client-devices.html) section.
+To deploy the policy via Microsoft Defender, the XML file must be converted to Binary via the `Convertfrom-CIPolicy` PowerShell command. Sample XML files are located within the [Client Devices](client-devices.html#application-control) section.
 
 The policy GUID in the OMA-URI must be unique to your environment. It can be found in the XML file within the PolicyID tags.
 

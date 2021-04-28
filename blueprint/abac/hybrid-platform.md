@@ -2595,12 +2595,13 @@ Data Type | DRTO – Backups < 100 Days
 Critical servers / services | `< 48 hours`
 Non-Critical servers / services | `> 48 hours`
 
-## Application Control
-The ABAC settings for the Agency Application Control can be found below. This includes Windows Defender Application Control settings within System Center Configuration Manager (SCCM) and Group Policy. Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting.
+## Application control
+
+The ABAC settings for the Agency Application Control can be found below. This includes Windows Defender Application Control settings within System Center Configuration Manager (SCCM) and Group Policy. Please note, if a setting is not mentioned below, it should be assumed to have been left at its default setting.
 
 ### Windows Defender Application Control
 
-#### SCCM Managed Installer
+#### SCCM managed installer
 
 * Device Collection
   * Name: `WDAC-DeploymentCollection`
@@ -2612,7 +2613,6 @@ The ABAC settings for the Agency Application Control can be found below. This in
     * Query: `select SMS_R_SYSTEM.ResourceID, SMS_R_SYSTEM.ResourceType, SMS_R_SYSTEM.Name, SMS_R_SYSTEM.SMSUniqueIdentifier, SMS_R_SYSTEM.ResourceDomainORWorkgroup, SMS_R_SYSTEM.Client from SMS_R_System where SMS_R_System.OperatingSystemNameandVersion like "%Workstation%" and SMS_R_System.OperatingSystemNameandVersion like "%10.0%" `
   * Use incremental updates for this collection: `enabled`
   * Schedule a full update on this collection: `enabled`
-
 * Application Control Policy
   * Name: `Agency-WDAC-ManagedInstaller`
   * Description: -
@@ -2622,9 +2622,9 @@ The ABAC settings for the Agency Application Control can be found below. This in
   * Deployment collection: `WDAC-DeploymentCollection`
   * Schedule: `Simple schedule`
 
-#### Group Policy
+#### Group policy
 
-Note, in order to deploy via group policy, all supplementary policies must be merged into the base policy. Also the base policy must be stored in a location where all devices can access it (i.e. Sysvol). The XML file must also be converted to Binary via the Convertfrom-CIPolicy PowerShell command. The XML files are located within the [Hybrid Client Devices](/blueprint/abac/hybrid-client-devices.html#application-control) section.
+Note, in order to deploy via group policy, all supplementary policies must be merged into the base policy. Also the base policy must be stored in a location where all devices can access it (i.e. Sysvol). The XML file must also be converted to Binary via the `Convertfrom-CIPolicy` PowerShell command. The XML files are located within the [Hybrid Client Devices](hybrid-client-devices.html#application-control) section.
 
 * Group policy
   * Type: `Computer Policy`

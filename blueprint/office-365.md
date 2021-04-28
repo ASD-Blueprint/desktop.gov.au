@@ -440,12 +440,12 @@ Remote Domain Configuration for all agencies and implementation types
 
 Policy Setting | Configuration | Description
 --- | --- | ---
-Name: `*` |||
-Domain Name | `*`<br>Note - * means all external agencies | Name of the remote domain.
-Out of Office Automatic Replies | Allow Only External Out of Office replies - Selected | Allows the limiting of the type of client automatic replies.
-Automatic Replies | Allow Automatic Replies – Unchecked<br>Allow automatic forwarding - Unchecked | Allows the limiting of automatic replies and automatic forwards.
-Message Reporting | Allow Delivery Reports - Ticked<br>Allow Non-delivery Reports – Ticked<br>Allow Meeting Forward Notifications - Unchecked | Allows the limiting of delivery reports, no-delivery reports, and meeting forward notifications. 
-Use rich text format | Follow User Settings - Selected | Allows the control over message format. 
+Name | `Default` | Name of the remote domain.
+Remote Domain | `*` | Note `*` means all external agencies.
+Out of Office automatic reply types | Allow only external Out of Office replies - Selected | Allows the limiting of the type of client automatic replies.
+Automatic replies | Allow automatic replies – Unchecked<br>Allow automatic forwarding - Unchecked | Allows the limiting of automatic replies and automatic forwards.
+Message reporting | Allow delivery reports - Ticked<br>Allow non-delivery reports – Ticked<br>Allow meeting forward notifications - Unchecked | Allows the limiting of delivery reports, no-delivery reports, and meeting forward notifications. 
+Use rich text format | Follow user settings - Selected | Allows the control over message format. 
 Supported Character Set | None | Allows the control over the character set. 
 
 ### Certificates

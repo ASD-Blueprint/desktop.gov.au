@@ -737,7 +737,7 @@ Table 12 describes the Log Analytics settings that are configured within the Log
 
 Item | Configuration
 --- | ---
-Log Analytics was not implemented for this environment at this time refer to the DTA-Platform Designv1.0 for configuration guidance. ||
+Log Analytics was not implemented for this environment at this time refer to the DTA-Platform Designv1.0 for configuration guidance. | |
 
 ## Microsoft Intune configuration
 

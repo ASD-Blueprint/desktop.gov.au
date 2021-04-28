@@ -333,11 +333,11 @@ Configuration | Value | Description
 --- | --- | ---
 Certificate details | Configured | Certificate to be issued from the gateway hosting the GovLink connection.
 Virtual IP address (VIP) | Configured | Virtual IP Address details will be provided by the gateway provider.
-**Exchange Online Receive Connector** |||
+**Exchange Online Receive Connector** | | |
 Name | `Inbound-connector-from-<GATEWAY>` | Describes the source and directionality of mail.
 Retain internal mail headers | Unchecked | Internal Mail headers are stripped off messages.
 On-premises server identification method and value | Identify by Senders Domain. Reject email messages if they are not sent over TLS. Require subject name matching `<DOMAIN>` | Ensures mail is being sent over an encrypted connection to a known domain.
-**Exchange Online Send Connector** |||
+**Exchange Online Send Connector** | | |
 Name | `outbound-connector-to-<GATEWAY>` | Describes the source and directionality of mail.
 Retain internal mail headers | Checked | When reporting spam that slips past the filters, it is essential that we receive the full message headers from a message
 When to use the connector | \\* (All Mail) | All mail should use the connector
@@ -602,11 +602,11 @@ Mailbox Auditing configuration applicable to all agencies and implementation typ
 
 Configuration | Value | Description
 --- | --- | ---
-**User Mailbox and Shared Mailbox Audit Configuration** |||
+**User Mailbox and Shared Mailbox Audit Configuration** | | |
 Admin Audited Actions  | ApplyRecord<br>Copy<br>Create<br>FolderBind<br>HardDelete<br>MessageBind<br>Move<br>MoveToDeletedItems<br>RecordDelete<br>SendAs<br>SendOnBehalf<br>SoftDelete<br>Update<br>UpdateCalendarDelegation<br>UpdateFolderPermissions<br>UpdateInboxRules | All available audit actions will be selected in order to provide the required visibility of changes made to a mailbox. 
 Delegate Audited Actions  | ApplyRecord<br>Create<br>FolderBind<br>HardDelete<br>Move<br>MoveToDeletedItems<br>RecordDelete<br>SendAs<br>SendOnBehalf<br>SoftDelete<br>Update<br>UpdateFolderPermissions<br>UpdateInboxRules | All available audit actions will be selected in order to provide the required visibility of changes made to a mailbox. 
 Owner Audited Actions | ApplyRecord<br>Create<br>HardDelete<br>MailboxLogin<br>Move<br>MoveToDeletedItems<br>RecordDelete<br>SoftDelete<br>Update<br>UpdateCalendarDelegation<br>UpdateFolderPermissions<br>UpdateInboxRules | All available audit actions will be selected in order to provide the required visibility of changes made to a mailbox. 
-**Office 365 Group Mailbox Audit Configuration** |||
+**Office 365 Group Mailbox Audit Configuration** | | |
 Admin Audited Actions  | Create<br>HardDelete<br>MoveToDeletedItems<br>SendAs<br>SendOnBehalf<br>SoftDelete<br>Update | All available audit actions will be selected in order to provide the required visibility of changes made to a mailbox. 
 Delegate Audited Actions  | Create<br>HardDelete<br>MoveToDeletedItems<br>SendAs<br>SendOnBehalf<br>SoftDelete<br>Update | All available audit actions will be selected in order to provide the required visibility of changes made to a mailbox. 
 Owner Audited Actions | HardDelete<br>MoveToDeletedItems<br>SoftDelete<br>Update | All available audit actions will be selected in order to provide the required visibility of changes made to a mailbox. 
@@ -855,13 +855,13 @@ Sharing Configuration applicable to agencies leveraging a cloud native implement
 
 Configuration | Value | Description
 --- | --- | ---
-**External Sharing** |||
+**External Sharing** | | |
 SharePoint | New and existing guests | Guest access is available in accordance with Collaboration in the DTA – Platform Design document
 More external sharing settings | Limit external sharing by domain<br>Guests must sign in using the same account to which the sharing invitations are sent | Checked. `Add domains that are allowed`<br>Checked.
 OneDrive | Only people in your organisation | No external sharing allowed.
-**File and folder links** |||
+**File and folder links** | | |
 Choose the type of link that is created by default when users get links | Specific people | Internal link which can only be sent to people in your organisation.
-**Other settings** |||
+**Other settings** | | |
 Show owners the names of people who viewed their files in OneDrive | Checked | This is to ensure owners are aware of external users who have access to the document.
 Let site owners choose to display the names of people who viewed files or pages in SharePoint | Checked | Permits display of activity on SharePoint sites to foster collaboration.
 Use shorter links when sharing files and folders | Checked | Ensure URL are short and concise.
@@ -871,12 +871,12 @@ Sharing Configuration applicable to agencies leveraging a hybrid implementation
 
 Configuration | Value | Description
 --- | --- | ---
-External Sharing |||
+**External Sharing** | | |
 SharePoint | Only people in your organisation | No external sharing allowed.
 OneDrive | Only people in your organisation | No external sharing allowed.
-File and folder links |||
+**File and folder links** | | |
 Choose the type of link that is created by default when users get links | Only people in your organisation | Internal link which can only be sent to people in your organisation.
-Other settings |||
+**Other settings** | | |
 Show owners the names of people who viewed their files in OneDrive | Checked | This is to ensure owners are aware of external users who have access to the document.
 Let site owners choose to display the names of people who viewed files or pages in SharePoint | Checked | Permits display of activity on SharePoint sites to foster collaboration.
 Use shorter links when sharing files and folders | Checked | Ensure URL are short and concise.
@@ -886,15 +886,15 @@ Access Control Configuration applicable to all agencies and implementation types
 
 Configuration | Value | Description
 --- | --- | ---
-**Unmanaged Devices** |||
+**Unmanaged Devices** | | |
 Unmanaged Devices | Allow limited, web only access | Provide restricted access to devices that are not Intune compliant.
-**Idle session time-out** |||
+**Idle session time-out** | | |
 Sign out inactive users automatically | On | Controls idle time on users logged onto a device.
 Sign out users after: | 1 hour | Ensure users are logged out after an idle time.
 Give users this much notice: | 5 minutes | Ensure users are notified before they are signed out.
-**Network Location** |||
+**Network Location** | | |
 Allow access only from a specific IP address range | Off | Define a trusted network boundary by specifying one or more authorized IP address ranges.
-**Apps that do not use modern Authentication** |||
+**Apps that do not use modern Authentication** | | |
 Apps that do not use modern Authentication | Block access | Some third-party apps and previous versions of Office cannot enforce device-based restrictions. Use this setting to block all access from these apps.
 
 ### Legacy features
@@ -940,16 +940,16 @@ OneDrive sharing configuration applicable to all agencies and implementation typ
 
 Configuration | Value | Description
 --- | --- | ---
-**Links** |||
+**Links** | | |
 Default Link Type | Internal: Only people in your organisation | No sharing is permitted outside the Agency.
-**External Sharing** |||
+**External Sharing** | | |
 SharePoint | Only people in your organisation | No external sharing allowed.
 OneDrive | Only people in your organisation | No external sharing allowed.
-**Advanced settings for external sharing** |||
+**Advanced settings for external sharing** | | |
 Allow or block sharing with people on specific domains | Unchecked | Specific domains are not defined, meaning that content is permitted to be shared with all users within the directory (internal).
 External users must accept sharing invitation using the same account that the invitations were sent to | Checked | Required to ensure users are authenticated before accepting sharing invitation
 Let external users share items they don't own | Unchecked | Restricts external users (guests) from re-sharing content.
-**Other settings** |||
+**Other settings** | | |
 Display to owner the names of people who viewed their files | Checked | Ensure owner is are aware of who it has been shared with
 
 ### Storage and synchronisation
@@ -1002,7 +1002,7 @@ OneDrive for Business Notification Configuration applicable to all agencies and 
 Configuration | Value | Description
 --- | --- | ---
 Display device notification to users when OneDrive files are shared with them | Checked | OneDrive will notify users when new files are shared with them
-**E-mail OneDrive owners when** |||
+**E-mail OneDrive owners when** | | |
 Other users invite additional external users to shared files | Checked | OneDrive will notify users when a user re-shares a document to an external user (guest)
 External users accept invitations to access files | Checked | OneDrive will notify users when external users accept an invitation to access files. 
 An anonymous access link is created  | Checked | OneDrive will notify users when an anonymous access link is created
@@ -1288,22 +1288,22 @@ Retention Policies configuration applicable to agencies leveraging a cloud nativ
 
 Configuration | Value | Description
 --- | --- | ---
-**Name: Exchange Indefinite Hold** |||
+**Name: Exchange Indefinite Hold** | | |
 Retention configuration | Retain the data "Forever" | How long the data is to be held by the policy.
 Location | Exchange email – All users included | The Office 365 location where the policy applies.
-**Name: SharePoint Indefinite Hold** |||
+**Name: SharePoint Indefinite Hold** | | |
 Retention configuration | Retain the data "Forever" | How long the data is to be held by the policy.
 Location | SharePoint Sites – All Sites | The Office 365 location where the policy applies.
-**Name: OneDrive Indefinite Hold** |||
+**Name: OneDrive Indefinite Hold** | | |
 Retention configuration | Retain the data "Forever" | How long the data is to be held by the policy.
 Location | OneDrive Accounts – All Accounts | The Office 365 location where the policy applies.
-**Name: Office 365 Groups Indefinite Hold** |||
+**Name: Office 365 Groups Indefinite Hold** | | |
 Retention configuration | Retain the data "Forever" | How long the data is to be held by the policy.
 Location | Office 365 Groups – All Groups | The Office 365 location where the policy applies.
-**Name: Teams Channel Messages Indefinite Hold** |||
+**Name: Teams Channel Messages Indefinite Hold** | | |
 Retention configuration | Retain the data "Forever" | How long the data is to be held by the policy.
 Location | Teams channel messages – All teams included | The Office 365 location where the policy applies.
-**Name: Teams chats Indefinite Hold** |||
+**Name: Teams chats Indefinite Hold** | | |
 Retention configuration | Retain the data "Forever" | How long the data is to be held by the policy.
 Location | Teams chats messages – All users included | The Office 365 location where the policy applies.
 
@@ -1311,22 +1311,22 @@ Retention Policy Configuration applicable to agencies leveraging a hybrid implem
 
 Configuration | Value | Description
 --- | --- | ---
-**Name: Exchange 3 Years Hold** |||
+**Name: Exchange 3 Years Hold** | | |
 Retention configuration | Retain the data for 3 years | How long the data is to be held by the policy.
 Location | Exchange email – All users included | The Office 365 location where the policy applies.
-**Name: SharePoint 3 Years Hold** |||
+**Name: SharePoint 3 Years Hold** | | |
 Retention configuration | Retain the data for 3 years | How long the data is to be held by the policy.
 Location | SharePoint Sites – All Sites | The Office 365 location where the policy applies.
-**Name: OneDrive 3 Years Hold** |||
+**Name: OneDrive 3 Years Hold** | | |
 Retention configuration | Retain the data for 3 years | How long the data is to be held by the policy.
 Location | OneDrive Accounts – All Accounts | The Office 365 location where the policy applies.
-**Name: Office 365 Groups 3 Years Hold** |||
+**Name: Office 365 Groups 3 Years Hold** | | |
 Retention configuration | Retain the data for 3 years | How long the data is to be held by the policy.
 Location | Office 365 Groups – All Groups | The Office 365 location where the policy applies.
-**Name: Teams Channel Messages 3 Years Hold** |||
+**Name: Teams Channel Messages 3 Years Hold** | | |
 Retention configuration | Retain the data for 3 years | How long the data is to be held by the policy.
 Location | Teams channel messages – All teams included | The Office 365 location where the policy applies.
-**Name: Teams chats 3 Years Hold** |||
+**Name: Teams chats 3 Years Hold** | | |
 Retention configuration | Retain the data for 3 years. | How long the data is to be held by the policy.
 Location | Teams chats messages – All users included | The Office 365 location where the policy applies.
 
@@ -1353,7 +1353,7 @@ Data Loss Prevention Configuration applicable to all agencies and implementation
 
 Configuration | Value | Description
 --- | --- | ---
-**Name: Australian Privacy Act** |||
+**Name: Australian Privacy Act** | | |
 Locations | Protect content in Exchange email, Teams chats, channel messages, OneDrive and SharePoint documents.  | The locations where the policy will apply.
 Content type | Australian Driver's Licence number<br>Australian Passport number | The types of sensitive information being detected. 
 Sharing detection | With people outside my organisation | When the policy is applied.
@@ -1361,7 +1361,7 @@ Notify users | Enabled | Users are notified when the policy is triggered. They a
 Amount of instances | 5 | The amount of sensitive information required to trigger the policy (10 is the default).
 Send incident reports | Enabled  | User and nominated administrator are notified when the policy is triggered.
 Restrict access or encrypt the content | Disabled | Access to the content that triggers the policy can be encrypted or and access limited. 
-**Name: Australian Personally Identifiable Information (PII) data** |||
+**Name: Australian Personally Identifiable Information (PII) data** | | |
 Locations | Protect content in Exchange email, Teams chats, channel messages, OneDrive and SharePoint documents.  | The locations where the policy will apply.
 Content type | Australia Tax File Number <br>Australia Driver's Licence Number | The types of sensitive information being detected. 
 Sharing detection | With people outside my organisation | When the policy is applied.
@@ -1369,7 +1369,7 @@ Notify users | Enabled | Users are notified when the policy is triggered. They a
 Amount of instances | 5 | The amount of sensitive information required to trigger the policy (10 is the default).
 Send incident reports | Enabled  | User and nominated administrator are notified when the policy is triggered.
 Restrict access or encrypt the content | Disabled | Access to the content that triggers the policy can be encrypted or and access limited. 
-**Name: Australian Health Records Act (HRIP Act)** |||
+**Name: Australian Health Records Act (HRIP Act)** | | |
 Locations | Protect content in Exchange email, Teams chats, channel messages, OneDrive and SharePoint documents.  | The locations where the policy will apply.
 Content type | Australia Tax File Number <br>Australia Medical Account Number | The types of sensitive information being detected. 
 Sharing detection | With people outside my organisation | When the policy is applied.
@@ -1377,7 +1377,7 @@ Notify users | Enabled | Users are notified when the policy is triggered. They a
 Amount of instances | 5 | The amount of sensitive information required to trigger the policy (10 is the default).
 Send incident reports | Enabled  | User and nominated administrator are notified when the policy is triggered.
 Restrict access or encrypt the content | Disabled | Access to the content that triggers the policy can be encrypted or and access limited. 
-**Name: Australian Financial Data** |||
+**Name: Australian Financial Data** | | |
 Locations | Protect content in Exchange email, Teams chats, channel messages, OneDrive and SharePoint documents.  | The locations where the policy will apply.
 Content type | SWIFT Code <br>Australia Tax File Number <br>Australia Bank Account Number <br>Credit Card Number | The types of sensitive information being detected. 
 Sharing detection | With people outside my organisation | When the policy is applied.
@@ -1569,9 +1569,9 @@ Safe Links Configuration applicable to all agencies and implementation types
 
 Configuration | Value | Description
 --- | --- | ---
-**Settings that apply to content across Office 365** |||
+**Settings that apply to content across Office 365** | | |
 Block the following URL's | No URLs defined | Managing the Blocked URL list is an ongoing administrative task. Agencies will need to consider the resourcing requirements of maintaining a blocked URL list.
-**Settings that apply to content except mail** |||
+**Settings that apply to content except mail** | | |
 Use safe links in Office 365 ProPlus, Office for iOS and Android | Checked | Safe links will be checked by default within these Office 365 applications.
 For the locations selected above: Do not track when users click safe links | Unchecked | Information about when end-users click safe links in the Office 365 documents will be tracked.
 For the locations selected above: Do not let users click through safe links to original URL  | Checked | If end-users click on safe links in Office 365 documents, then they will be directed to a warning page and will not be presented with an option to continue to the original link.
@@ -1617,13 +1617,13 @@ Anti-Phishing Configuration applicable to all agencies and implementation types
 
 Configuration | Value | Description
 --- | --- | ---
-**Impersonation Policy** |||
+**Impersonation Policy** | | |
 Add users to protect | Off | Add up to 60 internal and external users you want to protect from being impersonated by attackers.
 Add domains to protect | Automatically include the domains I own: On<br>Include custom domains: Off | Specify domains which you want to protect from being impersonated by attackers.
 Actions | If email is sent by an impersonated user: Quarantine the message<br>If email is sent by an impersonated domain: Quarantine the message | Specify an action in an event an attacker impersonates the users or domains you have specified.
 Mailbox Intelligence | Enable mailbox intelligence: On<br>Enable mailbox intelligence based on impersonated protection: On<br>If an email is sent by an impersonate user: Quarantine the message | This feature uses machine learning to determine a user's email patterns with their contacts. With this information, the artificial intelligence can better distinguish between genuine and phishing emails.<br>Impersonated protection allows Office 365 to customize user impersonation detection and better handle false positives. When user impersonation is detected, based on mailbox intelligence, you can define what action to take on the message.
 Add trust senders and domains | Not configured | When users interact with domains or users that trigger impersonation but are considered to be safe. i.e. if a partner has the same/similar display name or domain name as a user defined on the list.
-**Spoofing Policy** |||
+**Spoofing Policy** | | |
 Spoofing filter settings | Enable antispoofing protection: On | Allows the Agency to filter email from senders who are spoofing domains.
 Enable Unauthenticated Sender Feature | Enable Unauthenticated Sender: On | Displays a notification to users in Outlook when a sender fails authentication checks.
 Actions | If email is sent by someone who's not allowed to spoof your domain: Quarantine the message | Specify an action in an event an unauthorised user spoofs a domain.

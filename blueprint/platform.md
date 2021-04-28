@@ -243,19 +243,19 @@ Conditional Access Enabled| Device Based | To meet security and business require
 
 Additional Conditional Access Design Decisions for hybrid implementations
 
-Configuration | Value | Description
---- | --- | ---
-Conditional Access Policies | BLOCK - Legacy Authentication | This global policy blocks all connections from insecure legacy protocols like ActiveSync, IMAP, POP3, etc.
-^^ | BLOCK - High-Risk Sign-Ins | This global policy blocks all high-risk authentications (requires Azure AD Premium P2).
-^^ | BLOCK - Countries not Allowed | This global policy blocks all connections from countries not in the Allowed countries list.
-^^ | GRANT - Terms of Use | This global policy forces Terms of Use on all authentications.
-^^ | GRANT - Browser Access | General browser access policy that grants authentication from a browser on any device with MFA requirement.
-^^ | SESSION - Block Unmanaged Browser File Downloads | Browsers on unmanaged devices can never download files and attachments from SharePoint Online and Exchange Online.
-^^ | GRANT - Intune Enrolment | Devices can authenticate to Intune for enrolment.
-^^ | GRANT - Mobile Device Access | Grants access to managed mobile devices that are enrolled and compliant in Intune. An approved Microsoft app is required.
-^^ | GRANT - Windows Device Access | Grants access to managed Windows devices that are Hybrid Azure AD Joined (joined to on-prem AD and Azure AD).
-^^ | GRANT - Guest Access (B2B) | Approved apps that guest users can access (requires MFA).
-^^ | BLOCK - Guest Access (B2B) | Blocked apps that guest users can never access.
+Configuration | Description
+--- | ---
+BLOCK - Legacy Authentication | This global policy blocks all connections from insecure legacy protocols like ActiveSync, IMAP, POP3, etc.
+BLOCK - High-Risk Sign-Ins | This global policy blocks all high-risk authentications (requires Azure AD Premium P2).
+BLOCK - Countries not Allowed | This global policy blocks all connections from countries not in the Allowed countries list.
+GRANT - Terms of Use | This global policy forces Terms of Use on all authentications.
+GRANT - Browser Access | General browser access policy that grants authentication from a browser on any device with MFA requirement.
+SESSION - Block Unmanaged Browser File Downloads | Browsers on unmanaged devices can never download files and attachments from SharePoint Online and Exchange Online.
+GRANT - Intune Enrolment | Devices can authenticate to Intune for enrolment.
+GRANT - Mobile Device Access | Grants access to managed mobile devices that are enrolled and compliant in Intune. An approved Microsoft app is required.
+GRANT - Windows Device Access | Grants access to managed Windows devices that are Hybrid Azure AD Joined (joined to on-prem AD and Azure AD).
+GRANT - Guest Access (B2B) | Approved apps that guest users can access (requires MFA).
+BLOCK - Guest Access (B2B) | Blocked apps that guest users can never access.
 
 ###  Active Directory
 
@@ -1166,14 +1166,14 @@ Windows Information Protection mode | Configured | Default settings prevent copy
 Network Boundaries | Cloud resources | Network boundaries create a list of resources that are considered to be on the enterprise network. These boundaries are used to apply policies that reside in these locations.
 Cloud Resources Protected via Network Boundaries  | SharePoint<br>Office 365 | Different policies will be created depending on the network location of the client.
 Intune Data Warehouse | Not enabled | While this feature is available, it will not be deployed for the solution. 
-**Self Service Group Management** |||
+**Self Service Group Management** | | |
 Owners can manage group membership requests in the Access Panel | No | Group creation and modification is to be locked down and controlled by authorised personnel, such as service desk staff, or Administrators.
 Restrict access to Groups in the Access Panel | No | Accessing groups is an Administrative function and has been locked down to Administrators.
-**Security Groups** |||
+**Security Groups** | | |
 Users can create security groups in Azure portals | No | Group creation and modification is to be locked down and controlled by authorised personnel, such as service desk staff, or Administrators.
-**Office 365 Groups** |||
+**Office 365 Groups** | | |
 Users can create Office 365 groups in the Azure portals | No | Group creation and modification is to be locked down and controlled by authorised personnel, such as service desk staff, or Administrators.
-**Directory-wide Groups** |||
+**Directory-wide Groups** | | |
 Enable an "All Users" group in the directory | No | This group is not required. All users to be a member of a controlled group.
 
 ### Intune - mobile application management

@@ -16,7 +16,7 @@ CloudSystem.
 The CloudSystem leverages the Information Security Registered Assessors Program (IRAP) assessed Microsoft Azure and Office 365 platforms and their associated services. The CloudSystem includes the following components to improve the security posture of a target Agency:
 
 * Cloud identity – Azure Active Directory (Azure AD) configuration including conditional access allowing log in from anywhere and appropriate security policies to be applied.
-* Office 365 – Configuration of Exchange Online, SharePoint Online, OneDrive for Business, Microsoft Teams, Forms, Whiteboard and Planner allowing cloud-based file storage and collaboration.
+* Office 365 – Configuration of Exchange Online, SharePoint Online, OneDrive for Business, Microsoft Teams, Microsoft Forms, Microsoft Whiteboard and Microsoft Planner allowing cloud-based file storage and collaboration.
 * Device management – Management of security and configuration profiles for enrolled devices including the testing against security baselines and confirmation of security compliance. 
 * Applications – Delivery and configuration of applications appropriate to the user.
 * Security stack – Security configuration of Office 365 and endpoint devices to maximise compliance and minimise risk.
@@ -86,8 +86,9 @@ The suite of documentation produced to support ACSC’s certification of Azure a
 
 * 2020 Microsoft Azure IRAP - Azure Security Fundamentals and Cloud Services Assessment
 * Office 365 Security Fundamentals and Cloud Services IRAP Assessment Report 2020
+* 2019 Microsoft Office 365 IRAP Assessment Report
 
-Both documents are available from the [Microsoft Service Trust Portal](https://servicetrust.microsoft.com/ViewPage/Australia).
+These documents are available from the [Microsoft Service Trust Portal](https://servicetrust.microsoft.com/ViewPage/Australia).
 
 ### Risk assessment
 
@@ -106,8 +107,8 @@ Identity Services | Azure AD | PROTECTED | N/A
 Identity Services | Conditional Access | Not Assessed | Conditional Access is an Azure AD Premium P1 licenced feature of Azure AD (included in Microsoft 365 E3) that restricts access to cloud resources and management tools beyond just a successful authentication. It includes customisable policies based on location, user, device and more. Conditional Access is an additional security capability that is part of Azure AD, which is PROTECTED certified. 
 Identity Services | Azure MFA | PROTECTED | N/A
 Identity Services | Azure AD Identity Protection | Not Assessed | Azure AD Identity Protection is an Azure AD Premium P2 licenced feature of Azure AD (included in Microsoft 365 E5) that allows organisations to accomplish three key tasks:<br><br>* Automate the detection and remediation of identity-based risks.<br>* Investigate risks using data in the portal.<br>* Export risk detection data to third-party utilities for further analysis.
-Office 365 | Exchange Online, SharePoint Online, Microsoft Teams, Forms, Whiteboard, Planner | PROTECTED | N/A
-Monitoring and Compliance | Microsoft Endpoint Manager - Intune | PROTECTED | Microsoft Endpoint Manager - Intune (Intune) is configured to allow policies to be created and deployed to devices that configure, check for compliance and assess against a security baseline. These policies are applied and reported against in the Intune web console.
+Office 365 | Exchange Online, SharePoint Online, Microsoft Teams, Microsoft Forms, Microsoft Whiteboard, Microsoft Planner | PROTECTED | N/A
+Monitoring and Compliance | Intune Policies| PROTECTED | Microsoft Endpoint Manager - Intune (Intune) is configured to allow policies to be created and deployed to devices that configure, check for compliance and assess against a security baseline. These policies are applied and reported against in the Intune web console.
 
 ## Section definitions
 
@@ -148,7 +149,7 @@ Guidelines for System Monitoring | Applicable | Monitoring of CloudSystem system
 Guidelines for Software Development | Not Applicable | The CloudSystem is not designed to support software development activities.
 Guidelines for Database Systems | Not Applicable | The CloudSystem does not include the use of databases.
 Guidelines for Email | Applicable | The CloudSystem leverages Office 365 to provide email functionality.
-Guidelines for Networking | Applicable | The CloudSystem is designed to run using the public internet. All security controls are implemented on the endpoint devices and the Office 365 component. The Office 365 design includes a high-level network diagram showing the components that are considered in scope. Conditional access policies and MCAS to limit access to the environment from anonymity networks. the configuration and fine tuning of these policies is the shared responsibility of the Agency and the CloudSystem.
+Guidelines for Networking | Applicable | The CloudSystem is designed to run using the public internet. All security controls are implemented on the endpoint devices and the Office 365 component. The Office 365 design includes a high-level network diagram showing the components that are considered in scope. Conditional access policies and MCAS to limit access to the environment from anonymity networks. The configuration and fine tuning of these policies is the shared responsibility of the Agency and the CloudSystem.
 Guidelines for Cryptography | Applicable | The CloudSystem makes use of cryptography to protect both data at rest and data in transit.
 Guidelines for Gateways | Applicable | The CloudSystem leverages Exchange Online Protection and Office 365 ATP for content filtering.
 Guidelines for Data Transfers | Applicable | The CloudSystem is responsible for implementing technical controls relating to data transfer.
@@ -348,6 +349,9 @@ POWER BI | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | MICROSOFT | 
 SECURITY & COMPLIANCE PLATFORMS | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | MICROSOFT | AGENCY | MICROSOFT
 EXCHANGE ONLINE PROTECTION | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | MICROSOFT | AGENCY | MICROSOFT
 OFFICE 365 ADVANCED THREAT PROTECTION | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | MICROSOFT | AGENCY | MICROSOFT
+MICROSOFT FORMS | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | MICROSOFT | AGENCY | MICROSOFT
+MICROSOFT WHITEBOARD | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | MICROSOFT | AGENCY | MICROSOFT
+MICROSOFT PLANNER | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | MICROSOFT | AGENCY | MICROSOFT
 
 ##### Client devices
 
@@ -606,7 +610,7 @@ A Protection Profile (PP) evaluation has been performed on Windows 10 and Micros
 
 * The CloudSystem includes Windows 10 which has been evaluated against the relevant Protection Profile.
 * Windows 10 installation media is sourced directly from Microsoft in accordance with the evaluated delivery procedures.
-* Windows 10 is managed by Microsoft Intune in accordance with the published guidance from Microsoft as well the ACSC's hardening guide for Windows 10.
+* Windows 10 is managed by Microsoft Endpoint Manager -  Intune (Intune) in accordance with the published guidance from Microsoft as well the ACSC's hardening guide for Windows 10.
 
 ### Residual controls to be addressed by the Agency
 
@@ -646,7 +650,7 @@ The CloudSystem implements technical controls to restrict access to removeable m
 
 #### Security controls provided by the CloudSystem
 
-* Autorun is disabled for removable media via Intune policies.
+* Autorun is disabled for removable media via Microsoft Endpoint Manager -  Intune (Intune) policies.
 * Only authorised devices that are permitted in Intune policies can be connected to Cloud-Only endpoints. Unauthorised devices will not be mounted to the operating system.
 * External connections relying on Direct Memory Access (DMA) will be disabled via Intune policies
 * Removable media is encrypted via BitLocker using AES-256.
@@ -719,9 +723,9 @@ Operating system hardening is applicable to the CloudSystem.
 
 #### CloudSystem compliance approach
 
-The CloudSystem will utilise Windows 10 as the endpoint operating system, provided by the Original Equipment Manufacturer (OEM), and then use the Software Updates component of Intune to maintain the latest version of the operating system.
+The CloudSystem will utilise Windows 10 as the endpoint operating system, provided by the Original Equipment Manufacturer (OEM), and then use the Software Updates component of Microsoft Endpoint Manager - Intune (Intune) to maintain the latest version of the operating system.
 
-The CloudSystem will harden the operating system configuration using a combination of Intune policies to implement ACSC and vendor guidance. These Intune policies achieve the results that would traditionally be performed by group policies. Local administrator accounts and guest accounts will be disabled and renamed via Intune policy. 
+The CloudSystem will harden the operating system configuration using a combination of Intune policies to implement ACSC and vendor guidance. These Intune policies achieve the results that would traditionally be performed by group policies. Local administrator accounts and guest accounts will be disabled and renamed via Intune policy.
 
 The potential attack surface will be minimised by only including required components and apps, removing and disabling the components that aren’t needed. Standard users will be prevented from running all script execution engines. The CloudSystem will install applications via Intune and not allow standard users the ability to install applications.
 

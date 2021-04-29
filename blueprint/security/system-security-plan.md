@@ -16,7 +16,7 @@ CloudSystem.
 The CloudSystem leverages the Information Security Registered Assessors Program (IRAP) assessed Microsoft Azure and Office 365 platforms and their associated services. The CloudSystem includes the following components to improve the security posture of a target Agency:
 
 * Cloud identity – Azure Active Directory (Azure AD) configuration including conditional access allowing log in from anywhere and appropriate security policies to be applied.
-* Office 365 – Configuration of Exchange Online, SharePoint Online, OneDrive for Business, and Microsoft Team allowing cloud-based file storage and collaboration.
+* Office 365 – Configuration of Exchange Online, SharePoint Online, OneDrive for Business, Microsoft Teams, Forms, Whiteboard and Planner allowing cloud-based file storage and collaboration.
 * Device management – Management of security and configuration profiles for enrolled devices including the testing against security baselines and confirmation of security compliance. 
 * Applications – Delivery and configuration of applications appropriate to the user.
 * Security stack – Security configuration of Office 365 and endpoint devices to maximise compliance and minimise risk.
@@ -56,13 +56,13 @@ The purpose of this System Security Plan (SSP) is to describe the security imple
 
 This document is deliberately written using descriptive and explanatory language to assist an Agency to understand how the CloudSystem operates securely, the security controls it provides, and the residual controls that must be addressed by an Agency.
 
-For detailed information on how the CloudSystem addresses specific controls in the ISM (June 2020 update), refer to the ‘DTA - Cloud-Only Blueprint - System Security Plan Annex (August 2020)’.
+For detailed information on how the CloudSystem addresses specific controls in the ISM (April 2021 update), refer to the ‘DTA - Cloud-Only Blueprint - System Security Plan Annex (April 2021)’.
 
 ### Overarching security policies
 
 The security policies that the CloudSystem has been designed to comply with are listed below:
 
-* The Australian Government ISM (October 2020) controls.
+* The Australian Government ISM (April 2021) controls.
 * The Australian Cyber Security Centre (ACSC) Strategies to Mitigate Cyber Security Incidents, including the Essential Eight Maturity Model.
 * The ACSC Security Configuration Guide - Apple iOS 12 Devices (June 2020).
 * The Protected Security Policy Framework.
@@ -75,17 +75,17 @@ In accordance with the requirements of the ISM, the following security documenta
 * DTA – Blueprint – Solution Overview (August 2020)
 * DTA – Blueprint – Client Devices Design (August 2020)
 * DTA – Blueprint – Platform Design (August 2020)
-* DTA – Blueprint – Office 365 Design (August 2020) 
-* DTA – Cloud-Native Blueprint – System Security Plan (October 2020) (this document)
-* DTA – Cloud- Native Blueprint – System Security Plan Annex (October 2020) 
+* DTA – Blueprint – Office 365 Design (August 2020)
+* DTA – Cloud-Native Blueprint – System Security Plan (April 2021) (this document)
+* DTA – Cloud- Native Blueprint – System Security Plan Annex (April 2021)
 * DTA – Cloud- Native Blueprint – Security Risk Management Plan (October 2020)
 * DTA – Cloud- Native Blueprint – Security Standard Operating Procedures (October 2020)
 * DTA – Cloud- Native Blueprint – Incident Response Plan (October 2020)
 
 The suite of documentation produced to support ACSC’s certification of Azure and Office 365 for PROTECTED have also been leveraged in the development of the CloudSystem, and includes the following :
 
-* 2019 Microsoft Azure IRAP Assessment Report
-* 2019 Microsoft Office 365 IRAP Assessment Report
+* 2020 Microsoft Azure IRAP - Azure Security Fundamentals and Cloud Services Assessment
+* Office 365 Security Fundamentals and Cloud Services IRAP Assessment Report 2020
 
 Both documents are available from the [Microsoft Service Trust Portal](https://servicetrust.microsoft.com/ViewPage/Australia).
 
@@ -106,9 +106,8 @@ Identity Services | Azure AD | PROTECTED | N/A
 Identity Services | Conditional Access | Not Assessed | Conditional Access is an Azure AD Premium P1 licenced feature of Azure AD (included in Microsoft 365 E3) that restricts access to cloud resources and management tools beyond just a successful authentication. It includes customisable policies based on location, user, device and more. Conditional Access is an additional security capability that is part of Azure AD, which is PROTECTED certified. 
 Identity Services | Azure MFA | PROTECTED | N/A
 Identity Services | Azure AD Identity Protection | Not Assessed | Azure AD Identity Protection is an Azure AD Premium P2 licenced feature of Azure AD (included in Microsoft 365 E5) that allows organisations to accomplish three key tasks:<br><br>* Automate the detection and remediation of identity-based risks.<br>* Investigate risks using data in the portal.<br>* Export risk detection data to third-party utilities for further analysis.
-Office 365 | Exchange Online, SharePoint Online, Microsoft Teams | PROTECTED | N/A
-Monitoring and Compliance | Intune Policies | PROTECTED | Intune is configured to allow policies to be created and deployed to devices that configure, check for compliance and assess against a security baseline. These policies are applied and reported against in the Intune web console.
-{: .auto}
+Office 365 | Exchange Online, SharePoint Online, Microsoft Teams, Forms, Whiteboard, Planner | PROTECTED | N/A
+Monitoring and Compliance | Microsoft Endpoint Manager - Intune | PROTECTED | Microsoft Endpoint Manager - Intune (Intune) is configured to allow policies to be created and deployed to devices that configure, check for compliance and assess against a security baseline. These policies are applied and reported against in the Intune web console.
 
 ## Section definitions
 
@@ -122,7 +121,6 @@ Applicability to CloudSystem | For each chapter, the applicability relates to wh
 CloudSystem compliance approach | The compliance approach for the CloudSystem is described in this section to provide:<br><br>* The background and context for how the CloudSystem address the controls in the chapter<br>* To provide the Agency with information to assist in the assessment of the CloudSystem
 Security controls provided by the CloudSystem | The specific technical, process or documentation that the CloudSystem provides to address the controls are listed in this section.
 Residual controls to be addressed by the Agency | If there are any residual controls that the Agency must address in relation to the operation of the CloudSystem, then they are listed in this section.
-{: .auto}
 
 ## Summary of applicability
 
@@ -150,11 +148,10 @@ Guidelines for System Monitoring | Applicable | Monitoring of CloudSystem system
 Guidelines for Software Development | Not Applicable | The CloudSystem is not designed to support software development activities.
 Guidelines for Database Systems | Not Applicable | The CloudSystem does not include the use of databases.
 Guidelines for Email | Applicable | The CloudSystem leverages Office 365 to provide email functionality.
-Guidelines for Networking | Applicable | The CloudSystem is designed to run using the public internet. All security controls are implemented on the endpoint devices and the Office 365 component. The Office 365 design includes a high-level network diagram showing the components that are considered in scope.
+Guidelines for Networking | Applicable | The CloudSystem is designed to run using the public internet. All security controls are implemented on the endpoint devices and the Office 365 component. The Office 365 design includes a high-level network diagram showing the components that are considered in scope. Conditional access policies and MCAS to limit access to the environment from anonymity networks. the configuration and fine tuning of these policies is the shared responsibility of the Agency and the CloudSystem.
 Guidelines for Cryptography | Applicable | The CloudSystem makes use of cryptography to protect both data at rest and data in transit.
 Guidelines for Gateways | Applicable | The CloudSystem leverages Exchange Online Protection and Office 365 ATP for content filtering.
 Guidelines for Data Transfers | Applicable | The CloudSystem is responsible for implementing technical controls relating to data transfer.
-{: .auto}
 
 ## Cyber security roles
 
@@ -166,7 +163,7 @@ Not applicable as appointing a Chief Information Security Officer (CISO) is an A
 
 #### CloudSystem compliance approach
 
-The CloudSystem is deployed into the Agency’s environment and is under the scope of the Agency’s CIS
+The CloudSystem is deployed into the Agency’s environment and is under the scope of the Agency’s CISO.
 
 #### Security controls provided by the CloudSystem
 
@@ -273,7 +270,7 @@ Outsourcing is applicable to the CloudSystem as it leverages both Azure and Offi
 
 #### CloudSystem compliance approach
 
-The CloudSystem leverages Microsoft Azure and Office 365, which have been IRAP assessed at PROTECTED by Shearwater. With the exception of Microsoft Defender ATP, all CloudSystem services have been IRAP assessed.
+The CloudSystem leverages Microsoft Azure and Office 365, which have been IRAP assessed at PROTECTED by CyberCX. All CloudSystem services have been IRAP assessed.
 
 Azure AD is defined as a non-regional service, but [hosts identity data in Australian datacentres](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-data-storage-australia) for customers that provide an Australian or New Zealand address. This includes Azure AD Directory Management and Authentication functions. Other Azure AD functions, including Azure MFA, store data in global datacentres.
 
@@ -333,7 +330,7 @@ SECURITY | AZURE ADVANCED THREAT PROTECTION | MICROSOFT | MICROSOFT | MICROSOFT 
 SECURITY | MICROSOFT DEFENDER ADVANCED THREAT PROTECTION | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | MICROSOFT | MICROSOFT | MICROSOFT
 SECURITY | LOG ANALYTICS | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | MICROSOFT | MICROSOFT | MICROSOFT
 SECURITY | SECURITY INFORMATION & EVENT MANAGEMENT | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY
-CLIENT CONFIGURATION | INTUNE | AGENCY  | AGENCY | MICROSOFT | MICROSOFT | AGENCY | MICROSOFT | MICROSOFT | MICROSOFT
+CLIENT CONFIGURATION | MICROSOFT ENDPOINT MANAGER - INTUNE | AGENCY  | AGENCY | MICROSOFT | MICROSOFT | AGENCY | MICROSOFT | MICROSOFT | MICROSOFT
 CLIENT CONFIGURATION | PRINTING | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY
 BACKUP & OPERATIONAL MANAGEMENT | OFFICE 365 BACKUP | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | MICROSOFT | MICROSOFT | MICROSOFT
 SYSTEM ADMINISTRATION | ADMINISTRATIVE CONSOLES | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | AGENCY | MICROSOFT | MICROSOFT | MICROSOFT
@@ -545,13 +542,13 @@ This section is applicable as the CloudSystem includes mobile devices.
 
 #### CloudSystem compliance approach
 
-The CloudSystem leverages Microsoft Intune to provide both Mobile Device Management (MDM) Mobile Application Management (MAM) controls to protect mobile devices and data stored on them. Both Windows laptops and iOS devices will be enrolled within Intune and tagged as Corporate devices, allowing policies to be centrally managed and deployed. This includes configuring storage encryption, disabling unneeded features and controlling application behaviour.
+The CloudSystem leverages Microsoft Endpoint Manager - Intune (Intune) to provide both Mobile Device Management (MDM) Mobile Application Management (MAM) controls to protect mobile devices and data stored on them. Both Windows laptops and iOS devices will be enrolled within Intune and tagged as Corporate devices, allowing policies to be centrally managed and deployed. This includes configuring storage encryption, disabling unneeded features and controlling application behaviour.
 
-iOS devices are lightly managed and partially comply with the ACSC ‘[Security Configuration Guide - Apple iOS 12 Devices](https://www.cyber.gov.au/publications/security-configuration-guide-apple-ios-12-devices)’ and Information Security Manual (ISM) to maximise usability for the target users. Note: Agencies should do a risk assessment before deciding to change settings relating mobile devices.
+iOS devices are lightly managed and partially comply with the ACSC ‘[Security Configuration Guide - Apple iOS 12 Devices](https://www.cyber.gov.au/publications/security-configuration-guide-apple-ios-12-devices)’ and Information Security Manual (ISM) to maximise usability for the target users. Note: Agencies should do a risk assessment before deciding to change settings relating to mobile devices.
 
 Bluetooth is enabled as it allows users to pair devices they may required to perform their duties (e.g. conference calls or online meetings).
 
-Users can reset certain security settings in Personal Hotspot and Passcode for situations where the passcode/password may have been compromised. 
+Users can reset certain security settings in Personal Hotspot and Passcode for situations where the passcode/password may have been compromised.
 
 To provide ease of use and maintain productivity users can download apps from the App Store. The agency can track, and monitor apps found on managed devices that have been enrolled in Intune. Details on how to view and report on discovered apps can be found in the ‘DTA - Cloud-Native Blueprint - Security Standard Operating Procedures (August 2020)’.
 
@@ -744,7 +741,7 @@ Endpoint Device Control will be configured by Intune policies restricting usage 
 * The 64-bit version of Windows 10 is used as the SOE for the CloudSystem.
 * The Windows 10 SOE has been hardened in accordance with ACSC guidance where possible using Intune.
 * The default administrator and guest accounts have been disabled and renamed.
-* Intune and SCCM policies prevent standard users from running cmd.exe however can only restrict the PowerShell execution policy to RemoteSigned.
+* Intune and Microsoft Endpoint Configuration Manager (MECM) policies prevent standard users from running cmd.exe however can only restrict the PowerShell execution policy to RemoteSigned.
 * RBAC policy defines separate domain and local administrator roles. Standard users do not have permissions to install or uninstall software.
 * WDAC provides application control functionality. A combination of hash, publisher certificate and path rules will be used by WDAC for control of applications. Both publisher and product names are used by WDAC for control of applications. WDAC writes to the local event log. Standard users cannot disable application control within the system.
 * File permissions prevent standard users from writing to locations that are whitelisted using path rules.
@@ -1109,17 +1106,21 @@ The majority of the controls relating to network design and configuration are no
 
 #### CloudSystem compliance approach
 
-The CloudSystem leverages the Microsoft backbone to provide networking for the Office 365 and Azure services. LAN design and configuration is the responsibility of the Agency and may reuse existing capabilities. The CloudSystem designs the interfaces between endpoints and services, including how data traverses’ public networks such as the internet. 
+The CloudSystem leverages the Microsoft backbone to provide networking for the Office 365 and Azure services. LAN design and configuration is the responsibility of the Agency and may reuse existing capabilities. The CloudSystem designs the interfaces between endpoints and services, including how data traverses’ public networks such as the internet.
 
 #### Security controls provided by the CloudSystem
 
 * The Office 365 design which includes the high-level network design has a document control table listing the last update date.
+* Conditional access policies are used to restrict inbound network traffic to specific geographic regions.
+* MCAS policies are used to analyse sign in logs to identify and subsequently notify administrators when users are identified as originating from anonymous proxy IP addresses.
 
 #### Residual controls to be addressed by the Agency
 
 * The Agency is responsible for the management of network devices used in relation to the CloudSystem.
 * The Agency is responsible for implementing security controls within their email gateway.
 * The Agency is responsible for ensuring that they segregate their network from that of service providers.
+* The Agency is responsible for tuning conditional access policy to limit inbound network connections from anonymity networks.
+* The Agency is responsible for tuning MCAS policies to meet their requirements. Further, the Agency must implement appropriate procedures around these alerts.
 
 ### Wireless networks
 

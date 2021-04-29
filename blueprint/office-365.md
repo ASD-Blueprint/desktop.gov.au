@@ -148,7 +148,7 @@ User owned apps and services | Disabled | Applications will be delivered via the
 
 Role Based Access Control (RBAC) defines what an end user or administrator can do. In relation to system administration, RBAC provides various roles each of which can only perform certain tasks. For example, help desk staff may be able to only view certain resources, whereas system administrators could view, create, and delete those resources. Office 365 provides a subset of administrative roles available in Microsoft Azure.
 
-Privileged Identity Management (PIM) can be leveraged to enhance the RBAC model for Azure Active Directory role-based management access, and parts of other Microsoft services like Office 365 and Intune. PIM requests are made through the Azure portal for elevated access only when they are required, and access is expired after a specified period.
+Privileged Identity Management (PIM) can be leveraged to enhance the RBAC model for Azure Active Directory role-based management access, and parts of other Microsoft services like Office 365 and Microsoft Endpoint Manager. PIM requests are made through the Azure portal for elevated access only when they are required, and access is expired after a specified period.
 
 The following Office 365 roles can be assigned via PIM:
 
@@ -839,7 +839,7 @@ Access to SharePoint Sites can be controlled through a variety of means to ensur
 
 * Only allowing access from specific IP address locations
 * Only allowing access from apps that use modern authentication
-* Blocking access from devices which are not managed by the organisation through Intune
+* Blocking access from devices which are not managed by the organisation through Microsoft Endpoint Manager
 * Sites can be further secured through the implementation of Idle session timeouts. Idle session timeouts essentially act to log a user out of SharePoint after a period of inactivity
 
 Access Controls provides an administrative tool to restrict access contents in SharePoint.
@@ -887,7 +887,7 @@ Access Control Configuration applicable to all agencies and implementation types
 Configuration | Value | Description
 --- | --- | ---
 **Unmanaged Devices** |||
-Unmanaged Devices | Allow limited, web only access | Provide restricted access to devices that are not Intune compliant.
+Unmanaged Devices | Allow limited, web only access | Provide restricted access to devices that are not Microsoft Endpoint Manager compliant.
 **Idle session time-out** |||
 Sign out inactive users automatically | On | Controls idle time on users logged onto a device.
 Sign out users after: | 1 hour | Ensure users are logged out after an idle time.

@@ -151,7 +151,7 @@ Guidelines for System Monitoring | Applicable | Monitoring of HybridSystem syste
 Guidelines for Software Development | Not Applicable | The HybridSystem is not designed to support software development activities.
 Guidelines for Database Systems | Not Applicable | The Agency is responsible for database systems leveraged by the HybridSystem.
 Guidelines for Email | Applicable | The HybridSystem leverages Office 365 to provide email functionality.
-Guidelines for Networking | Applicable | The CloudSystem is designed to run using the public internet. All security controls are implemented on the endpoint devices and the Office 365 component. The Office 365 design includes a high-level network diagram showing the components that are considered in scope. Conditional access policies and MCAS to limit access to the environment from anonymity networks. The configuration and fine tuning of these policies is the shared responsibility of the Agency and the CloudSystem.
+Guidelines for Networking | Applicable | The HybridSystem is designed to run using the public internet. All security controls are implemented on the endpoint devices and the Office 365 component. The Office 365 design includes a high-level network diagram showing the components that are considered in scope. Conditional access policies and MCAS to limit access to the environment from anonymity networks. The configuration and fine tuning of these policies is the shared responsibility of the Agency and the HybridSystem.
 Guidelines for Cryptography | Applicable | The HybridSystem makes use of cryptography to protect both data at rest and data in transit.
 Guidelines for Gateways | Applicable | The HybridSystem leverages Exchange Online Protection and Office 365 Advanced Threat Protection (ATP) for content filtering.
 Guidelines for Data Transfers | Applicable | The HybridSystem is responsible for implementing technical controls relating to data transfer and content filtering.
@@ -275,7 +275,7 @@ Outsourcing is applicable to the HybridSystem as it leverages both Azure and Off
 
 #### HybridSystem compliance approach
 
-The HybridSystem leverages Microsoft Azure and Office 365, which have been IRAP assessed at PROTECTED by CyberCX. With the exception of Microsoft Defender ATP, all HybridSystem services have been IRAP assessed.
+The HybridSystem leverages Microsoft Azure and Office 365, which have been IRAP assessed at PROTECTED by CyberCX. All HybridSystem services have been IRAP assessed.
 
 Azure AD is defined as a non-regional service, but [hosts identity data in Australian datacentres](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-data-storage-australia) for customers that provide an Australian or New Zealand address . This includes Azure AD Directory Management and Authentication functions. Other Azure AD functions, including Azure MFA, store data in global datacentres.
 

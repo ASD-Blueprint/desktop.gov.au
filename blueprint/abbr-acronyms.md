@@ -81,6 +81,8 @@ MAK | Multiple Activation Key
 MAM | Mobile Application Management
 MCAS | Microsoft Cloud App Security
 MDM | Mobile Device Management
+MECM | Microsoft Endpoint Configuration Manager
+MEM | Microsoft Endpoint Manager
 MFA | Multi-Factor Authentication
 MIM | Microsoft Identity Manager
 NNR | Network Name Resolution

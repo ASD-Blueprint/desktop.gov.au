@@ -15,7 +15,7 @@ This overview is suitable for all users as a starting point.
 
 The blueprint is made up of another 3 main artefacts:
 
-* **Platform design** – All supporting components for the Windows 10, iOS and Office 365 (including Intune)
+* **Platform design** – All supporting components for the Windows 10, iOS and Office 365 (including Microsoft Endpoint Manager)
 * **Client devices design** – Windows 10 and iOS components only
 * **Office 365 design** – Exchange Online, SharePoint Online, OneDrive for Business and Teams.
 
@@ -58,9 +58,9 @@ Considerations for implementation often include whether an agency has or require
 * multiple active directories 
 * significant investment in on-premises infrastructure with serviceable life.
 
-A hybrid implementation can use Microsoft System Center Configuration Manager (SCCM) or Intune for client management, depending on the agency's cloud maturity. 
+A hybrid implementation can use Microsoft Endpoint Configuration Manager (MECM) or Microsoft Endpoint Manager - Intune (Intune) for client management, depending on the agency's cloud maturity. 
 
-Blueprint aretfacts provide guidance on integration between SCCM and Intune for hybrid deployments. Agencies with existing infrastructure can migrate device management from SCCM to Intune with no impact to the agency's existing cyber security posture.
+Blueprint aretfacts provide guidance on integration between MECM and Intune for hybrid deployments. Agencies with existing infrastructure can migrate device management from MECM to Intune with no impact to the agency's existing cyber security posture.
 
 ### Agency classification
 

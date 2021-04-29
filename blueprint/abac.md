@@ -9,7 +9,7 @@ For cloud-native environments:
 * [Conditional access policies](/blueprint/abac/conditional-access-policies.html)
 * [Office 365](/blueprint/abac/office-365.html)
 * [Platform](/blueprint/abac/platform.html)
-* Intune
+* Microsoft Endpoint Manager - Intune
   * [Applications](/blueprint/abac/intune-applications.html)
   * [Compliance](/blueprint/abac/intune-compliance.html)
   * [Configuration](/blueprint/abac/intune-configuration.html)
@@ -24,7 +24,7 @@ For hybrid environments:
 * [Network configuration](/blueprint/abac/hybrid-network-configuration.html)
 * [Office 365](/blueprint/abac/hybrid-office-365.html)
 * [Platform](/blueprint/abac/hybrid-platform.html)
-* Intune
+* Microsoft Endpoint Manager - Intune
   * [Applications for iOS devices](/blueprint/abac/hybrid-intune-applications-ios.html)
   * [Applications for Windows devices](/blueprint/abac/hybrid-intune-applications-windows.html)
   * [Compliance for iOS devices](/blueprint/abac/hybrid-intune-compliance-ios.html)

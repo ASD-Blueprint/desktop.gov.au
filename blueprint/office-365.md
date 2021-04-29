@@ -17,6 +17,9 @@ Power Platform | The Power Platform includes PowerApps, Power BI, and Microsoft 
 Security and Compliance | Office 365 provides Security and Compliance tools which can be utilised to implement an organisation's Information Management Policy and to assist with information governance.
 Exchange Online Protection | Exchange Online protection is a cloud hosted email security service (Mail Gateway) that acts to filter spam and scan for viruses on email entering and leaving Exchange Online.
 Office 365 Advanced Threat Protection (ATP) | Office 365 ATP is a cloud-based mail threat protection service. The service provides protection against unknown malware and viruses through the use of robust zero-day protection and inclusion of features to safeguard an organisation from harmful links in real time.
+Microsoft Whiteboard | Microsoft Whiteboard is a digital whiteboard that facilitates collarboration between users. It has integrations with the Office 365 suite and physical endpoints such as the Microsoft Surface hub.
+Microsoft Forms | Microsoft Forms is a online survey and form tool.
+Microsoft Planner | Microsoft Planner is a planning application with integrations into other components of the Office 365 suite.
 
 For each component within the document there is a brief description of the contents of the section, a commentary on the things that have been considered in determining the decisions and the design decisions themselves.
 
@@ -127,9 +130,7 @@ Azure Speech Services | Disabled | Default setting
 Bookings | Disabled | Exposes a public web page. No requirement.
 Calendar | Disabled | External sharing is disabled to prevent potential data spills.
 Cortana | Disabled | To align with ACSC Windows 10 1709 hardening, Page 55.
-External Form sharing | Disabled | Microsoft Forms is hosted outside of Australia.
 Microsoft Graph Data Connect | Enabled | API connectivity required for solution management.
-Microsoft Planner  | Enabled | Internet calendars will be enabled, it is up to the Agency which calendars they wish to publish.
 Microsoft Search in Bing | Disabled | Microsoft Search integrates with bing.com for Search. Office 365 data is indexed to provide bing.com search functionality and is therefore not desirable for this design.
 Microsoft communication to users | Disabled | System admins will be responsible for communication to users
 Modern Authentication | Enabled | Modern authentication is a group of technologies that combines authentication, authorisation and conditional access policies to secure an Office 365 tenant. Enabling of Modern Authentication provides ability to use Multi Factor Authentication.
@@ -142,7 +143,6 @@ Reports | Disabled | Disable data reporting to Microsoft on Office 365 usage.
 SharePoint | Enabled | New and Existing guests must sign in or provide a verification code when accessing SharePoint data.
 External Sway sharing | Disabled | External collaboration will be conducted in teams.
 User owned apps and services | Disabled | Applications will be delivered via the Business Store, there is no need to have the Official Store enabled.
-Whiteboard | Disabled | Microsoft Whiteboard is not hosted in Australia.
 
 ### Role based access control
 
@@ -1627,3 +1627,31 @@ Add trust senders and domains | Not configured | When users interact with domain
 Spoofing filter settings | Enable antispoofing protection: On | Allows the Agency to filter email from senders who are spoofing domains.
 Enable Unauthenticated Sender Feature | Enable Unauthenticated Sender: On | Displays a notification to users in Outlook when a sender fails authentication checks.
 Actions | If email is sent by someone who's not allowed to spoof your domain: Quarantine the message | Specify an action in an event an unauthorised user spoofs a domain.
+
+## Microsoft Whiteboard
+Microsoft Whiteboard is a hosted whiteboarding tool used for collaboration. 
+
+Decision Point | Design Decision | Justification
+--- | --- | ---
+Whiteboard for everyone in the organisation | Enabled | Allowing the use if Whiteboard within the organisation. 
+Level of diagnostic data | Neither | Restricts the amount of data provided to Microsoft for diagnostic and product improvements.
+Connected experience in Whiteboard | Disabled | Restricts the availiability of unapproved optional experience to be presented to users. 
+Easy sharing of Whiteboard from Surface hub | Agency Decision | Depending on the location and configuration of the Surface Hub/s within the organisation this setting may be configured.   
+
+## Microsoft Forms
+
+Decision Point | Design Decision | Justification
+--- | --- | ---
+External Sharing -  Sharing of link and collection of responses | Enabled | Sharing of form links will be enabled, it is up to the Agency which forms they wish to publish.
+External Sharing -  Collaboration on the layout and structure | Enabled | Collaboration on the layout and structure of forms will be enabled, it is up to the Agency which forms they wish to collaborate on.
+External Sharing -  Sharing of form as a template | Enabled | Sharing forms as a template will be enabled, it is up to the Agency which forms they wish to publish.
+External Sharing -  Sharing of result summary | Disabled | Prevents potential data spills from result exposure. 
+Record names by default | Disabled | Prevents the recording of user names where not required. 
+Bing search and YouTube video embedding | Disabled | Prevents the use of Bing images and Youtube images within Forms. 
+Phishing protection | Enabled | Blocks forms from being shared or distributed if they contain common phishing questions.
+
+## Microsoft Planner
+
+Decision Point | Design Decision | Justification
+--- | --- | ---
+Publishing through iCalendar feed | Enabled | Internet calendars will be enabled, it is up to the Agency which calendars they wish to publish.

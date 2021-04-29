@@ -687,7 +687,7 @@ Policies Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Use of policies | Use of policies is agency-specific and would need further development with internal Cyber Security Teams. | Provides visibility within the Agency of suspicious behaviour and application use.
+Use of policies | Use of policies is agency-specific and would require further development with internal Cyber Security Teams. However it is recommened that a policy be enabled to monitor and detect access from anonymous IP addresses. | Provides visibility within the Agency of suspicious behaviour and application use. 
 
 ### MCAS - Threat Protection
 

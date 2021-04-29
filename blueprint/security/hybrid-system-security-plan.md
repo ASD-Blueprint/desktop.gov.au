@@ -275,7 +275,7 @@ Outsourcing is applicable to the HybridSystem as it leverages both Azure and Off
 
 #### HybridSystem compliance approach
 
-The HybridSystem leverages Microsoft Azure and Office 365, which have been IRAP assessed at PROTECTED by Shearwater. With the exception of Microsoft Defender ATP, all HybridSystem services have been IRAP assessed.
+The HybridSystem leverages Microsoft Azure and Office 365, which have been IRAP assessed at PROTECTED by CyberCX. With the exception of Microsoft Defender ATP, all HybridSystem services have been IRAP assessed.
 
 Azure AD is defined as a non-regional service, but [hosts identity data in Australian datacentres](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-data-storage-australia) for customers that provide an Australian or New Zealand address . This includes Azure AD Directory Management and Authentication functions. Other Azure AD functions, including Azure MFA, store data in global datacentres.
 

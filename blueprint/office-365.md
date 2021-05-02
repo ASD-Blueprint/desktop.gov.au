@@ -135,7 +135,7 @@ Microsoft Search in Bing | Disabled | Microsoft Search integrates with bing.com 
 Microsoft communication to users | Disabled | System admins will be responsible for communication to users
 Modern Authentication | Enabled | Modern authentication is a group of technologies that combines authentication, authorisation and conditional access policies to secure an Office 365 tenant. Enabling of Modern Authentication provides ability to use Multi Factor Authentication.
 MyAnalytics | Enabled | Provides users with details about their usage of Office 365
-External Office 365 group content sharing | Enabled | External collaboration will be conducted in Microsoft Teams which relies on Office 365 groups
+External Office 365 group content sharing | Enabled | External collaboration will be conducted in Microsoft Teams which relies on Microsoft 365 groups
 ‎Office‎ software download settings | Disabled | Only one instance of the Office Suite is to be installed per user on their Government issued device. Office applications will be deployed to users via the Business Store.
 Office What's New management preview | Disabled | System admins will be responsible for communication to users.
 Office on the web | Disabled | Do not allow users to open files in third party storage
@@ -153,9 +153,22 @@ Privileged Identity Management (PIM) can be leveraged to enhance the RBAC model 
 The following Office 365 roles can be assigned via PIM:
 
 * Exchange administrator
+* Exchange recipient administrator
 * SharePoint administrator
-* Teams Service administrator
+* Teams administrator
+* Teams Communications administrator
+* Teams Communications support engineer
+* Teams Communications support specialist
 * Power BI Administrator
+* Power Platform administrator
+* Customer Lockbox Administrator
+* Intune administrator
+* Office Apps administrator
+* Message Center Privacy Reader
+* Message Center Reader
+* Security administrator
+* Security reader
+
 
 Role Based and Access Control Design Decisions for all agencies and implementation types
 
@@ -702,7 +715,7 @@ Distribution lists are created in different ways depending on the Exchange archi
 * Cloud Deployments - For cloud only deployments, distribution lists are created within Office 365
 * Hybrid Deployments - For hybrid deployments, distribution lists can be created both within Office 365 and on-premises. upon-premises lists are then synchronised to Office 365. The on-premises method has the benefit of living with the user identity source of truth however it does create complexity when it is not managed in the same location as Exchange
 
-Management of Distribution lists can be streamlined through the enforcement of a Naming Policy. A Distribution list Naming Policy allows the enforcement of a consistent naming strategy across Office 365 Groups. It consists of two parts:
+Management of Distribution lists can be streamlined through the enforcement of a Naming Policy. A Distribution list Naming Policy allows the enforcement of a consistent naming strategy across Microsoft 365 groups. It consists of two parts:
 
 * Prefix-Suffix Naming Policy – Setting of prefixes or suffixes for groups names. The prefixes/suffixes can be either fixed strings or user attributes
 * Custom Blocked Words – Blocking of words in the name based on a custom list
@@ -711,7 +724,7 @@ Distribution List Design Decisions for cloud native implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Distribution Groups creation | Cloud Created | Management activities for Exchange Online will occur within the portal. The use of cloud created distribution groups also allows for the groups to be upgraded to Office 365 groups at a later stage.
+Distribution Groups creation | Cloud Created | Management activities for Exchange Online will occur within the portal. The use of cloud created distribution groups also allows for the groups to be upgraded to Microsoft 365 groups at a later stage.
 Distribution Naming Policy | Configured<br>The naming convention will be `AgencyName-PolicyName` | Naming policies streamline the management of Distribution lists and allow for groups to be easily sorted. 
 
 Distribution List Design Decisions for hybrid implementations
@@ -720,31 +733,6 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Distribution Groups creation | Hybrid Created | Management activities for Exchange Online will occur on the on-premises Exchange server.
 Distribution Naming Policy | Configured | Naming policies streamline the management of Distribution lists and allow for groups to be easily sorted. 
-
-### Office 365 groups
-
-Office 365 Groups are an extension on the traditional mail Distribution Lists, Mail-enabled Security groups and Shared Mailboxes.
-
-Office 365 Groups allow members to collaborate with a group email, shared a workspace for conversations, files, calendar events, and a Planner. Unlike Shared Mailboxes, Office 365 groups can be accessed via mobile applications. Office 365 groups are also integrated with Microsoft Teams and are created when a Team is created.
-
-Membership of an Office 365 Group can be dynamically updated using user attributes available in Azure AD. This removes some of the management overhead involved with managing the traditional group structures.
-
-Management of Office 365 Groups can be streamlined through the enforcement of a Naming Policy, Office 365 group expiry, and creation restrictions. An Office 365 Group Naming Policy allows the enforcement of a consistent naming strategy across Office 365 Groups. It consists of two parts:
-
-* Prefix-Suffix Naming Policy – Setting of prefixes or suffixes for groups names. The prefixes/suffixes can be either fixed strings or user attributes; and
-* Custom Blocked Words – Blocking of words in the name based on a custom list.
-
-In conjunction with the Naming Policy, Office 365 groups can also be given expiration dates. This assists with unused group clean-up activities. The expiration period commences on group creation and can be renewed at the end of the period (The owner or contact for groups with no owners has 30 days to renew the group). When a group expires, it is soft deleted for 30 days. Retention policies will however hold the data for the period of the retention policy. An expiration policy can be applied globally to all groups or to specific groups.
-
-Office 365 Groups, by default can be created by any user. This can be restricted to Administrators and members of a security group. This restriction prevents the needless creation of groups. It is advisable to develop a workflow to control the provisioning process.
-
-Office 365 Group Design Decisions for all agencies and implementation types.
-
-Decision Point | Design Decision | Justification
---- | --- | ---
-Office 365 Group creation restrictions | Configured <br>Only administrators can create/configure Office 365 groups. | This will ensure that groups are approved before being created, ensuring all groups have a purpose.<br>This setting also affects Exchange, SharePoint and Teams.
-Naming Policy | `grp-AgencyName-SecurityGroup-Role` | Exchange groups will be named like the following AgencyName-Agency e.g. `grp-DTA-ExchangeMailbox-ITHelpdesk`
-Group Expiration  | All groups - annually | Group Expiration is required to simplify the management overhead associated with groups and to limit Azure AD clutter.
 
 ### Address book / address list
 
@@ -1046,7 +1034,7 @@ Note: This email is not part of Microsoft Exchange Online.
 
 ### Access
 
-Access to a team is controlled using Office 365 groups located in Azure AD.
+Access to a team is controlled using Microsoft 365 groups located in Azure AD.
 
 When a Team is created, an Office 365 group will be created. Owners of the group are delegated to perform administrative actions across the team, while members can participate in the team but not undertake any administrative actions.
 
@@ -1297,9 +1285,9 @@ Location | SharePoint Sites – All Sites | The Office 365 location where the po
 **Name: OneDrive Indefinite Hold** |||
 Retention configuration | Retain the data "Forever" | How long the data is to be held by the policy.
 Location | OneDrive Accounts – All Accounts | The Office 365 location where the policy applies.
-**Name: Office 365 Groups Indefinite Hold** |||
+**Name: Microsoft 365 groups Indefinite Hold** |||
 Retention configuration | Retain the data "Forever" | How long the data is to be held by the policy.
-Location | Office 365 Groups – All Groups | The Office 365 location where the policy applies.
+Location | Microsoft 365 groups – All Groups | The Office 365 location where the policy applies.
 **Name: Teams Channel Messages Indefinite Hold** |||
 Retention configuration | Retain the data "Forever" | How long the data is to be held by the policy.
 Location | Teams channel messages – All teams included | The Office 365 location where the policy applies.
@@ -1320,9 +1308,9 @@ Location | SharePoint Sites – All Sites | The Office 365 location where the po
 **Name: OneDrive 3 Years Hold** |||
 Retention configuration | Retain the data for 3 years | How long the data is to be held by the policy.
 Location | OneDrive Accounts – All Accounts | The Office 365 location where the policy applies.
-**Name: Office 365 Groups 3 Years Hold** |||
+**Name: Microsoft 365 groups 3 Years Hold** |||
 Retention configuration | Retain the data for 3 years | How long the data is to be held by the policy.
-Location | Office 365 Groups – All Groups | The Office 365 location where the policy applies.
+Location | Microsoft 365 groups – All Groups | The Office 365 location where the policy applies.
 **Name: Teams Channel Messages 3 Years Hold** |||
 Retention configuration | Retain the data for 3 years | How long the data is to be held by the policy.
 Location | Teams channel messages – All teams included | The Office 365 location where the policy applies.
@@ -1388,13 +1376,13 @@ Restrict access or encrypt the content | Disabled | Access to the content that t
 
 ### Audit and logging
 
-The Office 365 Security & Compliance Center provides the ability to monitor and review user and administrator activities across the Office 365 applications from the past 90 days.
+The Microsoft 365 Compliance Center provides the ability to monitor and review user and administrator activities across the Microsoft 365 applications from the past 90 days.
 
-Audit logs are kept by default for 90 days but are configurable up to one year by default for E5 licensing.
+Audit logs are kept by default for 90 days but are configurable up to 10 years using an Audit retention policy.
 
 When an event occurs for the respective application it will take anywhere from 30 minutes up to 24 hours before it can be viewed in the audit log search.
 
-The Office 365 Management Activity API enables third-party applications to consume audit logs from Office 365. If audit logging is disabled, third-party applications can still consume audit logs from the Office 365 Management Activity API.
+The Microsoft 365 Management Activity API enables third-party applications to consume audit logs from Microsoft 365. If audit logging is disabled, third-party applications can still consume audit logs from the Microsoft 365 Management Activity API.
 
 A list of Office 365 applications, their auditing capabilities and duration wait time once an event occurs.
 
@@ -1417,13 +1405,13 @@ Microsoft Forms | x | x | 30 minutes
 Azure Active Directory |  | x | 24 hours
 eDiscovery activities in Office 365 Security & Compliance Center | x | x | 30 minutes
 
-At the time of writing, audit logging is not enabled by default and must be turned on first in the Office 365 Security & Compliance Center before user or administrator activities can be audited.
+Audit logging is not enabled by default and must be turned on first in the Microsoft 365 Compliance Center before user or administrator activities can be audited.
 
 Auditing and Logging Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Unified Audit Logging | Enabled<br>One-year retention | To provide visibility into the actions being undertaken within the Office 365 environment.
+Unified Audit Logging | Enabled<br>10-year retention | To provide visibility into the actions being undertaken within the Microsoft 365 environment.
 
 ## Exchange Online protection
 
@@ -1629,7 +1617,19 @@ Enable Unauthenticated Sender Feature | Enable Unauthenticated Sender: On | Disp
 Actions | If email is sent by someone who's not allowed to spoof your domain: Quarantine the message | Specify an action in an event an unauthorised user spoofs a domain.
 
 ## Microsoft Whiteboard
-Microsoft Whiteboard is a hosted whiteboarding tool used for collaboration. 
+Microsoft Whiteboard is a hosted whiteboarding tool used for collaboration. It integrates with Office 365 services such as Teams and functions on devices such as the Microsoft Surface hub, Windows and iOS. Acess to use the tool can be controlled globally.
+
+Microsoft leveages diagnostic data to both address issues and develop updates to the Microsoft Whiteboard tool. The level of data provided to Microsoft from clients utilising the Whiteboard application can be controlled. 
+
+Diagnostic data level options are:
+
+* Required – The minimum amount of data necessary to keep Whiteboard secure, up-to-date, and performing as expected on devices.
+* Optional – Additional data to help make product improvements and provides enhanced information to help detect, diagnose, and fix issues. All data under the required setting is also included.
+* Neither - No diagnostic data about the Whiteboard client software running on the devices is sent to Microsoft. 
+
+The Whiteboard tool also offers optional connected experiences. These experiencies are offered directly to users by Microsoft and include items such as Bing image search, Word or PowerPoint document insertion, and Ink beatufiication. When the connected services are leveraged, the required service data is provided Microsoft. This data is separate from any diagnostic data provided.
+
+The Whiteboard tool can be used with the Microsoft Suface hub appliance. When using the tool easy sharing can be configured. Easy sharing allows sharing of Whiteboard sessions without logging into the Surface Hub appliance. 
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1639,6 +1639,15 @@ Connected experience in Whiteboard | Disabled | Restricts the availiability of u
 Easy sharing of Whiteboard from Surface hub | Agency Decision | Depending on the location and configuration of the Surface Hub/s within the organisation this setting may be configured.   
 
 ## Microsoft Forms
+Microsoft Forms is a form and survey tool. It offers a variety of external sharing and collaboration options including:
+* Sharing links - Sharing the link to external party for form population.
+* Collaboration of layout and structure - Collaboration on the design of a form.
+* Sharing templates - Sharing a form as a template for external parties to leverage.
+* Sharing results - Sharing the results of a form with external parties.
+
+By default, Microsoft Forms can be configured to capture the names of all people within the organisation who complete a form or survey. This can also be configured on a form by form basis. Forms can also be configured to allow images from Bing and videos from YouTube to be embedded. 
+
+Surveys and forms can be leveraged for potentially malicious purposes. Phishing protection for Microsoft Forms scans forms that only allow in organisation responses for common phishing questions. If they are detect the form is prevented from being distributed or shared. 
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1651,6 +1660,7 @@ Bing search and YouTube video embedding | Disabled | Prevents the use of Bing im
 Phishing protection | Enabled | Blocks forms from being shared or distributed if they contain common phishing questions.
 
 ## Microsoft Planner
+Microsoft Planner is a task planning and assignment tool which can intergrate with other Office 365 services such as Microsoft Teams. Plans developed within Planner can be published into calenders through an iCalendar feed.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---

@@ -42,7 +42,7 @@ Component | Inclusions
 --- | ---
 Office 365 Organisation | Residency<br>License<br>Self Service Purchase<br>Themes<br>Office 365 Services and Add-Ins<br>Role Based Access Control<br>Customer Lockbox
 Office 365 Connectivity | Mail Flow and Gateway<br>Optimisation<br>Exchange Hybrid<br>Mail Exchange Records<br>Mail Connectors<br>Autodiscover<br>SPF, DMARC, DKIM<br>Accepted Domains<br>Remote Domains<br>Certificates
-Exchange Online | Mail Migration<br>User Mailbox Configuration<br>Authentication Policies<br>Outlook on the Web Policies<br>Mailbox Archive<br>Journaling<br>Litigation Hold<br>Shared Mailboxes<br>Resource Mailboxes<br>Distribution Lists<br>Office 365 Groups<br>Address Book / Address List
+Exchange Online | Mail Migration<br>User Mailbox Configuration<br>Authentication Policies<br>Outlook on the Web Policies<br>Mailbox Archive<br>Journaling<br>Litigation Hold<br>Shared Mailboxes<br>Resource Mailboxes<br>Distribution Lists<br>Microsoft 365 groups<br>Address Book / Address List
 SharePoint Online | SharePoint Sites<br>SharePoint Hybrid<br>Application Management<br>Web Parts<br>Sharing and Access Controls<br>Legacy Features
 OneDrive for Business | Sharing<br>Storage and Synchronisation<br>Notifications<br>Content Migration
 Microsoft Teams | Access<br>Dynamic Security Group<br>Organisation Wide Configuration<br>Policies & Settings<br>Unified Communication<br>Voice Calling
@@ -128,6 +128,31 @@ Synchronize to Active Directory | Configured | Cloud identities or Synchronised 
 App registration | Configured | Windows Defender ATP – SIEM integration is required.
 Azure AD Connect | Configured | See Azure AD Connect section for details.
 Identity Format | Not Configured | Usernames will be synchronised from the on-premises Active Directory and will inherit naming convention.
+
+### Microsoft 365 groups
+
+Microsoft 365 Groups are an extension on the traditional mail Distribution Lists, Mail-enabled Security groups and Shared Mailboxes. They are managed within Azure Active Directory and also are used within Office 365 to control access to items such as a Team or Plan.
+
+Microsoft 365 Groups allow members to collaborate with a group email, shared a workspace for conversations, files, calendar events, and a Planner. Unlike Shared Mailboxes, Microsoft 365 groups can be accessed via mobile applications. Microsoft 365 groups are also integrated with Microsoft Teams and Microsoft Planner and are created when a Team or Plan is created.
+
+Membership of an Microsoft 365 Group can be dynamically updated using user attributes available in Azure AD. This removes some of the management overhead involved with managing the traditional group structures.
+
+Management of Microsoft 365 Groups can be streamlined through the enforcement of a Naming Policy, Office 365 group expiry, and creation restrictions. An Office 365 Group Naming Policy allows the enforcement of a consistent naming strategy across Microsoft 365 Groups. It consists of two parts:
+
+* Prefix-Suffix Naming Policy – Setting of prefixes or suffixes for groups names. The prefixes/suffixes can be either fixed strings or user attributes; and
+* Custom Blocked Words – Blocking of words in the name based on a custom list.
+
+In conjunction with the Naming Policy, Microsoft 365 groups can also be given expiration dates. This assists with unused group clean-up activities. The expiration period commences on group creation and can be renewed at the end of the period (The owner or contact for groups with no owners has 30 days to renew the group). When a group expires, it is soft deleted for 30 days. Retention policies will however hold the data for the period of the retention policy. An expiration policy can be applied globally to all groups or to specific groups.
+
+Microsoft 365 Groups, by default can be created by any user. This can be restricted to Administrators and members of a security group. This restriction prevents the needless creation of groups. It is advisable to develop a workflow to control the provisioning process.
+
+Office 365 Group Design Decisions for all agencies and implementation types.
+
+Decision Point | Design Decision | Justification
+--- | --- | ---
+Office 365 Group creation restrictions | Configured <br>Only administrators and select users can create/configure Microsoft 365 groups. | This will ensure that groups are approved before being created, ensuring all groups have a purpose.<br>This setting also affects Exchange, SharePoint, Microsoft Planner and Teams.
+Naming Policy | `grp-AgencyName-SecurityGroup-Role` | Exchange groups will be named like the following AgencyName-Agency e.g. `grp-DTA-ExchangeMailbox-ITHelpdesk`
+Group Expiration  | All groups - annually | Group Expiration is required to simplify the management overhead associated with groups and to limit Azure AD clutter.
 
 ### Emergency access admin accounts
 
@@ -1068,7 +1093,11 @@ Machine onboarding and Configuration | Configured | Onboarding and configuration
 
 ### Log Analytics
 
-Log data collected is stored in a Log Analytics workspace.
+Log Analytics is a component of the Azure Monitor solution and also forms the storage location for the data analysed by Azure Sentinel. It is utilised for log ingestion and querying. Logs can be ingested into Log Analytics in several ways including via:
+
+* Diagnostic Settings
+* Sentinel Connectors
+* HTTP Post
 
 Log data stored in Log Analytics data can be consumed in various ways:
 
@@ -1078,16 +1107,15 @@ Log data stored in Log Analytics data can be consumed in various ways:
 * Export -- Data from Azure Monitor can be imported into Excel or Power BI for further visualisation.
 * PowerShell -- PowerShell from a command line or using Azure Automation, can programmatically retrieve data for various use-cases.
 * Azure Monitor Logs API -- The native API, uses REST to retrieve log data from the workspace.
+* Azure Sentinel -- Azure Sentinel allows dashboarding, alerting, and analysis of the logs.
 
 Log Analytics is billed per gigabyte (GB) of data ingested and retained into the service. When ingesting into a SIEM, data retention periods can be shortened.
-
-Log Analytics is available in certain regions only. At the time of writing, these regions are Australia Southeast (Melbourne) and AU Central (Canberra CDC Fyshwick).
 
 Log Analytics Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Log Analytics Workspace | Deployed | The Log Analytics workspace will primarily be used to store log data for Intune managed workloads.
+Log Analytics Workspace | Deployed | The Log Analytics workspace will primarily be used to store log data for Microsoft Endpoint Manger managed workloads and Azure AD sign in logs.
 Pricing mode | Per GB | Log Analytics pricing is based on data consumed.
 Incurs Subscription Cost? | Yes | Log Analytics pricing is based on data consumed. Data Volume could be reduced to 90 days if the Agency has an existing SIEM for further custom log analysis.
 
@@ -1099,6 +1127,7 @@ Workspace Name | agency-log-workspace | Log workspace name to be confirmed by th
 Azure Subscription | Agency subscription | Configured by Office 365
 Region | Australia Central | Closest location of Log Analytics to the Agency
 Log retention | Retention Period: 1 year<br>Data Volume Cap: Off | One year aligns with other data retention periods in this solution and meets the system requirements
+Enabled Diagnostic Settings | Microsoft Endpoint Manager, Azure AD | Ensures logs are ingested by log analytics. 
 Log Analytics Contributor Group | rol-agency-log-admin | Log Analytics Contributor group name to be confirmed by the Agency
 
 ### Security Information and Event Management
@@ -1171,8 +1200,8 @@ Owners can manage group membership requests in the Access Panel | No | Group cre
 Restrict access to Groups in the Access Panel | No | Accessing groups is an Administrative function and has been locked down to Administrators.
 **Security Groups** |||
 Users can create security groups in Azure portals | No | Group creation and modification is to be locked down and controlled by authorised personnel, such as service desk staff, or Administrators.
-**Office 365 Groups** |||
-Users can create Office 365 groups in the Azure portals | No | Group creation and modification is to be locked down and controlled by authorised personnel, such as service desk staff, or Administrators.
+**Microsoft 365 groups** |||
+Users can create Microsoft 365 groups in the Azure portals | No | Group creation and modification is to be locked down and controlled by authorised personnel, such as service desk staff, or Administrators.
 **Directory-wide Groups** |||
 Enable an "All Users" group in the directory | No | This group is not required. All users to be a member of a controlled group.
 
@@ -1545,7 +1574,7 @@ Retention policies are created that ensure that data is retained forever for:
 * Exchange
 * SharePoint
 * OneDrive
-* Office 365 Groups
+* Microsoft 365 groups
 * Skype for Business
 * Exchange Public Folders
 * Teams channel messages
@@ -1570,7 +1599,7 @@ Additional RPO, RTO and Retention Periods Design Decisions for cloud native impl
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Restoration tools | Microsoft backup and restoration tools | The Agency will leverage Microsoft Office 365 native tools in the first instance to recover user data.
-Items to Backup | Exchange Online<br>SharePoint Online<br>Microsoft Teams<br>OneDrive for Business<br>Office 365 Groups | Backups must cover the Microsoft suite of tools at a minimum.
+Items to Backup | Exchange Online<br>SharePoint Online<br>Microsoft Teams<br>OneDrive for Business<br>Microsoft 365 groups | Backups must cover the Microsoft suite of tools at a minimum.
 Retention Policies | Up to maximum allowable days per Microsoft Office 365 application | For guidance only. Agencies are required to measure these against the business, application, regulatory and security requirements.
 
 Additional RPO, RTO and Retention Periods Design Decisions for hybrid implementations
@@ -1578,7 +1607,7 @@ Additional RPO, RTO and Retention Periods Design Decisions for hybrid implementa
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Restoration tools | Third party backup and restoration tools | Agencies should investigate third-party backup tools to backup and restore data on-premises and within the cloud.
-Items to Backup | Exchange Online<br>SharePoint Online<br>Microsoft Teams<br>OneDrive for Business<br>Office 365 Groups<br>On-premises Exchange<br>On-premises SharePoint | Backups must cover the Microsoft suite of tools at a minimum.
+Items to Backup | Exchange Online<br>SharePoint Online<br>Microsoft Teams<br>OneDrive for Business<br>Microsoft 365 groups<br>On-premises Exchange<br>On-premises SharePoint | Backups must cover the Microsoft suite of tools at a minimum.
 Retention Policies | At discretion of Agency | Retention policies for the backups should be determined by the Agency and measured against the business, application, regulatory and security requirements.
 
 ### Data availability

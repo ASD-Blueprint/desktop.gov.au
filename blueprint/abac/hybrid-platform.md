@@ -59,9 +59,9 @@ The ABAC settings for the Agency Identity and Access Management can be found bel
 * Users can create security groups in the Azure portals: `No`
 * Owners who can assign members as group owners in Azure Portals: `All`
 
-`Search > Azure Active Directory > Groups > General > Office 365 Groups`
+`Search > Azure Active Directory > Groups > General > Microsoft 365 groups`
 
-* Users can create Office 365 groups in Azure portals: `No`
+* Users can create Microsoft 365 groups in Azure portals: `No`
 * Owners who can assign members as group owners in Azure portals: `All`
 
 `Search > Azure Active Directory > Groups > General > Directory-wide Groups`
@@ -72,7 +72,7 @@ The ABAC settings for the Agency Identity and Access Management can be found bel
 
 * Group lifetime (in days): `365`
 * Email contact for groups with no owners: `Office365_Group_Expiration@<Agency>.gov.au`
-* Enable expiration for these Office 365 groups: `None`
+* Enable expiration for these Microsoft 365 groups: `None`
 
 `Search > Azure Active Directory > Groups > Naming policy`
 
@@ -128,6 +128,152 @@ The ABAC settings for the Agency Identity and Access Management can be found bel
 
 * Notify users on password resets?: `Yes`
 * Notify all admins when other admins reset their password?: `Yes`
+
+### Microsoft 365 groups
+
+`Search > Azure Active Directory > Groups > General`
+
+* Self Service Group Management
+  * Owners can manage group membership requests in the Access Panel: `No`
+  * Restrict user ability to access groups features in the Access Panel. Administrators (Global, Group and User Admin) will have access regardless of the value of this setting.: `Yes`
+* Security Groups
+  * Users can create security groups in Azure portals: `No`
+  * Owners who can assign members as group owners in Azure portals: `All`
+* Microsoft 365 groups
+  * Users can create Microsoft 365 groups in Azure portal: `No`
+  * Owners who can assign members as group owners in Azure portal: `All`
+
+`Search > Azure Active Directory > Groups > Naming policy`
+
+* Group naming policy: `Grp-<Department>-<Group name>`
+
+`Search > Azure Active Directory > Groups > Expiration`
+
+* Group lifetime (in days): `365`
+* Email contact for groups with no owners: `Office365_Group_Expiration@<Agency>.gov.au`
+* Enable expiration for these Microsoft 365 groups: `All`
+
+`Search > Azure Active Directory > Groups`
+
+* Group Name: `ADMIN_O365_Admin`
+  * Membership type: `Assigned`
+  * Source: `Windows server AD`
+  * Type: `Security`
+  * Members: `Admin accounts`
+  * Owners: `None`
+  * Group membership: `None`
+  * Applications: `None`
+  * Licenses: `None`
+  * Azure role assignment: `None`
+* Group Name: `ADMIN_O365_DCA_Accounts`
+  * Membership type: `Assigned`
+  * Source: `Windows server AD`
+  * Type: `Security`
+  * Members: `Admin accounts`
+  * Owners: `None`
+  * Group membership: `None`
+  * Applications: `None`
+  * Licenses: `None`
+  * Azure role assignment: `None`
+* Group Name: `ADMIN_O365_GlobalAdmins`
+  * Membership type: `Assigned`
+  * Source: `Windows server AD`
+  * Type: `Security`
+  * Members: `Admin accounts`
+  * Owners: `None`
+  * Group membership: `None`
+  * Applications: `None`
+  * Licenses: `None`
+  * Azure role assignment: `None`
+* Group Name: `Grp-<Agency Acronym>O365-Outlook`
+  * Membership type: `Assigned`
+  * Source: `Cloud`
+  * Type: `Office`
+  * Email: `Grp-<Agency Acronym>o365-outlook@<Agency>.gov.au`
+  * Members: `<Agency User>`
+  * Owners: `<Agency User>`
+  * Group membership: `None`
+  * Applications: `None`
+  * Licenses: `None`
+  * Azure role assignment: `None`
+* Group Name: `Grp-<Agency Acronym>O365-Teams`
+  * Membership type: `Assigned`
+  * Source: `Cloud`
+  * Type: `Office`
+  * Email: `Grp-<Agency Acronym>o365-teams@<Agency>.gov.au`
+  * Members: `<Agency User>`
+  * Owners: `<Agency User>`
+  * Group membership: `None`
+  * Applications: `None`
+  * Licenses: `None`
+  * Azure role assignment: `None`
+* Group Name: `Grp-<Agency Acronym>O365-Teams`
+  * Membership type: `Assigned`
+  * Source: `Cloud`
+  * Type: `Office`
+  * Email: `Grp-<Agency Acronym>o365-teams@<Agency>.gov.au`
+  * Members: `<Agency User>`
+  * Owners: `<Agency User>`
+  * Group membership: `None`
+  * Applications: `None`
+  * Licenses: `None`
+  * Azure role assignment: `None`
+* Group Name: `Office365_AssignLicense_CloudUsers`
+  * Membership type: `Assigned`
+  * Source: `Cloud`
+  * Type: `Security`
+  * Members: `None admin accounts`
+  * Owners: `<Agency Owner> (Admin)`
+  * Group membership: `None`
+  * Applications: `None`
+  * Licenses: `Microsoft 365 E5`
+  * Azure role assignment: `None`
+* Group Name: `Office365_AssignLicense_StandardUsers`
+  * Membership type: `Assigned`
+  * Source: `Windows server AD`
+  * Type: `Security`
+  * Members: `None admin accounts`
+  * Owners: `None`
+  * Group membership: `None`
+  * Applications: `None`
+  * Licenses: `Microsoft 365 E5`
+  * Azure role assignment: `None`
+* Group Name: `Office365_Conditional_Access_Exclude`
+  * Membership type: `Assigned`
+  * Source: `Cloud`
+  * Type: `Security`
+  * Members
+    * Break Glass account
+      * TenantAdmin
+      * TenantAdmin2
+    * AAD Connect Synchronization accounts
+      * `Sync_<AAD Server 1>_144f9a623d47`
+      * `Sync_<AAD Server 2>_b49bd30fb398`
+  * Owners: `None`
+  * Group membership: `None`
+  * Applications: `None`
+  * Licenses: `None`
+  * Azure role assignment: `None`
+* Group Name: `Office365_Grant_AzureAD_Join`
+  * Membership type: `Assigned`
+  * Source: `Windows server AD`
+  * Type: `Security`
+  * Members: `Admin accounts`
+  * Owners: `None`
+  * Group membership: `None`
+  * Applications: `None`
+  * Licenses: `None`
+  * Azure role assignment: `None`
+* Group Name: `Office365_Grant_CreateGroups`
+  * Membership type: `Assigned`
+  * Source: `Cloud`
+  * Type: `Security`
+  * Members: `<Agency User>`
+  * Owners: `None`
+  * Group membership: `None`
+  * Applications: `None`
+  * Licenses: `None`
+  * Azure role assignment: `None`
 
 ### Azure AD Connect
 
@@ -2434,6 +2580,34 @@ GDPR – Report data breaches | Medium (x2) | Excluded N/As
 GDPR – Data protection | Medium (x2) | Excluded N/As
 GDPR – User ownership | Medium (x2) | Excluded N/As
 
+### Log Analytics
+
+Table 12 describes the Log Analytics settings that are configured within the Log Analytics Workspace.
+
+Configuration | Value 
+--- | ---
+Workspace Name | agency-log-workspace
+Azure Subscription | Agency subscription 
+Region | Australia Central
+Log retention | Retention Period: 1 year<br>Data Volume Cap: Off 
+Log Analytics Contributor Group | rol-agency-log-admin
+
+#### Microsoft Endpoint Manager
+
+Configuration | Value 
+--- | ---
+Diagnostic Setting Name | Send to Log Analytics
+Log | AuditLogs <br> OperationalLogs <br> DeviceComplianceOrg <br> Devices
+Destination details | Send to Log Analytics Workspace (agency-log-workspace)
+
+#### Azure Active Directory
+
+Configuration | Value 
+--- | ---
+Diagnostic Setting Name | Send to Log Analytics
+Log | AuditLogs <br> SignInLogs <br> NonInteractiveUserSignInLogs <br> ServicePrincipalSignInLogs <br> ManagedIdentitySignInLogs <br> ProvisioningLogs
+Destination details | Send to Log Analytics Workspace (agency-log-workspace)
+
 ## Client configuration
 
 The ABAC settings for the Agency Client Configuration can be found below. This includes Microsoft Co-Management, Registry Settings, Application Packaging, Printing and End User Internet Access settings. Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting.
@@ -2535,7 +2709,7 @@ The ABAC settings for the Agency Backup can be found below. This includes Backup
 Item | Value
 --- | ---
 Restoration tools | Microsoft backup and restoration tools
-Items to Backup | Exchange Online<br>SharePoint Online<br>Microsoft Teams<br>OneDrive for Business<br>Office 365 Groups
+Items to Backup | Exchange Online<br>SharePoint Online<br>Microsoft Teams<br>OneDrive for Business<br>Microsoft 365 groups
 
 ### Data availability
 

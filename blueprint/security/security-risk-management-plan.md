@@ -5,7 +5,7 @@ menu: security
 download: true
 ---
 
-This Security Risk Management Plan (SRMP) has been developed to demonstrate the reduction in risk that can be achieved by implementing the CloudSystem to secure access to Microsoft Office 365 services from Windows 10 endpoints and iOS mobile devices. 
+This Security Risk Management Plan (SRMP) has been developed to demonstrate the reduction in risk that can be achieved by implementing the CloudSystem to secure access to Microsoft Office 365 services from Windows 10 endpoints and iOS mobile devices.
 
 Each risk has been assessed in the context of the controls implemented by the CloudSystem directly, those implemented by Microsoft as part of the Office 365 service, as well as those that are expected to be implemented by Australian Government Agencies that will leverage the CloudSystem. The risk matrix, including definitions of likelihood and consequence, is provided at [Risk Matrix](/assets/files/security/risk-matrix.pdf). Agencies leveraging the CloudSystem should review the risk ratings and align them to their internal risk management framework as applicable.
 
@@ -16,7 +16,7 @@ A summary of the identified risks and the assessed risk ratings are listed in Ta
 Table 1 Summary of Risk Events and Risk Ratings
 
 Risk Event ID | Risk Event Description | Inherent Risk Rating | Residual Risk Rating | Target Risk Rating
---- | --- | --- | ---
+--- | --- | --- | --- | ---
 R01 | Inadequate privileged account management | High | Medium | Low
 R02 | Sensitive/classified email sent to unauthorised recipients | High | Medium | Medium
 R03 | Unauthorised access to data hosted within Office 365 | High | Medium | Medium
@@ -39,7 +39,7 @@ R19 | Users declassifying emails without the owner’s permission  | High | Medi
 
 ## Introduction
 
-This SRMP has been prepared by the DTA to support Agencies planning to leverage the CloudSystem. The document demonstrates the controls implemented by the CloudSystem that reduce the risk of leveraging Office 365 for environments that have been accredited to hold up to and including PROTECTED security classified information.
+This Security Risk Management Plan (SRMP) has been prepared by the Digital Transformation Agency (DTA) to support Agencies planning to leverage the CloudSystem. The document demonstrates the controls implemented by the CloudSystem that reduce the risk of leveraging Office 365 for environments that have been accredited to hold up to and including PROTECTED security classified information.
 
 PROTECTED is used throughout the document to describe the maximum security classification of information able to be managed by the system. Where PROTECTED is used, the security markings described by the Protective Security Policy Framework (PSPF) such as OFFICIAL and OFFICIAL: Sensitive are inferred.
 
@@ -82,7 +82,7 @@ If a privileged account were to be compromised or system privileges were incorre
 
 * Obtain unauthorised access to:
   * Deny access to agency information to authorised users
-  * Modify agency information and making the integrity of the information unviable or no longer trustworthy 
+  * Modify agency information and making the integrity of the information unviable or no longer trustworthy
   * Obfuscate adversary actions
 * Obtain information by opportunistically stealing or scavenging information systems/components
 * Compromise organisational information systems to facilitate exfiltration of data/information
@@ -106,14 +106,14 @@ If a privileged account were to be compromised or system privileges were incorre
   * Agency IT Security Policy for authorised staff to not provide privileged access to unauthorised staff and not allow logging in using service accounts
   * Administrative break glass accounts will only be utilised when no other privileged account can be utilised
   * Approval process to obtain a privileged user account
-  * Training to agency nominated system administrators 
+  * Training to agency nominated system administrators
 * CloudSystem treatments
   * Conditional Access enforces Multi-Factor Authentication (MFA) for all privileged users
   * Azure AD Identity Protection configured to alert on detected identity-based and sign-in risks
   * Azure AD Privileged Identity Management (PIM) provides Just-In-Time (JIT) privileged access
   * The solution leverages built-in Azure AD / Office 365 Role Groups to implement a robust Role-Based Access Control (RBAC) model
   * All Azure AD and Office 365 logs are centralised into a single Log Analytics workspace
-  * Emergency access accounts are configured in accordance with [Microsoft best practice](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-emergency-access) to prevent administrators from being locked-out of Azure services 
+  * Emergency access accounts are configured in accordance with [Microsoft best practice](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-emergency-access) to prevent administrators from being locked-out of Azure services
 
 #### Residual likelihood
 
@@ -157,7 +157,7 @@ A user sends an OFFICIAL: Sensitive or PROTECTED classified mail/attachment, or 
 
 #### Assets affected
 
-* OFFICIAL: Sensitive and PROTECTED data 
+* OFFICIAL: Sensitive and PROTECTED data
 * Personal information
 
 #### Threat sources
@@ -270,7 +270,7 @@ An unauthorised user attempts to access data hosted within Microsoft’s Office 
   * Office 365 audit logging enabled to provide the ability to audit actions undertaken within the Office 365 services
   * Office 365 Advanced Threat Protection (ATP) Safe Links, ATP Safe Attachments, ATP for SharePoint Online, OneDrive for Business, and Microsoft Teams and ATP Anti-Phishing capabilities enabled to reduce the likelihood of malicious code infiltrating
   * Microsoft Cloud App Security (MCAS) enabled and app connectors and policies configured to detect risky behaviours, violations, or suspicious data points and activities within Office 365
-  * Sender Policy Framework (SPF), Domain based Message Authentication, Reporting and Conformance (DMARC), and DomainKeys Identified Mail (DKIM) records are configured to mitigate spoofing of emails being sent into the organisation 
+  * Sender Policy Framework (SPF), Domain based Message Authentication, Reporting and Conformance (DMARC), and DomainKeys Identified Mail (DKIM) records are configured to mitigate spoofing of emails being sent into the organisation
   * Office 365 services are only utilised within Australian regions
   * Credential Guard is enabled and credential theft is blocked through Microsoft Defender Exploit Guard
   * Data transfer logs are retained
@@ -339,7 +339,7 @@ An authorised or unauthorised user (malicious insider) attempts to disable cloud
 
 * CloudSystem treatments
   * Azure AD Identity Protection configured to alert on detected identity-based and sign-in risks
-  * Azure AD PIM provides JIT privileged access
+  * Azure AD Privileged Identity Manager (PIM) provides Just-In-Time (JIT) privileged access
   * Leverage built-in Azure AD / Office 365 Role Groups to implement a robust RBAC model
   * All Azure AD and Office 365 logs are centralised into a single Log Analytics workspace
   * Microsoft's attack surface reduction rules are enabled
@@ -358,8 +358,8 @@ An authorised or unauthorised user (malicious insider) attempts to disable cloud
 
 #### Proposed treatments
 
-* Forward logs to a SIEM solution
-* Agency training for security and system administrators for the use of Security Centre 
+* Forward logs to a Security Information Event Management (SIEM) solution
+* Agency training for security and system administrators for the use of Security Centre
 * Monitoring of events within Security Centre
 
 #### Target likelihood
@@ -409,7 +409,7 @@ An authorised administrator misconfigures services increasing the risk of furthe
 
 * CloudSystem treatments
   * Azure AD Identity Protection configured to alert on detected identity-based and sign-in risks
-  * Azure AD PIM provides JIT privileged access
+  * Azure AD Privelaged Identity Manager (PIM) provides Just-In-Time (JIT) privileged access
   * Leverage built-in Azure AD / Office 365 Role Groups to implement a robust RBAC model
   * All Azure AD and Office 365 logs are centralised into a single Log Analytics workspace
   * Standard Operating Procedures (SOPs) are provided for administrators
@@ -429,8 +429,9 @@ An authorised administrator misconfigures services increasing the risk of furthe
 #### Proposed treatments
 
 * Administrator training provided for specific technologies utilised within the CloudSystem
-* Agency training for security and system administrators for the use of Security Centre / Sentinel
-* Monitoring of events within Security Centre / Sentinel
+* Forward logs to a Security Information Event Management (SIEM) solution
+* Agency training for security and system administrators for the use of Security Centre
+* Monitoring of events within Security Centre
 
 #### Target likelihood
 
@@ -487,7 +488,7 @@ Malicious code introduced to the environment by one or more vectors leading to t
   * EOP provides built-in protection for Exchange Online mailboxes
   * Microsoft’s Cyber Defence Operations Centre helps protect, detect, and respond to Office 365 cloud service threats in real time
 * CloudSystem treatments
-  * Windows Defender ATP is enabled to provide reporting, pre-breach protection, post-breach detection, automation, and response on hosted desktops and platform servers
+  * Windows Defender Advanced Threat Protection (ATP) is enabled to provide reporting, pre-breach protection, post-breach detection, automation, and response on hosted desktops and platform servers
   * Office 365 ATP Safe Links, ATP Safe Attachments, ATP for SharePoint Online, OneDrive for Business, Microsoft Teams, and ATP Anti-Phishing capabilities enabled to reduce the likelihood of malicious code infiltrating the environment
   * Windows Defender Application Control (WDAC) provides application control functionality to block unauthorised executables from running
   * Windows Defender Exploit Guard (WDEG) ‘exploit protection’ feature is enabled
@@ -509,8 +510,8 @@ Malicious code introduced to the environment by one or more vectors leading to t
 
 #### Proposed treatments
 
-* Forward logs to a SIEM solution
-* Agency training for security and system administrators for the use of Security Centre 
+* Forward logs to a Security Information Event Management (SIEM) solution
+* Agency training for security and system administrators for the use of Security Centre
 * Monitoring of events within Security Centre
 
 #### Target likelihood
@@ -588,7 +589,7 @@ An unauthorised user attempts to access email within mailboxes hosted in Exchang
 
 #### Proposed treatments
 
-* Forward logs to a SIEM solution
+* Forward logs to a Security Information Event Management (SIEM) solution
 * Agency training for security and system administrators for the use of Security Centre
 * Monitoring of events within Security Centre
 
@@ -718,8 +719,8 @@ An intrusion is not detected leading to a threat of malicious activity and possi
 * Native Office 365 treatments
   * Microsoft’s Cyber Defence Operations Centre helps protect, detect, and respond to Office 365 cloud service threats in real time
 * CloudSystem treatments
-  * Windows Defender ATP is enabled to provide reporting, pre-breach protection, post-breach detection, automation, and response on hosted desktops and platform servers
-  * MCAS enabled and app connectors and policies configured to detect risky behaviours, violations, or suspicious data points and activities within Office 365
+  * Windows Defender Advanced Threat Protection (ATP) is enabled to provide reporting, pre-breach protection, post-breach detection, automation, and response on hosted desktops and platform servers
+  * Microsoft Cloud App Security (MCAS) enabled and app connectors and policies configured to detect risky behaviours, violations, or suspicious data points and activities within Office 365
   * All Azure AD and Office 365 logs are centralised into a single Log Analytics workspace
   * Credential Guard is enabled and credential theft is blocked through Microsoft Defender Exploit Guard
   * Microsoft's attack surface reduction rules are enabled
@@ -739,9 +740,9 @@ An intrusion is not detected leading to a threat of malicious activity and possi
 
 #### Proposed treatments
 
-* Forward logs to a SIEM solution
-* Agency training for security and system administrators for the use of Security Centre / Sentinel
-* Monitoring of events within Security Centre / Sentinel
+* Forward logs to a Security Information Event Management (SIEM) solution
+* Agency training for security and system administrators for the use of Security Centre
+* Monitoring of events within Security Centre
 
 #### Target likelihood
 
@@ -894,8 +895,8 @@ Security vulnerabilities are discovered within the operating system versions uti
 
 #### Proposed treatments
 
-* Forward logs to a SIEM solution
-* Agency training for security and system administrators for the use of Security Centre 
+* Forward logs to a Security Information Event Management (SIEM) solution
+* Agency training for security and system administrators for the use of Security Centre
 * Monitoring of events within Security Centre
 
 #### Target likelihood
@@ -954,7 +955,7 @@ Security vulnerabilities are discovered within applications utilised by the solu
   * Intune used to patch applications on a regular basis 
   * Windows Defender Firewall enabled for inbound connections
   * User Account Control (UAC) enabled to enforce the elevation of privileges to help prevent vulnerability exploitation
-  * WDEG ‘exploit protection’ feature is enabled 
+  * Windows Defender Exploit Guard (WDEG) ‘exploit protection’ feature is enabled
   * Local administrator account renamed and disabled via Intune policy
   * Microsoft's attack surface reduction rules are enabled
 
@@ -972,8 +973,8 @@ Security vulnerabilities are discovered within applications utilised by the solu
 
 #### Proposed treatments
 
-* Forward logs to a SIEM solution
-* Agency training for security and system administrators for the use of Security Centre 
+* Forward logs to a Security Information Event Management (SIEM) solution
+* Agency training for security and system administrators for the use of Security Centre
 * Monitoring of events within Security Centre
 
 #### Target likelihood
@@ -1025,10 +1026,10 @@ An attacker attempts to bypass the application control restrictions enforced on 
 #### Ongoing and completed treatments
 
 * CloudSystem treatments
-  * WDAC provides application control functionality to block unauthorised executables from running
+  * Windows Defender Application Control (WDAC) provides application control functionality to block unauthorised executables from running
   * WDAC policies configured centrally from Intune
-  * WDEG ‘exploit protection’ feature is enabled
-  * Windows Defender ATP is enabled to provide reporting, pre-breach protection, post-breach detection, automation, and response on hosted desktops and platform servers
+  * Windows Defender Exploit Guard (WDEG) ‘exploit protection’ feature is enabled
+  * Windows Defender Advanced Threat Protection (ATP) is enabled to provide reporting, pre-breach protection, post-breach detection, automation, and response on hosted desktops and platform servers
   * Microsoft's attack surface reduction rules are enabled
 
 #### Residual likelihood
@@ -1045,8 +1046,8 @@ An attacker attempts to bypass the application control restrictions enforced on 
 
 #### Proposed treatments
 
-* Forward logs to a SIEM solution
-* Agency training for security and system administrators for the use of Security Centre 
+* Forward logs to a Security Information Event Management (SIEM) solution
+* Agency training for security and system administrators for the use of Security Centre
 * Monitoring of events within Security Centre
 
 #### Target likelihood
@@ -1243,9 +1244,9 @@ Administration of the system is undertaken by authorised privileged users by con
 * CloudSystem treatments
   * Conditional Access only allows access to administrative portals from endpoints
   * All endpoints are hardened using the Australian Cyber Security Centre (ACSC) [guidance for Windows 10](https://www.cyber.gov.au/publications/hardening-microsoft-windows-10-build-1709)
-  * Windows Defender ATP is enabled to provide reporting, pre-breach protection, post-breach detection, automation, and response on hosted desktops and platform servers
-  * WDAC provides application control functionality to block unauthorised executables from running 
-  * WDEG ‘exploit protection’ feature is enabled
+  * Windows Defender Advanced Threat Protection (ATP) is enabled to provide reporting, pre-breach protection, post-breach detection, automation, and response on hosted desktops and platform servers
+  * Windows Defender Application Control (WDAC) provides application control functionality to block unauthorised executables from running
+  * Windows Defender Exploit Guard (WDEG) ‘exploit protection’ feature is enabled
   * Conditional Access enforces MFA for all privileged users
   * Azure AD Identity Protection configured to alert on detected identity-based and sign-in risks
   * Credential Guard is enabled and credential theft is blocked through Microsoft Defender Exploit Guard
@@ -1409,8 +1410,8 @@ An administrator enables a cloud service - or new feature within an existing clo
   * As new services become available the Agency will undertake a risk assessment of the service and establish if the risk is within the Agency’s tolerance before engaging the new service offering
 * CloudSystem treatments
   * Leverage built-in Azure AD / Office 365 Role Groups to implement a robust Role-Based Access Control (RBAC) model minimising the number of users that can onboard a new service or enable additional features
-  * MCAS is configured to log activity by all users including Global Admins providing an audit trail for new services.
-  * Azure AD PIM is enabled and requires Global Admins to provide a reason when requesting elevated privileges. PIM will also log the start time and end time of the elevated privileges.
+  * Microsoft Cloud App Security (MCAS) is configured to log activity by all users including Global Admins providing an audit trail for new services.
+  * Azure AD Privelaged Identity Manager (PIM) is enabled and requires Global Admins to provide a reason when requesting elevated privileges. PIM will also log the start time and end time of the elevated privileges.
   * Data transfer logs are retained
 
 #### Residual likelihood

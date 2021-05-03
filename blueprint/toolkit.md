@@ -9,6 +9,8 @@ The toolkit includes detailed guidance on how to conduct basic assessments again
 
 Please note: The assessment steps detailed in this document have been designed for typical Australian Federal government ICT environments (Pre-implementation Assessment Steps) and successful Blueprint implementations (Post-implementation Assessment Steps). Entities with unique ICT environments or off-plan Blueprint implementations may need to consider how their particular ICT requirements will impact the assessment methodology or results.
 
+[Download the assurance toolkit](#download-the-assurance-toolkit){:.au-btn}
+
 ## Essential Eight overview
 
 The Australian Signals Directorate’s Australian Cyber Security Centre (ACSC) has developed prioritised mitigation strategies, in the form of the ***Strategies to Mitigate Cyber Security Incidents***, to help organisations to mitigate cyber security incidents caused by various cyber threats. The most effective of these are known as the Essential Eight. 

@@ -358,7 +358,7 @@ An authorised or unauthorised user (malicious insider) attempts to disable cloud
 
 #### Proposed treatments
 
-* Forward logs to a Security Information Event Management (SIEM) solution
+* Forward logs to a Security Information and Event Management (SIEM) solution
 * Agency training for security and system administrators for the use of Security Centre
 * Monitoring of events within Security Centre
 
@@ -429,7 +429,7 @@ An authorised administrator misconfigures services increasing the risk of furthe
 #### Proposed treatments
 
 * Administrator training provided for specific technologies utilised within the CloudSystem
-* Forward logs to a Security Information Event Management (SIEM) solution
+* Forward logs to a Security Information and Event Management (SIEM) solution
 * Agency training for security and system administrators for the use of Security Centre
 * Monitoring of events within Security Centre
 
@@ -510,7 +510,7 @@ Malicious code introduced to the environment by one or more vectors leading to t
 
 #### Proposed treatments
 
-* Forward logs to a Security Information Event Management (SIEM) solution
+* Forward logs to a Security Information and Event Management (SIEM) solution
 * Agency training for security and system administrators for the use of Security Centre
 * Monitoring of events within Security Centre
 
@@ -589,7 +589,7 @@ An unauthorised user attempts to access email within mailboxes hosted in Exchang
 
 #### Proposed treatments
 
-* Forward logs to a Security Information Event Management (SIEM) solution
+* Forward logs to a Security Information and Event Management (SIEM) solution
 * Agency training for security and system administrators for the use of Security Centre
 * Monitoring of events within Security Centre
 
@@ -740,7 +740,7 @@ An intrusion is not detected leading to a threat of malicious activity and possi
 
 #### Proposed treatments
 
-* Forward logs to a Security Information Event Management (SIEM) solution
+* Forward logs to a Security Information and Event Management (SIEM) solution
 * Agency training for security and system administrators for the use of Security Centre
 * Monitoring of events within Security Centre
 
@@ -895,7 +895,7 @@ Security vulnerabilities are discovered within the operating system versions uti
 
 #### Proposed treatments
 
-* Forward logs to a Security Information Event Management (SIEM) solution
+* Forward logs to a Security Information and Event Management (SIEM) solution
 * Agency training for security and system administrators for the use of Security Centre
 * Monitoring of events within Security Centre
 
@@ -973,7 +973,7 @@ Security vulnerabilities are discovered within applications utilised by the solu
 
 #### Proposed treatments
 
-* Forward logs to a Security Information Event Management (SIEM) solution
+* Forward logs to a Security Information and Event Management (SIEM) solution
 * Agency training for security and system administrators for the use of Security Centre
 * Monitoring of events within Security Centre
 
@@ -1046,7 +1046,7 @@ An attacker attempts to bypass the application control restrictions enforced on 
 
 #### Proposed treatments
 
-* Forward logs to a Security Information Event Management (SIEM) solution
+* Forward logs to a Security Information and Event Management (SIEM) solution
 * Agency training for security and system administrators for the use of Security Centre
 * Monitoring of events within Security Centre
 

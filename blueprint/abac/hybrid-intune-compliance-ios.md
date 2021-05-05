@@ -19,8 +19,8 @@ menu: abac
     * Jailbroken devices: `Block`
     * Require the device to be at or under the Device Threat Level: `Medium`
   * Device Properties
-    * Minimum OS version: `12.0`
-    * Minimum OS build version: `16G183`
+    * Minimum OS version: `13.0`
+    * Minimum OS build version: `17A577`
   * System Security: `
     * Require a password to unlock mobile devices.: `Required`
     * Simple passwords: `Block`

@@ -37,7 +37,7 @@ The following can be found at `Intune > Devices > Configuration profiles`
     * Maximum minutes of inactivity until screen locks: `2`
     * Password expiration (days): `41`
     * Prevent reuse of previous passwords: `5`
-    * Touch ID and Face ID unlock: `Not configured`
+    * Block Touch ID and Face ID unlock: `Yes`
   * Automated device enrollment
     * Passcode modification: `Not configured`
     * Touch and Face ID modifications: `Not configured`
@@ -50,19 +50,19 @@ The following can be found at `Intune > Devices > Configuration profiles`
     * Notification Center access while device locked: `Not configured`
     * Today view while device locked: `Not configured`
     * Wallet notifications while device locked: `Block`
-    * App Store, Doc Viewing, Gaming: ``
-    * Viewing corporate documents in unmanaged apps: `Block`
+  * App Store, Doc Viewing, Gaming
+    * Block viewing corporate documents in unmanaged apps: `Yes`
     * Allow unmanaged apps to read from managed contacts accounts: `Not configured`
-    * Treat AirDrop as an unmanaged destination: `Require`
+    * Treat AirDrop as an unmanaged destination: `Yes`
     * Viewing non-corporate documents in corporate apps: `Block`
     * Require iTunes Store password for all purchases: `Not configured`
     * In-app purchases: `Not configured`
-    * Download content from iBook store flagged as 'Erotica': `Block`
+    * Block download of explicit sexual content in Apple Books: `Yes`
     * Allow managed apps to write contacts to unmanaged contacts accounts: `Not configured`
     * Rating Region: `No region configured`
-    * App store: `Not configured`
-    * Installing apps from App Store: `Not configured`
-    * Automatic app downloads: `Not configured`
+    * Block App store: `Not configured`
+    * Block installing apps using App Store: `Not configured`
+    * Block automatic app downloads: `Not configured`
     * Explicit iTunes music, podcast, or news content: `Block`
     * Adding Game Center friends: `Block`
     * Game Center: `Block`

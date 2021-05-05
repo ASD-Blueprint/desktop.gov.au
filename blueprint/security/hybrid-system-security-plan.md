@@ -80,9 +80,9 @@ In accordance with the requirements of the ISM, the following security documenta
 * DTA – Blueprint – Office 365 Design (August 2020)
 * DTA – Hybrid Blueprint – System Security Plan (April 2021) (this document)
 * DTA – Hybrid Blueprint – System Security Plan Annex (April 2021)
-* DTA – Hybrid Blueprint – Security Risk Management Plan (October 2020)
-* DTA – Hybrid Blueprint – Standard Operating Procedures (October 2020)
-* DTA – Hybrid Blueprint – Incident Response Plan (October 2020)
+* DTA – Hybrid Blueprint – Security Risk Management Plan (April 2021)
+* DTA – Hybrid Blueprint – Standard Operating Procedures (April 2021)
+* DTA – Hybrid Blueprint – Incident Response Plan (April 2021)
 
 The suite of documentation produced to support ACSC’s certification of Azure and Office 365 for PROTECTED have also been leveraged in the development of the HybridSystem, and includes the following :
 

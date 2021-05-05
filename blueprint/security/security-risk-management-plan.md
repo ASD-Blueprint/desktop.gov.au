@@ -409,7 +409,7 @@ An authorised administrator misconfigures services increasing the risk of furthe
 
 * CloudSystem treatments
   * Azure AD Identity Protection configured to alert on detected identity-based and sign-in risks
-  * Azure AD Privelaged Identity Manager (PIM) provides Just-In-Time (JIT) privileged access
+  * Azure AD Privileged Identity Manager (PIM) provides Just-In-Time (JIT) privileged access
   * Leverage built-in Azure AD / Office 365 Role Groups to implement a robust RBAC model
   * All Azure AD and Office 365 logs are centralised into a single Log Analytics workspace
   * Standard Operating Procedures (SOPs) are provided for administrators
@@ -1411,7 +1411,7 @@ An administrator enables a cloud service - or new feature within an existing clo
 * CloudSystem treatments
   * Leverage built-in Azure AD / Office 365 Role Groups to implement a robust Role-Based Access Control (RBAC) model minimising the number of users that can onboard a new service or enable additional features
   * Microsoft Cloud App Security (MCAS) is configured to log activity by all users including Global Admins providing an audit trail for new services.
-  * Azure AD Privelaged Identity Manager (PIM) is enabled and requires Global Admins to provide a reason when requesting elevated privileges. PIM will also log the start time and end time of the elevated privileges.
+  * Azure AD privileged Identity Manager (PIM) is enabled and requires Global Admins to provide a reason when requesting elevated privileges. PIM will also log the start time and end time of the elevated privileges.
   * Data transfer logs are retained
 
 #### Residual likelihood

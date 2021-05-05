@@ -345,7 +345,7 @@ An malicious insider attempts to disable cloud-based security capabilities (e.g.
 
 * HybridSystem treatments
   * Azure AD Identity Protection configured to alert on detected identity-based and sign-in risks
-  * Azure AD Privelaged Identity Management (PIM) provides JIT privileged access
+  * Azure AD Privileged Identity Management (PIM) provides JIT privileged access
   * Leverage built-in Azure AD / Office 365 Role Groups to implement a robust RBAC model
   * All Azure AD and Office 365 logs are centralised into a single Log Analytics workspace
   * Microsoft's attack surface reduction rules are enabled

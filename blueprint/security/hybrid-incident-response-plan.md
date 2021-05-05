@@ -19,7 +19,7 @@ The HybridSystem IRP is a living document. It is anticipated that, over time, am
 
 ## Incident response plan
 
-This IRP is based on the four step National Institute of Standards and Technology (NIST) incident response life cycle as documented in [Special Publication 800-61 Revision 2](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final). The four steps of the process are illustrated in Figure 1 and are:
+This Incident Response Plan (IRP) is based on the four step National Institute of Standards and Technology (NIST) incident response life cycle as documented in [Special Publication 800-61 Revision 2](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final). The four steps of the process are illustrated in Figure 1 and are:
 
 * Preparation
 * Detection & Analysis
@@ -38,10 +38,10 @@ The preparation phase of the incident response life cycle is a shared responsibi
 * DTA – Blueprint – Platform Design (October 2020) which describes the technologies used that make up the ‘platform’ portion of the solution and how they are implemented.
 * DTA – Blueprint – Client Devices Design (October 2020) which describes the technologies used that make up the Windows 10 portion of the solution and how it is implemented.
 * DTA – Blueprint – Office 365 Design (October 2020) which describes the technologies used that make up the Office 365 portion of the solution and how it is implemented.
-* DTA – Hybrid Blueprint – Security Risk Management Plan (October 2020) (SRMP) which includes the details of the risk assessment performed and the recommended treatments.
-* DTA – Hybrid Blueprint – System Security Plan (October 2020) (SSP) which describes how controls identified in the SSP Annex are implemented by the system.
-* DTA – Hybrid Blueprint – System Security Plan Annex (October 2020) which states the compliance of the solution with the June 2020 version of the ISM.
-* DTA – Hybrid Blueprint – Standard Operating Procedures (October 2020) which describe the steps required to perform multiple operational tasks within the environment.
+* DTA – Hybrid Blueprint – Security Risk Management Plan (April 2021) (SRMP) which includes the details of the risk assessment performed and the recommended treatments.
+* DTA – Hybrid Blueprint – System Security Plan (April 2021) (SSP) which describes how controls identified in the SSP Annex are implemented by the system.
+* DTA – Hybrid Blueprint – System Security Plan Annex (April 2021) which states the compliance of the solution with the April 2021 version of the ISM.
+* DTA – Hybrid Blueprint – Standard Operating Procedures (April 2021) which describe the steps required to perform multiple operational tasks within the environment.
 
 In addition to having ongoing access to the above documentation it is assumed that Agency cyber security personnel have access to tools and resources as described in the Agency IRP. Specific resources that are also required by Agency cyber security personnel to detect and respond to security incidents include:
 
@@ -67,7 +67,7 @@ Multiple detection methods are available to the Agency’s cyber security person
 * Alerts from Azure AD (including Azure AD Identity Protection) including risky sign-ins and users flagged for risk.
 * Azure AD logs stored in Azure and available via the portal, including the audit log for all administrative activities relating to Azure AD.
 * Office 365 ATP alerts and reports for each of the ATP capabilities including Safe Attachments, Safe Links, ATP for SharePoint, OneDrive and Microsoft Teams, and ATP anti-phishing protection.
-* Microsoft Defender ATP including the Security Operations, Incidents, and Alerts Queue dashboards which provide tailored information and actions for cyber security personnel.
+* Microsoft Defender Advanced Threat Protection (ATP) including the Security Operations, Incidents, and Alerts Queue dashboards which provide tailored information and actions for cyber security personnel.
 * Azure ATP provides User Entity Behavioural Analytics (UEBA) by monitoring authentication requests to on-premises Active Directory (AD) Domain Controllers (DCs). 
 * Microsoft Cloud App Security (MCAS) Threat Detection, Privileged Accounts, and Access Control dashboards spanning the whole Microsoft 365 deployment, along with configurable email alerts and automatic response capabilities.
 * Local Windows 10 events logs written to each Windows 10 endpoint including authentication attempts, firewall activities, and Windows Defender Application Control (WDAC) events.
@@ -88,10 +88,10 @@ Table 2 Microsoft Defender Security Center Alert Severities
 
 Severity | Description
 --- | ---
-High | Threats marked as High have the potential to cause severe damage to the system and devices using it. These alerts must be treated with urgency.
-Medium | Threats marked as Medium must be treated with some importance but typically will indicate anomalous behaviour within the environment such as the execution of suspicious files, un-sanctioned registry changes, or observed behaviours typical of a cyber threat or attack.
-Low | Low urgency threats will typically be identified as commercial/known malware or hacking tools, their function is generally well understood and the ability to stop it is high.
-Informational | Informational alerts are those that might not be considered harmful to the network but are good to track.
+High | Threats marked as 'High' have the potential to cause severe damage to the system and devices using it. These alerts must be treated with urgency.
+Medium | Threats marked as 'Medium' must be treated with some importance but typically will indicate anomalous behaviour within the environment such as the execution of suspicious files, un-sanctioned registry changes, or observed behaviours typical of a cyber threat or attack.
+Low | 'Low' urgency threats will typically be identified as commercial/known malware or hacking tools, their function is generally well understood and the ability to stop it is high.
+Informational | 'Informational' alerts are those that might not be considered harmful to the network but are good to track.
 
 Figure 2 shows an example of an alert from Defender ATP which detected a suspicious sequence of activities and automatically generated an incident detailing the severity, timestamps, devices affected, applications called, and more.
 
@@ -99,7 +99,7 @@ Figure 2 shows an example of an alert from Defender ATP which detected a suspici
 
 When the Agency's cyber security personnel receive an alert, they should perform analysis to determine the cause and any potential impact, including recommended actions within the Microsoft Defender Security Center portal. If an alert occurs during an approved change window and relates directly to the contents of the change, for example an unapproved/not allowed executable runs during an application deployment, then it is unlikely that a security incident has occurred. However, if an alert is triggered outside of a change window and without an obvious cause then the probability of the event being a security incident is probable.
 
-Note, Microsoft assign a criticality to each alert based on an internal rating system. It is up to the Agency’s cyber security team to make their own assessment of the criticality of all potential security incidents in accordance with the Agency’s overarching IRP. 
+Note, Microsoft assign a criticality to each alert based on an internal rating system. It is up to the Agency’s cyber security team to make their own assessment of the criticality of all potential security incidents in accordance with the Agency’s overarching IRP.
 
 The assignment of criticality to an incident is an important step and due care must be applied to avoid the risks associated with both under and over classifying an incident. If there is ever any doubt, cyber security personnel should always investigate further.
 
@@ -187,7 +187,6 @@ Violation of integrity and/or confidentiality of Azure AD account(s)<br>(For exa
 Violation of integrity of Azure AD configuration<br>(For example, unapproved changes are made to Conditional Access policies) | **Containment** – Unauthorised changes to Conditional Access policies can result in gaps within the approved authentication process. To prevent these changes Privileged Identity Management should be utilised to only grant temporary permissions to perform privileged tasks.<br><br>**Eradication** – Agency cyber security personnel should revert any changes made to the configuration in alignment with the configuration outlined in the ‘DTA – Platform – Detailed Design’ and ‘DTA – Conditional Access – ABAC’ documents.<br><br>**Recovery** – Ensure all changes have been reverted, to ensure this has been completed successfully refer to the design and ABAC documents. Once the change(s) have been reverted any further authentication attempts will need to pass the conditional access policies. Measures should be in place to record any security incidents and unexpected changes to the configuration due to lack of knowledge.
 Violation of integrity of Office 365 configuration<br>(For example, DLP or retention policies are disabled or modified without authorisation) | **Containment** – DLP and retention policies are in place to ensure sensitive data does not improperly leave organisational boundaries. DLP is controlled by Azure AD permissions, as such, all access to it should be controlled by Privileged Access Management (PIM). In the event of an incident PIM can be used to restrict administrative privileges to prevent further changes and provide an audit log of previous actions.<br><br>**Eradication** – Agency cyber security personnel should revert any changes made to the configuration in alignment with the configuration in the ‘DTA – Office 365 – Detailed Design’ document. The Azure AD and PIM logs should be scrutinised to review by whom the unapproved change was made.<br><br>**Recovery** – Ensure all changes have been reverted, to ensure this has been completed successfully refer to the design and ABAC documents. Agency cyber security personnel should review the last modified time of the affected policy and align it with PIM logs. A review of all privileged users and groups is recommended.
 Loss of availability of Agency data stored in Office 365<br>(For example, the Microsoft Teams service is unavailable, and critical corporate data cannot be accessed) | **Containment** – Service availability within the Office 365 and Azure environments is very high, if however, a service is offline or otherwise inaccessible, the Agency cyber security team should ensure the status of the service via the Microsoft 365 Service Health Status portal (see: Microsoft 365 Service Outages). If Microsoft Teams is inaccessible, secondary pathways to the data should be explored, for example, accessing the Teams back-end SharePoint Online site.<br><br>**Eradication** – Not applicable for availability incidents.<br><br>**Recovery** – The service is controlled by Microsoft and its availability is backed by Microsoft service level agreements.
-Loss of availability of Agency data stored in Office 365<br>(For example, the Microsoft Teams service is unavailable, and critical corporate data cannot be accessed) | **Containment** – Service availability within the Office 365 and Azure environments is very high, if however, a service is offline or otherwise inaccessible, the Agency cyber security team should ensure the status of the service via the Microsoft 365 Service Health Status portal (see: Microsoft 365 Service Outages). If Microsoft Teams is inaccessible, secondary pathways to the data should be explored, for example, accessing the Teams back-end SharePoint Online site.<br><br>**Eradication** – Data Loss Prevention policies are in place to ensure sensitive information across all corporate data locations is identified and not allowed to leave the organisational boundaries. If access to the data sources is compromised, Microsoft service level agreements should be referred to.<br><br>**Recovery** – The service is controlled by Microsoft and its availability is backed by Microsoft service level agreements.
 
 Note, the activities listed above are designed to aid Agency cyber security personnel in responding to the specific incident types defined. However, this is not an exhaustive list of all possible responses. Agency cyber security personnel should use their judgement to determine if they are appropriate to a specific incident or if other actions should be taken.
 
@@ -264,7 +263,7 @@ In the case where an incident has not been able to be resolved using the steps d
 An incident can be reported to the ACSC via the following methods:
 
 * Website - [https://www.cyber.gov.au/contact](https://www.cyber.gov.au/contact)
-* Phone number – 1300 CYBER1 (1800 292 371)
+* Phone number – 1300 CYBER1 (1300 292 371)
 * Email – [asd.assist@defence.gov.au](mailto:asd.assist@defence.gov.au)
 
 Note, reporting an incident via the phone is preferred when the incident is considered urgent by the Agency.

@@ -3,7 +3,7 @@ layout: page
 title: Assurance toolkit
 ---
 
-The DTA has developed the blueprint assurance toolkit to assist entities to implement the Protected Utility blueprint ("blueprint"). The toolkit provides entities with guidance on how to conduct Essential Eight maturity assessments – both prior to and following blueprint implementation. Conducting these assessments will support entities in measuring their security uplift, and to identify potential vulnerabilities or areas for improvement. 
+The DTA has developed the blueprint assurance toolkit to assist entities to implement the Protected Utility blueprint. The toolkit provides entities with guidance on how to conduct Essential Eight maturity assessments – both prior to and following blueprint implementation. Conducting these assessments will support entities in measuring their security uplift, and to identify potential vulnerabilities or areas for improvement. 
 
 The toolkit includes detailed guidance on how to conduct basic assessments against each of the ACSC Essential Eight controls.  
 

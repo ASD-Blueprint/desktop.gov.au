@@ -65,6 +65,7 @@ ICT | Information and Communications Technology
 IIS | Internet Information Services
 IMAP | Internet Message Access Protocol
 IPMI | Intelligent Platform Module Interface
+Intune | Microsoft Endpoint Manager - Intune
 IRAP | Information Security Registered Assessors Program
 ISM | Information Security Manual
 ISO | International Standards Organisation

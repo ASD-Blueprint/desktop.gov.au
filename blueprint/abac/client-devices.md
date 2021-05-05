@@ -166,7 +166,7 @@ ConvertFrom-CIPolicy -XmlFilePath {Path to the XML policy file} -BinaryFilePath 
 
 ### WDAC Policy - Deployment
 
-The above policies are deployed through Microsoft Endpoint Manager/Intune. The deployment configuration is available within the [Intune Configuration](/blueprint/abac/intune-configuration.html#agency-wdacbasepolicy) section.
+The above policies are deployed through Microsoft Endpoint Manager - Intune (Intune). The deployment configuration is available within the [Intune Configuration](/blueprint/abac/intune-configuration.html#agency-wdacbasepolicy) section.
 
 ### WDAC Policy - Removal
 

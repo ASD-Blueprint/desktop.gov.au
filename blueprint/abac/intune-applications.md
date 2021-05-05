@@ -4,7 +4,7 @@ title: Intune applications
 menu: abac
 ---
 
-The following Intune applications can be found in the Azure Portal at `Search > Intune > Client apps | Apps`
+The following Microsoft Endpoint Manager - Intune (Intune) applications can be found in the Azure Portal at `Search > Intune > Client apps | Apps`
 
 ## Privileged access
 

@@ -6,7 +6,7 @@ menu: abac
 
 ## Intune applications
 
-The following Intune applications can be found in the Azure Portal at `Intune > Apps > All apps`
+The following Microsoft Endpoint Manager - Intune (Intune) applications can be found in the Azure Portal at `Intune > Apps > All apps`
 
 ### Citrix Workspace App
 

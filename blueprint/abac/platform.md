@@ -905,7 +905,7 @@ Diagnostic Setting Name | Send to Log Analytics
 Log | AuditLogs <br> SignInLogs <br> NonInteractiveUserSignInLogs <br> ServicePrincipalSignInLogs <br> ManagedIdentitySignInLogs <br> ProvisioningLogs
 Destination details | Send to Log Analytics Workspace (agency-log-workspace)
 
-## Microsoft Intune configuration
+## Microsoft Endpoint Manager - Intune (Intune) configuration
 
 All Windows 10 client configuration is accomplished via Microsoft Intune policies. These Intune configuration policies are detailed in separate documents that are explained in Table 13 below. 
 

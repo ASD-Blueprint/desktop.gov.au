@@ -6,7 +6,7 @@ menu: abac
 
 ## Profiles
 
-The ABAC settings for the Agency Intune Profiles can be found below. This includes macro security, Windows Hello, block admins, delivery optimisation, disable Adobe Flash, Microsoft Store, Defender, network boundary, OneDrive, timezone, security baseline fixes, Bitlocker, and Windows 10 Enterprise settings.
+The ABAC settings for the Agency Microsoft Endpoint Manager - Intune (Intune) Profiles can be found below. This includes macro security, Windows Hello, block admins, delivery optimisation, disable Adobe Flash, Microsoft Store, Defender, network boundary, OneDrive, timezone, security baseline fixes, Bitlocker, and Windows 10 Enterprise settings.
 
 Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting.
 

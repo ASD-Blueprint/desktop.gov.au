@@ -553,6 +553,135 @@ $Shortcut.TargetPath = $TargetPath
 $Shortcut.Save()
 ```
 
+### Block OLE Extensions
+
+* Profile name: `Intune Block OLE Extension`
+* Script settings
+  * PowerShell script: `OLEBlockingScript.ps1`
+  * Run this script using the logged-on credentials: `No`
+  * Enforce script signature check: `No`
+  * Run script in 64 bit PowerShell Host: `No`
+* Scope tags: `Default`
+* Assignments
+  * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`
+  * Excluded groups: -
+
+```powershell
+
+#-------------------------Create new event log source-------------------------
+New-EventLog -LogName Application -Source "OLEBlock" -ErrorAction SilentlyContinue
+
+#-------------------------Get all users SIDs from the registry-------------------------
+$userSIDS = get-childitem -path "Microsoft.PowerShell.Core\Registry::HKEY_USERS" |where {$_.name -match "S-1-5-21"} |where {$_.name -notmatch "Classes"}
+#where it matches S-1-5-21-, but doesn't end in_Classes
+
+
+#-------------------------For each user SID find the correct Office registry path and apply the key-------------------------
+foreach ($user in $userSIDS) {
+    $registryPath = "$($user.name)"
+    $registryPathRoot = "Microsoft.PowerShell.Core\Registry::$registryPath"
+
+    try {
+        $path =  "$registryPathRoot\Software\Microsoft\Office\16.0"
+
+        If(test-path $path) {
+            $excelpath = "$registryPathRoot\Software\Microsoft\Office\16.0\Excel\Security"
+            If(test-path $excelpath) {
+                New-ItemProperty -Path $excelpath -Name "PackagerPrompt" -PropertyType dword -Value 2 -Force
+                Write-EventLog -LogName "Application" -Source "OLEBlock" -EventID 3000 -EntryType Information -Message "OLE Block Reg key for Office 16 Exel applied" 
+            }
+            $powerpointpath = "$registryPathRoot\Software\Microsoft\Office\16.0\Powerpoint\Security"
+            If(test-path $powerpointpath) {
+                New-ItemProperty -Path $powerpointpath -Name "PackagerPrompt" -PropertyType dword -Value 2 -Force
+                Write-EventLog -LogName "Application" -Source "OLEBlock" -EventID 3000 -EntryType Information -Message "OLE Block Reg key for Office 16 PowerPoint applied" 
+            }
+            $wordpath = "$registryPathRoot\Software\Microsoft\Office\16.0\Word\Security"
+            If(test-path $wordpath) {
+                New-ItemProperty -Path $wordpath -Name "PackagerPrompt" -PropertyType dword -Value 2 -Force
+                Write-EventLog -LogName "Application" -Source "OLEBlock" -EventID 3000 -EntryType Information -Message "OLE Block Reg key for Office 16 Word applied" 
+            }
+        }
+    }
+    Catch {
+        Write-EventLog -LogName "Application" -Source "OLEBlock" -EventID 3001 -EntryType Error -Message "OLE Block Reg key for Office 16 failed. Please check the registry" 
+    }
+
+    try {
+        $path =  "$registryPathRoot\Software\Microsoft\Office\15.0"
+
+        If(test-path $path) {
+            $excelpath = "$registryPathRoot\Software\Microsoft\Office\15.0\Excel\Security"
+            If(test-path $excelpath) {
+                New-ItemProperty -Path $excelpath -Name "PackagerPrompt" -PropertyType dword -Value 2 -Force
+                Write-EventLog -LogName "Application" -Source "OLEBlock" -EventID 3000 -EntryType Information -Message "OLE Block Reg key for Office 15 Exel applied" 
+            }
+            $powerpointpath = "$registryPathRoot\Software\Microsoft\Office\15.0\Powerpoint\Security"
+            If(test-path $powerpointpath) {
+                New-ItemProperty -Path $powerpointpath -Name "PackagerPrompt" -PropertyType dword -Value 2 -Force
+                Write-EventLog -LogName "Application" -Source "OLEBlock" -EventID 3000 -EntryType Information -Message "OLE Block Reg key for Office 15 PowerPoint applied" 
+            }
+            $wordpath = "$registryPathRoot\Software\Microsoft\Office\15.0\Word\Security"
+            If(test-path $wordpath) {
+                New-ItemProperty -Path $wordpath -Name "PackagerPrompt" -PropertyType dword -Value 2 -Force
+                Write-EventLog -LogName "Application" -Source "OLEBlock" -EventID 3000 -EntryType Information -Message "OLE Block Reg key for Office 15 Word applied" 
+            }
+        }
+    }
+    Catch {
+        Write-EventLog -LogName "Application" -Source "OLEBlock" -EventID 3001 -EntryType Error -Message "OLE Block Reg key for Office 16 failed. Please check the registry" 
+    }
+
+    try {
+        $path =  "$registryPathRoot\Software\Microsoft\Office\14.0"
+
+        If(test-path $path) {
+            $excelpath = "$registryPathRoot\Software\Microsoft\Office\14.0\Excel\Security"
+            If(test-path $excelpath) {
+                New-ItemProperty -Path $excelpath -Name "PackagerPrompt" -PropertyType dword -Value 2 -Force
+                Write-EventLog -LogName "Application" -Source "OLEBlock" -EventID 3000 -EntryType Information -Message "OLE Block Reg key for Office 14 Exel applied" 
+            }
+            $powerpointpath = "$registryPathRoot\Software\Microsoft\Office\14.0\Powerpoint\Security"
+            If(test-path $powerpointpath) {
+                New-ItemProperty -Path $powerpointpath -Name "PackagerPrompt" -PropertyType dword -Value 2 -Force
+                Write-EventLog -LogName "Application" -Source "OLEBlock" -EventID 3000 -EntryType Information -Message "OLE Block Reg key for Office 14 PowerPoint applied" 
+            }
+            $wordpath = "$registryPathRoot\Software\Microsoft\Office\14.0\Word\Security"
+            If(test-path $wordpath) {
+                New-ItemProperty -Path $wordpath -Name "PackagerPrompt" -PropertyType dword -Value 2 -Force
+                Write-EventLog -LogName "Application" -Source "OLEBlock" -EventID 3000 -EntryType Information -Message "OLE Block Reg key for Office 14 Word applied" 
+            }
+        }
+    }
+    Catch {
+        Write-EventLog -LogName "Application" -Source "OLEBlock" -EventID 3001 -EntryType Error -Message "OLE Block Reg key for Office 16 failed. Please check the registry" 
+    }
+
+    try {
+        $path =  "$registryPathRoot\Software\Microsoft\Office\12.0"
+        If(test-path $path) {
+            $excelpath = "$registryPathRoot\Software\Microsoft\Office\12.0\Excel\Security"
+            If(test-path $excelpath) {
+                New-ItemProperty -Path $excelpath -Name "PackagerPrompt" -PropertyType dword -Value 2 -Force
+                Write-EventLog -LogName "Application" -Source "OLEBlock" -EventID 3000 -EntryType Information -Message "OLE Block Reg key for Office 12 Exel applied" 
+            }
+            $powerpointpath = "$registryPathRoot\Software\Microsoft\Office\12.0\Powerpoint\Security"
+            If(test-path $powerpointpath) {
+                New-ItemProperty -Path $powerpointpath -Name "PackagerPrompt" -PropertyType dword -Value 2 -Force
+                Write-EventLog -LogName "Application" -Source "OLEBlock" -EventID 3000 -EntryType Information -Message "OLE Block Reg key for Office 12 PowerPoint applied" 
+            }
+            $wordpath = "$registryPathRoot\Software\Microsoft\Office\12.0\Word\Security"
+            If(test-path $wordpath) {
+                New-ItemProperty -Path $wordpath -Name "PackagerPrompt" -PropertyType dword -Value 2 -Force
+                Write-EventLog -LogName "Application" -Source "OLEBlock" -EventID 3000 -EntryType Information -Message "OLE Block Reg key for Office 12 Word applied" 
+            }
+        }
+    }
+    Catch {
+        Write-EventLog -LogName "Application" -Source "OLEBlock" -EventID 3001 -EntryType Error -Message "OLE Block Reg key for Office 16 failed. Please check the registry" 
+    }
+
+}
+```
 ### Remove built-in apps
 
 * Profile name: `RemoveBuiltInApps`

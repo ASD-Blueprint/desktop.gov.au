@@ -103,7 +103,7 @@ Office365_Grant_AzureAD_Join
         * Block manufacturers: `N/A`
       * Type: `iOS/iPadOS`
         * Platform: `Allow`
-        * Minimum Version: `12.0`
+        * Minimum Version: `13.0`
         * Maximum Version: -
         * Personally owned: `Block`
         * Block manufacturers: `N/A`

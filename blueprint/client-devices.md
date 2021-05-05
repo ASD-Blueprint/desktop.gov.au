@@ -1125,6 +1125,20 @@ Implementation approach | Only digitally signed macros are enabled | In line wit
 Email and Web Content Filtering | Enabled | In line with the ACSC Microsoft Office Macro security policy recommendation
 Configuration Method | Agency preference | Macro hardening can be configured via the Agencies existing Group Policies or Intune as well as Attack Surface Reduction in Windows Defender Exploit Guard
 
+### OLE Hardening
+
+Object Linking and Embedding (OLE) is a functionality within Microsoft Office which allows for the embedding and linking to documents and other objects. OLE is utilised to seamlessly integrate several types of data or compoents within a Microsoft Office file. 
+
+Adverseries have leveraged the OLE functionality to enable and download malicious content or execute a malicious payload.  Within Microsoft Office 365 and Microsoft Office 2019 clients, the activation of objects that link to extensions that are considered high risk are blocked from executing. The list of high risk extensions can be configured through the use of Intune or GPOs.
+
+The ACSC provides guidance around securing systems against malicious OLE packages and recommend they are implemented in all Windows environments. The guidance is to block all OLE packages from executing in Word, PowerPoint, and Excel.
+
+Office OLE Hardening Design Decisions for all agencies and implementation types.
+
+Decision Point | Design Decision | Justification
+--- | --- | ---
+OLE configuration | Block all | To meet the essential 8 requirements and to align to ACSC guidance
+
 ### Local administrator
 
 The default local Administrator account is a highly privileged user account found on every Windows operating system. The Administrator account is the first account that is created during the installation for all Windows client operating systems.
@@ -1161,7 +1175,7 @@ iOS Devices Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-iOS version | iOS 13 or above | To align with the ACSC Security Configuration guide – iOS version enforcement of n or n-1 will allow for testing of patches and internal applications before deploying operating system updates.<br><br>Apple applies the n-1 rule to incremental updates, all other versions are no longer signed. <br><br>Once a version is not signed a device cannot be restored to it. iOS 13 has not undergone an ASD Cryptographic Evaluation (ACE) whereas iOS 12 has undergone an ACE. Agencies will need to evaluate whether iOS 13 fits their requirements from an encryption standpoint.
+iOS version | iOS 14 or above | To align with the ACSC Security Configuration guide – iOS version enforcement of n or n-1 will allow for testing of patches and internal applications before deploying operating system updates.<br><br>Apple applies the n-1 rule to incremental updates, all other versions are no longer signed. <br><br>Once a version is not signed a device cannot be restored to it. iOS 14 has not undergone an ASD Cryptographic Evaluation (ACE) whereas iOS 13 has undergone an ACE. Agencies will need to evaluate whether iOS 14 fits their requirements from an encryption standpoint.
 iOS Devices | iPhone XS and above | iPhone X and older are all vulnerable to the exploit Checkm8 and should be avoided.
 Jailbroken/rooted devices | Blocked | Prevents jail broken devices from accessing Agency information. 
 
@@ -1173,7 +1187,7 @@ Microsoft Intune provides a mechanism for enrolling devices into Azure AD. Once 
 
 Microsoft Intune provides three separate experience in enrolling the iOS devices into the Agencies Azure Active directory. The enrolment experiences are: 
 
-* Device Enrolment Program (DEP) – Device Enrolment Program is a managed device enrolment process. The devices serial number is registered with Apple Business Manager allows Intune to bypass Assisted Setup by preconfigure device settings. The user's account will be assigned to the device. The device will be marked as a Supervised device.
+* Automated device enrollment (ADE) (formerly Device Enrolment Program (DEP)) – Device Enrolment Program is a managed device enrolment process. The devices serial number is registered with Apple Business Manager allows Intune to bypass Assisted Setup by preconfigure device settings. The user's account will be assigned to the device. The device will be marked as a Supervised device.
 * Device Enrolment Manager (DEM) – Device Enrolment Manager assigns a single Azure Active Directory account as the owner of the device. The end users cannot administer or purchase any apps on the device
 * User Enrolment – User enrolment process requires users set up the iOS device and manually install Company Portal to register the device as Intune enrolled device. The device will be marked as a BYOD device
 
@@ -1181,7 +1195,7 @@ Enrolling iOS Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Enrolment method | Device Enrolment Program | Devices will be pre-configured before the device is handed over to the end user. This in line with the ACSC iOS Secure Configuration Hardening guide for PROTECTED devices.
+Enrolment method | Automated device enrollment | Devices will be pre-configured before the device is handed over to the end user. This in line with the ACSC iOS Secure Configuration Hardening guide for PROTECTED devices.
 
 ### Securing iOS devices
 
@@ -1198,7 +1212,7 @@ Securing iOS devices Design Decisions for all agencies and implementation types.
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Mobile Device Management | Mobile devices will be managed using Intune | Leveraging the capabilities already available in the licensing agreement. Intune and Apple Business Manager will be adopted to manage mobile devices.
-Security policies and hardening requirements | Security policies will be enforced on all mobile devices managed by the Agency | Security policies will be configured in line with the ACSC Security Configuration Guide – Apple iOS 12 Devices.
+Security policies and hardening requirements | Security policies will be enforced on all mobile devices managed by the Agency | Security policies will be configured in line with the ACSC Security Configuration Guide – Apple iOS 14 Devices.
 Device Features | Disabled | AirDrop, Bluetooth pairing, AirPrint
 
 Mobile Device Management Configuration applicable to all agencies and implementation types

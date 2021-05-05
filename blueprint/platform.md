@@ -15,7 +15,7 @@ Section | Description
 --- | ---
 Identity and Access Management | The Identity and Access Management section includes the authentication, authorisation methods and Conditional Access policies used within the Blueprint for Cloud and Hybrid solutions.
 Security | The Security section details several cloud-based security components available within the Microsoft 365 suite to detect and monitor suspicious behaviour for Cloud and Hybrid solutions.
-Client Configuration | The Client Configuration section details the Intune management methods and design decisions for the client configuration.
+Client Configuration | The Client Configuration section details the Microsoft Endpoint Manager - Intune (Intune) management methods and design decisions for the client configuration.
 Backup and Operational Management | The Backup and Operation Management section details the backup design decisions including RPO, RTO and Data Availability.
 System Administration | The System Administration section details how the solution will be managed, the administrative consoles that will be used to administrator the various components, and how Role Based Access Control (RBAC) is implemented to control access.
 
@@ -50,6 +50,9 @@ Power Platform | Power Apps and Power Automate<br>Power BI
 Security & Compliance | Alerts<br>Classification Labels<br>Retention Policies<br>Data Loss Prevention<br>Audit and Logging
 Exchange Online Protection | Connection Filtering<br>Anti-malware<br>Policy Filtering<br>Content Filtering
 Office 365 Advanced Threat Protection | Safe Links<br>Safe Attachments<br>Anti-Phishing
+Microsoft Whiteboard | Diagnostic Data<br>Enablement<br>Connected Experience<br>Easy Sharing
+Microsoft Planner | iCalender Publishing
+Microsoft Forms | External sharing<br>Phishing Protection<br>Bing and YouTube embedding
 
 ### Client devices
 
@@ -63,7 +66,7 @@ iOS | Enrolment<br>Security<br>Remote Wipe
 * Azure Multifactor Authentication (MFA) natively supports the OATH (Open Authentication) standard for selected hardware tokens. To use Azure MFA with OATH support, and to achieve an Essential 8 Maturity level of 3, hard tokens are required to be procured and deployed to all users. This Blueprint and associated security documentation assume the use of soft tokens and a level 2 maturity in this aspect of the Essential 8. 
 * Microsoft Office 365 and Microsoft Azure solutions hold audit data for a period based on the service and the license level of the organisation. The time for most services is under 2 years. For organisations with a requirement to hold audit data past this period, Security Information and Event Management (SIEM) integration should be considered. Service audit data within the Microsoft Office 365 and Azure clouds is often housed in discrete systems and the opportunities to bring the data under a single pane is limited. Azure Monitor or Azure Sentinel are two Microsoft offerings which could be leveraged for this purpose however a holistic solution should be considered to ensure any legislative requirements are met.
 * The Blueprint has been designed to cater for government organisations allowing end user devices internet access from anywhere (head office, regional office or home) direct connected and via proxy servers, VPN servers or Security Internet Gateways (SIGs). Where connected through a proxy server, rules will be configured to allow direct connection for some Office 365 services. Mobile users will access Microsoft 365 services directly. These users will be subject to Conditional Access policies to reduce unauthorised access risk.
-* The Intune Console is the preferred method to manage all settings regardless of Cloud native or Hybrid. Although a combination of the System Center Configuration Manager (SCCM) Console and Group Policy Objects (GPOs) would be able to achieve the same settings in a hybrid environment, this Blueprint does not include SCCM and GPOs example configurations due to the level of dissimilarities and per agency customisation in existing SCCM and GPOs configurations across Commonwealth entities.
+* The Intune Console is the preferred method to manage all settings regardless of Cloud native or Hybrid. Although a combination of the Microsoft Endpoint Configuration Manager (MECM) Console and Group Policy Objects (GPOs) would be able to achieve the same settings in a hybrid environment, this Blueprint does not include MECM and GPOs example configurations due to the level of dissimilarities and per agency customisation in existing MECM and GPOs configurations across Commonwealth entities.
 
 ## Identity and access management
 
@@ -1211,7 +1214,7 @@ Mobile Application Management (MAM) allows the management and protection of an A
 
 Using MAM, a corporate app that contains sensitive data can be managed on a wide variety of devices. Many productivity apps, such as the Microsoft Office apps, can be managed by Intune MAM. MAM can protect data within the application container using authentication methods and copy/paste controls, but these controls must be balanced with any MDM controls of the device to maintain usability of the solution.
 
-When deploying a hybrid solution, the management of Windows devices should be considered when choosing to implement MAM for clients. Management solutions such as Group Policy and SCCM can provide functionality to control applications which negates the use of MAM on Windows machines.
+When deploying a hybrid solution, the management of Windows devices should be considered when choosing to implement MAM for clients. Management solutions such as Group Policy and MECM can provide functionality to control applications which negates the use of MAM on Windows machines.
 
 Mobile Application Management Design Decisions for cloud native implementations
 
@@ -1224,8 +1227,8 @@ Mobile Application Management Design Decisions for hybrid implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Mobile Application Management Method | Windows 10 – Not Configured<br>iOS - Intune | Agencies operating in hybrid environments can elect to have Windows 10 applications managed by an existing management solution such as SCCM and Group Policy, or to manage Windows 10 applications via Intune. This Blueprint offers an example of using SCCM as the Windows10 Management tool for illustrative purposes however agencies can elect to have Intune as the primary MAM method for both platforms without affecting cyber security postures.<br>Mobile applications (iOS) will be deployed via Intune.
-Applications Managed | Microsoft Azure Information Protection<br>Microsoft Corporate Portal<br>Adobe Reader<br>Microsoft Suite - <br>Outlook<br>Word<br>Excel<br>Teams<br>PowerPoint<br>OneNote<br>OneDrive | Agencies operating in hybrid environments can elect to have Windows 10 applications managed by an existing management solution such as SCCM and Group Policy, or to manage Windows 10 applications via Intune. This Blueprint offers an example of using SCCM as the Windows10 Management tool for illustrative purposes however agencies can elect to have Intune as the primary MAM method for both platforms without affecting cyber security postures.<br>Mobile applications (iOS) will be deployed via Intune.
+Mobile Application Management Method | Windows 10 – Not Configured<br>iOS - Intune | Agencies operating in hybrid environments can elect to have Windows 10 applications managed by an existing management solution such as MECM and Group Policy, or to manage Windows 10 applications via Intune. This Blueprint offers an example of using MECM as the Windows10 Management tool for illustrative purposes however agencies can elect to have Intune as the primary MAM method for both platforms without affecting cyber security postures.<br>Mobile applications (iOS) will be deployed via Intune.
+Applications Managed | Microsoft Azure Information Protection<br>Microsoft Corporate Portal<br>Adobe Reader<br>Microsoft Suite - <br>Outlook<br>Word<br>Excel<br>Teams<br>PowerPoint<br>OneNote<br>OneDrive | Agencies operating in hybrid environments can elect to have Windows 10 applications managed by an existing management solution such as MECM and Group Policy, or to manage Windows 10 applications via Intune. This Blueprint offers an example of using MECM as the Windows10 Management tool for illustrative purposes however agencies can elect to have Intune as the primary MAM method for both platforms without affecting cyber security postures.<br>Mobile applications (iOS) will be deployed via Intune.
 
 ### Intune - enrolment
 
@@ -1248,11 +1251,11 @@ iOS Enrolment | Configured | iOS devices must be enrolled in Intune prior to man
 
 ### Intune - co-management
 
-Co-management provides the ability to manage devices via SCCM and Intune. 
+Co-management provides the ability to manage devices via MECM and Intune. 
 
-For a deployment to be enabled for co-management, devices must be Azure AD joined, be enrolled in Intune and have the SCCM client installed.
+For a deployment to be enabled for co-management, devices must be Azure AD joined, be enrolled in Intune and have the MECM client installed.
 
-Once co-management is enabled, management tasks such as compliance policies, Windows Update policies, resource access policies, and endpoint protection, can be moved from SCCM management over to Intune as required.
+Once co-management is enabled, management tasks such as compliance policies, Windows Update policies, resource access policies, and endpoint protection, can be moved from MECM management over to Intune as required.
 
 Microsoft cloud-hosted services offer the benefit of maintaining cadence with the latest technology updates from Microsoft with reduced effort required by IT BAU teams. Microsoft Intune and Microsoft's co-management strategy is constantly evolving with additional services published regularly.
 
@@ -1269,19 +1272,19 @@ Intune Co-Management design considerations and decisions apply to the HYBRID sol
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Co-management | Enabled | The Microsoft co-management approach will enable Agency to strategically move device management from on-premises to the cloud in a staged manner.
-Compliance policies controlled by | Intune preferred | Compliance and remediation policies to controlled via Intune. Staged migration to be completed from SCCM if previously in use.
-Device Configuration policies controlled by | Intune preferred | Device configuration policies to be controlled via Intune. Staged migration to be completed from SCCM if previously in use.
-Endpoint Protection policies controlled by | Intune preferred | Endpoint protection, including the Windows Defender products and features are controlled via Intune policies. Staged migration to be completed from SCCM if previously in use.
-Resource Access policies controlled by | Intune preferred | Resources in this instance refers to VPN profiles, Wi-Fi profiles, certificate profiles, etc. are controlled via Intune policies. Staged migration to be completed from SCCM if previously in use.
-Office Click-to-Run policies controlled by | Intune preferred | Office Click-to-Run application deployment and updates to be managed through Intune. Staged migration to be completed from SCCM if previously in use.
-Windows Update policies controlled by | Intune preferred | Windows 10 updates will be managed via Intune update rings. Staged migration to be completed from SCCM if previously in use.
-SCCM minimum version | At least SCCM update 1802 | Compatible with co-management and determined by the Agency.
+Compliance policies controlled by | Intune preferred | Compliance and remediation policies to controlled via Intune. Staged migration to be completed from MECM if previously in use.
+Device Configuration policies controlled by | Intune preferred | Device configuration policies to be controlled via Intune. Staged migration to be completed from MECM if previously in use.
+Endpoint Protection policies controlled by | Intune preferred | Endpoint protection, including the Windows Defender products and features are controlled via Intune policies. Staged migration to be completed from MECM if previously in use.
+Resource Access policies controlled by | Intune preferred | Resources in this instance refers to VPN profiles, Wi-Fi profiles, certificate profiles, etc. are controlled via Intune policies. Staged migration to be completed from MECM if previously in use.
+Office Click-to-Run policies controlled by | Intune preferred | Office Click-to-Run application deployment and updates to be managed through Intune. Staged migration to be completed from MECM if previously in use.
+Windows Update policies controlled by | Intune preferred | Windows 10 updates will be managed via Intune update rings. Staged migration to be completed from MECM if previously in use.
+MECM minimum version | At least MECM update 1802 | Compatible with co-management and determined by the Agency.
 Enrolled Device Types | Windows 10: 10.0.17134 (minimum) | The use of Windows 10 on designated hardware is mandatory.<br>The following platforms will be disabled:<br>macOS<br>Android<br>iOS<br>Note: iOS is permitted but controlled by Intune only
 Device Compliance | Enabled | Device Compliance is enabled. All devices will be Intune enrolled and have a custom set of compliance policies applied.
 User Enrolment | Enabled | All users must be enrolled to ensure device compliance.
 Company Portal | Enabled | The Company Portal is enabled for application deployment. Applications to be deployed will be set by Agency requirements.
 Conditional Access | Enabled | Conditional Access is enabled. It will leverage device & user compliance to allow or disallow access to the corporate environment.
-Mobile Device Management (MDM) | Enabled | SCCM will be the MDM authority for the solution, with Intune inspecting compliance.
+Mobile Device Management (MDM) | Enabled | MECM will be the MDM authority for the solution, with Intune inspecting compliance.
 Mobile Application Management (MAM) | Disabled | Not required as Group Policy will configure application controls.
 
 ### Intune - Windows AutoPilot
@@ -1368,7 +1371,7 @@ Additional Device Configuration Design Decisions for hybrid implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Windows 10 and later polices | Not Configured | Management solution such as SCCM and Group Policy are applied to manage settings.
+Windows 10 and later polices | Not Configured | Management solution such as MECM and Group Policy are applied to manage settings.
 
 ### Intune - security baselines
 
@@ -1382,7 +1385,7 @@ Within Intune, pre-configured Security Baselines profiles can be associated to d
 
 These baselines provide robust security guidelines and are generated by Microsoft.
 
-In the case of a co-managed / hybrid scenario, security baselines should only be used when they do not conflict with settings deployed through SCCM and Group Policy.
+In the case of a co-managed / hybrid scenario, security baselines should only be used when they do not conflict with settings deployed through MECM and Group Policy.
 
 Security Baselines Design Decisions for cloud native implementations
 
@@ -1396,9 +1399,9 @@ Security Baselines Design Decisions for hybrid implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Windows 10 Security Baselines | Configured | Agencies operating in hybrid environments can elect to have system configuration managed by an existing management solution such as SCCM and Group Policy, or to manage system configuration via Intune. This Blueprint offers an example of using Intune as the system configuration Management tool for illustrative purposes however agencies can elect to have SCCM and Group Policy as the primary system configuration method without affecting cyber security postures.<br>System configuration will be deployed via Intune.
-Microsoft Defender ATP Baselines | Configured | Agencies operating in hybrid environments can elect to have system configuration managed by an existing management solution such as SCCM and Group Policy, or to manage system configuration via Intune. This Blueprint offers an example of using Intune as the system configuration Management tool for illustrative purposes however agencies can elect to have SCCM and Group Policy as the primary system configuration method without affecting cyber security postures.<br>System configuration will be deployed via Intune.
-Microsoft Edge Baseline | Configured | Agencies operating in hybrid environments can elect to have system configuration managed by an existing management solution such as SCCM and Group Policy, or to manage system configuration via Intune. This Blueprint offers an example of using Intune as the system configuration Management tool for illustrative purposes however agencies can elect to have SCCM and Group Policy as the primary system configuration method without affecting cyber security postures.<br>System configuration will be deployed via Intune.
+Windows 10 Security Baselines | Configured | Agencies operating in hybrid environments can elect to have system configuration managed by an existing management solution such as MECM and Group Policy, or to manage system configuration via Intune. This Blueprint offers an example of using Intune as the system configuration Management tool for illustrative purposes however agencies can elect to have MECM and Group Policy as the primary system configuration method without affecting cyber security postures.<br>System configuration will be deployed via Intune.
+Microsoft Defender ATP Baselines | Configured | Agencies operating in hybrid environments can elect to have system configuration managed by an existing management solution such as MECM and Group Policy, or to manage system configuration via Intune. This Blueprint offers an example of using Intune as the system configuration Management tool for illustrative purposes however agencies can elect to have MECM and Group Policy as the primary system configuration method without affecting cyber security postures.<br>System configuration will be deployed via Intune.
+Microsoft Edge Baseline | Configured | Agencies operating in hybrid environments can elect to have system configuration managed by an existing management solution such as MECM and Group Policy, or to manage system configuration via Intune. This Blueprint offers an example of using Intune as the system configuration Management tool for illustrative purposes however agencies can elect to have MECM and Group Policy as the primary system configuration method without affecting cyber security postures.<br>System configuration will be deployed via Intune.
 
 ### Intune - information protection
 
@@ -1426,7 +1429,7 @@ There is no requirement or ability to selectively enable or disable a particular
 
 Fast and slow update rings can be configured and assigned to different groups or users or devices allow early adopters to provide a level of validation before all users are provided with updates.
 
-When deploying a hybrid solution, the software and patch updates of Windows devices should be considered. Other management solutions such as SCCM and Windows Server Update Service (WSUS) may be servicing the Windows devices for the updates hence duplicating processes.
+When deploying a hybrid solution, the software and patch updates of Windows devices should be considered. Other management solutions such as MECM and Windows Server Update Service (WSUS) may be servicing the Windows devices for the updates hence duplicating processes.
 
 Software Updates Design Decisions for all agencies and implementation types.
 
@@ -1460,7 +1463,7 @@ There are several tools available to apply registry settings such as:
 
 * Group Policy
 * Intune
-* Configuration Manager (SCCM)
+* Configuration Manager (MECM)
 
 The ACSC provides the Microsoft Windows and Office 365 hardening guides that defines group policy settings along with other recommendations to significantly reduce the attack surface available to malicious attacks.
 
@@ -1474,7 +1477,7 @@ Registry settings Design Decisions for hybrid implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Registry Setting Method | Group Policy Objects & SCCM | The Agency may utilise management solutions such as Group Policy Objects and SCCM to implement and modify user and computer registry settings to comply with ACSC Windows and Office 365 Pro Plus hardening guides.
+Registry Setting Method | Group Policy Objects & MECM | The Agency may utilise management solutions such as Group Policy Objects and MECM to implement and modify user and computer registry settings to comply with ACSC Windows and Office 365 Pro Plus hardening guides.
 
 ### Applications
 
@@ -1500,7 +1503,7 @@ Applications types that can be managed include:
 * Win32 applications
 * Android Enterprise system applications
 
-When deploying a hybrid solution, the application lifecycle method should be considered as other management solutions such as SCCM may be performing the same service.
+When deploying a hybrid solution, the application lifecycle method should be considered as other management solutions such as MECM may be performing the same service.
 
 Applications Design Decisions for all agencies and implementation types.
 
@@ -1517,13 +1520,13 @@ Printing is a legitimate method of data transfer out of an environment. Printing
 
 Intune can be leveraged to control what printers are available within a device and whether a user is able to add additional local printers.
 
-For a user to leverage an available printer, connectivity and a device driver is often required. The drivers can be delivered and updated using Intune and/or SCCM. Connectivity depends on the connected network(s) of the client. The options include:
+For a user to leverage an available printer, connectivity and a device driver is often required. The drivers can be delivered and updated using Intune and/or MECM. Connectivity depends on the connected network(s) of the client. The options include:
 
 * Corporate Network printing – In the workplace, the domain joined computers can connect to the print servers and send jobs to the queue.
 * External Network printing via Hybrid Cloud Print – Without network connectivity via Citrix, a VPN, or Microsoft Hybrid Cloud Print, direct print server connectivity is not available. Microsoft Hybrid Cloud Print utilises a reverse proxy to communicate with the print servers located within the work network.
 * External Network printing via VPN – When direct printer connectivity is not available from external networks, a VPN such as Windows 10 Always-On VPN can allow clients to function as if they were part of the corporate network.
 
-When deploying a hybrid solution, the allocation of printers to users should be considered. Other management solutions such as Group Policy and SCCM may be servicing the allocation of printers to devices.
+When deploying a hybrid solution, the allocation of printers to users should be considered. Other management solutions such as Group Policy and MECM may be servicing the allocation of printers to devices.
 
 Printing Design Decisions for cloud native implementations
 

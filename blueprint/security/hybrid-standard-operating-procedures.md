@@ -8,7 +8,7 @@ body_class: padded-images
 
 ## Device onboarding
 
-The authorisation and approval of users being granted access to the system is out of scope of this SOP.
+The authorisation and approval of users being granted access to the system is out of scope of this Standard Operating Procedure (SOP).
 
 Asset management of devices used by the agency and being connected to the systems is out of scope of this SOP
 
@@ -76,7 +76,7 @@ Use the following password settings:
 
 The new password should be sent to the users’ manager or another trusted source.
 
-When complete press Next
+When complete press **Next**
 
 **IMPORTANT NOTE**: when selecting a username, ensure that the standard user account follows the Agency naming standard of `user.name@domain.gov.au`, for an Administrative account however ensure the suffix `_priv` is appended to the username (e.g., `user.name_priv@domain.gov.au`). The reason for this is because dynamic groups exist within Azure AD that will automatically control what licenses are added to the user account.
 
@@ -108,31 +108,31 @@ The account has now been created, press the **Close** button.
 
 ### Autopilot enrolment
 
-The following instruction advises how to enrol a device within Autopilot. This must be completed for each device that is used within the environment. This ensures that the device builds correctly with the right settings and Intune policies applied.
+The following instruction advises how to enrol a device within Autopilot. This must be completed for each device that is used within the environment. This ensures that the device builds correctly with the right settings and Microsoft Endpoint Manager policies applied.
 
 There are a number of prerequisites required for this section, the primary of which is to supply a .CSV file with the following fields prefilled.
 
 ```<Serial Number>, <Windows Product ID>, <Hardware Hash>, <Order ID>```
 
-In many cases, when hardware is ordered from a vendor, they can provide this information prior to the devices being delivered. This instruction will assume that the .CSV exists and you as an administrator are ready to upload it into the Azure portal.
+In many cases, when hardware is ordered from a vendor, they can provide this information prior to the devices being delivered. This instruction will assume that the .CSV exists and you as an administrator are ready to upload it into the Microsoft Endpoint Manager admin center.
 
 Please also note that there are a number of different avenues/portals that you can use to access Autopilot and this simply describes one of them, which is accurate as of the time of writing.
 
 #### Step 1
 
-Navigate to the **Azure portal** ([https://portal.azure.com](https://portal.azure.com)) then select Intune
+Navigate to the **Microsoft Endpoint Manager admin center** ([https://endpoint.microsoft.com/](https://endpoint.microsoft.com/)) then select **Devices**
 
 #### Step 2
 
-Within **Intune**, on the left-hand pane, select **Device enrollment**
+Within **Devices**, on the left-hand pane, select **Enroll Devices**
 
 #### Step 3
 
-Within **Device enrollment**, select **Windows enrollment** from the left-hand pane
+Within **Enroll Devices**, select **Windows enrollment** from the left-hand pane
 
 #### Step 4
 
-Within the **Device enrollment – Windows enrollment** blade, select **Devices** under the **Windows Autopilot Deployment Program** section
+Within the **Enroll Devices – Windows enrollment** blade, select **Devices** under the **Windows Autopilot Deployment Program** section
 
 #### Step 5
 
@@ -193,16 +193,16 @@ If a device is lost, stolen, broken or simply is being replaced, there are sever
 This includes the following tasks:
 
 * Removal from Azure Active directory,
-* Removal from Intune,
+* Removal from Microsoft Endpoint Manager (formerly Intune),
 * Removal from Microsoft Defender Security Center, and
 * Removed as a Windows Autopilot device.
 
 ### Prerequisites
 
-Before completing the procedures detailed in this document, the following prerequisites should be met: 
+Before completing the procedures detailed in this document, the following prerequisites should be met:
 
-* It is recommended that the reader/administrator performing the procedures in the document has certification and/or experience with Office 365 and Microsoft Azure. 
-* Appropriate administrative privileges within the environment to manage user accounts and devices. 
+* It is recommended that the reader/administrator performing the procedures in the document has certification and/or experience with Office 365 and Microsoft Azure.
+* Appropriate administrative privileges within the environment to manage user accounts and devices.
 * The ID/asset number of the device in question.
 
 ### Account disable
@@ -291,35 +291,31 @@ When prompted to delete, press **Yes**
 
 #### Step 5
 
-Confirm that the process has completed successfully in the **Notifications** button in the top right of the screen. 
+Confirm that the process has completed successfully in the **Notifications** button in the top right of the screen.
 
-### Remove device from Intune
+### Remove device from Microsoft Endpoint Manager
 
-Complete the below steps to remove a device from Intune.
+Complete the below steps to remove a device from Microsoft Endpoint Manager.
 
 #### Step 1
 
-Within your internet browser navigate to the Azure Portal ([https://portal.azure.com](https://portal.azure.com)), then click on **Intune**
+Within your internet browser navigate to the Microsoft Endpoint Manager admin center ([https://endpoint.microsoft.com/](https://endpoint.microsoft.com/)), then click on **Devices**
 
 #### Step 2
 
-In the left-hand pane, select **Devices**
+Within the Devices blade, select **All devices**
 
 #### Step 3
 
-Within the Devices blade, select **All devices**
+Either by scrolling through the list, or using the search bar, identify your device, check the box, then press **Delete**
+
+**Note**, Microsoft Endpoint Manager only allows 100 devices to be selected at one time. If more than 100 devices need to be deleted at one time deletion can be performed in batches.
 
 #### Step 4
 
-Either by scrolling through the list, or using the search bar, identify your device, check the box, then press **Delete**
-
-**Note**, Intune only allows 100 devices to be selected at one time. If more than 100 devices need to be deleted at one time deletion can be performed in batches.
-
-#### Step 5
-
 A blade will appear on the right of the screen, confirm that the device is correct, then press **Delete**
 
-#### Step 6
+#### Step 5
 
 Confirm that the process has completed successfully in the **Notifications** button in the top right of the screen.
 
@@ -425,11 +421,11 @@ Note: this process could take some time as the endpoint device may be switched o
 
 ### Remove device from Autopilot
 
-As a prerequisite to this step, you must first delete the device from Azure Active Directory and Intune. Once these steps have been completed the device will not be able to be rebuilt using Autopilot.
+As a prerequisite to this step, you must first delete the device from Azure Active Directory and Microsoft Endpoint Manager. Once these steps have been completed the device will not be able to be rebuilt using Autopilot.
 
 #### Step 1
 
-Within your internet browser navigate to the Azure Portal ([https://portal.azure.com](https://portal.azure.com)), then select **Intune**
+Within your internet browser navigate to the Azure Portal ([https://endpoint.microsoft.com](https://endpoint.microsoft.com)), then select **Devices**
 
 #### Step 2
 
@@ -437,11 +433,11 @@ In the left-hand pane, select **Device enrollment**
 
 #### Step 3
 
-Within **Device enrollment**, select **Windows enrollment**
+Within **Enroll Devices**, select **Windows enrollment**
 
 #### Step 4
 
-Within the **Windows enrollment** blade, select **Devices** under the **Windows Autopilot Deployment Program** section
+Within the **Enrol Devices, Windows enrollment** blade, select **Devices** under the **Windows Autopilot Deployment Program** section
 
 #### Step 5
 
@@ -465,37 +461,33 @@ A remote wipe of a device may be required in the event of a lost or stolen devic
 
 #### Step 1
 
-Within your internet browser navigate to the Azure Portal ([https://portal.azure.com](https://portal.azure.com)), then select **Intune**
+Within your internet browser navigate to the Microsoft Endpoint Manager admin center ([https://endpoint.microsoft.com](https://endpoint.microsoft.com/)), then select **Devices**
 
 #### Step 2
 
-Select **Devices**
-
-#### Step 3
-
 Select **All Devices**
 
-#### Step 4
+#### Step 3
 
 Either by scrolling through the list, or using the search bar, identify the device 
 
 Once identified click on the device
 
-#### Step 5
+#### Step 4
 
 With the device selected you should now be able to select **Wipe**
 
-#### Step 6
+#### Step 5
 
 For Windows 10 1709 and above devices the **Wipe device, but keep enrollment state and associated user account** can be used to keep certain data on the device. Not all data is retained.
 
-#### Step 7
+#### Step 6
 
 **Wipe device and continue to wipe even if device loses power** can be used to ensure that the wipe is not circumvented by power cycling the device
 
 In some instances this setting could render the device unable to power on correctly and should be used with some level of caution
 
-#### Step 8
+#### Step 7
 
 When ready to confirm the wipe select **Yes**
 
@@ -509,49 +501,45 @@ There are a number of methods that can be utilised from fully restricting USB po
 
 ### Prerequisites
 
-Before completing the procedures detailed in this document, the following prerequisites should be met: 
+Before completing the procedures detailed in this document, the following prerequisites should be met:
 
-* It is recommended that the reader/administrator performing the procedures in the document has certification and/or experience with Microsoft Azure. 
+* It is recommended that the reader/administrator performing the procedures in the document has certification and/or experience with Microsoft Azure.
 
 ### Blocking removable storage
 
-The following describes the steps required to create an Intune profile that will block removable devices from use on a Windows 10 device.
+The following describes the steps required to create an Microsoft Endpoint Manager profile that will block removable devices from use on a Windows 10 device.
 
 #### Step 1
 
-Navigate to the Azure Portal ([https://portal.azure.com](https://portal.azure.com)) then click on **Intune**
+Navigate to the Microsoft Endpoint Manager admin center ([https://endpoint.microsoft.com/](https://endpoint.microsoft.com/)) then click on **Devices**
 
 #### Step 2
 
-Within *Intune* click on *Device Configuration*
+Within **Devices** click on **Configuration profiles**
 
 #### Step 3
 
-Within **Device Configuration** click on **Profiles**
-
-#### Step 4
-
 Along the top ribbon, click **Create Profile**
 
-#### Step 5
+#### Step 4
 
 The **Create a profile** blade will open, select **Windows 10 and later** platform and **Device restrictions** profile
 
 When complete press **Create**
 
-#### Step 6
+#### Step 5
 
 Enter an appropriate **Name** and **Description**.
 
 When complete press **Next**
 
-#### Step 7
+#### Step 6
 
 When presented with the **Device Configuration settings** screen expand **General** and select **Removable storage** and **USB connection** to ensure that they are set to **Block** then press **Next**
 
 Note: **Removable storage** will block the use of removable storage devices within Windows, while **USB connection** will block USB ports on the device. **USB connection** setting will not block the use of USB charging though.
 
-#### Step 8
+#### Step 7
 
 When presented with the **Assignments** screen select the groups that this profile is to be applied to.
 
@@ -559,7 +547,7 @@ In this example the update ring will apply to **rol-Agency-Administrators**, and
 
 When complete, press Next
 
-#### Step 9
+#### Step 8
 
 When presented with the **Applicability Rules** screen create an appropriate rule that this profile is to be applied to.
 
@@ -567,11 +555,11 @@ In this example they have been left blank
 
 When complete, press **Next**
 
-#### Step 10
+#### Step 9
 
 On the **Review + create** screen ensure that all of the settings are correct, if you’re confident that they are, press **Create**
 
-#### Step 11
+#### Step 10
 
 To confirm that these settings have been applied to an endpoint, plug in a USB device in to a Windows 10 device and ensure the USB device is blocked.
 
@@ -585,37 +573,33 @@ Note: This will require Endpoint Protection running with real-time protection en
 
 #### Step 1
 
-Navigate to the Azure Portal ([https://portal.azure.com](https://portal.azure.com)) then click on **Intune**
+Navigate to the Microsoft Endpoint Manager admin center ([https://endpoint.microsoft.com](https://endpoint.microsoft.com)) then click on **Devices**
 
 #### Step 2
 
-Within **Intune** click on **Device Configuration**
+Within **Devices** click on **Configuration profiles**
 
 #### Step 3
 
-Within **Device Configuration** click on **Profiles**
-
-#### Step 4
-
 Along the top ribbon, click **Create Profile**
 
-#### Step 5
+#### Step 4
 
 The **Create a profile** blade will open, select **Windows 10 and later** platform and **Endpoint Protection** profile
 
 When complete press **Create**
 
-#### Step 6
+#### Step 5
 
 Enter an appropriate **Name** and **Description**.
 
 When complete press **Next**
 
-#### Step 7
+#### Step 6
 
 When presented with the **Endpoint Protection settings** screen expand **Microsoft Defender Exploit Guard** and **Attack Surface Reduction** then select **Untrusted and unsigned process that run from USB** to ensure that it is set to **Block** then press **Next**
 
-#### Step 8
+#### Step 7
 
 When presented with the **Assignments** screen select the groups that this profile is to be applied to.
 
@@ -623,7 +607,7 @@ In this example the update ring will apply to **rol-Agency-Administrators**, and
 
 When complete, press **Next**
 
-#### Step 9
+#### Step 8
 
 When presented with the **Applicability Rules** screen create an appropriate rule that this profile is to be applied to.
 
@@ -631,11 +615,11 @@ In this example they have been left blank
 
 When complete, press **Next**
 
-#### Step 10
+#### Step 9
 
 On the **Review + create** screen ensure that all of the settings are correct, if you’re confident that they are, press **Create**
 
-#### Step 11
+#### Step 10
 
 To confirm that these settings have been applied to an endpoint, plug in a USB device in to a Windows 10 device and test running some executable and script files.
 
@@ -645,47 +629,43 @@ Allowing or preventing the installation of specific peripherals can allow more g
 
 #### Step 1
 
-Navigate to the Azure Portal ([https://portal.azure.com](https://portal.azure.com)) then click on **Intune**
+Navigate to the Microsoft Endpoint Manager admin center ([https://endpoint.microsoft.com](https://endpoint.microsoft.com)) then click on **Devices**
 
 #### Step 2
 
-Within **Intune** click on **Device Configuration**
+Within **Devices** click on **Configuration profiles**
 
 #### Step 3
 
-Within **Device Configuration** click on **Profiles**
-
-#### Step 4
-
 Along the top ribbon, click **Create Profile**
 
-#### Step 5
+#### Step 4
 
 The **Create a profile** blade will open, select **Windows 10 and later** platform and **Administrative Templates** profile
 
 When complete press **Create**
 
-#### Step 6
+#### Step 5
 
 Enter an appropriate **Name** and **Description**.
 
 When complete press **Next**
 
-#### Step 7
+#### Step 6
 
-When presented with the **Settings** screen expand **Computer Configuration/System/Device Installation/Device Installation Restrictions** then select the appropriate policy depending on the requirement 
+When presented with the **Settings** screen expand **Computer Configuration/System/Device Installation/Device Installation Restrictions** then select the appropriate policy depending on the requirement.
 
 In this example the **Allow installation of devices that match any of these device IDs** is being used
 
 Note: When using an allow policy the **Prevent installation of devices not described by other policy settings** will also need to be set to ensure that only peripherals on the allow list can be used.
 
-#### Step 8
+#### Step 7
 
 Select *Enable* and enter in the appropriate **device ID** or **setup class** depending on the policy in use
 
 When complete press **OK** then **Next**
 
-#### Step 9
+#### Step 8
 
 A **Scope tag** can be created if required
 
@@ -693,7 +673,7 @@ In this example they have been left as **Default**
 
 When complete, press **Next**
 
-#### Step 10
+#### Step 9
 
 When presented with the **Assignments** screen select the groups that this profile is to be applied to.
 
@@ -701,11 +681,11 @@ In this example the update ring will apply to **rol-Agency-Administrators**, and
 
 When complete, press **Next**
 
-#### Step 11
+#### Step 10
 
 On the **Review + create** screen ensure that all of the settings are correct, if you’re confident that they are, press **Create**
 
-#### Step 12
+#### Step 11
 
 To confirm that these settings have been applied to an endpoint, plug in a USB device in to a Windows 10 device that matches the policy that has been set and observe if it has been allowed or prevented depending on the policy that was set
 
@@ -812,31 +792,27 @@ The following describes the steps required to create a Windows 10 update ring.
 
 #### Step 1
 
-Navigate to the Azure Portal ([https://portal.azure.com](https://portal.azure.com)) then click on **Intune**
+Navigate to the Microsoft Endpoint Manager admin center ([https://endpoint.microsoft.com](https://endpoint.microsoft.com)) then click on **Devices**
 
 #### Step 2
 
-Within **Intune** click on **Software updates**
+Within **Devices** click on **Windows 10 updates rings**
 
 #### Step 3
 
-Within **Software updates** click on **Windows 10 updates rings**
-
-#### Step 4
-
 Along the top ribbon, click **Create**
 
-#### Step 5
+#### Step 4
 
 The **Create Windows 10 update ring** blade will open, enter an appropriate **Name** and **Description**.
 
 When complete press **Next**
 
-#### Step 6
+#### Step 5
 
 When presented with the **Update ring settings** screen select the appropriate settings then press **Next**
 
-#### Step 7
+#### Step 6
 
 When presented with the **Assignments** screen select the groups that this update ring is to be applied to.
 
@@ -844,11 +820,11 @@ In this example the update ring will apply to **rol-Agency-Administrators**, and
 
 When complete, press **Next**
 
-#### Step 8
+#### Step 7
 
 On the **Review + create** screen ensure that all of the settings are correct, if you’re confident that they are, press **Create**
 
-#### Step 9
+#### Step 8
 
 To confirm that these settings have been applied to an endpoint, navigate to **Settings > Update & Settings > Advanced Options** on a Windows 10 device and ensure the settings match your update ring.
 
@@ -858,25 +834,21 @@ Update rings are able to be modified, this includes settings within the update r
 
 #### Step 1
 
-Navigate to the Azure Portal ([https://portal.azure.com](https://portal.azure.com)) then click on **Intune**
+Navigate to the Microsoft Endpoint Manager admin center ([https://endpoint.microsoft.com](https://endpoint.microsoft.com)) then click on **Devices**
 
 #### Step 2
 
-Within **Intune** click on **Software updates**
+Within **Devices** click on **Windows 10 updates rings**
 
 #### Step 3
 
-Within **Software updates** click on **Windows 10 updates rings**
+Identify the update ring you wish to modify; in this instance it is **Semi Annual Channel Ring** then click on it
 
 #### Step 4
 
-Identify the update ring you wish to modify; in this instance it is **Semi Annual Channel Ring** then click on it
-
-#### Step 5
-
 Within **Semi Annual Channel Ring**, click on **Properties**
 
-#### Step 6
+#### Step 5
 
 Within the **Properties** screen there are 3 sections that can be modified:
 
@@ -886,7 +858,7 @@ Within the **Properties** screen there are 3 sections that can be modified:
 
 Identify what needs to be adjusted, then press the **Edit** button to adjust.
 
-#### Step 7
+#### Step 6
 
 Within the edit window, make the required changes then click **Review + save** when complete
 
@@ -1443,14 +1415,14 @@ When the editing pane shows up, make the required changes then press **Save**
 
 ## BitLocker recovery
 
-BitLocker drive encryption is applied to all Agency devices upon first login via a set of pre-defined Intune policies. BitLocker drive encryption is a data protection feature that integrates with the operating system and addresses the threats of data theft or exposure from lost, stolen, or inappropriately decommissioned devices.
+BitLocker drive encryption is applied to all Agency devices upon first login via a set of pre-defined Microsoft Endpoint Manager policies. BitLocker drive encryption is a data protection feature that integrates with the operating system and addresses the threats of data theft or exposure from lost, stolen, or inappropriately decommissioned devices.
 
 ### Prerequisites
 
 Before completing the procedures detailed in this document, the following prerequisites should be met:
 
 * It is recommended that the reader/administrator performing the procedures in the document has certification and/or experience with Microsoft Azure.
-* The appropriate permissions within Azure, specifically Intune.
+* The appropriate permissions within Microsoft Endpoint Manager.
 * The ID/asset number of the device in question.
 * Physical or phone contact with the owner of the endpoint device that requires the recovery key.
 * Positive confirmation that the owner of the device using agency processes for identity verification.
@@ -1461,13 +1433,9 @@ The following describes how to locate a BitLocker recovery key.
 
 #### Step 1
 
-Navigate to the Azure Portal ([https://portal.azure.com](https://portal.azure.com)) then click on **Intune**
+Navigate to the Microsoft Endpoint Manager ([https://endpoint.microsoft.com/](https://endpoint.microsoft.com/)) then click on **Devices**
 
 #### Step 2
-
-Within **Intune** click on **Devices**
-
-#### Step 3
 
 Within **Devices** click on **All devices**
 

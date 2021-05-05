@@ -18,7 +18,6 @@ All contributions welcome.
   - [Frequently asked questions](#frequently-asked-questions)
     - [What is this website built on?](#what-is-this-website-built-on)
     - [Can I contribute without a local development environment?](#can-i-contribute-without-a-local-development-environment)
-    - [Why is the navigation not updating after adding a new page?](#why-is-the-navigation-not-updating-after-adding-a-new-page)
 
 ## Style sheet for content
 
@@ -96,8 +95,6 @@ Content are Markdown files and normally end in `.md`. For help with Markdown syn
 * [Markdown Guide](https://www.markdownguide.org/basic-syntax/)
 * [Github's Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
 
-Also refer to [Jekyll Spaceship](https://github.com/jeffreytse/jekyll-spaceship#1-table-usage) for more advanced table related properties like row and column spans.
-
 ### Site search
 
 Site search is provided by Algolia and is automatically integrated into deployed environments via CircleCI. If you are deploying to a local environment and need search, create a `_config-extras.yml` file in the root of your working directory substituting with correct values. Note that this file is not committed into the repository.
@@ -122,9 +119,3 @@ Yes of course, but you first need a Github account.
 The easiest method is to first view our [list of issues](https://github.com/govau/desktop.gov.au/issues), add to the ticket if a similar one exists or [create a new issue](https://github.com/govau/desktop.gov.au/issues/new) if not. Try to place as much detail as possible to help us identify what the problem is and don't forget to include the page you were on that has the issue.
 
 Alternatively, you can suggest changes by making your amendments directly on Github. At the end of the process, you will submit a pull request which will allow us to provide feedback and incorporate it back into the repository. [Microsoft describes this method](https://github.com/MicrosoftDocs/microsoft-365-docs#overview) for updating their documentation which is highly relevant here.
-
-#### Why is the navigation not updating after adding a new page?
-
-This site is content heavy and can take over 30 seconds to generate for each change. As a result, we use the [incremental switch](https://jekyllrb.com/docs/configuration/incremental-regeneration/#incremental-regeneration) to flag Jekyll to rebuild only what it thinks has changed which shortens the build time to under 1 second.
-
-If you've added a new page to the site, modified the name of a page, or applied site wide content changes (not including CSS or JS), the best remedy is to remove the `_site` directory and restart your docker instance which would initiate a full site rebuild. You can then carry out your content changes with sub second velocity.

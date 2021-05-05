@@ -1205,16 +1205,16 @@ Mobile Device Management Configuration applicable to all agencies and implementa
 
 Configuration | Value | Description
 --- | --- | ---
-**Security** |||
+**Security** | | |
 Supervised Mode | Enable | Agency iPhones are managed devices. This is in line with the ACSC iOS Secure Configuration Hardening guide for PROTECTED devices.
 Device passcode | Device passcode of 14 characters or above | iOS devices, by default, is encrypted once a passcode is provided to the device. Configured in line with ISM requirements on password length.
 Biometrics | Disable | This is in line with the ACSC iOS Secure Configuration Hardening guide for PROTECTED devices.
 Mobile Device Management | Enable | Mobile Device Management provides the Agency better auditing tools on the device. In line with ACSC iOS Secure Configuration Hardening guide for PROTECTED devices
 Maximum Auto-Lock  | 2 minutes | Auto Lock will lock a device if it is inactive for specified time
 Virtual Private Network (VPN)  | Not Configured | VPN will not be setup as part of the iOS device. Per-app VPN will be set up to secure communication between the device and the Agencies data
-**Branding** |||
+**Branding** | | |
 Lock Screen and background branding | Configured | Agency branding will be applied to endpoints. It is recommended that agencies include the contact information of the relevant IT Support in the event that a device is lost.
-**Device Features** |||
+**Device Features** | | |
 Disable Screenshot and screen recording | Disable | Disablement of screenshot and screen recording, disable users from taking a snapshot of protected documents
 Allow iCloud backup, document data and Keychain | Disable | The Agencies data on mobile devices must be uploaded into the Agencies tenant. This is done to prevent accidental information being backed up to iCloud or another unsecure data store
 Managed Open-In | Enable  | Managed Open-In is enable segregates between corporate managed and personal application in an iOS device. This in line with the ACSC iOS Secure Configuration Hardening guide for PROTECTED devices.

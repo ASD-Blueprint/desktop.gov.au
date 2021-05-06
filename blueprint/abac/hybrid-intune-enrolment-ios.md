@@ -73,48 +73,5 @@ Office365_Grant_AzureAD_Join
 ```
   * Excluded groups: -
 
-## Enrolment restrictions
-
-`Intune > Devices > Enroll devices > Enrollment restrictions`
-
-* Device type restrictions
-  * Name: `Windows 10`
-    * Priority: `3`
-    * Assigned: `Yes`
-    * Platform settings
-      * Type: `Windows (MDM)`
-        * Platform: `Allow`
-        * Minimum Version: `10.0.18362`
-        * Maximum Version: `10.0.18363`
-        * Personally owned: `Block`
-        * Block manufacturers: `N/A`
-        * Scope tags: `Default`
-        * Assignments
-          * Included groups: `Device Windows 10`
-  * Name: `All Users`
-    * Priority: `Default`
-    * Assigned: `Yes`
-    * Platform settings
-      * Type: `Windows (MDM)`
-        * Platform: `Allow`
-        * Minimum Version: `10.0.18362`
-        * Maximum Version: `10.0.18363`
-        * Personally owned: `Block`
-        * Block manufacturers: `N/A`
-      * Type: `iOS/iPadOS`
-        * Platform: `Allow`
-        * Minimum Version: `13.0`
-        * Maximum Version: -
-        * Personally owned: `Block`
-        * Block manufacturers: `N/A`
-        * Assignments
-          * Included groups: `All devices`
-* Device limit restrictions
-  * Name: `All users`
-  * Priority: `Default`
-  * Device limit: `5`
-  * Assignments
-    * Included groups: `All devices`
-
 
 

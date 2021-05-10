@@ -402,7 +402,7 @@ Accepted Domains are SMTP namespaces configured within Exchange Online. Only ema
 
 Accepted Domains consist of the following types:
 
-* Authoritative Domains - Authoritative Domains are domains where the Exchange Organisation accepts messages addressed to recipients and is responsible for generating non-delivery reports. On creation of an Exchange Online organisation the tenant domain Fully Qualified Domain Name (FQDN) and the `<tenantname>.onmail.onmicrosoft.com` FQDN are automatically populated as an Authoritative Domains; and
+* Authoritative Domains - Authoritative Domains are domains where the Exchange Organisation accepts messages addressed to recipients and is responsible for generating non-delivery reports. On creation of an Exchange Online organisation the tenant domain Fully Qualified Domain Name (FQDN) and the `<tenantname>.mail.onmicrosoft.com` FQDN are automatically populated as an Authoritative Domains; and
 * Relay Domains - Relay Domains are often called Non-Authoritative Domains. The Exchange Organisation will accept the messages addressed to the recipients; however, it is not responsible for generating non-delivery reports. Hybrid Exchange leverages Relay Domains and mail connectors to relay messages between both on-premises infrastructure and Exchange Online.
 
 Accepted Domain Design Decisions for all agencies and implementation types.
@@ -410,7 +410,7 @@ Accepted Domain Design Decisions for all agencies and implementation types.
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Configure Additional Accepted Domains | Configured | Required to integrate with additional agencies. Any additional Agencies that require access to the system are to be included.
-Authoritative Domains | Configured | The `<agency-tenant>.onmicrosoft.com` authoritative domain is created during the enablement of Office 365 and represents the Exchange Online Organisations SMTP address space. The additional authoritative domains are required as each Agency will have a corresponding authoritative domain.
+Authoritative Domains | Configured | The `<tenantname>.onmicrosoft.com` authoritative domain is created during the enablement of Office 365 and represents the Exchange Online Organisations SMTP address space. The additional authoritative domains are required as each Agency will have a corresponding authoritative domain.
 
 Additional Accepted Domain Design Decisions for hybrid implementations
 

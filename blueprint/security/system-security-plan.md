@@ -13,8 +13,6 @@ CloudSystem.
 
 ### System overview
 
-## Sample Change
-
 The CloudSystem leverages the Information Security Registered Assessors Program (IRAP) assessed Microsoft Azure and Office 365 platforms and their associated services. The CloudSystem includes the following components to improve the security posture of a target Agency:
 
 * Cloud identity – Azure Active Directory (Azure AD) configuration including conditional access allowing log in from anywhere and appropriate security policies to be applied.

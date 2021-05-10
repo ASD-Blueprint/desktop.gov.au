@@ -57,7 +57,7 @@ menu: abac
 
 ## Enrolment types (preview)
 
-`Intune > Devices > Enroll devices > Apple enrollment > Enrollment types (preview)`
+`Microsoft Endpoint Manager > Devices > Enroll devices > Apple enrollment > Enrollment types (preview)`
 
 * Name: `iOS DEP Enrolment`
 * Description: -

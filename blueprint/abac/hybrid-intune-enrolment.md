@@ -88,3 +88,53 @@ Allow biometric authentication | No
 Use enhanced anti-spoofing, when available | Yes
 Allow phone sign-in | No
 Use security keys for sign-in | Not configured
+
+## Enrolment restrictions
+
+`Microsoft Endpoint Manager > Devices > Enroll devices > Enrollment restrictions`
+
+* Device type restrictions
+  * Name: `Organisation Restrictions`
+    * Priority: `3`
+    * Assigned: `Yes`
+    * Platform settings
+      * Type: `Windows (MDM)`
+        * Platform: `Allow`
+        * Minimum Version: `10.0.18362`
+        * Maximum Version: `10.0.18363`
+        * Personally owned: `Block`
+        * Block manufacturers: `N/A`
+      * Type: `iOS/iPadOS`
+        * Platform: `Allow`
+        * Minimum Version: `14.0`
+        * Maximum Version: -
+        * Personally owned: `Block`
+        * Block manufacturers: `N/A`
+      * Type: `Android Enterprise (Work Profiles)`
+        * Platform: `Block`
+        * Minimum Version: `N/A`
+        * Maximum Version: `N/A`
+        * Personally owned: `Block`
+        * Block manufacturers: `N/A`
+      * Type: `Android device administrator`
+        * Platform: `Block`
+        * Minimum Version: `N/A`
+        * Maximum Version: `N/A`
+        * Personally owned: `Block`
+        * Block manufacturers: `N/A`
+      * Type: `macOS`
+        * Platform: `Block`
+        * Minimum Version: `N/A`
+        * Maximum Version: `N/A`
+        * Personally owned: `Block`
+        * Block manufacturers: `N/A`
+    * Scope tags
+      * tags: `Default`
+    * Assignments
+      * Included groups: `All devices`
+* Device limit restrictions
+  * Name: `All users`
+  * Priority: `Default`
+  * Device limit: `5`
+  * Assignments
+    * Included groups: `All devices`

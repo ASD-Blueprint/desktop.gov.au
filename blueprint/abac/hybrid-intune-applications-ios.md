@@ -6,7 +6,7 @@ menu: abac
 
 ## Intune applications
 
-The following Microsoft Endpont Manager - Intune (Intune) applications can be found in the Azure Portal at `Intune > Apps > All apps`
+The following Microsoft Endpont Manager - Intune (Intune) applications can be found in the Azure Portal at `Microsoft Endpoint Manager > Apps > All apps`
 
 ### Adobe Acrobat Reader for PDF
 
@@ -310,7 +310,7 @@ The following Microsoft Endpont Manager - Intune (Intune) applications can be fo
 
 ## iOS app protection policy
 
-`Intune > Apps > App protection policies`
+`Microsoft Endpoint Manager > Apps > App protection policies`
 
 * Name: `iOS App Protection Policy`
 * Description: -
@@ -393,7 +393,7 @@ Min OS version | 12.0 | Block access
 
 ## iOS app configuration
 
-`Intune > Apps > App configuration policies`
+`Microsoft Endpoint Manager > Apps > App configuration policies`
 
 * Name: `iOS App Configuration`
 * Description: -
@@ -452,9 +452,9 @@ Microsoft Outlook
   * Excluded groups: -
 * Scope tags: `Default`
 
-## Intune Company Portal
+## Company Portal
 
-`Intune > Tenant administration > Customization`
+`Microsoft Endpoint Manager > Tenant administration > Customization`
 
 * Branding
   * Organization name: `<Agency Name>`

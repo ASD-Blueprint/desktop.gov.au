@@ -10,7 +10,7 @@ The ABAC settings for the Agency Microsoft Endpoint Manager - Intune (Intune) Pr
 
 Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting.
 
-The following can be found at `Intune > Devices > Configuration profiles`
+The following can be found at `Microsoft Endpoint Manager > Devices > Configuration profiles`
 
 ### ACSC-Jan2020-MacroSecurity
 

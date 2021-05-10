@@ -6,7 +6,7 @@ menu: abac
 
 ## IntuneEnrollerDevices
 
-`Intune > Devices > Enroll devices > Deployment Profiles`
+`Microsoft Endpoint Manager > Devices > Enroll devices > Deployment Profiles`
 
 * Name: `IntuneEnrollerDevices`
 * Description: `Devices enrolled in Intune via autopilot`

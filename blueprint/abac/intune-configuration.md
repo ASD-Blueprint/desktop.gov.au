@@ -6,7 +6,7 @@ menu: abac
 
 ## Configuration profiles
 
-The following can be found at `Intune > Devices > Configuration profiles`
+The following can be found at `Microsoft Endpoint Manager > Devices > Configuration profiles`
 
 ### ACSC-Jan2020-MacroSecurity
 

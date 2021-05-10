@@ -6,7 +6,7 @@ menu: abac
 
 ## ACSC1709Guidance-DefenderATPSecurityBaseline_v3
 
-`Intune > Endpoint security > Security baselines > Microsoft Defender ATP Baseline`
+`Microsoft Endpoint Manager > Endpoint security > Security baselines > Microsoft Defender ATP Baseline`
 
 * Name: `ACSC1709Guidance-DefenderATPSecurityBaseline_v3`
 * Description: `Version 3 baseline`
@@ -138,7 +138,7 @@ menu: abac
 
 ## ACSC1709Guidance-EdgeSecurityBaseline_Settings
 
-`Intune > Endpoint security > Security baselines > Microsoft Edge Baseline`
+`Microsoft Endpoint Manager > Endpoint security > Security baselines > Microsoft Edge Baseline`
 
 * Name: `ACSC1709Guidance-EdgeSecurityBaseline`
 * Description: `ACSC1709Guidance-EdgeSecurityBaseline`
@@ -169,7 +169,7 @@ menu: abac
 
 ## ACSC1709Guidance-MDMSecurity
 
-`Intune > Endpoint security > Security baselines > Windows 10 Security Baseline`
+`Microsoft Endpoint Manager > Endpoint security > Security baselines > Windows 10 Security Baseline`
 
 * Name: `ACSC1709Guidance-MDMSecurity`
 * Description: `ACSC1709Guidance-MDMSecurity`
@@ -621,7 +621,7 @@ menu: abac
 
 ## ACSC1709Guidance-MDMSecurity-AdminUsers
 
-`Intune > Endpoint security > Security baselines > Windows 10 Security Baseline`
+`Microsoft Endpoint Manager > Endpoint security > Security baselines > Windows 10 Security Baseline`
 
 * Name: `ACSC1709Guidance-MDMSecurity-AdminUsers`
 * Description: `Does not block WinRM Basic Auth to allow Exchange PowerShell Management Console`

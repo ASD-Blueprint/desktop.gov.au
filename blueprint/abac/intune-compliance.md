@@ -4,7 +4,7 @@ title: Intune compliance
 menu: abac
 ---
 
-The following Microsoft Endpoint Manager - Intune (Intune) applications can be found in the Azure Portal at `Search > Intune > Devices > Compliance policies | Policies`
+The following Microsoft Endpoint Manager - Intune (Intune) applications can be found in the Azure Portal at `Search > Microsoft Endpoint Manager > Devices > Compliance policies | Policies`
 
 ## Windows 10 compliance
 

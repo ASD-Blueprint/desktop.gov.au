@@ -33,8 +33,3 @@ exclude:
 # Plugin settings
 plugins:
    - jekyll-last-modified-at
-   - jekyll-spaceship
-
-jekyll-spaceship:
-  processors:
-      - table-processor

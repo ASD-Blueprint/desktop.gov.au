@@ -33,10 +33,10 @@ Each of the four incident response phases are detailed in the following sections
 ### Preparation
 The preparation phase of the incident response life cycle is a shared responsibility between the project team and Agency cyber security personnel. The project team is responsible for the design, implementation, and security assessment of the solution. This includes performing a risk assessment and determining which specific Information Security Manual (ISM) controls to implement to reduce and manage the risk of security incidents. The following documentation has been produced for the CloudSystem and it is recommended that the Agencies cyber security personnel familiarise themselves with the content to aid them in their preparation to manage an incident:
 
-* DTA – Blueprint – Solution Overview (October 2020) which describes the solution, which features have been enabled/disabled for the Agency, and how the solution has been structured.
-* DTA – Blueprint – Platform Design (October 2020) which describes the technologies used that make up the ‘platform’ portion of the solution and how they are implemented.
-* DTA – Blueprint – Client Devices Design (October 2020) which describes the technologies used that make up the Windows 10 portion of the solution and how it is implemented.
-* DTA – Blueprint – Office 365 Design (October 2020) which describes the technologies used that make up the Office 365 portion of the solution and how it is implemented.
+* DTA – Blueprint – Solution Overview which describes the solution, which features have been enabled/disabled for the Agency, and how the solution has been structured.
+* DTA – Blueprint – Platform Design which describes the technologies used that make up the ‘platform’ portion of the solution and how they are implemented.
+* DTA – Blueprint – Client Devices Design which describes the technologies used that make up the Windows 10 portion of the solution and how it is implemented.
+* DTA – Blueprint – Office 365 Design which describes the technologies used that make up the Office 365 portion of the solution and how it is implemented.
 * DTA – Cloud-Only Blueprint – Security Risk Management Plan (April 2021) (SRMP) which includes the details of the risk assessment performed and the recommended treatments.
 * DTA – Cloud-Only Blueprint – System Security Plan (April 2021) (SSP) which describes how controls identified in the SSP Annex are implemented by the system.
 * DTA – Cloud-Only Blueprint – System Security Plan Annex (April 2021) which states the compliance of the solution with the April 2021 version of the ISM.

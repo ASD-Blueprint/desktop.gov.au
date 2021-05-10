@@ -17,7 +17,7 @@ Power Platform | The Power Platform includes PowerApps, Power BI, and Microsoft 
 Security and Compliance | Office 365 provides Security and Compliance tools which can be utilised to implement an organisation's Information Management Policy and to assist with information governance.
 Exchange Online Protection | Exchange Online protection is a cloud hosted email security service (Mail Gateway) that acts to filter spam and scan for viruses on email entering and leaving Exchange Online.
 Office 365 Advanced Threat Protection (ATP) | Office 365 ATP is a cloud-based mail threat protection service. The service provides protection against unknown malware and viruses through the use of robust zero-day protection and inclusion of features to safeguard an organisation from harmful links in real time.
-Microsoft Whiteboard | Microsoft Whiteboard is a digital whiteboard that facilitates collarboration between users. It has integrations with the Office 365 suite and physical endpoints such as the Microsoft Surface hub.
+Microsoft Whiteboard | Microsoft Whiteboard is a digital whiteboard that facilitates collaboration between users. It has integrations with the Office 365 suite and physical endpoints such as the Microsoft Surface hub.
 Microsoft Forms | Microsoft Forms is a online survey and form tool.
 Microsoft Planner | Microsoft Planner is a planning application with integrations into other components of the Office 365 suite.
 
@@ -547,7 +547,7 @@ Language | English | The default language is English, users will have the abilit
 Default time zone | GMT +10 | The default time zone is GMT +10 however this will be adjusted based on user location.
 Exchange Message Size Limits | Up to 90MB | Default setting. Note that message limits may be smaller when sending messages to external mail recipients (can be as low as 10MB).
 Custom Primary SMTP Addressing | first.last@agency.gov.au<br>Usernames are recommended to follow the Universal Principal Name (UPN) format of the user, which is `first.last@<agency>.gov.au` | The primary SMTP address will be changed from `first.last@<tenant>.onmicrosoft.com` to ensure email continues to function in the same manner
-Exchange Online PowerShell | Disabled for standard users | Standard users have no need to access Exchange Online via Powershell
+Exchange Online PowerShell | Disabled for standard users | Standard users have no need to access Exchange Online via PowerShell
 
 ### Authentication policies
 
@@ -1617,25 +1617,22 @@ Enable Unauthenticated Sender Feature | Enable Unauthenticated Sender: On | Disp
 Actions | If email is sent by someone who's not allowed to spoof your domain: Quarantine the message | Specify an action in an event an unauthorised user spoofs a domain.
 
 ## Microsoft Whiteboard
-Microsoft Whiteboard is a hosted whiteboarding tool used for collaboration. It integrates with Office 365 services such as Teams and functions on devices such as the Microsoft Surface hub, Windows and iOS. Acess to use the tool can be controlled globally.
+Microsoft Whiteboard is a hosted whiteboarding tool used for collaboration. It integrates with Microsoft 365 services such as Teams and functions on devices such as the Microsoft Surface hub, Windows and iOS. Access to use the tool can be controlled globally.
 
-Microsoft leveages diagnostic data to both address issues and develop updates to the Microsoft Whiteboard tool. The level of data provided to Microsoft from clients utilising the Whiteboard application can be controlled. 
-
-Diagnostic data level options are:
-
+Microsoft leveages diagnostic data to both address issues and continually improve the Microsoft Whiteboard tool. The level of data provided to Microsoft from clients utilising the Whiteboard application can be controlled. The diagnostic data configuration options are:
 * Required – The minimum amount of data necessary to keep Whiteboard secure, up-to-date, and performing as expected on devices.
 * Optional – Additional data to help make product improvements and provides enhanced information to help detect, diagnose, and fix issues. All data under the required setting is also included.
 * Neither - No diagnostic data about the Whiteboard client software running on the devices is sent to Microsoft. 
 
-The Whiteboard tool also offers optional connected experiences. These experiencies are offered directly to users by Microsoft and include items such as Bing image search, Word or PowerPoint document insertion, and Ink beatufiication. When the connected services are leveraged, the required service data is provided Microsoft. This data is separate from any diagnostic data provided.
+The Whiteboard tool also offers optional connected experiences. These experiences are offered directly to users by Microsoft and include items such as Bing image search, Word or PowerPoint document insertion, and Ink beautification. When the connected services are leveraged, the required service data is provided to Microsoft. This data is separate from any diagnostic data provided.
 
-The Whiteboard tool can be used with the Microsoft Suface hub appliance. When using the tool easy sharing can be configured. Easy sharing allows sharing of Whiteboard sessions without logging into the Surface Hub appliance. 
+The Whiteboard tool can be used with the Microsoft Surface hub appliance. When using the tool easy sharing can be configured. Easy sharing allows sharing of Whiteboard sessions without logging into the Surface Hub appliance. 
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Whiteboard for everyone in the organisation | Enabled | Allowing the use if Whiteboard within the organisation. 
 Level of diagnostic data | Neither | Restricts the amount of data provided to Microsoft for diagnostic and product improvements.
-Connected experience in Whiteboard | Disabled | Restricts the availiability of unapproved optional experience to be presented to users. 
+Connected experience in Whiteboard | Disabled | Restricts the availability of unapproved optional experience to be presented to users. 
 Easy sharing of Whiteboard from Surface hub | Agency Decision | Depending on the location and configuration of the Surface Hub/s within the organisation this setting may be configured.   
 
 ## Microsoft Forms
@@ -1644,10 +1641,11 @@ Microsoft Forms is a form and survey tool. It offers a variety of external shari
 * Collaboration of layout and structure - Collaboration on the design of a form.
 * Sharing templates - Sharing a form as a template for external parties to leverage.
 * Sharing results - Sharing the results of a form with external parties.
+It can also be configured to allow images from Bing and videos from YouTube to be embedded.
 
-By default, Microsoft Forms can be configured to capture the names of all people within the organisation who complete a form or survey. This can also be configured on a form by form basis. Forms can also be configured to allow images from Bing and videos from YouTube to be embedded. 
+Microsoft Forms is capable of capturing the names of the organisational users who complete a form or survey. This functionality can also be configured globally or on a form by form basis.  
 
-Surveys and forms can be leveraged for potentially malicious purposes. Phishing protection for Microsoft Forms scans forms that only allow in organisation responses for common phishing questions. If they are detect the form is prevented from being distributed or shared. 
+Surveys and forms can be leveraged for potentially malicious purposes. Phishing protection for Microsoft Forms scans forms for common phishing questions. If they are detect the form is prevented from being distributed or shared. Phishing protection only protects internal organisation forms.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1656,11 +1654,11 @@ External Sharing -  Collaboration on the layout and structure | Enabled | Collab
 External Sharing -  Sharing of form as a template | Enabled | Sharing forms as a template will be enabled, it is up to the Agency which forms they wish to publish.
 External Sharing -  Sharing of result summary | Disabled | Prevents potential data spills from result exposure. 
 Record names by default | Disabled | Prevents the recording of user names where not required. 
-Bing search and YouTube video embedding | Disabled | Prevents the use of Bing images and Youtube images within Forms. 
+Bing search and YouTube video embedding | Disabled | Prevents the use of Bing images and YouTube images within Forms. 
 Phishing protection | Enabled | Blocks forms from being shared or distributed if they contain common phishing questions.
 
 ## Microsoft Planner
-Microsoft Planner is a task planning and assignment tool which can intergrate with other Office 365 services such as Microsoft Teams. Plans developed within Planner can be published into calenders through an iCalendar feed.
+Microsoft Planner is a task planning and assignment tool which can integrate with other Microsoft 365 services such as Microsoft Teams. Planner leverages iCalendar publishing to allow planner users to add tasks into their calendar. When tasks are published via iCalendar, they are available to all users with the iCalendar URL. The users can be both internal and external to the organisation.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---

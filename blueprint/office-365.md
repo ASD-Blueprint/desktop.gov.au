@@ -135,7 +135,7 @@ Microsoft communication to users | Disabled | System admins will be responsible 
 Modern Authentication | Enabled | Modern authentication is a group of technologies that combines authentication, authorisation and conditional access policies to secure an Office 365 tenant. Enabling of Modern Authentication provides ability to use Multi Factor Authentication.
 MyAnalytics | Enabled | Provides users with details about their usage of Office 365
 External Office 365 group content sharing | Enabled | External collaboration will be conducted in Microsoft Teams which relies on Office 365 groups
-‎Office‎ software download settings | Disabled | Only one instance of the Office Suite is to be installed per user on their Government issued device. Office applications will be deployed to users via the Business Store.
+Office software download settings | Disabled | Only one instance of the Office Suite is to be installed per user on their Government issued device. Office applications will be deployed to users via the Business Store.
 Office What's New management preview | Disabled | System admins will be responsible for communication to users.
 Office on the web | Disabled | Do not allow users to open files in third party storage
 Reports | Disabled | Disable data reporting to Microsoft on Office 365 usage.

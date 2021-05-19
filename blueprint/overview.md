@@ -15,9 +15,9 @@ This overview is suitable for all users as a starting point.
 
 The blueprint is made up of another 3 main artefacts:
 
-* **Platform design** – All supporting components for the Windows 10, iOS and Office 365 (including Microsoft Endpoint Manager)
+* **Platform design** – All supporting components for the Windows 10, iOS and Microsoft 365 (including Microsoft Endpoint Manager)
 * **Client devices design** – Windows 10 and iOS components only
-* **Office 365 design** – Exchange Online, SharePoint Online, OneDrive for Business and Teams.
+* **Microsoft 365 design** – Exchange Online, SharePoint Online, OneDrive for Business and Teams.
 
 For each component in the solution, the blueprint artefacts provide:
 
@@ -35,7 +35,7 @@ The use of placeholders like 'agency.gov.au' and 'tenant-name' are used in the A
 The blueprint provides the information, rationale and configuration settings to allow an agency to implement the following components:
 
 * **Cloud identity** – Azure Active Directory configuration, including Multi-Factor Authentication (MFA) and conditional access, allows log in from anywhere and appropriate security policies to be applied
-* **Office 365** – Configuration of Exchange Online, SharePoint Online, Microsoft Teams and OneDrive for Business allowing cloud-based file storage
+* **Microsoft 365** – Configuration of Exchange Online, SharePoint Online, Microsoft Teams, Whiteboard, Forms and OneDrive for Business allowing cloud-based file storage
 * **Device management** – Management of security and configuration profiles for enrolled devices (includes testing against security baselines and confirmation of security compliance)
 * **Applications** – Delivery and configuration of applications appropriate to the user
 * **Security stack** – Security configuration of Office 365 and endpoint devices to implement Essential Eight strategies

@@ -4,7 +4,7 @@ title: Intune software updates
 menu: abac
 ---
 
-The following lists the Windows 10 update ring profiles deployed within the Agency tenant. Windows 10 update rings are utilised to maintain a patch level congruent to the standards determined in the Blueprint design documents.
+The following lists the Windows 10 update ring profiles, and iOS update profiles deployed within the Agency tenant. Windows 10 update rings are utilised to maintain a patch level congruent to the standards determined in the Blueprint design documents.
 
 ## Semi Annual Channel Ring
 
@@ -32,4 +32,16 @@ The following lists the Windows 10 update ring profiles deployed within the Agen
 * Scope tags: `Default`
 * Assignments
   * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`
+  * Excluded groups: -
+
+## iOS update policy
+
+`Microsoft Endpoint Manager > Devices > iOS/iPadOS > Update policies for iOS/iPadOS`
+
+* Name: `iOS Update Policy`
+* Description: -
+* Select version to install: `latest update`
+* Schedule type: `Update at next check-in`
+* Assignments
+  * Included groups: `All Devices`
   * Excluded groups: -

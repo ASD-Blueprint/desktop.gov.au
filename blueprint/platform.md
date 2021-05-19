@@ -33,15 +33,15 @@ Azure Active Directory | Domains<br>User Accounts<br>Agency Collaboration<br>Mul
 Active Directory | On premises for Hybrid solutions only
 Security | Microsoft Cloud App Security<br>Azure Advance Threat Protection<br>Microsoft Defender Advanced Threat Protection<br>Security Information and Event Management<br>Monitoring
 Client Configuration | Intune<br>Microsoft Co-Management<br>Group Policy<br>Printing
-Backup | Office 365 Backup
+Backup | Microsoft 365 Backup
 System Administration | Administrative Consoles<br>Role bases Access Control
 
-### Office 365 design
+### Microsoft 365 design
 
 Component | Inclusions
 --- | ---
-Office 365 Organisation | Residency<br>License<br>Self Service Purchase<br>Themes<br>Office 365 Services and Add-Ins<br>Role Based Access Control<br>Customer Lockbox
-Office 365 Connectivity | Mail Flow and Gateway<br>Optimisation<br>Exchange Hybrid<br>Mail Exchange Records<br>Mail Connectors<br>Autodiscover<br>SPF, DMARC, DKIM<br>Accepted Domains<br>Remote Domains<br>Certificates
+Microsoft 365 Organisation | Residency<br>License<br>Self Service Purchase<br>Themes<br>Office 365 Services and Add-Ins<br>Role Based Access Control<br>Customer Lockbox
+Microsoft 365 Connectivity | Mail Flow and Gateway<br>Optimisation<br>Exchange Hybrid<br>Mail Exchange Records<br>Mail Connectors<br>Autodiscover<br>SPF, DMARC, DKIM<br>Accepted Domains<br>Remote Domains<br>Certificates
 Exchange Online | Mail Migration<br>User Mailbox Configuration<br>Authentication Policies<br>Outlook on the Web Policies<br>Mailbox Archive<br>Journaling<br>Litigation Hold<br>Shared Mailboxes<br>Resource Mailboxes<br>Distribution Lists<br>Microsoft 365 groups<br>Address Book / Address List
 SharePoint Online | SharePoint Sites<br>SharePoint Hybrid<br>Application Management<br>Web Parts<br>Sharing and Access Controls<br>Legacy Features
 OneDrive for Business | Sharing<br>Storage and Synchronisation<br>Notifications<br>Content Migration
@@ -49,7 +49,7 @@ Microsoft Teams | Access<br>Dynamic Security Group<br>Organisation Wide Configur
 Power Platform | Power Apps and Power Automate<br>Power BI
 Security & Compliance | Alerts<br>Classification Labels<br>Retention Policies<br>Data Loss Prevention<br>Audit and Logging
 Exchange Online Protection | Connection Filtering<br>Anti-malware<br>Policy Filtering<br>Content Filtering
-Office 365 Advanced Threat Protection | Safe Links<br>Safe Attachments<br>Anti-Phishing
+Microsoft Defender for Office 365 | Safe Links<br>Safe Attachments<br>Anti-Phishing
 Microsoft Whiteboard | Diagnostic Data<br>Enablement<br>Connected Experience<br>Easy Sharing
 Microsoft Planner | iCalender Publishing
 Microsoft Forms | External sharing<br>Phishing Protection<br>Bing and YouTube embedding
@@ -64,8 +64,8 @@ iOS | Enrolment<br>Security<br>Remote Wipe
 ## Assumptions
 
 * Azure Multifactor Authentication (MFA) natively supports the OATH (Open Authentication) standard for selected hardware tokens. To use Azure MFA with OATH support, and to achieve an Essential 8 Maturity level of 3, hard tokens are required to be procured and deployed to all users. This Blueprint and associated security documentation assume the use of soft tokens and a level 2 maturity in this aspect of the Essential 8. 
-* Microsoft Office 365 and Microsoft Azure solutions hold audit data for a period based on the service and the license level of the organisation. The time for most services is under 2 years. For organisations with a requirement to hold audit data past this period, Security Information and Event Management (SIEM) integration should be considered. Service audit data within the Microsoft Office 365 and Azure clouds is often housed in discrete systems and the opportunities to bring the data under a single pane is limited. Azure Monitor or Azure Sentinel are two Microsoft offerings which could be leveraged for this purpose however a holistic solution should be considered to ensure any legislative requirements are met.
-* The Blueprint has been designed to cater for government organisations allowing end user devices internet access from anywhere (head office, regional office or home) direct connected and via proxy servers, VPN servers or Security Internet Gateways (SIGs). Where connected through a proxy server, rules will be configured to allow direct connection for some Office 365 services. Mobile users will access Microsoft 365 services directly. These users will be subject to Conditional Access policies to reduce unauthorised access risk.
+* Microsoft 365 and Microsoft Azure solutions hold audit data for a period based on the service and the license level of the organisation. The time for most services is under 2 years. For organisations with a requirement to hold audit data past this period, Security Information and Event Management (SIEM) integration should be considered. Service audit data within the Microsoft 365 and Azure clouds is often housed in discrete systems and the opportunities to bring the data under a single pane is limited. Azure Monitor or Azure Sentinel are two Microsoft offerings which could be leveraged for this purpose however a holistic solution should be considered to ensure any legislative requirements are met.
+* The Blueprint has been designed to cater for government organisations allowing end user devices internet access from anywhere (head office, regional office or home) direct connected and via proxy servers, VPN servers or Security Internet Gateways (SIGs). Where connected through a proxy server, rules will be configured to allow direct connection for some Microsoft 365 services. Mobile users will access Microsoft 365 services directly. These users will be subject to Conditional Access policies to reduce unauthorised access risk.
 * The Intune Console is the preferred method to manage all settings regardless of Cloud native or Hybrid. Although a combination of the Microsoft Endpoint Configuration Manager (MECM) Console and Group Policy Objects (GPOs) would be able to achieve the same settings in a hybrid environment, this Blueprint does not include MECM and GPOs example configurations due to the level of dissimilarities and per agency customisation in existing MECM and GPOs configurations across Commonwealth entities.
 
 ## Identity and access management
@@ -149,11 +149,11 @@ In conjunction with the Naming Policy, Microsoft 365 groups can also be given ex
 
 Microsoft 365 Groups, by default can be created by any user. This can be restricted to Administrators and members of a security group. This restriction prevents the needless creation of groups. It is advisable to develop a workflow to control the provisioning process.
 
-Office 365 Group Design Decisions for all agencies and implementation types.
+Microsoft 365 Group Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Office 365 Group creation restrictions | Configured <br>Only administrators and select users can create/configure Microsoft 365 groups. | This will ensure that groups are approved before being created, ensuring all groups have a purpose.<br>This setting also affects Exchange, SharePoint, Microsoft Planner and Teams.
+Microsoft 365 Group creation restrictions | Configured <br>Only administrators and select users can create/configure Microsoft 365 groups. | This will ensure that groups are approved before being created, ensuring all groups have a purpose.<br>This setting also affects Exchange, SharePoint, Microsoft Planner and Teams.
 Naming Policy | `grp-AgencyName-SecurityGroup-Role` | Exchange groups will be named like the following AgencyName-Agency e.g. `grp-DTA-ExchangeMailbox-ITHelpdesk`
 Group Expiration  | All groups - annually | Group Expiration is required to simplify the management overhead associated with groups and to limit Azure AD clutter.
 
@@ -1154,9 +1154,9 @@ Office 365 log ingestion | Not Configured | SIEM Solution configuration is custo
 
 ## Client configuration
 
-### Intune
+### Microsoft Endpoint Manager - Intune
 
-Microsoft Intune is an Azure service that provides Mobile Device Management (MDM) and Mobile Application Management (MAM) capabilities for Apple iOS, Google Android and Microsoft Windows devices to enhance security and protection.
+Microsoft Endpoint Manager - Intune (Intune) is an Microsoft 365 service that provides Mobile Device Management (MDM) and Mobile Application Management (MAM) capabilities for Apple iOS, Google Android and Microsoft Windows devices to enhance security and protection.
 
 Intune manages which devices can access corporate data, protects company information by controlling the way data is shared, and enforces device configuration to ensure security requirements are met. It does this via:
 

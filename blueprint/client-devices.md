@@ -1169,6 +1169,8 @@ ACSC guidance for mobile devices currently only covers iOS devices. Due to this,
 
 iOS follows a yearly major release cycle. With every major release of iOS, older iPhone devices are deprecated from support, hence security updates will not be available to these devices. 
 
+Update policies control the update frequency  of managed devices. Intune can define update policies that specify how and when service updates are deployed to iOS devices. By using update rings, it is possible to create an update strategy that mirrors business needs.
+
 iOS devices should be configured to adhere to the ACSC hardening requirements to provide secure access to corporate information. ACSC recommends that the latest version of iOS is used in order to have the most secure operating system present on the device.
 
 iOS Devices Design Decisions for all agencies and implementation types.
@@ -1177,6 +1179,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 iOS version | iOS 14 or above | To align with the ACSC Security Configuration guide – iOS version enforcement of n or n-1 will allow for testing of patches and internal applications before deploying operating system updates.<br><br>Apple applies the n-1 rule to incremental updates, all other versions are no longer signed. <br><br>Once a version is not signed a device cannot be restored to it. iOS 14 has not undergone an ASD Cryptographic Evaluation (ACE) whereas iOS 13 has undergone an ACE. Agencies will need to evaluate whether iOS 14 fits their requirements from an encryption standpoint.
 iOS Devices | iPhone XS and above | iPhone X and older are all vulnerable to the exploit Checkm8 and should be avoided.
+Update Policies | Configurede | To align with the ACSC Security Configuration guide
 Jailbroken/rooted devices | Blocked | Prevents jail broken devices from accessing Agency information. 
 
 ### Enrolling iOS devices

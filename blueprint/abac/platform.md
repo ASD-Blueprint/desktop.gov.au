@@ -8,7 +8,7 @@ menu: abac
 
 ### Azure Active Directory
 
-`Search > Azure Active Directory > Properties`
+`Azure Active Directory > Properties`
 
 * Name: `<Agency Name>`
 * Country or Region: `Australia`
@@ -19,7 +19,7 @@ menu: abac
 * Privacy Statement URL: `Not configured`
 * Access management for Azure Resources: `No`
 
-`Search > Azure Active Directory > Users > User settings > Enterprise applications`
+`Azure Active Directory > Users > User settings > Enterprise applications`
 
 * Enterprise applications
   * Users can consent to apps accessing information on their behalf: `No`
@@ -33,7 +33,7 @@ menu: abac
 * Office 365 Settings
   * Users can only see Office 365 apps in the Office 365 portal: `No`
 
-`Search > Azure Active Directory > Users > User settings`
+`Azure Active Directory > Users > User settings`
 
 * App registrations
   * Users can register applications: `No`
@@ -42,7 +42,7 @@ menu: abac
 * LinkedIn account connections
   * Allow users to connect work or school account with LinkedIn: `No`
 
-`Search > Azure Active Directory > Users > User settings > External collaboration settings`
+`Azure Active Directory > Users > User settings > External collaboration settings`
 
 * Guest user access: `Guest users have limited access to properties and memberships of directory objects`
 * Guest invite settings
@@ -56,7 +56,7 @@ menu: abac
   * Target domains:
     * `<Agency>.gov.au`
 
-`Search > Azure Active Directory > Groups > General`
+`Azure Active Directory > Groups > General`
 
 * Self Service Group Management
   * Owners can manage group membership requests in the Access Panel: `No`
@@ -66,22 +66,22 @@ menu: abac
 * Microsoft 365 Groups
   * Users can create Microsoft 365 groups in Azure portals: `No`
 
-`Search > Azure Active Directory > Groups > Expiration`
+`Azure Active Directory > Groups > Expiration`
 
 * Group lifetime (in days): `365`
 * Email contact for groups with no owners: `Office365_Group_Expiration@<Agency>.gov.au`
 * Enable expiration for these Microsoft 365 groups: `None`
 
-`Search > Azure Active Directory > Groups > Naming policy`
+`Azure Active Directory > Groups > Naming policy`
 
 * Blocked words: `Not configured`
 
-`Search > Azure Active Directory > Custom domain names`
+`Azure Active Directory > Custom domain names`
 
 * `<Agency>.gov.au (Primary)`
 * `<Agency>.onmicrosoft.com`
 
-`Search > Azure Active Directory > Company branding`
+`Azure Active Directory > Company branding`
 
 * Locale: `Default`
   * Sign-in Page background image (1920x1080px):	Generic Australian Government Background
@@ -94,7 +94,7 @@ menu: abac
   * Square logo image, dark theme (240x240px): -
   * Show option to remain signed in: `No`
 
-`Search > Azure Active Directory > Devices > Device settings`
+`Azure Active Directory > Devices > Device settings`
 
 * Users may join devices to Azure AD: `All`
 * Devices to be Azure AD joined or Azure AD registered require Muti-Factor Authentication: `No`
@@ -102,62 +102,62 @@ menu: abac
 * Additional local administrators on all Azure AD joined devices: -
 * Enterprise State Roaming: -
 
-`Search > Azure Active Directory > Devices > Enterprise State Roaming`
+`Azure Active Directory > Devices > Enterprise State Roaming`
 
 * Users may sync settings and app data across devices: `All`
 
-`Search > Azure Active Directory > Password reset > Properties`
+`Azure Active Directory > Password reset > Properties`
 
 * Self-service password reset enabled: `All`
 
-`Search > Azure Active Directory > Password reset > Authentication methods`
+`Azure Active Directory > Password reset > Authentication methods`
 
 * Number of methods required to reset: `2`
 * Methods available to users: `Mobile app notification`, `Email`, `Mobile phone`
 
-`Search > Azure Active Directory > Password reset > Registration`
+`Azure Active Directory > Password reset > Registration`
 
 * Require users to register when signing in?: `Yes`
 * Number of days before users are asked to re-confirm their authentication information: `180`
 
-`Search > Azure Active Directory > Password reset > Notifications`
+`Azure Active Directory > Password reset > Notifications`
 
 * Notify users on password resets?: `Yes`
 * Notify all admins when other admins reset their password?: `Yes`
 
-`Search > Azure Active Directory > Password reset > Customization`
+`Azure Active Directory > Password reset > Customization`
 
 * Customize helpdesk line: `No`
 
-`Search > Azure Active Directory > Password reset > On-premises integration`
+`Azure Active Directory > Password reset > On-premises integration`
 
 * Write back passwords to your on-premises directory?: `Not configured`
 * Allow users to unlock accounts without resetting their password?: `Not configured`
 
 ### Emergency access admin accounts
 
-`Search > Azure Active Directory > Users > Break Glass > Profile`
+`Azure Active Directory > Users > Break Glass > Profile`
 
 * Name: `Break Glass`
 * User Principal Name: `break.glass_priv@<Tenant Name>.onmicrosoft.com`
 * User Type: `Member`
 
-`Search > Azure Active Directory > Users > Break Glass > Assigned roles`
+`Azure Active Directory > Users > Break Glass > Assigned roles`
 
 * Active assignments: `Global Administrator`
 
-`Search > Azure Active Directory > Users > Break Glass > Groups`
+`Azure Active Directory > Users > Break Glass > Groups`
 
 * Name: `Excluded from CA`, `rol-Agency-Administrators`, `<Agency Name>`, `All Users`
 
-`Search > Azure Active Directory > Users > Break Glass > Licenses`
+`Azure Active Directory > Users > Break Glass > Licenses`
 
 * Products: `Microsoft 365 E5`
 * Assignment Paths: `Inherited (rol-Agency-Administrators)`
 
 ### Azure Active Directory identity protection
 
-`Search > Azure Active Directory > Security > Identity Protection > Sign-in risk policy`
+`Azure Active Directory > Security > Identity Protection > Sign-in risk policy`
 
 * Policy Name: `Sign-in risk remediation policy`
   * Assignments
@@ -170,7 +170,7 @@ menu: abac
     * Require multi-factor authentication: `Checked`
   * Enforce policy: `On`
 
-`Search > Azure Active Directory > Security > Identity Protection > User risk policy`
+`Azure Active Directory > Security > Identity Protection > User risk policy`
 
 * Policy Name: `User risk remediation policy`
   * Assignments
@@ -185,12 +185,12 @@ menu: abac
 
 ### Azure Active Directory multifactor authentication
 
-`Search > Multi-Factor Authentication > Fraud alert`
+`Multi-Factor Authentication > Fraud alert`
 
 * Allow users to submit fraud alerts: `On`
 * Automatically block users who report fraud: `On`
 
-`Search > Multi-Factor Authentication > Getting started > Configure additional cloud-based MFA settings`
+`Multi-Factor Authentication > Getting started > Configure additional cloud-based MFA settings`
 
 * App passwords: `Do not allow users to create app passwords to sign in to non-browser apps`
 * Trusted IPs: `Not configured`
@@ -199,7 +199,7 @@ menu: abac
 
 ### Licensing
 
-Table 6 describes the user (`rol-agency-users`) licensing settings that are configured within the tenant available at `Search > Azure Active Directory > Groups > All groups > rol-Agency-Users > Licenses > Microsoft 365 E5`
+Table 6 describes the user (`rol-agency-users`) licensing settings that are configured within the tenant available at `Azure Active Directory > Groups > All groups > rol-Agency-Users > Licenses > Microsoft 365 E5`
 
 Item | Configuration
 --- | ---
@@ -258,7 +258,7 @@ Yammer Enterprise | Off
 
 Table 7 describes the admin (`rol-agency-administrators`) licensing settings that are configured within the tenant.
 
-`Search > Azure Active Directory | Groups | All groups > rol-Agency-Administrators | Licenses > Microsoft 365 E5`
+`Azure Active Directory | Groups | All groups > rol-Agency-Administrators | Licenses > Microsoft 365 E5`
 
 Item | Configuration
 --- | ---
@@ -319,7 +319,7 @@ Yammer Enterprise | Off
 
 ### Application protection policies
 
-`Search > Intune > Client apps > App protection policies > Windows Information Protection > Properties`
+`Intune > Client apps > App protection policies > Windows Information Protection > Properties`
 
 * Name: `Windows Information Protection`
 * Description: `Application Protection policies`
@@ -378,7 +378,7 @@ Agency.sharepoint.com|Agency-my.sharepoint.com|Agency-files.sharepoint.com|tasks
   * Excluded groups: -
 * Scope tags: `Default`
 
-`Search > Intune > Client apps > App protection policies > iOS App Protection Policy > Properties`
+`Intune > Client apps > App protection policies > iOS App Protection Policy > Properties`
 
 * Name: `iOS App Protection Policy`
 * Description: -
@@ -458,7 +458,7 @@ Min OS version | 12.0 | Block access
 
 ### Microsoft Defender Advanced Threat Protection
 
-`Search > Microsoft Intune > Device compliance > Microsoft Defender ATP > Open the Microsoft Defender ATP admin console`
+`Microsoft Intune > Device compliance > Microsoft Defender ATP > Open the Microsoft Defender ATP admin console`
 
 #### General
 
@@ -768,7 +768,7 @@ Unsecure location printing | Configured in Intune Security Baselines.
 
 ### Privileged identity management
 
-`Search > Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Global Administrator > Role Settings`
+`Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Global Administrator > Role Settings`
 
 * Activation
   * Activation maximum duration: `1 hour`
@@ -825,7 +825,7 @@ Unsecure location printing | Configured in Intune Security Baselines.
       * Additional recipients: `Only designated approvers can receive this email`
       * Critical emails only: `Not checked`
 
-`Search > Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Global Reader > Role Settings`
+`Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Global Reader > Role Settings`
 
 * Activation
   * Activation maximum duration: `1 hour`

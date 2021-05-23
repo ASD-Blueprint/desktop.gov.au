@@ -4,7 +4,7 @@ title: Intune applications
 menu: abac
 ---
 
-The following Intune applications can be found in the Azure Portal at `Search > Intune > Client apps | Apps`
+The following Intune applications can be found in the Azure Portal at `Microsoft Endpoint Manager > Client apps | Apps`
 
 ## Privileged access
 
@@ -72,7 +72,7 @@ The following Intune applications can be found in the Azure Portal at `Search > 
 * Dependencies: -
 * Scope tags: `Default`
 * Assignments
-  * Required: -
+  * Required: -`grp-Windows-10-Devices`
   * Available for enrolled devices: -
   * Uninstall: -
 
@@ -146,52 +146,6 @@ The following Intune applications can be found in the Azure Portal at `Search > 
   * Available for enrolled devices: -
   * Uninstall: -
 
-## Expand Windows Defender Application Control (WDAC) policies
-
-* Name: `Expand WDAC Policies`
-* Description: `Install WDAC policies to C:\Windows\System32\CodeIntegrity\CiPolicies\Active`
-* Type: `Windows app (Win32)`
-* App information
-  * Publisher: `<Agency Name>`
-  * Category: -
-  * Show this as a featured app in the Company Portal: `No`
-  * Information URL: -
-  * Privacy URL: -
-  * Developer: -
-  * Owner: -
-  * Notes: -
-  * Logo: -
-* Program
-  * Install command: `%SystemRoot%\sysnative\WindowsPowerShell\v1.0\powershell.exe -executionpolicy bypass -file Expand.ps1`
-  * Uninstall command: `%SystemRoot%\sysnative\WindowsPowerShell\v1.0\powershell.exe -executionpolicy bypass -file Expand.ps1`
-  * Install behaviour: `System`
-  * Device restart behavior: `App install may force a device restart`
-  * Return codes: 
-```
-0 Success
-1707 Success
-3010 Soft reboot
-1641 Hard reboot
-1618 Retry
-```
-* Requirements
-  * Operating system architecture: `x64`
-  * Minimum operating system: `Windows 10 1903`
-  * Disk space required (MB): -
-  * Physical memory required (MB): -
-  * Minimum number of logical processors required: -
-  * Minimum CPU speed required (MHz): -
-  * Additional requirement rules: -
-* Detection rules
-  * Rules format: `Manually configure detection rules`
-  * Detection rules: `File %SystemRoot%\System32\CodeIntegrity\CiPolicies\Active`
-* Dependencies: -
-* Scope tags: `Default`
-* Assignments
-  * Required: `rol-Agency-test`
-  * Available for enrolled devices: -
-  * Uninstall: -
-
 ## Microsoft Authenticator
 
 * Name: `Microsoft Authenticator`
@@ -212,7 +166,7 @@ The following Intune applications can be found in the Azure Portal at `Search > 
   * Logo: ![Microsoft Authenticator](/assets/images/abac/microsoft-authenticator.png)
 * Scope tags: `Default`
 * Assignments
-  * Required: `grp-Windows-10-Devices`, `rol-Agency-Administrators`, `rol-Agency-Users`
+  * Required: `rol-Agency-Administrators`, `rol-Agency-Users`
   * Available for enrolled devices: -
   * Available with or without enrollment: -
   * Uninstall: -
@@ -237,7 +191,7 @@ The following Intune applications can be found in the Azure Portal at `Search > 
   * Logo: ![Microsoft Edge](/assets/images/abac/microsoft-edge.png)
 * Scope tags: `Default`
 * Assignments
-  * Required: `grp-Windows-10-Devices`, `rol-Agency-Administrators`, `rol-Agency-Users`
+  * Required: `rol-Agency-Administrators`, `rol-Agency-Users`
   * Available for enrolled devices: -
   * Available with or without enrollment: -
   * Uninstall: -
@@ -261,7 +215,7 @@ The following Intune applications can be found in the Azure Portal at `Search > 
   * Logo: ![Microsoft Edge for Windows 10](/assets/images/abac/microsoft-edge-for-windows-10.png)
 * Scope tags: `Default`
 * Assignments
-  * Required: `All devices`, `All users`
+  * Required: `grp-Windows-10-Devices`
   * Available for enrolled devices: -
   * Available with or without enrollment: -
   * Uninstall: -
@@ -286,7 +240,7 @@ The following Intune applications can be found in the Azure Portal at `Search > 
   * Logo: ![Microsoft Excel](/assets/images/abac/microsoft-excel.png)
 * Scope tags: `Default`
 * Assignments
-  * Required: `grp-Windows-10-Devices`, `rol-Agency-Administrators`, `rol-Agency-Users`
+  * Required: `rol-Agency-Administrators`, `rol-Agency-Users`
   * Available for enrolled devices: -
   * Available with or without enrollment: -
   * Uninstall: -
@@ -311,7 +265,7 @@ The following Intune applications can be found in the Azure Portal at `Search > 
   * Logo: ![Microsoft OneDrive](/assets/images/abac/microsoft-onedrive.png)
 * Scope tags: `Default`
 * Assignments
-  * Required: `grp-Windows-10-Devices`, `rol-Agency-Administrators`, `rol-Agency-Users`
+  * Required: `rol-Agency-Administrators`, `rol-Agency-Users`
   * Available for enrolled devices: -
   * Available with or without enrollment: -
   * Uninstall: -
@@ -336,7 +290,7 @@ The following Intune applications can be found in the Azure Portal at `Search > 
   * Logo: ![Microsoft Outlook](/assets/images/abac/microsoft-outlook.png)
 * Scope tags: `Default`
 * Assignments
-  * Required: `grp-Windows-10-Devices`, `rol-Agency-Administrators`, `rol-Agency-Users`
+  * Required: `rol-Agency-Administrators`, `rol-Agency-Users`
   * Available for enrolled devices: -
   * Available with or without enrollment: -
   * Uninstall: -
@@ -361,7 +315,7 @@ The following Intune applications can be found in the Azure Portal at `Search > 
   * Logo: ![Microsoft Teams](/assets/images/abac/microsoft-teams.png)
 * Scope tags: `Default`
 * Assignments
-  * Required: `grp-Windows-10-Devices`, `rol-Agency-Administrators`, `rol-Agency-Users`
+  * Required: `rol-Agency-Administrators`, `rol-Agency-Users`
   * Available for enrolled devices: -
   * Available with or without enrollment: -
   * Uninstall: -
@@ -386,29 +340,29 @@ The following Intune applications can be found in the Azure Portal at `Search > 
   * Logo: ![Microsoft Word](/assets/images/abac/microsoft-word.png)
 * Scope tags: `Default`
 * Assignments
-  * Required: `grp-Windows-10-Devices`, `rol-Agency-Administrators`, `rol-Agency-Users`
+  * Required: `rol-Agency-Administrators`, `rol-Agency-Users`
   * Available for enrolled devices: -
   * Available with or without enrollment: -
   * Uninstall: -
 
-## Office 365 monthly targeted
+## Microsoft 365 Apps for Windows 10
 
-* Name: `Office 365 monthly targeted`
-* Type: `Office 365 ProPlus Suite (Windows 10)`
+* Name: `Microsoft 365 Apps for Windows 10`
+* Type: `Microsoft 365 Apps for Windows 10`
 * App information
   * Publisher: `Microsoft`
   * Category: `Productivity`
   * Show this as a featured app in the Company Portal: `Yes`
-  * Information URL: -
-  * Privacy URL: -
+  * Information URL: `https://products.office.com/en-us/explore-office-for-home`
+  * Privacy URL: `https://privacy.microsoft.com/en-US/privacystatement`
   * Developer: `Microsoft`
   * Owner: `Microsoft`
   * Notes: -
   * Logo: ![Microsoft Office](/assets/images/abac/microsoft-office.png)
 * App suite configuration
-  * Apps to be installed as part of the suite: `Excel, OneDrive Desktop, Outlook, PowerPoint, Publisher, Skype for Business, Teams, Word`
+  * Apps to be installed as part of the suite: `Excel, Outlook, PowerPoint, Publisher, Teams, Word`
   * Architecture: `64-bit`
-  * Update channel: `Monthly (Targeted)`
+  * Update channel: `Current Channel`
   * Remove other versions: `Yes`
   * Version to install: `Latest`
   * Use shared computer activation: `Yes`
@@ -416,5 +370,5 @@ The following Intune applications can be found in the Azure Portal at `Search > 
   * Apps to be installed as part of the suite: `No languages selected`
 * Scope tags: `Default`
 * Assignments
-  * Required: `grp-SecBaselines`
+  * Required: `grp-Windows-10-Devices`
   * Uninstall: -

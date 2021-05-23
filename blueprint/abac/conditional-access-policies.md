@@ -4,7 +4,7 @@ title: Conditional access policies
 menu: abac
 ---
 
-The following conditional access policies can be found in the Azure Portal at `Search > Azure AD Conditional Access | Policies`
+The following conditional access policies can be found in the Azure Portal at `Azure AD Conditional Access | Policies`
 
 ## Block - legacy authentication
 

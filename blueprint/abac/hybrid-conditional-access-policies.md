@@ -8,7 +8,7 @@ menu: abac
 
 Conditional Access rules can be assigned according to several variables including named locations. It is common to create a named location with the countries from which users can log in.
 
-`Search > Azure AD Conditional Access > Named locations`
+`Azure AD Conditional Access > Named locations`
 
 * Name: `Allowed Countries`
   * Location type: `Countries`
@@ -22,7 +22,7 @@ Conditional Access rules can be assigned according to several variables includin
 
 The Terms of Use document is a pdf document provided by the department and is uploaded to Intune. This is then presented to users during the logon process.
 
-`Search > Azure AD Conditional Access > Terms of use`
+`Azure AD Conditional Access > Terms of use`
 
 * Name: `<Agency> Terms of Use`
 * Display Name: `<Agency Name> ICT Acceptable Use Policy`

@@ -52,7 +52,7 @@ Microsoft Power Apps Plan 2 Trial | 10,000
 
 ### Licensing manual groups
 
-`Search > Licenses > Microsoft 365 E5 > Licensed groups `
+`Azure Active Directory > Licenses > Microsoft 365 E5 > Licensed groups `
 
 Table 4 describes the configuration for the manual allocation of Microsoft 365 E5 licenses.
 
@@ -903,7 +903,7 @@ These settings have been configured using PowerShell.
 
 ### Office 365 groups
 
-`Search > Azure Active Directory > Groups > General`
+`Azure Active Directory > Groups > General`
 
 * Self Service Group Management
   * Owners can manage group membership requests in the Access Panel: `No`
@@ -915,17 +915,17 @@ These settings have been configured using PowerShell.
   * Users can create Office 365 groups in Azure portal: `No`
   * Owners who can assign members as group owners in Azure portal: `All`
 
-`Search > Azure Active Directory > Groups > Naming policy`
+`Azure Active Directory > Groups > Naming policy`
 
 * Group naming policy: `Grp-<Department>-<Group name>`
 
-`Search > Azure Active Directory > Groups > Expiration`
+`Azure Active Directory > Groups > Expiration`
 
 * Group lifetime (in days): `365`
 * Email contact for groups with no owners: `Office365_Group_Expiration@<Agency>.gov.au`
 * Enable expiration for these Office 365 groups: `All`
 
-`Search > Azure Active Directory > Groups`
+`Azure Active Directory > Groups`
 
 * Group Name: `ADMIN_O365_Admin`
   * Membership type: `Assigned`

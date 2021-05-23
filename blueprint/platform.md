@@ -1649,7 +1649,7 @@ Administration consoles Design Decisions for all agencies and implementation typ
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Azure Portal | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://portal.azure.com](https://portal.azure.com/).<br>Standard users do not have access to the portal.
-Office 365 Admin Center | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://admin.microsoft.com/](https://admin.microsoft.com/)
+Microsoft 365 Admin Center | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://admin.microsoft.com/](https://admin.microsoft.com/)
 Microsoft Defender ATP Portal | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://securitycenter.windows.com/](https://securitycenter.windows.com/)
 MCAS Portal | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://portal.cloudappsecurity.com/](https://portal.cloudappsecurity.com/)
 Microsoft 365 Compliance Center | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://compliance.microsoft.com/](https://compliance.microsoft.com/)

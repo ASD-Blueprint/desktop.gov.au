@@ -1063,6 +1063,7 @@ Secure Score Baseline | Windows Defender Antivirus<br>Windows Defender Applicati
 Administration Roles | Full Administrator:<br>Admin_{agency}-securityadmin | Administrative roles will be segregated as per the ACSC Restricting Administrative Privileges (April 2019) guide.
 Machine Groups | All Clients | Machines will be segregated into groups with automated remediation levels assigned the administrators that monitor these groups. Groups will be developed with the Agency and documented in the As-Built-As-Configured documentation.
 Machine onboarding and Configuration | Configured | Onboarding and configuration will be performed by Intune.
+SIEM Integration | Configured | To meet the security logging requirements of this solution.
 
 ### Log Analytics
 

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Hybrid - Intune compliance for Windows devices
+title: Hybrid - Microsoft Endpoint Manager - Intune compliance for Windows devices
 menu: abac
 ---
 

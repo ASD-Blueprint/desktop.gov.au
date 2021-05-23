@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Hybrid - Intune applications for iOS devices
+title: Hybrid - Microsoft Endpoint Manager - Intune applications for iOS devices
 menu: abac
 ---
 
@@ -16,7 +16,7 @@ The following Microsoft Endpont Manager - Intune (Intune) applications can be fo
 * App information
   * Publisher: `Adobe Inc.`
   * Appstore URL: `https://apps.apple.com/au/app/adobe-acrobat-reader-for-pdf/id469337564?uo=4`
-  * Minimum operating system: `iOS 12.0`
+  * Minimum operating system: `iOS 14.0`
   * Applicable device type: `iPad`, `iPhone and iPod`
   * Category: -
   * Show this as a featured app in the Company Portal: `Yes`
@@ -29,7 +29,7 @@ The following Microsoft Endpont Manager - Intune (Intune) applications can be fo
 * Scope tags: `Default`
 * Assignments
   * Required: -
-  * Available for enrolled devices: `All users`
+  * Available for enrolled devices: `rol-Agency-Administrators`, `rol-Agency-Users`
   * Available with or without enrollment: -
   * Uninstall: -
 
@@ -41,7 +41,7 @@ The following Microsoft Endpont Manager - Intune (Intune) applications can be fo
 * App information
   * Publisher: `Microsoft Corporation`
   * Appstore URL: `https://apps.apple.com/us/app/microsoft-authenticator/id983156458?uo=4`
-  * Minimum operating system: `iOS 12.0`
+  * Minimum operating system: `iOS 14.0`
   * Applicable device type: `iPad`, `iPhone and iPod`
   * Category: -
   * Show this as a featured app in the Company Portal: `Yes`
@@ -53,7 +53,7 @@ The following Microsoft Endpont Manager - Intune (Intune) applications can be fo
   * Logo: ![Microsoft Authenticator](/assets/images/abac/microsoft-authenticator.png)
 * Scope tags: `Default`
 * Assignments
-  * Required: `All users`
+  * Required: `rol-Agency-Administrators`, `rol-Agency-Users`
   * Available for enrolled devices: -
   * Available with or without enrollment: -
   * Uninstall: -
@@ -66,7 +66,7 @@ The following Microsoft Endpont Manager - Intune (Intune) applications can be fo
 * App information
   * Publisher: `Microsoft Corporation`
   * Appstore URL: `https://apps.apple.com/us/app/microsoft-edge/id1288723196?uo=4`
-  * Minimum operating system: `iOS 12.0`
+  * Minimum operating system: `iOS 14.0`
   * Applicable device type: `iPad`, `iPhone and iPod`
   * Category: -
   * Show this as a featured app in the Company Portal: `Yes`
@@ -78,7 +78,7 @@ The following Microsoft Endpont Manager - Intune (Intune) applications can be fo
   * Logo: ![Microsoft Edge](/assets/images/abac/microsoft-edge.png)
 * Scope tags: `Default`
 * Assignments
-  * Required: `All users`
+  * Required: `rol-Agency-Administrators`, `rol-Agency-Users`
   * Available for enrolled devices: -
   * Available with or without enrollment: -
   * Uninstall: -
@@ -91,7 +91,7 @@ The following Microsoft Endpont Manager - Intune (Intune) applications can be fo
 * App information
   * Publisher: `Microsoft Corporation`
   * Appstore URL: `https://apps.apple.com/us/app/microsoft-excel/id586683407?uo=4`
-  * Minimum operating system: `iOS 12.0`
+  * Minimum operating system: `iOS 14.0`
   * Applicable device type: `iPad`, `iPhone and iPod`
   * Category: -
   * Show this as a featured app in the Company Portal: `Yes`
@@ -103,7 +103,7 @@ The following Microsoft Endpont Manager - Intune (Intune) applications can be fo
   * Logo: ![Microsoft Excel](/assets/images/abac/microsoft-excel.png)
 * Scope tags: `Default`
 * Assignments
-  * Required: `All users`
+  * Required: `rol-Agency-Administrators`, `rol-Agency-Users`
   * Available for enrolled devices: -
   * Available with or without enrollment: -
   * Uninstall: -
@@ -116,7 +116,7 @@ The following Microsoft Endpont Manager - Intune (Intune) applications can be fo
 * App information
   * Publisher: `Microsoft Corporation`
   * Appstore URL: `https://apps.apple.com/us/app/microsoft-onedrive/id477537958?uo=4`
-  * Minimum operating system: `iOS 12.0`
+  * Minimum operating system: `iOS 14.0`
   * Applicable device type: `iPad`, `iPhone and iPod`
   * Category: -
   * Show this as a featured app in the Company Portal: `Yes`
@@ -128,7 +128,7 @@ The following Microsoft Endpont Manager - Intune (Intune) applications can be fo
   * Logo: ![Microsoft OneDrive](/assets/images/abac/microsoft-onedrive.png)
 * Scope tags: `Default`
 * Assignments
-  * Required: `All users`
+  * Required: `rol-Agency-Administrators`, `rol-Agency-Users`
   * Available for enrolled devices: -
   * Available with or without enrollment: -
   * Uninstall: -
@@ -141,7 +141,7 @@ The following Microsoft Endpont Manager - Intune (Intune) applications can be fo
 * App information
   * Publisher: `Microsoft Corporation`
   * Appstore URL: `https://apps.apple.com/au/app/microsoft-onenote/id410395246?uo=4`
-  * Minimum operating system: `iOS 12.0`
+  * Minimum operating system: `iOS 14.0`
   * Applicable device type: `iPad`, `iPhone and iPod`
   * Category: -
   * Show this as a featured app in the Company Portal: `Yes`
@@ -154,7 +154,7 @@ The following Microsoft Endpont Manager - Intune (Intune) applications can be fo
 * Scope tags: `Default`
 * Assignments
   * Required: -
-  * Available for enrolled devices: `All users`
+  * Available for enrolled devices: `rol-Agency-Administrators`, `rol-Agency-Users`
   * Available with or without enrollment: -
   * Uninstall: -
 
@@ -166,7 +166,7 @@ The following Microsoft Endpont Manager - Intune (Intune) applications can be fo
 * App information
   * Publisher: `Microsoft Corporation`
   * Appstore URL: `https://apps.apple.com/us/app/microsoft-outlook/id951937596?uo=4`
-  * Minimum operating system: `iOS 12.0`
+  * Minimum operating system: `iOS 14.0`
   * Applicable device type: `iPad`, `iPhone and iPod`
   * Category: `Productivity`
   * Show this as a featured app in the Company Portal: `Yes`
@@ -178,7 +178,7 @@ The following Microsoft Endpont Manager - Intune (Intune) applications can be fo
   * Logo: ![Microsoft Outlook](/assets/images/abac/microsoft-outlook.png)
 * Scope tags: `Default`
 * Assignments
-  * Required: `All users`
+  * Required: `rol-Agency-Administrators`, `rol-Agency-Users`
   * Available for enrolled devices: -
   * Available with or without enrollment: -
   * Uninstall: -
@@ -191,7 +191,7 @@ The following Microsoft Endpont Manager - Intune (Intune) applications can be fo
 * App information
   * Publisher: `Microsoft Corporation`
   * Appstore URL: `https://apps.apple.com/au/app/microsoft-powerpoint/id586449534?uo=4`
-  * Minimum operating system: `iOS 12.0`
+  * Minimum operating system: `iOS 14.0`
   * Applicable device type: `iPad`, `iPhone and iPod`
   * Category: `Productivity`
   * Show this as a featured app in the Company Portal: `Yes`
@@ -204,7 +204,7 @@ The following Microsoft Endpont Manager - Intune (Intune) applications can be fo
 * Scope tags: `Default`
 * Assignments
   * Required: -
-  * Available for enrolled devices: `All users`
+  * Available for enrolled devices: `rol-Agency-Administrators`, `rol-Agency-Users`
   * Available with or without enrollment: -
   * Uninstall: -
 
@@ -216,7 +216,7 @@ The following Microsoft Endpont Manager - Intune (Intune) applications can be fo
 * App information
   * Publisher: `Microsoft Corporation`
   * Appstore URL: `https://apps.apple.com/au/app/microsoft-sharepoint/id1091505266?uo=4`
-  * Minimum operating system: `iOS 12.0`
+  * Minimum operating system: `iOS 14.0`
   * Applicable device type: `iPad`, `iPhone and iPod`
   * Category: `Productivity`
   * Show this as a featured app in the Company Portal: `Yes`
@@ -229,7 +229,7 @@ The following Microsoft Endpont Manager - Intune (Intune) applications can be fo
 * Scope tags: `Default`
 * Assignments
   * Required: -
-  * Available for enrolled devices: `All users`
+  * Available for enrolled devices: `rol-Agency-Administrators`, `rol-Agency-Users`
   * Available with or without enrollment: -
   * Uninstall: -
 
@@ -241,7 +241,7 @@ The following Microsoft Endpont Manager - Intune (Intune) applications can be fo
 * App information
   * Publisher: `Microsoft Corporation`
   * Appstore URL: `https://apps.apple.com/us/app/microsoft-teams/id1113153706?uo=4`
-  * Minimum operating system: `iOS 12.0`
+  * Minimum operating system: `iOS 14.0`
   * Applicable device type: `iPad`, `iPhone and iPod`
   * Category: -
   * Show this as a featured app in the Company Portal: `Yes`
@@ -253,7 +253,7 @@ The following Microsoft Endpont Manager - Intune (Intune) applications can be fo
   * Logo: ![Microsoft Teams](/assets/images/abac/microsoft-teams.png)
 * Scope tags: `Default`
 * Assignments
-  * Required: `All users`
+  * Required: `rol-Agency-Administrators`, `rol-Agency-Users`
   * Available for enrolled devices: -
   * Available with or without enrollment: -
   * Uninstall: -
@@ -266,7 +266,7 @@ The following Microsoft Endpont Manager - Intune (Intune) applications can be fo
 * App information
   * Publisher: `Microsoft Corporation`
   * Appstore URL: `https://apps.apple.com/us/app/microsoft-word/id586447913?uo=4`
-  * Minimum operating system: `iOS 12.0`
+  * Minimum operating system: `iOS 14.0`
   * Applicable device type: `iPad`, `iPhone and iPod`
   * Category: -
   * Show this as a featured app in the Company Portal: `Yes`
@@ -278,7 +278,7 @@ The following Microsoft Endpont Manager - Intune (Intune) applications can be fo
   * Logo: ![Microsoft Word](/assets/images/abac/microsoft-word.png)
 * Scope tags: `Default`
 * Assignments
-  * Required: `All users`
+  * Required: `rol-Agency-Administrators`, `rol-Agency-Users`
   * Available for enrolled devices: -
   * Available with or without enrollment: -
   * Uninstall: -
@@ -291,7 +291,7 @@ The following Microsoft Endpont Manager - Intune (Intune) applications can be fo
 * App information
   * Publisher: `Microsoft Corporation`
   * Appstore URL: `https://apps.apple.com/au/app/power-apps/id1047318566?uo=4`
-  * Minimum operating system: `iOS 12.0`
+  * Minimum operating system: `iOS 14.0`
   * Applicable device type: `iPad`, `iPhone and iPod`
   * Category: -
   * Show this as a featured app in the Company Portal: `Yes`
@@ -300,10 +300,60 @@ The following Microsoft Endpont Manager - Intune (Intune) applications can be fo
   * Developer: -
   * Owner: -
   * Notes: -
-  * Logo: ![Microsoft Word](/assets/images/abac/microsoft-power-apps.png)
+  * Logo: ![PowerApps](/assets/images/abac/microsoft-power-apps.png)
 * Scope tags: `Default`
 * Assignments
-  * Required: `All users`
+  * Required: `rol-Agency-Administrators`, `rol-Agency-Users`
+  * Available for enrolled devices: -
+  * Available with or without enrollment: -
+  * Uninstall: -
+
+### Microsoft Whiteboard
+
+* Name: `Microsoft Whiteboard`
+* Description: `Microsoft Whiteboard provides a freeform intelligent canvas where teams can ideate, create and collaborate visually via the cloud. Designed for pen and touch, it lets you write or draw as smoothly as you would with ink, while automatically recognising and transforming shapes and tables as you draw. It enhances teamwork by allowing all team members to edit and comment directly on the canvas in real time, no matter where they are. And all your work stays safe in the cloud, ready to be picked back up from another location or device.`
+* Type: `iOS store app`
+* App information
+  * Publisher: `Microsoft Corporation`
+  * Appstore URL: `https://apps.apple.com/au/app/microsoft-whiteboard/id1352499399?uo=4`
+  * Minimum operating system: `iOS 14.0`
+  * Applicable device type: `iPad`, `iPhone and iPod`
+  * Category: -
+  * Show this as a featured app in the Company Portal: `Yes`
+  * Information URL: -
+  * Privacy URL: -
+  * Developer: -
+  * Owner: -
+  * Notes: -
+  * Logo: ![Microsoft Whiteboard](/assets/images/abac/Whiteboard.png)
+* Scope tags: `Default`
+* Assignments
+  * Required: `rol-Agency-Administrators`, `rol-Agency-Users`
+  * Available for enrolled devices: -
+  * Available with or without enrollment: -
+  * Uninstall: -
+
+  ### Microsoft Planner
+
+* Name: `Power Apps`
+* Description: `Planner provides a simple, visual way to organize teamwork. Planner makes it easy for your team to create new plans, organize and assign tasks, share files, chat about what you’re working on, and get updates on progress.`
+* Type: `iOS store app`
+* App information
+  * Publisher: `Microsoft Corporation`
+  * Appstore URL: `https://apps.apple.com/au/app/microsoft-planner/id1219301037?uo=4`
+  * Minimum operating system: `iOS 14.0`
+  * Applicable device type: `iPad`, `iPhone and iPod`
+  * Category: -
+  * Show this as a featured app in the Company Portal: `Yes`
+  * Information URL: -
+  * Privacy URL: -
+  * Developer: -
+  * Owner: -
+  * Notes: -
+  * Logo: ![Microsoft Planner](/assets/images/abac/Planner.png)
+* Scope tags: `Default`
+* Assignments
+  * Required: `rol-Agency-Administrators`, `rol-Agency-Users`
   * Available for enrolled devices: -
   * Available with or without enrollment: -
   * Uninstall: -
@@ -384,7 +434,7 @@ Setting | Value | Action
 Offline grace period | 720 | Block access (minutes)
 Offline grace period | 90 | Wipe data (days)
 Jailbroken/rooted devices | | Block access
-Min OS version | 12.0 | Block access
+Min OS version | 14.0 | Block access
 
 * Assignments
   * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Hybrid - Intune configuration for iOS devices
+title: Hybrid - Microsoft Endpoint Manager - Intune configuration for iOS devices
 menu: abac
 ---
 

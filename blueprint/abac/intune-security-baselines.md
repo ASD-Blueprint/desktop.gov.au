@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Intune security baselines
+title: Microsoft Endpoint Manager - Intune security baselines
 menu: abac
 ---
 

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Hybrid - Intune security baselines for Windows Devices
+title: Hybrid - Microsoft Endpoint Manager - Intune security baselines for Windows Devices
 menu: abac
 ---
 

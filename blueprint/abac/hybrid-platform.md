@@ -2658,7 +2658,7 @@ The ABAC settings for the Agency Client Configuration can be found below. This i
   * Office Click-to-run apps: `Configuration Manager`
   * Windows Update policies: `Configuration Manager`
 
-`SCCM admin console > Monitoring > Overview > Co-Management`
+`MECM admin console > Monitoring > Overview > Co-Management`
 
 Co-Management monitor screen is showing 
 
@@ -2775,7 +2775,7 @@ The ABAC settings for the Agency Application Control can be found below. This in
 
 ### Windows Defender Application Control
 
-#### SCCM managed installer
+#### MECM managed installer
 
 * Device Collection
   * Name: `WDAC-DeploymentCollection`

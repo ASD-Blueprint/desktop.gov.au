@@ -1182,12 +1182,14 @@ Intune can also configure Windows Information Protection (WIP) polices. WIP can 
 
 Within WIP, Network boundaries are created as a network perimeter that controls what applications can be accessed on the network.
 
+Clients managed by Intune are configured to refresh their status on an 8-hour interval. During this refresh. their policy compliance, configuration profile, and app assignments are checked. If the client is recently enrolled then the compliance, non-compliance, and configuration check-in runs more frequently.
+
 Intune Design Decisions for cloud native implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Co-management | Disabled | Co-Management is disabled as this is not a function that is used in a cloud only solution.
-Enrolled Device Types | Windows 10: 10.0.17134 (minimum)<br>iOS | The use of Windows 10 on designated hardware is mandatory.<br>The following platforms will be disabled:<br>macOS<br>Android
+Enrolled Device Types | Windows 10: 10.0.17134 (minimum)<br>iOS: 14.0 | The use of Windows 10 on designated hardware is mandatory.<br>The following platforms will be disabled:<br>macOS<br>Android
 Device Compliance | Enabled | Device Compliance is enabled. All devices will be Intune enrolled and have a custom set of compliance policies applied.
 Device Enrolment | Enabled | All users must be enrolled to ensure device compliance.
 Company Portal | Enabled | The Company Portal is enabled for application deployment. Applications to be deployed will be set by requirements.
@@ -1453,7 +1455,7 @@ Intune iOS Design Decisions for all agencies and implementation types.
 Decision Point | Design Decision | Justification
 --- | --- | ---
 iOS Enrolment | Configured | iOS is commonly deployed across the Commonwealth and can be hardened in line with the ACSC hardening guide for iOS devices
-iOS Configuration | Configurations will follow the ACSC hardening guide for iOS devices as much as possible using Intune. Refer to DTA – Intune Configuration - ABAC document. | Aligns with the ACSC Security Configuration Guide Apple iOS 12 Devices  ..
+iOS Configuration | Configurations will follow the ACSC hardening guide for iOS devices as much as possible using Intune. Refer to DTA – Intune Configuration - ABAC document. | Aligns with the ACSC Security Configuration Guide Apple iOS 14.
 
 ### Registry settings
 
@@ -1651,7 +1653,7 @@ Office 365 Admin Center | Available from web console | The console is available 
 Microsoft Defender ATP Portal | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://securitycenter.windows.com/](https://securitycenter.windows.com/)
 MCAS Portal | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://portal.cloudappsecurity.com/](https://portal.cloudappsecurity.com/)
 Microsoft 365 Compliance Center | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://compliance.microsoft.com/](https://compliance.microsoft.com/)
-Microsoft Endpoint Manager Admin Center | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://devicemanagement.microsoft.com/](https://devicemanagement.microsoft.com/)
+Microsoft Endpoint Manager Admin Center | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://endpoint.microsoft.com/](https://endpoint.microsoft.com/)
 Microsoft 365 Security Center | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://security.microsoft.com/](https://security.microsoft.com/)
 Azure ATP Portal | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://portal.atp.azure.com/](https://portal.atp.azure.com/)
 Microsoft Defender Security Intelligence Portal | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://microsoft.com/wdsi/](https://microsoft.com/wdsi/)

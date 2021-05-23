@@ -659,7 +659,7 @@ It is vital to have a robust and reliable patch management solution based on ind
 For Microsoft Windows environments the primary patching technologies are:
 
 * Windows Server Update Service – WSUS enables administrators to deploy the most recent Microsoft updates. A WSUS server connects directly to Microsoft Update or an "upstream" WSUS server. This allows administrators to control what updates are applied and when, rather than having every computer on the network going to the Internet and installing every available update immediately
-* Microsoft System Centre Configuration Manager (MECM) –MECM integrates with a WSUS server to deliver patch management. WSUS obtains updates from the internet and MECM is used to approve and deploy the updates. Using MECM to deploy software updates allows for more control over many aspects of the process such as targeting, maintenance windows, scheduling, and reporting
+* Microsoft Endpoint Configuration Manager (MECM) – MECM integrates with a WSUS server to deliver patch management. WSUS obtains updates from the internet and MECM is used to approve and deploy the updates. Using MECM to deploy software updates allows for more control over many aspects of the process such as targeting, maintenance windows, scheduling, and reporting
 * Microsoft Intune – Windows Update for Business provides management policies for several types of updates to Windows 10 devices
   * Feature updates: feature updates contain security and quality revisions, significant feature additions and changes; they are released semi-annually in March and September
   * Quality updates: these are traditional operating system updates, typically released the second Tuesday of each month (though they can be released at any time). These include security, critical, and driver updates. Windows Update for Business also treats non-Windows updates (such as those for Microsoft Office or Visual Studio) as quality updates. These non-Windows Updates are known as "Microsoft updates" and can configure devices to receive or not receive such updates along with their Windows updates
@@ -1179,7 +1179,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 iOS version | iOS 14 or above | To align with the ACSC Security Configuration guide – iOS version enforcement of n or n-1 will allow for testing of patches and internal applications before deploying operating system updates.<br><br>Apple applies the n-1 rule to incremental updates, all other versions are no longer signed. <br><br>Once a version is not signed a device cannot be restored to it. iOS 14 has not undergone an ASD Cryptographic Evaluation (ACE) whereas iOS 13 has undergone an ACE. Agencies will need to evaluate whether iOS 14 fits their requirements from an encryption standpoint.
 iOS Devices | iPhone XS and above | iPhone X and older are all vulnerable to the exploit Checkm8 and should be avoided.
-Update Policies | Configurede | To align with the ACSC Security Configuration guide
+Update Policies | Configured | To align with the ACSC Security Configuration guide
 Jailbroken/rooted devices | Blocked | Prevents jail broken devices from accessing Agency information. 
 
 ### Enrolling iOS devices
@@ -1216,7 +1216,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Mobile Device Management | Mobile devices will be managed using Intune | Leveraging the capabilities already available in the licensing agreement. Intune and Apple Business Manager will be adopted to manage mobile devices.
 Security policies and hardening requirements | Security policies will be enforced on all mobile devices managed by the Agency | Security policies will be configured in line with the ACSC Security Configuration Guide – Apple iOS 14 Devices.
-Device Features | Disabled | AirDrop, Bluetooth pairing, AirPrint
+Device Features | Configured | Device features configured in line with ACSC guidance. 
 
 Mobile Device Management Configuration applicable to all agencies and implementation types
 
@@ -1224,11 +1224,11 @@ Configuration | Value | Description
 --- | --- | ---
 **Security** | | |
 Supervised Mode | Enable | Agency iPhones are managed devices. This is in line with the ACSC iOS Secure Configuration Hardening guide for PROTECTED devices.
-Device passcode | Device passcode of 14 characters or above | iOS devices, by default, is encrypted once a passcode is provided to the device. Configured in line with ISM requirements on password length.
+Device passcode | Device passcode of 14 characters or above. Alphanumic in nature and must contain a minimum of 1 special character | iOS devices, by default, is encrypted once a passcode is provided to the device. Configured in line with ISM requirements on password length.
 Biometrics | Disable | This is in line with the ACSC iOS Secure Configuration Hardening guide for PROTECTED devices.
 Mobile Device Management | Enable | Mobile Device Management provides the Agency better auditing tools on the device. In line with ACSC iOS Secure Configuration Hardening guide for PROTECTED devices
 Maximum Auto-Lock  | 2 minutes | Auto Lock will lock a device if it is inactive for specified time
-Virtual Private Network (VPN)  | Not Configured | VPN will not be setup as part of the iOS device. Per-app VPN will be set up to secure communication between the device and the Agencies data
+Virtual Private Network (VPN)  | Configured | Per-app VPN will be set up to secure communication between the device and the Agencies data. This is in line with ACSC iOS Secure Configuration Hardening guide
 **Branding** | | |
 Lock Screen and background branding | Configured | Agency branding will be applied to endpoints. It is recommended that agencies include the contact information of the relevant IT Support in the event that a device is lost.
 **Device Features** | | |
@@ -1237,6 +1237,7 @@ Allow iCloud backup, document data and Keychain | Disable | The Agencies data on
 Managed Open-In | Enable  | Managed Open-In is enable segregates between corporate managed and personal application in an iOS device. This in line with the ACSC iOS Secure Configuration Hardening guide for PROTECTED devices.
 Allow documents from managed sources in unmanaged destination | Disable | The Agencies data cannot be moved between managed and unmanaged application destination. This is to prevent PROTECTED from being transferred to an unmanaged application or location
 Treat AirDrop as unmanaged destination | Disable | AirDrop provides the ability to wirelessly transfer documents between Apple devices. Setting AirDrop as an unmanaged destination prevents users from accidentally transferring Agency data to unsecure applications or locations
+Restricted Application List | Configured | Unapproved application installs will be alerted upon. 
 
 ### Securing iOS applications
 
@@ -1252,10 +1253,10 @@ Securing iOS Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Managed Applications | Microsoft Corporate Portal<br>Microsoft Azure Information Protection<br>Microsoft Word<br>Microsoft Excel<br>Microsoft Outlook<br>Microsoft PowerPoint<br>Microsoft Teams<br>Microsoft Edge<br>Adobe Reader<br>Microsoft OneDrive<br>Microsoft OneNote | This is to meet the Agencies requirement for managed applications
+Managed Applications | Microsoft Corporate Portal<br>Microsoft Azure Information Protection<br>Microsoft Word<br>Microsoft Excel<br>Microsoft Outlook<br>Microsoft PowerPoint<br>Microsoft Teams<br>Microsoft Edge<br>Adobe Reader<br>Microsoft OneDrive<br>Microsoft OneNote<br>Microsoft Whiteboard<br>Microsoft Planner<br>PowerApps | This is to meet the Agencies requirement for managed applications
 Application VPN configuration | Configured for Managed Applications | Managed applications will use VPN to secure its connection to the Agencies Office 365 tenant
 Disable organisation data to be backed up to iCloud | Disable | PROTECTED must be stored within the Agencies environment / corporate data store
-Encrypt organisation data in mobile device | Not required. | Encrypting organisation data requires an additional PIN for managed applications in the device.<br>The Agency will utilise sensitivity labels alongside device encryption to ensure encryption requirements are met based on ACSC hardening requirements. 
+Encrypt organisation data in mobile device | Configured | To ensure encryption requirements are met based on ACSC hardening requirements. 
 Send organisation data to unmanaged apps | Policy managed apps with Open In/Share Filtering | Prevents data to be shared between managed application stated above and other unmanaged application on the device
 Save copies of organisation data | SharePoint and OneDrive for Business only | Ensure all data is saved within the Agencies tenant
 Organisation data notification | Block organisation Data | Prevents Agency information being displayed on the lock screen

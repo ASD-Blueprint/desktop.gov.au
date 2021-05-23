@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Intune software updates
+title: Microsoft Endpoint Manager - Intune software updates
 menu: abac
 ---
 

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Hybrid - Microsoft Endpoint Manager applications for Windows devices
+title: Hybrid - Microsoft Endpoint Manager - Intune applications for Windows devices
 menu: abac
 ---
 

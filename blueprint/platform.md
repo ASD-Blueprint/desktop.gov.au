@@ -115,7 +115,6 @@ Additional Azure AD Design Decisions for cloud native implementations
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Identity Source | Azure AD | As this is a cloud only implementation Azure AD will be the source of identity.
-App registration | Not Configured | Default settings.
 Password Reset | Configured | For self-service password reset, users will need to provide an alternate email address, mobile app and phone number during registration. To reset their password, they will need to provide two methods of verification.
 Identity Format | Configured | Usernames will conform to firstname.lastname{sequence number}<br>Note: The sequence number is only required if duplicate names would be created.
 
@@ -125,7 +124,6 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Identity Source | Active Directory | As this is a hybrid implementation Active Directory will be the source of identity.
 Synchronize to Active Directory | Configured | Cloud identities or Synchronised or Federated in accordance with agency specific requirements.
-App registration | Configured | Windows Defender ATP – SIEM integration is required.
 Azure AD Connect | Configured | See Azure AD Connect section for details.
 Identity Format | Not Configured | Usernames will be synchronised from the on-premises Active Directory and will inherit naming convention.
 
@@ -1065,6 +1063,7 @@ Secure Score Baseline | Windows Defender Antivirus<br>Windows Defender Applicati
 Administration Roles | Full Administrator:<br>Admin_{agency}-securityadmin | Administrative roles will be segregated as per the ACSC Restricting Administrative Privileges (April 2019) guide.
 Machine Groups | All Clients | Machines will be segregated into groups with automated remediation levels assigned the administrators that monitor these groups. Groups will be developed with the Agency and documented in the As-Built-As-Configured documentation.
 Machine onboarding and Configuration | Configured | Onboarding and configuration will be performed by Intune.
+SIEM Integration | Configured | To meet the security logging requirements of this solution.
 
 ### Log Analytics
 

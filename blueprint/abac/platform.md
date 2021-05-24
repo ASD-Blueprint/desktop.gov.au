@@ -542,7 +542,14 @@ And OS In <Not configured>
 
 #### APIs
 
-* SIEM: `Not configured`
+* SIEM
+  * General
+    * Application URI: `https://WindowsDefenderATPSiemConnector`
+    * Client ID: `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`
+    * Authorisation server URL: `https://login.windows.net/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/oauth2/token`
+    * Resource: `https://graph.windows.net`
+    * Client secret: `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`
+    * Choose the SIEM you want to configure and download details to file.: `<Agency SIEM>`
 
 #### Rules
 

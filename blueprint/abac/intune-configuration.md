@@ -349,7 +349,7 @@ The policy GUID in the OMA-URI must be unique to your environment. It can be fou
 
 ### Wi-Fi Configuration
 
-* Name: `W10 WiFi SSID`
+* Name: `Windows WiFi SSID`
 * Description: -
 * Type: `Windows 10 and later`
 * Profile Type: `Wi-Fi`

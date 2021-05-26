@@ -6,26 +6,39 @@
 set -o errexit
 set -o pipefail
 
-# remove file extension ".md" from items
-items="./blueprint/security/hybrid-incident-response-plan
-./blueprint/security/hybrid-security-risk-management-plan
-./blueprint/security/hybrid-system-security-plan
-./blueprint/security/hybrid-standard-operating-procedures
-./blueprint/security/hybrid-continuous-monitoring-plan
-./blueprint/security/incident-response-plan
-./blueprint/security/security-risk-management-plan
-./blueprint/security/system-security-plan
-./blueprint/security/standard-operating-procedures
-./blueprint/security/continuous-monitoring-plan
-./blueprint/security/cloud-assessment-and-authorisation-alignment"
+. ./_util/files-to-export.sh
 
+# export security documents
+items="$security"
+
+echo "*** Building security documents"
 set -- $items
 while [ -n "$1" ]; do
     filename=`basename $1`
     last_updated=`git log -1 --pretty="format:%cs" $1.md`
     echo "+ Doing $filename" 
-    echo "Updated $last_updated"
+    echo "  Updated $last_updated"
     pandoc --lua-filter=_util/assets-path.lua --metadata=date:$last_updated $1.md -o assets/files/$filename.docx
-    pandoc --pdf-engine=xelatex --lua-filter=_util/assets-path.lua --metadata=date:$last_updated --variable=papersize:a4 --variable=geometry:margin=1in $1.md -o assets/files/$filename.pdf
+    pandoc --pdf-engine=xelatex --lua-filter=_util/assets-path.lua -H assets/deeplists.tex --metadata=date:$last_updated --variable=papersize:a4 --variable=geometry:margin=1in $1.md -o assets/files/$filename.pdf
     shift
 done
+
+
+
+# to offer a single docx of all content, export all documents to docx for binding later
+items="$overviews $abacs $security"
+
+echo ""
+echo "*** Exporting all documents to docx"
+set -- $items
+while [ -n "$1" ]; do
+    filename=`basename $1`
+    last_updated=`git log -1 --pretty="format:%cs" $1.md`
+    echo "+ Doing $filename" 
+    echo "  Updated $last_updated"
+    pandoc --lua-filter=_util/assets-path.lua --lua-filter=_util/document-title.lua --metadata=date:$last_updated $1.md -o assets/files/scratch/$filename.docx
+    shift
+done
+
+# insert today's date in the coverpage
+pandoc --lua-filter=_util/assets-path.lua --lua-filter=_util/coverpage.lua --metadata=date:`date +%Y-%m-%d` assets/coverpage-template.docx -o assets/files/scratch/coverpage.docx

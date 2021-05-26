@@ -27,6 +27,7 @@ exclude:
   - vendor
   - manifest-*.yml
   - Staticfile
+  - enumitem.sty
   - .jekyll-cache
   - .git
 

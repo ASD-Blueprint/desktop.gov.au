@@ -469,9 +469,9 @@ Min OS version | 12.0 | Block access
 
 Notification rule | Device groups | Alert severity | Recipients
 --- | --- | --- | ---
-High severity alert | Any device in my organization | High | itsa@desktop.gov.au
-Medium severity alert | Any device in my organization | Medium | itsa@desktop.gov.au
-Low severity alert | Any device in my organization | Low | itsa@desktop.gov.au
+High severity alert | Any device in my organization | High | itsa@agency.gov.au
+Medium severity alert | Any device in my organization | Medium | itsa@agency.gov.au
+Low severity alert | Any device in my organization | Low | itsa@agency.gov.au
 
 * Power BI reports: `Not Configured`
 * Advanced features

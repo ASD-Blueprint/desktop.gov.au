@@ -86,7 +86,7 @@ The following can be found at `Microsoft Endpoint Manager > Devices > Configurat
   * Built-in Apps
     * Block Siri: `Yes`
     * Block Siri while device is locked: `N/A`
-    * Require Safar fraud warnings: `Yes`
+    * Require Safari fraud warnings: `Yes`
     * Block spotlight search to return results from internet: `Yes`
     * Safari cookies: `Block all cookies`
     * Block Safari JavaScript: `Yes`
@@ -238,7 +238,7 @@ Office365_Grant_AzureAD_Join
   * Exchange data to sync: `All data`
   * Allow users to change sync settings: `Yes`
   * S/MIME: `Disable S/MIME`
-  * Amount of email to synchronize: `Ond Month`
+  * Amount of email to synchronize: `One Month`
   * Allow messages to be moved to other email accounts: `Disable`
   * Allow email to be sent from third party applications: `Disable`
   * Synchronize recently used email addresses : `Enable`

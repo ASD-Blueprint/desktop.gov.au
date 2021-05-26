@@ -171,7 +171,7 @@ Hybrid with MECM management | MECM with co-management enabled and Workloads set 
 
 The following image displays an overview diagram of MECM Co-Management.
 
-![MECM Co-Management diagram](/assets/images/cd-SCCM-comgmt.png)
+![MECM Co-Management diagram](/assets/images/cd-sccm-comgmt.png)
 
 With co-management enabled, the agency can choose which workloads remain on-premises and which workloads are offloaded to Intune. The workloads are:
 

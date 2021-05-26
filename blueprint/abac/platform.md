@@ -252,8 +252,8 @@ menu: abac
       * TenantAdmin
       * TenantAdmin2
     * AAD Connect Synchronization accounts
-      * `Sync_<AAD Server 1>_144f9a623d47`
-      * `Sync_<AAD Server 2>_b49bd30fb398`
+      * `Sync_<AAD Server 1>_<account GUID>`
+      * `Sync_<AAD Server 2>_<account GUID>`
   * Owners: `None`
   * Group membership: `None`
   * Applications: `None`

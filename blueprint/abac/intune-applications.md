@@ -397,7 +397,7 @@ The following Microsoft Endpoint Manager - Intune (Intune) applications can be f
 
 ## Microsoft Planner
 
-* Name: `Power Apps`
+* Name: `Microsoft Planner`
 * Description: `Planner provides a simple, visual way to organize teamwork. Planner makes it easy for your team to create new plans, organize and assign tasks, share files, chat about what you’re working on, and get updates on progress.`
 * Type: `iOS store app`
 * App information

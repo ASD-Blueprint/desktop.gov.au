@@ -121,7 +121,7 @@ Bookings | Disabled
 Calendar | Disabled
 Cortana | Disabled
 Integrated Apps | Disabled
-Microsoft Forms | Disabled
+Microsoft Forms | Send a link to the form and collect responses (enabled)<br>Share to collaborate on the form layout and structure (enabled)<br>Share the form as a template that can be duplicated (enabled)<br>Share form results summary (disabled)<br>Record names by default (disabled)<br>Include Bing search, YouTube videos (disabled)<br>Add internal phishing protection
 Microsoft Graph Data Connect | Enabled
 Microsoft Planner | Enabled
 Microsoft Search in Bing | Disabled
@@ -133,10 +133,11 @@ External Office 365 group content sharing | Let group members outside your organ
 Office on the web | Disabled
 Reports | Disabled
 SharePoint | New and existing guests – guests must sign in or provide a verification code – Enabled
-Skype for Business | Disable
+Skype for Business | Disabled
 Sway  | Disabled
 User owned apps and services | Disabled
-Whiteboard | Disabled
+Whiteboard | Turn on Whiteboard for everyone in your org (enabled) <br>Level of diagnostic data to send to Microsoft (Neither)<br>Allow the use of optional connected experiences in Whiteboard (disabled)<br>Enable easy sharing of Whiteboard from Surface Hub (enabled)
+
 
 ### Security and privacy
 
@@ -154,7 +155,7 @@ Sharing | Not configured
 
 ## Exchange Online
 
-The ABAC settings for the Agency Exchange Online instance can be found below. This includes Connectors, Mail Exchange (MX) Records, SPF, DNS Records, Accepted and Remote Domains, Client Access Services (CAS) Mailbox Plan, Authentication Policy, Outlook Web Access Policy, Mailbox Archive and Auditing, Mail Flow Rules, Journaling, Mailbox Retention, Shared and Resource Mailboxes, Distribution, Dynamic and Office 365 Groups. Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting.
+The ABAC settings for the Agency Exchange Online instance can be found below. This includes Connectors, Mail Exchange (MX) Records, SPF, DNS Records, Accepted and Remote Domains, Client Access Services (CAS) Mailbox Plan, Authentication Policy, Outlook Web Access Policy, Mailbox Archive and Auditing, Mail Flow Rules, Journaling, Mailbox Retention, Shared and Resource Mailboxes, Distribution, Dynamic and Microsoft 365 groups. Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting.
 
 ### Connectors
 
@@ -1736,10 +1737,14 @@ The ABAC settings for the Agency Office 365 Security and Compliance instance can
 
 ### Audit logging
 
-`Office 365 Security & compliance > Search > Audit log search`
+`Microsoft 365 compliance > Audit > Audit Retention Policies`
 
 * Enabled: `True`
-* Admin Audit Log Age Limit: `1 year`
+* Policy name: `10 year audit log`
+* Policy description: `Retains all audit log records for 10 years`
+* Record Type: `All`
+* Duration: `10 years`
+* Priority: `1`
 
 ### Retention policies
 
@@ -1757,12 +1762,12 @@ Exchange Public Folders
 * Retention period: `Keep content for 3 years`
 * Turn on preservation lock: `No`
 
-`Office 365 Security & compliance > Information governance > Retention | Office 365 Groups 3 Years Hold`
+`Office 365 Security & compliance > Information governance > Retention | Microsoft 365 groups 3 Years Hold`
 
 * Status: `On`
-* Policy Name: `Office 365 Groups 3 Years Hold`
-* Description: `Office 365 Groups 3 Years Hold`
-* Applies to content in these locations: `Office 365 Groups`
+* Policy Name: `Microsoft 365 groups 3 Years Hold`
+* Description: `Microsoft 365 groups 3 Years Hold`
+* Applies to content in these locations: `Microsoft 365 groups`
 * Retention period: `Keep content for 3 years`
 * Turn on preservation lock: `No`
 

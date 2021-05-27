@@ -329,7 +329,7 @@ Browsers on unmanaged devices can never download files and attachments from Shar
 
 ## Grant - Intune enrolment
 
-Devices are allowed to authenticate to Intune for enrolment.
+Devices are allowed to authenticate to Microsoft Endpoint Manager - Intune (Intune) for enrolment.
 
 * Name: `GRANT – Intune Enrolment`
 * Assignments

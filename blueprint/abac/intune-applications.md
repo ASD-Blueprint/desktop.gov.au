@@ -1,10 +1,10 @@
 ---
 layout: page
-title: Intune applications
+title: Microsoft Endpoint Manager - Intune applications
 menu: abac
 ---
 
-The following Intune applications can be found in the Azure Portal at `Microsoft Endpoint Manager > Client apps | Apps`
+The following Microsoft Endpoint Manager - Intune (Intune) applications can be found in the Azure Portal at `Microsoft Endpoint Manager > Apps`
 
 ## Privileged access
 
@@ -154,7 +154,7 @@ The following Intune applications can be found in the Azure Portal at `Microsoft
 * App information
   * Publisher: `Microsoft Corporation`
   * Appstore URL: `https://apps.apple.com/us/app/microsoft-authenticator/id983156458?uo=4`
-  * Minimum operating system: `iOS 8.0`
+  * Minimum operating system: `iOS 14.0`
   * Applicable device type: `iPad`, `iPhone and iPod`
   * Category: -
   * Show this as a featured app in the Company Portal: `Yes`
@@ -179,7 +179,7 @@ The following Intune applications can be found in the Azure Portal at `Microsoft
 * App information
   * Publisher: `Microsoft Corporation`
   * Appstore URL: `https://apps.apple.com/us/app/microsoft-edge/id1288723196?uo=4`
-  * Minimum operating system: `iOS 8.0`
+  * Minimum operating system: `iOS 14.0`
   * Applicable device type: `iPad`, `iPhone and iPod`
   * Category: -
   * Show this as a featured app in the Company Portal: `Yes`
@@ -228,7 +228,7 @@ The following Intune applications can be found in the Azure Portal at `Microsoft
 * App information
   * Publisher: `Microsoft Corporation`
   * Appstore URL: `https://apps.apple.com/us/app/microsoft-excel/id586683407?uo=4`
-  * Minimum operating system: `iOS 12.0`
+  * Minimum operating system: `iOS 14.0`
   * Applicable device type: `iPad`, `iPhone and iPod`
   * Category: -
   * Show this as a featured app in the Company Portal: `Yes`
@@ -253,7 +253,7 @@ The following Intune applications can be found in the Azure Portal at `Microsoft
 * App information
   * Publisher: `Microsoft Corporation`
   * Appstore URL: `https://apps.apple.com/us/app/microsoft-onedrive/id477537958?uo=4`
-  * Minimum operating system: `iOS 12.0`
+  * Minimum operating system: `iOS 14.0`
   * Applicable device type: `iPad`, `iPhone and iPod`
   * Category: -
   * Show this as a featured app in the Company Portal: `Yes`
@@ -278,7 +278,7 @@ The following Intune applications can be found in the Azure Portal at `Microsoft
 * App information
   * Publisher: `Microsoft Corporation`
   * Appstore URL: `https://apps.apple.com/us/app/microsoft-outlook/id951937596?uo=4`
-  * Minimum operating system: `iOS 12.0`
+  * Minimum operating system: `iOS 14.0`
   * Applicable device type: `iPad`, `iPhone and iPod`
   * Category: `Productivity`
   * Show this as a featured app in the Company Portal: `Yes`
@@ -303,7 +303,7 @@ The following Intune applications can be found in the Azure Portal at `Microsoft
 * App information
   * Publisher: `Microsoft Corporation`
   * Appstore URL: `https://apps.apple.com/us/app/microsoft-teams/id1113153706?uo=4`
-  * Minimum operating system: `iOS 12.0`
+  * Minimum operating system: `iOS 14.0`
   * Applicable device type: `iPad`, `iPhone and iPod`
   * Category: -
   * Show this as a featured app in the Company Portal: `Yes`
@@ -328,7 +328,7 @@ The following Intune applications can be found in the Azure Portal at `Microsoft
 * App information
   * Publisher: `Microsoft Corporation`
   * Appstore URL: `https://apps.apple.com/us/app/microsoft-word/id586447913?uo=4`
-  * Minimum operating system: `iOS 12.0`
+  * Minimum operating system: `iOS 14.0`
   * Applicable device type: `iPad`, `iPhone and iPod`
   * Category: -
   * Show this as a featured app in the Company Portal: `Yes`
@@ -338,6 +338,81 @@ The following Intune applications can be found in the Azure Portal at `Microsoft
   * Owner: -
   * Notes: -
   * Logo: ![Microsoft Word](/assets/images/abac/microsoft-word.png)
+* Scope tags: `Default`
+* Assignments
+  * Required: `rol-Agency-Administrators`, `rol-Agency-Users`
+  * Available for enrolled devices: -
+  * Available with or without enrollment: -
+  * Uninstall: -
+
+## Power Apps
+
+* Name: `Power Apps`
+* Description: `Get Power Apps to use business apps made for your team and organization. Install Power Apps for iPhone and iPad to: Use custom Power Apps that were shared with you; Get work done from anywhere and on any device; Automate tasks and accomplish more • Access, capture, and share business data.`
+* Type: `iOS store app`
+* App information
+  * Publisher: `Microsoft Corporation`
+  * Appstore URL: `https://apps.apple.com/au/app/power-apps/id1047318566?uo=4`
+  * Minimum operating system: `iOS 14.0`
+  * Applicable device type: `iPad`, `iPhone and iPod`
+  * Category: -
+  * Show this as a featured app in the Company Portal: `Yes`
+  * Information URL: -
+  * Privacy URL: -
+  * Developer: -
+  * Owner: -
+  * Notes: -
+  * Logo: ![PowerApps](/assets/images/abac/microsoft-power-apps.png)
+* Scope tags: `Default`
+* Assignments
+  * Required: `rol-Agency-Administrators`, `rol-Agency-Users`
+  * Available for enrolled devices: -
+  * Available with or without enrollment: -
+  * Uninstall: -
+
+## Microsoft Whiteboard
+
+* Name: `Microsoft Whiteboard`
+* Description: `Microsoft Whiteboard provides a freeform intelligent canvas where teams can ideate, create and collaborate visually via the cloud. Designed for pen and touch, it lets you write or draw as smoothly as you would with ink, while automatically recognising and transforming shapes and tables as you draw. It enhances teamwork by allowing all team members to edit and comment directly on the canvas in real time, no matter where they are. And all your work stays safe in the cloud, ready to be picked back up from another location or device.`
+* Type: `iOS store app`
+* App information
+  * Publisher: `Microsoft Corporation`
+  * Appstore URL: `https://apps.apple.com/au/app/microsoft-whiteboard/id1352499399?uo=4`
+  * Minimum operating system: `iOS 14.0`
+  * Applicable device type: `iPad`, `iPhone and iPod`
+  * Category: -
+  * Show this as a featured app in the Company Portal: `Yes`
+  * Information URL: -
+  * Privacy URL: -
+  * Developer: -
+  * Owner: -
+  * Notes: -
+  * Logo: ![Microsoft Whiteboard](/assets/images/abac/Whiteboard.png)
+* Scope tags: `Default`
+* Assignments
+  * Required: `rol-Agency-Administrators`, `rol-Agency-Users`
+  * Available for enrolled devices: -
+  * Available with or without enrollment: -
+  * Uninstall: -
+
+## Microsoft Planner
+
+* Name: `Microsoft Planner`
+* Description: `Planner provides a simple, visual way to organize teamwork. Planner makes it easy for your team to create new plans, organize and assign tasks, share files, chat about what you’re working on, and get updates on progress.`
+* Type: `iOS store app`
+* App information
+  * Publisher: `Microsoft Corporation`
+  * Appstore URL: `https://apps.apple.com/au/app/microsoft-planner/id1219301037?uo=4`
+  * Minimum operating system: `iOS 14.0`
+  * Applicable device type: `iPad`, `iPhone and iPod`
+  * Category: -
+  * Show this as a featured app in the Company Portal: `Yes`
+  * Information URL: -
+  * Privacy URL: -
+  * Developer: -
+  * Owner: -
+  * Notes: -
+  * Logo: ![Microsoft Planner](/assets/images/abac/Planner.png)
 * Scope tags: `Default`
 * Assignments
   * Required: `rol-Agency-Administrators`, `rol-Agency-Users`

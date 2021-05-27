@@ -65,6 +65,7 @@ ICT | Information and Communications Technology
 IIS | Internet Information Services
 IMAP | Internet Message Access Protocol
 IPMI | Intelligent Platform Module Interface
+Intune | Microsoft Endpoint Manager - Intune
 IRAP | Information Security Registered Assessors Program
 ISM | Information Security Manual
 ISO | International Standards Organisation
@@ -81,6 +82,8 @@ MAK | Multiple Activation Key
 MAM | Mobile Application Management
 MCAS | Microsoft Cloud App Security
 MDM | Mobile Device Management
+MECM | Microsoft Endpoint Configuration Manager
+MEM | Microsoft Endpoint Manager
 MFA | Multi-Factor Authentication
 MIM | Microsoft Identity Manager
 NNR | Network Name Resolution

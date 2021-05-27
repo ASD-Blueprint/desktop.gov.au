@@ -1,12 +1,12 @@
 ---
 layout: page
-title: Hybrid - Intune compliance for iOS devices
+title: Hybrid - Microsoft Endpoint Manager - Intune compliance for iOS devices
 menu: abac
 ---
 
 ## iOS compliance
 
-`Intune > Devices > Compliance policies > Policies`
+`Microsoft Endpoint Manager > Devices > Compliance policies > Policies`
 
 * Name: `iOS Compliance policy`
 * Description: -
@@ -19,12 +19,12 @@ menu: abac
     * Jailbroken devices: `Block`
     * Require the device to be at or under the Device Threat Level: `Medium`
   * Device Properties
-    * Minimum OS version: `12.0`
-    * Minimum OS build version: `16G183`
+    * Minimum OS version: `14.0`
+    * Minimum OS build version: `18A373`
   * System Security: `
     * Require a password to unlock mobile devices.: `Required`
     * Simple passwords: `Block`
-    * Minimum password length: `12`
+    * Minimum password length: `14`
     * Required password type: `Alphanumeric`
     * Maximum minutes after screen lock before password is required: `Immediately`
     * Maximum minutes of inactivity until screen locks: `2 Minutes`
@@ -37,11 +37,3 @@ menu: abac
 * Assignments
   * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`
   * Excluded groups: -
-
-## Compliance policy settings
-
-`Intune > Devices > Compliance policies > Compliance policy settings`
-
-* Mark devices with no compliance policy assigned as: `Not Compliant`
-* Enhanced jailbreak detection: `Enabled`
-* Compliance status validity period (days): `14`

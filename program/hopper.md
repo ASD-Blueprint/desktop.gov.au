@@ -94,7 +94,7 @@ I started working in Government as part of a graduate program, and accepted a pe
 
 The time it takes IT to provision a new device is reduced by **75%**.
 
-Using Intune and EMS makes it possible to streamline and automate **1,633** device provisioning events per year (based on a composite organisation of 5000 workers - source: Forrester "[The Total Economic Impact Of The Microsoft 365 E5 Solutions](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE2PBrb")).
+Using Intune and EMS makes it possible to streamline and automate **1,633** device provisioning events per year (based on a composite organisation of 5000 workers - source: Forrester "[The Total Economic Impact Of The Microsoft 365 E5 Solutions](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE2PBrb)").
 
 
 ## User journey

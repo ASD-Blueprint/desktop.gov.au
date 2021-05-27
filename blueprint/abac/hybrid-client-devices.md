@@ -276,7 +276,7 @@ Whitelisting of an application utilising WDAC can be completed utilising a numbe
 
 If the managed installer option within the base policy is enabled, whitelisting of applications deployed via the managed installer is not required. 
 
-![WDAC Whitelisting Application policy](/assets/images/WDAC_SCCM.svg "Where additional applications are required they should leverage the hash of the files or the publisher file name and version. Once whitelisted they must be merged into the base policy")
+![WDAC whitelisting application policy](/assets/images/WDAC_SCCM.svg "Where additional applications are required they should leverage the hash of the files or the publisher file name and version. Once whitelisted they must be merged into the base policy")
 
 Post identification of the appropriate whitelisting method, the following procedure is used to whitelist the application:
 

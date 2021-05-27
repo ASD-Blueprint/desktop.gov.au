@@ -427,7 +427,7 @@ The policy GUID in the OMA-URI must be unique to your environment. It can be fou
     * Defer software updates: `Not configured`
   * Password
     * Require Password: `Yes`
-    * Block Simple passwords: `Yes`
+    * Block simple passwords: `Yes`
     * Required password type: `Alphanumeric`
     * Number of non-alphanumerics characters in password: `1`
     * Minimum password length: `14`
@@ -438,7 +438,7 @@ The policy GUID in the OMA-URI must be unique to your environment. It can be fou
     * Prevent reuse of previous passwords: `5`
     * Block Touch ID and Face ID unlock: `Yes`
   * Automated device enrollment
-    * Block Passcode modification: `Not configured`
+    * Block passcode modification: `Not configured`
     * Block modification of Touch and Face ID faces: `Not configured`
     * Block password AutoFill: `Yes`
     * Block password proximity requests: `Yes`
@@ -459,14 +459,14 @@ The policy GUID in the OMA-URI must be unique to your environment. It can be fou
     * Block download of explicit sexual content in Apple Books: `Yes`
     * Allow managed apps to write contacts to unmanaged contacts accounts: `Not configured`
     * Rating Region: `No region configured`
-    * Block App store: `Not configured`
+    * Block app store: `Not configured`
     * Block installing apps using App Store: `Not configured`
     * Block automatic app downloads: `Not configured`
     * Block playback of explicit iTunes music, podcast, or news content: `Yes`
     * Block adding Game Center friends: `Yes`
-    * Block game Center: `Yes`
+    * Block Game Center: `Yes`
     * Block multiplayer gaming: `Yes`
-    * Block Access to network drive in Files app: `Yes`
+    * Block access to network drive in Files app: `Yes`
   * Built-in Apps
     * Block Siri: `Yes`
     * Block Siri while device is locked: `N/A`
@@ -475,7 +475,7 @@ The policy GUID in the OMA-URI must be unique to your environment. It can be fou
     * Safari cookies: `Block all cookies`
     * Block Safari JavaScript: `Yes`
     * Block Safari Pop-ups: `Yes`
-    * Block Camera: `Not configured`
+    * Block camera: `Not configured`
     * Block FaceTime: `Not configured`
     * Require Siri proximity filter: `N/A`
     * Block user-generated content in Siri: `N/A`
@@ -539,22 +539,22 @@ The policy GUID in the OMA-URI must be unique to your environment. It can be fou
     * Block access to USB drive in Files app: `Yes`
     * Disable near-field communication (NFC): `Yes`
   * Keyboard and Dictionary
-    * Block Word definition lookup: `Not configured`
-    * Block Predictive keyboards: `Not configured`
-    * Block Auto-correction: `Not configured`
-    * Block Keyboard spell-check: `Not configured`
-    * Block Keyboard shortcuts: `Not configured`
-    * Block Dictation: `Not configured`
+    * Block word definition lookup: `Not configured`
+    * Block predictive keyboards: `Not configured`
+    * Block auto-correction: `Not configured`
+    * Block keyboard spell-check: `Not configured`
+    * Block keyboard shortcuts: `Not configured`
+    * Block dictation: `Not configured`
     * Block QuickPath: `Not configured`
   * Cloud and Storage
-    * Force Encrypted backup: `Yes`
+    * Force encrypted backup: `Yes`
     * Block managed apps from storing data in iCloud: `Yes`
-    * Block Enterprise Book Backup: `Yes`
+    * Block enterprise Book Backup: `Yes`
     * Block notes and highlights sync for enterprise books: `Yes`
     * Block iCloud Photos sync: `Yes`
     * Block iCloud Photo Library: `Yes`
-    * Block My photo stream: `Yes`
-    * Block Handoff: `Yes`
+    * Block my photo stream: `Yes`
+    * Block handoff: `Yes`
     * Backup to iCloud: `Yes`
     * Block iCloud document and data sync: `Yes`
     * Block iCloud Keychain sync: `Yes`
@@ -735,7 +735,7 @@ The following can be found at `Intune > Devices > Scripts`
 
 * Profile name: `Intune log folder shortcut`
 * Script settings
-  * PowerShell script: `IntuneLogFolder.ps1`
+  * PowerShell script: [IntuneLogFolder.ps1](/assets/files/abac/IntuneLogFolder.txt)
   * Run this script using the logged-on credentials: `No`
   * Enforce script signature check: `No`
   * Run script in 64 bit PowerShell Host: `No`
@@ -743,17 +743,6 @@ The following can be found at `Intune > Devices > Scripts`
 * Assignments
   * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`
   * Excluded groups: -
-
-```powershell
-# Create a Shortcut to the Intune Logs folder with Windows PowerShell
-
-$TargetPath = "$env:ProgramData\Microsoft\IntuneManagementExtension\Logs"
-$ShortcutFile = "$env:Public\Desktop\IntuneLogs.lnk"
-$WScriptShell = New-Object -ComObject WScript.Shell
-$Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
-$Shortcut.TargetPath = $TargetPath
-$Shortcut.Save()
-```
 
 ### Block OLE Extensions
 
@@ -772,7 +761,7 @@ $Shortcut.Save()
 
 * Profile name: `RemoveBuiltInApps`
 * Script settings
-  * PowerShell script: `RemoveBuiltInApps.ps1`
+  * PowerShell script: [RemoveBuiltInApps.ps1](/assets/files/abac/RemoveBuiltInApps.txt)
   * Run this script using the logged-on credentials: `No`
   * Enforce script signature check: `No`
   * Run script in 64 bit PowerShell Host: `No`
@@ -780,148 +769,3 @@ $Shortcut.Save()
 * Assignments
   * Included groups: `grp-Windows-10-Devices`
   * Excluded groups: -
-
-```powershell
-Begin {
-    # White list of Features On Demand V2 packages
-    $WhiteListOnDemand = "NetFX3|Tools.Graphics.DirectX|Tools.DeveloperMode.Core|Language|Browser.InternetExplorer|ContactSupport|OneCoreUAP|Media.WindowsMediaPlayer|Hello.Face"
-
-    # White list of appx packages to keep installed
-    $WhiteListedApps = New-Object -TypeName System.Collections.ArrayList
-    $WhiteListedApps.AddRange(@(
-        "Microsoft.DesktopAppInstaller",
-        "Microsoft.Messaging", 
-        "Microsoft.MSPaint",
-        "Microsoft.Windows.Photos",
-        "Microsoft.StorePurchaseApp",
-        "Microsoft.MicrosoftOfficeHub",
-        "Microsoft.MicrosoftStickyNotes",
-        "Microsoft.WindowsAlarms",
-        "Microsoft.WindowsCalculator", 
-        "Microsoft.WindowsSoundRecorder", 
-        "Microsoft.WindowsStore"
-    ))
-
-    # Windows 10 version 1809
-    $WhiteListedApps.AddRange(@(
-        "Microsoft.ScreenSketch",
-        "Microsoft.HEIFImageExtension",
-        "Microsoft.VP9VideoExtensions",
-        "Microsoft.WebMediaExtensions",
-        "Microsoft.WebpImageExtension"
-    ))
-
-    # Windows 10 version 1903
-    # No new apps
-}
-Process {
-    # Functions
-    function Write-LogEntry {
-        param(
-            [parameter(Mandatory=$true, HelpMessage="Value added to the RemovedApps.log file.")]
-            [ValidateNotNullOrEmpty()]
-            [string]$Value,
-            [parameter(Mandatory=$false, HelpMessage="Name of the log file that the entry will written to.")]
-            [ValidateNotNullOrEmpty()]
-            [string]$FileName = "RemovedApps.log"
-        )
-        # Determine log file location
-        $LogFilePath = Join-Path -Path $env:windir -ChildPath "Temp\$($FileName)"
-
-        # Add value to log file
-        try {
-            Out-File -InputObject $Value -Append -NoClobber -Encoding Default -FilePath $LogFilePath -ErrorAction Stop
-        }
-        catch [System.Exception] {
-            Write-Warning -Message "Unable to append log entry to $($FileName) file"
-        }
-    }
-
-    # Initial logging
-    Write-LogEntry -Value "Starting built-in AppxPackage, AppxProvisioningPackage and Feature on Demand V2 removal process"
-
-    # Determine provisioned apps
-    $AppArrayList = Get-AppxProvisionedPackage -Online | Select-Object -ExpandProperty DisplayName
-
-    # Loop through the list of appx packages
-    foreach ($App in $AppArrayList) {
-        Write-LogEntry -Value "Processing appx package: $($App)"
-
-        # If application name not in appx package white list, remove AppxPackage and AppxProvisioningPackage
-        if (($App -in $WhiteListedApps)) {
-            Write-LogEntry -Value "Skipping excluded application package: $($App)"
-        }
-        else {
-            # Gather package names
-            $AppPackageFullName = Get-AppxPackage -Name $App | Select-Object -ExpandProperty PackageFullName -First 1
-            $AppProvisioningPackageName = Get-AppxProvisionedPackage -Online | Where-Object { $_.DisplayName -like $App } | Select-Object -ExpandProperty PackageName -First 1
-
-            # Attempt to remove AppxPackage
-            if ($AppPackageFullName -ne $null) {
-                try {
-                    Write-LogEntry -Value "Removing AppxPackage: $($AppPackageFullName)"
-                    Remove-AppxPackage -Package $AppPackageFullName -ErrorAction Stop | Out-Null
-                }
-                catch [System.Exception] {
-                    Write-LogEntry -Value "Removing AppxPackage '$($AppPackageFullName)' failed: $($_.Exception.Message)"
-                }
-            }
-            else {
-                Write-LogEntry -Value "Unable to locate AppxPackage for current app: $($App)"
-            }
-
-            # Attempt to remove AppxProvisioningPackage
-            if ($AppProvisioningPackageName -ne $null) {
-                try {
-                    Write-LogEntry -Value "Removing AppxProvisioningPackage: $($AppProvisioningPackageName)"
-                    Remove-AppxProvisionedPackage -PackageName $AppProvisioningPackageName -Online -ErrorAction Stop | Out-Null
-                }
-                catch [System.Exception] {
-                    Write-LogEntry -Value "Removing AppxProvisioningPackage '$($AppProvisioningPackageName)' failed: $($_.Exception.Message)"
-                }
-            }
-            else {
-                Write-LogEntry -Value "Unable to locate AppxProvisioningPackage for current app: $($App)"
-            }
-        }
-    }
-
-    Write-LogEntry -Value "Starting Features on Demand V2 removal process"
-
-    # Get Features On Demand that should be removed
-    try {
-        $OSBuildNumber = Get-WmiObject -Class "Win32_OperatingSystem" | Select-Object -ExpandProperty BuildNumber
-
-        # Handle cmdlet limitations for older OS builds
-        if ($OSBuildNumber -le "16299") {
-            $OnDemandFeatures = Get-WindowsCapability -Online -ErrorAction Stop | Where-Object { $_.Name -notmatch $WhiteListOnDemand -and $_.State -like "Installed"} | Select-Object -ExpandProperty Name
-        }
-        else {
-            $OnDemandFeatures = Get-WindowsCapability -Online -LimitAccess -ErrorAction Stop | Where-Object { $_.Name -notmatch $WhiteListOnDemand -and $_.State -like "Installed"} | Select-Object -ExpandProperty Name
-        }
-
-        foreach ($Feature in $OnDemandFeatures) {
-            try {
-                Write-LogEntry -Value "Removing Feature on Demand V2 package: $($Feature)"
-
-                # Handle cmdlet limitations for older OS builds
-                if ($OSBuildNumber -le "16299") {
-                    Get-WindowsCapability -Online -ErrorAction Stop | Where-Object { $_.Name -like $Feature } | Remove-WindowsCapability -Online -ErrorAction Stop | Out-Null
-                }
-                else {
-                    Get-WindowsCapability -Online -LimitAccess -ErrorAction Stop | Where-Object { $_.Name -like $Feature } | Remove-WindowsCapability -Online -ErrorAction Stop | Out-Null
-                }
-            }
-            catch [System.Exception] {
-                Write-LogEntry -Value "Removing Feature on Demand V2 package failed: $($_.Exception.Message)"
-            }
-        }    
-    }
-    catch [System.Exception] {
-        Write-LogEntry -Value "Attempting to list Feature on Demand V2 packages failed: $($_.Exception.Message)"
-    }
-
-    # Complete
-    Write-LogEntry -Value "Completed built-in AppxPackage, AppxProvisioningPackage and Feature on Demand V2 removal process"
-}
-```

@@ -18,7 +18,7 @@
             Write-Warning -Message "Unable to append log entry to $($FileName) file"
         }
     }
-Write-LogEntry -Value "Script commencing" 
+Write-LogEntry -Value "Script commencing $($(Get-Date).ToString(`"yyyy-MM-dd hhmmss`"))" 
 
 #---------------------------------------------------find the correct Office registry path and apply the key---------------------------------------------------
 

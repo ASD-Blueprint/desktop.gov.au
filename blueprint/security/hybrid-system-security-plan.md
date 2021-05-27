@@ -16,8 +16,8 @@ HybridSystem.
 The HybridSystem leverages the Information Security Registered Assessors Program (IRAP) assessed Microsoft Azure, Office 365 platforms and their associated services. As well as leveraging an Agencies existing on-premises environment. The Blueprint includes the following components to improve the security posture of a target Agency:
 
 * Cloud identity – Synchronising identities from Active Directory (AD) to Azure Active Directory (Azure AD) for authentication. Azure AD configuration including conditional access allowing log in from anywhere and appropriate security policies to be applied.
-* Office 365 – Configuration of Exchange Online, SharePoint Online, OneDrive for Business, and Microsoft Team allowing cloud-based file storage and collaboration.
-* Hybrid – Configuration between on-premises Exchange and Exchange Online, on-premises SharePoint and SharePoint Online to provide a seamless transition and extend cloud security capabilities. 
+* Office 365 – Configuration of Exchange Online, SharePoint Online, OneDrive for Business, Microsoft Teams, Microsoft Forms, Microsoft Whiteboard and Microsoft Planner allowing cloud-based file storage and collaboration.
+* Hybrid – Configuration between on-premises Exchange and Exchange Online, on-premises SharePoint and SharePoint Online to provide a seamless transition and extend cloud security capabilities.
 * Device management – Management of security and configuration profiles for enrolled devices including the testing against security baselines and confirmation of security compliance.
 * Applications – Delivery and configuration of applications appropriate to the user.
 * Security stack – Security configuration of Office 365 and endpoint devices to maximise compliance and minimise risk.
@@ -64,7 +64,7 @@ For detailed information on how the HybridSystem addresses specific controls in 
 
 The security policies that the HybridSystem has been designed to comply with are listed below:
 
-* The Australian Government ISM (October 2020) controls.
+* The Australian Government ISM (April 2021) controls.
 * The Australian Cyber Security Centre (ACSC) Strategies to Mitigate Cyber Security Incidents, including the Essential Eight Maturity Model.
 * The ACSC Security Configuration Guide - Apple iOS 12 Devices (June 2020).
 * The Protected Security Policy Framework.
@@ -77,19 +77,20 @@ In accordance with the requirements of the ISM, the following security documenta
 * DTA – Blueprint – Solution Overview (August 2020)
 * DTA – Blueprint – Client Devices Design (August 2020)
 * DTA – Blueprint – Platform Design (August 2020)
-* DTA – Blueprint – Office 365 Design (August 2020) 
-* DTA – Hybrid Blueprint – System Security Plan (October 2020) (this document)
-* DTA – Hybrid Blueprint – System Security Plan Annex (October 2020)
-* DTA – Hybrid Blueprint – Security Risk Management Plan (October 2020)
-* DTA – Hybrid Blueprint – Standard Operating Procedures (October 2020)
-* DTA – Hybrid Blueprint – Incident Response Plan (October 2020)
+* DTA – Blueprint – Office 365 Design (August 2020)
+* DTA – Hybrid Blueprint – System Security Plan (April 2021) (this document)
+* DTA – Hybrid Blueprint – System Security Plan Annex (April 2021)
+* DTA – Hybrid Blueprint – Security Risk Management Plan (April 2021)
+* DTA – Hybrid Blueprint – Standard Operating Procedures (April 2021)
+* DTA – Hybrid Blueprint – Incident Response Plan (April 2021)
 
 The suite of documentation produced to support ACSC’s certification of Azure and Office 365 for PROTECTED have also been leveraged in the development of the HybridSystem, and includes the following :
 
-* 2019 Microsoft Azure IRAP Assessment Report
+* 2020 Microsoft Azure IRAP - Azure Security Fundamentals and Cloud Services Assessment
+* Office 365 Security Fundamentals and Cloud Services IRAP Assessment Report 2020
 * 2019 Microsoft Office 365 IRAP Assessment Report
 
-Both documents are available from the [Microsoft Service Trust Portal](https://servicetrust.microsoft.com/ViewPage/Australia).
+These documents are available from the [Microsoft Service Trust Portal](https://servicetrust.microsoft.com/ViewPage/Australia).
 
 ### Risk assessment
 
@@ -108,8 +109,8 @@ Identity Services | Azure AD | PROTECTED | N/A
 Identity Services | Conditional Access | Not Assessed | Conditional Access is an Azure AD Premium P1 licenced feature of Azure AD (included in Microsoft 365 E3) that restricts access to cloud resources and management tools beyond just a successful authentication. It includes customisable policies based on location, user, device and more. Conditional Access is an additional security capability that is part of Azure AD, which is PROTECTED certified. 
 Identity Services | Azure MFA | PROTECTED | N/A
 Identity Services | Azure AD Identity Protection | Not Assessed | Azure AD Identity Protection is an Azure AD Premium P2 licenced feature of Azure AD (included in Microsoft 365 E5) that allows organisations to accomplish three key tasks:<br><br>* Automate the detection and remediation of identity-based risks.<br>* Investigate risks using data in the portal.<br>* Export risk detection data to third-party utilities for further analysis.
-Office 365 | Exchange Online, SharePoint Online, Microsoft Teams | PROTECTED | N/A
-Monitoring and Compliance | Intune Policies | PROTECTED | Intune is configured to allow policies to be created and deployed to devices that configure, check for compliance and assess against a security baseline. These policies are applied and reported against in the Intune web console.
+Office 365 | Exchange Online, SharePoint Online, Microsoft Teams, Microsoft Forms, Microsoft Whiteboard, Microsoft Planner | PROTECTED | N/A
+Monitoring and Compliance | Intune Policies | PROTECTED | Microsoft Endpoint Manager - Intune (Intune) is configured to allow policies to be created and deployed to devices that configure, check for compliance and assess against a security baseline. These policies are applied and reported against in the Intune web console.
 
 ## Section definitions
 
@@ -150,7 +151,7 @@ Guidelines for System Monitoring | Applicable | Monitoring of HybridSystem syste
 Guidelines for Software Development | Not Applicable | The HybridSystem is not designed to support software development activities.
 Guidelines for Database Systems | Not Applicable | The Agency is responsible for database systems leveraged by the HybridSystem.
 Guidelines for Email | Applicable | The HybridSystem leverages Office 365 to provide email functionality.
-Guidelines for Networking | Applicable | The HybridSystem is designed to primarily run on-premises but also be able to use the public internet. All security controls are implemented on the endpoint devices and the Office 365 component. The Office 365 design includes a high-level network diagram showing the components that are considered in scope.
+Guidelines for Networking | Applicable | The HybridSystem is designed to run using the public internet. All security controls are implemented on the endpoint devices and the Office 365 component. The Office 365 design includes a high-level network diagram showing the components that are considered in scope. Conditional access policies and MCAS to limit access to the environment from anonymity networks. The configuration and fine tuning of these policies is the shared responsibility of the Agency and the HybridSystem.
 Guidelines for Cryptography | Applicable | The HybridSystem makes use of cryptography to protect both data at rest and data in transit.
 Guidelines for Gateways | Applicable | The HybridSystem leverages Exchange Online Protection and Office 365 Advanced Threat Protection (ATP) for content filtering.
 Guidelines for Data Transfers | Applicable | The HybridSystem is responsible for implementing technical controls relating to data transfer and content filtering.
@@ -274,7 +275,7 @@ Outsourcing is applicable to the HybridSystem as it leverages both Azure and Off
 
 #### HybridSystem compliance approach
 
-The HybridSystem leverages Microsoft Azure and Office 365, which have been IRAP assessed at PROTECTED by Shearwater. With the exception of Microsoft Defender ATP, all HybridSystem services have been IRAP assessed.
+The HybridSystem leverages Microsoft Azure and Office 365, which have been IRAP assessed at PROTECTED by CyberCX. All HybridSystem services have been IRAP assessed.
 
 Azure AD is defined as a non-regional service, but [hosts identity data in Australian datacentres](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-data-storage-australia) for customers that provide an Australian or New Zealand address . This includes Azure AD Directory Management and Authentication functions. Other Azure AD functions, including Azure MFA, store data in global datacentres.
 
@@ -336,8 +337,8 @@ SECURITY | AZURE ADVANCED THREAT PROTECTION | MICROSOFT | MICROSOFT | MICROSOFT 
 SECURITY | MICROSOFT DEFENDER ADVANCED THREAT PROTECTION | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | AGENCY | MICROSOFT | MICROSOFT | MICROSOFT
 SECURITY | LOG ANALYTICS | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | AGENCY | MICROSOFT | MICROSOFT | MICROSOFT
 SECURITY | SECURITY INFORMATION & EVENT MANAGEMENT | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY
-CLIENT CONFIGURATION | INTUNE | AGENCY | AGENCY | MICROSOFT | AGENCY | AGENCY | AGENCY | AGENCY | MICROSOFT
-CLIENT CONFIGURATION | SCCM | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | MICROSOFT
+CLIENT CONFIGURATION | MICROSOFT ENDPOINT MANAGER - INTUNE | AGENCY | AGENCY | MICROSOFT | AGENCY | AGENCY | AGENCY | AGENCY | MICROSOFT
+CLIENT CONFIGURATION | MICROSOFT ENDPOINT CONFIGURATION MANAGER | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | MICROSOFT
 CLIENT CONFIGURATION | PRINTING | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY
 BACKUP & OPERATIONAL MANAGEMENT | BACKUP PLATFORM | AGENCY  | AGENCY  | AGENCY  | AGENCY  | AGENCY  | AGENCY  | AGENCY  | AGENCY 
 SYSTEM ADMINISTRATION | ADMINISTRATIVE CONSOLES | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | AGENCY | MICROSOFT | MICROSOFT | MICROSOFT
@@ -355,13 +356,16 @@ POWER BI | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | MICROSOFT | 
 SECURITY & COMPLIANCE PLATFORMS | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | MICROSOFT | AGENCY | MICROSOFT
 EXCHANGE ONLINE PROTECTION | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | MICROSOFT | AGENCY | MICROSOFT
 OFFICE 365 ADVANCED THREAT PROTECTION | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | MICROSOFT | AGENCY | MICROSOFT
+MICROSOFT FORMS | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | MICROSOFT | AGENCY | MICROSOFT
+MICROSOFT WHITEBOARD | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | MICROSOFT | AGENCY | MICROSOFT
+MICROSOFT PLANNER | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | MICROSOFT | AGENCY | MICROSOFT
 
 ##### Client devices
 
 ITEM | INCIDENT RESPONSE | BACKUPS | PHYSICAL SECURITY | SYSTEM HARDENING | ACCESS MANAGEMENT | VULNERABILITY & PATCH MANAGEMENT | SYSTEM MONITORING | SOFTWARE DEVELOPMENT
 --- | --- | --- | --- | --- | --- | --- | --- | ---
 WINDOWS 10 – INTUNE MANAGED | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | MICROSOFT
-WINDOWS 10 – SCCM MANAGED | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | MICROSOFT
+WINDOWS 10 – MECM MANAGED | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | MICROSOFT
 IOS – INTUNE MANAGED | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | APPLE
 
 ## Security documentation
@@ -551,7 +555,7 @@ This section is applicable as the HybridSystem includes mobile devices.
 
 #### HybridSystem compliance approach
 
-The HybridSystem leverages Microsoft Intune to provide both Mobile Device Management (MDM) and Mobile Application Management (MAM) controls to protect mobile devices and data stored on them. Both Windows laptops and iOS devices will be enrolled within Intune and tagged as Corporate devices, allowing policies to be centrally managed and deployed. This includes configuring storage encryption, disabling unneeded features and controlling application behaviour.
+The HybridSystem leverages Microsoft Endpoint Manager - Intune (Intune) to provide both Mobile Device Management (MDM) and Mobile Application Management (MAM) controls to protect mobile devices and data stored on them. Both Windows laptops and iOS devices will be enrolled within Intune and tagged as Corporate devices, allowing policies to be centrally managed and deployed. This includes configuring storage encryption, disabling unneeded features and controlling application behaviour.
 
 iOS devices are lightly managed and partially comply with the ACSC ‘[Security Configuration Guide - Apple iOS 12 Devices](https://www.cyber.gov.au/publications/security-configuration-guide-apple-ios-12-devices)’ and Information Security Manual (ISM) to maximise usability for the target users. Note: Agencies should do a risk assessment before deciding to change settings relating mobile devices.
 
@@ -615,7 +619,7 @@ A Protection Profile (PP) evaluation has been performed on Windows 10 and Micros
 
 * The HybridSystem includes Windows 10 which has been evaluated against the relevant Protection Profile.
 * Windows 10 installation media is sourced directly from Microsoft in accordance with the evaluated delivery procedures.
-* Windows 10 is managed by Microsoft Intune in accordance with the published guidance from Microsoft as well the ACSC's hardening guide for Windows 10.
+* Windows 10 is managed by  Microsoft Endpoint Manager - Intune (Intune) in accordance with the published guidance from Microsoft as well the ACSC's hardening guide for Windows 10.
 
 ### Residual controls to be addressed by the Agency
 
@@ -655,7 +659,7 @@ The HybridSystem implements technical controls to restrict access to removeable 
 
 #### Security controls provided by the HybridSystem
 
-* Autorun is disabled for removable media via Intune policies.
+* Autorun is disabled for removable media via Microsoft Endpoint Manager -  Intune (Intune) policies.
 * Only authorised devices that are permitted in Intune policies can be connected to the HybridSystem endpoints. Unauthorised devices will not be mounted to the operating system.
 * External connections relying on Direct Memory Access (DMA) will be disabled via Intune policies
 * Removable media is encrypted via BitLocker using AES-256.
@@ -728,11 +732,11 @@ Operating system hardening is applicable to the HybridSystem.
 
 #### HybridSystem compliance approach
 
-The HybridSystem will utilise Windows 10 as the endpoint operating system, provided by the Original Equipment Manufacturer (OEM), and then use the Software Updates component of Intune or SCCM to maintain the latest version of the operating system.
+The HybridSystem will utilise Windows 10 as the endpoint operating system, provided by the Original Equipment Manufacturer (OEM), and then use the Software Updates component of Microsoft Endpoint Manager - Intune (Intune) or Microsoft Endpoint Configuration Manager (MECM) to maintain the latest version of the operating system.
 
-The HybridSystem will harden the operating system configuration using a combination of Intune and Microsoft System Center Configuration Manager (SCCM) policies to implement ACSC and vendor guidance. These policies achieve the results that would traditionally be performed by group policies alone. Local administrator accounts and guest accounts will be disabled and renamed via Intune policy. 
+The HybridSystem will harden the operating system configuration using a combination of Intune and MECM policies to implement ACSC and vendor guidance. These policies achieve the results that would traditionally be performed by group policies alone. Local administrator accounts and guest accounts will be disabled and renamed via Intune policy.
 
-The potential attack surface will be minimised by only including required components and apps, removing and disabling the components that aren’t needed. Standard users will be prevented from running all script execution engines. The HybridSystem will install applications via Intune or SCCM and not allow standard users the ability to install applications.
+The potential attack surface will be minimised by only including required components and apps, removing and disabling the components that aren’t needed. Standard users will be prevented from running all script execution engines. The HybridSystem will install applications via Intune or MECM and not allow standard users the ability to install applications.
 
 The HybridSystem will use Windows Defender Application Control (WDAC) to perform application control. WDAC is the latest system from Microsoft for application control and works in a very similar manner to AppLocker. In addition to performing all functions of AppLocker, WDAC is also able to control plug-ins, add-ins, modules and code at the kernel level as well as the user level.
 
@@ -750,7 +754,7 @@ Endpoint Device Control will be configured by Intune policies restricting usage 
 * The 64-bit version of Windows 10 is used as the SOE for the HybridSystem.
 * The Windows 10 SOE has been hardened in accordance with ACSC guidance where possible using Intune.
 * The default administrator and guest accounts have been disabled and renamed.
-* Intune and SCCM policies prevent standard users from running cmd.exe however can only restrict the PowerShell execution policy to RemoteSigned.
+* Intune and MECM policies prevent standard users from running cmd.exe however can only restrict the PowerShell execution policy to RemoteSigned.
 * RBAC policy defines separate domain and local administrator roles. Standard users do not have permissions to install or uninstall software.
 * WDAC provides application control functionality. A combination of hash, publisher certificate and path rules will be used by WDAC for control of applications. Both publisher and product names are used by WDAC for control of applications. WDAC writes to the local event log. Standard users cannot disable application control.
 * File permissions prevent standard users from writing to locations that are whitelisted using path rules.
@@ -759,11 +763,11 @@ Endpoint Device Control will be configured by Intune policies restricting usage 
 * Windows Defender Exploit Guard and Defender ATP provide Host Intrusion Prevention System (HIPS) functionality as part of the HybridSystem Windows 10 SOE.
 * Windows Defender Firewall is enabled as part of the HybridSystem Windows 10 SOE.
 * Defender Antivirus and Defender ATP provide antivirus including signature and heuristic-based detection. Reputation rating features are enabled.
-* Intune and SCCM provides device access control by DeviceID or Device Class.
+* Intune and MECM provides device access control by DeviceID or Device Class.
 
 #### Residual controls to be addressed by the Agency
 
-* Where Agencies utilise SOE developed by third parties, the Agency must ensure that the SOEis scanned for malicious content and configurations before being used and that the design is reviewed and updated at least annually.
+* Where Agencies utilise SOE developed by third parties, the Agency must ensure that the SOE is scanned for malicious content and configurations before being used and that the design is reviewed and updated at least annually.
 * The Agency must validate cryptographic hash rules, publisher certificate rules and path rules used for application control at least annually.
 
 ### Application hardening
@@ -912,7 +916,7 @@ Local sites and data stores | On-premises SharePoint Server
 
 System patching of Office 365 and Azure AD are not applicable as these cloud components are a Microsoft responsibility.
 
-System patching of endpoint devices is required, and this is accomplished via Intune or SCCM policies setting the frequency, installation options and reporting values.
+System patching of endpoint devices is required, and this is accomplished via Microsoft Endpoint Manager - Intune (Intune) or MECM policies setting the frequency, installation options and reporting values.
 
 #### HybridSystem compliance approach
 
@@ -927,9 +931,9 @@ For patching endpoint devices deployed by the Agency, the HybridSystem provides 
 * The HybridSystem provides the reporting of device status to determine which devices have received updates.
 * The HybridSystem includes a system administration SOP which specifically references patching.
 * All configurations are included in the relevant ABAC.
-* Application and driver patches will be automatically deployed via Intune or SCCM for the HybridSystem Windows 10 SOE.
-* Operating system patches will be automatically deployed via Intune or SCCM for the HybridSystem Windows 10 SOE. 
-* Intune or SCCM provides a centralised and managed approach to patching.
+* Application and driver patches will be automatically deployed via Intune or MECM for the HybridSystem Windows 10 SOE.
+* Operating system patches will be automatically deployed via Intune or MECM for the HybridSystem Windows 10 SOE.
+* Intune or MECM provides a centralised and managed approach to patching.
 * Windows Update verifies the integrity of patches before installing them.
 
 #### Residual controls to be addressed by the Agency
@@ -1135,6 +1139,8 @@ The HybridSystem leverages the Microsoft backbone to provide networking for the 
 #### Security controls provided by the HybridSystem
 
 * The Office 365 design which includes the high-level network design has a document control table listing the last update date.
+* Conditional access policies are used to restrict inbound network traffic to specific geographic regions.
+* MCAS policies are used to analyse sign in logs to identify and subsequently notify administrators when users are identified as originating from anonymous proxy IP addresses.
 
 #### Residual controls to be addressed by the Agency
 
@@ -1142,6 +1148,8 @@ The HybridSystem leverages the Microsoft backbone to provide networking for the 
 * The Agency is responsible for implementing security controls within their email gateway.
 * The Agency is responsible for managing servers used as part of the HybridSystem.
 * The Agency is responsible for ensuring that they segregate their network from that of service providers.
+* The Agency is responsible for tuning conditional access policy to limit inbound network connections from anonymity networks.
+* The Agency is responsible for tuning MCAS policies to meet their requirements. Further, the Agency must implement appropriate procedures around these alerts.
 
 ### Wireless networks
 

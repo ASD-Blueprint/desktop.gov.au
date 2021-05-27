@@ -1,12 +1,12 @@
 ---
 layout: page
-title: Hybrid - Intune applications for Windows devices
+title: Hybrid - Microsoft Endpoint Manager - Intune applications for Windows devices
 menu: abac
 ---
 
-## Intune applications
+## Microsoft Endpoint Manager applications
 
-The following Intune applications can be found in the Azure Portal at `Intune > Apps > All apps`
+The following Microsoft Endpoint Manager - Intune (Intune) applications can be found in the Azure Portal at `Microsoft Endpoint Manager > Apps > All apps`
 
 ### Citrix Workspace App
 
@@ -111,7 +111,7 @@ Version: Greater than or equal to 20.2.0.7
 
 ## Windows information protection
 
-`Intune > Apps > App protection policies`
+`Microsoft Endpoint Manager > Apps > App protection policies`
 
 * Name: `Windows Information Protection`
 * Description: `Application Protection policies`

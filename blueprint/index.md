@@ -9,7 +9,7 @@ The Protected Utility blueprint is a design to secure Microsoft 365 desktops, de
 The blueprint offers 4 main artefacts to support agencies with implementation.
 
 * The **Solution overview** provides a non-technical overview of the blueprint and maps blueprint solutions to the Essential Eight security strategies.
-*	The **Platform design** covers all supporting components for the Windows 10, iOS and Office 365 (including Intune).
+*	The **Platform design** covers all supporting components for the Windows 10, iOS and Office 365 (including Microsoft Endpoint Manager).
 *	The **Client devices design** includes Windows 10 and iOS components only.
 *	The **Office 365 design** includes Exchange Online, SharePoint Online, OneDrive for Business and Teams.
 

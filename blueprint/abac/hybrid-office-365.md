@@ -121,7 +121,7 @@ Bookings | Disabled
 Calendar | Disabled
 Cortana | Disabled
 Integrated Apps | Disabled
-Microsoft Forms | Disabled
+Microsoft Forms | Send a link to the form and collect responses (enabled)<br>Share to collaborate on the form layout and structure (enabled)<br>Share the form as a template that can be duplicated (enabled)<br>Share form results summary (disabled)<br>Record names by default (disabled)<br>Include Bing search, YouTube videos (disabled)<br>Add internal phishing protection
 Microsoft Graph Data Connect | Enabled
 Microsoft Planner | Enabled
 Microsoft Search in Bing | Disabled
@@ -133,10 +133,11 @@ External Office 365 group content sharing | Let group members outside your organ
 Office on the web | Disabled
 Reports | Disabled
 SharePoint | New and existing guests – guests must sign in or provide a verification code – Enabled
-Skype for Business | Disable
+Skype for Business | Disabled
 Sway  | Disabled
 User owned apps and services | Disabled
-Whiteboard | Disabled
+Whiteboard | Turn on Whiteboard for everyone in your org (enabled) <br>Level of diagnostic data to send to Microsoft (Neither)<br>Allow the use of optional connected experiences in Whiteboard (disabled)<br>Enable easy sharing of Whiteboard from Surface Hub (enabled)
+
 
 ### Security and privacy
 
@@ -154,7 +155,7 @@ Sharing | Not configured
 
 ## Exchange Online
 
-The ABAC settings for the Agency Exchange Online instance can be found below. This includes Connectors, Mail Exchange (MX) Records, SPF, DNS Records, Accepted and Remote Domains, Client Access Services (CAS) Mailbox Plan, Authentication Policy, Outlook Web Access Policy, Mailbox Archive and Auditing, Mail Flow Rules, Journaling, Mailbox Retention, Shared and Resource Mailboxes, Distribution, Dynamic and Office 365 Groups. Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting.
+The ABAC settings for the Agency Exchange Online instance can be found below. This includes Connectors, Mail Exchange (MX) Records, SPF, DNS Records, Accepted and Remote Domains, Client Access Services (CAS) Mailbox Plan, Authentication Policy, Outlook Web Access Policy, Mailbox Archive and Auditing, Mail Flow Rules, Journaling, Mailbox Retention, Shared and Resource Mailboxes, Distribution, Dynamic and Microsoft 365 groups. Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting.
 
 ### Connectors
 
@@ -901,152 +902,6 @@ These settings have been configured using PowerShell.
 * Display Name: `Grp-<Agency Acronym>O365-Teams`
   * Welcome Email: `Disabled`
 
-### Office 365 groups
-
-`Search > Azure Active Directory > Groups > General`
-
-* Self Service Group Management
-  * Owners can manage group membership requests in the Access Panel: `No`
-  * Restrict user ability to access groups features in the Access Panel. Administrators (Global, Group and User Admin) will have access regardless of the value of this setting.: `Yes`
-* Security Groups
-  * Users can create security groups in Azure portals: `No`
-  * Owners who can assign members as group owners in Azure portals: `All`
-* Office 365 Groups
-  * Users can create Office 365 groups in Azure portal: `No`
-  * Owners who can assign members as group owners in Azure portal: `All`
-
-`Search > Azure Active Directory > Groups > Naming policy`
-
-* Group naming policy: `Grp-<Department>-<Group name>`
-
-`Search > Azure Active Directory > Groups > Expiration`
-
-* Group lifetime (in days): `365`
-* Email contact for groups with no owners: `Office365_Group_Expiration@<Agency>.gov.au`
-* Enable expiration for these Office 365 groups: `All`
-
-`Search > Azure Active Directory > Groups`
-
-* Group Name: `ADMIN_O365_Admin`
-  * Membership type: `Assigned`
-  * Source: `Windows server AD`
-  * Type: `Security`
-  * Members: `Admin accounts`
-  * Owners: `None`
-  * Group membership: `None`
-  * Applications: `None`
-  * Licenses: `None`
-  * Azure role assignment: `None`
-* Group Name: `ADMIN_O365_DCA_Accounts`
-  * Membership type: `Assigned`
-  * Source: `Windows server AD`
-  * Type: `Security`
-  * Members: `Admin accounts`
-  * Owners: `None`
-  * Group membership: `None`
-  * Applications: `None`
-  * Licenses: `None`
-  * Azure role assignment: `None`
-* Group Name: `ADMIN_O365_GlobalAdmins`
-  * Membership type: `Assigned`
-  * Source: `Windows server AD`
-  * Type: `Security`
-  * Members: `Admin accounts`
-  * Owners: `None`
-  * Group membership: `None`
-  * Applications: `None`
-  * Licenses: `None`
-  * Azure role assignment: `None`
-* Group Name: `Grp-<Agency Acronym>O365-Outlook`
-  * Membership type: `Assigned`
-  * Source: `Cloud`
-  * Type: `Office`
-  * Email: `Grp-<Agency Acronym>o365-outlook@<Agency>.gov.au`
-  * Members: `<Agency User>`
-  * Owners: `<Agency User>`
-  * Group membership: `None`
-  * Applications: `None`
-  * Licenses: `None`
-  * Azure role assignment: `None`
-* Group Name: `Grp-<Agency Acronym>O365-Teams`
-  * Membership type: `Assigned`
-  * Source: `Cloud`
-  * Type: `Office`
-  * Email: `Grp-<Agency Acronym>o365-teams@<Agency>.gov.au`
-  * Members: `<Agency User>`
-  * Owners: `<Agency User>`
-  * Group membership: `None`
-  * Applications: `None`
-  * Licenses: `None`
-  * Azure role assignment: `None`
-* Group Name: `Grp-<Agency Acronym>O365-Teams`
-  * Membership type: `Assigned`
-  * Source: `Cloud`
-  * Type: `Office`
-  * Email: `Grp-<Agency Acronym>o365-teams@<Agency>.gov.au`
-  * Members: `<Agency User>`
-  * Owners: `<Agency User>`
-  * Group membership: `None`
-  * Applications: `None`
-  * Licenses: `None`
-  * Azure role assignment: `None`
-* Group Name: `Office365_AssignLicense_CloudUsers`
-  * Membership type: `Assigned`
-  * Source: `Cloud`
-  * Type: `Security`
-  * Members: `None admin accounts`
-  * Owners: `<Agency Owner> (Admin)`
-  * Group membership: `None`
-  * Applications: `None`
-  * Licenses: `Microsoft 365 E5`
-  * Azure role assignment: `None`
-* Group Name: `Office365_AssignLicense_StandardUsers`
-  * Membership type: `Assigned`
-  * Source: `Windows server AD`
-  * Type: `Security`
-  * Members: `None admin accounts`
-  * Owners: `None`
-  * Group membership: `None`
-  * Applications: `None`
-  * Licenses: `Microsoft 365 E5`
-  * Azure role assignment: `None`
-* Group Name: `Office365_Conditional_Access_Exclude`
-  * Membership type: `Assigned`
-  * Source: `Cloud`
-  * Type: `Security`
-  * Members
-    * Break Glass account
-      * TenantAdmin
-      * TenantAdmin2
-    * AAD Connect Synchronization accounts
-      * `Sync_<AAD Server 1>_144f9a623d47`
-      * `Sync_<AAD Server 2>_b49bd30fb398`
-  * Owners: `None`
-  * Group membership: `None`
-  * Applications: `None`
-  * Licenses: `None`
-  * Azure role assignment: `None`
-* Group Name: `Office365_Grant_AzureAD_Join`
-  * Membership type: `Assigned`
-  * Source: `Windows server AD`
-  * Type: `Security`
-  * Members: `Admin accounts`
-  * Owners: `None`
-  * Group membership: `None`
-  * Applications: `None`
-  * Licenses: `None`
-  * Azure role assignment: `None`
-* Group Name: `Office365_Grant_CreateGroups`
-  * Membership type: `Assigned`
-  * Source: `Cloud`
-  * Type: `Security`
-  * Members: `<Agency User>`
-  * Owners: `None`
-  * Group membership: `None`
-  * Applications: `None`
-  * Licenses: `None`
-  * Azure role assignment: `None`
-
 ## Exchange Online Protection
 
 The ABAC settings for the Agency Exchange Online Protection instance can be found below. This includes the Connection Filtering, Anti-Malware, Policy Filtering, and Content Filtering configuration. Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting.
@@ -1736,10 +1591,14 @@ The ABAC settings for the Agency Office 365 Security and Compliance instance can
 
 ### Audit logging
 
-`Office 365 Security & compliance > Search > Audit log search`
+`Microsoft 365 compliance > Audit > Audit Retention Policies`
 
 * Enabled: `True`
-* Admin Audit Log Age Limit: `1 year`
+* Policy name: `10 year audit log`
+* Policy description: `Retains all audit log records for 10 years`
+* Record Type: `All`
+* Duration: `10 years`
+* Priority: `1`
 
 ### Retention policies
 
@@ -1757,12 +1616,12 @@ Exchange Public Folders
 * Retention period: `Keep content for 3 years`
 * Turn on preservation lock: `No`
 
-`Office 365 Security & compliance > Information governance > Retention | Office 365 Groups 3 Years Hold`
+`Office 365 Security & compliance > Information governance > Retention | Microsoft 365 groups 3 Years Hold`
 
 * Status: `On`
-* Policy Name: `Office 365 Groups 3 Years Hold`
-* Description: `Office 365 Groups 3 Years Hold`
-* Applies to content in these locations: `Office 365 Groups`
+* Policy Name: `Microsoft 365 groups 3 Years Hold`
+* Description: `Microsoft 365 groups 3 Years Hold`
+* Applies to content in these locations: `Microsoft 365 groups`
 * Retention period: `Keep content for 3 years`
 * Turn on preservation lock: `No`
 

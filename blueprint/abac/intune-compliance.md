@@ -1,10 +1,10 @@
 ---
 layout: page
-title: Intune compliance
+title: Microsoft Endpoint Manager - Intune compliance
 menu: abac
 ---
 
-The following Intune applications can be found in the Azure Portal at `Search > Intune > Devices > Compliance policies | Policies`
+The following Microsoft Endpoint Manager - Intune (Intune) applications can be found in the Azure Portal at `Microsoft Endpoint Manager > Devices > Compliance policies | Policies`
 
 ## Windows 10 compliance
 
@@ -50,15 +50,32 @@ configurationManagerComplianceRequired | False
 
 ## iOS compliance
 
-Table 2 describes the iOS Compliance deployment settings within Intune.
-
-Table 2 iOS Compliance
-
-Name | Value
---- | ---
-displayName | iOS Compliance policy
-passcodeBlockSimple | False
-passcodeRequiredType | deviceDefault
-osMinimumVersion | 12.0
-osMinimumBuildVersion | 16A366
-deviceThreatProtectionRequiredSecurityLevel | secured
+* Name: `iOS Compliance policy`
+* Description: -
+* Platform: `iOS/iPadOS`
+* Profile type: `iOS compliance policy`
+* Compliance settings
+  * Email
+    * Unable to set up email on the device: `Not Required`
+  * Device Health
+    * Jailbroken devices: `Block`
+    * Require the device to be at or under the Device Threat Level: `Medium`
+  * Device Properties
+    * Minimum OS version: `14.0`
+    * Minimum OS build version: `18A373`
+  * System Security: `
+    * Require a password to unlock mobile devices.: `Required`
+    * Simple passwords: `Block`
+    * Minimum password length: `14`
+    * Required password type: `Alphanumeric`
+    * Maximum minutes after screen lock before password is required: `Immediately`
+    * Maximum minutes of inactivity until screen locks: `2 Minutes`
+    * Password expiration (days): `365`
+    * Number of previous passwords to prevent reuse: `5`
+* Actions for noncompliance
+  * Action: `Mark device noncompliant`
+  * Scedule: `Immediately`
+* Scope tags: `Default`
+* Assignments
+  * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`
+  * Excluded groups: -

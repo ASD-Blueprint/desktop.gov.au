@@ -15,9 +15,9 @@ This overview is suitable for all users as a starting point.
 
 The blueprint is made up of another 3 main artefacts:
 
-* **Platform design** – All supporting components for the Windows 10, iOS and Office 365 (including Intune)
+* **Platform design** – All supporting components for the Windows 10, iOS and Microsoft 365 (including Microsoft Endpoint Manager)
 * **Client devices design** – Windows 10 and iOS components only
-* **Office 365 design** – Exchange Online, SharePoint Online, OneDrive for Business and Teams.
+* **Microsoft 365 design** – Exchange Online, SharePoint Online, OneDrive for Business and Teams.
 
 For each component in the solution, the blueprint artefacts provide:
 
@@ -35,7 +35,7 @@ The use of placeholders like 'agency.gov.au' and 'tenant-name' are used in the A
 The blueprint provides the information, rationale and configuration settings to allow an agency to implement the following components:
 
 * **Cloud identity** – Azure Active Directory configuration, including Multi-Factor Authentication (MFA) and conditional access, allows log in from anywhere and appropriate security policies to be applied
-* **Office 365** – Configuration of Exchange Online, SharePoint Online, Microsoft Teams and OneDrive for Business allowing cloud-based file storage
+* **Microsoft 365** – Configuration of Exchange Online, SharePoint Online, Microsoft Teams, Whiteboard, Forms and OneDrive for Business allowing cloud-based file storage
 * **Device management** – Management of security and configuration profiles for enrolled devices (includes testing against security baselines and confirmation of security compliance)
 * **Applications** – Delivery and configuration of applications appropriate to the user
 * **Security stack** – Security configuration of Office 365 and endpoint devices to implement Essential Eight strategies
@@ -58,9 +58,9 @@ Considerations for implementation often include whether an agency has or require
 * multiple active directories 
 * significant investment in on-premises infrastructure with serviceable life.
 
-A hybrid implementation can use Microsoft System Center Configuration Manager (SCCM) or Intune for client management, depending on the agency's cloud maturity. 
+A hybrid implementation can use Microsoft Endpoint Configuration Manager (MECM) or Microsoft Endpoint Manager - Intune (Intune) for client management, depending on the agency's cloud maturity. 
 
-Blueprint aretfacts provide guidance on integration between SCCM and Intune for hybrid deployments. Agencies with existing infrastructure can migrate device management from SCCM to Intune with no impact to the agency's existing cyber security posture.
+Blueprint aretfacts provide guidance on integration between MECM and Intune for hybrid deployments. Agencies with existing infrastructure can migrate device management from MECM to Intune with no impact to the agency's existing cyber security posture.
 
 ### Agency classification
 
@@ -129,7 +129,7 @@ It’s not possible to force some clients to apply sensitivity labels to documen
 
 Future releases of the blueprint will capture developments on this issue.
 
-Labelling for Microsoft Teams has recently been released for general availability and will be covered in the next release of the blueprint. This will ensure that labels can be applied to Microsoft Teams, Office 365 Groups and SharePoint sites.
+Labelling for Microsoft Teams has recently been released for general availability and will be covered in the next release of the blueprint. This will ensure that labels can be applied to Microsoft Teams, Microsoft 365 groups and SharePoint sites.
 
 ### Collaboration
 
@@ -210,9 +210,9 @@ Decision point | Design decision | Justification
 --- | --- | ---
 Identity | Active directory | Active directory is the identity source.
 Azure AD Connect | Configured | Azure AD Connect is required for hybrid implementations of the solution.
-Device standard operating environment deployment | Configured | Device configuration will be deployed, and ongoing configuration will be controlled using Intune or SCCM.
-Workstation policy management | Configured | Workstation policy will be deployed and managed using Microsoft Intune or SCCM.
-Windows updates and patches | Configured | Configuration of Windows and third-party updates will be managed using Microsoft Intune or SCCM.
+Device standard operating environment deployment | Configured | Device configuration will be deployed, and ongoing configuration will be controlled using Intune or Microsoft Endpoint Configuration Manager (MECM).
+Workstation policy management | Configured | Workstation policy will be deployed and managed using Microsoft Intune or MECM.
+Windows updates and patches | Configured | Configuration of Windows and third-party updates will be managed using Microsoft Intune or MECM.
 
 ## Essential eight maturity
 
@@ -227,10 +227,10 @@ Essential Eight design decisions
 ACSC strategy | Solution | Jusitification | Maturity level
 --- | --- | --- | ---
 Application control | [Windows Defender Application Control](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control) (WDAC) managed by Intune. | Application control will prevent all non-approved applications (including malicious code) from executing.<br><br>WDAC provides all the features of AppLocker with additional functionality and simpler management from within Intune. It is also possible to implement the latest recommended block rules from Microsoft. | 3
-Patch applications | Intune or SCCM used to patch applications on a regular basis. | As direct internet connectivity has been stipulated, applications will be set to auto update.<br><br>Firmware can be updated if an executable file is packaged and deployed via Intune.<br><br>Note: 0.1 Full Time Equivalent (FTE) minimum is estimated to cover the work required. | 3
-Patch operating systems | Windows Update for Business and Intune or SCCM to be used for patching desktop operating systems. | Multiple software update rings provide a staged approach to updates.<br><br>Reporting is included.<br><br>Firmware can be update if it is an executable file, deployed via Intune.<br><br>Note: 0.1 FTE minimum is estimated to cover the work required. | 3
+Patch applications | Intune or MECM used to patch applications on a regular basis. | As direct internet connectivity has been stipulated, applications will be set to auto update.<br><br>Firmware can be updated if an executable file is packaged and deployed via Intune.<br><br>Note: 0.1 Full Time Equivalent (FTE) minimum is estimated to cover the work required. | 3
+Patch operating systems | Windows Update for Business and Intune or MECM to be used for patching desktop operating systems. | Multiple software update rings provide a staged approach to updates.<br><br>Reporting is included.<br><br>Firmware can be update if it is an executable file, deployed via Intune.<br><br>Note: 0.1 FTE minimum is estimated to cover the work required. | 3
 Configure Microsoft Office macro settings | Hardening to be implemented as per the ACSC via Intune. | Only signed macros will be enabled via Intune policies. | 3
 User application hardening | Hardening to be implemented as per the ACSC via Intune. | Web advertisements that are java or Flash based will be blocked. 'Other' web adverts will not be controlled.<br><br>Web browsers are configured to block or disable support for Flash content for Internet Explorer and Edge.<br><br>Web browsers are configured to block Java from the Internet for Internet Explorer and Edge. | 2
 Restrict administrative privileges | Intune, Azure AD and Privileged Identity Manager (PIM) controls. | Restriction of administrative privileges for admin accounts will prevent adversaries using these accounts to gain full access to information and systems.<br><br>Windows Defender Application Control policies are applied to admin users to prevent the ability to run email and web browsers.<br><br>Admin users will log on with their normal accounts and then authenticate to the Office 365 tenant for management using their privileged account to administer the system. | 3
 Multi-factor authentication | Multi-factor authentication solution is provided by Azure MFA for all remote users and administrators. | Stronger user authentication makes it harder for adversaries to access sensitive information and systems.<br><br>MFA is enabled for all with a soft token.<br><br>Hard tokens would require an Infrastructure-as-a-Service (IaaS) server in Azure and will not be implemented. | 2
-Daily backups | Data redundancy and availability configured with native tools. | Configuration settings of Office 365 and Intune are backed up through the ABACs.<br><br>Documents, Desktops and Pictures are redirected to OneDrive using Windows Known Folders providing a backup of data to the cloud.<br><br>Office 365 data is replicated by Microsoft to at least two geographically dispersed data centres.<br><br>Exchange Online has a recover deleted items from server option.<br><br>Cloud based files have Recycle bin and Restore options in addition to retention policies.<br><br>Retention policies are created that ensure that data is retained forever for:<br><br>* Exchange<br>* SharePoint<br>* OneDrive<br>* Office 365 Groups<br>* Skype for Business<br>* Exchange Public Folders<br>* Teams channel messages<br>* Teams chats<br><br>Workstation configuration is stored in Intune (AutoPilot rebuild) or SCCM task sequence. | 2
+Daily backups | Data redundancy and availability configured with native tools. | Configuration settings of Office 365 and Intune are backed up through the ABACs.<br><br>Documents, Desktops and Pictures are redirected to OneDrive using Windows Known Folders providing a backup of data to the cloud.<br><br>Office 365 data is replicated by Microsoft to at least two geographically dispersed data centres.<br><br>Exchange Online has a recover deleted items from server option.<br><br>Cloud based files have Recycle bin and Restore options in addition to retention policies.<br><br>Retention policies are created that ensure that data is retained forever for:<br><br>* Exchange<br>* SharePoint<br>* OneDrive<br>* Microsoft 365 groups<br>* Skype for Business<br>* Exchange Public Folders<br>* Teams channel messages<br>* Teams chats<br><br>Workstation configuration is stored in Intune (AutoPilot rebuild) or MECM task sequence. | 2

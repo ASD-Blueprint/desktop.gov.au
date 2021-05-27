@@ -26,7 +26,7 @@ For each component in the solution, the blueprint artefacts provide:
 * the decision itself 
 * a justification for that decision.
 
-Example as-built-as-configured (ABAC) documents detail specific technical configurations, wich include the settings and values of an environment based on the blueprint. 
+Example as-built-as-configured (ABAC) documents detail specific technical configurations, which include the settings and values of an environment based on the blueprint. 
 
 The use of placeholders like 'agency.gov.au' and 'tenant-name' are used in the ABAC documents where appropriate. The ABAC documents do not provide justification for individual settings. Two sets of ABAC documents cover the differences between configuring cloud and hybrid solutions.
 

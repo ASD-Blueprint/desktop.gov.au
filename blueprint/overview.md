@@ -60,7 +60,7 @@ Considerations for implementation often include whether an agency has or require
 
 A hybrid implementation can use Microsoft Endpoint Configuration Manager (MECM) or Microsoft Endpoint Manager - Intune (Intune) for client management, depending on the agency's cloud maturity. 
 
-Blueprint aretfacts provide guidance on integration between MECM and Intune for hybrid deployments. Agencies with existing infrastructure can migrate device management from MECM to Intune with no impact to the agency's existing cyber security posture.
+Blueprint artefacts provide guidance on integration between MECM and Intune for hybrid deployments. Agencies with existing infrastructure can migrate device management from MECM to Intune with no impact to the agency's existing cyber security posture.
 
 ### Agency classification
 
@@ -163,6 +163,10 @@ Collaboration is initially controlled by lists of allowed domains. Individual us
 
 This blueprint does not include design information for a Secure Internet Gateway (SIG). A SIG is listed as a requirement in the Protective Security Policy Framework (PSPF) [Robust ICT Systems](https://www.protectivesecurity.gov.au/information/robust-ict-systems/Pages/default.aspx). 
 
+### Per App Virtual Private Network
+
+This blueprint does not include end to end design information regarding the configuration of a per app Virtual Private Network (VPN). A per app VPN is listed as a requirement in the Australian Cyber Security Centre (ACSC) [iOS 14 hardening guide](https://www.cyber.gov.au/acsc/view-all-content/publications/security-configuration-guide-apple-ios-14-devices). The configuration defined in the blueprint aligns to this guide. Agencies should leverage a risk based approach in the selection and configuration of a VPN appliance. 
+
 ## Security
 
 The blueprint's security artefacts enable an agency to conduct a security assessment. Relevant documentation an agency can develop from the artefacts include:
@@ -171,7 +175,7 @@ The blueprint's security artefacts enable an agency to conduct a security assess
 * a system security plan annex (previously referred to as the Statement of Applicability - SOA)
 * a security risk management plan
 * an incident response plan
-* standard operating pocedures.
+* standard operating procedures.
 
 ## Design decisions
 
@@ -224,7 +228,7 @@ The following table describes how the blueprint addresses each strategy identifi
 
 Essential Eight design decisions
 
-ACSC strategy | Solution | Jusitification | Maturity level
+ACSC strategy | Solution | Justification | Maturity level
 --- | --- | --- | ---
 Application control | [Windows Defender Application Control](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control) (WDAC) managed by Intune. | Application control will prevent all non-approved applications (including malicious code) from executing.<br><br>WDAC provides all the features of AppLocker with additional functionality and simpler management from within Intune. It is also possible to implement the latest recommended block rules from Microsoft. | 3
 Patch applications | Intune or MECM used to patch applications on a regular basis. | As direct internet connectivity has been stipulated, applications will be set to auto update.<br><br>Firmware can be updated if an executable file is packaged and deployed via Intune.<br><br>Note: 0.1 Full Time Equivalent (FTE) minimum is estimated to cover the work required. | 3

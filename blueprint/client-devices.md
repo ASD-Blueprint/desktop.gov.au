@@ -18,8 +18,8 @@ For each component within the document there is a brief description of the conte
 ## Assumptions
 
 * ACSC Windows 10 hardening guidelines have been broadly implemented as outlined within the SSP and SSP Annex.
-* The Intune Console is the preferred method to manage all settings regardless of a cloud native or hybrid implementation. Although a combination of the System Center Configuration Manager (SCCM) Console and Group Policy Objects (GPOs) would  be able to achieve the same settings in a hybrid environment, this Blueprint does not include SCCM and GPOs example configurations due to the level of dissimilarities and per agency customisation in existing SCCM and GPOs configurations across Commonwealth entities.
-* Minimum version of SCCM 1710 is required for co-management, recommended at least 1910.
+* The Microsoft Endpoint Manager Console is the preferred method to manage all settings regardless of a cloud native or hybrid implementation. Although a combination of the Microsoft Endpoint Configuration Manager (MECM) Console and Group Policy Objects (GPOs) would  be able to achieve the same settings in a hybrid environment, this Blueprint does not include MECM and GPOs example configurations due to the level of dissimilarities and per agency customisation in existing MECM and GPOs configurations across Commonwealth entities.
+* Minimum version of MECM 1710 is required for co-management, recommended at least 1910.
 
 ## Windows 10 hardware
 
@@ -52,13 +52,13 @@ Input Device(s) | Keyboard<br>Mouse<br>Multi-touch display screen to enable Wind
 Minimum HDD Space | 128GB | To meet design specifications.
 Microphone | Required for speech recognition (optional) | Speech recognition is not required to be enabled but may be needed for agencies with accessibility requirements.
 BIOS | Minimum UEFI 2.3.1  | Required to support Secure Boot, Windows Defender Device Guard, Windows Defender Credential Guard, Windows Defender Exploit Guard and Kernel DMA Protection
-TPM | Minimum version 2.0  | Required to support Intune Autopilot and SCCM
+TPM | Minimum version 2.0  | Required to support Microsoft Endpoint Manager - Intune (Intune) Autopilot and MECM
 
 ### Drivers and peripherals
 
 Drivers allow hardware and software to function within a SOE. Drivers are essentially written code that allows Windows to recognise physical components of a computer such as printers, keyboards, mouse, graphics cards and peripherals. It is critical these drivers are supported on the Operating System version and are deployed at the right time.
 
-Drivers that are essential to the hardware platform can be deployed in the base reference image, during device deployment task sequence through SCCM, via Microsoft Intune or later by Microsoft Windows Update. Drivers such as network drivers are critical during the deployment phase, whereas a microphone driver is not. The more generic a reference image, the lower the deployment and maintenance costs.
+Drivers that are essential to the hardware platform can be deployed in the base reference image, during device deployment task sequence through MECM, via Microsoft Intune or later by Microsoft Windows Update. Drivers such as network drivers are critical during the deployment phase, whereas a microphone driver is not. The more generic a reference image, the lower the deployment and maintenance costs.
 
 Other drivers like printer drivers can be deployed after the end user has logged onto the device using either a "Follow Me Print" or "Defined print queue list" selected by the end user.
 
@@ -126,16 +126,16 @@ TPM Version | 2.0 | Meets ACSC Windows 10 1909 hardening guidelines
 
 The type of deployment and management methods used for the Standard Operating Environment (SOE) will vary depending on the use of either a cloud native or hybrid configuration. Cloud native will typically utilise pre-installed or offline custom images with Autopilot for the deployment method and utilise Intune as the ongoing management method.
 
-Hybrid can benefit from enabling the SCCM Co-management feature. Once enabled this allows additional deployment methods which can be utilised to ensure images remain light weight. Co-management provides a more staged approach to moving workloads into the cloud that may assist existing larger environments to complete a more gradual transition.
+Hybrid can benefit from enabling the MECM Co-management feature. Once enabled this allows additional deployment methods which can be utilised to ensure images remain light weight. Co-management provides a more staged approach to moving workloads into the cloud that may assist existing larger environments to complete a more gradual transition.
 
 ### Deployment
 
-Windows 10 can be deployed via Intune or SCCM, or a combination of both. The configuration of a Windows 10 deployment will depend upon which technologies are available to an agency and whether a hybrid deployment is required.
+Windows 10 can be deployed via Intune or MECM, or a combination of both. The configuration of a Windows 10 deployment will depend upon which technologies are available to an agency and whether a hybrid deployment is required.
 
 Windows 10 deployments will be based on either a deployment which is cloud native or hybrid.
 
 * Cloud native – Image on the workstation will be modified using Autopilot and Intune. The OEM image in use should be from a trusted vendor or custom-built by the agency and provided to the OEM vendor for implementation prior to being dispatched to the agency. Alternatively, an offline image will need to be created by the agency and applied to the workstation prior to Autopilot and Intune. The offline image should be light weight consisting of the base Windows image and required base drivers only.
-* Hybrid – OEM image or SCCM task sequence should be used as the base for Windows 10, with Intune and Autopilot applied over the top of the image for further customisation. The OEM image in use should be from a trusted vendor or custom built by the agency and provided to the OEM vendor for implementation prior to being dispatched to the agency. Alternatively, an agency specific SCCM task sequence including the Windows image and base drivers. This image will then be further customised with Intune and Autopilot.
+* Hybrid – OEM image or MECM task sequence should be used as the base for Windows 10, with Intune and Autopilot applied over the top of the image for further customisation. The OEM image in use should be from a trusted vendor or custom built by the agency and provided to the OEM vendor for implementation prior to being dispatched to the agency. Alternatively, an agency specific MECM task sequence including the Windows image and base drivers. This image will then be further customised with Intune and Autopilot.
 
 Deployment Design Decisions for cloud native implementations
 
@@ -147,31 +147,31 @@ Deployment Design Decisions for hybrid implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Deployment method | Agency light weight base image with SCCM deployment applied | An agency specific light weight base image provides the benefit of removing all OEM applications and firmware prior to onboarding to the agency through SCCM.
+Deployment method | Agency light weight base image with MECM deployment applied | An agency specific light weight base image provides the benefit of removing all OEM applications and firmware prior to onboarding to the agency through MECM.
 
 ### Management
 
-Windows 10 can be managed via Intune or SCCM, or a combination of both. The configuration of Windows 10 management will depend upon which technologies are available to an agency and whether a hybrid deployment is required.
+Windows 10 can be managed via Intune or MECM, or a combination of both. The configuration of Windows 10 management will depend upon which technologies are available to an agency and whether a hybrid deployment is required.
 
 Windows 10 management options will be based on either a deployment which is cloud native or hybrid. This section provides detailed information on the different configuration options for Windows 10 management.
 
 Cloud native deployments provides the agency the immediate benefits of working with Intune and Autopilot while also integrating directly with other cloud services including Microsoft 365 and Azure AD. Using Intune will simplify the overall deployment and management of Windows 10 to a single console which is also shared with the mobile device management of iOS devices.
 
-A hybrid deployment gives the option of co-management which enables the agency to manage Windows 10 by using both SCCM and Intune. Enabling co-management within SCCM allows the agency to utilise their investment in SCCM and take advantage of additional cloud capabilities. This allows the agency additional flexibility to use the technology solution that works best for them and facilitates a more gradual move to cloud native as the agency can pilot test various workloads in Intune first.
+A hybrid deployment gives the option of co-management which enables the agency to manage Windows 10 by using both MECM and Intune. Enabling co-management within MECM allows the agency to utilise their investment in MECM and take advantage of additional cloud capabilities. This allows the agency additional flexibility to use the technology solution that works best for them and facilitates a more gradual move to cloud native as the agency can pilot test various workloads in Intune first.
 
-Hybrid deployments can choose to enable SCCM or Intune for client management depending on the cloud maturity level of the agency. It is not a requirement of agencies undertaking hybrid implementations to use SCCM. This Blueprint provides guidance on integration between SCCM and Intune for hybrid deployments however agencies with existing infrastructure may alternatively elect to migrate device management from SCCM to Intune, which will not affect cyber security postures.
+Hybrid deployments can choose to enable MECM or Intune for client management depending on the cloud maturity level of the agency. It is not a requirement of agencies undertaking hybrid implementations to use MECM. This Blueprint provides guidance on integration between MECM and Intune for hybrid deployments however agencies with existing infrastructure may alternatively elect to migrate device management from MECM to Intune, which will not affect cyber security postures.
 
 Management methods that can be used to manage Windows 10 in a Microsoft 365 environment.
 
-Microsoft 365 Implementation | SCCM Implementation | Management Method for Windows 10 | Benefits
+Microsoft 365 Implementation | MECM Implementation | Management Method for Windows 10 | Benefits
 --- | --- | --- | ---
-Cloud native | SCCM is not possible with cloud native | Intune | No on-premises infrastructure required for management. Well suited for Azure AD joined workstations for a full cloud solution.
-Hybrid with Intune management | Suitable for:<br> * No SCCM or<br>* SCCM with co-management enabled and Workloads set to Intune | Intune | Existing on-premises SCCM infrastructure with Hybrid Azure AD joined workstation. Well suited for an agency that does not have SCCM or does not want to use SCCM to manage workstations.
-Hybrid with SCCM management | SCCM with co-management enabled and Workloads set to SCCM | SCCM | Existing on-premises SCCM infrastructure with Hybrid Azure AD joined workstations. Well suited for an agency that has a significant investment in SCCM and requires a more gradual migration to Intune. Individual Workloads can be targeted and pilot-tested in Intune.
+Cloud native | MECM is not possible with cloud native | Intune | No on-premises infrastructure required for management. Well suited for Azure AD joined workstations for a full cloud solution.
+Hybrid with Intune management | Suitable for:<br> * No MECM or<br>* MECM with co-management enabled and Workloads set to Intune | Intune | Existing on-premises MECM infrastructure with Hybrid Azure AD joined workstation. Well suited for an agency that does not have MECM or does not want to use MECM to manage workstations.
+Hybrid with MECM management | MECM with co-management enabled and Workloads set to MECM | MECM | Existing on-premises MECM infrastructure with Hybrid Azure AD joined workstations. Well suited for an agency that has a significant investment in MECM and requires a more gradual migration to Intune. Individual Workloads can be targeted and pilot-tested in Intune.
 
-The following image displays an overview diagram of SCCM Co-Management.
+The following image displays an overview diagram of MECM Co-Management.
 
-![SCCM Co-Management diagram](/assets/images/cd-sccm-comgmt.png)
+![MECM Co-Management diagram](/assets/images/cd-sccm-comgmt.png)
 
 With co-management enabled, the agency can choose which workloads remain on-premises and which workloads are offloaded to Intune. The workloads are:
 
@@ -183,7 +183,7 @@ With co-management enabled, the agency can choose which workloads remain on-prem
 * Office Click-to-Run Apps – This workload manages Office 365 apps on co-managed devices.
 * Windows Update Policies – Windows Update for Business policies allow deferral policies for Windows 10 feature updates or quality updates for Windows 10 devices managed directly by Windows Update for Business.
 
-With co-management disabled and no cloud integration, the agency will rely on on-premises management of the Windows 10 workstations. These could include utilising SCCM task sequencing, SCCM Compliance and Endpoint Protection policies, various scripting methods and Group Policy Preferences. 
+With co-management disabled and no cloud integration, the agency will rely on on-premises management of the Windows 10 workstations. These could include utilising MECM task sequencing, MECM Compliance and Endpoint Protection policies, various scripting methods and Group Policy Preferences. 
 
 There are many benefits to going cloud native or hybrid co-management utilising workloads weighted to Intune. The workstations can be managed from any internet-connected location whether that be in the office or a remote location (home, client site etc).
 
@@ -197,8 +197,8 @@ Management Design Decisions for hybrid implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Management method | Hybrid with SCCM co-management enabled. | Intune integration is required to enable features such as Conditional Access. <br>SCCM co-management offers flexibility for the agency to take advantage of cloud services immediately or pilot and move individual workloads across when ready while leveraging existing configuration on-premises.
-Management tool | Agency preference for Intune or SCCM managing endpoints in co-management. | Each agency has a different level of investment and different maturity in SCCM and cloud products. Co-management has several options to meet the unique requirements of each agency.
+Management method | Hybrid with MECM co-management enabled. | Intune integration is required to enable features such as Conditional Access. <br>MECM co-management offers flexibility for the agency to take advantage of cloud services immediately or pilot and move individual workloads across when ready while leveraging existing configuration on-premises.
+Management tool | Agency preference for Intune or MECM managing endpoints in co-management. | Each agency has a different level of investment and different maturity in MECM and cloud products. Co-management has several options to meet the unique requirements of each agency.
 
 ## Windows 10 standard operating environment
 
@@ -355,11 +355,11 @@ Enterprise applications provide organisations and end users the functionality th
 Applications can be delivered to the user's desktop by one of the following methods:
 
 * Intune – Ideally suited for Windows 10 only deployments. The only option for delivering application to iOS clients.
-* SCCM – Ideally suited where an agency has a large existing investment of packaged applications. The only option for delivering application to servers. Only option for delivering virtual applications. 
+* MECM – Ideally suited where an agency has a large existing investment of packaged applications. The only option for delivering application to servers. Only option for delivering virtual applications. 
 
-Self-Service applications are requested by users directly. They can be delivered via Software Centre which is installed as part of the SCCM client or Company Portal which is available as part of Intune and the Microsoft 365 tenant. As of SCCM version 1802 "user-available" apps now appear in Software Centre under the applications tab where they were previously available in the Application Catalogue
+Self-Service applications are requested by users directly. They can be delivered via Software Centre which is installed as part of the MECM client or Company Portal which is available as part of Intune and the Microsoft 365 tenant. As of MECM version 1802 "user-available" apps now appear in Software Centre under the applications tab where they were previously available in the Application Catalogue
 
-Packaging methodology should be inherited from existing Agency procedures as each application has unique requirements. It is possible to repacked existing applications into an msix format which is compatible with both Intune and SCCM delivery.
+Packaging methodology should be inherited from existing Agency procedures as each application has unique requirements. It is possible to repacked existing applications into an msix format which is compatible with both Intune and MECM delivery.
 
 Enterprise Applications Design Decisions for cloud native implementations
 
@@ -373,13 +373,13 @@ Enterprise Applications Design Decisions for hybrid implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Application Delivery Technologies | Deployed via Intune or SCCM | Applications deployed via Intune and will be installed during the build deployment.<br>SCCM can continue to be used for existing applications, however consideration should be made to migrate these to Intune in future.
-Self Service | Company Portal or SCCM Software Center | Allow users to request install of specific apps while ensuring the SOE remains as light weight as possible.
-Packaging Methodology | Agency preference | Applications will be packaged according to agency internal packaging standards and delivered via SCCM or Intune.
+Application Delivery Technologies | Deployed via Intune or MECM | Applications deployed via Intune and will be installed during the build deployment.<br>MECM can continue to be used for existing applications, however consideration should be made to migrate these to Intune in future.
+Self Service | Company Portal or MECM Software Center | Allow users to request install of specific apps while ensuring the SOE remains as light weight as possible.
+Packaging Methodology | Agency preference | Applications will be packaged according to agency internal packaging standards and delivered via MECM or Intune.
 
 5.7 Power Management
 
-The power settings in Windows 10 can be fully managed by Intune, SCCM, or Group Policy. Individual settings can be enforced or set as defaults that can then be changed by the user as desired.
+The power settings in Windows 10 can be fully managed by Intune, MECM, or Group Policy. Individual settings can be enforced or set as defaults that can then be changed by the user as desired.
 
 Users can adjust power and performance options via the system tray power slider icon to:
 
@@ -391,7 +391,7 @@ Power Management Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Power Management technology | Intune, SCCM or Group Policy | Agency preference of technology to configure power options. <br>If using SCCM or GPO, consideration should be made to migrate these to Intune in future.
+Power Management technology | Intune, MECM or Group Policy | Agency preference of technology to configure power options. <br>If using MECM or GPO, consideration should be made to migrate these to Intune in future.
 Default Power Option Battery | Balanced | Default setting, no requirement to change has been identified
 Default Power Option Powered | Better Performance | Default setting, no requirement to change has been identified
 Allow standby states when sleeping (on battery)  | Disabled | Meets ACSC Windows 10 1909 hardening guidelines
@@ -634,7 +634,7 @@ The following support components are available to support Windows 10:
 * Remote Desktop – Remote Desktop enables a user to remotely logon interactively to a workstation from another computer with a supported Remote Desktop client
 * Remote Control – Remote control options are limited to the following:
   * TeamViewer which is a paid service that fully integrates in Intune
-  * Remote Control within SCCM is this is configured in a hybrid deployment
+  * Remote Control within MECM is this is configured in a hybrid deployment
   * Microsoft Teams assuming the user can share the desktop
 
 Operational Support Design Decisions for all agencies and implementation types.
@@ -659,7 +659,7 @@ It is vital to have a robust and reliable patch management solution based on ind
 For Microsoft Windows environments the primary patching technologies are:
 
 * Windows Server Update Service – WSUS enables administrators to deploy the most recent Microsoft updates. A WSUS server connects directly to Microsoft Update or an "upstream" WSUS server. This allows administrators to control what updates are applied and when, rather than having every computer on the network going to the Internet and installing every available update immediately
-* Microsoft System Centre Configuration Manager (SCCM) –SCCM integrates with a WSUS server to deliver patch management. WSUS obtains updates from the internet and SCCM is used to approve and deploy the updates. Using SCCM to deploy software updates allows for more control over many aspects of the process such as targeting, maintenance windows, scheduling, and reporting
+* Microsoft Endpoint Configuration Manager (MECM) – MECM integrates with a WSUS server to deliver patch management. WSUS obtains updates from the internet and MECM is used to approve and deploy the updates. Using MECM to deploy software updates allows for more control over many aspects of the process such as targeting, maintenance windows, scheduling, and reporting
 * Microsoft Intune – Windows Update for Business provides management policies for several types of updates to Windows 10 devices
   * Feature updates: feature updates contain security and quality revisions, significant feature additions and changes; they are released semi-annually in March and September
   * Quality updates: these are traditional operating system updates, typically released the second Tuesday of each month (though they can be released at any time). These include security, critical, and driver updates. Windows Update for Business also treats non-Windows updates (such as those for Microsoft Office or Visual Studio) as quality updates. These non-Windows Updates are known as "Microsoft updates" and can configure devices to receive or not receive such updates along with their Windows updates
@@ -674,7 +674,7 @@ Windows Update and Patching Design Decisions for all agencies and implementation
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Patching technology | Agency preference of Intune, SCCM or WSUS  | For cloud native deployments, Intune is the only option available.<br><br>For hybrid deployments, all three options are available for implementation. Intune provides a simpler approach to patching whilst SCCM and WSUS provide more granular control of patch deployment.
+Patching technology | Agency preference of Intune, MECM or WSUS  | For cloud native deployments, Intune is the only option available.<br><br>For hybrid deployments, all three options are available for implementation. Intune provides a simpler approach to patching whilst MECM and WSUS provide more granular control of patch deployment.
 Patching Testing Method | Pilot and Production  | Allows early deployment and test of Windows updates to selected users prior to the full release of updates to the remaining users.<br><br>The Pilot group will be a select number of users who will actively provide feedback on updates before rollout to all users
 Feature Updates | Enabled | Meets ACSC hardening guidance for Windows 10 1909
 Quality Updates | Enabled | Meets ACSC hardening guidance for Windows 10 1909
@@ -701,7 +701,7 @@ Wireless | Enabled | Where applicable, wireless capable devices will have Wi-Fi 
 Wireless Configuration | Refer to Table 86 for wireless configuration recommendations. | As per ACSC hardening guidance for Windows 10 1909 and security compliance requirements. 
 Broadband | Not Configured | If Agency devices have Subscriber Identity Module (SIM) capability this can be enabled without affecting an agencies cyber security posture.
 Network Bridging | Disabled | As per ACSC hardening guidance for Windows 10 1909 and security and compliance requirements.
-Wake on LAN (WoL) | Configured via existing SCCM solution if in use | Wake on LAN configured to allow existing SCCM management tasks to operate on computers regardless of power status.
+Wake on LAN (WoL) | Configured via existing MECM solution if in use | Wake on LAN configured to allow existing MECM management tasks to operate on computers regardless of power status.
 
 Table 86 Wireless Configuration applicable to all agencies and implementation types
 
@@ -728,16 +728,16 @@ The following options apply to cloud native and Hybrid (configured in Intune):
 * Simple download mode with no peering:  Delivery Optimisation cloud services are disabled. This mode is automatically used with the Delivery Optimisation cloud service is not accessible or when the content file size is less than 10 MB.
 * Bypass mode:  Microsoft BITS will be used instead and should only be used if WSUS is in use and the preference is for BranchCache. 
 
-The following options apply to Hybrid (configured in SCCM):
+The following options apply to Hybrid (configured in MECM):
 
-* BranchCache: Allows systems within the same subnet and separated from a content source to share downloaded content locally instead of traversing a latent network link back to the SCCM content source. 
+* BranchCache: Allows systems within the same subnet and separated from a content source to share downloaded content locally instead of traversing a latent network link back to the MECM content source. 
 
 BranchCache provides two modes of operation being:
 
 * Distributed Cache Mode - Content cache at a remote office is distributed among client systems
 * Hosted Cache Mode - Content cache at a remote office is hosted on one or more hosted cache servers
 * Peer Cache: Is a built-in Configuration Manager solution that allows the clients to share content with other clients directly from their local cache providing Delivery Optimisation. 
-* Microsoft Connected Cache: With SCCM version 1910 a SCCM distribution point can be configured as a Microsoft Connected Cache server allowing it to act as an on-demand cache for content downloaded by Delivery Optimisation. 
+* Microsoft Connected Cache: With MECM version 1910 a MECM distribution point can be configured as a Microsoft Connected Cache server allowing it to act as an on-demand cache for content downloaded by Delivery Optimisation. 
 
 Delivery Optimisation Design Decisions for cloud native implementations
 
@@ -746,12 +746,12 @@ Decision Point | Design Decision | Justification
 Delivery Optimisation Method / Feature - single subnet per physical office | HTTP blended with peering behind same NAT | Good for single subnet per office as content will be peered per office only. This will not saturate WAN connections
 Delivery Optimisation Method / Feature - single subnet spanning multiple physical offices | HTTP blended with peering across private group | Provides the ability to group workstations so only the groupings can peer content
 
-Delivery Optimisation Design Decisions for hybrid implementations where SCCM is the update delivery mechanism
+Delivery Optimisation Design Decisions for hybrid implementations where MECM is the update delivery mechanism
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Delivery Optimisation Method / Feature | BranchCache | Existing SCCM solution exists with BranchCache Delivery Optimisation feature enabled
-Mode of operation | Distributed Cache Mode | Existing SCCM solution exists with BranchCache configured in Distribute Cache Mode
+Delivery Optimisation Method / Feature | BranchCache | Existing MECM solution exists with BranchCache Delivery Optimisation feature enabled
+Mode of operation | Distributed Cache Mode | Existing MECM solution exists with BranchCache configured in Distribute Cache Mode
 
 ### Microsoft Office edition
 
@@ -1052,7 +1052,7 @@ Domain Accounts | Enabled | Users will log onto devices using credentials which 
 
 ### Desktop analytics
 
-Desktop Analytics is a service which provides insight and intelligence to an organisation to make informed decisions about the update readiness of the Windows clients. Desktop Analytics is a Microsoft cloud service that integrates with Configuration Manager (SCCM). The data collected from the organisation is pooled together with many of other systems that are connected to the Microsoft cloud services.
+Desktop Analytics is a service which provides insight and intelligence to an organisation to make informed decisions about the update readiness of the Windows clients. Desktop Analytics is a Microsoft cloud service that integrates with Configuration Manager (MECM). The data collected from the organisation is pooled together with many of other systems that are connected to the Microsoft cloud services.
 
 Desktop Analytics can be used with Configuration Manager to:
 
@@ -1062,7 +1062,7 @@ Desktop Analytics can be used with Configuration Manager to:
 * Analyse the data to provide pilot groups consisting of devices which cover most of the organisation's application set
 * Deploy Windows 10 to pilot and production-managed devices
 
-Desktop Analytics is replacing Windows Analytics and Configuration Manager (SCCM) is a pre-requisite to enabling Desktop Analytics. Desktop Analytics provides:
+Desktop Analytics is replacing Windows Analytics and Configuration Manager (MECM) is a pre-requisite to enabling Desktop Analytics. Desktop Analytics provides:
 
 * Device and software inventory - collect information such as application information and Windows versions
 * Pilot identification - Identifying the devices which have the most coverage of components for the pilot of Windows upgrades and updates
@@ -1080,7 +1080,7 @@ Data Location | United States | The Windows diagnostic data (non-business data) 
 
 Windows 10 and Windows Server include the Connected User Experiences and Telemetry component, which uses Event Tracing for Windows (ETW) trace logging technology that gathers and stores diagnostic data events and data.
 
-The operating system and some Microsoft management solutions, such as SCCM use the same logging technology.
+The operating system and some Microsoft management solutions, such as MECM use the same logging technology.
 
 Windows uses telemetry information to analyse and fix software problems. It also helps Microsoft improve its software and provide updates that enhance the security and reliability of devices within organisations.
 
@@ -1125,6 +1125,20 @@ Implementation approach | Only digitally signed macros are enabled | In line wit
 Email and Web Content Filtering | Enabled | In line with the ACSC Microsoft Office Macro security policy recommendation
 Configuration Method | Agency preference | Macro hardening can be configured via the Agencies existing Group Policies or Intune as well as Attack Surface Reduction in Windows Defender Exploit Guard
 
+### OLE Hardening
+
+Object Linking and Embedding (OLE) is a functionality within Microsoft Office which allows for the embedding and linking to documents and other objects. OLE is utilised to seamlessly integrate several types of data or compoents within a Microsoft Office file. 
+
+Adverseries have leveraged the OLE functionality to enable and download malicious content or execute a malicious payload.  Within Microsoft Office 365 and Microsoft Office 2019 clients, the activation of objects that link to extensions that are considered high risk are blocked from executing. The list of high risk extensions can be configured through the use of Intune or GPOs.
+
+The ACSC provides guidance around securing systems against malicious OLE packages and recommend they are implemented in all Windows environments. The guidance is to block all OLE packages from executing in Word, PowerPoint, and Excel.
+
+Office OLE Hardening Design Decisions for all agencies and implementation types.
+
+Decision Point | Design Decision | Justification
+--- | --- | ---
+OLE configuration | Block all | To meet the essential 8 requirements and to align to ACSC guidance
+
 ### Local administrator
 
 The default local Administrator account is a highly privileged user account found on every Windows operating system. The Administrator account is the first account that is created during the installation for all Windows client operating systems.
@@ -1155,14 +1169,17 @@ ACSC guidance for mobile devices currently only covers iOS devices. Due to this,
 
 iOS follows a yearly major release cycle. With every major release of iOS, older iPhone devices are deprecated from support, hence security updates will not be available to these devices. 
 
+Update policies control the update frequency  of managed devices. Intune can define update policies that specify how and when service updates are deployed to iOS devices. By using update rings, it is possible to create an update strategy that mirrors business needs.
+
 iOS devices should be configured to adhere to the ACSC hardening requirements to provide secure access to corporate information. ACSC recommends that the latest version of iOS is used in order to have the most secure operating system present on the device.
 
 iOS Devices Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-iOS version | iOS 13 or above | To align with the ACSC Security Configuration guide – iOS version enforcement of n or n-1 will allow for testing of patches and internal applications before deploying operating system updates.<br><br>Apple applies the n-1 rule to incremental updates, all other versions are no longer signed. <br><br>Once a version is not signed a device cannot be restored to it. iOS 13 has not undergone an ASD Cryptographic Evaluation (ACE) whereas iOS 12 has undergone an ACE. Agencies will need to evaluate whether iOS 13 fits their requirements from an encryption standpoint.
+iOS version | iOS 14 or above | To align with the ACSC Security Configuration guide – iOS version enforcement of n or n-1 will allow for testing of patches and internal applications before deploying operating system updates.<br><br>Apple applies the n-1 rule to incremental updates, all other versions are no longer signed. <br><br>Once a version is not signed a device cannot be restored to it. iOS 14 has not undergone an ASD Cryptographic Evaluation (ACE) whereas iOS 13 has undergone an ACE. Agencies will need to evaluate whether iOS 14 fits their requirements from an encryption standpoint.
 iOS Devices | iPhone XS and above | iPhone X and older are all vulnerable to the exploit Checkm8 and should be avoided.
+Update Policies | Configured | To align with the ACSC Security Configuration guide
 Jailbroken/rooted devices | Blocked | Prevents jail broken devices from accessing Agency information. 
 
 ### Enrolling iOS devices
@@ -1173,7 +1190,7 @@ Microsoft Intune provides a mechanism for enrolling devices into Azure AD. Once 
 
 Microsoft Intune provides three separate experience in enrolling the iOS devices into the Agencies Azure Active directory. The enrolment experiences are: 
 
-* Device Enrolment Program (DEP) – Device Enrolment Program is a managed device enrolment process. The devices serial number is registered with Apple Business Manager allows Intune to bypass Assisted Setup by preconfigure device settings. The user's account will be assigned to the device. The device will be marked as a Supervised device.
+* Automated device enrollment (ADE) (formerly Device Enrolment Program (DEP)) – Device Enrolment Program is a managed device enrolment process. The devices serial number is registered with Apple Business Manager allows Intune to bypass Assisted Setup by preconfigure device settings. The user's account will be assigned to the device. The device will be marked as a Supervised device.
 * Device Enrolment Manager (DEM) – Device Enrolment Manager assigns a single Azure Active Directory account as the owner of the device. The end users cannot administer or purchase any apps on the device
 * User Enrolment – User enrolment process requires users set up the iOS device and manually install Company Portal to register the device as Intune enrolled device. The device will be marked as a BYOD device
 
@@ -1181,7 +1198,7 @@ Enrolling iOS Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Enrolment method | Device Enrolment Program | Devices will be pre-configured before the device is handed over to the end user. This in line with the ACSC iOS Secure Configuration Hardening guide for PROTECTED devices.
+Enrolment method | Automated device enrollment | Devices will be pre-configured before the device is handed over to the end user. This in line with the ACSC iOS Secure Configuration Hardening guide for PROTECTED devices.
 
 ### Securing iOS devices
 
@@ -1198,8 +1215,8 @@ Securing iOS devices Design Decisions for all agencies and implementation types.
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Mobile Device Management | Mobile devices will be managed using Intune | Leveraging the capabilities already available in the licensing agreement. Intune and Apple Business Manager will be adopted to manage mobile devices.
-Security policies and hardening requirements | Security policies will be enforced on all mobile devices managed by the Agency | Security policies will be configured in line with the ACSC Security Configuration Guide – Apple iOS 12 Devices.
-Device Features | Disabled | AirDrop, Bluetooth pairing, AirPrint
+Security policies and hardening requirements | Security policies will be enforced on all mobile devices managed by the Agency | Security policies will be configured in line with the ACSC Security Configuration Guide – Apple iOS 14 Devices.
+Device Features | Configured | Device features configured in line with ACSC guidance. 
 
 Mobile Device Management Configuration applicable to all agencies and implementation types
 
@@ -1207,11 +1224,11 @@ Configuration | Value | Description
 --- | --- | ---
 **Security** | | |
 Supervised Mode | Enable | Agency iPhones are managed devices. This is in line with the ACSC iOS Secure Configuration Hardening guide for PROTECTED devices.
-Device passcode | Device passcode of 14 characters or above | iOS devices, by default, is encrypted once a passcode is provided to the device. Configured in line with ISM requirements on password length.
+Device passcode | Device passcode of 14 characters or above. Alphanumic in nature and must contain a minimum of 1 special character | iOS devices, by default, is encrypted once a passcode is provided to the device. Configured in line with ISM requirements on password length.
 Biometrics | Disable | This is in line with the ACSC iOS Secure Configuration Hardening guide for PROTECTED devices.
 Mobile Device Management | Enable | Mobile Device Management provides the Agency better auditing tools on the device. In line with ACSC iOS Secure Configuration Hardening guide for PROTECTED devices
 Maximum Auto-Lock  | 2 minutes | Auto Lock will lock a device if it is inactive for specified time
-Virtual Private Network (VPN)  | Not Configured | VPN will not be setup as part of the iOS device. Per-app VPN will be set up to secure communication between the device and the Agencies data
+Virtual Private Network (VPN)  | Configured | Per-app VPN will be set up to secure communication between the device and the Agencies data. This is in line with ACSC iOS Secure Configuration Hardening guide
 **Branding** | | |
 Lock Screen and background branding | Configured | Agency branding will be applied to endpoints. It is recommended that agencies include the contact information of the relevant IT Support in the event that a device is lost.
 **Device Features** | | |
@@ -1220,6 +1237,7 @@ Allow iCloud backup, document data and Keychain | Disable | The Agencies data on
 Managed Open-In | Enable  | Managed Open-In is enable segregates between corporate managed and personal application in an iOS device. This in line with the ACSC iOS Secure Configuration Hardening guide for PROTECTED devices.
 Allow documents from managed sources in unmanaged destination | Disable | The Agencies data cannot be moved between managed and unmanaged application destination. This is to prevent PROTECTED from being transferred to an unmanaged application or location
 Treat AirDrop as unmanaged destination | Disable | AirDrop provides the ability to wirelessly transfer documents between Apple devices. Setting AirDrop as an unmanaged destination prevents users from accidentally transferring Agency data to unsecure applications or locations
+Restricted Application List | Configured | Unapproved application installs will be alerted upon. 
 
 ### Securing iOS applications
 
@@ -1235,10 +1253,10 @@ Securing iOS Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Managed Applications | Microsoft Corporate Portal<br>Microsoft Azure Information Protection<br>Microsoft Word<br>Microsoft Excel<br>Microsoft Outlook<br>Microsoft PowerPoint<br>Microsoft Teams<br>Microsoft Edge<br>Adobe Reader<br>Microsoft OneDrive<br>Microsoft OneNote | This is to meet the Agencies requirement for managed applications
+Managed Applications | Microsoft Corporate Portal<br>Microsoft Azure Information Protection<br>Microsoft Word<br>Microsoft Excel<br>Microsoft Outlook<br>Microsoft PowerPoint<br>Microsoft Teams<br>Microsoft Edge<br>Adobe Reader<br>Microsoft OneDrive<br>Microsoft OneNote<br>Microsoft Whiteboard<br>Microsoft Planner<br>PowerApps | This is to meet the Agencies requirement for managed applications
 Application VPN configuration | Configured for Managed Applications | Managed applications will use VPN to secure its connection to the Agencies Office 365 tenant
 Disable organisation data to be backed up to iCloud | Disable | PROTECTED must be stored within the Agencies environment / corporate data store
-Encrypt organisation data in mobile device | Not required. | Encrypting organisation data requires an additional PIN for managed applications in the device.<br>The Agency will utilise sensitivity labels alongside device encryption to ensure encryption requirements are met based on ACSC hardening requirements. 
+Encrypt organisation data in mobile device | Configured | To ensure encryption requirements are met based on ACSC hardening requirements. 
 Send organisation data to unmanaged apps | Policy managed apps with Open In/Share Filtering | Prevents data to be shared between managed application stated above and other unmanaged application on the device
 Save copies of organisation data | SharePoint and OneDrive for Business only | Ensure all data is saved within the Agencies tenant
 Organisation data notification | Block organisation Data | Prevents Agency information being displayed on the lock screen

@@ -20,7 +20,7 @@ Conditional Access rules can be assigned according to several variables includin
 
 ## Conditional access terms of use
 
-The Terms of Use document is a pdf document provided by the department and is uploaded to Intune. This is then presented to users during the logon process.
+The Terms of Use document is a pdf document provided by the department and is uploaded to Microsoft Endpoint Manager. This is then presented to users during the logon process.
 
 `Search > Azure AD Conditional Access > Terms of use`
 

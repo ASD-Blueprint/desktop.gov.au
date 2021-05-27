@@ -134,6 +134,152 @@ menu: abac
 * Write back passwords to your on-premises directory?: `Not configured`
 * Allow users to unlock accounts without resetting their password?: `Not configured`
 
+### Microsoft 365 groups
+
+`Search > Azure Active Directory > Groups > General`
+
+* Self Service Group Management
+  * Owners can manage group membership requests in the Access Panel: `No`
+  * Restrict user ability to access groups features in the Access Panel. Administrators (Global, Group and User Admin) will have access regardless of the value of this setting.: `Yes`
+* Security Groups
+  * Users can create security groups in Azure portals: `No`
+  * Owners who can assign members as group owners in Azure portals: `All`
+* Microsoft 365 groups
+  * Users can create Microsoft 365 groups in Azure portal: `No`
+  * Owners who can assign members as group owners in Azure portal: `All`
+
+`Search > Azure Active Directory > Groups > Naming policy`
+
+* Group naming policy: `Grp-<Department>-<Group name>`
+
+`Search > Azure Active Directory > Groups > Expiration`
+
+* Group lifetime (in days): `365`
+* Email contact for groups with no owners: `Office365_Group_Expiration@<Agency>.gov.au`
+* Enable expiration for these Microsoft 365 groups: `All`
+
+`Search > Azure Active Directory > Groups`
+
+* Group Name: `ADMIN_O365_Admin`
+  * Membership type: `Assigned`
+  * Source: `Windows server AD`
+  * Type: `Security`
+  * Members: `Admin accounts`
+  * Owners: `None`
+  * Group membership: `None`
+  * Applications: `None`
+  * Licenses: `None`
+  * Azure role assignment: `None`
+* Group Name: `ADMIN_O365_DCA_Accounts`
+  * Membership type: `Assigned`
+  * Source: `Windows server AD`
+  * Type: `Security`
+  * Members: `Admin accounts`
+  * Owners: `None`
+  * Group membership: `None`
+  * Applications: `None`
+  * Licenses: `None`
+  * Azure role assignment: `None`
+* Group Name: `ADMIN_O365_GlobalAdmins`
+  * Membership type: `Assigned`
+  * Source: `Windows server AD`
+  * Type: `Security`
+  * Members: `Admin accounts`
+  * Owners: `None`
+  * Group membership: `None`
+  * Applications: `None`
+  * Licenses: `None`
+  * Azure role assignment: `None`
+* Group Name: `Grp-<Agency Acronym>O365-Outlook`
+  * Membership type: `Assigned`
+  * Source: `Cloud`
+  * Type: `Office`
+  * Email: `Grp-<Agency Acronym>o365-outlook@<Agency>.gov.au`
+  * Members: `<Agency User>`
+  * Owners: `<Agency User>`
+  * Group membership: `None`
+  * Applications: `None`
+  * Licenses: `None`
+  * Azure role assignment: `None`
+* Group Name: `Grp-<Agency Acronym>O365-Teams`
+  * Membership type: `Assigned`
+  * Source: `Cloud`
+  * Type: `Office`
+  * Email: `Grp-<Agency Acronym>o365-teams@<Agency>.gov.au`
+  * Members: `<Agency User>`
+  * Owners: `<Agency User>`
+  * Group membership: `None`
+  * Applications: `None`
+  * Licenses: `None`
+  * Azure role assignment: `None`
+* Group Name: `Grp-<Agency Acronym>O365-Teams`
+  * Membership type: `Assigned`
+  * Source: `Cloud`
+  * Type: `Office`
+  * Email: `Grp-<Agency Acronym>o365-teams@<Agency>.gov.au`
+  * Members: `<Agency User>`
+  * Owners: `<Agency User>`
+  * Group membership: `None`
+  * Applications: `None`
+  * Licenses: `None`
+  * Azure role assignment: `None`
+* Group Name: `Office365_AssignLicense_CloudUsers`
+  * Membership type: `Assigned`
+  * Source: `Cloud`
+  * Type: `Security`
+  * Members: `None admin accounts`
+  * Owners: `<Agency Owner> (Admin)`
+  * Group membership: `None`
+  * Applications: `None`
+  * Licenses: `Microsoft 365 E5`
+  * Azure role assignment: `None`
+* Group Name: `Office365_AssignLicense_StandardUsers`
+  * Membership type: `Assigned`
+  * Source: `Windows server AD`
+  * Type: `Security`
+  * Members: `None admin accounts`
+  * Owners: `None`
+  * Group membership: `None`
+  * Applications: `None`
+  * Licenses: `Microsoft 365 E5`
+  * Azure role assignment: `None`
+* Group Name: `Office365_Conditional_Access_Exclude`
+  * Membership type: `Assigned`
+  * Source: `Cloud`
+  * Type: `Security`
+  * Members
+    * Break Glass account
+      * TenantAdmin
+      * TenantAdmin2
+    * AAD Connect Synchronization accounts
+      * `Sync_<AAD Server 1>_<account GUID>`
+      * `Sync_<AAD Server 2>_<account GUID>`
+  * Owners: `None`
+  * Group membership: `None`
+  * Applications: `None`
+  * Licenses: `None`
+  * Azure role assignment: `None`
+* Group Name: `Office365_Grant_AzureAD_Join`
+  * Membership type: `Assigned`
+  * Source: `Windows server AD`
+  * Type: `Security`
+  * Members: `Admin accounts`
+  * Owners: `None`
+  * Group membership: `None`
+  * Applications: `None`
+  * Licenses: `None`
+  * Azure role assignment: `None`
+* Group Name: `Microsoft365_Grant_CreateGroups`
+  * Membership type: `Assigned`
+  * Source: `Cloud`
+  * Type: `Security`
+  * Members: `<Agency User>`
+  * Owners: `None`
+  * Group membership: `None`
+  * Applications: `None`
+  * Licenses: `None`
+  * Azure role assignment: `None`
+
 ### Emergency access admin accounts
 
 `Search > Azure Active Directory > Users > Break Glass > Profile`
@@ -742,11 +888,31 @@ GDPR – User ownership | Medium (x2) | Excluded N/As
 
 Table 12 describes the Log Analytics settings that are configured within the Log Analytics Workspace.
 
-Item | Configuration
+Configuration | Value 
 --- | ---
-Log Analytics was not implemented for this environment at this time refer to the DTA-Platform Designv1.0 for configuration guidance. | |
+Workspace Name | agency-log-workspace
+Azure Subscription | Agency subscription 
+Region | Australia Central
+Log retention | Retention Period: 1 year<br>Data Volume Cap: Off 
+Log Analytics Contributor Group | rol-agency-log-admin
 
-## Microsoft Intune configuration
+#### Microsoft Endpoint Manager
+
+Configuration | Value 
+--- | ---
+Diagnostic Setting Name | Send to Log Analytics
+Log | AuditLogs <br> OperationalLogs <br> DeviceComplianceOrg <br> Devices
+Destination details | Send to Log Analytics Workspace (agency-log-workspace)
+
+#### Azure Active Directory
+
+Configuration | Value 
+--- | ---
+Diagnostic Setting Name | Send to Log Analytics
+Log | AuditLogs <br> SignInLogs <br> NonInteractiveUserSignInLogs <br> ServicePrincipalSignInLogs <br> ManagedIdentitySignInLogs <br> ProvisioningLogs
+Destination details | Send to Log Analytics Workspace (agency-log-workspace)
+
+## Microsoft Endpoint Manager - Intune (Intune) configuration
 
 All Windows 10 client configuration is accomplished via Microsoft Intune policies. These Intune configuration policies are detailed in separate documents that are explained in Table 13 below. 
 

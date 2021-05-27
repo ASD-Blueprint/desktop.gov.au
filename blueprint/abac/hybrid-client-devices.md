@@ -25,11 +25,11 @@ Table 3 describes the prerequisites in use in the task sequence.
 
 Item | Description
 --- | ---
-AutopilotConfigurationFile.json | The AutopilotConfigurationFile.json is required to be available within an SCCM package. As a requirement the [DTA – Hybrid ABAC – Intune Enrollment for Windows Devices](/blueprint/abac/hybrid-intune-enrolment-windows.html) document would need to be implemented before this ABAC.
-SCCM Package | **Windows 10 Customisations** package to be created within SCCM and contain the **AutopilotConfigurationFile.json** and the **Unattend.xml** files.
-SCCM Package | **Configuration Manager Client** packaged needs to exist, this typically exists by default with the SCCM installation.
-SCCM Boot Image | A WinPE boot image is required to boot to Windows PE, this typically exists by default with the SCCM installation.
-SCCM Operating System Image  | An Operating System image is required within SCCM. This should consist of the Windows 10 WIM file as per the **Base Configuration**. Additional Agency specific customisations can be injected into the WIM as required, however this is out of scope of this ABAC.
+AutopilotConfigurationFile.json | The AutopilotConfigurationFile.json is required to be available within an Microsoft Endpoint Configuration Manager (MECM) package. As a requirement the [DTA – Hybrid ABAC – Intune Enrollment for Windows Devices](/blueprint/abac/hybrid-intune-enrolment-windows.html) document would need to be implemented before this ABAC.
+MECM Package | **Windows 10 Customisations** package to be created within MECM and contain the **AutopilotConfigurationFile.json** and the **Unattend.xml** files.
+MECM Package | **Configuration Manager Client** packaged needs to exist, this typically exists by default with the MECM installation.
+MECM Boot Image | A WinPE boot image is required to boot to Windows PE, this typically exists by default with the MECM installation.
+MECM Operating System Image  | An Operating System image is required within MECM. This should consist of the Windows 10 WIM file as per the **Base Configuration**. Additional Agency specific customisations can be injected into the WIM as required, however this is out of scope of this ABAC.
 
 ## Windows 10 task sequence
 
@@ -88,7 +88,7 @@ _SMSTSBootUEFI not equals “true”
     * Type: Auto Apply Drivers
     * Configuration
       * Install only the best matched compatible drivers
-      * Consider drivers from all categories. Note: Agency specific Device Drivers will need to be added to SCCM.
+      * Consider drivers from all categories. Note: Agency specific Device Drivers will need to be added to MECM.
 * Setup Operating System
   * Item: Setup Windows and Configuration Manager
     * Type: Setup Windows and ConfigMgr
@@ -113,7 +113,7 @@ _SMSTSBootUEFI not equals “true”
     * Type: Install Applications
     * Configuration
       * Install the following applications: Agency specific applications
-      * Note: This step should be considered optional and only used if the applications are unable to be migrated to Intune
+      * Note: This step should be considered optional and only used if the applications are unable to be migrated to Microsoft Endpoint Manager - Intune (Intune)
 * Prepare device for Windows Autopilot
   * Item: Prepare Configuration Manager Client
     * Type: Prepare ConfigMgr Client for Capture
@@ -276,7 +276,7 @@ Whitelisting of an application utilising WDAC can be completed utilising a numbe
 
 If the managed installer option within the base policy is enabled, whitelisting of applications deployed via the managed installer is not required. 
 
-![WDAC whitelisting application policy](/assets/images/WDAC_SCCM.svg "Where additional applications are required they should leverage the hash of the files or the publisher file name and version. Once whitelisted they must be merged into the base policy")
+![WDAC Whitelisting Application policy](/assets/images/WDAC_SCCM.svg "Where additional applications are required they should leverage the hash of the files or the publisher file name and version. Once whitelisted they must be merged into the base policy")
 
 Post identification of the appropriate whitelisting method, the following procedure is used to whitelist the application:
 

@@ -1,16 +1,16 @@
 ---
 layout: page
-title: Hybrid - Intune configuration for Windows devices
+title: Hybrid - Microsoft Endpoint Manager - Intune configuration for Windows devices
 menu: abac
 ---
 
 ## Profiles
 
-The ABAC settings for the Agency Intune Profiles can be found below. This includes macro security, Windows Hello, block admins, delivery optimisation, disable Adobe Flash, Microsoft Store, Defender, network boundary, OneDrive, timezone, security baseline fixes, Bitlocker, and Windows 10 Enterprise settings.
+The ABAC settings for the Agency Microsoft Endpoint Manager - Intune (Intune) Profiles can be found below. This includes macro security, Windows Hello, block admins, delivery optimisation, disable Adobe Flash, Microsoft Store, Defender, network boundary, OneDrive, timezone, security baseline fixes, Bitlocker, and Windows 10 Enterprise settings.
 
 Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting.
 
-The following can be found at `Intune > Devices > Configuration profiles`
+The following can be found at `Microsoft Endpoint Manager > Devices > Configuration profiles`
 
 ### ACSC-Jan2020-MacroSecurity
 
@@ -425,6 +425,19 @@ $Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
 $Shortcut.TargetPath = $TargetPath
 $Shortcut.Save()
 ```
+
+### Block OLE Extensions
+
+* Profile name: `Intune Block OLE Extension`
+* Script settings
+  * PowerShell script: [oleblockingscript.ps1](/assets/files/abac/oleblockingscript.txt)
+  * Run this script using the logged-on credentials: `Yes`
+  * Enforce script signature check: `No`
+  * Run script in 64 bit PowerShell Host: `No`
+* Scope tags: `Default`
+* Assignments
+  * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`
+  * Excluded groups: -
 
 ### Remove built-in apps
 

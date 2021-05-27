@@ -15,7 +15,7 @@ Section | Description
 --- | ---
 Identity and Access Management | The Identity and Access Management section includes the authentication, authorisation methods and Conditional Access policies used within the Blueprint for Cloud and Hybrid solutions.
 Security | The Security section details several cloud-based security components available within the Microsoft 365 suite to detect and monitor suspicious behaviour for Cloud and Hybrid solutions.
-Client Configuration | The Client Configuration section details the Intune management methods and design decisions for the client configuration.
+Client Configuration | The Client Configuration section details the Microsoft Endpoint Manager - Intune (Intune) management methods and design decisions for the client configuration.
 Backup and Operational Management | The Backup and Operation Management section details the backup design decisions including RPO, RTO and Data Availability.
 System Administration | The System Administration section details how the solution will be managed, the administrative consoles that will be used to administrator the various components, and how Role Based Access Control (RBAC) is implemented to control access.
 
@@ -33,23 +33,26 @@ Azure Active Directory | Domains<br>User Accounts<br>Agency Collaboration<br>Mul
 Active Directory | On premises for Hybrid solutions only
 Security | Microsoft Cloud App Security<br>Azure Advance Threat Protection<br>Microsoft Defender Advanced Threat Protection<br>Security Information and Event Management<br>Monitoring
 Client Configuration | Intune<br>Microsoft Co-Management<br>Group Policy<br>Printing
-Backup | Office 365 Backup
+Backup | Microsoft 365 Backup
 System Administration | Administrative Consoles<br>Role bases Access Control
 
-### Office 365 design
+### Microsoft 365 design
 
 Component | Inclusions
 --- | ---
-Office 365 Organisation | Residency<br>License<br>Self Service Purchase<br>Themes<br>Office 365 Services and Add-Ins<br>Role Based Access Control<br>Customer Lockbox
-Office 365 Connectivity | Mail Flow and Gateway<br>Optimisation<br>Exchange Hybrid<br>Mail Exchange Records<br>Mail Connectors<br>Autodiscover<br>SPF, DMARC, DKIM<br>Accepted Domains<br>Remote Domains<br>Certificates
-Exchange Online | Mail Migration<br>User Mailbox Configuration<br>Authentication Policies<br>Outlook on the Web Policies<br>Mailbox Archive<br>Journaling<br>Litigation Hold<br>Shared Mailboxes<br>Resource Mailboxes<br>Distribution Lists<br>Office 365 Groups<br>Address Book / Address List
+Microsoft 365 Organisation | Residency<br>License<br>Self Service Purchase<br>Themes<br>Office 365 Services and Add-Ins<br>Role Based Access Control<br>Customer Lockbox
+Microsoft 365 Connectivity | Mail Flow and Gateway<br>Optimisation<br>Exchange Hybrid<br>Mail Exchange Records<br>Mail Connectors<br>Autodiscover<br>SPF, DMARC, DKIM<br>Accepted Domains<br>Remote Domains<br>Certificates
+Exchange Online | Mail Migration<br>User Mailbox Configuration<br>Authentication Policies<br>Outlook on the Web Policies<br>Mailbox Archive<br>Journaling<br>Litigation Hold<br>Shared Mailboxes<br>Resource Mailboxes<br>Distribution Lists<br>Microsoft 365 groups<br>Address Book / Address List
 SharePoint Online | SharePoint Sites<br>SharePoint Hybrid<br>Application Management<br>Web Parts<br>Sharing and Access Controls<br>Legacy Features
 OneDrive for Business | Sharing<br>Storage and Synchronisation<br>Notifications<br>Content Migration
 Microsoft Teams | Access<br>Dynamic Security Group<br>Organisation Wide Configuration<br>Policies & Settings<br>Unified Communication<br>Voice Calling
 Power Platform | Power Apps and Power Automate<br>Power BI
 Security & Compliance | Alerts<br>Classification Labels<br>Retention Policies<br>Data Loss Prevention<br>Audit and Logging
 Exchange Online Protection | Connection Filtering<br>Anti-malware<br>Policy Filtering<br>Content Filtering
-Office 365 Advanced Threat Protection | Safe Links<br>Safe Attachments<br>Anti-Phishing
+Microsoft Defender for Office 365 | Safe Links<br>Safe Attachments<br>Anti-Phishing
+Microsoft Whiteboard | Diagnostic Data<br>Enablement<br>Connected Experience<br>Easy Sharing
+Microsoft Planner | iCalender Publishing
+Microsoft Forms | External sharing<br>Phishing Protection<br>Bing and YouTube embedding
 
 ### Client devices
 
@@ -61,9 +64,9 @@ iOS | Enrolment<br>Security<br>Remote Wipe
 ## Assumptions
 
 * Azure Multifactor Authentication (MFA) natively supports the OATH (Open Authentication) standard for selected hardware tokens. To use Azure MFA with OATH support, and to achieve an Essential 8 Maturity level of 3, hard tokens are required to be procured and deployed to all users. This Blueprint and associated security documentation assume the use of soft tokens and a level 2 maturity in this aspect of the Essential 8. 
-* Microsoft Office 365 and Microsoft Azure solutions hold audit data for a period based on the service and the license level of the organisation. The time for most services is under 2 years. For organisations with a requirement to hold audit data past this period, Security Information and Event Management (SIEM) integration should be considered. Service audit data within the Microsoft Office 365 and Azure clouds is often housed in discrete systems and the opportunities to bring the data under a single pane is limited. Azure Monitor or Azure Sentinel are two Microsoft offerings which could be leveraged for this purpose however a holistic solution should be considered to ensure any legislative requirements are met.
-* The Blueprint has been designed to cater for government organisations allowing end user devices internet access from anywhere (head office, regional office or home) direct connected and via proxy servers, VPN servers or Security Internet Gateways (SIGs). Where connected through a proxy server, rules will be configured to allow direct connection for some Office 365 services. Mobile users will access Microsoft 365 services directly. These users will be subject to Conditional Access policies to reduce unauthorised access risk.
-* The Intune Console is the preferred method to manage all settings regardless of Cloud native or Hybrid. Although a combination of the System Center Configuration Manager (SCCM) Console and Group Policy Objects (GPOs) would be able to achieve the same settings in a hybrid environment, this Blueprint does not include SCCM and GPOs example configurations due to the level of dissimilarities and per agency customisation in existing SCCM and GPOs configurations across Commonwealth entities.
+* Microsoft 365 and Microsoft Azure solutions hold audit data for a period based on the service and the license level of the organisation. The time for most services is under 2 years. For organisations with a requirement to hold audit data past this period, Security Information and Event Management (SIEM) integration should be considered. Service audit data within the Microsoft 365 and Azure clouds is often housed in discrete systems and the opportunities to bring the data under a single pane is limited. Azure Monitor or Azure Sentinel are two Microsoft offerings which could be leveraged for this purpose however a holistic solution should be considered to ensure any legislative requirements are met.
+* The Blueprint has been designed to cater for government organisations allowing end user devices internet access from anywhere (head office, regional office or home) direct connected and via proxy servers, VPN servers or Security Internet Gateways (SIGs). Where connected through a proxy server, rules will be configured to allow direct connection for some Microsoft 365 services. Mobile users will access Microsoft 365 services directly. These users will be subject to Conditional Access policies to reduce unauthorised access risk.
+* The Intune Console is the preferred method to manage all settings regardless of Cloud native or Hybrid. Although a combination of the Microsoft Endpoint Configuration Manager (MECM) Console and Group Policy Objects (GPOs) would be able to achieve the same settings in a hybrid environment, this Blueprint does not include MECM and GPOs example configurations due to the level of dissimilarities and per agency customisation in existing MECM and GPOs configurations across Commonwealth entities.
 
 ## Identity and access management
 
@@ -126,6 +129,31 @@ Identity Source | Active Directory | As this is a hybrid implementation Active D
 Synchronize to Active Directory | Configured | Cloud identities or Synchronised or Federated in accordance with agency specific requirements.
 Azure AD Connect | Configured | See Azure AD Connect section for details.
 Identity Format | Not Configured | Usernames will be synchronised from the on-premises Active Directory and will inherit naming convention.
+
+### Microsoft 365 groups
+
+Microsoft 365 Groups are an extension on the traditional mail Distribution Lists, Mail-enabled Security groups and Shared Mailboxes. They are managed within Azure Active Directory and also are used within Office 365 to control access to items such as a Team or Plan.
+
+Microsoft 365 Groups allow members to collaborate with a group email, shared a workspace for conversations, files, calendar events, and a Planner. Unlike Shared Mailboxes, Microsoft 365 groups can be accessed via mobile applications. Microsoft 365 groups are also integrated with Microsoft Teams and Microsoft Planner and are created when a Team or Plan is created.
+
+Membership of an Microsoft 365 Group can be dynamically updated using user attributes available in Azure AD. This removes some of the management overhead involved with managing the traditional group structures.
+
+Management of Microsoft 365 Groups can be streamlined through the enforcement of a Naming Policy, Office 365 group expiry, and creation restrictions. An Office 365 Group Naming Policy allows the enforcement of a consistent naming strategy across Microsoft 365 Groups. It consists of two parts:
+
+* Prefix-Suffix Naming Policy – Setting of prefixes or suffixes for groups names. The prefixes/suffixes can be either fixed strings or user attributes; and
+* Custom Blocked Words – Blocking of words in the name based on a custom list.
+
+In conjunction with the Naming Policy, Microsoft 365 groups can also be given expiration dates. This assists with unused group clean-up activities. The expiration period commences on group creation and can be renewed at the end of the period (The owner or contact for groups with no owners has 30 days to renew the group). When a group expires, it is soft deleted for 30 days. Retention policies will however hold the data for the period of the retention policy. An expiration policy can be applied globally to all groups or to specific groups.
+
+Microsoft 365 Groups, by default can be created by any user. This can be restricted to Administrators and members of a security group. This restriction prevents the needless creation of groups. It is advisable to develop a workflow to control the provisioning process.
+
+Microsoft 365 Group Design Decisions for all agencies and implementation types.
+
+Decision Point | Design Decision | Justification
+--- | --- | ---
+Microsoft 365 Group creation restrictions | Configured <br>Only administrators and select users can create/configure Microsoft 365 groups. | This will ensure that groups are approved before being created, ensuring all groups have a purpose.<br>This setting also affects Exchange, SharePoint, Microsoft Planner and Teams.
+Naming Policy | `grp-AgencyName-SecurityGroup-Role` | Exchange groups will be named like the following AgencyName-Agency e.g. `grp-DTA-ExchangeMailbox-ITHelpdesk`
+Group Expiration  | All groups - annually | Group Expiration is required to simplify the management overhead associated with groups and to limit Azure AD clutter.
 
 ### Emergency access admin accounts
 
@@ -685,7 +713,7 @@ Policies Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Use of policies | Use of policies is agency-specific and would need further development with internal Cyber Security Teams. | Provides visibility within the Agency of suspicious behaviour and application use.
+Use of policies | Use of policies is agency-specific and would require further development with internal Cyber Security Teams. However it is recommened that a policy be enabled to monitor and detect access from anonymous IP addresses. | Provides visibility within the Agency of suspicious behaviour and application use. 
 
 ### MCAS - Threat Protection
 
@@ -1067,7 +1095,11 @@ SIEM Integration | Configured | To meet the security logging requirements of thi
 
 ### Log Analytics
 
-Log data collected is stored in a Log Analytics workspace.
+Log Analytics is a component of the Azure Monitor solution and also forms the storage location for the data analysed by Azure Sentinel. It is utilised for log ingestion and querying. Logs can be ingested into Log Analytics in several ways including via:
+
+* Diagnostic Settings
+* Sentinel Connectors
+* HTTP Post
 
 Log data stored in Log Analytics data can be consumed in various ways:
 
@@ -1077,16 +1109,15 @@ Log data stored in Log Analytics data can be consumed in various ways:
 * Export -- Data from Azure Monitor can be imported into Excel or Power BI for further visualisation.
 * PowerShell -- PowerShell from a command line or using Azure Automation, can programmatically retrieve data for various use-cases.
 * Azure Monitor Logs API -- The native API, uses REST to retrieve log data from the workspace.
+* Azure Sentinel -- Azure Sentinel allows dashboarding, alerting, and analysis of the logs.
 
 Log Analytics is billed per gigabyte (GB) of data ingested and retained into the service. When ingesting into a SIEM, data retention periods can be shortened.
-
-Log Analytics is available in certain regions only. At the time of writing, these regions are Australia Southeast (Melbourne) and AU Central (Canberra CDC Fyshwick).
 
 Log Analytics Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Log Analytics Workspace | Deployed | The Log Analytics workspace will primarily be used to store log data for Intune managed workloads.
+Log Analytics Workspace | Deployed | The Log Analytics workspace will primarily be used to store log data for Microsoft Endpoint Manager managed workloads and Azure AD sign in logs.
 Pricing mode | Per GB | Log Analytics pricing is based on data consumed.
 Incurs Subscription Cost? | Yes | Log Analytics pricing is based on data consumed. Data Volume could be reduced to 90 days if the Agency has an existing SIEM for further custom log analysis.
 
@@ -1098,6 +1129,7 @@ Workspace Name | agency-log-workspace | Log workspace name to be confirmed by th
 Azure Subscription | Agency subscription | Configured by Office 365
 Region | Australia Central | Closest location of Log Analytics to the Agency
 Log retention | Retention Period: 1 year<br>Data Volume Cap: Off | One year aligns with other data retention periods in this solution and meets the system requirements
+Enabled Diagnostic Settings | Microsoft Endpoint Manager, Azure AD | Ensures logs are ingested by log analytics. 
 Log Analytics Contributor Group | rol-agency-log-admin | Log Analytics Contributor group name to be confirmed by the Agency
 
 ### Security Information and Event Management
@@ -1121,9 +1153,9 @@ Office 365 log ingestion | Not Configured | SIEM Solution configuration is custo
 
 ## Client configuration
 
-### Intune
+### Microsoft Endpoint Manager - Intune
 
-Microsoft Intune is an Azure service that provides Mobile Device Management (MDM) and Mobile Application Management (MAM) capabilities for Apple iOS, Google Android and Microsoft Windows devices to enhance security and protection.
+Microsoft Endpoint Manager - Intune (Intune) is an Microsoft 365 service that provides Mobile Device Management (MDM) and Mobile Application Management (MAM) capabilities for Apple iOS, Google Android and Microsoft Windows devices to enhance security and protection.
 
 Intune manages which devices can access corporate data, protects company information by controlling the way data is shared, and enforces device configuration to ensure security requirements are met. It does this via:
 
@@ -1149,12 +1181,14 @@ Intune can also configure Windows Information Protection (WIP) polices. WIP can 
 
 Within WIP, Network boundaries are created as a network perimeter that controls what applications can be accessed on the network.
 
+Clients managed by Intune are configured to refresh their status on an 8-hour interval. During this refresh. their policy compliance, configuration profile, and app assignments are checked. If the client is recently enrolled then the compliance, non-compliance, and configuration check-in runs more frequently.
+
 Intune Design Decisions for cloud native implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Co-management | Disabled | Co-Management is disabled as this is not a function that is used in a cloud only solution.
-Enrolled Device Types | Windows 10: 10.0.17134 (minimum)<br>iOS | The use of Windows 10 on designated hardware is mandatory.<br>The following platforms will be disabled:<br>macOS<br>Android
+Enrolled Device Types | Windows 10: 10.0.17134 (minimum)<br>iOS: 14.0 | The use of Windows 10 on designated hardware is mandatory.<br>The following platforms will be disabled:<br>macOS<br>Android
 Device Compliance | Enabled | Device Compliance is enabled. All devices will be Intune enrolled and have a custom set of compliance policies applied.
 Device Enrolment | Enabled | All users must be enrolled to ensure device compliance.
 Company Portal | Enabled | The Company Portal is enabled for application deployment. Applications to be deployed will be set by requirements.
@@ -1170,8 +1204,8 @@ Owners can manage group membership requests in the Access Panel | No | Group cre
 Restrict access to Groups in the Access Panel | No | Accessing groups is an Administrative function and has been locked down to Administrators.
 **Security Groups** | | |
 Users can create security groups in Azure portals | No | Group creation and modification is to be locked down and controlled by authorised personnel, such as service desk staff, or Administrators.
-**Office 365 Groups** | | |
-Users can create Office 365 groups in the Azure portals | No | Group creation and modification is to be locked down and controlled by authorised personnel, such as service desk staff, or Administrators.
+**Microsoft 365 groups** | | |
+Users can create Microsoft 365 groups in the Azure portals | No | Group creation and modification is to be locked down and controlled by authorised personnel, such as service desk staff, or Administrators.
 **Directory-wide Groups** | | |
 Enable an "All Users" group in the directory | No | This group is not required. All users to be a member of a controlled group.
 
@@ -1181,7 +1215,7 @@ Mobile Application Management (MAM) allows the management and protection of an A
 
 Using MAM, a corporate app that contains sensitive data can be managed on a wide variety of devices. Many productivity apps, such as the Microsoft Office apps, can be managed by Intune MAM. MAM can protect data within the application container using authentication methods and copy/paste controls, but these controls must be balanced with any MDM controls of the device to maintain usability of the solution.
 
-When deploying a hybrid solution, the management of Windows devices should be considered when choosing to implement MAM for clients. Management solutions such as Group Policy and SCCM can provide functionality to control applications which negates the use of MAM on Windows machines.
+When deploying a hybrid solution, the management of Windows devices should be considered when choosing to implement MAM for clients. Management solutions such as Group Policy and MECM can provide functionality to control applications which negates the use of MAM on Windows machines.
 
 Mobile Application Management Design Decisions for cloud native implementations
 
@@ -1194,8 +1228,8 @@ Mobile Application Management Design Decisions for hybrid implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Mobile Application Management Method | Windows 10 – Not Configured<br>iOS - Intune | Agencies operating in hybrid environments can elect to have Windows 10 applications managed by an existing management solution such as SCCM and Group Policy, or to manage Windows 10 applications via Intune. This Blueprint offers an example of using SCCM as the Windows10 Management tool for illustrative purposes however agencies can elect to have Intune as the primary MAM method for both platforms without affecting cyber security postures.<br>Mobile applications (iOS) will be deployed via Intune.
-Applications Managed | Microsoft Azure Information Protection<br>Microsoft Corporate Portal<br>Adobe Reader<br>Microsoft Suite - <br>Outlook<br>Word<br>Excel<br>Teams<br>PowerPoint<br>OneNote<br>OneDrive | Agencies operating in hybrid environments can elect to have Windows 10 applications managed by an existing management solution such as SCCM and Group Policy, or to manage Windows 10 applications via Intune. This Blueprint offers an example of using SCCM as the Windows10 Management tool for illustrative purposes however agencies can elect to have Intune as the primary MAM method for both platforms without affecting cyber security postures.<br>Mobile applications (iOS) will be deployed via Intune.
+Mobile Application Management Method | Windows 10 – Not Configured<br>iOS - Intune | Agencies operating in hybrid environments can elect to have Windows 10 applications managed by an existing management solution such as MECM and Group Policy, or to manage Windows 10 applications via Intune. This Blueprint offers an example of using MECM as the Windows10 Management tool for illustrative purposes however agencies can elect to have Intune as the primary MAM method for both platforms without affecting cyber security postures.<br>Mobile applications (iOS) will be deployed via Intune.
+Applications Managed | Microsoft Azure Information Protection<br>Microsoft Corporate Portal<br>Adobe Reader<br>Microsoft Suite - <br>Outlook<br>Word<br>Excel<br>Teams<br>PowerPoint<br>OneNote<br>OneDrive | Agencies operating in hybrid environments can elect to have Windows 10 applications managed by an existing management solution such as MECM and Group Policy, or to manage Windows 10 applications via Intune. This Blueprint offers an example of using MECM as the Windows10 Management tool for illustrative purposes however agencies can elect to have Intune as the primary MAM method for both platforms without affecting cyber security postures.<br>Mobile applications (iOS) will be deployed via Intune.
 
 ### Intune - enrolment
 
@@ -1218,11 +1252,11 @@ iOS Enrolment | Configured | iOS devices must be enrolled in Intune prior to man
 
 ### Intune - co-management
 
-Co-management provides the ability to manage devices via SCCM and Intune. 
+Co-management provides the ability to manage devices via MECM and Intune. 
 
-For a deployment to be enabled for co-management, devices must be Azure AD joined, be enrolled in Intune and have the SCCM client installed.
+For a deployment to be enabled for co-management, devices must be Azure AD joined, be enrolled in Intune and have the MECM client installed.
 
-Once co-management is enabled, management tasks such as compliance policies, Windows Update policies, resource access policies, and endpoint protection, can be moved from SCCM management over to Intune as required.
+Once co-management is enabled, management tasks such as compliance policies, Windows Update policies, resource access policies, and endpoint protection, can be moved from MECM management over to Intune as required.
 
 Microsoft cloud-hosted services offer the benefit of maintaining cadence with the latest technology updates from Microsoft with reduced effort required by IT BAU teams. Microsoft Intune and Microsoft's co-management strategy is constantly evolving with additional services published regularly.
 
@@ -1239,19 +1273,19 @@ Intune Co-Management design considerations and decisions apply to the HYBRID sol
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Co-management | Enabled | The Microsoft co-management approach will enable Agency to strategically move device management from on-premises to the cloud in a staged manner.
-Compliance policies controlled by | Intune preferred | Compliance and remediation policies to controlled via Intune. Staged migration to be completed from SCCM if previously in use.
-Device Configuration policies controlled by | Intune preferred | Device configuration policies to be controlled via Intune. Staged migration to be completed from SCCM if previously in use.
-Endpoint Protection policies controlled by | Intune preferred | Endpoint protection, including the Windows Defender products and features are controlled via Intune policies. Staged migration to be completed from SCCM if previously in use.
-Resource Access policies controlled by | Intune preferred | Resources in this instance refers to VPN profiles, Wi-Fi profiles, certificate profiles, etc. are controlled via Intune policies. Staged migration to be completed from SCCM if previously in use.
-Office Click-to-Run policies controlled by | Intune preferred | Office Click-to-Run application deployment and updates to be managed through Intune. Staged migration to be completed from SCCM if previously in use.
-Windows Update policies controlled by | Intune preferred | Windows 10 updates will be managed via Intune update rings. Staged migration to be completed from SCCM if previously in use.
-SCCM minimum version | At least SCCM update 1802 | Compatible with co-management and determined by the Agency.
+Compliance policies controlled by | Intune preferred | Compliance and remediation policies to controlled via Intune. Staged migration to be completed from MECM if previously in use.
+Device Configuration policies controlled by | Intune preferred | Device configuration policies to be controlled via Intune. Staged migration to be completed from MECM if previously in use.
+Endpoint Protection policies controlled by | Intune preferred | Endpoint protection, including the Windows Defender products and features are controlled via Intune policies. Staged migration to be completed from MECM if previously in use.
+Resource Access policies controlled by | Intune preferred | Resources in this instance refers to VPN profiles, Wi-Fi profiles, certificate profiles, etc. are controlled via Intune policies. Staged migration to be completed from MECM if previously in use.
+Office Click-to-Run policies controlled by | Intune preferred | Office Click-to-Run application deployment and updates to be managed through Intune. Staged migration to be completed from MECM if previously in use.
+Windows Update policies controlled by | Intune preferred | Windows 10 updates will be managed via Intune update rings. Staged migration to be completed from MECM if previously in use.
+MECM minimum version | At least MECM update 1802 | Compatible with co-management and determined by the Agency.
 Enrolled Device Types | Windows 10: 10.0.17134 (minimum) | The use of Windows 10 on designated hardware is mandatory.<br>The following platforms will be disabled:<br>macOS<br>Android<br>iOS<br>Note: iOS is permitted but controlled by Intune only
 Device Compliance | Enabled | Device Compliance is enabled. All devices will be Intune enrolled and have a custom set of compliance policies applied.
 User Enrolment | Enabled | All users must be enrolled to ensure device compliance.
 Company Portal | Enabled | The Company Portal is enabled for application deployment. Applications to be deployed will be set by Agency requirements.
 Conditional Access | Enabled | Conditional Access is enabled. It will leverage device & user compliance to allow or disallow access to the corporate environment.
-Mobile Device Management (MDM) | Enabled | SCCM will be the MDM authority for the solution, with Intune inspecting compliance.
+Mobile Device Management (MDM) | Enabled | MECM will be the MDM authority for the solution, with Intune inspecting compliance.
 Mobile Application Management (MAM) | Disabled | Not required as Group Policy will configure application controls.
 
 ### Intune - Windows AutoPilot
@@ -1338,7 +1372,7 @@ Additional Device Configuration Design Decisions for hybrid implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Windows 10 and later polices | Not Configured | Management solution such as SCCM and Group Policy are applied to manage settings.
+Windows 10 and later polices | Not Configured | Management solution such as MECM and Group Policy are applied to manage settings.
 
 ### Intune - security baselines
 
@@ -1352,7 +1386,7 @@ Within Intune, pre-configured Security Baselines profiles can be associated to d
 
 These baselines provide robust security guidelines and are generated by Microsoft.
 
-In the case of a co-managed / hybrid scenario, security baselines should only be used when they do not conflict with settings deployed through SCCM and Group Policy.
+In the case of a co-managed / hybrid scenario, security baselines should only be used when they do not conflict with settings deployed through MECM and Group Policy.
 
 Security Baselines Design Decisions for cloud native implementations
 
@@ -1366,9 +1400,9 @@ Security Baselines Design Decisions for hybrid implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Windows 10 Security Baselines | Configured | Agencies operating in hybrid environments can elect to have system configuration managed by an existing management solution such as SCCM and Group Policy, or to manage system configuration via Intune. This Blueprint offers an example of using Intune as the system configuration Management tool for illustrative purposes however agencies can elect to have SCCM and Group Policy as the primary system configuration method without affecting cyber security postures.<br>System configuration will be deployed via Intune.
-Microsoft Defender ATP Baselines | Configured | Agencies operating in hybrid environments can elect to have system configuration managed by an existing management solution such as SCCM and Group Policy, or to manage system configuration via Intune. This Blueprint offers an example of using Intune as the system configuration Management tool for illustrative purposes however agencies can elect to have SCCM and Group Policy as the primary system configuration method without affecting cyber security postures.<br>System configuration will be deployed via Intune.
-Microsoft Edge Baseline | Configured | Agencies operating in hybrid environments can elect to have system configuration managed by an existing management solution such as SCCM and Group Policy, or to manage system configuration via Intune. This Blueprint offers an example of using Intune as the system configuration Management tool for illustrative purposes however agencies can elect to have SCCM and Group Policy as the primary system configuration method without affecting cyber security postures.<br>System configuration will be deployed via Intune.
+Windows 10 Security Baselines | Configured | Agencies operating in hybrid environments can elect to have system configuration managed by an existing management solution such as MECM and Group Policy, or to manage system configuration via Intune. This Blueprint offers an example of using Intune as the system configuration Management tool for illustrative purposes however agencies can elect to have MECM and Group Policy as the primary system configuration method without affecting cyber security postures.<br>System configuration will be deployed via Intune.
+Microsoft Defender ATP Baselines | Configured | Agencies operating in hybrid environments can elect to have system configuration managed by an existing management solution such as MECM and Group Policy, or to manage system configuration via Intune. This Blueprint offers an example of using Intune as the system configuration Management tool for illustrative purposes however agencies can elect to have MECM and Group Policy as the primary system configuration method without affecting cyber security postures.<br>System configuration will be deployed via Intune.
+Microsoft Edge Baseline | Configured | Agencies operating in hybrid environments can elect to have system configuration managed by an existing management solution such as MECM and Group Policy, or to manage system configuration via Intune. This Blueprint offers an example of using Intune as the system configuration Management tool for illustrative purposes however agencies can elect to have MECM and Group Policy as the primary system configuration method without affecting cyber security postures.<br>System configuration will be deployed via Intune.
 
 ### Intune - information protection
 
@@ -1396,7 +1430,7 @@ There is no requirement or ability to selectively enable or disable a particular
 
 Fast and slow update rings can be configured and assigned to different groups or users or devices allow early adopters to provide a level of validation before all users are provided with updates.
 
-When deploying a hybrid solution, the software and patch updates of Windows devices should be considered. Other management solutions such as SCCM and Windows Server Update Service (WSUS) may be servicing the Windows devices for the updates hence duplicating processes.
+When deploying a hybrid solution, the software and patch updates of Windows devices should be considered. Other management solutions such as MECM and Windows Server Update Service (WSUS) may be servicing the Windows devices for the updates hence duplicating processes.
 
 Software Updates Design Decisions for all agencies and implementation types.
 
@@ -1420,7 +1454,7 @@ Intune iOS Design Decisions for all agencies and implementation types.
 Decision Point | Design Decision | Justification
 --- | --- | ---
 iOS Enrolment | Configured | iOS is commonly deployed across the Commonwealth and can be hardened in line with the ACSC hardening guide for iOS devices
-iOS Configuration | Configurations will follow the ACSC hardening guide for iOS devices as much as possible using Intune. Refer to DTA – Intune Configuration - ABAC document. | Aligns with the ACSC Security Configuration Guide Apple iOS 12 Devices  ..
+iOS Configuration | Configurations will follow the ACSC hardening guide for iOS devices as much as possible using Intune. Refer to DTA – Intune Configuration - ABAC document. | Aligns with the ACSC Security Configuration Guide Apple iOS 14.
 
 ### Registry settings
 
@@ -1430,7 +1464,7 @@ There are several tools available to apply registry settings such as:
 
 * Group Policy
 * Intune
-* Configuration Manager (SCCM)
+* Configuration Manager (MECM)
 
 The ACSC provides the Microsoft Windows and Office 365 hardening guides that defines group policy settings along with other recommendations to significantly reduce the attack surface available to malicious attacks.
 
@@ -1444,7 +1478,7 @@ Registry settings Design Decisions for hybrid implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Registry Setting Method | Group Policy Objects & SCCM | The Agency may utilise management solutions such as Group Policy Objects and SCCM to implement and modify user and computer registry settings to comply with ACSC Windows and Office 365 Pro Plus hardening guides.
+Registry Setting Method | Group Policy Objects & MECM | The Agency may utilise management solutions such as Group Policy Objects and MECM to implement and modify user and computer registry settings to comply with ACSC Windows and Office 365 Pro Plus hardening guides.
 
 ### Applications
 
@@ -1470,7 +1504,7 @@ Applications types that can be managed include:
 * Win32 applications
 * Android Enterprise system applications
 
-When deploying a hybrid solution, the application lifecycle method should be considered as other management solutions such as SCCM may be performing the same service.
+When deploying a hybrid solution, the application lifecycle method should be considered as other management solutions such as MECM may be performing the same service.
 
 Applications Design Decisions for all agencies and implementation types.
 
@@ -1487,13 +1521,13 @@ Printing is a legitimate method of data transfer out of an environment. Printing
 
 Intune can be leveraged to control what printers are available within a device and whether a user is able to add additional local printers.
 
-For a user to leverage an available printer, connectivity and a device driver is often required. The drivers can be delivered and updated using Intune and/or SCCM. Connectivity depends on the connected network(s) of the client. The options include:
+For a user to leverage an available printer, connectivity and a device driver is often required. The drivers can be delivered and updated using Intune and/or MECM. Connectivity depends on the connected network(s) of the client. The options include:
 
 * Corporate Network printing – In the workplace, the domain joined computers can connect to the print servers and send jobs to the queue.
 * External Network printing via Hybrid Cloud Print – Without network connectivity via Citrix, a VPN, or Microsoft Hybrid Cloud Print, direct print server connectivity is not available. Microsoft Hybrid Cloud Print utilises a reverse proxy to communicate with the print servers located within the work network.
 * External Network printing via VPN – When direct printer connectivity is not available from external networks, a VPN such as Windows 10 Always-On VPN can allow clients to function as if they were part of the corporate network.
 
-When deploying a hybrid solution, the allocation of printers to users should be considered. Other management solutions such as Group Policy and SCCM may be servicing the allocation of printers to devices.
+When deploying a hybrid solution, the allocation of printers to users should be considered. Other management solutions such as Group Policy and MECM may be servicing the allocation of printers to devices.
 
 Printing Design Decisions for cloud native implementations
 
@@ -1544,7 +1578,7 @@ Retention policies are created that ensure that data is retained forever for:
 * Exchange
 * SharePoint
 * OneDrive
-* Office 365 Groups
+* Microsoft 365 groups
 * Skype for Business
 * Exchange Public Folders
 * Teams channel messages
@@ -1569,7 +1603,7 @@ Additional RPO, RTO and Retention Periods Design Decisions for cloud native impl
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Restoration tools | Microsoft backup and restoration tools | The Agency will leverage Microsoft Office 365 native tools in the first instance to recover user data.
-Items to Backup | Exchange Online<br>SharePoint Online<br>Microsoft Teams<br>OneDrive for Business<br>Office 365 Groups | Backups must cover the Microsoft suite of tools at a minimum.
+Items to Backup | Exchange Online<br>SharePoint Online<br>Microsoft Teams<br>OneDrive for Business<br>Microsoft 365 groups | Backups must cover the Microsoft suite of tools at a minimum.
 Retention Policies | Up to maximum allowable days per Microsoft Office 365 application | For guidance only. Agencies are required to measure these against the business, application, regulatory and security requirements.
 
 Additional RPO, RTO and Retention Periods Design Decisions for hybrid implementations
@@ -1577,7 +1611,7 @@ Additional RPO, RTO and Retention Periods Design Decisions for hybrid implementa
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Restoration tools | Third party backup and restoration tools | Agencies should investigate third-party backup tools to backup and restore data on-premises and within the cloud.
-Items to Backup | Exchange Online<br>SharePoint Online<br>Microsoft Teams<br>OneDrive for Business<br>Office 365 Groups<br>On-premises Exchange<br>On-premises SharePoint | Backups must cover the Microsoft suite of tools at a minimum.
+Items to Backup | Exchange Online<br>SharePoint Online<br>Microsoft Teams<br>OneDrive for Business<br>Microsoft 365 groups<br>On-premises Exchange<br>On-premises SharePoint | Backups must cover the Microsoft suite of tools at a minimum.
 Retention Policies | At discretion of Agency | Retention policies for the backups should be determined by the Agency and measured against the business, application, regulatory and security requirements.
 
 ### Data availability
@@ -1614,11 +1648,11 @@ Administration consoles Design Decisions for all agencies and implementation typ
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Azure Portal | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://portal.azure.com](https://portal.azure.com/).<br>Standard users do not have access to the portal.
-Office 365 Admin Center | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://admin.microsoft.com/](https://admin.microsoft.com/)
+Microsoft 365 Admin Center | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://admin.microsoft.com/](https://admin.microsoft.com/)
 Microsoft Defender ATP Portal | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://securitycenter.windows.com/](https://securitycenter.windows.com/)
 MCAS Portal | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://portal.cloudappsecurity.com/](https://portal.cloudappsecurity.com/)
 Microsoft 365 Compliance Center | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://compliance.microsoft.com/](https://compliance.microsoft.com/)
-Microsoft Endpoint Manager Admin Center | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://devicemanagement.microsoft.com/](https://devicemanagement.microsoft.com/)
+Microsoft Endpoint Manager Admin Center | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://endpoint.microsoft.com/](https://endpoint.microsoft.com/)
 Microsoft 365 Security Center | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://security.microsoft.com/](https://security.microsoft.com/)
 Azure ATP Portal | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://portal.atp.azure.com/](https://portal.atp.azure.com/)
 Microsoft Defender Security Intelligence Portal | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://microsoft.com/wdsi/](https://microsoft.com/wdsi/)

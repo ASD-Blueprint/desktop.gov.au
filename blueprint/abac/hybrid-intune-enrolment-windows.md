@@ -1,12 +1,12 @@
 ---
 layout: page
-title: Hybrid - Intune enrolment for Windows devices
+title: Hybrid - Microsoft Endpoint Manager - Intune enrolment for Windows devices
 menu: abac
 ---
 
 ## IntuneEnrollerDevices
 
-`Intune > Devices > Enroll devices > Deployment Profiles`
+`Microsoft Endpoint Manager > Devices > Enroll devices > Deployment Profiles`
 
 * Name: `IntuneEnrollerDevices`
 * Description: `Devices enrolled in Intune via autopilot`

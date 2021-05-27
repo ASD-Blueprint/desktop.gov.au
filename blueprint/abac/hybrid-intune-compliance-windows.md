@@ -1,10 +1,10 @@
 ---
 layout: page
-title: Hybrid - Intune compliance for Windows devices
+title: Hybrid - Microsoft Endpoint Manager - Intune compliance for Windows devices
 menu: abac
 ---
 
-`Intune > Devices > Compliance policies > Policies`
+`Microsoft Endpoint Manager > Devices > Compliance policies > Policies`
 
 ## Windows 10 compliance
 

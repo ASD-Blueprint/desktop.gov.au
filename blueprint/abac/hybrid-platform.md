@@ -228,7 +228,7 @@ The ABAC settings for the Agency Identity and Access Management can be found bel
   * Applications: `None`
   * Licenses: `Microsoft 365 E5`
   * Azure role assignment: `None`
-* Group Name: `Office365_AssignLicense_StandardUsers`
+* Group Name: `rol-Agency-Users`
   * Membership type: `Assigned`
   * Source: `Windows server AD`
   * Type: `Security`
@@ -302,13 +302,14 @@ Not selected – Federation with PingFederate
   * Sync selected domains and OUs:
 ```
 Department
-Groups
-Admin
-Security Access
-Users
-Admin
-General
-Service Accounts
+  * Groups
+    * Admin
+    * Security Access
+  * Users
+    * Admin
+    * General
+    * Service Accounts
+  * Computers
 ```
 
   * How users should be identified in your on-premises directories: `Users are represented only once across all directories`
@@ -361,6 +362,7 @@ Department
     * Admin
     * General
     * Service Accounts
+  * Computers
 ```
   * How users should be identified in your on-premises directories: `Users are represented only once across all directories`
   * How users should be identified with Azure AD: `ms-DS-Consistency-Guid`
@@ -706,7 +708,7 @@ Sync_<account_2>_b49bd30fb398@<Agency>.onmicrosoft.com
 
 * Guest users' permissions are limited: `Yes`
 * Admins and users in the guest inviter role can invite:
-  * `Yes` (for Dev environment ONLY. Details in Design Decision Deviations of the RAID Register)
+  * `Yes` (for Dev environment ONLY. Discussion and design decision details available in the [Platform blueprint](/blueprint/platform.html#collaboration) )
   * `No` for production
 * Members can invite: `No`
 * Guests can invite: `No`

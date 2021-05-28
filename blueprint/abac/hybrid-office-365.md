@@ -58,8 +58,8 @@ Table 4 describes the configuration for the manual allocation of Microsoft 365 E
 
 Name | State
 --- | ---
-Office365_AssignLicense_Administrators | Active
-Office365_AssignLicense_CloudUsers | Active
+rol-Agency-Administrators | Active
+rol-Agency-Users | Active
 Office365_AssignLicense_StandUsers | Active
 
 
@@ -649,7 +649,7 @@ Owner Audited Actions | ApplyRecord<br>Create<br>HardDelete<br>MailboxLogin<br>M
 
 #### Disclaimer
 
-* Apply this rule if: The recipient is locked..`Outside the organization`
+* Apply this rule if: The recipient is located `Outside the organization`
 * Do the following actions: Append the message with the disclaimer
 
 ```
@@ -672,13 +672,13 @@ Owner Audited Actions | ApplyRecord<br>Create<br>HardDelete<br>MailboxLogin<br>M
 
 #### UNOFFICIAL
 
-* If the message: Is sent to `Inside the organization` **and** `msip_labels` header contains `MSIP_Label_217258b3-6022-44f0-adb4-d6eca052ad20_Enabled=true` **and** Is received from `Inside the organization`
+* If the message: Is sent to `Inside the organization` **and** `msip_labels` header contains `MSIP_Label_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX_Enabled=true` **and** Is received from `Inside the organization`
 * Take the following actions: Prepend the subject with `[SEC=UNOFFICIAL]`
 * Except if the message: Includes these patterns in the message subject: `(SEC=UNOFFICIAL)`
 * ExceptIfSubjectMatchesPatterns: `(SEC=UNOFFICIAL)`
 * FromScope: `InOrganization`
 * HeaderContainsMessageHeader: `msip_labels`
-* HeaderContainsWords: `MSIP_Label_217258b3-6022-44f0-adb4-d6eca052ad20_Enabled=true`
+* HeaderContainsWords: `MSIP_Label_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX_Enabled=true`
 * Mode: `Enforce`
 * Name: `UNOFFICIAL`
 * PrependSubject: `[SEC=UNOFFICIAL]`
@@ -688,13 +688,13 @@ Owner Audited Actions | ApplyRecord<br>Create<br>HardDelete<br>MailboxLogin<br>M
 
 #### OFFICIAL
 
-* If the message: Is sent to `Inside the organization` **and** `msip_labels` header contains `MSIP_Label_8260affa-0595-45d6-a83e-a3b79a9c02c4_Enabled=true` **and** Is received from `Inside the organization`
+* If the message: Is sent to `Inside the organization` **and** `msip_labels` header contains `MSIP_Label_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX_Enabled=true` **and** Is received from `Inside the organization`
 * Take the following actions: Prepend the subject with `[SEC=OFFICIAL]`
 * Except if the message: Includes these patterns in the message subject: `(SEC=OFFICIAL)`
 * ExceptIfSubjectMatchesPatterns: `(SEC=OFFICIAL)`
 * FromScope: `InOrganization`
 * HeaderContainsMessageHeader: `msip_labels`
-* HeaderContainsWords: `MSIP_Label_8260affa-0595-45d6-a83e-a3b79a9c02c4_Enabled=true`
+* HeaderContainsWords: `MSIP_Label_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX_Enabled=true`
 * Mode: `Enforce`
 * Name: `OFFICIAL`
 * PrependSubject: `[SEC=OFFICIAL]`
@@ -704,13 +704,13 @@ Owner Audited Actions | ApplyRecord<br>Create<br>HardDelete<br>MailboxLogin<br>M
 
 #### OFFICIAL:Sensitive
 
-* If the message: Is sent to `Inside the organization` **and** `msip_labels` header contains `MSIP_Label_42227f60-6734-42bf-b4e6-da15ab730981_Enabled=true` **and** Is received from `Inside the organization`
+* If the message: Is sent to `Inside the organization` **and** `msip_labels` header contains `MSIP_Label_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX_Enabled=true` **and** Is received from `Inside the organization`
 * Take the following actions: Prepend the subject with `[SEC=OFFICIAL:Sensitive]`
 * Except if the message: Includes these patterns in the message subject: `(SEC=OFFICIAL:Sensitive)`
 * ExceptIfSubjectMatchesPatterns: `(SEC=OFFICIAL:Sensitive)`
 * FromScope: `InOrganization`
 * HeaderContainsMessageHeader: `msip_labels`
-* HeaderContainsWords: `MSIP_Label_42227f60-6734-42bf-b4e6-da15ab730981_Enabled=true`
+* HeaderContainsWords: `MSIP_Label_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX_Enabled=true`
 * Mode: `Enforce`
 * Name: `OFFICIAL:Sensitive`
 * PrependSubject: `[SEC=OFFICIAL:Sensitive]`
@@ -720,13 +720,13 @@ Owner Audited Actions | ApplyRecord<br>Create<br>HardDelete<br>MailboxLogin<br>M
 
 #### PROTECTED
 
-* If the message: Is sent to `Inside the organization` **and** `msip_labels` header contains `MSIP_Label_12dcf2ca-f80e-4ac2-861b-4b6557faeea3_Enabled=true` **and** Is received from `Inside the organization`
+* If the message: Is sent to `Inside the organization` **and** `msip_labels` header contains `MSIP_Label_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX_Enabled=true` **and** Is received from `Inside the organization`
 * Take the following actions: Prepend the subject with `[SEC=PROTECTED]`
 * Except if the message: Includes these patterns in the message subject: `(SEC=PROTECTED)`
 * ExceptIfSubjectMatchesPatterns: `(SEC=PROTECTED)`
 * FromScope: `InOrganization`
 * HeaderContainsMessageHeader: `msip_labels`
-* HeaderContainsWords: `MSIP_Label_12dcf2ca-f80e-4ac2-861b-4b6557faeea3_Enabled=true`
+* HeaderContainsWords: `MSIP_Label_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX_Enabled=true`
 * Mode: `Enforce`
 * Name: `PROTECTED`
 * PrependSubject: `[SEC=PROTECTED]`
@@ -991,7 +991,7 @@ These settings have been configured using PowerShell.
   * Applications: `None`
   * Licenses: `None`
   * Azure role assignment: `None`
-* Group Name: `Office365_AssignLicense_CloudUsers`
+* Group Name: `rol-Agency-Users`
   * Membership type: `Assigned`
   * Source: `Cloud`
   * Type: `Security`
@@ -1001,7 +1001,7 @@ These settings have been configured using PowerShell.
   * Applications: `None`
   * Licenses: `Microsoft 365 E5`
   * Azure role assignment: `None`
-* Group Name: `Office365_AssignLicense_StandardUsers`
+* Group Name: `rol-Agency-Users`
   * Membership type: `Assigned`
   * Source: `Windows server AD`
   * Type: `Security`

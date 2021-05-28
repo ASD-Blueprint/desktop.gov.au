@@ -33,7 +33,7 @@ The Terms of Use document is a pdf document provided by the department and is up
 * Frequency: `N/A`
 * Duration before re-acceptance required (days): `N/A`
 * Languages
-  * English (Default): Agency supplied
+  * English: Agency supplied
 
 ## Conditional access policies
 
@@ -141,7 +141,7 @@ The global policy blocks all connections from countries not in the allowed count
     * Persistent browser session: `False`
 * Enable policy: `On`
 
-### Grant - reqiure MFA for administrators
+### Grant - require MFA for administrators
 
 This global policy requires all administrators to authenticate using multi-factor authentication. 
 
@@ -399,7 +399,9 @@ User Administrator
     * Sign-in risk
       * Configure: `No`
     * Device platforms
-      * Configure: `No`
+      * Configure: `Yes`
+        * Include: `Any Device`
+        * Exclude: `Android, iOS, macOS`
     * Locations
       * Configure: `Yes`
       * Include: `Any location`
@@ -428,7 +430,6 @@ User Administrator
     * Persistent browser session: `False`
 * Enable policy
   * Report-only: `On`
-  * Exclude device platforms macOS, iOS, and Android from this policy: `True`
 
 ### Block - unmanaged mobile devices
 

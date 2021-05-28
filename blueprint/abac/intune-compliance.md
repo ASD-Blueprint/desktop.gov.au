@@ -95,7 +95,7 @@ The following Microsoft Endpoint Manager - Intune (Intune) applications can be f
     * Number of previous passwords to prevent reuse: `5`
 * Actions for noncompliance
   * Action: `Mark device noncompliant`
-  * Scedule: `Immediately`
+  * Schedule: `Immediately`
 * Scope tags: `Default`
 * Assignments
   * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`

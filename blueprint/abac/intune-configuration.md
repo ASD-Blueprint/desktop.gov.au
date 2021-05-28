@@ -284,7 +284,7 @@ Configuration settings
 
 ClassType | CategoryPath | DisplayName | Value | Enabled
 --- | --- | --- | --- | --- 
-user | \OneDrive | Coauthor and share in Office desktop apps |  | true
+user | \OneDrive | Co-author and share in Office desktop apps |  | true
 user | \OneDrive | Prevent users from syncing personal OneDrive accounts |  | true
 
 ### Agency-TimeZoneEST
@@ -390,7 +390,7 @@ The policy GUID in the OMA-URI must be unique to your environment. It can be fou
 * Scope tags: `Default`
 * Assignments
   * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`
-  * Excluded groups: `grp-Windows-10-Devices`
+  * Excluded groups: `grp-agency-windows10-dynamic`
 
 ### iOS device restrictions
 
@@ -429,7 +429,7 @@ The policy GUID in the OMA-URI must be unique to your environment. It can be fou
     * Require Password: `Yes`
     * Block simple passwords: `Yes`
     * Required password type: `Alphanumeric`
-    * Number of non-alphanumerics characters in password: `1`
+    * Number of non-alphanumeric characters in password: `1`
     * Minimum password length: `14`
     * Number of sign-in failures before wiping the device: `11`
     * Maximum minutes after screen lock before password is required: `Immediately`
@@ -599,7 +599,7 @@ The policy GUID in the OMA-URI must be unique to your environment. It can be fou
 * Scope tags: `Default`
 * Assignments
   * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`
-  * Excluded groups: `grp-Windows-10-Devices`
+  * Excluded groups: `grp-agency-windows10-dynamic`
 
 ### iOS per app VPN
 
@@ -617,24 +617,7 @@ The policy GUID in the OMA-URI must be unique to your environment. It can be fou
   * Block users from disabling automatic VPN: `Yes`
 * Assignments
   * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`
-  * Excluded groups: `grp-Windows-10-Devices`
-
-### SecBaselineFix-AT
-
-* Name: `SecBaselineFix-AT`
-* Description: -
-* Type: `Windows 10 and later`
-* Profile Type: `Administrative Templates`
-* Scope tags: `Default`
-* Assignments
-  * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`
-  * Excluded groups: -
-
-Configuration settings
-
-ClassType | CategoryPath | DisplayName | Value | Enabled
---- | --- | --- | --- | --- 
-computer | \Windows Components\Internet Explorer\Security Features\Add-On Management | Turn off Adobe Flash in Internet Explorer and prevent applications from using Internet Explorer technology to instantiate Flash object |  | true
+  * Excluded groups: `grp-agency-windows10-dynamic`
 
 ### SecBaselineFix-EP
 
@@ -677,7 +660,7 @@ computer | \Windows Components\Internet Explorer\Security Features\Add-On Manage
     * Encryption for operation system drives: `XTS-AES 256-bit`
     * Encryption for fixed data-drives: `XTS-AES 256-bit`
     * Encryption for removable data-drives: `XTS-AES 256-bit`
-    * Additional authentication at startup: `Require`
+    * Additional authentication at start-up: `Require`
     * OS drive recovery: `Enable`
     * Recovery options in the BitLocker setup wizard: `Block`
     * Save BitLocker recovery information to Azure Active Directory: `Enable`

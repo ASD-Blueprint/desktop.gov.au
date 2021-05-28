@@ -1128,7 +1128,6 @@ Table 24 describes the Sensitivity label configuration settings.
 ```
 [tooltip, No damage. This information does not form part of official duty]
 [displayname, Unofficial]
-[aiplabelversion, 795ef17b-06a6-4992-81d6-ea3ae5d5d9ae]
 [colour, #000000]
 ```
 * Label Actions:
@@ -1232,7 +1231,6 @@ Table 24 describes the Sensitivity label configuration settings.
 ```
 [tooltip, 1 Low business impact No or insignificant damage. This is the majority of routine information.]
 [displayname, Official]
-[aiplabelversion, 502d91b8-27d5-4ea1-afae-b2286de4b919]
 [colour, #000000]
 ```
 * Label Actions:
@@ -1336,7 +1334,6 @@ Table 24 describes the Sensitivity label configuration settings.
 ```
 [tooltip, 2 Low to medium business impact Limited damage to an individual, organisation or government generally if compromised]
 [displayname, OFFICIAL Sensitive]
-[aiplabelversion, 1ad791ca-a578-4a9b-9cd1-151450f56d31]
 [colour, #000000]
 ```
 * Label Actions:
@@ -1440,7 +1437,6 @@ Table 24 describes the Sensitivity label configuration settings.
 ```
 [tooltip, 3 High business impact Damage to the national interest, organisations, or individuals]
 [displayname, Protected]
-[aiplabelversion, eb578c99-dd28-4f73-b85a-147490d41bab]
 [colour, #000000]
 ```
 * Label Actions:
@@ -1540,7 +1536,7 @@ Table 24 describes the Sensitivity label configuration settings.
 
 Table 25 lists the Sensitivity label policy configuration.
 
-`Office 365 Security & compliance > Information protection > Label polices > agency acronym sensitivity labels`
+`Microsoft 365 Security Center > Classification > Sensitvitiy labels > Label policies> agency acronym sensitivity labels`
 
 Item | Configuration
 --- | ---
@@ -1554,7 +1550,7 @@ Policy settings | Label is mandatory<br>Users must provide justification to remo
 
 * Name: `Australia Privacy Act`
   * Enabled: `True`
-  * Workload: `Exchange, SharePoint, OneDriveForBusiness, Teams`
+  * Locations: `Exchange, SharePoint, OneDriveForBusiness, Teams`
   * Mode: `Enable`
   * Type: `DLP`
   * Exchange Location:

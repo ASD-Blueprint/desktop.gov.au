@@ -180,7 +180,7 @@ user | \Microsoft Publisher 2016\Security | Publisher Automation Security Level 
   * Turn off Adobe Flash in Internet Explorer and prevent applications from using Internet Explorer technology to instantiate Flash objects: `Enable`
 * Scope tags: `Default`
 * Assignments
-  * Included groups: All users, All devices
+  * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`
   * Excluded groups: -
 
 ### Agency-MicrosoftStore-User
@@ -198,7 +198,7 @@ user | \Microsoft Publisher 2016\Security | Publisher Automation Security Level 
     * Integer value: `1` 
 * Scope tags: `Default`
 * Assignments
-  * Included groups: All users, All devices
+  * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`
   * Excluded groups: -
 
 ### Agency-MSDefenderATP

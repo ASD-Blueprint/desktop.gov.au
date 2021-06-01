@@ -163,9 +163,9 @@ Collaboration is initially controlled by lists of allowed domains. Individual us
 
 This blueprint does not include design information for a Secure Internet Gateway (SIG). A SIG is listed as a requirement in the Protective Security Policy Framework (PSPF) [Robust ICT Systems](https://www.protectivesecurity.gov.au/information/robust-ict-systems/Pages/default.aspx). 
 
-### Per App Virtual Private Network
+### Virtual private network
 
-This blueprint does not include end to end design information regarding the configuration of a per app Virtual Private Network (VPN). A per app VPN is listed as a requirement in the Australian Cyber Security Centre (ACSC) [iOS 14 hardening guide](https://www.cyber.gov.au/acsc/view-all-content/publications/security-configuration-guide-apple-ios-14-devices). The configuration defined in the blueprint aligns to this guide. Agencies should leverage a risk based approach in the selection and configuration of a VPN appliance. 
+If you are considering the use of Apple iOS devices such as iPhones or iPads, [ACSC's Security Configuration Guide for Apple iOS 14 Devices](https://www.cyber.gov.au/acsc/view-all-content/publications/security-configuration-guide-apple-ios-14-devices) requires the use of a virtual private network to protect in transit communication. The blueprint includes [suggested per app VPN configuration](/blueprint/abac/intune-configuration.html#ios-per-app-vpn), however the selection and configuration of a VPN server is the responsibility of the agency. Please ensure you leverage a risk based approach in the selection and configuration of a VPN server.
 
 ## Security
 

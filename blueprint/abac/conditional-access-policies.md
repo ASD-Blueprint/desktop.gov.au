@@ -4,7 +4,7 @@ title: Conditional access policies
 menu: abac
 ---
 
-The following conditional access policies can be found in the Azure Portal at `Search > Azure AD Conditional Access | Policies`
+The following conditional access policies can be found in the Azure Portal at `Azure AD Conditional Access | Policies`
 
 ## Block - legacy authentication
 
@@ -22,6 +22,8 @@ This global policy blocks all connections from unsecure legacy protocols like Ac
     * Include: `All Cloud Apps`
     * Exclude: `None`
   * Conditions
+    * User risk:
+      * Configure: `No`
     * Sign-in risk
       * Configure: `No`
     * Device platforms
@@ -34,7 +36,6 @@ This global policy blocks all connections from unsecure legacy protocols like Ac
       * Mobile apps and desktop clients: `True`
       * Modern authentication clients: `False`
       * Exchange ActiveSync clients: `True`
-      * Apply policy only to supported platforms: `False`
       * Other clients: `True`
     * Device state
       * Configure: `No`
@@ -47,6 +48,7 @@ This global policy blocks all connections from unsecure legacy protocols like Ac
     * Require Hybrid Azure AD joined device: `False`
     * Require approved client app: `False`
     * Require app protection policy: `False`
+    * Require password change: `False`
     * Terms of Use: `False`
     * Require all the selected controls: `No`
     * Require one of the selected controls: `Yes`
@@ -75,6 +77,8 @@ This global policy blocks all high-risk authentications (requires Azure AD Premi
     * Include: `All cloud apps`
     * Exclude: `None`
   * Conditions
+    * User risk:
+      * Configure: `No`
     * Sign-in risk
       * Configure: `Yes`
       * Select the sign-in risk level this policy will apply to: `High`
@@ -95,6 +99,7 @@ This global policy blocks all high-risk authentications (requires Azure AD Premi
     * Require Hybrid Azure AD joined device: `False`
     * Require approved client app: `False`
     * Require app protection policy: `False`
+    * Require password change: `False`
     * Terms of Use: `False`
     * Require all the selected controls: `No`
     * Require one of the selected controls: `No`
@@ -123,6 +128,8 @@ The global policy blocks all connections from countries not in the allowed count
     * Include: `All cloud apps`
     * Exclude: `None`
   * Conditions
+    * User risk:
+      * Configure: `No`
     * Sign-in risk
       * Configure: `No`
     * Device platforms:
@@ -146,6 +153,7 @@ The global policy blocks all connections from countries not in the allowed count
     * Require Hybrid Azure AD joined device: `False`
     * Require approved client app: `False`
     * Require app protection policy: `False`
+    * Require password change: `False`
     * Terms of Use: `False`
     * Require all the selected controls: `No`
     * Require one of the selected controls: `Yes`
@@ -174,6 +182,8 @@ This global policy forces Terms of Use on all authentications.
     * Include: `All cloud apps`
     * Exclude: `None`
   * Conditions
+    * User risk:
+      * Configure: `No`
     * Sign-in risk
       * Configure: `No`
     * Device platforms:
@@ -193,6 +203,7 @@ This global policy forces Terms of Use on all authentications.
     * Require Hybrid Azure AD joined device: `False`
     * Require approved client app: `False`
     * Require app protection policy: `False`
+    * Require password change: `False`
     * Terms of Use: `True`
     * Require all the selected controls: `No`
     * Require one of the selected controls: `Yes`
@@ -221,6 +232,8 @@ General browser access policy that grants authentication from a browser on any d
     * Include: `All cloud apps`
     * Exclude: `None`
   * Conditions
+    * User risk:
+      * Configure: `No`
     * Sign-in risk
       * Configure: `No`
     * Device platforms:
@@ -229,8 +242,11 @@ General browser access policy that grants authentication from a browser on any d
       * Configure: `No`
     * Client apps
       * Configure: `Yes`
-      * Browser: `Yes`
-      * Mobile apps and desktop clients: `N/A`
+        * Browser: `True`
+        * Mobile apps and desktop clients: `False`
+        * Modern authentication clients: `False`
+        * Exchange ActiveSync clients: `False`
+        * Other clients: `False`
     * Device state:
       * Configure: `No`
 * Access controls
@@ -242,6 +258,7 @@ General browser access policy that grants authentication from a browser on any d
     * Require Hybrid Azure AD joined device: `False`
     * Require approved client app: `False`
     * Require app protection policy: `False`
+    * Require password change: `False`
     * Terms of Use: `False`
     * Require all the selected controls: `No`
     * Require one of the selected controls: `Yes`
@@ -272,6 +289,8 @@ Browsers on unmanaged devices can never download files and attachments from Shar
       * `Office 365 SharePoint Online`
     * Exclude: `None`
   * Conditions
+    * User risk:
+      * Configure: `No`
     * Sign-in risk
       * Configure: `No`
     * Device platforms:
@@ -280,8 +299,10 @@ Browsers on unmanaged devices can never download files and attachments from Shar
       * Configure: `No`
     * Client apps
       * Configure: `Yes`
-      * Browser: `Yes`
-      * Mobile apps and desktop clients: `N/A`
+        * Browser: `True`
+        * Mobile apps and desktop clients: `False`
+        * Exchange ActiveSync clients: `False`
+        * Other clients: `False`
     * Device state:
       * Configure: `Yes`
       * Include: `All device state`
@@ -295,6 +316,7 @@ Browsers on unmanaged devices can never download files and attachments from Shar
     * Require Hybrid Azure AD joined device: `False`
     * Require approved client app: `False`
     * Require app protection policy: `False`
+    * Require password change: `False`
     * Terms of Use: `False`
     * Require all the selected controls: `No`
     * Require one of the selected controls: `Yes`
@@ -325,6 +347,8 @@ Devices are allowed to authenticate to Microsoft Endpoint Manager - Intune (Intu
       * `Microsoft Intune Enrolment`
     * Exclude: `None`
   * Conditions
+    * User risk:
+      * Configure: `No`
     * Sign-in risk
       * Configure: `No`
     * Device platforms:
@@ -337,10 +361,6 @@ Devices are allowed to authenticate to Microsoft Endpoint Manager - Intune (Intu
       * Configure: `No`
     * Client apps
       * Configure: `No`
-      * Browser: `No`
-      * Mobile apps and desktop clients: `Yes`
-      * Exchange ActiveSync clients: `Yes`
-      * Other clients: `No`
     * Device state:
       * Configure: `No`
 * Access controls
@@ -352,6 +372,7 @@ Devices are allowed to authenticate to Microsoft Endpoint Manager - Intune (Intu
     * Require Hybrid Azure AD joined device: `False`
     * Require approved client app: `False`
     * Require app protection policy: `False`
+    * Require password change: `False`
     * Terms of Use: `False`
     * Require all the selected controls: `No`
     * Require one of the selected controls: `Yes`
@@ -382,6 +403,8 @@ Grants access to managed mobile devices that are enrolled and compliant in Intun
       * `Office 365 SharePoint Online`
     * Exclude: `Microsoft Intune`
   * Conditions
+    * User risk:
+      * Configure: `No`
     * Sign-in risk
       * Configure: `No`
     * Device platforms:
@@ -404,6 +427,7 @@ Grants access to managed mobile devices that are enrolled and compliant in Intun
     * Require Hybrid Azure AD joined device: `False`
     * Require approved client app: `True`
     * Require app protection policy: `False`
+    * Require password change: `False`
     * Terms of Use: `False`
     * Require all the selected controls: `Yes`
     * Require one of the selected controls: `No`
@@ -434,6 +458,8 @@ Grants access to managed Windows devices that are Azure AD joined.
       * `Microsoft Intune`
       * `Microsoft Intune Enrollment`
   * Conditions
+    * User risk:
+      * Configure: `No`
     * Sign-in risk
       * Configure: `No`
     * Device platforms:
@@ -445,11 +471,10 @@ Grants access to managed Windows devices that are Azure AD joined.
       * Configure: `No`
     * Client apps
       * Configure: `Yes`
-      * Browser: `No`
-      * Mobile apps and desktop clients: `Yes`
-      * Exchange ActiveSync clients: `Yes`
-      * Apply policy only to supported platforms: `No`
-      * Other clients: `No`
+        * Browser: `False`
+        * Mobile apps and desktop clients: `True`
+        * Exchange ActiveSync clients: `True`
+        * Other clients: `False`
     * Device state:
       * Configure: `No`
 * Access controls
@@ -461,6 +486,7 @@ Grants access to managed Windows devices that are Azure AD joined.
     * Require Hybrid Azure AD joined device: `False`
     * Require approved client app: `False`
     * Require app protection policy: `False`
+    * Require password change: `False`
     * Terms of Use: `False`
     * Require all the selected controls: `Yes`
     * Require one of the selected controls: `No`
@@ -492,6 +518,8 @@ Approved apps that guest users can access (requires MFA).
       * `Microsoft Teams`
     * Exclude: `None`
   * Conditions
+    * User risk:
+      * Configure: `No`
     * Sign-in risk
       * Configure: `No`
     * Device platforms:
@@ -511,6 +539,7 @@ Approved apps that guest users can access (requires MFA).
     * Require Hybrid Azure AD joined device: `False`
     * Require approved client app: `False`
     * Require app protection policy: `False`
+    * Require password change: `False`
     * Terms of Use: `False`
     * Require all the selected controls: `No`
     * Require one of the selected controls: `Yes`
@@ -540,6 +569,8 @@ Approved apps that guest users can access (requires MFA).
       * `Microsoft Planner`
       * `Microsoft Teams`
   * Conditions
+    * User risk:
+      * Configure: `No`
     * Sign-in risk
       * Configure: `No`
     * Device platforms:
@@ -559,6 +590,7 @@ Approved apps that guest users can access (requires MFA).
     * Require Hybrid Azure AD joined device: `False`
     * Require approved client app: `False`
     * Require app protection policy: `False`
+    * Require password change: `False`
     * Terms of Use: `False`
     * Require all the selected controls: `No`
     * Require one of the selected controls: `Yes`

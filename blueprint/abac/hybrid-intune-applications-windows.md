@@ -54,7 +54,7 @@ Version: Greater than or equal to 20.2.0.7
 * Scope tags: `Default`
 * Assignments
   * Required: -
-  * Available for enrolled devices: -
+  * Available for enrolled devices: `rol-Agency-Administrators`, `rol-Agency-Users`
   * Uninstall: -
 
 ### Microsoft Edge for Windows 10
@@ -76,7 +76,7 @@ Version: Greater than or equal to 20.2.0.7
   * Logo: ![Microsoft Edge for Windows 10](/assets/images/abac/microsoft-edge-for-windows-10.png)
 * Scope tags: `Default`
 * Assignments
-  * Required: `All devices`, `All users`
+  * Required: `rol-Agency-Administrators`, `rol-Agency-Users`
   * Available for enrolled devices: -
   * Available with or without enrollment: -
   * Uninstall: -
@@ -106,7 +106,7 @@ Version: Greater than or equal to 20.2.0.7
   * Apps to be installed as part of the suite: `No languages selected`
 * Scope tags: `Default`
 * Assignments
-  * Required: -
+  * Required: `grp-agency-windows10-dynamic`
   * Uninstall: -
 
 ## Windows information protection
@@ -166,6 +166,6 @@ Agency.sharepoint.com|Agency-my.sharepoint.com|Agency-files.sharepoint.com|tasks
     * Allow Windows Search Indexer to search encrypted items: `On`
     * Encrypted file extensions: -
 * Assignments
-  * Included groups: -
+  * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`
   * Excluded groups: -
 * Scope tags: `Default`

@@ -8,7 +8,7 @@ menu: abac
 
 ### Azure Active Directory
 
-`Search > Azure Active Directory > Properties`
+`Azure Active Directory > Properties`
 
 * Name: `<Agency Name>`
 * Country or Region: `Australia`
@@ -19,7 +19,7 @@ menu: abac
 * Privacy Statement URL: `Not configured`
 * Access management for Azure Resources: `No`
 
-`Search > Azure Active Directory > Users > User settings > Enterprise applications`
+`Azure Active Directory > Users > User settings > Enterprise applications`
 
 * Enterprise applications
   * Users can consent to apps accessing information on their behalf: `No`
@@ -33,7 +33,7 @@ menu: abac
 * Office 365 Settings
   * Users can only see Office 365 apps in the Office 365 portal: `No`
 
-`Search > Azure Active Directory > Users > User settings`
+`Azure Active Directory > Users > User settings`
 
 * App registrations
   * Users can register applications: `No`
@@ -42,7 +42,7 @@ menu: abac
 * LinkedIn account connections
   * Allow users to connect work or school account with LinkedIn: `No`
 
-`Search > Azure Active Directory > Users > User settings > External collaboration settings`
+`Azure Active Directory > Users > User settings > External collaboration settings`
 
 * Guest user access: `Guest users have limited access to properties and memberships of directory objects`
 * Guest invite settings
@@ -50,13 +50,13 @@ menu: abac
   * Members can invite: `No`
   * Guests can invite: `No`
   * Enable guest self-service sign up via user flows: `No`
-* Enable Email One-time passcode for guests: `No`
+* Enable Email One-time passcode for guests: `Disable email one-time passcode for guests`
 * Collaboration restrictions
   * Allow invitations only to the specified domains (most restrictive): `Selected`
   * Target domains:
     * `<Agency>.gov.au`
 
-`Search > Azure Active Directory > Groups > General`
+`Azure Active Directory > Groups > General`
 
 * Self Service Group Management
   * Owners can manage group membership requests in the Access Panel: `No`
@@ -66,22 +66,22 @@ menu: abac
 * Microsoft 365 Groups
   * Users can create Microsoft 365 groups in Azure portals: `No`
 
-`Search > Azure Active Directory > Groups > Expiration`
+`Azure Active Directory > Groups > Expiration`
 
 * Group lifetime (in days): `365`
 * Email contact for groups with no owners: `Office365_Group_Expiration@<Agency>.gov.au`
 * Enable expiration for these Microsoft 365 groups: `None`
 
-`Search > Azure Active Directory > Groups > Naming policy`
+`Azure Active Directory > Groups > Naming policy`
 
 * Blocked words: `Not configured`
 
-`Search > Azure Active Directory > Custom domain names`
+`Azure Active Directory > Custom domain names`
 
 * `<Agency>.gov.au (Primary)`
 * `<Agency>.onmicrosoft.com`
 
-`Search > Azure Active Directory > Company branding`
+`Azure Active Directory > Company branding`
 
 * Locale: `Default`
   * Sign-in Page background image (1920x1080px):	Generic Australian Government Background
@@ -94,7 +94,7 @@ menu: abac
   * Square logo image, dark theme (240x240px): -
   * Show option to remain signed in: `No`
 
-`Search > Azure Active Directory > Devices > Device settings`
+`Azure Active Directory > Devices > Device settings`
 
 * Users may join devices to Azure AD: `All`
 * Devices to be Azure AD joined or Azure AD registered require Muti-Factor Authentication: `No`
@@ -102,34 +102,34 @@ menu: abac
 * Additional local administrators on all Azure AD joined devices: -
 * Enterprise State Roaming: -
 
-`Search > Azure Active Directory > Devices > Enterprise State Roaming`
+`Azure Active Directory > Devices > Enterprise State Roaming`
 
 * Users may sync settings and app data across devices: `All`
 
-`Search > Azure Active Directory > Password reset > Properties`
+`Azure Active Directory > Password reset > Properties`
 
 * Self-service password reset enabled: `All`
 
-`Search > Azure Active Directory > Password reset > Authentication methods`
+`Azure Active Directory > Password reset > Authentication methods`
 
 * Number of methods required to reset: `2`
 * Methods available to users: `Mobile app notification`, `Email`, `Mobile phone`
 
-`Search > Azure Active Directory > Password reset > Registration`
+`Azure Active Directory > Password reset > Registration`
 
 * Require users to register when signing in?: `Yes`
 * Number of days before users are asked to re-confirm their authentication information: `180`
 
-`Search > Azure Active Directory > Password reset > Notifications`
+`Azure Active Directory > Password reset > Notifications`
 
 * Notify users on password resets?: `Yes`
 * Notify all admins when other admins reset their password?: `Yes`
 
-`Search > Azure Active Directory > Password reset > Customization`
+`Azure Active Directory > Password reset > Customization`
 
 * Customize helpdesk line: `No`
 
-`Search > Azure Active Directory > Password reset > On-premises integration`
+`Azure Active Directory > Password reset > On-premises integration`
 
 * Write back passwords to your on-premises directory?: `Not configured`
 * Allow users to unlock accounts without resetting their password?: `Not configured`
@@ -282,28 +282,28 @@ menu: abac
 
 ### Emergency access admin accounts
 
-`Search > Azure Active Directory > Users > Break Glass > Profile`
+`Azure Active Directory > Users > Break Glass > Profile`
 
 * Name: `Break Glass`
 * User Principal Name: `break.glass_priv@<Tenant Name>.onmicrosoft.com`
 * User Type: `Member`
 
-`Search > Azure Active Directory > Users > Break Glass > Assigned roles`
+`Azure Active Directory > Users > Break Glass > Assigned roles`
 
 * Active assignments: `Global Administrator`
 
-`Search > Azure Active Directory > Users > Break Glass > Groups`
+`Azure Active Directory > Users > Break Glass > Groups`
 
 * Name: `Excluded from CA`, `rol-Agency-Administrators`, `<Agency Name>`, `All Users`
 
-`Search > Azure Active Directory > Users > Break Glass > Licenses`
+`Azure Active Directory > Users > Break Glass > Licenses`
 
 * Products: `Microsoft 365 E5`
 * Assignment Paths: `Inherited (rol-Agency-Administrators)`
 
 ### Azure Active Directory identity protection
 
-`Search > Azure Active Directory > Security > Identity Protection > Sign-in risk policy`
+`Azure Active Directory > Security > Identity Protection > Sign-in risk policy`
 
 * Policy Name: `Sign-in risk remediation policy`
   * Assignments
@@ -316,7 +316,7 @@ menu: abac
     * Require multi-factor authentication: `Checked`
   * Enforce policy: `On`
 
-`Search > Azure Active Directory > Security > Identity Protection > User risk policy`
+`Azure Active Directory > Security > Identity Protection > User risk policy`
 
 * Policy Name: `User risk remediation policy`
   * Assignments
@@ -331,12 +331,13 @@ menu: abac
 
 ### Azure Active Directory multifactor authentication
 
-`Search > Multi-Factor Authentication > Fraud alert`
+`Multi-Factor Authentication > Fraud alert`
 
 * Allow users to submit fraud alerts: `On`
 * Automatically block users who report fraud: `On`
+* Code to report fraud during initial greeting: `0`
 
-`Search > Multi-Factor Authentication > Getting started > Configure additional cloud-based MFA settings`
+`Multi-Factor Authentication > Getting started > Configure additional cloud-based MFA settings`
 
 * App passwords: `Do not allow users to create app passwords to sign in to non-browser apps`
 * Trusted IPs: `Not configured`
@@ -345,7 +346,7 @@ menu: abac
 
 ### Licensing
 
-Table 6 describes the user (`rol-agency-users`) licensing settings that are configured within the tenant available at `Search > Azure Active Directory > Groups > All groups > rol-Agency-Users > Licenses > Microsoft 365 E5`
+Table 6 describes the user (`rol-agency-users`) licensing settings that are configured within the tenant available at `Azure Active Directory > Groups > All groups > rol-Agency-Users > Licenses > Microsoft 365 E5`
 
 Item | Configuration
 --- | ---
@@ -355,24 +356,33 @@ Azure Advanced Threat Protection | On
 Azure Information Protection Premium P1 | On
 Azure Information Protection Premium P2 | On
 Azure Rights Management | On
+Common Data Service | On
+Common Data Service for Teams | On
 Customer Lockbox | On
+Data Classification in Microsoft 365 | On
 Exchange Online (Plan 2) | On
-Flow for Office 365 | Off
+Graph Connectors Search with Index | On
 Information Barriers | On
 Information Protection for Office 365 - Premium | On
 Information Protection for Office 365 - Standard | On
 Insights by MyAnalytics | Off
+M365 Communication Compliance | On
 Microsoft 365 Advanced Auditing | On
 Microsoft 365 Apps for enterprise | On
 Microsoft 365 Audio Conferencing | On
+Microsoft 365 Defender | On
 Microsoft 365 Phone System | Off
 Microsoft Azure Multi-Factor Authentication | On
+Microsoft Bookings | Off
 Microsoft Cloud App Security | On
-Microsoft Communications Compliance | On
 Microsoft Communications DLP | On
 Microsoft Customer Key | Off
 Microsoft Data Investigations | On
-Microsoft Defender Advanced Threat Protection | On
+Microsoft Defender For Endpoint | On
+Microsoft Defender for Identity | On
+Microsoft Defender for Office 365 (Plan 2) | On
+Microsoft Endpoint DLP | On
+Microsoft Excel Advanced Analytics | On
 Microsoft Forms (Plan E5) | On
 Microsoft Information Governance | On
 Microsoft Insider Risk Management | On
@@ -386,86 +396,105 @@ Microsoft StaffHub | Off
 Microsoft Stream for O365 E5 SKU | On
 Microsoft Teams | On
 Office 365 Advanced eDiscovery | On
-Office 365 Advanced Threat Protection (Plan 2) | On
 Office 365 Cloud App Security | On
 Office 365 Privileged Access Management | On
 Office 365 SafeDocs | On
 Office for the web | On
 Power BI Pro | On
-PowerApps for Office 365 | Off
+PowerApps for Office 365 Plan 3 | Off
+Power Automate for Office 365  | Off
+Power BI Pro  | Off
+Power Virtual Agents for Office 365  | Off
 Premium Encryption in Office 365 | On
-SharePoint Online (Plan 2) | On
+Project for Office (Plan E5) | On
+SharePoint (Plan 2) | On
 Skype for Business Online (Plan 2) | Off
 Sway | On
 To-Do (Plan 3) | On
+Universal Print | Off
 Whiteboard (Plan 3) | On
 Windows 10 Enterprise | On
+Windows Update for Business Deployment Service | On
 Yammer Enterprise | Off
 
 Table 7 describes the admin (`rol-agency-administrators`) licensing settings that are configured within the tenant.
 
-`Search > Azure Active Directory | Groups | All groups > rol-Agency-Administrators | Licenses > Microsoft 365 E5`
+`Azure Active Directory | Groups | All groups > rol-Agency-Administrators | Licenses > Microsoft 365 E5`
 
 Item | Configuration
 --- | ---
 Azure Active Directory Premium P1 | On
 Azure Active Directory Premium P2 | On
-Azure Advanced Threat Protection | Off
-Azure Information Protection Premium P1 | Off
-Azure Information Protection Premium P2 | Off
-Azure Rights Management | Off
-Customer Lockbox | Off
+Azure Advanced Threat Protection | On
+Azure Information Protection Premium P1 | On
+Azure Information Protection Premium P2 | On
+Azure Rights Management | On
+Common Data Service | Off
+Common Data Service for Teams | Off
+Customer Lockbox | On
+Data Classification in Microsoft 365 | On
 Exchange Online (Plan 2) | Off
-Flow for Office 365 | Off
-Information Barriers | Off
-Information Protection for Office 365 - Premium | Off
-Information Protection for Office 365 - Standard | Off
+Graph Connectors Search with Index | Off
+Information Barriers | On
+Information Protection for Office 365 - Premium | On
+Information Protection for Office 365 - Standard | On
 Insights by MyAnalytics | Off
-Microsoft 365 Advanced Auditing | Off
+M365 Communication Compliance | On
+Microsoft 365 Advanced Auditing | On
 Microsoft 365 Apps for enterprise | Off
 Microsoft 365 Audio Conferencing | Off
+Microsoft 365 Defender | On
 Microsoft 365 Phone System | Off
-Microsoft Azure Multi-Factor Authentication | Off
+Microsoft Azure Multi-Factor Authentication | On
+Microsoft Bookings | Off
 Microsoft Cloud App Security | On
-Microsoft Communications Compliance | Off
-Microsoft Communications DLP | Off
+Microsoft Communications DLP | On
 Microsoft Customer Key | Off
-Microsoft Data Investigations | Off
-Microsoft Defender Advanced Threat Protection | Off
+Microsoft Data Investigations | On
+Microsoft Defender For Endpoint | On
+Microsoft Defender for Identity | On
+Microsoft Defender for Office 365 (Plan 2) | On
+Microsoft Endpoint DLP | On
+Microsoft Excel Advanced Analytics | Off
 Microsoft Forms (Plan E5) | Off
-Microsoft Information Governance | Off
-Microsoft Insider Risk Management | Off
+Microsoft Information Governance | On
+Microsoft Insider Risk Management | On
 Microsoft Intune | Off
 Microsoft Kaizala Pro | Off
-Microsoft ML-based classification | Off
+Microsoft ML-based classification | On
 Microsoft MyAnalytics (Full) | Off
 Microsoft Planner | Off
-Microsoft Records Management | Off
+Microsoft Records Management | On
 Microsoft StaffHub | Off
 Microsoft Stream for O365 E5 SKU | Off
 Microsoft Teams | Off
-Office 365 Advanced eDiscovery | Off
-Office 365 Advanced Threat Protection (Plan 2) | Off
-Office 365 Cloud App Security | Off
-Office 365 Privileged Access Management | Off
-Office 365 SafeDocs | Off
+Office 365 Advanced eDiscovery | On
+Office 365 Cloud App Security | On
+Office 365 Privileged Access Management | On
+Office 365 SafeDocs | On
 Office for the web | Off
 Power BI Pro | Off
-PowerApps for Office 365 | Off
-Premium Encryption in Office 365 | Off
-SharePoint Online (Plan 2) | Off
+PowerApps for Office 365 Plan 3 | Off
+Power Automate for Office 365  | Off
+Power BI Pro  | Off
+Power Virtual Agents for Office 365  | Off
+Premium Encryption in Office 365 | On
+Project for Office (Plan E5) | Off
+SharePoint (Plan 2) | Off
 Skype for Business Online (Plan 2) | Off
 Sway | Off
 To-Do (Plan 3) | Off
+Universal Print | Off
 Whiteboard (Plan 3) | Off
 Windows 10 Enterprise | Off
+Windows Update for Business Deployment Service | Off
 Yammer Enterprise | Off
 
 ## Windows Information Protection
 
 ### Application protection policies
 
-`Search > Intune > Client apps > App protection policies > Windows Information Protection > Properties`
+`Microsoft Endpoint Manager > Client apps > App protection policies > Windows Information Protection > Properties`
 
 * Name: `Windows Information Protection`
 * Description: `Application Protection policies`
@@ -524,7 +553,7 @@ Agency.sharepoint.com|Agency-my.sharepoint.com|Agency-files.sharepoint.com|tasks
   * Excluded groups: -
 * Scope tags: `Default`
 
-`Search > Intune > Client apps > App protection policies > iOS App Protection Policy > Properties`
+`Microsoft Endpoint Manager > Client apps > App protection policies > iOS App Protection Policy > Properties`
 
 * Name: `iOS App Protection Policy`
 * Description: -
@@ -604,7 +633,7 @@ Min OS version | 12.0 | Block access
 
 ### Microsoft Defender Advanced Threat Protection
 
-`Search > Microsoft Intune > Device compliance > Microsoft Defender ATP > Open the Microsoft Defender ATP admin console`
+`Microsoft Defender Security Center > Settings`
 
 #### General
 
@@ -623,19 +652,24 @@ Low severity alert | Any device in my organization | Low | itsa@agency.gov.au
 * Advanced features
   * Automated Investigation: `On`
   * Live Response: `Off`
+  * Live Response for Servers: `Off`
   * Live Response unsigned script execution: `Off`
+  * Restrict correlation to within scoped device groups: `Off`
+  * Enable EDR in block mode: `On`
   * Automatically Resolve Alerts: `On`
   * Allow or block file: `On`
   * Custom network indicators: `Off`
+  * Tamper protection: `On`
   * Show user details: `On`
   * Skype for Business integration: `On`
-  * Azure ATP integration: `Off`
+  * Microsoft Defender for Identity integration: `Off`
   * Office 365 Threat Intelligence connection: `On`
   * Microsoft Cloud App Security: `On`
-  * Azure Information Protection: `Off`
   * Microsoft Secure Score: `Off`
   * Web content filtering: `On`
+  * Share endpoint alerts with Microsoft Compliance Center: `Off`
   * Microsoft Intune connection: `On`
+  * Device discovery: `On`
   * Preview features: `On`
   * Microsoft Threat Expert: `Not configured`
 * Auto remediation
@@ -816,6 +850,7 @@ Founded | Medium (x2) | Excluded N/As
 Holding | Medium (x2) | Excluded N/As
 Domain registration | Medium (x2) | Excluded N/As
 Consumer popularity | Medium (x2) | Excluded N/As
+Disaster Recovery Plan | Medium (x2) | Excluded N/As
 
 ##### Security
 
@@ -839,6 +874,7 @@ Heartbleed patched | Medium (x2) | Excluded N/As
 HTTP security headers | Medium (x2) | Excluded N/As
 Support SAML | Medium (x2) | Excluded N/As
 Enforce transport encryption | Medium (x2) | Excluded N/As
+Protected against DROWN | Medium (x2) | Excluded N/As
 Penetration Testing | Medium (x2) | Excluded N/As
 Requires user authentication | Medium (x2) | Excluded N/As
 Password Policy | Medium (x2) | Excluded N/As
@@ -860,6 +896,7 @@ SOC 1 | Medium (x2) | Excluded N/As
 SOC 2 | Medium (x2) | Excluded N/As
 SOC 3 | Medium (x2) | Excluded N/As
 SOX | Medium (x2) | Excluded N/As
+SP 800-53 | Medium (x2) | Excluded N/As
 SSAE 16 | Medium (x2) | Excluded N/As
 Safe Harbor | Medium (x2) | Excluded N/As
 PCI DSS version | Medium (x2) | Excluded N/As
@@ -870,6 +907,13 @@ CSA STAR level | Medium (x2) | Excluded N/As
 Privacy Shield | Medium (x2) | Excluded N/As
 ISO 27017 | Medium (x2) | Excluded N/As
 FFIEC | Medium (x2) | Excluded N/As
+ISO 27002 | Medium (x2) | Excluded N/As
+GAPP | Medium (x2) | Excluded N/As
+COBIT | Medium (x2) | Excluded N/As
+COPPA | Medium (x2) | Excluded N/As
+FERPA | Medium (x2) | Excluded N/As
+HITRUST CSF | Medium (x2) | Excluded N/As
+Jericho Forum Commandments | Medium (x2) | Excluded N/As
 
 ##### Legal
 
@@ -880,6 +924,7 @@ Field | Importance | N/A values
 Data ownership | Medium (x2) | Excluded N/As
 DMCA | Medium (x2) | Excluded N/As
 Data retention policy | Medium (x2) | Excluded N/As
+GDPR - Right to erasure | Medium (x2) | Excluded N/As
 GDPR – Report data breaches | Medium (x2) | Excluded N/As
 GDPR – Data protection | Medium (x2) | Excluded N/As
 GDPR – User ownership | Medium (x2) | Excluded N/As
@@ -941,7 +986,7 @@ Unsecure location printing | Configured in Intune Security Baselines.
 
 ### Privileged identity management
 
-`Search > Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Global Administrator > Role Settings`
+`Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Global Administrator > Role Settings`
 
 * Activation
   * Activation maximum duration: `1 hour`
@@ -998,7 +1043,7 @@ Unsecure location printing | Configured in Intune Security Baselines.
       * Additional recipients: `Only designated approvers can receive this email`
       * Critical emails only: `Not checked`
 
-`Search > Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Global Reader > Role Settings`
+`Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Global Reader > Role Settings`
 
 * Activation
   * Activation maximum duration: `1 hour`

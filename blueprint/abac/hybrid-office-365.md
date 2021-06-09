@@ -52,14 +52,14 @@ Microsoft Power Apps Plan 2 Trial | 10,000
 
 ### Licensing manual groups
 
-`Search > Licenses > Microsoft 365 E5 > Licensed groups `
+`Azure Active Directory > Licenses > Microsoft 365 E5 > Licensed groups `
 
 Table 4 describes the configuration for the manual allocation of Microsoft 365 E5 licenses.
 
 Name | State
 --- | ---
-Office365_AssignLicense_Administrators | Active
-Office365_AssignLicense_CloudUsers | Active
+rol-Agency-Administrators | Active
+rol-Agency-Users | Active
 Office365_AssignLicense_StandUsers | Active
 
 
@@ -649,7 +649,7 @@ Owner Audited Actions | ApplyRecord<br>Create<br>HardDelete<br>MailboxLogin<br>M
 
 #### Disclaimer
 
-* Apply this rule if: The recipient is locked..`Outside the organization`
+* Apply this rule if: The recipient is located `Outside the organization`
 * Do the following actions: Append the message with the disclaimer
 
 ```
@@ -672,13 +672,13 @@ Owner Audited Actions | ApplyRecord<br>Create<br>HardDelete<br>MailboxLogin<br>M
 
 #### UNOFFICIAL
 
-* If the message: Is sent to `Inside the organization` **and** `msip_labels` header contains `MSIP_Label_217258b3-6022-44f0-adb4-d6eca052ad20_Enabled=true` **and** Is received from `Inside the organization`
+* If the message: Is sent to `Inside the organization` **and** `msip_labels` header contains `MSIP_Label_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX_Enabled=true` **and** Is received from `Inside the organization`
 * Take the following actions: Prepend the subject with `[SEC=UNOFFICIAL]`
 * Except if the message: Includes these patterns in the message subject: `(SEC=UNOFFICIAL)`
 * ExceptIfSubjectMatchesPatterns: `(SEC=UNOFFICIAL)`
 * FromScope: `InOrganization`
 * HeaderContainsMessageHeader: `msip_labels`
-* HeaderContainsWords: `MSIP_Label_217258b3-6022-44f0-adb4-d6eca052ad20_Enabled=true`
+* HeaderContainsWords: `MSIP_Label_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX_Enabled=true`
 * Mode: `Enforce`
 * Name: `UNOFFICIAL`
 * PrependSubject: `[SEC=UNOFFICIAL]`
@@ -688,13 +688,13 @@ Owner Audited Actions | ApplyRecord<br>Create<br>HardDelete<br>MailboxLogin<br>M
 
 #### OFFICIAL
 
-* If the message: Is sent to `Inside the organization` **and** `msip_labels` header contains `MSIP_Label_8260affa-0595-45d6-a83e-a3b79a9c02c4_Enabled=true` **and** Is received from `Inside the organization`
+* If the message: Is sent to `Inside the organization` **and** `msip_labels` header contains `MSIP_Label_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX_Enabled=true` **and** Is received from `Inside the organization`
 * Take the following actions: Prepend the subject with `[SEC=OFFICIAL]`
 * Except if the message: Includes these patterns in the message subject: `(SEC=OFFICIAL)`
 * ExceptIfSubjectMatchesPatterns: `(SEC=OFFICIAL)`
 * FromScope: `InOrganization`
 * HeaderContainsMessageHeader: `msip_labels`
-* HeaderContainsWords: `MSIP_Label_8260affa-0595-45d6-a83e-a3b79a9c02c4_Enabled=true`
+* HeaderContainsWords: `MSIP_Label_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX_Enabled=true`
 * Mode: `Enforce`
 * Name: `OFFICIAL`
 * PrependSubject: `[SEC=OFFICIAL]`
@@ -704,13 +704,13 @@ Owner Audited Actions | ApplyRecord<br>Create<br>HardDelete<br>MailboxLogin<br>M
 
 #### OFFICIAL:Sensitive
 
-* If the message: Is sent to `Inside the organization` **and** `msip_labels` header contains `MSIP_Label_42227f60-6734-42bf-b4e6-da15ab730981_Enabled=true` **and** Is received from `Inside the organization`
+* If the message: Is sent to `Inside the organization` **and** `msip_labels` header contains `MSIP_Label_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX_Enabled=true` **and** Is received from `Inside the organization`
 * Take the following actions: Prepend the subject with `[SEC=OFFICIAL:Sensitive]`
 * Except if the message: Includes these patterns in the message subject: `(SEC=OFFICIAL:Sensitive)`
 * ExceptIfSubjectMatchesPatterns: `(SEC=OFFICIAL:Sensitive)`
 * FromScope: `InOrganization`
 * HeaderContainsMessageHeader: `msip_labels`
-* HeaderContainsWords: `MSIP_Label_42227f60-6734-42bf-b4e6-da15ab730981_Enabled=true`
+* HeaderContainsWords: `MSIP_Label_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX_Enabled=true`
 * Mode: `Enforce`
 * Name: `OFFICIAL:Sensitive`
 * PrependSubject: `[SEC=OFFICIAL:Sensitive]`
@@ -720,13 +720,13 @@ Owner Audited Actions | ApplyRecord<br>Create<br>HardDelete<br>MailboxLogin<br>M
 
 #### PROTECTED
 
-* If the message: Is sent to `Inside the organization` **and** `msip_labels` header contains `MSIP_Label_12dcf2ca-f80e-4ac2-861b-4b6557faeea3_Enabled=true` **and** Is received from `Inside the organization`
+* If the message: Is sent to `Inside the organization` **and** `msip_labels` header contains `MSIP_Label_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX_Enabled=true` **and** Is received from `Inside the organization`
 * Take the following actions: Prepend the subject with `[SEC=PROTECTED]`
 * Except if the message: Includes these patterns in the message subject: `(SEC=PROTECTED)`
 * ExceptIfSubjectMatchesPatterns: `(SEC=PROTECTED)`
 * FromScope: `InOrganization`
 * HeaderContainsMessageHeader: `msip_labels`
-* HeaderContainsWords: `MSIP_Label_12dcf2ca-f80e-4ac2-861b-4b6557faeea3_Enabled=true`
+* HeaderContainsWords: `MSIP_Label_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX_Enabled=true`
 * Mode: `Enforce`
 * Name: `PROTECTED`
 * PrependSubject: `[SEC=PROTECTED]`
@@ -901,6 +901,152 @@ These settings have been configured using PowerShell.
   * Welcome Email: `Disabled`
 * Display Name: `Grp-<Agency Acronym>O365-Teams`
   * Welcome Email: `Disabled`
+
+### Office 365 groups
+
+`Azure Active Directory > Groups > General`
+
+* Self Service Group Management
+  * Owners can manage group membership requests in the Access Panel: `No`
+  * Restrict user ability to access groups features in the Access Panel. Administrators (Global, Group and User Admin) will have access regardless of the value of this setting.: `Yes`
+* Security Groups
+  * Users can create security groups in Azure portals: `No`
+  * Owners who can assign members as group owners in Azure portals: `All`
+* Office 365 Groups
+  * Users can create Office 365 groups in Azure portal: `No`
+  * Owners who can assign members as group owners in Azure portal: `All`
+
+`Azure Active Directory > Groups > Naming policy`
+
+* Group naming policy: `Grp-<Department>-<Group name>`
+
+`Azure Active Directory > Groups > Expiration`
+
+* Group lifetime (in days): `365`
+* Email contact for groups with no owners: `Office365_Group_Expiration@<Agency>.gov.au`
+* Enable expiration for these Office 365 groups: `All`
+
+`Azure Active Directory > Groups`
+
+* Group Name: `ADMIN_O365_Admin`
+  * Membership type: `Assigned`
+  * Source: `Windows server AD`
+  * Type: `Security`
+  * Members: `Admin accounts`
+  * Owners: `None`
+  * Group membership: `None`
+  * Applications: `None`
+  * Licenses: `None`
+  * Azure role assignment: `None`
+* Group Name: `ADMIN_O365_DCA_Accounts`
+  * Membership type: `Assigned`
+  * Source: `Windows server AD`
+  * Type: `Security`
+  * Members: `Admin accounts`
+  * Owners: `None`
+  * Group membership: `None`
+  * Applications: `None`
+  * Licenses: `None`
+  * Azure role assignment: `None`
+* Group Name: `ADMIN_O365_GlobalAdmins`
+  * Membership type: `Assigned`
+  * Source: `Windows server AD`
+  * Type: `Security`
+  * Members: `Admin accounts`
+  * Owners: `None`
+  * Group membership: `None`
+  * Applications: `None`
+  * Licenses: `None`
+  * Azure role assignment: `None`
+* Group Name: `Grp-<Agency Acronym>O365-Outlook`
+  * Membership type: `Assigned`
+  * Source: `Cloud`
+  * Type: `Office`
+  * Email: `Grp-<Agency Acronym>o365-outlook@<Agency>.gov.au`
+  * Members: `<Agency User>`
+  * Owners: `<Agency User>`
+  * Group membership: `None`
+  * Applications: `None`
+  * Licenses: `None`
+  * Azure role assignment: `None`
+* Group Name: `Grp-<Agency Acronym>O365-Teams`
+  * Membership type: `Assigned`
+  * Source: `Cloud`
+  * Type: `Office`
+  * Email: `Grp-<Agency Acronym>o365-teams@<Agency>.gov.au`
+  * Members: `<Agency User>`
+  * Owners: `<Agency User>`
+  * Group membership: `None`
+  * Applications: `None`
+  * Licenses: `None`
+  * Azure role assignment: `None`
+* Group Name: `Grp-<Agency Acronym>O365-Teams`
+  * Membership type: `Assigned`
+  * Source: `Cloud`
+  * Type: `Office`
+  * Email: `Grp-<Agency Acronym>o365-teams@<Agency>.gov.au`
+  * Members: `<Agency User>`
+  * Owners: `<Agency User>`
+  * Group membership: `None`
+  * Applications: `None`
+  * Licenses: `None`
+  * Azure role assignment: `None`
+* Group Name: `rol-Agency-Users`
+  * Membership type: `Assigned`
+  * Source: `Cloud`
+  * Type: `Security`
+  * Members: `None admin accounts`
+  * Owners: `<Agency Owner> (Admin)`
+  * Group membership: `None`
+  * Applications: `None`
+  * Licenses: `Microsoft 365 E5`
+  * Azure role assignment: `None`
+* Group Name: `rol-Agency-Users`
+  * Membership type: `Assigned`
+  * Source: `Windows server AD`
+  * Type: `Security`
+  * Members: `None admin accounts`
+  * Owners: `None`
+  * Group membership: `None`
+  * Applications: `None`
+  * Licenses: `Microsoft 365 E5`
+  * Azure role assignment: `None`
+* Group Name: `Office365_Conditional_Access_Exclude`
+  * Membership type: `Assigned`
+  * Source: `Cloud`
+  * Type: `Security`
+  * Members
+    * Break Glass account
+      * TenantAdmin
+      * TenantAdmin2
+    * AAD Connect Synchronization accounts
+      * `Sync_<AAD Server 1>_144f9a623d47`
+      * `Sync_<AAD Server 2>_b49bd30fb398`
+  * Owners: `None`
+  * Group membership: `None`
+  * Applications: `None`
+  * Licenses: `None`
+  * Azure role assignment: `None`
+* Group Name: `Office365_Grant_AzureAD_Join`
+  * Membership type: `Assigned`
+  * Source: `Windows server AD`
+  * Type: `Security`
+  * Members: `Admin accounts`
+  * Owners: `None`
+  * Group membership: `None`
+  * Applications: `None`
+  * Licenses: `None`
+  * Azure role assignment: `None`
+* Group Name: `Office365_Grant_CreateGroups`
+  * Membership type: `Assigned`
+  * Source: `Cloud`
+  * Type: `Security`
+  * Members: `<Agency User>`
+  * Owners: `None`
+  * Group membership: `None`
+  * Applications: `None`
+  * Licenses: `None`
+  * Azure role assignment: `None`
 
 ## Exchange Online Protection
 

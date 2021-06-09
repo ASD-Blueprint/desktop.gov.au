@@ -182,7 +182,7 @@ user | \Microsoft Publisher 2016\Security | Publisher Automation Security Level 
   * Maximum cache size (in %): `20`
 * Scope tags: `Default`
 * Assignments
-  * Included groups: All devices
+  * Included groups: `grp-agency-windows10-dynamic`
   * Excluded groups: -
 
 ### Agency-DisableAdobeFlashIE-User
@@ -192,10 +192,10 @@ user | \Microsoft Publisher 2016\Security | Publisher Automation Security Level 
 * Type: `Windows 10 and later`
 * Profile Type: `Administrative Templates`
 * Configuration settings
-  * Turn off Adobe Flash in Internet Explorer and prevent applications from using Internet Explorer technology to instantiate Flash objects: `None`
+  * Turn off Adobe Flash in Internet Explorer and prevent applications from using Internet Explorer technology to instantiate Flash objects: `Enable`
 * Scope tags: `Default`
 * Assignments
-  * Included groups: All users, All devices
+  * Included groups: `Rol-agency-administrators, Rol-agency-users`
   * Excluded groups: -
 
 ### Agency-MicrosoftStore-User
@@ -208,12 +208,12 @@ user | \Microsoft Publisher 2016\Security | Publisher Automation Security Level 
   * OMA-URI Settings
     * Name: `BlockWindows10Store`
     * Description: `Not configured`
-    * OMA-URI: `./Vendor/MSFT/Policy/Config/ApplicationManagement/RequirePrivateStoreOnly`
+    * OMA-URI: `./User/Vendor/MSFT/Policy/Config/ApplicationManagement/RequirePrivateStoreOnly`
     * Data Type: `Integer`
     * Integer value: `1` 
 * Scope tags: `Default`
 * Assignments
-  * Included groups: All users, All devices
+  * Included groups: `Rol-agency-administrators, Rol-agency-users`
   * Excluded groups: -
 
 ### Agency-MSDefenderATP
@@ -224,7 +224,7 @@ user | \Microsoft Publisher 2016\Security | Publisher Automation Security Level 
 * Profile Type: `Microsoft Defender ATP (Windows 10 Desktop)`
 * Configuration settings
   * Microsoft Defender ATP client configuration package type: `Onboard`
-  * Sample sharing for all files: `Enabled`
+  * Sample sharing for all files: `Block`
   * Expedite telemetry reporting frequency: `Enabled`
 * Scope tags: `Default`
 * Assignments
@@ -254,7 +254,7 @@ user | \Microsoft Publisher 2016\Security | Publisher Automation Security Level 
 * Profile Type: `Administrative Templates`
 * Scope tags: `Default`
 * Assignments
-  * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`
+  * Included groups: `grp-agency-windows10-dynamic`
   * Excluded groups: -
 
 Configuration settings
@@ -284,7 +284,7 @@ Configuration settings
 
 ClassType | CategoryPath | DisplayName | Value | Enabled
 --- | --- | --- | --- | --- 
-user | \OneDrive | Coauthor and share in Office desktop apps |  | true
+user | \OneDrive | Co-author and share in Office desktop apps |  | true
 user | \OneDrive | Prevent users from syncing personal OneDrive accounts |  | true
 
 ### Agency-TimeZoneEST
@@ -302,7 +302,7 @@ user | \OneDrive | Prevent users from syncing personal OneDrive accounts |  | tr
     * Value: `AUS Eastern Standard Time`
 * Scope tags: `Default`
 * Assignments
-  * Included groups: `grp-Windows-10-Devices`, `rol-Agency-Administrators`, `rol-Agency-Users`
+  * Included groups: `grp-agency-windows10-dynamic`, `rol-Agency-Administrators`, `rol-Agency-Users`
   * Excluded groups: -
 
 ### Agency-WDACBasePolicy
@@ -323,7 +323,7 @@ The policy GUID in the OMA-URI must be unique to your environment. It can be fou
     * Data type: `Base64`
     * Certificate file: `binary format policy file`
 * Assignments
-  * Included groups: `grp-Windows-10-Devices`, `rol-Agency-Users`
+  * Included groups: `grp-agency-windows10-dynamic`, `rol-Agency-Users`
   * Excluded groups: -
 
 ### Agency-WDACSubPolicy-AppName
@@ -344,7 +344,7 @@ The policy GUID in the OMA-URI must be unique to your environment. It can be fou
     * Data type: `Base64`
     * Certificate file: `binary format policy file`
 * Assignments
-  * Included groups: `grp-Windows-10-Devices`, `rol-Agency-Users`
+  * Included groups: `grp-agency-windows10-dynamic`, `rol-Agency-Users`
   * Excluded groups: -
 
 ### Wi-Fi Configuration
@@ -390,7 +390,7 @@ The policy GUID in the OMA-URI must be unique to your environment. It can be fou
 * Scope tags: `Default`
 * Assignments
   * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`
-  * Excluded groups: `grp-Windows-10-Devices`
+  * Excluded groups: `grp-agency-windows10-dynamic`
 
 ### iOS device restrictions
 
@@ -429,7 +429,7 @@ The policy GUID in the OMA-URI must be unique to your environment. It can be fou
     * Require Password: `Yes`
     * Block simple passwords: `Yes`
     * Required password type: `Alphanumeric`
-    * Number of non-alphanumerics characters in password: `1`
+    * Number of non-alphanumeric characters in password: `1`
     * Minimum password length: `14`
     * Number of sign-in failures before wiping the device: `11`
     * Maximum minutes after screen lock before password is required: `Immediately`
@@ -572,7 +572,7 @@ The policy GUID in the OMA-URI must be unique to your environment. It can be fou
 * Scope tags: `Default`
 * Assignments
   * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`
-  * Excluded groups: `grp-Windows-10-Devices`
+  * Excluded groups: `grp-agency-windows10-dynamic`
 
 ### iOS email configuration
 
@@ -599,7 +599,7 @@ The policy GUID in the OMA-URI must be unique to your environment. It can be fou
 * Scope tags: `Default`
 * Assignments
   * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`
-  * Excluded groups: `grp-Windows-10-Devices`
+  * Excluded groups: `grp-agency-windows10-dynamic`
 
 ### iOS per app VPN
 
@@ -617,24 +617,7 @@ The policy GUID in the OMA-URI must be unique to your environment. It can be fou
   * Block users from disabling automatic VPN: `Yes`
 * Assignments
   * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`
-  * Excluded groups: `grp-Windows-10-Devices`
-
-### SecBaselineFix-AT
-
-* Name: `SecBaselineFix-AT`
-* Description: -
-* Type: `Windows 10 and later`
-* Profile Type: `Administrative Templates`
-* Scope tags: `Default`
-* Assignments
-  * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`
-  * Excluded groups: -
-
-Configuration settings
-
-ClassType | CategoryPath | DisplayName | Value | Enabled
---- | --- | --- | --- | --- 
-computer | \Windows Components\Internet Explorer\Security Features\Add-On Management | Turn off Adobe Flash in Internet Explorer and prevent applications from using Internet Explorer technology to instantiate Flash object |  | true
+  * Excluded groups: `grp-agency-windows10-dynamic`
 
 ### SecBaselineFix-EP
 
@@ -677,7 +660,7 @@ computer | \Windows Components\Internet Explorer\Security Features\Add-On Manage
     * Encryption for operation system drives: `XTS-AES 256-bit`
     * Encryption for fixed data-drives: `XTS-AES 256-bit`
     * Encryption for removable data-drives: `XTS-AES 256-bit`
-    * Additional authentication at startup: `Require`
+    * Additional authentication at start-up: `Require`
     * OS drive recovery: `Enable`
     * Recovery options in the BitLocker setup wizard: `Block`
     * Save BitLocker recovery information to Azure Active Directory: `Enable`
@@ -767,5 +750,5 @@ The following can be found at `Intune > Devices > Scripts`
   * Run script in 64 bit PowerShell Host: `No`
 * Scope tags: `Default`
 * Assignments
-  * Included groups: `grp-Windows-10-Devices`
+  * Included groups: `grp-agency-windows10-dynamic`
   * Excluded groups: -

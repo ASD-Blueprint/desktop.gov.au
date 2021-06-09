@@ -441,8 +441,8 @@ Information Protection for Office 365 - Standard | On
 Insights by MyAnalytics | Off
 M365 Communication Compliance | On
 Microsoft 365 Advanced Auditing | On
-Microsoft 365 Apps for enterprise | On
-Microsoft 365 Audio Conferencing | On
+Microsoft 365 Apps for enterprise | Off
+Microsoft 365 Audio Conferencing | Off
 Microsoft 365 Defender | On
 Microsoft 365 Phone System | Off
 Microsoft Azure Multi-Factor Authentication | On

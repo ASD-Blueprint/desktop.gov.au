@@ -55,27 +55,59 @@ The following items are prerequisites for the procedure:
 
 ### Procedure
 
-The process to enforce a Microsoft 365 Desired State Configuration (M365DSC) Blueprint is as follows:
-1. Download the ConfigurationData.PSD1 [file](automation.html#blueprint-configuration-scripts).
-2. Download the PS1 file for the [target Blueprint configuration](automation.html#blueprint-configuration-scripts).
-2. Open a PowerShell console as an administrator.
-3. Install and import the PowerShell module microsoft365dsc using the following command:
+The process to enforce a Microsoft 365 Desired State Configuration (M365DSC) is broken into three (3) main parts:
+1. Configuration file development
+2. Certificate creation (optional)
+3. Configuration deployment
+
+If the second part is not completed then the the configuration file (MOF file) will contain credentials in <b>Clear Text</b>.
+
+#### Configuration file development
+
+The configuration files developed in accordance to the blueprint are available below. Note, the configuration data file is required no matter the configuration script selected.
+
+##### Configuration Data File
+The required ConfigurationData.PSD1 file can be downloaded below:
+* [ConfigurationData.psd1](/assets/files/automation/configurationdata.txt)
+
+##### Blueprint Configuration Scripts
+Blueprint configuration scripts are available below:
+
+* [identity_dsc.ps1](/assets/files/automation/identity_dsc.txt)
+
+
+#### Certificate creation (optional)
+
+The process to create a certificate is as is as follows:
+1. Open a PowerShell console as an administrator.
+2. Install and import the PowerShell module microsoft365dsc using the following command:
 ```Powershell 
 install-module microsoft365dsc -allowclobber -force
 import-module microsoft365dsc
 ```
-4. In PowerShell navigate to the directory containing the Blueprint configuration PS1 file and the ConfigurationData.PSD1 file.
-5. Run the following command to create a Desired State Configuration local configuration manager certificate:
+3. Run the following command to create a Desired State Configuration local configuration manager certificate:
 ```Powershell 
 Set-M365DSCAgentCertificateConfiguration
 ```
-6. Run the following command to validate a certificate was created and assigned to the local configuration manger (The certificate thumbprint will be listed under CertificateID.):
+4. Run the following command to validate a certificate was created and assigned to the local configuration manger (The certificate thumbprint will be listed under CertificateID.):
 ```Powershell 
 Get-DscLocalConfigurationManager
 ```
-7. Open Certificates for the Local Computer.
-8. Export the certificate `M365DSCEncryptionCert` as `M365.cer` to the folder containing the Blueprint configuration PS1 file and the ConfigurationData.PSD1 file.
-5. In the PowerShell console initiate the Blueprint configuration PS1 and supply any request values. The following is an example for the Identity configuration.
+5. Open Certificates for the Local Computer.
+6. Export the certificate `M365DSCEncryptionCert` as `M365.cer` to the folder containing the Blueprint configuration PS1 file and the ConfigurationData.PSD1 file.
+
+
+#### Configuration deployment
+
+The process to deploy the configuration is as follows:
+1. Open a PowerShell console as an administrator.
+2. Install and import the PowerShell module microsoft365dsc using the following command:
+```Powershell 
+install-module microsoft365dsc -allowclobber -force
+import-module microsoft365dsc
+```
+3. In PowerShell navigate to the directory containing the Blueprint configuration PS1 file and the ConfigurationData.PSD1 file.
+4. In the PowerShell console initiate the Blueprint configuration PS1 and supply any request values. The following is an example for the Identity configuration.
 ```Powershell 
 $pscredential = get-credential
 $agencyname = "Agency Name"
@@ -83,22 +115,11 @@ $agencyprefix = "Agency Acroynm"
 $trustedIPs = @("X.X.X.X/X") 
 .\identity_dsc.ps1 -globaladminaccount $pscredential -trustedip $trustedIPs -agency $Agencyname -agencyprefix $Agencyprefix
 ```
-6. <b>This step will enforce the DSC configuration</b> Run the following command within the PowerShell console:
+5. <b>This step will enforce the DSC configuration</b> Run the following command within the PowerShell console:
 ```Powershell 
 Start-DSCConfiguration M365TenantConfig -wait -verbose -force
 ```
-7. Log into the tenant and validate the successful configuration.
-
-### Blueprint configuration scripts
-
-#### Configuration Data File
-The required ConfigurationData.PSD1 file can be downloaded below:
-* [ConfigurationData.psd1](/assets/files/automation/configurationdata.txt)
-
-#### Blueprint Configuration Scripts
-Blueprint configuration scripts are available below:
-
-* [identity_dsc.ps1](/assets/files/automation/identity_dsc.txt)
+6. Log into the tenant and validate the successful configuration.
 
 ## Microsoft 365 Desired State Configuration Auditing Procedure
 
@@ -127,3 +148,5 @@ Assert-M365DSCBlueprint -BluePrintUrl .\baseline.ps1 -OutputReportPath $outputlo
 Blueprint audit baselines are available below:
 
 * [baseline.ps1](/assets/files/automation/baseline.txt)
+
+The above baseline requires updating to include agency specific details prior to use. 

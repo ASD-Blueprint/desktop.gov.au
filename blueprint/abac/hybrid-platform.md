@@ -10,33 +10,33 @@ The ABAC settings for the Agency Identity and Access Management can be found bel
 
 ### Azure Active Directory
 
-`Search > Azure Active Directory > Properties`
+`Azure Active Directory > Properties`
 
 * Directory Properties Name: `<Agency Name>`
 * Technical Contact: `<username>@<Agency>.gov.au`
 * Initial Domain Name: `<Agency>.onmicrosoft.com`
 * Country or Region: `Australia`
 
-`Search > Azure Active Directory > Enterprise applications > User settings`
+`Azure Active Directory > Enterprise applications > User settings`
 
 * Users can consent to apps accessing information on their behalf.: `No`
 * Users can add gallery apps to their access panel: `No`
 * Users can request admin consent to apps they are unable to consent to: `No`
 * Users can only see Office 365 Apps in the Office 365 Portal: `No`
 
-`Search > Azure Active Directory > Users > User settings > App registrations`
+`Azure Active Directory > Users > User settings > App registrations`
 
 * Users can register applications: `No`
 
-`Search > Azure Active Directory > Users > User settings > Administration portal`
+`Azure Active Directory > Users > User settings > Administration portal`
 
 * Restrict non-administrator access to Azure AD Administration Portal: `Yes`
 
-`Search > Azure Active Directory > Users > User settings > LinkedIn Account Connections`
+`Azure Active Directory > Users > User settings > LinkedIn Account Connections`
 
 * Allow users to connect work or school account with LinkedIn: `No`
 
-`Search > Azure Active Directory > Users > User settings > External Collaboration Settings`
+`Azure Active Directory > Users > User settings > External Collaboration Settings`
 
 * Guest user permissions are limited: `Yes`
 * Admins and users in the guest inviter role can invite: `Yes`
@@ -44,49 +44,49 @@ The ABAC settings for the Agency Identity and Access Management can be found bel
 * Guests can invite: `No`
 * Enable Email On-time passcode for guests: `No`
 
-`Search > Azure Active Directory > Users > User settings > External Collaboration Settings – Collaboration restrictions`
+`Azure Active Directory > Users > User settings > External Collaboration Settings – Collaboration restrictions`
 
 * Allow invitations only to the specified domains (most restrictive): `Selected`
 * Target domains: `<Agency>.gov.au`
 
-`Search > Azure Active Directory > Groups > General > Self Service Group Management`
+`Azure Active Directory > Groups > General > Self Service Group Management`
 
 * Owners can manage membership requests in the access panel: `No`
 * Restrict access to Groups in the Access Panel: `Yes`
 
-`Search > Azure Active Directory > Groups > General > Security Groups`
+`Azure Active Directory > Groups > General > Security Groups`
 
 * Users can create security groups in the Azure portals: `No`
 * Owners who can assign members as group owners in Azure Portals: `All`
 
-`Search > Azure Active Directory > Groups > General > Office 365 Groups`
+`Azure Active Directory > Groups > General > Office 365 Groups`
 
-* Users can create Office 365 groups in Azure portals: `No`
+* Users can create Microsoft 365 groups in Azure portals: `No`
 * Owners who can assign members as group owners in Azure portals: `All`
 
-`Search > Azure Active Directory > Groups > General > Directory-wide Groups`
+`Azure Active Directory > Groups > General > Directory-wide Groups`
 
 * Enable an “All Users” group in the directory: `No`
 
-`Search > Azure Active Directory > Groups > Expiration`
+`Azure Active Directory > Groups > Expiration`
 
 * Group lifetime (in days): `365`
 * Email contact for groups with no owners: `Office365_Group_Expiration@<Agency>.gov.au`
-* Enable expiration for these Office 365 groups: `None`
+* Enable expiration for these Microsoft 365 groups: `None`
 
-`Search > Azure Active Directory > Groups > Naming policy`
+`Azure Active Directory > Groups > Naming policy`
 
 * Blocked words: `N/A`
 * Group naming policy: `Prefix = String = <Agency Acronym>`
 
-`Search > Azure Active Directory > Custom Domain Names`
+`Azure Active Directory > Custom Domain Names`
 
 ```
 <Agency>.gov.au (Primary)
 <Agency>.onmicrosoft.com
 ```
 
-`Search > Azure Active Directory > Company Branding`
+`Azure Active Directory > Company Branding`
 
 * Sign-in Page background image (1920x1080px):: `Generic Australian Government Background`
 * Banner logo (280x60px): Generic Australian Government Logo
@@ -98,36 +98,182 @@ The ABAC settings for the Agency Identity and Access Management can be found bel
 * Square logo image, dark theme (240x240px): -
 * Show option to remain signed in: `No`
 
-`Search > Azure Active Directory > Devices > Device settings`
+`Azure Active Directory > Devices > Device settings`
 
 * Users may join devices to Azure AD: `Selected`
 * Display Name: `Office365_Grant_AzureAD_Join`
 * Additional local administrators on Azure AD joined devices: `None`
 * Require Multi-Factor Auth to join devices: `Yes`
 
-`Search > Azure Active Directory > Enterprise State Roaming`
+`Azure Active Directory > Enterprise State Roaming`
 
 * Users may sync settings and app data across devices: `All`
 
-`Search > Azure Active Directory > Password reset > Properties`
+`Azure Active Directory > Password reset > Properties`
 
 * Self-service password reset enabled: `None`
 
-`Search > Azure Active Directory > Password reset > Authentication methods`
+`Azure Active Directory > Password reset > Authentication methods`
 
 * Number of methods required to reset: `1`
 * Methods available to users: `Email`
 * Mobile phone
 
-`Search > Azure Active Directory > Password reset > Registration`
+`Azure Active Directory > Password reset > Registration`
 
 * Require users to register when signing in?: `Yes`
 * Number of days before users are asked to re-confirm their authentication information: `180`
 
-`Search > Azure Active Directory > Password reset > Notifications`
+`Azure Active Directory > Password reset > Notifications`
 
 * Notify users on password resets?: `Yes`
 * Notify all admins when other admins reset their password?: `Yes`
+
+### Microsoft 365 groups
+
+`Search > Azure Active Directory > Groups > General`
+
+* Self Service Group Management
+  * Owners can manage group membership requests in the Access Panel: `No`
+  * Restrict user ability to access groups features in the Access Panel. Administrators (Global, Group and User Admin) will have access regardless of the value of this setting.: `Yes`
+* Security Groups
+  * Users can create security groups in Azure portals: `No`
+  * Owners who can assign members as group owners in Azure portals: `All`
+* Microsoft 365 groups
+  * Users can create Microsoft 365 groups in Azure portal: `No`
+  * Owners who can assign members as group owners in Azure portal: `All`
+
+`Search > Azure Active Directory > Groups > Naming policy`
+
+* Group naming policy: `Grp-<Department>-<Group name>`
+
+`Search > Azure Active Directory > Groups > Expiration`
+
+* Group lifetime (in days): `365`
+* Email contact for groups with no owners: `Office365_Group_Expiration@<Agency>.gov.au`
+* Enable expiration for these Microsoft 365 groups: `All`
+
+`Search > Azure Active Directory > Groups`
+
+* Group Name: `ADMIN_O365_Admin`
+  * Membership type: `Assigned`
+  * Source: `Windows server AD`
+  * Type: `Security`
+  * Members: `Admin accounts`
+  * Owners: `None`
+  * Group membership: `None`
+  * Applications: `None`
+  * Licenses: `None`
+  * Azure role assignment: `None`
+* Group Name: `ADMIN_O365_DCA_Accounts`
+  * Membership type: `Assigned`
+  * Source: `Windows server AD`
+  * Type: `Security`
+  * Members: `Admin accounts`
+  * Owners: `None`
+  * Group membership: `None`
+  * Applications: `None`
+  * Licenses: `None`
+  * Azure role assignment: `None`
+* Group Name: `ADMIN_O365_GlobalAdmins`
+  * Membership type: `Assigned`
+  * Source: `Windows server AD`
+  * Type: `Security`
+  * Members: `Admin accounts`
+  * Owners: `None`
+  * Group membership: `None`
+  * Applications: `None`
+  * Licenses: `None`
+  * Azure role assignment: `None`
+* Group Name: `Grp-<Agency Acronym>O365-Outlook`
+  * Membership type: `Assigned`
+  * Source: `Cloud`
+  * Type: `Office`
+  * Email: `Grp-<Agency Acronym>o365-outlook@<Agency>.gov.au`
+  * Members: `<Agency User>`
+  * Owners: `<Agency User>`
+  * Group membership: `None`
+  * Applications: `None`
+  * Licenses: `None`
+  * Azure role assignment: `None`
+* Group Name: `Grp-<Agency Acronym>O365-Teams`
+  * Membership type: `Assigned`
+  * Source: `Cloud`
+  * Type: `Office`
+  * Email: `Grp-<Agency Acronym>o365-teams@<Agency>.gov.au`
+  * Members: `<Agency User>`
+  * Owners: `<Agency User>`
+  * Group membership: `None`
+  * Applications: `None`
+  * Licenses: `None`
+  * Azure role assignment: `None`
+* Group Name: `Grp-<Agency Acronym>O365-Teams`
+  * Membership type: `Assigned`
+  * Source: `Cloud`
+  * Type: `Office`
+  * Email: `Grp-<Agency Acronym>o365-teams@<Agency>.gov.au`
+  * Members: `<Agency User>`
+  * Owners: `<Agency User>`
+  * Group membership: `None`
+  * Applications: `None`
+  * Licenses: `None`
+  * Azure role assignment: `None`
+* Group Name: `Office365_AssignLicense_CloudUsers`
+  * Membership type: `Assigned`
+  * Source: `Cloud`
+  * Type: `Security`
+  * Members: `None admin accounts`
+  * Owners: `<Agency Owner> (Admin)`
+  * Group membership: `None`
+  * Applications: `None`
+  * Licenses: `Microsoft 365 E5`
+  * Azure role assignment: `None`
+* Group Name: `rol-Agency-Users`
+  * Membership type: `Assigned`
+  * Source: `Windows server AD`
+  * Type: `Security`
+  * Members: `None admin accounts`
+  * Owners: `None`
+  * Group membership: `None`
+  * Applications: `None`
+  * Licenses: `Microsoft 365 E5`
+  * Azure role assignment: `None`
+* Group Name: `Office365_Conditional_Access_Exclude`
+  * Membership type: `Assigned`
+  * Source: `Cloud`
+  * Type: `Security`
+  * Members
+    * Break Glass account
+      * TenantAdmin
+      * TenantAdmin2
+    * AAD Connect Synchronization accounts
+      * `Sync_<AAD Server 1>_<account GUID>`
+      * `Sync_<AAD Server 2>_<account GUID>`
+  * Owners: `None`
+  * Group membership: `None`
+  * Applications: `None`
+  * Licenses: `None`
+  * Azure role assignment: `None`
+* Group Name: `Office365_Grant_AzureAD_Join`
+  * Membership type: `Assigned`
+  * Source: `Windows server AD`
+  * Type: `Security`
+  * Members: `Admin accounts`
+  * Owners: `None`
+  * Group membership: `None`
+  * Applications: `None`
+  * Licenses: `None`
+  * Azure role assignment: `None`
+* Group Name: `Office365_Grant_CreateGroups`
+  * Membership type: `Assigned`
+  * Source: `Cloud`
+  * Type: `Security`
+  * Members: `<Agency User>`
+  * Owners: `None`
+  * Group membership: `None`
+  * Applications: `None`
+  * Licenses: `None`
+  * Azure role assignment: `None`
 
 ### Azure AD Connect
 
@@ -156,13 +302,14 @@ Not selected – Federation with PingFederate
   * Sync selected domains and OUs:
 ```
 Department
-Groups
-Admin
-Security Access
-Users
-Admin
-General
-Service Accounts
+  * Groups
+    * Admin
+    * Security Access
+  * Users
+    * Admin
+    * General
+    * Service Accounts
+  * Computers
 ```
 
   * How users should be identified in your on-premises directories: `Users are represented only once across all directories`
@@ -215,6 +362,7 @@ Department
     * Admin
     * General
     * Service Accounts
+  * Computers
 ```
   * How users should be identified in your on-premises directories: `Users are represented only once across all directories`
   * How users should be identified with Azure AD: `ms-DS-Consistency-Guid`
@@ -396,12 +544,12 @@ wWWHomePage | TRUE | FALSE
 
 ### Azure Active Directory multifactor authentication
 
-`Search > Multi-Factor Authentication > Fraud alert`
+`Multi-Factor Authentication > Fraud alert`
 
 * Allow users to submit fraud alerts: `On`
 * Automatically block users who report fraud: `On`
 
-`Search > Azure Active Directory > MFA > Additional cloud-based MFA settings`
+`Azure Active Directory > MFA > Additional cloud-based MFA settings`
 
 * App Passwords: `Do not allow users to create app passwords to sign-in to non-browser apps`
 * Trusted Ips: `Disabled`
@@ -456,21 +604,21 @@ cd C:\Program Files\Microsoft Azure AD Connect Authentication Agent
 
 ### Azure Active Directory Identity Protection (authorisation)
 
-`Search > Azure Active Directory > Security > Identity Protection > MFA registration policy`
+`Azure Active Directory > Security > Identity Protection > MFA registration policy`
 
 * Policy name: `Multi-factor authentication registration policy`
 
-`Search > Azure Active Directory > Security > Identity Protection > MFA registration policy > Assignments`
+`Azure Active Directory > Security > Identity Protection > MFA registration policy > Assignments`
 
 * Users: `Included:  All Users`
 * Excluded: `Office365_Conditional_Access_Exclude`
 
-`Search > Azure Active Directory > Security > Identity Protection > MFA registration policy > Controls`
+`Azure Active Directory > Security > Identity Protection > MFA registration policy > Controls`
 
 * Access: `Require Azure MFA registration`
 * Enforce Policy: `On`
 
-`Search > Azure Active Directory > Security > Identity Protection > Sign-in Risk`
+`Azure Active Directory > Security > Identity Protection > Sign-in Risk`
 
 * Include users: `All users`
 * Exclude users
@@ -489,7 +637,7 @@ Sync_<account_2>_b49bd30fb398@<Agency>.onmicrosoft.com
 * Access: `Allow access (Require MFA)`
 * Enforce policy: `On`
 
-`Search > Azure Active Directory > Security > Identity Protection > User Risk Policy`
+`Azure Active Directory > Security > Identity Protection > User Risk Policy`
 
 * Include users: `All users`
 * Exclude users
@@ -510,7 +658,7 @@ Sync_<account_2>_b49bd30fb398@<Agency>.onmicrosoft.com
 
 ### Domain
 
-`Search > Azure Active Directory > Custom domain names`
+`Azure Active Directory > Custom domain names`
 
 * Registration of domain name: `<Agency>.onmicrosoft.com`
   * Status: `Available`
@@ -523,7 +671,7 @@ Sync_<account_2>_b49bd30fb398@<Agency>.onmicrosoft.com
 
 ### Emergency access admin accounts
 
-`Search > Azure Active Directory > Users`
+`Azure Active Directory > Users`
 
 * Account Name: `tenantadmin`
   * Account Type: `Cloud Only Account: tenantadmin@<Tenant Name>.onmicrosoft.com`
@@ -556,11 +704,11 @@ Sync_<account_2>_b49bd30fb398@<Agency>.onmicrosoft.com
 
 ### Collaboration
 
-`Search > Azure Active Directory > Users settings > Manage External collaboration settings`
+`Azure Active Directory > Users settings > Manage External collaboration settings`
 
 * Guest users' permissions are limited: `Yes`
 * Admins and users in the guest inviter role can invite:
-  * `Yes` (for Dev environment ONLY. Details in Design Decision Deviations of the RAID Register)
+  * `Yes` (for Dev environment ONLY. Discussion and design decision details available in the [Platform blueprint](/blueprint/platform.html#collaboration) )
   * `No` for production
 * Members can invite: `No`
 * Guests can invite: `No`
@@ -579,7 +727,7 @@ The ABAC settings for the Agency Privileged Identity Management can be found bel
 
 ### Authentication administrator
 
-`Search > Azure AD Privileged Identity Management > Azure AD roles > Roles > Authentication Administrator > Role settings`
+`Azure AD Privileged Identity Management > Azure AD roles > Roles > Authentication Administrator > Role settings`
 
 * Activation
   * Activation maximum duration: `10 hours`
@@ -641,7 +789,7 @@ The ABAC settings for the Agency Privileged Identity Management can be found bel
 
 ### Azure information protection administrator
 
-`Search > Azure AD Privileged Identity Management > Azure AD roles > Roles > Azure Information Protection Administrator > Role settings`
+`Azure AD Privileged Identity Management > Azure AD roles > Roles > Azure Information Protection Administrator > Role settings`
 
 * Activation
   * Activation maximum duration: `10 hours`
@@ -703,7 +851,7 @@ The ABAC settings for the Agency Privileged Identity Management can be found bel
 
 ### Global administrator
 
-`Search > Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Global Administrator > Role Settings`
+`Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Global Administrator > Role Settings`
 
 * Activation
   * Activation maximum duration: `10 hours`
@@ -765,7 +913,7 @@ The ABAC settings for the Agency Privileged Identity Management can be found bel
 
 ### Exchange administrator
 
-`Search > Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Exchange Administrator > Role Settings`
+`Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Exchange Administrator > Role Settings`
 
 * Activation
   * Activation maximum duration: `10 hours`
@@ -827,7 +975,7 @@ The ABAC settings for the Agency Privileged Identity Management can be found bel
 
 ### Helpdesk administrator
 
-`Search > Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Helpdesk Administrator > Role Settings`
+`Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Helpdesk Administrator > Role Settings`
 
 * Activation
   * Activation maximum duration: `10 hours`
@@ -889,7 +1037,7 @@ The ABAC settings for the Agency Privileged Identity Management can be found bel
 
 ### Intune administrator
 
-`Search > Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Intune Administrator > Role Settings`
+`Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Intune Administrator > Role Settings`
 
 * Activation
   * Activation maximum duration: `10 hours`
@@ -951,7 +1099,7 @@ The ABAC settings for the Agency Privileged Identity Management can be found bel
 
 ### Office Apps administrator
 
-`Search > Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Office Apps Administrator > Role Settings`
+`Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Office Apps Administrator > Role Settings`
 
 * Activation
   * Activation maximum duration: `10 hours`
@@ -1013,7 +1161,7 @@ The ABAC settings for the Agency Privileged Identity Management can be found bel
 
 ### Power BI administrator
 
-`Search > Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Power BI Administrator > Role Settings`
+`Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Power BI Administrator > Role Settings`
 
 * Activation
   * Activation maximum duration: `10 hours`
@@ -1075,7 +1223,7 @@ The ABAC settings for the Agency Privileged Identity Management can be found bel
 
 ### Power Platform administrator
 
-`Search > Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Power Platform Administrator > Role Settings`
+`Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Power Platform Administrator > Role Settings`
 
 * Activation
   * Activation maximum duration: `10 hours`
@@ -1137,7 +1285,7 @@ The ABAC settings for the Agency Privileged Identity Management can be found bel
 
 ### Privileged role administrator
 
-`Search > Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Provileged Role Administrator > Role Settings`
+`Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Provileged Role Administrator > Role Settings`
 
 * Activation
   * Activation maximum duration: `10 hours`
@@ -1199,7 +1347,7 @@ The ABAC settings for the Agency Privileged Identity Management can be found bel
 
 ### Security administrator
 
-`Search > Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Security Administrator > Role Settings`
+`Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Security Administrator > Role Settings`
 
 * Activation
   * Activation maximum duration: `10 hours`
@@ -1261,7 +1409,7 @@ The ABAC settings for the Agency Privileged Identity Management can be found bel
 
 ### Security Operator
 
-`Search > Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Security Operator > Role Settings`
+`Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Security Operator > Role Settings`
 
 * Activation
   * Activation maximum duration: `10 hours`
@@ -1323,7 +1471,7 @@ The ABAC settings for the Agency Privileged Identity Management can be found bel
 
 ### SharePoint administrator
 
-`Search > Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > SharePoint Administrator > Role Settings`
+`Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > SharePoint Administrator > Role Settings`
 
 * Activation
   * Activation maximum duration: `10 hours`
@@ -1385,7 +1533,7 @@ The ABAC settings for the Agency Privileged Identity Management can be found bel
 
 ### Teams communications administrator
 
-`Search > Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Teams Communication Administrator > Role Settings`
+`Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Teams Communication Administrator > Role Settings`
 
 * Activation
   * Activation maximum duration: `10 hours`
@@ -1447,7 +1595,7 @@ The ABAC settings for the Agency Privileged Identity Management can be found bel
 
 ### Teams communications support engineer
 
-`Search > Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Teams Communications Support Engineer > Role Settings`
+`Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Teams Communications Support Engineer > Role Settings`
 
 * Activation
   * Activation maximum duration: `10 hours`
@@ -1509,7 +1657,7 @@ The ABAC settings for the Agency Privileged Identity Management can be found bel
 
 ### Teams communications support specialist
 
-`Search > Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Teams Communications Support Specialist > Role Settings`
+`Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Teams Communications Support Specialist > Role Settings`
 
 * Activation
   * Activation maximum duration: `10 hours`
@@ -1571,7 +1719,7 @@ The ABAC settings for the Agency Privileged Identity Management can be found bel
 
 ### Teams service administrator
 
-`Search > Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Teams service Administrator > Role Settings`
+`Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Teams service Administrator > Role Settings`
 
 * Activation
   * Activation maximum duration: `10 hours`
@@ -1633,7 +1781,7 @@ The ABAC settings for the Agency Privileged Identity Management can be found bel
 
 ### User administrator
 
-`Search > Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > User Administrator > Role Settings`
+`Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > User Administrator > Role Settings`
 
 * Activation
   * Activation maximum duration: `10 hours`
@@ -1699,7 +1847,7 @@ The ABAC settings for the Agency Information Protection can be found below. This
 
 ### Azure Information Protection
 
-`Search > Azure Information Protection > Classifications > Labels`
+`Azure Information Protection > Classifications > Labels`
 
 * Unofficial
   * Specify how this label is displayed in the Information Protection client on user devices
@@ -1823,7 +1971,7 @@ The ABAC settings for the Agency Threat Protection can be found below. This incl
 
 ### Microsoft Defender Advanced Threat Protection
 
-`Search > Microsoft Intune > Device compliance > Microsoft Defender ATP > Open the Microsoft Defender ATP admin console`
+`Microsoft Endpoint Manager > Device compliance > Microsoft Defender ATP > Open the Microsoft Defender ATP admin console`
 
 #### General
 
@@ -2434,19 +2582,47 @@ GDPR – Report data breaches | Medium (x2) | Excluded N/As
 GDPR – Data protection | Medium (x2) | Excluded N/As
 GDPR – User ownership | Medium (x2) | Excluded N/As
 
+### Log Analytics
+
+Table 12 describes the Log Analytics settings that are configured within the Log Analytics Workspace.
+
+Configuration | Value 
+--- | ---
+Workspace Name | agency-log-workspace
+Azure Subscription | Agency subscription 
+Region | Australia Central
+Log retention | Retention Period: 1 year<br>Data Volume Cap: Off 
+Log Analytics Contributor Group | rol-agency-log-admin
+
+#### Microsoft Endpoint Manager
+
+Configuration | Value 
+--- | ---
+Diagnostic Setting Name | Send to Log Analytics
+Log | AuditLogs <br> OperationalLogs <br> DeviceComplianceOrg <br> Devices
+Destination details | Send to Log Analytics Workspace (agency-log-workspace)
+
+#### Azure Active Directory
+
+Configuration | Value 
+--- | ---
+Diagnostic Setting Name | Send to Log Analytics
+Log | AuditLogs <br> SignInLogs <br> NonInteractiveUserSignInLogs <br> ServicePrincipalSignInLogs <br> ManagedIdentitySignInLogs <br> ProvisioningLogs
+Destination details | Send to Log Analytics Workspace (agency-log-workspace)
+
 ## Client configuration
 
 The ABAC settings for the Agency Client Configuration can be found below. This includes Microsoft Co-Management, Registry Settings, Application Packaging, Printing and End User Internet Access settings. Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting.
 
 ### Microsoft co-management
 
-`Search > Intune > Quick Start > Account Details`
+`Microsoft Endpoint Manager > Quick Start > Account Details`
 
 * Account Name: `<Agency>.gov.au`
 * Account status: 1Active`
 * Account location: `Australia 0101`
 
-`Search > Azure Active Directory > Mobility (MDM and MAM) > Microsoft Intune`
+`Azure Active Directory > Mobility (MDM and MAM) > Microsoft Intune`
 
 * MDM user scope: `All`
 * MDM terms of use URL: `https://portal.manage.microsoft.com/TermsofUse.aspx`
@@ -2457,7 +2633,7 @@ The ABAC settings for the Agency Client Configuration can be found below. This i
 * MAM discovery URL: `https://wip.mam.manage.microsoft.com/Enroll`
 * MAM Compliance URL: `<Blank>`
 
-`Search > Azure Active Directory > Mobility (MDM and MAM) > Microsoft Intune Enrollment`
+`Azure Active Directory > Mobility (MDM and MAM) > Microsoft Intune Enrollment`
 
 * MDM user scope: `All`
 * MDM terms of use URL: `https://portal.manage.microsoft.com/TermsofUse.aspx`
@@ -2484,7 +2660,7 @@ The ABAC settings for the Agency Client Configuration can be found below. This i
   * Office Click-to-run apps: `Configuration Manager`
   * Windows Update policies: `Configuration Manager`
 
-`SCCM admin console > Monitoring > Overview > Co-Management`
+`MECM admin console > Monitoring > Overview > Co-Management`
 
 Co-Management monitor screen is showing 
 
@@ -2535,7 +2711,7 @@ The ABAC settings for the Agency Backup can be found below. This includes Backup
 Item | Value
 --- | ---
 Restoration tools | Microsoft backup and restoration tools
-Items to Backup | Exchange Online<br>SharePoint Online<br>Microsoft Teams<br>OneDrive for Business<br>Office 365 Groups
+Items to Backup | Exchange Online<br>SharePoint Online<br>Microsoft Teams<br>OneDrive for Business<br>Microsoft 365 groups
 
 ### Data availability
 
@@ -2601,7 +2777,7 @@ The ABAC settings for the Agency Application Control can be found below. This in
 
 ### Windows Defender Application Control
 
-#### SCCM managed installer
+#### MECM managed installer
 
 * Device Collection
   * Name: `WDAC-DeploymentCollection`

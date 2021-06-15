@@ -52,14 +52,14 @@ Microsoft Power Apps Plan 2 Trial | 10,000
 
 ### Licensing manual groups
 
-`Search > Licenses > Microsoft 365 E5 > Licensed groups `
+`Azure Active Directory > Licenses > Microsoft 365 E5 > Licensed groups `
 
 Table 4 describes the configuration for the manual allocation of Microsoft 365 E5 licenses.
 
 Name | State
 --- | ---
-Office365_AssignLicense_Administrators | Active
-Office365_AssignLicense_CloudUsers | Active
+rol-Agency-Administrators | Active
+rol-Agency-Users | Active
 Office365_AssignLicense_StandUsers | Active
 
 
@@ -121,7 +121,7 @@ Bookings | Disabled
 Calendar | Disabled
 Cortana | Disabled
 Integrated Apps | Disabled
-Microsoft Forms | Disabled
+Microsoft Forms | Send a link to the form and collect responses (enabled)<br>Share to collaborate on the form layout and structure (enabled)<br>Share the form as a template that can be duplicated (enabled)<br>Share form results summary (disabled)<br>Record names by default (disabled)<br>Include Bing search, YouTube videos (disabled)<br>Add internal phishing protection
 Microsoft Graph Data Connect | Enabled
 Microsoft Planner | Enabled
 Microsoft Search in Bing | Disabled
@@ -133,10 +133,11 @@ External Office 365 group content sharing | Let group members outside your organ
 Office on the web | Disabled
 Reports | Disabled
 SharePoint | New and existing guests – guests must sign in or provide a verification code – Enabled
-Skype for Business | Disable
+Skype for Business | Disabled
 Sway  | Disabled
 User owned apps and services | Disabled
-Whiteboard | Disabled
+Whiteboard | Turn on Whiteboard for everyone in your org (enabled) <br>Level of diagnostic data to send to Microsoft (Neither)<br>Allow the use of optional connected experiences in Whiteboard (disabled)<br>Enable easy sharing of Whiteboard from Surface Hub (enabled)
+
 
 ### Security and privacy
 
@@ -154,7 +155,7 @@ Sharing | Not configured
 
 ## Exchange Online
 
-The ABAC settings for the Agency Exchange Online instance can be found below. This includes Connectors, Mail Exchange (MX) Records, SPF, DNS Records, Accepted and Remote Domains, Client Access Services (CAS) Mailbox Plan, Authentication Policy, Outlook Web Access Policy, Mailbox Archive and Auditing, Mail Flow Rules, Journaling, Mailbox Retention, Shared and Resource Mailboxes, Distribution, Dynamic and Office 365 Groups. Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting.
+The ABAC settings for the Agency Exchange Online instance can be found below. This includes Connectors, Mail Exchange (MX) Records, SPF, DNS Records, Accepted and Remote Domains, Client Access Services (CAS) Mailbox Plan, Authentication Policy, Outlook Web Access Policy, Mailbox Archive and Auditing, Mail Flow Rules, Journaling, Mailbox Retention, Shared and Resource Mailboxes, Distribution, Dynamic and Microsoft 365 groups. Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting.
 
 ### Connectors
 
@@ -648,7 +649,7 @@ Owner Audited Actions | ApplyRecord<br>Create<br>HardDelete<br>MailboxLogin<br>M
 
 #### Disclaimer
 
-* Apply this rule if: The recipient is locked..`Outside the organization`
+* Apply this rule if: The recipient is located `Outside the organization`
 * Do the following actions: Append the message with the disclaimer
 
 ```
@@ -671,13 +672,13 @@ Owner Audited Actions | ApplyRecord<br>Create<br>HardDelete<br>MailboxLogin<br>M
 
 #### UNOFFICIAL
 
-* If the message: Is sent to `Inside the organization` **and** `msip_labels` header contains `MSIP_Label_217258b3-6022-44f0-adb4-d6eca052ad20_Enabled=true` **and** Is received from `Inside the organization`
+* If the message: Is sent to `Inside the organization` **and** `msip_labels` header contains `MSIP_Label_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX_Enabled=true` **and** Is received from `Inside the organization`
 * Take the following actions: Prepend the subject with `[SEC=UNOFFICIAL]`
 * Except if the message: Includes these patterns in the message subject: `(SEC=UNOFFICIAL)`
 * ExceptIfSubjectMatchesPatterns: `(SEC=UNOFFICIAL)`
 * FromScope: `InOrganization`
 * HeaderContainsMessageHeader: `msip_labels`
-* HeaderContainsWords: `MSIP_Label_217258b3-6022-44f0-adb4-d6eca052ad20_Enabled=true`
+* HeaderContainsWords: `MSIP_Label_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX_Enabled=true`
 * Mode: `Enforce`
 * Name: `UNOFFICIAL`
 * PrependSubject: `[SEC=UNOFFICIAL]`
@@ -687,13 +688,13 @@ Owner Audited Actions | ApplyRecord<br>Create<br>HardDelete<br>MailboxLogin<br>M
 
 #### OFFICIAL
 
-* If the message: Is sent to `Inside the organization` **and** `msip_labels` header contains `MSIP_Label_8260affa-0595-45d6-a83e-a3b79a9c02c4_Enabled=true` **and** Is received from `Inside the organization`
+* If the message: Is sent to `Inside the organization` **and** `msip_labels` header contains `MSIP_Label_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX_Enabled=true` **and** Is received from `Inside the organization`
 * Take the following actions: Prepend the subject with `[SEC=OFFICIAL]`
 * Except if the message: Includes these patterns in the message subject: `(SEC=OFFICIAL)`
 * ExceptIfSubjectMatchesPatterns: `(SEC=OFFICIAL)`
 * FromScope: `InOrganization`
 * HeaderContainsMessageHeader: `msip_labels`
-* HeaderContainsWords: `MSIP_Label_8260affa-0595-45d6-a83e-a3b79a9c02c4_Enabled=true`
+* HeaderContainsWords: `MSIP_Label_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX_Enabled=true`
 * Mode: `Enforce`
 * Name: `OFFICIAL`
 * PrependSubject: `[SEC=OFFICIAL]`
@@ -703,13 +704,13 @@ Owner Audited Actions | ApplyRecord<br>Create<br>HardDelete<br>MailboxLogin<br>M
 
 #### OFFICIAL:Sensitive
 
-* If the message: Is sent to `Inside the organization` **and** `msip_labels` header contains `MSIP_Label_42227f60-6734-42bf-b4e6-da15ab730981_Enabled=true` **and** Is received from `Inside the organization`
+* If the message: Is sent to `Inside the organization` **and** `msip_labels` header contains `MSIP_Label_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX_Enabled=true` **and** Is received from `Inside the organization`
 * Take the following actions: Prepend the subject with `[SEC=OFFICIAL:Sensitive]`
 * Except if the message: Includes these patterns in the message subject: `(SEC=OFFICIAL:Sensitive)`
 * ExceptIfSubjectMatchesPatterns: `(SEC=OFFICIAL:Sensitive)`
 * FromScope: `InOrganization`
 * HeaderContainsMessageHeader: `msip_labels`
-* HeaderContainsWords: `MSIP_Label_42227f60-6734-42bf-b4e6-da15ab730981_Enabled=true`
+* HeaderContainsWords: `MSIP_Label_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX_Enabled=true`
 * Mode: `Enforce`
 * Name: `OFFICIAL:Sensitive`
 * PrependSubject: `[SEC=OFFICIAL:Sensitive]`
@@ -719,13 +720,13 @@ Owner Audited Actions | ApplyRecord<br>Create<br>HardDelete<br>MailboxLogin<br>M
 
 #### PROTECTED
 
-* If the message: Is sent to `Inside the organization` **and** `msip_labels` header contains `MSIP_Label_12dcf2ca-f80e-4ac2-861b-4b6557faeea3_Enabled=true` **and** Is received from `Inside the organization`
+* If the message: Is sent to `Inside the organization` **and** `msip_labels` header contains `MSIP_Label_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX_Enabled=true` **and** Is received from `Inside the organization`
 * Take the following actions: Prepend the subject with `[SEC=PROTECTED]`
 * Except if the message: Includes these patterns in the message subject: `(SEC=PROTECTED)`
 * ExceptIfSubjectMatchesPatterns: `(SEC=PROTECTED)`
 * FromScope: `InOrganization`
 * HeaderContainsMessageHeader: `msip_labels`
-* HeaderContainsWords: `MSIP_Label_12dcf2ca-f80e-4ac2-861b-4b6557faeea3_Enabled=true`
+* HeaderContainsWords: `MSIP_Label_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX_Enabled=true`
 * Mode: `Enforce`
 * Name: `PROTECTED`
 * PrependSubject: `[SEC=PROTECTED]`
@@ -903,7 +904,7 @@ These settings have been configured using PowerShell.
 
 ### Office 365 groups
 
-`Search > Azure Active Directory > Groups > General`
+`Azure Active Directory > Groups > General`
 
 * Self Service Group Management
   * Owners can manage group membership requests in the Access Panel: `No`
@@ -915,17 +916,17 @@ These settings have been configured using PowerShell.
   * Users can create Office 365 groups in Azure portal: `No`
   * Owners who can assign members as group owners in Azure portal: `All`
 
-`Search > Azure Active Directory > Groups > Naming policy`
+`Azure Active Directory > Groups > Naming policy`
 
 * Group naming policy: `Grp-<Department>-<Group name>`
 
-`Search > Azure Active Directory > Groups > Expiration`
+`Azure Active Directory > Groups > Expiration`
 
 * Group lifetime (in days): `365`
 * Email contact for groups with no owners: `Office365_Group_Expiration@<Agency>.gov.au`
 * Enable expiration for these Office 365 groups: `All`
 
-`Search > Azure Active Directory > Groups`
+`Azure Active Directory > Groups`
 
 * Group Name: `ADMIN_O365_Admin`
   * Membership type: `Assigned`
@@ -990,7 +991,7 @@ These settings have been configured using PowerShell.
   * Applications: `None`
   * Licenses: `None`
   * Azure role assignment: `None`
-* Group Name: `Office365_AssignLicense_CloudUsers`
+* Group Name: `rol-Agency-Users`
   * Membership type: `Assigned`
   * Source: `Cloud`
   * Type: `Security`
@@ -1000,7 +1001,7 @@ These settings have been configured using PowerShell.
   * Applications: `None`
   * Licenses: `Microsoft 365 E5`
   * Azure role assignment: `None`
-* Group Name: `Office365_AssignLicense_StandardUsers`
+* Group Name: `rol-Agency-Users`
   * Membership type: `Assigned`
   * Source: `Windows server AD`
   * Type: `Security`
@@ -1736,10 +1737,14 @@ The ABAC settings for the Agency Office 365 Security and Compliance instance can
 
 ### Audit logging
 
-`Office 365 Security & compliance > Search > Audit log search`
+`Microsoft 365 compliance > Audit > Audit Retention Policies`
 
 * Enabled: `True`
-* Admin Audit Log Age Limit: `1 year`
+* Policy name: `10 year audit log`
+* Policy description: `Retains all audit log records for 10 years`
+* Record Type: `All`
+* Duration: `10 years`
+* Priority: `1`
 
 ### Retention policies
 
@@ -1757,12 +1762,12 @@ Exchange Public Folders
 * Retention period: `Keep content for 3 years`
 * Turn on preservation lock: `No`
 
-`Office 365 Security & compliance > Information governance > Retention | Office 365 Groups 3 Years Hold`
+`Office 365 Security & compliance > Information governance > Retention | Microsoft 365 groups 3 Years Hold`
 
 * Status: `On`
-* Policy Name: `Office 365 Groups 3 Years Hold`
-* Description: `Office 365 Groups 3 Years Hold`
-* Applies to content in these locations: `Office 365 Groups`
+* Policy Name: `Microsoft 365 groups 3 Years Hold`
+* Description: `Microsoft 365 groups 3 Years Hold`
+* Applies to content in these locations: `Microsoft 365 groups`
 * Retention period: `Keep content for 3 years`
 * Turn on preservation lock: `No`
 

@@ -1,16 +1,16 @@
 ---
 layout: page
-title: Hybrid - Intune configuration for Windows devices
+title: Hybrid - Microsoft Endpoint Manager - Intune configuration for Windows devices
 menu: abac
 ---
 
 ## Profiles
 
-The ABAC settings for the Agency Intune Profiles can be found below. This includes macro security, Windows Hello, block admins, delivery optimisation, disable Adobe Flash, Microsoft Store, Defender, network boundary, OneDrive, timezone, security baseline fixes, Bitlocker, and Windows 10 Enterprise settings.
+The ABAC settings for the Agency Microsoft Endpoint Manager - Intune (Intune) Profiles can be found below. This includes macro security, Windows Hello, block admins, delivery optimisation, disable Adobe Flash, Microsoft Store, Defender, network boundary, OneDrive, timezone, security baseline fixes, Bitlocker, and Windows 10 Enterprise settings.
 
 Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting.
 
-The following can be found at `Intune > Devices > Configuration profiles`
+The following can be found at `Microsoft Endpoint Manager > Devices > Configuration profiles`
 
 ### ACSC-Jan2020-MacroSecurity
 
@@ -118,7 +118,7 @@ user | \Microsoft Publisher 2016\Security | Publisher Automation Security Level 
       <FilePathCondition Path="*"/>
     </Conditions>
   </FilePathRule>
-  <FilePathRule Id="9eb15b2e-f9c2-42d4-8692-ad1a0f6a0722" Name="All files" Description="Allows user to run files execpt powershell" UserOrGroupSid="S-1-1-0" Action="Allow">
+  <FilePathRule Id="9eb15b2e-f9c2-42d4-8692-ad1a0f6a0722" Name="All files" Description="Allows user to run files except powershell" UserOrGroupSid="S-1-1-0" Action="Allow">
     <Conditions>
       <FilePathCondition Path="*"/>
     </Conditions>
@@ -180,7 +180,7 @@ user | \Microsoft Publisher 2016\Security | Publisher Automation Security Level 
   * Turn off Adobe Flash in Internet Explorer and prevent applications from using Internet Explorer technology to instantiate Flash objects: `Enable`
 * Scope tags: `Default`
 * Assignments
-  * Included groups: All users, All devices
+  * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`
   * Excluded groups: -
 
 ### Agency-MicrosoftStore-User
@@ -198,7 +198,7 @@ user | \Microsoft Publisher 2016\Security | Publisher Automation Security Level 
     * Integer value: `1` 
 * Scope tags: `Default`
 * Assignments
-  * Included groups: All users, All devices
+  * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`
   * Excluded groups: -
 
 ### Agency-MSDefenderATP
@@ -406,7 +406,7 @@ The following can be found at `Intune > Devices > Scripts`
 
 * Profile name: `Intune log folder shortcut`
 * Script settings
-  * PowerShell script: `IntuneLogFolder.ps1`
+  * PowerShell script: [IntuneLogFolder.ps1](/assets/files/abac/IntuneLogFolder.txt)
   * Run this script using the logged-on credentials: `No`
   * Enforce script signature check: `No`
   * Run script in 64 bit PowerShell Host: `No`
@@ -415,22 +415,24 @@ The following can be found at `Intune > Devices > Scripts`
   * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`
   * Excluded groups: -
 
-```powershell
-# Create a Shortcut to the Intune Logs folder with Windows PowerShell
+### Block OLE Extensions
 
-$TargetPath = "$env:ProgramData\Microsoft\IntuneManagementExtension\Logs"
-$ShortcutFile = "$env:Public\Desktop\IntuneLogs.lnk"
-$WScriptShell = New-Object -ComObject WScript.Shell
-$Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
-$Shortcut.TargetPath = $TargetPath
-$Shortcut.Save()
-```
+* Profile name: `Intune Block OLE Extension`
+* Script settings
+  * PowerShell script: [oleblockingscript.ps1](/assets/files/abac/oleblockingscript.txt)
+  * Run this script using the logged-on credentials: `Yes`
+  * Enforce script signature check: `No`
+  * Run script in 64 bit PowerShell Host: `No`
+* Scope tags: `Default`
+* Assignments
+  * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`
+  * Excluded groups: -
 
 ### Remove built-in apps
 
 * Profile name: `RemoveBuiltInApps`
 * Script settings
-  * PowerShell script: `RemoveBuiltInApps.ps1`
+  * PowerShell script: [RemoveBuiltInApps.ps1](/assets/files/abac/RemoveBuiltInApps.txt)
   * Run this script using the logged-on credentials: `No`
   * Enforce script signature check: `No`
   * Run script in 64 bit PowerShell Host: `No`
@@ -438,148 +440,3 @@ $Shortcut.Save()
 * Assignments
   * Included groups: `grp-Windows-10-Devices`
   * Excluded groups: -
-
-```powershell
-Begin {
-    # White list of Features On Demand V2 packages
-    $WhiteListOnDemand = "NetFX3|Tools.Graphics.DirectX|Tools.DeveloperMode.Core|Language|Browser.InternetExplorer|ContactSupport|OneCoreUAP|Media.WindowsMediaPlayer|Hello.Face"
-
-    # White list of appx packages to keep installed
-    $WhiteListedApps = New-Object -TypeName System.Collections.ArrayList
-    $WhiteListedApps.AddRange(@(
-        "Microsoft.DesktopAppInstaller",
-        "Microsoft.Messaging", 
-        "Microsoft.MSPaint",
-        "Microsoft.Windows.Photos",
-        "Microsoft.StorePurchaseApp",
-        "Microsoft.MicrosoftOfficeHub",
-        "Microsoft.MicrosoftStickyNotes",
-        "Microsoft.WindowsAlarms",
-        "Microsoft.WindowsCalculator", 
-        "Microsoft.WindowsSoundRecorder", 
-        "Microsoft.WindowsStore"
-    ))
-
-    # Windows 10 version 1809
-    $WhiteListedApps.AddRange(@(
-        "Microsoft.ScreenSketch",
-        "Microsoft.HEIFImageExtension",
-        "Microsoft.VP9VideoExtensions",
-        "Microsoft.WebMediaExtensions",
-        "Microsoft.WebpImageExtension"
-    ))
-
-    # Windows 10 version 1903
-    # No new apps
-}
-Process {
-    # Functions
-    function Write-LogEntry {
-        param(
-            [parameter(Mandatory=$true, HelpMessage="Value added to the RemovedApps.log file.")]
-            [ValidateNotNullOrEmpty()]
-            [string]$Value,
-            [parameter(Mandatory=$false, HelpMessage="Name of the log file that the entry will written to.")]
-            [ValidateNotNullOrEmpty()]
-            [string]$FileName = "RemovedApps.log"
-        )
-        # Determine log file location
-        $LogFilePath = Join-Path -Path $env:windir -ChildPath "Temp\$($FileName)"
-
-        # Add value to log file
-        try {
-            Out-File -InputObject $Value -Append -NoClobber -Encoding Default -FilePath $LogFilePath -ErrorAction Stop
-        }
-        catch [System.Exception] {
-            Write-Warning -Message "Unable to append log entry to $($FileName) file"
-        }
-    }
-
-    # Initial logging
-    Write-LogEntry -Value "Starting built-in AppxPackage, AppxProvisioningPackage and Feature on Demand V2 removal process"
-
-    # Determine provisioned apps
-    $AppArrayList = Get-AppxProvisionedPackage -Online | Select-Object -ExpandProperty DisplayName
-
-    # Loop through the list of appx packages
-    foreach ($App in $AppArrayList) {
-        Write-LogEntry -Value "Processing appx package: $($App)"
-
-        # If application name not in appx package white list, remove AppxPackage and AppxProvisioningPackage
-        if (($App -in $WhiteListedApps)) {
-            Write-LogEntry -Value "Skipping excluded application package: $($App)"
-        }
-        else {
-            # Gather package names
-            $AppPackageFullName = Get-AppxPackage -Name $App | Select-Object -ExpandProperty PackageFullName -First 1
-            $AppProvisioningPackageName = Get-AppxProvisionedPackage -Online | Where-Object { $_.DisplayName -like $App } | Select-Object -ExpandProperty PackageName -First 1
-
-            # Attempt to remove AppxPackage
-            if ($AppPackageFullName -ne $null) {
-                try {
-                    Write-LogEntry -Value "Removing AppxPackage: $($AppPackageFullName)"
-                    Remove-AppxPackage -Package $AppPackageFullName -ErrorAction Stop | Out-Null
-                }
-                catch [System.Exception] {
-                    Write-LogEntry -Value "Removing AppxPackage '$($AppPackageFullName)' failed: $($_.Exception.Message)"
-                }
-            }
-            else {
-                Write-LogEntry -Value "Unable to locate AppxPackage for current app: $($App)"
-            }
-
-            # Attempt to remove AppxProvisioningPackage
-            if ($AppProvisioningPackageName -ne $null) {
-                try {
-                    Write-LogEntry -Value "Removing AppxProvisioningPackage: $($AppProvisioningPackageName)"
-                    Remove-AppxProvisionedPackage -PackageName $AppProvisioningPackageName -Online -ErrorAction Stop | Out-Null
-                }
-                catch [System.Exception] {
-                    Write-LogEntry -Value "Removing AppxProvisioningPackage '$($AppProvisioningPackageName)' failed: $($_.Exception.Message)"
-                }
-            }
-            else {
-                Write-LogEntry -Value "Unable to locate AppxProvisioningPackage for current app: $($App)"
-            }
-        }
-    }
-
-    Write-LogEntry -Value "Starting Features on Demand V2 removal process"
-
-    # Get Features On Demand that should be removed
-    try {
-        $OSBuildNumber = Get-WmiObject -Class "Win32_OperatingSystem" | Select-Object -ExpandProperty BuildNumber
-
-        # Handle cmdlet limitations for older OS builds
-        if ($OSBuildNumber -le "16299") {
-            $OnDemandFeatures = Get-WindowsCapability -Online -ErrorAction Stop | Where-Object { $_.Name -notmatch $WhiteListOnDemand -and $_.State -like "Installed"} | Select-Object -ExpandProperty Name
-        }
-        else {
-            $OnDemandFeatures = Get-WindowsCapability -Online -LimitAccess -ErrorAction Stop | Where-Object { $_.Name -notmatch $WhiteListOnDemand -and $_.State -like "Installed"} | Select-Object -ExpandProperty Name
-        }
-
-        foreach ($Feature in $OnDemandFeatures) {
-            try {
-                Write-LogEntry -Value "Removing Feature on Demand V2 package: $($Feature)"
-
-                # Handle cmdlet limitations for older OS builds
-                if ($OSBuildNumber -le "16299") {
-                    Get-WindowsCapability -Online -ErrorAction Stop | Where-Object { $_.Name -like $Feature } | Remove-WindowsCapability -Online -ErrorAction Stop | Out-Null
-                }
-                else {
-                    Get-WindowsCapability -Online -LimitAccess -ErrorAction Stop | Where-Object { $_.Name -like $Feature } | Remove-WindowsCapability -Online -ErrorAction Stop | Out-Null
-                }
-            }
-            catch [System.Exception] {
-                Write-LogEntry -Value "Removing Feature on Demand V2 package failed: $($_.Exception.Message)"
-            }
-        }    
-    }
-    catch [System.Exception] {
-        Write-LogEntry -Value "Attempting to list Feature on Demand V2 packages failed: $($_.Exception.Message)"
-    }
-
-    # Complete
-    Write-LogEntry -Value "Completed built-in AppxPackage, AppxProvisioningPackage and Feature on Demand V2 removal process"
-}
-```

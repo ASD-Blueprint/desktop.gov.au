@@ -1,12 +1,12 @@
 ---
 layout: page
-title: Intune configuration
+title: Microsoft Endpoint Manager - Intune configuration
 menu: abac
 ---
 
 ## Configuration profiles
 
-The following can be found at `Intune > Devices > Configuration profiles`
+The following can be found at `Microsoft Endpoint Manager > Devices > Configuration profiles`
 
 ### ACSC-Jan2020-MacroSecurity
 
@@ -182,7 +182,7 @@ user | \Microsoft Publisher 2016\Security | Publisher Automation Security Level 
   * Maximum cache size (in %): `20`
 * Scope tags: `Default`
 * Assignments
-  * Included groups: All devices
+  * Included groups: `grp-agency-windows10-dynamic`
   * Excluded groups: -
 
 ### Agency-DisableAdobeFlashIE-User
@@ -192,10 +192,10 @@ user | \Microsoft Publisher 2016\Security | Publisher Automation Security Level 
 * Type: `Windows 10 and later`
 * Profile Type: `Administrative Templates`
 * Configuration settings
-  * Turn off Adobe Flash in Internet Explorer and prevent applications from using Internet Explorer technology to instantiate Flash objects: `None`
+  * Turn off Adobe Flash in Internet Explorer and prevent applications from using Internet Explorer technology to instantiate Flash objects: `Enable`
 * Scope tags: `Default`
 * Assignments
-  * Included groups: All users, All devices
+  * Included groups: `Rol-agency-administrators, Rol-agency-users`
   * Excluded groups: -
 
 ### Agency-MicrosoftStore-User
@@ -208,12 +208,12 @@ user | \Microsoft Publisher 2016\Security | Publisher Automation Security Level 
   * OMA-URI Settings
     * Name: `BlockWindows10Store`
     * Description: `Not configured`
-    * OMA-URI: `./Vendor/MSFT/Policy/Config/ApplicationManagement/RequirePrivateStoreOnly`
+    * OMA-URI: `./User/Vendor/MSFT/Policy/Config/ApplicationManagement/RequirePrivateStoreOnly`
     * Data Type: `Integer`
     * Integer value: `1` 
 * Scope tags: `Default`
 * Assignments
-  * Included groups: All users, All devices
+  * Included groups: `Rol-agency-administrators, Rol-agency-users`
   * Excluded groups: -
 
 ### Agency-MSDefenderATP
@@ -224,7 +224,7 @@ user | \Microsoft Publisher 2016\Security | Publisher Automation Security Level 
 * Profile Type: `Microsoft Defender ATP (Windows 10 Desktop)`
 * Configuration settings
   * Microsoft Defender ATP client configuration package type: `Onboard`
-  * Sample sharing for all files: `Enabled`
+  * Sample sharing for all files: `Block`
   * Expedite telemetry reporting frequency: `Enabled`
 * Scope tags: `Default`
 * Assignments
@@ -254,7 +254,7 @@ user | \Microsoft Publisher 2016\Security | Publisher Automation Security Level 
 * Profile Type: `Administrative Templates`
 * Scope tags: `Default`
 * Assignments
-  * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`
+  * Included groups: `grp-agency-windows10-dynamic`
   * Excluded groups: -
 
 Configuration settings
@@ -284,7 +284,7 @@ Configuration settings
 
 ClassType | CategoryPath | DisplayName | Value | Enabled
 --- | --- | --- | --- | --- 
-user | \OneDrive | Coauthor and share in Office desktop apps |  | true
+user | \OneDrive | Co-author and share in Office desktop apps |  | true
 user | \OneDrive | Prevent users from syncing personal OneDrive accounts |  | true
 
 ### Agency-TimeZoneEST
@@ -302,7 +302,7 @@ user | \OneDrive | Prevent users from syncing personal OneDrive accounts |  | tr
     * Value: `AUS Eastern Standard Time`
 * Scope tags: `Default`
 * Assignments
-  * Included groups: `grp-Windows-10-Devices`, `rol-Agency-Administrators`, `rol-Agency-Users`
+  * Included groups: `grp-agency-windows10-dynamic`, `rol-Agency-Administrators`, `rol-Agency-Users`
   * Excluded groups: -
 
 ### Agency-WDACBasePolicy
@@ -323,7 +323,7 @@ The policy GUID in the OMA-URI must be unique to your environment. It can be fou
     * Data type: `Base64`
     * Certificate file: `binary format policy file`
 * Assignments
-  * Included groups: `grp-Windows-10-Devices`, `rol-Agency-Users`
+  * Included groups: `grp-agency-windows10-dynamic`, `rol-Agency-Users`
   * Excluded groups: -
 
 ### Agency-WDACSubPolicy-AppName
@@ -344,12 +344,12 @@ The policy GUID in the OMA-URI must be unique to your environment. It can be fou
     * Data type: `Base64`
     * Certificate file: `binary format policy file`
 * Assignments
-  * Included groups: `grp-Windows-10-Devices`, `rol-Agency-Users`
+  * Included groups: `grp-agency-windows10-dynamic`, `rol-Agency-Users`
   * Excluded groups: -
 
 ### Wi-Fi Configuration
 
-* Name: `WiFi SSID`
+* Name: `Windows WiFi SSID`
 * Description: -
 * Type: `Windows 10 and later`
 * Profile Type: `Wi-Fi`
@@ -369,29 +369,210 @@ The policy GUID in the OMA-URI must be unique to your environment. It can be fou
   * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`
   * Excluded groups: `grp-Virtual-Machines`
 
+* Name: `iOS WiFi SSID`
+* Description: -
+* Type: `iOS/iPadOS`
+* Profile Type: `Wi-Fi`
+* Configuration settings
+  * Wi-Fi type: `Enterprise`
+  * Wi-Fi name (SSID): `WiFi SSID`
+  * Connection Name: `WiFi SSID`
+  * Connect automatically: `Enable`
+  * Hidden network: `Disable`
+  * Wireless Security Type: `WPA/WPA2-Enterprise`
+  * EAP type: `EAP - TLS`
+  * Certificate server names: `********`
+  * Client authentication
+    * Authentication method: `Certificates`
+  * Identity privacy (outer identity): `Anonymous`
+  * Proxy settings: `None`
+  * Disable MAC address randomization: `Yes`
+* Scope tags: `Default`
+* Assignments
+  * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`
+  * Excluded groups: `grp-agency-windows10-dynamic`
+
 ### iOS device restrictions
 
-* Name: `iOS device restrictions`
+* Name: `iOS Device Restrictions`
 * Description: -
 * Type: `iOS/iPadOS`
 * Profile Type: `Device restrictions`
 * Configuration settings
-  * Cloud and Storage
-    * Force encrypted backup: `Require`
+  * General
+    * Block sending diagnostic and usage data to Apple: `Yes`
+    * Block screenshots and screen recording: `Yes`
+    * Block untrusted TLS certificates: `Yes`
+    * Block over-the-air PKI updates: `Yes`
+    * Force limited ad tracking: `Yes`
+    * Block trusting new enterprise app authors: `Yes`
+    * Block app clips: `Yes`
+    * Limit Apple personalized advertising: `Yes`
+    * Block modification of account settings: `Block`
+    * Block Screen Time: `Yes`
+    * Block use of erase all content and settings: `Yes`
+    * Block modification of device name: `Yes`
+    * Block modification of notifications settings: `Not configured`
+    * Block modification of Wallpaper: `Yes`
+    * Block configuration profile changes: `Yes`
+    * Allow activation lock: `Yes`
+    * Block removing apps: `Not configured`
+    * Allow USB accessories while device is locked: `Not configured`
+    * Force automatic date and time: `Yes`
+    * Require teacher permission to leave Classroom app unmanaged classes: `Not configured`
+    * Allow Classroom to lock to an app and lock the device without prompting: `Not configured`
+    * Allow students to automatically join Classroom classes without prompting: `Not configured`
+    * Block VPN creation: `Not configured`
+    * Block modification of eSIM settings: `Yes`
+    * Defer software updates: `Not configured`
   * Password
-    * Require password: `Require`
-    * Simple passwords: `Block`
+    * Require Password: `Yes`
+    * Block simple passwords: `Yes`
     * Required password type: `Alphanumeric`
+    * Number of non-alphanumeric characters in password: `1`
     * Minimum password length: `14`
-    * Number of sign-in failures: `4`
+    * Number of sign-in failures before wiping the device: `11`
     * Maximum minutes after screen lock before password is required: `Immediately`
-    * Maximum minutes of inactivity until screen locks: `3`
+    * Maximum minutes of inactivity until screen locks: `2 Minutes`
     * Password expiration (days): `365`
-    * Touch ID and Face ID unlock: `Require`
+    * Prevent reuse of previous passwords: `5`
+    * Block Touch ID and Face ID unlock: `Yes`
+  * Automated device enrollment
+    * Block passcode modification: `Not configured`
+    * Block modification of Touch and Face ID faces: `Not configured`
+    * Block password AutoFill: `Yes`
+    * Block password proximity requests: `Yes`
+    * Block password sharing: `Yes`
+    * Require Touch ID and Face ID authentication for password or credit card information AutoFill: `Yes`
+  * Lock Screen Experience
+    * Block Control Center access while device locked: `Not configured`
+    * Block Notification Center access while device locked: `Yes`
+    * Block Today view while device locked: `Yes`
+    * Block Wallet notifications while device locked: `Block`
+  * App Store, Doc Viewing, Gaming
+    * Block viewing corporate documents in unmanaged apps: `Yes`
+    * Allow unmanaged apps to read from managed contacts accounts: `Not configured`
+    * Treat AirDrop as an unmanaged destination: `Yes`
+    * Viewing non-corporate documents in corporate apps: `Block`
+    * Require iTunes Store password for all purchases: `Not configured`
+    * Block In-app purchases: `Yes`
+    * Block download of explicit sexual content in Apple Books: `Yes`
+    * Allow managed apps to write contacts to unmanaged contacts accounts: `Not configured`
+    * Rating Region: `No region configured`
+    * Block app store: `Not configured`
+    * Block installing apps using App Store: `Not configured`
+    * Block automatic app downloads: `Not configured`
+    * Block playback of explicit iTunes music, podcast, or news content: `Yes`
+    * Block adding Game Center friends: `Yes`
+    * Block Game Center: `Yes`
+    * Block multiplayer gaming: `Yes`
+    * Block access to network drive in Files app: `Yes`
+  * Built-in Apps
+    * Block Siri: `Yes`
+    * Block Siri while device is locked: `N/A`
+    * Require Safari fraud warnings: `Yes`
+    * Block spotlight search to return results from internet: `Yes`
+    * Safari cookies: `Block all cookies`
+    * Block Safari JavaScript: `Yes`
+    * Block Safari Pop-ups: `Yes`
+    * Block camera: `Not configured`
+    * Block FaceTime: `Not configured`
+    * Require Siri proximity filter: `N/A`
+    * Block user-generated content in Siri: `N/A`
+    * Block Apple News: `Not configured`
+    * Block Apple Book: `Yes`
+    * Block iMessage: `Not configured`
+    * Block Podcasts: `Yes`
+    * Music service: `Yes`
+    * Block iTunes Radio service: `Yes`
+    * Block iTunes Store: `Yes`
+    * Block Find My iPhone: `Not configured`
+    * Block Find My Friends: `Yes`
+    * Block user modification to the Find My Friends settings: `Yes`
+    * Block removal of system apps from device: `Not configured`
+    * Block Safari: `Not configured`
+    * Block Safari Autofill: `Yes`
+  * Restricted Apps
+    * Type of restricted app list: `Approved apps`
+
+    App store URL | App bundle ID | App Name | Publisher
+    --- | --- | ---
+    https://apps.apple.com/au/app/adobe-acrobat-reader-for-pdf/id469337564 | com.adobe.Adobe-Reader | Adobe Acrobat Reader for PDF | Adobe Inc
+    https://apps.apple.com/us/app/microsoft-authenticator/id983156458 | com.microsoft.azureauthenticator | Microsoft Authenticator | Microsoft Corporation
+    https://apps.apple.com/us/app/microsoft-edge/id1288723196 | com.microsoft.msedge | Microsoft Edge | Microsoft Corporation
+    https://apps.apple.com/us/app/microsoft-edge/id1288723196 | com.microsoft.Office.Excel | Microsoft Excel | Microsoft Corporation
+    https://apps.apple.com/us/app/microsoft-onedrive/id477537958 | com.microsoft.skydrive | Microsoft OneDrive | Microsoft Corporation
+    https://apps.apple.com/au/app/microsoft-onenote/id410395246 | com.microsoft.onenote | Microsoft OneNote | Microsoft Corporation
+    https://apps.apple.com/au/app/microsoft-powerpoint/id586449534 | com.microsoft.Office.Powerpoint | Microsoft PowerPoint | Microsoft Corporation
+    https://apps.apple.com/us/app/microsoft-outlook/id951937596 | com.microsoft.Office.Outlook | Microsoft Outlook | Microsoft Corporation
+    https://apps.apple.com/au/app/microsoft-sharepoint/id1091505266 | com.microsoft.sharepoint | Microsoft SharePoint | Microsoft Corporation
+    https://apps.apple.com/us/app/microsoft-teams/id1113153706 | com.microsoft.skype.teams | Microsoft Teams | Microsoft Corporation
+    https://apps.apple.com/us/app/microsoft-word/id586447913 | com.microsoft.Office.Word | Microsoft Word | Microsoft Corporation
+    https://apps.apple.com/au/app/power-apps/id1047318566 | com.microsoft.msapps | PowerApps | Microsoft Corporation
+
+  * Show or Hide Apps: 
+    * Type of app list: `Not configured`
+  * Wireless
+    * Block data roaming: `Not configured`
+    * Block global background fetch while roaming: `Not configured`
+    * Block voice dialing while device is locked: `Yes`
+    * Block voice roaming: `Not configured`
+    * Block personal Hotspot: `Not configured`
+    * Block use of cellular data: `Not configured`
+    * Block use of cellular data when roaming: `Not configured`
+    * Block changes to app cellular data usage settings: `Not configured`
+    * Block changes to cellular plan settings: `Not configured`
+    * Block modification of Personal Hotspot: `Not configured`
+    * Require joining Wi-Fi networks only using configuration profiles: `Yes`
+    * Require Wi-Fi always turned on: `Not configured`
+  * Connected Devices
+    * Force wrist detection for paired Apple Watch: `Yes`
+    * Require AirPlay outgoing requests pairing password: `Yes`
+    * Block AirDrop: `Yes`
+    * Block Apple Watch pairing: `Yes`
+    * Block modifying Bluetooth settings: `Not configured`
+    * Block pairing with non-Configurator hosts: `Yes`
+    * Block AirPrint: `Block`
+    * Block storage of AirPrint credentials in Keychain: `N/A`
+    * Require AirPrint to destinations with trusted certificates: `N/A`
+    * Block iBeacon discovery of AirPrint printers: `N/A`
+    * Block access to USB drive in Files app: `Yes`
+    * Disable near-field communication (NFC): `Yes`
+  * Keyboard and Dictionary
+    * Block word definition lookup: `Not configured`
+    * Block predictive keyboards: `Not configured`
+    * Block auto-correction: `Not configured`
+    * Block keyboard spell-check: `Not configured`
+    * Block keyboard shortcuts: `Not configured`
+    * Block dictation: `Not configured`
+    * Block QuickPath: `Not configured`
+  * Cloud and Storage
+    * Force encrypted backup: `Yes`
+    * Block managed apps from storing data in iCloud: `Yes`
+    * Block enterprise Book Backup: `Yes`
+    * Block notes and highlights sync for enterprise books: `Yes`
+    * Block iCloud Photos sync: `Yes`
+    * Block iCloud Photo Library: `Yes`
+    * Block my photo stream: `Yes`
+    * Block handoff: `Yes`
+    * Backup to iCloud: `Yes`
+    * Block iCloud document and data sync: `Yes`
+    * Block iCloud Keychain sync: `Yes`
+  * Autonomous Single App Mode
+    * App name: `Not configured`
+    * App Bundle ID: `Not configured`
+  * Kiosk
+    * App to run in kiosk mode: `Not configured`
+  * Domains
+    * Unmarked email domains: `Not configured`
+    * Managed web domains: `Not configured`
+    * Safari password auto fill domains: `Not configured`
+  * Shared iPad
+    * Block Shared iPad temporary sessions: `Yes`
 * Scope tags: `Default`
 * Assignments
   * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`
-  * Excluded groups: `grp-Windows-10-Devices`
+  * Excluded groups: `grp-agency-windows10-dynamic`
 
 ### iOS email configuration
 
@@ -406,33 +587,37 @@ The policy GUID in the OMA-URI must be unique to your environment. It can be fou
   * Email address attribute from AAD: `Primary SMTP Address`
   * Authentication method: `Username and password`
   * SSL: `Enable`
+  * OAuth: `Enable`
   * Exchange data to sync: `All data`
   * Allow users to change sync settings: `Yes`
   * S/MIME: `Disable S/MIME`
+  * Amount of email to synchronize: `One Month`
   * Allow messages to be moved to other email accounts: `Disable`
   * Allow email to be sent from third party applications: `Disable`
-  * Synchronize recently used email addresses : `Disable`
+  * Synchronize recently used email addresses : `Enable`
+  * VPN profile for per account VPN: ``
 * Scope tags: `Default`
 * Assignments
   * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`
-  * Excluded groups: `grp-Windows-10-Devices`
+  * Excluded groups: `grp-agency-windows10-dynamic`
 
-### SecBaselineFix-AT
+### iOS per app VPN
 
-* Name: `SecBaselineFix-AT`
+* Name: `iOS per app VPN`
 * Description: -
-* Type: `Windows 10 and later`
-* Profile Type: `Administrative Templates`
-* Scope tags: `Default`
+* Type: `iOS/iPadOS` 
+* Profile Type: `VPN`
+* Configuration settings
+  * Connection Type: `VPN Provider`
+  * Connection name: `PerApp VPN`
+  * VPN Address: `XXX.XXX.XXX.XXX`
+  * Authentication method: `username and password`
+  * Split tunnelling: `Disabled`
+  * Type of automatic VPN: `Per-app VPN`
+  * Block users from disabling automatic VPN: `Yes`
 * Assignments
   * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`
-  * Excluded groups: -
-
-Configuration settings
-
-ClassType | CategoryPath | DisplayName | Value | Enabled
---- | --- | --- | --- | --- 
-computer | \Windows Components\Internet Explorer\Security Features\Add-On Management | Turn off Adobe Flash in Internet Explorer and prevent applications from using Internet Explorer technology to instantiate Flash object |  | true
+  * Excluded groups: `grp-agency-windows10-dynamic`
 
 ### SecBaselineFix-EP
 
@@ -475,7 +660,7 @@ computer | \Windows Components\Internet Explorer\Security Features\Add-On Manage
     * Encryption for operation system drives: `XTS-AES 256-bit`
     * Encryption for fixed data-drives: `XTS-AES 256-bit`
     * Encryption for removable data-drives: `XTS-AES 256-bit`
-    * Additional authentication at startup: `Require`
+    * Additional authentication at start-up: `Require`
     * OS drive recovery: `Enable`
     * Recovery options in the BitLocker setup wizard: `Block`
     * Save BitLocker recovery information to Azure Active Directory: `Enable`
@@ -533,7 +718,7 @@ The following can be found at `Intune > Devices > Scripts`
 
 * Profile name: `Intune log folder shortcut`
 * Script settings
-  * PowerShell script: `IntuneLogFolder.ps1`
+  * PowerShell script: [IntuneLogFolder.ps1](/assets/files/abac/IntuneLogFolder.txt)
   * Run this script using the logged-on credentials: `No`
   * Enforce script signature check: `No`
   * Run script in 64 bit PowerShell Host: `No`
@@ -542,171 +727,28 @@ The following can be found at `Intune > Devices > Scripts`
   * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`
   * Excluded groups: -
 
-```powershell
-# Create a Shortcut to the Intune Logs folder with Windows PowerShell
+### Block OLE Extensions
 
-$TargetPath = "$env:ProgramData\Microsoft\IntuneManagementExtension\Logs"
-$ShortcutFile = "$env:Public\Desktop\IntuneLogs.lnk"
-$WScriptShell = New-Object -ComObject WScript.Shell
-$Shortcut = $WScriptShell.CreateShortcut($ShortcutFile)
-$Shortcut.TargetPath = $TargetPath
-$Shortcut.Save()
-```
+* Profile name: `Intune Block OLE Extension`
+* Script settings
+  * PowerShell script: [oleblockingscript.ps1](/assets/files/abac/oleblockingscript.txt)
+  * Run this script using the logged-on credentials: `Yes`
+  * Enforce script signature check: `No`
+  * Run script in 64 bit PowerShell Host: `No`
+* Scope tags: `Default`
+* Assignments
+  * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`
+  * Excluded groups: -
 
 ### Remove built-in apps
 
 * Profile name: `RemoveBuiltInApps`
 * Script settings
-  * PowerShell script: `RemoveBuiltInApps.ps1`
+  * PowerShell script: [RemoveBuiltInApps.ps1](/assets/files/abac/RemoveBuiltInApps.txt)
   * Run this script using the logged-on credentials: `No`
   * Enforce script signature check: `No`
   * Run script in 64 bit PowerShell Host: `No`
 * Scope tags: `Default`
 * Assignments
-  * Included groups: `grp-Windows-10-Devices`
+  * Included groups: `grp-agency-windows10-dynamic`
   * Excluded groups: -
-
-```powershell
-Begin {
-    # White list of Features On Demand V2 packages
-    $WhiteListOnDemand = "NetFX3|Tools.Graphics.DirectX|Tools.DeveloperMode.Core|Language|Browser.InternetExplorer|ContactSupport|OneCoreUAP|Media.WindowsMediaPlayer|Hello.Face"
-
-    # White list of appx packages to keep installed
-    $WhiteListedApps = New-Object -TypeName System.Collections.ArrayList
-    $WhiteListedApps.AddRange(@(
-        "Microsoft.DesktopAppInstaller",
-        "Microsoft.Messaging", 
-        "Microsoft.MSPaint",
-        "Microsoft.Windows.Photos",
-        "Microsoft.StorePurchaseApp",
-        "Microsoft.MicrosoftOfficeHub",
-        "Microsoft.MicrosoftStickyNotes",
-        "Microsoft.WindowsAlarms",
-        "Microsoft.WindowsCalculator", 
-        "Microsoft.WindowsSoundRecorder", 
-        "Microsoft.WindowsStore"
-    ))
-
-    # Windows 10 version 1809
-    $WhiteListedApps.AddRange(@(
-        "Microsoft.ScreenSketch",
-        "Microsoft.HEIFImageExtension",
-        "Microsoft.VP9VideoExtensions",
-        "Microsoft.WebMediaExtensions",
-        "Microsoft.WebpImageExtension"
-    ))
-
-    # Windows 10 version 1903
-    # No new apps
-}
-Process {
-    # Functions
-    function Write-LogEntry {
-        param(
-            [parameter(Mandatory=$true, HelpMessage="Value added to the RemovedApps.log file.")]
-            [ValidateNotNullOrEmpty()]
-            [string]$Value,
-            [parameter(Mandatory=$false, HelpMessage="Name of the log file that the entry will written to.")]
-            [ValidateNotNullOrEmpty()]
-            [string]$FileName = "RemovedApps.log"
-        )
-        # Determine log file location
-        $LogFilePath = Join-Path -Path $env:windir -ChildPath "Temp\$($FileName)"
-
-        # Add value to log file
-        try {
-            Out-File -InputObject $Value -Append -NoClobber -Encoding Default -FilePath $LogFilePath -ErrorAction Stop
-        }
-        catch [System.Exception] {
-            Write-Warning -Message "Unable to append log entry to $($FileName) file"
-        }
-    }
-
-    # Initial logging
-    Write-LogEntry -Value "Starting built-in AppxPackage, AppxProvisioningPackage and Feature on Demand V2 removal process"
-
-    # Determine provisioned apps
-    $AppArrayList = Get-AppxProvisionedPackage -Online | Select-Object -ExpandProperty DisplayName
-
-    # Loop through the list of appx packages
-    foreach ($App in $AppArrayList) {
-        Write-LogEntry -Value "Processing appx package: $($App)"
-
-        # If application name not in appx package white list, remove AppxPackage and AppxProvisioningPackage
-        if (($App -in $WhiteListedApps)) {
-            Write-LogEntry -Value "Skipping excluded application package: $($App)"
-        }
-        else {
-            # Gather package names
-            $AppPackageFullName = Get-AppxPackage -Name $App | Select-Object -ExpandProperty PackageFullName -First 1
-            $AppProvisioningPackageName = Get-AppxProvisionedPackage -Online | Where-Object { $_.DisplayName -like $App } | Select-Object -ExpandProperty PackageName -First 1
-
-            # Attempt to remove AppxPackage
-            if ($AppPackageFullName -ne $null) {
-                try {
-                    Write-LogEntry -Value "Removing AppxPackage: $($AppPackageFullName)"
-                    Remove-AppxPackage -Package $AppPackageFullName -ErrorAction Stop | Out-Null
-                }
-                catch [System.Exception] {
-                    Write-LogEntry -Value "Removing AppxPackage '$($AppPackageFullName)' failed: $($_.Exception.Message)"
-                }
-            }
-            else {
-                Write-LogEntry -Value "Unable to locate AppxPackage for current app: $($App)"
-            }
-
-            # Attempt to remove AppxProvisioningPackage
-            if ($AppProvisioningPackageName -ne $null) {
-                try {
-                    Write-LogEntry -Value "Removing AppxProvisioningPackage: $($AppProvisioningPackageName)"
-                    Remove-AppxProvisionedPackage -PackageName $AppProvisioningPackageName -Online -ErrorAction Stop | Out-Null
-                }
-                catch [System.Exception] {
-                    Write-LogEntry -Value "Removing AppxProvisioningPackage '$($AppProvisioningPackageName)' failed: $($_.Exception.Message)"
-                }
-            }
-            else {
-                Write-LogEntry -Value "Unable to locate AppxProvisioningPackage for current app: $($App)"
-            }
-        }
-    }
-
-    Write-LogEntry -Value "Starting Features on Demand V2 removal process"
-
-    # Get Features On Demand that should be removed
-    try {
-        $OSBuildNumber = Get-WmiObject -Class "Win32_OperatingSystem" | Select-Object -ExpandProperty BuildNumber
-
-        # Handle cmdlet limitations for older OS builds
-        if ($OSBuildNumber -le "16299") {
-            $OnDemandFeatures = Get-WindowsCapability -Online -ErrorAction Stop | Where-Object { $_.Name -notmatch $WhiteListOnDemand -and $_.State -like "Installed"} | Select-Object -ExpandProperty Name
-        }
-        else {
-            $OnDemandFeatures = Get-WindowsCapability -Online -LimitAccess -ErrorAction Stop | Where-Object { $_.Name -notmatch $WhiteListOnDemand -and $_.State -like "Installed"} | Select-Object -ExpandProperty Name
-        }
-
-        foreach ($Feature in $OnDemandFeatures) {
-            try {
-                Write-LogEntry -Value "Removing Feature on Demand V2 package: $($Feature)"
-
-                # Handle cmdlet limitations for older OS builds
-                if ($OSBuildNumber -le "16299") {
-                    Get-WindowsCapability -Online -ErrorAction Stop | Where-Object { $_.Name -like $Feature } | Remove-WindowsCapability -Online -ErrorAction Stop | Out-Null
-                }
-                else {
-                    Get-WindowsCapability -Online -LimitAccess -ErrorAction Stop | Where-Object { $_.Name -like $Feature } | Remove-WindowsCapability -Online -ErrorAction Stop | Out-Null
-                }
-            }
-            catch [System.Exception] {
-                Write-LogEntry -Value "Removing Feature on Demand V2 package failed: $($_.Exception.Message)"
-            }
-        }    
-    }
-    catch [System.Exception] {
-        Write-LogEntry -Value "Attempting to list Feature on Demand V2 packages failed: $($_.Exception.Message)"
-    }
-
-    # Complete
-    Write-LogEntry -Value "Completed built-in AppxPackage, AppxProvisioningPackage and Feature on Demand V2 removal process"
-}
-```

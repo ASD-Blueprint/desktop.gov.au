@@ -19,6 +19,8 @@ Windows PowerShell Desired State Configuration can be leveraged to both implemen
 ```Powershell
 Get-DscLocalConfigurationManager
 ```
+For additional information regarding Windows PowerShell Desired State Configuration is available on the [Microsoft website](https://docs.microsoft.com/en-us/powershell/scripting/dsc/managing-nodes/metaconfig?view=powershell-7.1). 
+
 ## Scope
 
 The following items are the components that are in scope for the automation:
@@ -57,10 +59,10 @@ The following items are prerequisites for the procedure:
 
 The process to enforce a Microsoft 365 Desired State Configuration (M365DSC) is broken into three (3) main parts:
 1. Configuration file development
-2. Certificate creation (optional)
+2. Certificate creation
 3. Configuration deployment
 
-If the second part is not completed then the the configuration file (MOF file) will contain credentials in <b>Clear Text</b>.
+If the second part is not completed then the the configuration file (MOF file) will contain credentials in <b>Clear Text</b>. Also the CertificateFile value within the Configurationdata.psd1 would require removal.
 
 #### Configuration file development
 
@@ -76,7 +78,7 @@ Blueprint configuration scripts are available below:
 * [identity_dsc.ps1](/assets/files/automation/identity_dsc.txt)
 
 
-#### Certificate creation (optional)
+#### Certificate creation
 
 The process to create a certificate is as is as follows:
 1. Open a PowerShell console as an administrator.
@@ -85,16 +87,24 @@ The process to create a certificate is as is as follows:
 install-module microsoft365dsc -allowclobber -force
 import-module microsoft365dsc
 ```
-3. Run the following command to create a Desired State Configuration local configuration manager certificate:
+3. In PowerShell navigate to the directory containing the Blueprint configuration PS1 file and the ConfigurationData.PSD1 file.
+4. Run the following command to create a Desired State Configuration local configuration manager certificate:
 ```Powershell 
 Set-M365DSCAgentCertificateConfiguration
 ```
-4. Run the following command to validate a certificate was created and assigned to the local configuration manger (The certificate thumbprint will be listed under CertificateID.):
+5. Run the following command to validate a certificate was created and assigned to the local configuration manger (The certificate thumbprint will be listed under CertificateID.):
 ```Powershell 
 Get-DscLocalConfigurationManager
 ```
-5. Open Certificates for the Local Computer.
-6. Export the certificate `M365DSCEncryptionCert` as `M365.cer` to the folder containing the Blueprint configuration PS1 file and the ConfigurationData.PSD1 file.
+6. Run the following command to export the certificate in to the folder containing the Blueprint configuration PS1 file and the ConfigurationData.PSD1 file.
+```Powershell
+$certificatethumbprint = Get-DscLocalConfigurationManager | select CertificateID
+$certpath =  "cert:\localmachine\My\" + $certificatethumbprint.CertificateID
+$cert = Get-ChildItem -path $certpath
+Export-Certificate -Cert $cert -FilePath .\M365dsc_DER.cer
+certutil -encode M365dsc_DER.cer m365dsc.cer
+remove-item .\M365dsc_DER.cer
+```
 
 
 #### Configuration deployment
@@ -107,12 +117,12 @@ install-module microsoft365dsc -allowclobber -force
 import-module microsoft365dsc
 ```
 3. In PowerShell navigate to the directory containing the Blueprint configuration PS1 file and the ConfigurationData.PSD1 file.
-4. In the PowerShell console initiate the Blueprint configuration PS1 and supply any request values. The following is an example for the Identity configuration.
+4. In the PowerShell console initiate the Blueprint configuration PS1 and supply the required values. The required values are located in the parameters section of the `Blueprint Configuration Script file`. The following is an example for the Identity configuration. The required values are: Global Admin credentials; Agency name; Agency prefix; and Trusted IPs (in CIDR format).
 ```Powershell 
 $pscredential = get-credential
 $agencyname = "Agency Name"
 $agencyprefix = "Agency Acroynm"
-$trustedIPs = @("X.X.X.X/X") 
+$trustedIPs = @("X.X.X.X/X","X.X.X.X/X") #note - for one CIDR range use @("X.X.X.X/X")
 .\identity_dsc.ps1 -globaladminaccount $pscredential -trustedip $trustedIPs -agency $Agencyname -agencyprefix $Agencyprefix
 ```
 5. <b>This step will enforce the DSC configuration</b> Run the following command within the PowerShell console:
@@ -120,6 +130,10 @@ $trustedIPs = @("X.X.X.X/X")
 Start-DSCConfiguration M365TenantConfig -wait -verbose -force
 ```
 6. Log into the tenant and validate the successful configuration.
+7. In the PowerShell console run the following command to ensure the configuration is no longer enforced via the Desired State Configuration Local configuration manager.
+```Powershell
+Remove-DscConfigurationDocument -stage current
+```
 
 ## Microsoft 365 Desired State Configuration Auditing Procedure
 

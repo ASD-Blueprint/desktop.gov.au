@@ -13,7 +13,7 @@ The blueprint offers 4 main artefacts to support agencies with implementation.
 *	The **Client devices design** includes Windows 10 and iOS components only.
 *	The **Office 365 design** includes Exchange Online, SharePoint Online, OneDrive for Business and Teams.
 
-Other blueprint artefacts include configuration guides and security documentation. They are designed to meet Australian Cyber Security Centre (ACSC) requirements for systems that handle and manage information classfied as Protected. 
+Other blueprint artefacts include configuration guides, automation guides, and security documentation. They are designed to meet Australian Cyber Security Centre (ACSC) requirements for systems that handle and manage information classified as Protected. 
 
 All artefacts provide a standard and proven approach for Microsoft 365. They aim to fast track the adoption of the Microsoft Modern Workplace experience.
 
@@ -30,4 +30,4 @@ There are 2 deployment types covered in this blueprint:
 
 In many cases, design decisions are common across both deployment methods. Where specific elements differ for cloud and hybrid deployments, the blueprint provides the common components applicable to all deployments. It then offers further guidance for each deployment type.
 
-For adoptors, practitioners, and other interested parties, DTA manages a [Protected Utility Program community of practice](https://community.desktop.gov.au/). The community provides a direct channel to DTA and encourages discussion between community members.
+For adopters, practitioners, and other interested parties, DTA manages a [Protected Utility Program community of practice](https://community.desktop.gov.au/). The community provides a direct channel to DTA and encourages discussion between community members.

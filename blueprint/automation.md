@@ -21,7 +21,7 @@ Get-DscLocalConfigurationManager
 
 ## Scope
 
-The following blueprint components are available for automation. We hope to expand this list over time as the options mature. If you would like your script included in the blueprint, please let us know by raising a [ticket in Github](https://github.com/govau/desktop.gov.au/issues).
+The following blueprint components are available for automation. We hope to expand this list over time as the options mature. If you would like your script included in the blueprint, please let us know by raising a [ticket in GitHub](https://github.com/govau/desktop.gov.au/issues).
 
 * Identity and access management
 
@@ -119,7 +119,7 @@ install-module microsoft365dsc -allowclobber -force
 import-module microsoft365dsc
 ```
 3. In PowerShell navigate to the directory containing the Blueprint configuration PS1 file and the `configurationdata.psd1` file
-4. In the PowerShell console, initiate the Blueprint configuration PS1 and supply the required values. The required values are located in the parameters section of the `Blueprint Configuration Script file`. The following is an example for the identity configuration. The required values are: Global Admin credentials; agency name; agency prefix; and trusted IPs (in CIDR format).
+4. In the PowerShell console, initiate the Blueprint configuration PS1 and supply the required values. The required values are located in the parameters section of the `Blueprint Configuration Script file` (i.e. identity_dsc.ps1). The following is an example for the identity configuration. The required values are: Global Admin credentials; agency name; agency prefix; and trusted IPs (in CIDR format).
 ```Powershell 
 $pscredential = get-credential
 $agencyname = "Agency Name"

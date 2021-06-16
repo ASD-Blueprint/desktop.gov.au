@@ -1515,7 +1515,7 @@ Microsoft Defender for Office 365 provides the following capabilities:
 * Safe Attachments - Microsoft Defender for Office 365 Safe Attachments provides sandbox execution of attachments to detect and delete malicious content.
 * Anti-Phishing - Microsoft Defender for Office 365 Anti-Phishing provides machine learning capabilities to detect advanced phishing campaigns.
 
-### Safe links
+### Safe Links
 
 Microsoft Defender for Office 365 Safe Links can help protect an organisation by providing time-of-click verification of web addresses (URLs) in email messages, Teams messages, and Office documents. Protection is defined through Safe Links policies that are configured by an organisation.
 
@@ -1562,7 +1562,7 @@ Action for unknown or potentially malicious URLs within Microsoft Teams | Micros
 Do not track when users click safe links | Unchecked | Information about when end-users click safe links in the Office 365 documents will be tracked.
 Do not let users click through safe links to original URL  | Checked | If end-users click on safe links in Office 365 documents, then they will be directed to a warning page and will not be presented with an option to continue to the original link.
 
-### Safe attachments
+### Safe Attachments
 
 The Safe Attachments feature checks email attachments after the email is received but before it is delivered to the user mailbox.
 
@@ -1584,7 +1584,7 @@ Redirect attachment on detection. Send the blocked, monitored or replaced attach
 Apply the above selection of malware scanning for attachments times out or error occurs | Ticked | Will redirect an end-user's email messages to a selected email address even if a time out or error occurs when malware scanning an attachment. This allows legitimate emails to be recovered and malware to be investigated. 
 Applied to | Configured | All Agency domains (e.g., dta.gov.au).
 
-### Anti-Phishing
+### Anti-phishing
 
 Anti-phishing protects users by checking incoming messages for indicators that the message may be spoofed by impersonator or part of a phishing campaign. Most phishing emails involves a malicious actor disguising oneself (spoofing) as an individual who is known to the recipient. The messaged is crafted in a such a way which can trick the user into clicking a link, downloading malware, or stealing user credentials.
 

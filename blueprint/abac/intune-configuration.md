@@ -297,7 +297,7 @@ user | \OneDrive | Prevent users from syncing personal OneDrive accounts |  | tr
   * OMA-URI Settings
     * Name: `Set TimeZone`
     * Description: `Set TimeZone`
-    * OMA-URI: `./Device/Vendor/MSFT/Policy/TimeLanguageSettings/ConfigureTimeZone`
+    * OMA-URI: `./Device/Vendor/MSFT/Policy/Config/TimeLanguageSettings/ConfigureTimeZone`
     * Data type: `String`
     * Value: `AUS Eastern Standard Time`
 * Scope tags: `Default`

@@ -115,7 +115,7 @@ RHEL | Red Hat Enterprise Linux
 RPO | Recovery Point Objective
 RTO | Recovery Time Objective
 SAN | Subject Alternate Name
-SCCM | Microsoft Software Center 
+SCCM | Microsoft System Center Configuration Manager
 SEM | Security Event Management
 SIEM | Security Information and Event Management
 SIG | Secure Internet Gateway

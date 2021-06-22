@@ -1,0 +1,438 @@
+param (
+    [parameter()]
+    [System.Management.Automation.PSCredential]
+    $GlobalAdminAccount,
+    [parameter()]
+    [array]$trustedIP,
+    [parameter()]
+    [string]$agency,
+    [parameter()]
+    [string]$agencyprefix
+)
+
+Configuration M365TenantConfig
+{
+    param (
+        [parameter()]
+        [System.Management.Automation.PSCredential]
+        $GlobalAdminAccount,
+        [parameter(Mandatory)]
+        [array]$trustedIP,
+        [parameter(Mandatory)]
+        [string]$agency,
+        [parameter()]
+        [string]$agencyprefix
+    )
+    if ($null -eq $GlobalAdminAccount)
+    {
+        <# Credentials #>
+        $Credsglobaladmin = Get-Credential -Message "Global Admin credentials"
+
+    }
+    else
+    {
+        $Credsglobaladmin = $GlobalAdminAccount
+    }
+
+    $OrganizationName = $Credsglobaladmin.UserName.Split('@')[1]
+    $alternatecontact = "Office365_Group_Expiration@"+$agency+".gov.au"
+    $namingpolicy = $agencyprefix+"_[GroupName]"
+    Import-DscResource -ModuleName 'Microsoft365DSC' -ModuleVersion '1.21.519.2'
+
+    Node localhost
+    {
+        AADMSGroup MFAExclusion
+        {
+            DisplayName                   = "MFA Excluded"; ### L3|This is the suggested group name, please validate that the group name has been configured in accordance with the agency requirements.
+            Description                   = "Users are excluded from CA MFA policies"; ### L3|This is the suggested group description.
+            SecurityEnabled               = $True
+            MailEnabled                   = $False
+            GroupTypes                    = @()
+            MailNickname                  = "M365DSC"
+            Visibility                    = "Private"
+            GlobalAdminAccount            = $credsGlobalAdmin
+            Ensure                        = "Present"
+        }
+
+        AADMSGroup AdminMFAExclusion
+        {
+            DisplayName                   = "Admin MFA Excluded"; ### L3|This is the suggested group name, please validate that the group name has been configured in accordance with the agency requirements.
+            Description                   = "Users are excluded from CA Admin MFA policies"; ### L3|This is the suggested group description.
+            SecurityEnabled               = $True
+            MailEnabled                   = $False
+            GroupTypes                    = @()
+            MailNickname                  = "M365DSC"
+            Visibility                    = "Private"
+            GlobalAdminAccount            = $credsGlobalAdmin
+            Ensure                        = "Present"
+        }
+
+        AADMSGroup LegacyAuthExclusion
+        {
+            DisplayName                   = "Legacy Auth Excluded"; ### L3|This is the suggested group name, please validate that the group name has been configured in accordance with the agency requirements.
+            Description                   = "Users are excluded from CA Legacy Auth policies"; ### L3|This is the suggested group description.
+            SecurityEnabled               = $True
+            MailEnabled                   = $False
+            GroupTypes                    = @()
+            MailNickname                  = "M365DSC"
+            Visibility                    = "Private"
+            GlobalAdminAccount            = $credsGlobalAdmin
+            Ensure                        = "Present"
+        }
+
+        AADMSGroup AllowedCountriesExclusion
+        {
+            DisplayName                   = "Allowed Countries Excluded"; ### L3|This is the suggested group name, please validate that the group name has been configured in accordance with the agency requirements.
+            Description                   = "Users are excluded from CA Allowed Countries policies"; ### L3|This is the suggested group description.
+            SecurityEnabled               = $True
+            MailEnabled                   = $False
+            GroupTypes                    = @()
+            MailNickname                  = "M365DSC"
+            Visibility                    = "Private"
+            GlobalAdminAccount            = $credsGlobalAdmin
+            Ensure                        = "Present"
+        }
+
+        AADMSGroup ApprovedMailExclusion
+        {
+            DisplayName                   = "Approved Mail Excluded"; ### L3|This is the suggested group name, please validate that the group name has been configured in accordance with the agency requirements.
+            Description                   = "Users are excluded from CA Approved Mail policies"; ### L3|This is the suggested group description.
+            SecurityEnabled               = $True
+            MailEnabled                   = $False
+            GroupTypes                    = @()
+            MailNickname                  = "M365DSC"
+            Visibility                    = "Private"
+            GlobalAdminAccount            = $credsGlobalAdmin
+            Ensure                        = "Present"
+        }
+
+        AADMSGroup ManagedDeviceExclusion
+        {
+            DisplayName                   = "Managed Device Excluded"; ### L3|This is the suggested group name, please validate that the group name has been configured in accordance with the agency requirements.
+            Description                   = "Users are excluded from CA Managed Device policies"; ### L3|This is the suggested group description.
+            SecurityEnabled               = $True
+            MailEnabled                   = $False
+            GroupTypes                    = @()
+            MailNickname                  = "M365DSC"
+            Visibility                    = "Private"
+            GlobalAdminAccount            = $credsGlobalAdmin
+            Ensure                        = "Present"
+        }
+
+
+
+        AADNamedLocationPolicy CompanyNetwork
+        {
+            DisplayName        = "$agency Internal Network";
+            Ensure             = "Present";
+            IpRanges           = $trustedIP;
+            IsTrusted          = $True;
+            OdataType          = "#microsoft.graph.ipNamedLocation";
+            TenantId           = $ConfigurationData.NonNodeData.TenantId;
+            GlobalAdminAccount = $credsGlobalAdmin;
+        }
+        
+        AADNamedLocationPolicy AllowedCountries
+        {
+            CountriesAndRegions               = @("AU");
+            DisplayName                       = "Allowed Countries";
+            Ensure                            = "Present";
+            IncludeUnknownCountriesAndRegions = $False;
+            OdataType                         = "#microsoft.graph.countryNamedLocation";
+            TenantId                          = $ConfigurationData.NonNodeData.TenantId;
+            GlobalAdminAccount                = $credsGlobalAdmin;
+        }
+
+        AADConditionalAccessPolicy Blocks-legacyauthentication
+        {
+            GlobalAdminAccount         = $credsGlobalAdmin;
+            BuiltInControls            = @("Block");
+            ClientAppTypes             = @("ExchangeActiveSync", "Other");
+            CloudAppSecurityIsEnabled  = $false;
+            CloudAppSecurityType       = "";
+            DisplayName                = "Block - legacy authentication";
+            Ensure                     = "Present";
+            ExcludeApplications        = @();
+            ExcludeDevices             = @();
+            ExcludeGroups              = @("Legacy Auth Excluded");
+            ExcludeLocations           = @();
+            ExcludePlatforms           = @();
+            ExcludeRoles               = @();
+            ExcludeUsers               = @();
+            GrantControlOperator       = "OR";
+            IncludeApplications        = @("All");
+            IncludeDevices             = @();
+            IncludeGroups              = @();
+            IncludeLocations           = @();
+            IncludePlatforms           = @();
+            IncludeRoles               = @();
+            IncludeUserActions         = @();
+            IncludeUsers               = @("All");
+            PersistentBrowserIsEnabled = $false;
+            PersistentBrowserMode      = "";
+            SignInFrequencyIsEnabled   = $false;
+            SignInFrequencyType        = "";
+            SignInRiskLevels           = @();
+            State                      = "enabled";
+            UserRiskLevels             = @();
+        }
+
+        AADConditionalAccessPolicy Blocks-allowedcountries
+        {
+            GlobalAdminAccount         = $credsGlobalAdmin;
+            BuiltInControls            = @("Block");
+            ClientAppTypes             = @("All");
+            CloudAppSecurityIsEnabled  = $false;
+            CloudAppSecurityType       = "";
+            DisplayName                = "Block - allowed countries";
+            Ensure                     = "Present";
+            ExcludeApplications        = @();
+            ExcludeDevices             = @();
+            ExcludeGroups              = @("Allowed Countries Excluded");
+            ExcludeLocations           = @("Allowed Countries");
+            ExcludePlatforms           = @();
+            ExcludeRoles               = @();
+            ExcludeUsers               = @();
+            GrantControlOperator       = "OR";
+            IncludeApplications        = @("All");
+            IncludeDevices             = @();
+            IncludeGroups              = @();
+            IncludeLocations           = @("All");
+            IncludePlatforms           = @();
+            IncludeRoles               = @();
+            IncludeUserActions         = @();
+            IncludeUsers               = @("All");
+            PersistentBrowserIsEnabled = $false;
+            PersistentBrowserMode      = "";
+            SignInFrequencyIsEnabled   = $false;
+            SignInFrequencyType        = "";
+            SignInRiskLevels           = @();
+            State                      = "enabled";
+            UserRiskLevels             = @();
+        }
+
+        AADConditionalAccessPolicy Grants-ReqiureMFAforadministrators
+        {
+            GlobalAdminAccount         = $credsGlobalAdmin;
+            BuiltInControls            = @("Mfa");
+            ClientAppTypes             = @("All");
+            CloudAppSecurityIsEnabled  = $false;
+            CloudAppSecurityType       = "";
+            DisplayName                = "Grant - Reqiure MFA for administrators";
+            Ensure                     = "Present";
+            ExcludeApplications        = @();
+            ExcludeDevices             = @();
+            ExcludeGroups              = @("Admin MFA Excluded");
+            ExcludeLocations           = @();
+            ExcludePlatforms           = @();
+            ExcludeRoles               = @();
+            ExcludeUsers               = @();
+            GrantControlOperator       = "OR";
+            IncludeApplications        = @("All");
+            IncludeDevices             = @();
+            IncludeGroups              = @();
+            IncludeLocations           = @();
+            IncludePlatforms           = @();
+            IncludeRoles               = @("Application Administrator", "Authentication Administrator", "Azure DevOps Administrator", "Azure Information Protection Administrator", "B2C IEF Keyset Administrator", "B2C IEF Policy Administrator", "Billing Administrator", "Cloud Application Administrator", "Cloud Device Administrator", "Compliance Administrator", "Compliance Data Administrator", "Conditional Access Administrator", "Desktop Analytics Administrator", "Dynamics 365 Administrator", "Exchange Administrator", "External ID User Flow Administrator", "External ID User Flow Attribute Administrator", "Global Administrator", "Groups Administrator", "Helpdesk Administrator", "Intune Administrator", "Kaizala Administrator", "License Administrator", "Office Apps Administrator", "Password Administrator", "Power BI Administrator", "Power Platform Administrator", "Privileged Authentication Administrator", "Privileged Role Administrator", "Search Administrator", "Security Administrator", "Service Support Administrator", "SharePoint Administrator", "Skype for Business Administrator", "Teams Administrator", "Teams Communications Support Engineer", "Teams Communications Support Specialist", "Teams devices Administrator", "User Administrator");
+            IncludeUserActions         = @();
+            IncludeUsers               = @("All");
+            PersistentBrowserIsEnabled = $false;
+            PersistentBrowserMode      = "";
+            SignInFrequencyIsEnabled   = $false;
+            SignInFrequencyType        = "";
+            SignInRiskLevels           = @();
+            State                      = "enabled";
+            UserRiskLevels             = @();
+        }
+
+        AADConditionalAccessPolicy Grants-requireMFAforAzuremanagement
+        {
+            GlobalAdminAccount         = $credsGlobalAdmin;
+            BuiltInControls            = @("Mfa");
+            ClientAppTypes             = @("All");
+            CloudAppSecurityIsEnabled  = $false;
+            CloudAppSecurityType       = "";
+            DisplayName                = "Grant - require MFA for Azure management";
+            Ensure                     = "Present";
+            ExcludeApplications        = @();
+            ExcludeDevices             = @();
+            ExcludeGroups              = @("Admin MFA Excluded");
+            ExcludeLocations           = @();
+            ExcludePlatforms           = @();
+            ExcludeRoles               = @();
+            ExcludeUsers               = @();
+            GrantControlOperator       = "OR";
+            IncludeApplications        = @("797f4846-ba00-4fd7-ba43-dac1f8f63013");
+            IncludeDevices             = @();
+            IncludeGroups              = @();
+            IncludeLocations           = @();
+            IncludePlatforms           = @();
+            IncludeRoles               = @();
+            IncludeUserActions         = @();
+            IncludeUsers               = @("All");
+            PersistentBrowserIsEnabled = $false;
+            PersistentBrowserMode      = "";
+            SignInFrequencyIsEnabled   = $false;
+            SignInFrequencyType        = "";
+            SignInRiskLevels           = @();
+            State                      = "enabled";
+            UserRiskLevels             = @();
+        }
+
+        AADConditionalAccessPolicy Grants-requireMFAforallusers
+        {
+            GlobalAdminAccount         = $credsGlobalAdmin;
+            BuiltInControls            = @("Mfa");
+            ClientAppTypes             = @("All");
+            CloudAppSecurityIsEnabled  = $false;
+            CloudAppSecurityType       = "";
+            DisplayName                = "Grant - require MFA for all users";
+            Ensure                     = "Present";
+            ExcludeApplications        = @();
+            ExcludeDevices             = @();
+            ExcludeGroups              = @("Admin MFA Excluded","MFA Excluded");
+            ExcludeLocations           = @("$agency Internal Network");
+            ExcludePlatforms           = @();
+            ExcludeRoles               = @();
+            ExcludeUsers               = @();
+            GrantControlOperator       = "OR";
+            IncludeApplications        = @("ALL");
+            IncludeDevices             = @();
+            IncludeGroups              = @();
+            IncludeLocations           = @("All");
+            IncludePlatforms           = @();
+            IncludeRoles               = @();
+            IncludeUserActions         = @();
+            IncludeUsers               = @("All");
+            PersistentBrowserIsEnabled = $false;
+            PersistentBrowserMode      = "";
+            SignInFrequencyIsEnabled   = $false;
+            SignInFrequencyType        = "";
+            SignInRiskLevels           = @();
+            State                      = "enabled";
+            UserRiskLevels             = @();
+        }
+
+        AADConditionalAccessPolicy Grants-noMFAforcompliantdevicesinAustralia
+        {
+            GlobalAdminAccount         = $credsGlobalAdmin;
+            BuiltInControls            = @("CompliantDevice");
+            ClientAppTypes             = @("All");
+            CloudAppSecurityIsEnabled  = $false;
+            CloudAppSecurityType       = "";
+            DisplayName                = "Grant - no MFA for compliant devices in Australia";
+            Ensure                     = "Present";
+            ExcludeApplications        = @();
+            ExcludeDevices             = @();
+            ExcludeGroups              = @("Admin MFA Excluded","MFA Excluded");
+            ExcludeLocations           = @("Allowed Countries");
+            ExcludePlatforms           = @("macOS","iOS","android");
+            ExcludeRoles               = @("Application Administrator", "Authentication Administrator", "Azure DevOps Administrator", "Azure Information Protection Administrator", "B2C IEF Keyset Administrator", "B2C IEF Policy Administrator", "Billing Administrator", "Cloud Application Administrator", "Cloud Device Administrator", "Compliance Administrator", "Compliance Data Administrator", "Conditional Access Administrator", "Desktop Analytics Administrator", "Dynamics 365 Administrator", "Exchange Administrator", "External ID User Flow Administrator", "External ID User Flow Attribute Administrator", "Global Administrator", "Groups Administrator", "Helpdesk Administrator", "Intune Administrator", "Kaizala Administrator", "License Administrator", "Office Apps Administrator", "Password Administrator", "Power BI Administrator", "Power Platform Administrator", "Privileged Authentication Administrator", "Privileged Role Administrator", "Search Administrator", "Security Administrator", "Service Support Administrator", "SharePoint Administrator", "Skype for Business Administrator", "Teams Administrator", "Teams Communications Support Engineer", "Teams Communications Support Specialist", "Teams devices Administrator", "User Administrator");
+            ExcludeUsers               = @();
+            GrantControlOperator       = "OR";
+            IncludeApplications        = @("ALL");
+            IncludeDevices             = @();
+            IncludeGroups              = @();
+            IncludeLocations           = @("All");
+            IncludePlatforms           = @("All");
+            IncludeRoles               = @();
+            IncludeUserActions         = @();
+            IncludeUsers               = @("All");
+            PersistentBrowserIsEnabled = $false;
+            PersistentBrowserMode      = "";
+            SignInFrequencyIsEnabled   = $false;
+            SignInFrequencyType        = "";
+            SignInRiskLevels           = @();
+            State                      = "enabled";
+            UserRiskLevels             = @();
+        }
+
+        AADConditionalAccessPolicy Blocks-unmanagedmobiledevices
+        {
+            GlobalAdminAccount         = $credsGlobalAdmin;
+            BuiltInControls            = @("Block");
+            ClientAppTypes             = @("All");
+            CloudAppSecurityIsEnabled  = $false;
+            CloudAppSecurityType       = "";
+            DisplayName                = "Block - unmanaged mobile devices";
+            Ensure                     = "Present";
+            ExcludeApplications        = @();
+            ExcludeDevices             = @("Compliant", "DomainJoined");
+            ExcludeGroups              = @("Managed Device Excluded");
+            ExcludeLocations           = @();
+            ExcludePlatforms           = @();
+            ExcludeRoles               = @();
+            ExcludeUsers               = @();
+            GrantControlOperator       = "OR";
+            IncludeApplications        = @("ALL");
+            IncludeDevices             = @("All");
+            IncludeGroups              = @();
+            IncludeLocations           = @();
+            IncludePlatforms           = @("iOS","android");
+            IncludeRoles               = @();
+            IncludeUserActions         = @();
+            IncludeUsers               = @("All");
+            PersistentBrowserIsEnabled = $false;
+            PersistentBrowserMode      = "";
+            SignInFrequencyIsEnabled   = $false;
+            SignInFrequencyType        = "";
+            SignInRiskLevels           = @();
+            State                      = "enabled";
+            UserRiskLevels             = @();
+        }
+
+        AADConditionalAccessPolicy Grants-ApprovedMailClients
+        {
+            GlobalAdminAccount         = $credsGlobalAdmin;
+            BuiltInControls            = @("Block");
+            ClientAppTypes             = @("All");
+            CloudAppSecurityIsEnabled  = $True;
+            CloudAppSecurityType       = "Monitor";
+            DisplayName                = "Grant - Approved Mail Clients";
+            Ensure                     = "Present";
+            ExcludeApplications        = @();
+            ExcludeDevices             = @();
+            ExcludeGroups              = @("Approved Mail Excluded");
+            ExcludeLocations           = @();
+            ExcludePlatforms           = @();
+            ExcludeRoles               = @();
+            ExcludeUsers               = @();
+            GrantControlOperator       = "OR";
+            IncludeApplications        = @("00000002-0000-0ff1-ce00-000000000000");
+            IncludeDevices             = @();
+            IncludeGroups              = @();
+            IncludeLocations           = @();
+            IncludePlatforms           = @("iOS","android");
+            IncludeRoles               = @();
+            IncludeUserActions         = @();
+            IncludeUsers               = @("All");
+            PersistentBrowserIsEnabled = $false;
+            PersistentBrowserMode      = "";
+            SignInFrequencyIsEnabled   = $false;
+            SignInFrequencyType        = "";
+            SignInRiskLevels           = @();
+            State                      = "enabled";
+            UserRiskLevels             = @();
+        }
+
+        AADMSGroupLifecyclePolicy GroupLifecyclePolicy
+        {
+            AlternateNotificationEmails = @($alternatecontact);
+            Ensure                      = "Present";
+            GlobalAdminAccount          = $credsGlobalAdmin;
+            GroupLifetimeInDays         = 365;
+            IsSingleInstance            = "Yes";
+            ManagedGroupTypes           = "All";
+        }
+
+        AADGroupsNamingPolicy GroupsNamingPolicy
+        {
+            CustomBlockedWordsList        = @();
+            GlobalAdminAccount            = $credsGlobalAdmin;
+            IsSingleInstance              = "Yes";
+            PrefixSuffixNamingRequirement = $namingpolicy;
+            Ensure                        = "Present";
+        }
+    }
+}
+M365TenantConfig -ConfigurationData .\ConfigurationData.psd1  -GlobalAdminAccount $GlobalAdminAccount -trustedIP $trustedIP -agency $agency -agencyprefix $agencyprefix

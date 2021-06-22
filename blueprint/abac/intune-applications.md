@@ -46,8 +46,10 @@ The following Microsoft Endpoint Manager - Intune (Intune) applications can be f
   * Notes: -
   * Logo: -
 * Program
-  * Install command: `powershell.exe -executionpolicy bypass -file CMTraceInstall.ps1`
+  * Install command: `powershell.exe -executionpolicy bypass -file CMTraceInstall.ps1` 
+    * The required `CMTraceInstall.ps1`  can be downloaded here [CMTraceInstall.ps1](/assets/files/abac/CMTraceInstall.txt)
   * Uninstall command: `powershell.exe -executionpolicy bypass -file CMTraceRemove.ps1`
+    * The required `CMTraceRemove.ps1`  can be downloaded here [CMTraceRemove.ps1](/assets/files/abac/CMTraceRemove.txt)
   * Install behaviour: `System`
   * Device restart behavior: `App install may force a device restart`
   * Return codes: 
@@ -117,7 +119,9 @@ The following Microsoft Endpoint Manager - Intune (Intune) applications can be f
   * Logo: -
 * Program
   * Install command: `%SystemRoot%\sysnative\WindowsPowerShell\v1.0\powershell.exe -executionpolicy bypass -file DefenderATP.ps1`
+    * The required `DefenderATP.ps1`  can be downloaded here [DefenderATP.ps1](/assets/files/abac/DefenderATP.txt)
   * Uninstall command: `%SystemRoot%\sysnative\WindowsPowerShell\v1.0\powershell.exe -executionpolicy bypass -file DefenderATP.ps1`
+    * The required `DefenderATP.ps1`  can be downloaded here [DefenderATP.ps1](/assets/files/abac/DefenderATP.txt)
   * Install behaviour: `System`
   * Device restart behavior: `App install may force a device restart`
   * Return codes: 

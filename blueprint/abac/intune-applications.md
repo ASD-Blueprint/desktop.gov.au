@@ -47,9 +47,7 @@ The following Microsoft Endpoint Manager - Intune (Intune) applications can be f
   * Logo: -
 * Program
   * Install command: `powershell.exe -executionpolicy bypass -file CMTraceInstall.ps1` 
-    * The required `CMTraceInstall.ps1`  can be downloaded here [CMTraceInstall.ps1](/assets/files/abac/CMTraceInstall.txt)
   * Uninstall command: `powershell.exe -executionpolicy bypass -file CMTraceRemove.ps1`
-    * The required `CMTraceRemove.ps1`  can be downloaded here [CMTraceRemove.ps1](/assets/files/abac/CMTraceRemove.txt)
   * Install behaviour: `System`
   * Device restart behavior: `App install may force a device restart`
   * Return codes: 
@@ -77,6 +75,11 @@ The following Microsoft Endpoint Manager - Intune (Intune) applications can be f
   * Required: -`grp-agency-windows10-dynamic`
   * Available for enrolled devices: -
   * Uninstall: -
+
+You will need a copy of:
+
+* [CMTraceInstall.ps1](/assets/files/abac/CMTraceInstall.txt)
+* [CMTraceRemove.ps1](/assets/files/abac/CMTraceRemove.txt)
 
 ## Company portal
 

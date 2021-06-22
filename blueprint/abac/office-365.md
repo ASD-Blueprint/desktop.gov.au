@@ -673,7 +673,7 @@ Please note, if a setting is not mentioned in the below, it should be assumed to
 
 Table 15 describes the Teams Client configuration settings.
 
-`Microsoft Teams Admin center > Ord-wide settings > Teams Settings `
+`Microsoft Teams Admin center > Org-wide settings > Teams Settings `
 
 Configuration Item | Value
 --- | ---
@@ -1047,7 +1047,7 @@ Table 21 describes the External access configuration settings.
 
 | Configuration Item                                           | Value                                       |
 | ------------------------------------------------------------ | ------------------------------------------- |
-| Users can communicate with other Skype for Business <br />and Teams users | True                                        |
+| Users can communicate with other Skype for Business and Teams users | True                                        |
 | Users can communicate with Skype users                       | True                                        |
 | Add a domain (Allowed or Blocked domains)                    | *Agency allowed or blocked list of domains* |
 

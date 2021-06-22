@@ -182,7 +182,7 @@ Not configured | N/A | N/A | N/A
 
 Table 4 describes the MX records configuration settings.
 
-Please note, MX record configuration is configured through the users DNS provider. 
+Please note, MX record configuration is configured through the user's DNS provider. 
 
 Domain | MX Preferences | Mail Exchanger
 --- | --- | ---
@@ -192,7 +192,7 @@ Agency.gov.au | `10` | `Agency-gov-au.mail.protection.outlook.com`
 
 Table 5 describes the SPF records configuration settings.
 
-Please note, SPF and DMARC records are configured through the users DNS provider. 
+Please note, SPF and DMARC records are configured through the user's DNS provider. 
 
 Domain | SPF Record | DMARC Policy
 --- | --- | ---

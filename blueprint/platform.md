@@ -1311,6 +1311,15 @@ Restrict the Local Administrator Account | Configured | Aligns with the ACSC Har
 Create and auto-assign devices | Configured | For ease of management and enrolment for devices within Agency.
 Deployment profile | Refer to DTA – Intune Enrolment -ABAC document | Deployment profile will ensure that all workstations are configured in accordance with the Agency standards with no user intervention.
 
+### Intune - Windows Hello for Business
+
+Windows Hello for Business provides the ability to replace passwords with strong two-factor authentication for Windows 10 devices. Two-factor is achieved with Windows Hello for Business by using the following:
+
+* The device creates as a key tied to the Trusted Platform Module (TPM) if the device has TPM 2.0, otherwise uses software.
+* A user input is then provided in the form of a PIN or biometric input to verify.
+
+For Hybrid deployments agencies will need to refer the [Planning a Windows Hello for Business Deployment](https://docs.microsoft.com/en-us/windows/security/identity-protection/hello-for-business/hello-planning-guide) and [Windows Hello for Business Deployment Prerequisite Overview](https://docs.microsoft.com/en-us/windows/security/identity-protection/hello-for-business/hello-identity-verification) documentation to determine the deployment type required based on the environment and requirements.
+
 ### Intune - device compliance
 
 Device Compliance Policies are rules, such as device PIN length or encryption requirements, that are applied to devices. These policies must be met before a device is considered compliant, the device compliance status can then be used by services such as Conditional Access to grant or disallow access to applications or services.

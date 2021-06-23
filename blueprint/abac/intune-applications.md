@@ -122,9 +122,7 @@ You will need a copy of:
   * Logo: -
 * Program
   * Install command: `%SystemRoot%\sysnative\WindowsPowerShell\v1.0\powershell.exe -executionpolicy bypass -file DefenderATP.ps1`
-    * The required `DefenderATP.ps1`  can be downloaded here [DefenderATP.ps1](/assets/files/abac/DefenderATP.txt)
   * Uninstall command: `%SystemRoot%\sysnative\WindowsPowerShell\v1.0\powershell.exe -executionpolicy bypass -file DefenderATP.ps1`
-    * The required `DefenderATP.ps1`  can be downloaded here [DefenderATP.ps1](/assets/files/abac/DefenderATP.txt)
   * Install behaviour: `System`
   * Device restart behavior: `App install may force a device restart`
   * Return codes: 
@@ -152,6 +150,10 @@ You will need a copy of:
   * Required: `rol-Agency-Users`
   * Available for enrolled devices: -
   * Uninstall: -
+
+You will need a copy of:
+
+*  [DefenderATP.ps1](/assets/files/abac/DefenderATP.txt)
 
 ## Microsoft Authenticator
 

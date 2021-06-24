@@ -72,7 +72,7 @@ The following Microsoft Endpoint Manager - Intune (Intune) applications can be f
 * Dependencies: -
 * Scope tags: `Default`
 * Assignments
-  * Required: -
+  * Required: -`grp-agency-windows10-dynamic`
   * Available for enrolled devices: -
   * Uninstall: -
 
@@ -215,7 +215,7 @@ The following Microsoft Endpoint Manager - Intune (Intune) applications can be f
   * Logo: ![Microsoft Edge for Windows 10](/assets/images/abac/microsoft-edge-for-windows-10.png)
 * Scope tags: `Default`
 * Assignments
-  * Required: `All devices`, `All users`
+  * Required: `grp-agency-windows10-dynamic`
   * Available for enrolled devices: -
   * Available with or without enrollment: -
   * Uninstall: -
@@ -420,24 +420,24 @@ The following Microsoft Endpoint Manager - Intune (Intune) applications can be f
   * Available with or without enrollment: -
   * Uninstall: -
 
-## Office 365 monthly targeted
+## Microsoft 365 Apps for Windows 10
 
-* Name: `Office 365 monthly targeted`
-* Type: `Office 365 ProPlus Suite (Windows 10)`
+* Name: `Microsoft 365 Apps for Windows 10`
+* Type: `Microsoft 365 Apps for Windows 10`
 * App information
   * Publisher: `Microsoft`
   * Category: `Productivity`
   * Show this as a featured app in the Company Portal: `Yes`
-  * Information URL: -
-  * Privacy URL: -
+  * Information URL: `https://products.office.com/en-us/explore-office-for-home`
+  * Privacy URL: `https://privacy.microsoft.com/en-US/privacystatement`
   * Developer: `Microsoft`
   * Owner: `Microsoft`
   * Notes: -
   * Logo: ![Microsoft Office](/assets/images/abac/microsoft-office.png)
 * App suite configuration
-  * Apps to be installed as part of the suite: `Excel, OneDrive Desktop, Outlook, PowerPoint, Publisher, Skype for Business, Teams, Word`
+  * Apps to be installed as part of the suite: `Excel, Outlook, PowerPoint, Publisher, Teams, Word`
   * Architecture: `64-bit`
-  * Update channel: `Monthly (Targeted)`
+  * Update channel: `Current Channel`
   * Remove other versions: `Yes`
   * Version to install: `Latest`
   * Use shared computer activation: `Yes`
@@ -445,5 +445,5 @@ The following Microsoft Endpoint Manager - Intune (Intune) applications can be f
   * Apps to be installed as part of the suite: `No languages selected`
 * Scope tags: `Default`
 * Assignments
-  * Required: `grp-SecBaselines`
+  * Required: `grp-agency-windows10-dynamic`
   * Uninstall: -

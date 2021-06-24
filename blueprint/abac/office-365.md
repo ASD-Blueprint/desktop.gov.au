@@ -1128,7 +1128,6 @@ Table 24 describes the Sensitivity label configuration settings.
 ```
 [tooltip, No damage. This information does not form part of official duty]
 [displayname, Unofficial]
-[aiplabelversion, 795ef17b-06a6-4992-81d6-ea3ae5d5d9ae]
 [colour, #000000]
 ```
 * Label Actions:
@@ -1232,7 +1231,6 @@ Table 24 describes the Sensitivity label configuration settings.
 ```
 [tooltip, 1 Low business impact No or insignificant damage. This is the majority of routine information.]
 [displayname, Official]
-[aiplabelversion, 502d91b8-27d5-4ea1-afae-b2286de4b919]
 [colour, #000000]
 ```
 * Label Actions:
@@ -1336,7 +1334,6 @@ Table 24 describes the Sensitivity label configuration settings.
 ```
 [tooltip, 2 Low to medium business impact Limited damage to an individual, organisation or government generally if compromised]
 [displayname, OFFICIAL Sensitive]
-[aiplabelversion, 1ad791ca-a578-4a9b-9cd1-151450f56d31]
 [colour, #000000]
 ```
 * Label Actions:
@@ -1440,7 +1437,6 @@ Table 24 describes the Sensitivity label configuration settings.
 ```
 [tooltip, 3 High business impact Damage to the national interest, organisations, or individuals]
 [displayname, Protected]
-[aiplabelversion, eb578c99-dd28-4f73-b85a-147490d41bab]
 [colour, #000000]
 ```
 * Label Actions:
@@ -1540,7 +1536,7 @@ Table 24 describes the Sensitivity label configuration settings.
 
 Table 25 lists the Sensitivity label policy configuration.
 
-`Office 365 Security & compliance > Information protection > Label polices > agency acronym sensitivity labels`
+`Microsoft 365 Security Center > Classification > Sensitvitiy labels > Label policies> agency acronym sensitivity labels`
 
 Item | Configuration
 --- | ---
@@ -1554,7 +1550,7 @@ Policy settings | Label is mandatory<br>Users must provide justification to remo
 
 * Name: `Australia Privacy Act`
   * Enabled: `True`
-  * Workload: `Exchange, SharePoint, OneDriveForBusiness, Teams`
+  * Locations: `Exchange, SharePoint, OneDriveForBusiness, Teams`
   * Mode: `Enable`
   * Type: `DLP`
   * Exchange Location:
@@ -1724,3 +1720,77 @@ Policy settings | Label is mandatory<br>Users must provide justification to remo
   * Exchange Sender Member Of: `Not Configured`
   * Exchange Sender Exception: `Not Configured`
   * Exchange Sender Member Of Exception: `Not Configured`
+
+## Microsoft 365 Defender
+
+The ABAC settings for Microsoft 365 Defender can be found below. This includes Safe Links, Safe Attachments, and Anti-phishing configuration.
+
+Please note, if a setting is not mentioned below, it should be assumed to have been left at its default setting.
+
+### Safe Links
+
+* Name: `Default Safe Links Policy`
+* Description: `This policy is the default Safe Links policy for the environment`
+* Users and domains:
+  * Users: `Not Configured`
+  * Groups: `Not Configured`
+  * Domains: `All Agency domains`
+* Protection Settings:
+  * Select the action for unknown potentially malicious URLs in messages: `On - URLs will be rewritten and checked against a list of known malicious links when user clicks on the link`
+  * Select the action for unknown or potentially malicious URLs within Microsoft Teams: `On - Microsoft Teams will check against a list of known malicious links when user clicks on the link; URLs will not be rewritten`
+  * Apply real-time URL scanning for suspicious links and links that point to files: `Enabled`
+    * Wait for URL scanning to complete before delivering the message: `Enabled`
+  * Apply Safe Links to email messages sent within the organisation: `Enabled`
+  * Do not track user clicks: `Disabled`
+  * Do not let users click through to the original URL: `Enabled`
+  * Display the organization branding on notification and warning pages: `Disabled`
+  * Do not rewrite the following URLs: `Not Configured`
+* Notification:
+  * How would you like to notify your users: `Use the default notification text`
+
+### Safe Attachments
+
+#### Global Settings
+
+* Turn on Defender for Office 365 for SharePoint, OneDrive, and Microsoft Teams: `Enabled`
+* Turn on Safe Documents for Office Clients: `Enabled`
+  * Allow people to click through Protected View even if Safe Documents has identified the file as malicious: `Disabled`
+
+### Policy
+
+* Name: `Default Safe Attachments Policy`
+* Description: `This policy is the default Safe Attachments policy for the environment`
+* Users and domains:
+  * Users: `Not Configured`
+  * Groups: `Not Configured`
+  * Domains: `All Agency domains`
+* Settings:
+  * Safe Attachments unknown malware response: `Block - Block current and future messages and attachments with detected malware`
+  * Enable Redirect: `Enabled`
+    * Send messages that contain blocked, monitored, or replaced attachments to the specified email address: `quarantine@agency.gov.au`
+  * Apply the Safe Attachments detection response if scanning can't complete (timeout or errors): `Enabled`
+
+### Anti-phishing
+
+* Name: `Office365 AntiPhish Default (Default)`
+* Phishing email threshold: `2 - Aggressive`
+* Enable users to protect: `Configured - agency executives added`
+* Enabled domains to protect: `Enabled`
+  * Include domains I own: `Enabled`
+  * Include custom domains: `Disabled`
+* Add trusted senders and domains: `Not configured`
+* Enable mailbox intelligence: `Enabled`
+  * Enable Intelligence for impersonation protection: `Enabled`
+* Spoof
+  * Enable spoof intelligence: `Enabled`
+* Actions
+* Message actions
+  * If message is detected as an impersonated user:`Quarantine the message`
+  * If message is detected as an impersonated domain: `Quarantine the message`
+  * If Mailbox Intelligence detects an impersonated user: `Quarantine the message`
+  * If message is detected as spoof: `Quarantine the message`
+* Safety tips & indicators
+  * Show user impersonation safety tip: `Enabled`
+  * Show domain impersonation safety tip: `Enabled`
+  * Show user impersonation unusual characters safety tip: `Enabled`
+  * Show (?) for unauthenticated senders for spoof: `Enabled`

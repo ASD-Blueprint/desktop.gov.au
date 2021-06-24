@@ -7,7 +7,7 @@ timeline:
     If not already covered in the change impact assessment in Discovery, the agency will undergo a change readiness assessment. This will help understand which divisions  within the agency are ready to adopt the modern desktop. The assessment may include skills, culture, willingness to adopt the change, leadership and staff support, and other drivers and risks to a successful adoption. During change readiness, there will also be a decision point from the DTA to decide how much funding support it can offer agencies during Transition.
 - title: Step 2 – Change strategy
   body: | 
-    A change strategy will outline the way in which the change to modern desktop will be managed. This is so that the value of the Blueprint c an be maximised, and risks to successful adoption minimised. The Change Strategy will determine a vision for change, who will be communicated with and when (i.e a Communication Plan, a Skills and Training Needs Assessment or learning strategy, and a clear Benefits register or strategy.
+    A change strategy will outline the way in which the change to modern desktop will be managed. This is so that the value of the blueprint can be maximised, and risks to successful adoption minimised. The Change Strategy will determine a vision for change, who will be communicated with and when (i.e a Communication Plan, a Skills and Training Needs Assessment or learning strategy, and a clear Benefits register or strategy.
 - title: Step 3 – Change plan
   body: | 
     A change plan will outline the concrete steps to be enacted in the short-term. 
@@ -50,18 +50,18 @@ The DTA may co-fund transition activities with agencies.
 
 ## Enabling services 
 
-* The [community portal](https://community.desktop.gov.au): for asking questions, FAQ, and understanding which agencies are using the [Blueprint](/blueprint).  
-* The [desktop.gov.au](https://desktop.gov.au/) website: for information, the latest version of the Blueprint, and knowledge articles. 
+* The [community portal](https://community.desktop.gov.au): for asking questions, FAQ, and understanding which agencies are using the [blueprint](/blueprint).  
+* The [desktop.gov.au](https://desktop.gov.au/) website: for information, the latest version of the blueprint, and knowledge articles. 
 
 ## Benefits 
 
-* Agencies have a greater understanding of the business change required to successfully use the Blueprint. 
+* Agencies have a greater understanding of the business change required to successfully use the blueprint. 
 * Agencies have a greater ability to mitigate business change risks. 
 * Agencies have a greater cyber risk awareness which improves their cyber security.  
-* Agencies have a greater understanding of the skills and training needs to successfully adopt the Blueprint. 
+* Agencies have a greater understanding of the skills and training needs to successfully adopt the blueprint. 
 * Agency staff will have more engagement and buy-in to using modern desktop services.    
 * Agencies can reduce the impediments to business change that typically accompany technology transitions.  
-* Agencies can plan how to maximise the use of the Blueprint.  
+* Agencies can plan how to maximise the use of the blueprint.  
 
 ## Risks if ignored 
 

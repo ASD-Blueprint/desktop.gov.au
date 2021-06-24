@@ -285,7 +285,7 @@ user | \Microsoft Publisher 2016\Security | Publisher Automation Security Level 
       * Microsoft Defender Firewall rules from the local store: `Not configured`
       * IPsec rules from the local store: `Not configured`
   * Firewall rules:
-    * Agency to add applicable rules based on all applications and services that requires network connectivity. Further information on creating firewall rules can be referred to [Best practices for configuring Windows Defender Firewall](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-firewall/best-practices-configuring) and [Create Windows Firewall rules in Intune](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-firewall/create-windows-firewall-rules-in-intune)
+    * Agency to add applicable rules based on all applications and services that requires network connectivity. For further information on the creation of firewall rules refer to [Create Windows Firewall rules in Intune](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-firewall/create-windows-firewall-rules-in-intune)
     * For Intune connectivity the below rules should be created
 
    Name | Direction | Action | Network type | Application | File path | Local Address | Remote Addresses | Protocol | Local ports | Remote ports

@@ -504,7 +504,7 @@ This section is applicable as the CloudSystem contains Microsoft Teams which pro
 
 The CloudSystem inherits the security controls Microsoft have implemented for Microsoft Teams as assessed in the Microsoft 365 IRAP report.
 
-The Annex specifies the controls associated with the self-contained use of Microsoft Teams up to the level of PROTECTED. As per the HybridSystem solution design, agencies have the ability to connect Teams to the Telstra Calling for v 365 service to allow calling between Teams and traditional telephones. Agencies wishing to use Telstra Calling for Microsoft 365 or another similar services should undertake a security assessment to ensure that the product addresses their security requirements.
+The Annex specifies the controls associated with the self-contained use of Microsoft Teams up to the level of PROTECTED. As per the HybridSystem solution design, agencies have the ability to connect Teams to the Telstra Calling for Microsoft 365 service to allow calling between Teams and traditional telephones. Agencies wishing to use Telstra Calling for Microsoft 365 or another similar services should undertake a security assessment to ensure that the product addresses their security requirements.
 
 #### Security controls provided by the CloudSystem
 

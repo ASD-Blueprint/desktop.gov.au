@@ -1296,7 +1296,7 @@ Administration of the system is undertaken by authorised privileged users by con
 
 An Apple iOS device used to access Sensitive and or security classified information is compromised as a result of the device being lost or stolen.
 
-Note: the CloudSystem does not include the use of devices using the Android operating system.
+Note: the HybridSystem does not include the use of devices using the Android operating system.
 
 #### Assets affected
 
@@ -1331,7 +1331,7 @@ Note: the CloudSystem does not include the use of devices using the Android oper
 * Agency treatments
   * Policy governing the use and management of mobile devices used to access classified information
   * Awareness training for users with mobile devices
-* CloudSystem treatments
+* HybridSystem treatments
   * Full alignment with the intent of the ACSC's Security Configuration Guide for iOS 14 devices:
     1. Supervised mode for all devices
     1. Long and complex alphanumeric device passcode
@@ -1693,7 +1693,7 @@ An Apple iOS mobile device used to access sensitive or security classified infor
 * Agency treatments
   * Policy governing the use and management of mobile devices used to access classified information
   * Awareness training for users with mobile devices
-* CloudSystem treatments
+* HybridSystem treatments
   * Full alignment with the intent of the ACSC's Security Configuration Guide for iOS 14 devices:
     1. Supervised mode for all devices
     1. Long and complex alphanumeric device passcode

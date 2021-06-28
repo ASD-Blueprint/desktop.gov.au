@@ -18,7 +18,7 @@ For each component within the document there is a brief description of the conte
 ## Assumptions
 
 * ACSC Windows 10 hardening guidelines have been broadly implemented as outlined within the SSP and SSP Annex.
-* The Microsoft Endpoint Manager Console is the preferred method to manage all settings regardless of a cloud native or hybrid implementation. Although a combination of the Microsoft Endpoint Configuration Manager (MECM) Console and Group Policy Objects (GPOs) would  be able to achieve the same settings in a hybrid environment, this Blueprint does not include MECM and GPOs example configurations due to the level of dissimilarities and per agency customisation in existing MECM and GPOs configurations across Commonwealth entities.
+* The Microsoft Endpoint Manager Console is the preferred method to manage all settings regardless of a cloud native or hybrid implementation. Although a combination of the Microsoft Endpoint Configuration Manager (MECM) Console and Group Policy Objects (GPOs) would  be able to achieve the same settings in a hybrid environment, this blueprint does not include MECM and GPOs example configurations due to the level of dissimilarities and per agency customisation in existing MECM and GPOs configurations across Commonwealth entities.
 * Minimum version of MECM 1710 is required for co-management, recommended at least 1910.
 
 ## Windows 10 hardware
@@ -159,7 +159,7 @@ Cloud native deployments provides the agency the immediate benefits of working w
 
 A hybrid deployment gives the option of co-management which enables the agency to manage Windows 10 by using both MECM and Intune. Enabling co-management within MECM allows the agency to utilise their investment in MECM and take advantage of additional cloud capabilities. This allows the agency additional flexibility to use the technology solution that works best for them and facilitates a more gradual move to cloud native as the agency can pilot test various workloads in Intune first.
 
-Hybrid deployments can choose to enable MECM or Intune for client management depending on the cloud maturity level of the agency. It is not a requirement of agencies undertaking hybrid implementations to use MECM. This Blueprint provides guidance on integration between MECM and Intune for hybrid deployments however agencies with existing infrastructure may alternatively elect to migrate device management from MECM to Intune, which will not affect cyber security postures.
+Hybrid deployments can choose to enable MECM or Intune for client management depending on the cloud maturity level of the agency. It is not a requirement of agencies undertaking hybrid implementations to use MECM. This blueprint provides guidance on integration between MECM and Intune for hybrid deployments however agencies with existing infrastructure may alternatively elect to migrate device management from MECM to Intune, which will not affect cyber security postures.
 
 Management methods that can be used to manage Windows 10 in a Microsoft 365 environment.
 
@@ -256,7 +256,7 @@ The VSA 4 Common Cloud Commitment consists of:
 
 These recommendations require a minimum subscription requirement of Microsoft 365 E3, Enterprise Mobility and Security E5 and Microsoft 365 E5 Compliance with one licence required for each user.
 
-This alternate configuration will not provide access to Azure Active Directory Premium P2 licencing meaning that the following components would need to be removed from the Blueprint:
+This alternate configuration will not provide access to Azure Active Directory Premium P2 licencing meaning that the following components would need to be removed from the blueprint:
 
 * Azure Active Directory Identity Protection
 * Azure Active Directory Privileged Identity Management (PIM)
@@ -1127,9 +1127,9 @@ Configuration Method | Agency preference | Macro hardening can be configured via
 
 ### OLE Hardening
 
-Object Linking and Embedding (OLE) is a functionality within Microsoft Office which allows for the embedding and linking to documents and other objects. OLE is utilised to seamlessly integrate several types of data or compoents within a Microsoft Office file. 
+Object Linking and Embedding (OLE) is a functionality within Microsoft Office which allows for the embedding and linking to documents and other objects. OLE is utilised to seamlessly integrate several types of data or components within a Microsoft Office file. 
 
-Adverseries have leveraged the OLE functionality to enable and download malicious content or execute a malicious payload.  Within Microsoft Office 365 and Microsoft Office 2019 clients, the activation of objects that link to extensions that are considered high risk are blocked from executing. The list of high risk extensions can be configured through the use of Intune or GPOs.
+Adversaries have leveraged the OLE functionality to enable and download malicious content or execute a malicious payload.  Within Microsoft Office 365 and Microsoft Office 2019 clients, the activation of objects that link to extensions that are considered high risk are blocked from executing. The list of high risk extensions can be configured through the use of Intune or GPOs.
 
 The ACSC provides guidance around securing systems against malicious OLE packages and recommend they are implemented in all Windows environments. The guidance is to block all OLE packages from executing in Word, PowerPoint, and Excel.
 

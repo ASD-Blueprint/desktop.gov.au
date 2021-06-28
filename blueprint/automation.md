@@ -89,7 +89,7 @@ The process to create a certificate is as follows:
 install-module microsoft365dsc -allowclobber -force
 import-module microsoft365dsc
 ```
-3. In PowerShell navigate to the directory containing the Blueprint configuration PS1 file and the `configurationdata.psd1` file
+3. In PowerShell navigate to the directory containing the blueprint configuration PS1 file and the `configurationdata.psd1` file
 4. Create a Desired State Configuration local configuration manager certificate:
 ```Powershell 
 Set-M365DSCAgentCertificateConfiguration
@@ -98,7 +98,7 @@ Set-M365DSCAgentCertificateConfiguration
 ```Powershell 
 Get-DscLocalConfigurationManager
 ```
-6. Export the certificate into the folder containing the Blueprint configuration PS1 file and the `configurationdata.psd1` file
+6. Export the certificate into the folder containing the blueprint configuration PS1 file and the `configurationdata.psd1` file
 ```Powershell
 $certificatethumbprint = Get-DscLocalConfigurationManager | select CertificateID
 $certpath =  "cert:\localmachine\My\" + $certificatethumbprint.CertificateID
@@ -118,8 +118,8 @@ The process to deploy the configuration is as follows:
 install-module microsoft365dsc -allowclobber -force
 import-module microsoft365dsc
 ```
-3. In PowerShell navigate to the directory containing the Blueprint configuration PS1 file and the `configurationdata.psd1` file
-4. In the PowerShell console, initiate the Blueprint configuration PS1 and supply the required values. The required values are located in the parameters section of the `Blueprint Configuration Script file` (i.e. identity_dsc.ps1). The following is an example for the identity configuration. The required values are: Global Admin credentials; agency name; agency prefix; and trusted IPs (in CIDR format).
+3. In PowerShell navigate to the directory containing the blueprint configuration PS1 file and the `configurationdata.psd1` file
+4. In the PowerShell console, initiate the blueprint configuration PS1 and supply the required values. The required values are located in the parameters section of the `Blueprint Configuration Script file` (i.e. identity_dsc.ps1). The following is an example for the identity configuration. The required values are: Global Admin credentials; agency name; agency prefix; and trusted IPs (in CIDR format).
 ```Powershell 
 $pscredential = get-credential
 $agencyname = "Agency Name"

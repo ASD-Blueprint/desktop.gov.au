@@ -45,7 +45,7 @@ The preparation phase of the incident response life cycle is a shared responsibi
 
 In addition to having ongoing access to the above documentation it is assumed that Agency cyber security personnel have access to tools and resources as described in the Agency IRP. Specific resources that are also required by Agency cyber security personnel to detect and respond to security incidents include:
 
-* Access to the various Microsoft management portal required to administer the Blueprint, as listed below in Table 1
+* Access to the various Microsoft management portal required to administer the blueprint, as listed below in Table 1
 * Membership of the role(s) required to perform any actions related to the incident
 
 Table 1 Microsoft Management Portals
@@ -72,7 +72,7 @@ Multiple detection methods are available to the Agency’s cyber security person
 * Microsoft Cloud App Security (MCAS) Threat Detection, Privileged Accounts, and Access Control dashboards spanning the whole Microsoft 365 deployment, along with configurable email alerts and automatic response capabilities.
 * Local Windows 10 events logs written to each Windows 10 endpoint including authentication attempts, firewall activities, and Windows Defender Application Control (WDAC) events.
 
-Due to its containment, eradication and recovery capabilities in addition to its detection and analysis functionality, Microsoft Defender ATP is the primary incident response tool for the Blueprint and is described in further detail in the section below.
+Due to its containment, eradication and recovery capabilities in addition to its detection and analysis functionality, Microsoft Defender ATP is the primary incident response tool for the blueprint and is described in further detail in the section below.
 
 ### Microsoft Defender ATP
 
@@ -200,7 +200,7 @@ Defender ATP provides the ability to automate responses to detected threats, red
 * Semi (core folders) – remediation occurs automatically for all folders other than operating system directories (e.g. Program Files and Window).
 * Full – all remediation activities are performed automatically.
 
-The Blueprint uses the default Defender ATP configuration for automated investigations, namely semi (any folder). Therefore, Agency cyber security personnel will be prompted to approve all remediation activities that are recommended as part of Defender ATP automated investigations. The automation level can be adjusted if required based on the specific requirements of the Agency’s cyber security personnel.
+The blueprint uses the default Defender ATP configuration for automated investigations, namely semi (any folder). Therefore, Agency cyber security personnel will be prompted to approve all remediation activities that are recommended as part of Defender ATP automated investigations. The automation level can be adjusted if required based on the specific requirements of the Agency’s cyber security personnel.
 
 #### Automated remediation notification
 

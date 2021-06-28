@@ -49,7 +49,7 @@ Agencies are free to develop the structure of their CMP as appropriate for their
 * analysing identified security vulnerabilities to determine their potential impact and appropriate mitigations based on effectiveness, cost and existing security controls
 * using a risk-based approach to prioritise the implementation of identified mitigations.
 
-Whilst agencies will be able to undertake these activities in relation to their on premise equipment, there is limited ability to conduct vulnerability assessments, vulnerability scans and penetration tests against Cloud Service Provider (CSP) infrastructure. This document will assist agencies in identifying mechanisms which are available to them to provide ongoing monitoring across their implementation of the HybridSystem Blueprint.
+Whilst agencies will be able to undertake these activities in relation to their on premise equipment, there is limited ability to conduct vulnerability assessments, vulnerability scans and penetration tests against Cloud Service Provider (CSP) infrastructure. This document will assist agencies in identifying mechanisms which are available to them to provide ongoing monitoring across their implementation of the HybridSystem blueprint.
 
 The [National Institute of Standards and Technology (NIST)](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-137.pdf) outlines a standard process for conducting continuous monitoring which includes the following initiatives, which agencies should utilise when developing their continuous monitoring strategy:
 

@@ -4,7 +4,7 @@ title: Microsoft Endpoint Manager - Intune software updates
 menu: abac
 ---
 
-The following lists the Windows 10 update ring profiles, and iOS update profiles deployed within the Agency tenant. Windows 10 update rings are utilised to maintain a patch level congruent to the standards determined in the Blueprint design documents.
+The following lists the Windows 10 update ring profiles, and iOS update profiles deployed within the Agency tenant. Windows 10 update rings are utilised to maintain a patch level congruent to the standards determined in the blueprint design documents.
 
 ## Semi Annual Channel Ring
 

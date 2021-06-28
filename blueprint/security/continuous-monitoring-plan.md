@@ -28,7 +28,7 @@ The three most common types of continuous monitoring activities are: vulnerabili
 
 The scope of this Continuous Monitoring Plan is specific to monitoring security controls involved with the Agency's use of Microsoft 365 services as part of the CloudSystem. As the CloudSystem is implemented in collaboration with Microsoft as the Cloud Service Provider (CSP), responsibility for continuous monitoring is shared between the Agency and Microsoft.
 
-In the context of the Blueprint CloudSystem, the following responsibilities are managed by Microsoft and are therefore out of scope of this document:
+In the context of the blueprint CloudSystem, the following responsibilities are managed by Microsoft and are therefore out of scope of this document:
 
 * Vulnerability scanning of the Microsoft 365 platform and software
 * Penetration testing of the Microsoft 365 platform and software, and
@@ -47,7 +47,7 @@ Agencies are free to develop the structure of their CMP as appropriate for their
 * analysing identified security vulnerabilities to determine their potential impact and appropriate mitigations based on effectiveness, cost and existing security controls; and
 * using a risk-based approach to prioritise the implementation of identified mitigations.
 
-Whilst agencies will be able to undertake these activities in relation to their on-premise equipment, there is limited ability to conduct vulnerability assessments, vulnerability scans and penetration tests against Cloud Service Provider (CSP) infrastructure. This document aims to assist agencies in identifying mechanisms which are available to them to provide ongoing monitoring across their implementation of the CloudSystem Blueprint.
+Whilst agencies will be able to undertake these activities in relation to their on-premise equipment, there is limited ability to conduct vulnerability assessments, vulnerability scans and penetration tests against Cloud Service Provider (CSP) infrastructure. This document aims to assist agencies in identifying mechanisms which are available to them to provide ongoing monitoring across their implementation of the CloudSystem blueprint.
 
 The [National Institute of Standards and Technology (NIST)](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-137.pdf) outlines a standard process for conducting continuous monitoring which includes the following initiatives, which agencies can utilise when developing their continuous monitoring strategy:
 

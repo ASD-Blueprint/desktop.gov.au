@@ -54,7 +54,7 @@ Microsoft offers several enterprise licencing options for Office 365, Enterprise
 
 These licencing options are summarised below:
 
-* Microsoft 365 E5 (recommended for this Blueprint) – Top level Enterprise Plan. Microsoft 365 E5 includes everything inside Microsoft 365 E3 plus additional features and services (largely security and compliance related). In the case of Office 365 E5, the capabilities in Microsoft Defender for Office 365 suite as well as other services such as Office 365 Advanced Compliance are increased.
+* Microsoft 365 E5 (recommended for this blueprint) – Top level Enterprise Plan. Microsoft 365 E5 includes everything inside Microsoft 365 E3 plus additional features and services (largely security and compliance related). In the case of Office 365 E5, the capabilities in Microsoft Defender for Office 365 suite as well as other services such as Office 365 Advanced Compliance are increased.
 * Microsoft 365 E3 - Mid range Enterprise Plan. Microsoft 365 E3 provides access to core products with enhanced features and security features. In the case of Office 365 E3, the Office client suite is included, and the service limits are increased.
 
 To grant access to the services a license is assigned to an individual user account. A license can be assigned by an administrator at the time of the user account is created or through Azure AD group-based licensing. Azure AD group-based licensing allows an Administrator to associate a license to a group. Any members within the group will be assigned that license automatically. When a user is removed from the group the license is removed.
@@ -267,7 +267,7 @@ Decision Point | Design Decision | Justification
 Workstation Connectivity | Direct connection to the internet | Provides the best performance for users
 Local DNS resolution and Internet egress | Configured if required | DNS will be resolved to the gateway of their internet device.
 Add regional egress points | Configured if required | Regional Egress Points are not configured in this solution due to the workstations being directly connected to the internet.
-Bypass proxies and inspection devices | Configured | Proxys are not configured in this solution due to the workstations being directly connected to the internet.
+Bypass proxies and inspection devices | Configured | Proxies are not configured in this solution due to the workstations being directly connected to the internet.
 Enable split tunnelling connection for VPN users | Configured | Split tunnelling is configured in this solution to enable workstations to directly connect to Microsoft services. If a VPN solution is required Always on VPN should be integrated into the agency infrastructure
 
 ### Exchange hybrid
@@ -332,7 +332,7 @@ Mail connectors use TLS to secure communication and can customise the way mail f
 
 Generally mail connectors are required. An exception may be where an agency does not use a mail gateway and relies on Exchange Online Protection. 
 
-When the organisation intends to operate at the PROTECTED level, the Blueprint assumes that all agencies are implementing the configuration with a Mail Gateway and as such, provides detailed configurations on implementing mail connectors via the relevant gateway.
+When the organisation intends to operate at the PROTECTED level, the blueprint assumes that all agencies are implementing the configuration with a Mail Gateway and as such, provides detailed configurations on implementing mail connectors via the relevant gateway.
 
 Mail Connector design considerations and decisions apply to all agencies and implementation.
 
@@ -609,7 +609,7 @@ Mailbox Auditing Design Decisions for all agencies and implementation types.
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Mailbox Auditing | Configured | An event log auditing process, and supporting event log auditing procedures, is developed and implemented covering the scope and schedule of audits, what constitutes a violation of security policy, and actions to be taken when violations are detected, including reporting requirements.
-Centralised Logging Facility | Not Configured | Agencies should consider their operational and security requirements around the use of a SIEM separately to the implementation of the Blueprint. <br>This design will implement Microsoft Defender for Office 365 and Microsoft Defender which audit most Office and Defender logs for up to two years. These technologies send alert emails to Global Administrators and selected Office 365 administrators.
+Centralised Logging Facility | Not Configured | Agencies should consider their operational and security requirements around the use of a SIEM separately to the implementation of the blueprint. <br>This design will implement Microsoft Defender for Office 365 and Microsoft Defender which audit most Office and Defender logs for up to two years. These technologies send alert emails to Global Administrators and selected Office 365 administrators.
 
 Mailbox Auditing configuration applicable to all agencies and implementation types.
 

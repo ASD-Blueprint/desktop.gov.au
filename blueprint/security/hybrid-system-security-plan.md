@@ -13,7 +13,7 @@ HybridSystem.
 
 ### System overview
 
-The HybridSystem leverages the Information Security Registered Assessors Program (IRAP) assessed Microsoft Azure, Office 365 platforms and their associated services. As well as leveraging an Agencies existing on-premises environment. The Blueprint includes the following components to improve the security posture of a target Agency:
+The HybridSystem leverages the Information Security Registered Assessors Program (IRAP) assessed Microsoft Azure, Office 365 platforms and their associated services. As well as leveraging an Agencies existing on-premises environment. The blueprint includes the following components to improve the security posture of a target Agency:
 
 * Cloud identity – Synchronising identities from Active Directory (AD) to Azure Active Directory (Azure AD) for authentication. Azure AD configuration including conditional access allowing log in from anywhere and appropriate security policies to be applied.
 * Office 365 – Configuration of Exchange Online, SharePoint Online, OneDrive for Business, Microsoft Teams, Microsoft Forms, Microsoft Whiteboard and Microsoft Planner allowing cloud-based file storage and collaboration.
@@ -1173,7 +1173,7 @@ Not applicable.
 
 #### Applicability to HybridSystem
 
-The majority controls relating to service continuity for online services controls are not applicable to the HybridSystem as it does not host online services. As the Blueprint is dependent on online services hosted by Microsoft some controls are applicable.
+The majority controls relating to service continuity for online services controls are not applicable to the HybridSystem as it does not host online services. As the blueprint is dependent on online services hosted by Microsoft some controls are applicable.
 
 #### HybridSystem compliance approach
 

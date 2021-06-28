@@ -1354,7 +1354,7 @@ Please note, the user may only need to publish the sensitivity labels (sensitivi
 
 Table 39 lists the Sensitivity label policy configuration.
 
-`Microsoft 365 Security Center > Classification > Sensitvitiy labels > Label policies> agency acronym sensitivity labels`
+`Microsoft 365 Security Center > Classification > Sensitivity labels > Label policies> agency acronym sensitivity labels`
 
 Item | Configuration
 --- | ---

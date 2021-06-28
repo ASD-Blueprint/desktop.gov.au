@@ -25,7 +25,7 @@ ClassType | CategoryPath | DisplayName | Value | Enabled
 --- | --- | --- | --- | --- |
 Device | \Microsoft Edge | Allow importing of saved passwords |  | False
 Device | \Microsoft Edge | Allow importing of extensions |  | False
-Device | \Microsoft Edge | users to proceed from the HTTPS warning page |  | False
+Device | \Microsoft Edge | Allow users to proceed from the HTTPS warning page |  | False
 Device | \Microsoft Edge | Control where developer tools can be used | Don't allow using the developer tools | True
 Device | \Microsoft Edge | Configure Do Not Track |  | True
 Device | \Microsoft Edge\Cast | Enable Google Cast |  | False

@@ -28,15 +28,9 @@ The three most common types of continuous monitoring activities are: vulnerabili
 
 ## Scope
 
-<<<<<<< Updated upstream
-The scope of this Continuous Monitoring Plan is specific to monitoring security controls involved with the Agency's use of Microsoft 365 services as part of the CloudSystem. As the CloudSystem is implemented in collaboration with Microsoft as the Cloud Service Provider (CSP), responsibility for continuous monitoring is shared between the Agency and Microsoft.
-
-In the context of the blueprint CloudSystem, the following responsibilities are managed by Microsoft and are therefore out of scope of this document:
-=======
 The scope of this CMP is specific to monitoring security controls involved with the Agency’s use of Microsoft 365 services as part of the desktop environment. As the Blueprint is implemented in collaboration with Microsoft as the Cloud Service Provider (CSP), a shared responsibility model exists to divide responsibilities relating to the security of the desktop environment.
 While continuous monitoring and security monitoring are not identical, overlap exists between the two in that many security monitoring tools gather and record monitoring information that is useful in assessing the overall security posture of a system. Agencies may wish to utilise a Security Information and Event Management System (SIEM) to aggregate monitoring information for the purpose of identifying weaknesses in the desktop environment’s security posture.
 Continuous monitoring responsibilities that a consumer of the Microsoft 365 solution is not required to manage are out of this document’s scope, these include:
->>>>>>> Stashed changes
 
 * Vulnerability scanning of the Microsoft 365 platform and software;
 * Penetration testing of the Microsoft 365 platform and software; and
@@ -56,11 +50,7 @@ Agencies are free to develop the structure of their CMP as appropriate for their
 
 Whilst agencies will be able to undertake these activities in relation to on-premise equipment, there is limited ability to conduct vulnerability assessments, vulnerability scans and penetration tests against CSP infrastructure.
 
-<<<<<<< Updated upstream
-Whilst agencies will be able to undertake these activities in relation to their on-premise equipment, there is limited ability to conduct vulnerability assessments, vulnerability scans and penetration tests against Cloud Service Provider (CSP) infrastructure. This document aims to assist agencies in identifying mechanisms which are available to them to provide ongoing monitoring across their implementation of the CloudSystem blueprint.
-=======
 Outside of ISM requirements, this document provides further suggestions and mechanisms which are available to agencies to provide ongoing monitoring across their implementation of the Blueprint.
->>>>>>> Stashed changes
 
 The [National Institute of Standards and Technology (NIST)](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-137.pdf) outlines a standard process for conducting continuous monitoring information which includes the following initiatives, which agencies should utilise when developing their continuous monitoring strategy:
 

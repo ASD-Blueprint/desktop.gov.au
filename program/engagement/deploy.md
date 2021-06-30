@@ -36,8 +36,8 @@ Deploy can happen before or after [transition (change management)](transition.ht
 
 ## Enabling services 
 
-* The [community.desktop.gov.au](https://community.desktop.gov.au/) community portal: for asking questions, [FAQ](faq.html), and understanding which agencies are using the [Blueprint](/blueprint).  
-* The [desktop.gov.au](https://desktop.gov.au/) website: for information, the latest version of the Blueprint, and knowledge articles. 
+* The [community.desktop.gov.au](https://community.desktop.gov.au/) community portal: for asking questions, [FAQ](faq.html), and understanding which agencies are using the [blueprint](/blueprint).  
+* The [desktop.gov.au](https://desktop.gov.au/) website: for information, the latest version of the blueprint, and knowledge articles. 
 
 ## Benefits 
 
@@ -52,4 +52,4 @@ Deploy can happen before or after [transition (change management)](transition.ht
 
 ## What success looks like  
 
-* Modern desktop services based on the Blueprint design are available to use on the customer’s ICT environment.  
+* Modern desktop services based on the blueprint design are available to use on the customer’s ICT environment.  

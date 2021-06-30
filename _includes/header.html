@@ -13,7 +13,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
-<meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+<meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncatewords: 40 | escape }}">
 <link rel="stylesheet" href="/assets/css/styles.css">
 <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon.png">
@@ -22,8 +22,8 @@
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicons/android-chrome-192x192.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicons/favicon-16x16.png">
 <meta property="og:image" content="https://desktop.gov.au/assets/images/dta-opengraph.png"/>
-<meta property="og:title" content="{{ site.title | escape }}">
-<meta property="og:description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+<meta property="og:title" content="{{ page.title | default: site.title | escape }}">
+<meta property="og:description" content="{{ page.excerpt | default: page.content | markdownify | strip_html | normalize_whitespace | truncatewords: 40 | escape }}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="628">
 </head>

@@ -66,9 +66,9 @@ menu: abac
 * Assignments
   * Included groups:
 ```
-Office365_AssignLicense_StandardUsers
+rol-Agency-Users
 Dev Admins
-Office365_AssignLicense_Administrators
+rol-Agency-Administrators
 Office365_Grant_AzureAD_Join
 ```
   * Excluded groups: -

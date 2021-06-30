@@ -26,7 +26,7 @@ For each component in the solution, the blueprint artefacts provide:
 * the decision itself 
 * a justification for that decision.
 
-Example as-built-as-configured (ABAC) documents detail specific technical configurations, wich include the settings and values of an environment based on the blueprint. 
+Example as-built-as-configured (ABAC) documents detail specific technical configurations, which include the settings and values of an environment based on the blueprint. 
 
 The use of placeholders like 'agency.gov.au' and 'tenant-name' are used in the ABAC documents where appropriate. The ABAC documents do not provide justification for individual settings. Two sets of ABAC documents cover the differences between configuring cloud and hybrid solutions.
 
@@ -42,7 +42,7 @@ The blueprint provides the information, rationale and configuration settings to 
 * **Autopilot deployment** – Configuration of Autopilot allows for automated deployment (and redeployment when required) of devices with no user interaction
 * **Support** – A flexible support model with system administration and role-based access control, whether the support is carried out by in-house staff, third party contractors or a managed service provider.
 
-An agency can choose to deviate from the Blueprint on any technology, licensing requirement, security aspect, platform or design decision. Deviations may affect the agency's security posture and will affect the blueprint's security documentation. 
+An agency can choose to deviate from the blueprint on any technology, licensing requirement, security aspect, platform or design decision. Deviations may affect the agency's security posture and will affect the blueprint's security documentation. 
 
 ## Design considerations
 
@@ -60,13 +60,13 @@ Considerations for implementation often include whether an agency has or require
 
 A hybrid implementation can use Microsoft Endpoint Configuration Manager (MECM) or Microsoft Endpoint Manager - Intune (Intune) for client management, depending on the agency's cloud maturity. 
 
-Blueprint aretfacts provide guidance on integration between MECM and Intune for hybrid deployments. Agencies with existing infrastructure can migrate device management from MECM to Intune with no impact to the agency's existing cyber security posture.
+Blueprint artefacts provide guidance on integration between MECM and Intune for hybrid deployments. Agencies with existing infrastructure can migrate device management from MECM to Intune with no impact to the agency's existing cyber security posture.
 
 ### Agency classification
 
-The Blueprint is based on a principle of 'engineered to Protected' to enhance the cyber security postures of adopting agencies. It is suitable for agencies aiming for Protected and below.
+The blueprint is based on a principle of 'engineered to Protected' to enhance the cyber security postures of adopting agencies. It is suitable for agencies aiming for Protected and below.
 
-Agencies that implement the Blueprint at a Protected level will need to configure some some components differently to enable connectivity to supporting systems. 
+Agencies that implement the blueprint at a Protected level will need to configure some components differently to enable connectivity to supporting systems. 
 
 Components that transfer Protected information outside of an agency's environment include:
 
@@ -78,7 +78,7 @@ Components that transfer Protected information outside of an agency's environmen
 
 GovLink enables secure communication between Commonwealth entities across public infrastructure. GovLink provides secure, encrypted and trusted communication across the internet. This allows the Commonwealth to transmit and receive information up to the security classification of Protected. More information is available at [GovLink](https://www.finance.gov.au/government/whole-government-information-communications-technology-services/govlink).
 
-Protected email email must be sent and received over GovLink. There is no native solution to allow a direct interface between the Office 365/Exchange Online environment and GovLink.
+Protected email must be sent and received over GovLink. There is no native solution to allow a direct interface between the Office 365/Exchange Online environment and GovLink.
 
 DTA can provide further advice to agencies and reference sites of how other Commonwealth entities have achieved this connection.
 
@@ -86,7 +86,7 @@ DTA can provide further advice to agencies and reference sites of how other Comm
 
 Each agency determines information management approaches specific to its operational requirements. 
 
-The following information management tools are available within the Blueprint:
+The following information management tools are available within the blueprint:
 
 * **OneDrive** is for data relevant to the individual user, automatically synchronised to the cloud so it is available anywhere and backed up. This data can be personal data that is not relevant or required to be shared with other team members.
 * **Microsoft Teams** is for data to be shared in a read-write format with work colleagues and/or external guests. Every team member has read-write access. People who are not members of the team do not need access. Besides document collaboration team members can chat, use voice and video call, share screens, and attend online meetings.
@@ -96,7 +96,7 @@ The following information management tools are available within the Blueprint:
 
 Information protection covers the application of labels to documents and emails according to the classification of the content.
 
-Within the Blueprint there are 2 options for labelling documents and emails. These are:
+Within the blueprint there are 2 options for labelling documents and emails. These are:
 
 * Azure Information Protection (AIP) and Microsoft sensitivity labels (Microsoft products that form part of the broader Microsoft Information Protection capabilities available under E5 licensing) 
 * a third-party application.
@@ -163,6 +163,10 @@ Collaboration is initially controlled by lists of allowed domains. Individual us
 
 This blueprint does not include design information for a Secure Internet Gateway (SIG). A SIG is listed as a requirement in the Protective Security Policy Framework (PSPF) [Robust ICT Systems](https://www.protectivesecurity.gov.au/information/robust-ict-systems/Pages/default.aspx). 
 
+### Virtual private network
+
+If you are considering the use of Apple iOS devices such as iPhones or iPads, [ACSC's Security Configuration Guide for Apple iOS 14 Devices](https://www.cyber.gov.au/acsc/view-all-content/publications/security-configuration-guide-apple-ios-14-devices) requires the use of a virtual private network to protect in transit communication. The blueprint includes [suggested per app VPN configuration](/blueprint/abac/intune-configuration.html#ios-per-app-vpn), however the selection and configuration of a VPN server is the responsibility of the agency. Please ensure you leverage a risk based approach in the selection and configuration of a VPN server.
+
 ## Security
 
 The blueprint's security artefacts enable an agency to conduct a security assessment. Relevant documentation an agency can develop from the artefacts include:
@@ -171,7 +175,7 @@ The blueprint's security artefacts enable an agency to conduct a security assess
 * a system security plan annex (previously referred to as the Statement of Applicability - SOA)
 * a security risk management plan
 * an incident response plan
-* standard operating pocedures.
+* standard operating procedures.
 
 ## Design decisions
 
@@ -224,7 +228,7 @@ The following table describes how the blueprint addresses each strategy identifi
 
 Essential Eight design decisions
 
-ACSC strategy | Solution | Jusitification | Maturity level
+ACSC strategy | Solution | Justification | Maturity level
 --- | --- | --- | ---
 Application control | [Windows Defender Application Control](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control) (WDAC) managed by Intune. | Application control will prevent all non-approved applications (including malicious code) from executing.<br><br>WDAC provides all the features of AppLocker with additional functionality and simpler management from within Intune. It is also possible to implement the latest recommended block rules from Microsoft. | 3
 Patch applications | Intune or MECM used to patch applications on a regular basis. | As direct internet connectivity has been stipulated, applications will be set to auto update.<br><br>Firmware can be updated if an executable file is packaged and deployed via Intune.<br><br>Note: 0.1 Full Time Equivalent (FTE) minimum is estimated to cover the work required. | 3
@@ -233,4 +237,4 @@ Configure Microsoft Office macro settings | Hardening to be implemented as per t
 User application hardening | Hardening to be implemented as per the ACSC via Intune. | Web advertisements that are java or Flash based will be blocked. 'Other' web adverts will not be controlled.<br><br>Web browsers are configured to block or disable support for Flash content for Internet Explorer and Edge.<br><br>Web browsers are configured to block Java from the Internet for Internet Explorer and Edge. | 2
 Restrict administrative privileges | Intune, Azure AD and Privileged Identity Manager (PIM) controls. | Restriction of administrative privileges for admin accounts will prevent adversaries using these accounts to gain full access to information and systems.<br><br>Windows Defender Application Control policies are applied to admin users to prevent the ability to run email and web browsers.<br><br>Admin users will log on with their normal accounts and then authenticate to the Office 365 tenant for management using their privileged account to administer the system. | 3
 Multi-factor authentication | Multi-factor authentication solution is provided by Azure MFA for all remote users and administrators. | Stronger user authentication makes it harder for adversaries to access sensitive information and systems.<br><br>MFA is enabled for all with a soft token.<br><br>Hard tokens would require an Infrastructure-as-a-Service (IaaS) server in Azure and will not be implemented. | 2
-Daily backups | Data redundancy and availability configured with native tools. | Configuration settings of Office 365 and Intune are backed up through the ABACs.<br><br>Documents, Desktops and Pictures are redirected to OneDrive using Windows Known Folders providing a backup of data to the cloud.<br><br>Office 365 data is replicated by Microsoft to at least two geographically dispersed data centres.<br><br>Exchange Online has a recover deleted items from server option.<br><br>Cloud based files have Recycle bin and Restore options in addition to retention policies.<br><br>Retention policies are created that ensure that data is retained forever for:<br><br>* Exchange<br>* SharePoint<br>* OneDrive<br>* Microsoft 365 groups<br>* Skype for Business<br>* Exchange Public Folders<br>* Teams channel messages<br>* Teams chats<br><br>Workstation configuration is stored in Intune (AutoPilot rebuild) or MECM task sequence. | 2
+Daily backups | Data redundancy and availability configured with native tools. | Configuration settings of Office 365 and Intune are backed up through the ABACs.<br><br>Documents, Desktops and Pictures are redirected to OneDrive using Windows Known Folders providing a backup of data to the cloud.<br><br>Office 365 data is replicated by Microsoft to at least two geographically dispersed data centres.<br><br>Exchange Online has a recover deleted items from server option.<br><br>Cloud based files have Recycle bin and Restore options in addition to retention policies.<br><br>Retention policies are created that ensure that data is retained forever for:<br><br>* Exchange<br>* SharePoint<br>* OneDrive<br>* Microsoft 365 groups<br>* Skype for Business<br>* Exchange Public Folders<br>* Teams channel messages<br>* Teams chats<br><br>Workstation configuration is stored in Intune (Autopilot rebuild) or MECM task sequence. | 2

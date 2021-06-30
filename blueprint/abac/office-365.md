@@ -21,7 +21,7 @@ Name | Agency Name
 Country or region | Australia
 Location | Australia datacenters
 
-`Microsoft 365 Admin center > Settings > Org settings > Organization profile`
+`Microsoft 365 Admin center > Settings > Org settings > Organization profile > Organizational information`
 
 Item | Configuration
 --- | ---
@@ -32,12 +32,12 @@ State  | ACT
 ZIP or postal code | Agency Post Code
 Country or region | Australia
 Phone | Agency Phone Number
-Technical Contact | Agency@outlook.com
+Technical Contact | Agency@Agency.gov.au 
 Preferred Language | English
 
 ### Licensing
 
-`Microsoft 365 Admin center > Billing`
+`Microsoft 365 Admin center > Billing > Licenses`
 
 Table 3 describes the Microsoft 365 Licensing settings.
 
@@ -156,17 +156,23 @@ Sharing | Not configured
 
 The ABAC settings for the Agencies Exchange Online instance can be found below. This includes connectors, Mail Exchange (MX) records, SPF, DMARC, DKIM, Remote Domains, User mailbox configurations, Authentication Policies, Outlook on the Web policies, Mailbox Archiving, and Address lists.
 
-Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting.
+Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting. 
+
+Connector, MX and SPF configuration assumes Office 365 is not configured with a 3rd party gateway for mail flow.
 
 ### Connectors
 
 Table 2 describes the Exchange Online inbound mail connectors.
+
+`Exchange admin center > Mail flow > Connectors`
 
 Name | Status | TLS | Certificate
 --- | --- | --- | ---
 Not configured | N/A | N/A | N/A
 
 Table 3 describes the Exchange Online outbound mail connectors.
+
+`Exchange admin center > Mail flow > Connectors`
 
 Name | Status | TLS | Certificate
 --- | --- | --- | ---
@@ -176,6 +182,8 @@ Not configured | N/A | N/A | N/A
 
 Table 4 describes the MX records configuration settings.
 
+Please note, MX record configuration is configured through the user's DNS provider. 
+
 Domain | MX Preferences | Mail Exchanger
 --- | --- | ---
 Agency.gov.au | `10` | `Agency-gov-au.mail.protection.outlook.com`
@@ -184,6 +192,8 @@ Agency.gov.au | `10` | `Agency-gov-au.mail.protection.outlook.com`
 
 Table 5 describes the SPF records configuration settings.
 
+Please note, SPF and DMARC records are configured through the user's DNS provider. 
+
 Domain | SPF Record | DMARC Policy
 --- | --- | ---
 Agency.gov.au | `"v=spf1 include:spf.protection.outlook.com -all"` | Not configured
@@ -191,6 +201,8 @@ Agency.gov.au | `"v=spf1 include:spf.protection.outlook.com -all"` | Not configu
 ### Remote domains
 
 Table 6 describes the Remote Domains configuration settings.
+
+`Exchange admin center > Mail flow > Remote domains`
 
 Configuration Item | Value
 --- | ---
@@ -208,9 +220,17 @@ Content Type | MimeHtmlText
 
 No organisational add-ins have been configured.
 
+`Exchange admin center > Organization > Add-ins`
+
 ### CAS mailbox plan
 
 Table 7 describes the CAS Mailbox Plan configuration settings.
+
+Please note, CAS mailbox plan can be retrieved (or set) through Exchange Online PowerShell.
+
+```powershell
+Get-CASMailboxPlan | Format-Table -Auto DisplayName,ActiveSyncEnabled,ImapEnabled,PopEnabled,OwaMailboxPolicy
+```
 
 Configuration Item | Value
 --- | ---
@@ -255,6 +275,12 @@ EWS | True
 
 Table 8 describes the Authentication Policy configuration settings.
 
+Please note, authentication policies can be retrieved (or set) through Exchange Online PowerShell.
+
+```powershell
+Get-AuthenticationPolicy | Format-Table -Auto Name
+```
+
 Configuration Item | Value
 --- | ---
 Name | Default-Authentication-Policy
@@ -275,6 +301,12 @@ Allow Basic Authentication PowerShell | True
 ### Outlook Web Access policy
 
 Table 9 describes the Outlook Web Access Policy configuration settings.
+
+Please note, Outlook web access policies can be retrieved (or set) through Exchange Online PowerShell.
+
+```powershell
+Get-OwaMailboxPolicy -identity PolicyName
+```
 
 Configuration Item | Value
 --- | ---
@@ -532,6 +564,12 @@ Outlook Beta Toggle Enabled | True
 
 Table 10 describes the Address List configuration settings.
 
+Please note, address lists can be retrieved (or set) through Exchange Online PowerShell. The *'Address Lists'* role within Exchange Online is required, for the account used to view or update Address lists.
+
+```powershell
+Get-AddressList -identity 'Address List Name'
+```
+
 Configuration Item | Value
 --- | ---
 All Contacts | `((Alias -ne $null) -and (((ObjectCategory -like 'person') -and (ObjectClass -eq 'contact'))))`
@@ -552,13 +590,17 @@ Please note, if a setting is not mentioned in the below, it should be assumed to
 
 Table 11 describes the Connection Filter configuration settings.
 
+`Microsoft 365 compliance > Threat Management > Policy > Anti-Spam `
+
 Name | IP Allow List | IP Block List | Enable Safe List | Directory Based Edge Block Mode
 --- | --- | --- | --- | --- 
-Default-Connection-Filter |  |  | True | Default
+Connection filter policy (Default) |  |  | True | Default
 
 ### Anti-malware
 
 Table 12 describes the Malware Filter configuration settings.
+
+`Microsoft 365 compliance > Threat Management > Policy > Anti-malware `
 
 Configuration Item | Value
 --- | ---
@@ -573,7 +615,7 @@ Enable External Sender Notifications | False
 Enable Internal Sender Admin Notifications | False
 Enable External Sender Admin Notifications | False
 Enable File Filter | True
-Filter file types | ace,ani,app,exe,jar,reg,scr,vbe,vbs
+Filter file types | ace,ani,app,exe,jar,reg,scr,vbe,vbs 
 
 ### Policy filtering
 
@@ -585,7 +627,13 @@ Not Configured | N/A | N/A | N/A | N/A
 
 ### Content filtering
 
-Table 14 describes the Content Filter configuration settings.
+Table 14 describes the Content (spam) Filter configuration settings.
+
+Please note, content (spam) filtering policies are best retrieved (or set) through Exchange Online PowerShell as some parameters are not available in the Microsoft 365 Defender portal.
+
+```powershell
+Get-HostedContentFilterPolicy | Format-List
+```
 
 Configuration Item | Value
 --- | ---
@@ -625,43 +673,46 @@ Please note, if a setting is not mentioned in the below, it should be assumed to
 
 Table 15 describes the Teams Client configuration settings.
 
+`Microsoft Teams Admin center > Org-wide settings > Teams Settings `
+
 Configuration Item | Value
 --- | ---
-Name | Global
-Allow email into the channel | True
-Restricted sender list | agency.gov.au
+Suggested feeds can appear in a user's activity feed | True 
+Tags are managed by | Team Owners 
+Let team owners override who can manage tags | True 
+Let custom tags to be created | True 
+Allow Shifts app to apply tags | True 
+Allow users to send emails to a channel email address | True
+Accept channel email from these SMTP domains | agency.gov.au
+Allow Citrix files | False 
 Allow DropBox | False
-Allow box | False
+Allow Box | False
 Allow Google drive | False
-Allow Sharefile | False
-Allow organisation tab | True
-Allow Skype for business interop | False
-Content pin | RequiredOutsideScheduleMeeting
-Allow resource account send message | True
-Resource account content access | NoAccess
-Allow guest user | True
-Allow scoped people search and access | True
+Allow Egnyte | False
+Show Organization tab in chats | True
+ Require a secondary form of authentication to access meeting content | No access                              
+Set Content PIN | Required for outside scheduled meeting 
+Surface Hub accounts can send mails | True
+ Scope directory search using an Exchange address book policy | True                                   
+ Role-base chat permissions                                   | False                                  
 
-### Channel policy
+### Teams policy
 
-Table 16 describes the Teams Channel policy configuration settings.
+Table 16 describes the Teams policy configuration settings.
+
+`Microsoft Teams Admin center > Teams > Teams policies  `
 
 Configuration Item | Value
 --- | ---
-Name | Global
+Name | Global (Org-wide default) 
 Description | Not Configured
-Org wide Team creation | False
-Private Team discovery | True
-Allow private channel creation | True
-Name | Tag:Default
-Description | Not Configured
-Org wide Team creation | True
-Private Team discovery | True
-Allow private channel creation | True
+Create private channels | True
 
 ### Calling policy
 
 Table 17 describes the Teams Calling policy configuration settings.
+
+`Microsoft Teams Admin center > Voice > Calling policies  `
 
 Configuration Item | Value
 --- | ---
@@ -719,6 +770,8 @@ Busy on busy enabled type | Disabled
 ### Meeting policy
 
 Table 18 describes the Teams Meeting policy configuration settings.
+
+`Microsoft Teams Admin center > Meetings > Meeting policies  `
 
 Configuration Item | Value
 --- | ---
@@ -888,6 +941,8 @@ Allow Organizers to Override Lobby Settings | False
 
 Table 19 describes the Teams Messaging policy configuration settings.
 
+`Microsoft Teams Admin center > Messaging policies  `
+
 Configuration Item | Value
 --- | ---
 Name | Global
@@ -963,9 +1018,11 @@ Allow Priority Messages | True
 Channels in Chat List Enabled Type | DisabledUserOverride
 Audio Message Enabled Type | ChatsAndChannels
 
-### Meeting broadcast policy
+### Live events policies
 
-Table 20 describes the Teams meeting broadcast policy configuration settings.
+Table 20 describes the Teams Live events policy configuration settings.
+
+`Microsoft Teams Admin center > Meetings > Live events policies  `
 
 Configuration Item | Value
 --- | ---
@@ -982,15 +1039,48 @@ Allow Broadcast Transcription | False
 Broadcast Attendee Visibility Mode | EveryoneInCompany
 Broadcast Record Mode | AlwaysEnabled
 
+### External access settings
+
+Table 21 describes the External access configuration settings.
+
+`Microsoft Teams Admin center > Org-wide settings > External access  `
+
+| Configuration Item                                           | Value                                       |
+| ------------------------------------------------------------ | ------------------------------------------- |
+| Users can communicate with other Skype for Business and Teams users | True                                        |
+| Users can communicate with Skype users                       | True                                        |
+| Add a domain (Allowed or Blocked domains)                    | *Agency allowed or blocked list of domains* |
+
+### Guest access settings
+
+Table 22 describes the External access configuration settings.
+
+`Microsoft Teams Admin center > Org-wide settings > Guest access  `
+
+| Configuration Item          | Value |
+| --------------------------- | ----- |
+| Allow guest access in Teams | True  |
+
 ## SharePoint Online & OneDrive
 
 The ABAC settings for SharePoint Online and OneDrive instances can be found below. This includes the Site and Sharing configuration.
 
-Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting.
+Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting. The following settings can be retrieved (and set) using SharePoint Online PowerShell.
+
+```powershell
+#Set SharePoint Online Admin Center URL, replace <agency> with tenant name
+$AdminSiteURL="https://<agency>-admin.sharepoint.com"
+ 
+#Connect to SharePoint Online Admin Center
+Connect-SPOService -Url $AdminSiteURL
+ 
+#Get Tenant Settings
+Get-SPOTenant
+```
 
 ### Tenant configuration
 
-Table 21 describes the SharePoint Online Tenant configuration settings.
+Table 23 describes the SharePoint Online Tenant configuration settings.
 
 Configuration Item | Value
 --- | ---
@@ -1069,7 +1159,9 @@ Please note, if a setting is not mentioned in the below, it should be assumed to
 
 ### Retention labels
 
-Table 22 describes the Retention labels configuration settings.
+`Microsoft 365 compliance > Information governance > Labels`
+
+Table 24 describes the Retention labels configuration settings.
 
 Configuration Item | Value
 --- | ---
@@ -1118,429 +1210,151 @@ Turn on preservation lock | No
 
 ### Sensitivity labels
 
-Table 24 describes the Sensitivity label configuration settings.
+`Microsoft 365 compliance > Information Protection > Labels`
+
+The following tables describe the sensitivity label configuration settings.
 
 #### Unofficial
 
-* Name: `Unofficial`
-* Workload: `Exchange`, `SharePoint`
-* Settings: 
-```
-[tooltip, No damage. This information does not form part of official duty]
-[displayname, Unofficial]
-[aiplabelversion, 795ef17b-06a6-4992-81d6-ea3ae5d5d9ae]
-[colour, #000000]
-```
-* Label Actions:
-```json
-{
-    "Type": "applycontentmarking",
-    "SubType": "header",
-    "Settings": [
-        {
-            "Key": "text",
-            "Value": "UNOFFICIAL"
-        },
-        {
-            "Key": "fontsize",
-            "Value": "10"
-        },
-        {
-            "Key": "fontcolor",
-            "Value": "#000000"
-        },
-        {
-            "Key": "alignment",
-            "Value": "Center"
-        },
-        {
-            "Key": "margin",
-            "Value": "15"
-        },
-        {
-            "Key": "placement",
-            "Value": "Header"
-        },
-        {
-            "Key": "disabled",
-            "Value": "false"
-        }
-    ]
-}
-{
-    "Type": "applycontentmarking",
-    "SubType": "footer",
-    "Settings": [
-        {
-            "Key": "text",
-            "Value": "UNOFFICIAL"
-        },
-        {
-            "Key": "fontsize",
-            "Value": "10"
-        },
-        {
-            "Key": "fontcolor",
-            "Value": "#000000"
-        },
-        {
-            "Key": "alignment",
-            "Value": "Center"
-        },
-        {
-            "Key": "margin",
-            "Value": "15"
-        },
-        {
-            "Key": "placement",
-            "Value": "Footer"
-        },
-        {
-            "Key": "disabled",
-            "Value": "false"
-        }
-    ]
-}
-{
-    "Type": "encrypt",
-    "SubType": null,
-    "Settings": [
-        {
-            "Key": "disabled",
-            "Value": "true"
-        },
-        {
-            "Key": "protectiontype",
-            "Value": "template"
-        },
-        {
-            "Key": "aiptemplatescopes",
-            "Value": "[\"All\"]"
-        }
-    ]
-}
-```
-* Conditions: Not configured
-* Local Settings: Not configured
-* Tooltip: `No damage. This information does not form part of official duty`
+Table 25 lists the sensitivity label policy configuration for Unofficial.
+
+| Configuration Item    | Value                                                        |
+| --------------------- | ------------------------------------------------------------ |
+| Name                  | UNOFFICIAL                                                   |
+| Description for Users | No damage. This information does not form part of official duty. |
+| Scope                 | Files & Emails                                               |
+| Protection Settings   | Mark the content: Checked<br />Encrypt files and emails: Unchecked<br />Apply a header: Checked<br />Customize text: UNOFFICIAL<br />Apply a footer: Checked<br />Font site: 10<br />Font color: Red<br />Align text: Center |
 
 #### Official
 
-* Name: `Official`
-* Workload: `Exchange`, `SharePoint`
-* Settings: 
-```
-[tooltip, 1 Low business impact No or insignificant damage. This is the majority of routine information.]
-[displayname, Official]
-[aiplabelversion, 502d91b8-27d5-4ea1-afae-b2286de4b919]
-[colour, #000000]
-```
-* Label Actions:
-```json
-{
-    "Type": "applycontentmarking",
-    "SubType": "header",
-    "Settings": [
-        {
-            "Key": "text",
-            "Value": "OFFICIAL"
-        },
-        {
-            "Key": "fontsize",
-            "Value": "10"
-        },
-        {
-            "Key": "fontcolor",
-            "Value": "#000000"
-        },
-        {
-            "Key": "alignment",
-            "Value": "Center"
-        },
-        {
-            "Key": "margin",
-            "Value": "15"
-        },
-        {
-            "Key": "placement",
-            "Value": "Header"
-        },
-        {
-            "Key": "disabled",
-            "Value": "false"
-        }
-    ]
-}
-{
-    "Type": "applycontentmarking",
-    "SubType": "footer",
-    "Settings": [
-        {
-            "Key": "text",
-            "Value": "OFFICIAL"
-        },
-        {
-            "Key": "fontsize",
-            "Value": "10"
-        },
-        {
-            "Key": "fontcolor",
-            "Value": "#000000"
-        },
-        {
-            "Key": "alignment",
-            "Value": "Center"
-        },
-        {
-            "Key": "margin",
-            "Value": "15"
-        },
-        {
-            "Key": "placement",
-            "Value": "Footer"
-        },
-        {
-            "Key": "disabled",
-            "Value": "false"
-        }
-    ]
-}
-{
-    "Type": "encrypt",
-    "SubType": null,
-    "Settings": [
-        {
-            "Key": "disabled",
-            "Value": "true"
-        },
-        {
-            "Key": "protectiontype",
-            "Value": "template"
-        },
-        {
-            "Key": "aiptemplatescopes",
-            "Value": "[\"All\"]"
-        }
-    ]
-}
-```
-* Conditions: Not configured
-* Local Settings: Not configured
-* Tooltip: `1 Low business impact No or insignificant damage. This is the majority of routine information.`
+Table 26 lists the sensitivity label policy configuration for Official.
+
+| Configuration Item    | Value                                                        |
+| --------------------- | ------------------------------------------------------------ |
+| Name                  | OFFICIAL                                                     |
+| Description for Users | 1 No or insignificant damage. This is the majority of routine information. |
+| Scope                 | Files & Emails                                               |
+| Protection Settings   | Mark the content: Checked<br />Encrypt files and emails: Unchecked<br />Apply a header: Checked<br />Customize text: OFFICIAL<br />Apply a footer: Checked<br />Font site: 10<br />Font color: Red<br />Align text: Center |
 
 #### Official Sensitive
 
-* Name: `Official Sensitive`
-* Workload: `Exchange`, `SharePoint`
-* Settings: 
-```
-[tooltip, 2 Low to medium business impact Limited damage to an individual, organisation or government generally if compromised]
-[displayname, OFFICIAL Sensitive]
-[aiplabelversion, 1ad791ca-a578-4a9b-9cd1-151450f56d31]
-[colour, #000000]
-```
-* Label Actions:
-```json
-{
-    "Type": "applycontentmarking",
-    "SubType": "header",
-    "Settings": [
-        {
-            "Key": "text",
-            "Value": "OFFICIAL Sensitive"
-        },
-        {
-            "Key": "fontsize",
-            "Value": "10"
-        },
-        {
-            "Key": "fontcolor",
-            "Value": "#000000"
-        },
-        {
-            "Key": "alignment",
-            "Value": "Center"
-        },
-        {
-            "Key": "margin",
-            "Value": "15"
-        },
-        {
-            "Key": "placement",
-            "Value": "Header"
-        },
-        {
-            "Key": "disabled",
-            "Value": "false"
-        }
-    ]
-}
-{
-    "Type": "applycontentmarking",
-    "SubType": "footer",
-    "Settings": [
-        {
-            "Key": "text",
-            "Value": "OFFICIAL Sensitive"
-        },
-        {
-            "Key": "fontsize",
-            "Value": "10"
-        },
-        {
-            "Key": "fontcolor",
-            "Value": "#000000"
-        },
-        {
-            "Key": "alignment",
-            "Value": "Center"
-        },
-        {
-            "Key": "margin",
-            "Value": "15"
-        },
-        {
-            "Key": "placement",
-            "Value": "Footer"
-        },
-        {
-            "Key": "disabled",
-            "Value": "false"
-        }
-    ]
-}
-{
-    "Type": "encrypt",
-    "SubType": null,
-    "Settings": [
-        {
-            "Key": "disabled",
-            "Value": "true"
-        },
-        {
-            "Key": "protectiontype",
-            "Value": "template"
-        },
-        {
-            "Key": "aiptemplatescopes",
-            "Value": "[\"All\"]"
-        }
-    ]
-}
-```
-* Conditions: Not configured
-* Local Settings: Not configured
-* Tooltip: `2 Low to medium business impact Limited damage to an individual, organisation or government generally if compromised`
+Table 27 lists the sensitivity label policy configuration for Official Sensitive.
+
+| Configuration Item    | Value                                                        |
+| --------------------- | ------------------------------------------------------------ |
+| Name                  | OFFICIAL Sensitive                                           |
+| Description for Users | 2 Low to medium business impact. Limited damage <br />to an individual, organisation or government generally if compromised |
+| Scope                 | Files & Emails                                               |
+| Protection Settings   | Mark the content: Checked<br />Encrypt files and emails: Unchecked<br />Apply a header: Checked<br />Customize text: OFFICIAL: Sensitive<br />Apply a footer: Checked<br />Font site: 10<br />Font color: Red<br />Align text: Center |
+
+Table 28 lists the sensitivity label policy configuration for Official Sensitive (ACCESS=Legal-Privilege).
+
+| Configuration Item    | Value                                                        |
+| --------------------- | ------------------------------------------------------------ |
+| Name                  | OFFICIAL Sensitive ACCESS=Legal-Privilege                    |
+| Description for Users | 2 Low to medium business impact. Limited damage <br />to an individual, organisation or government generally if compromised |
+| Scope                 | Files & Emails                                               |
+| Protection Settings   | Mark the content: Checked<br />Encrypt files and emails: Unchecked<br />Apply a header: Checked<br />Customize text: OFFICIAL: Sensitive ACCESS=Legal-Privilege<br />Apply a footer: Checked<br />Font site: 10<br />Font color: Red<br />Align text: Center |
+
+Table 29 lists the sensitivity label policy configuration for Official Sensitive (ACCESS=Legislative-Secrecy).
+
+| Configuration Item    | Value                                                        |
+| --------------------- | ------------------------------------------------------------ |
+| Name                  | OFFICIAL Sensitive ACCESS=Legislative-Secrecy                |
+| Description for Users | 2 Low to medium business impact. Limited damage <br />to an individual, organisation or government generally if compromised |
+| Scope                 | Files & Emails                                               |
+| Protection Settings   | Mark the content: Checked<br />Encrypt files and emails: Unchecked<br />Apply a header: Checked<br />Customize text: OFFICIAL: Sensitive ACCESS=Legislative-Secrecy<br />Apply a footer: Checked<br />Font site: 10<br />Font color: Red<br />Align text: Center |
+
+Table 30 lists the sensitivity label policy configuration for Official Sensitive (ACCESS=Personal-Privacy).
+
+| Configuration Item    | Value                                                        |
+| --------------------- | ------------------------------------------------------------ |
+| Name                  | OFFICIAL Sensitive ACCESS=Personal-Privacy                   |
+| Description for Users | 2 Low to medium business impact. Limited damage <br />to an individual, organisation or government generally if compromised |
+| Scope                 | Files & Emails                                               |
+| Protection Settings   | Mark the content: Checked<br />Encrypt files and emails: Unchecked<br />Apply a header: Checked<br />Customize text: OFFICIAL: Sensitive ACCESS=Personal-Privacy<br />Apply a footer: Checked<br />Font site: 10<br />Font color: Red<br />Align text: Center |
 
 #### Protected
 
-* Name: `Protected`
-* Workload: `Exchange`, `SharePoint`
-* Settings: 
-```
-[tooltip, 3 High business impact Damage to the national interest, organisations, or individuals]
-[displayname, Protected]
-[aiplabelversion, eb578c99-dd28-4f73-b85a-147490d41bab]
-[colour, #000000]
-```
-* Label Actions:
-```json
-{
-    "Type": "applycontentmarking",
-    "SubType": "header",
-    "Settings": [
-        {
-            "Key": "text",
-            "Value": "PROTECTED"
-        },
-        {
-            "Key": "fontsize",
-            "Value": "10"
-        },
-        {
-            "Key": "fontcolor",
-            "Value": "#000000"
-        },
-        {
-            "Key": "alignment",
-            "Value": "Center"
-        },
-        {
-            "Key": "margin",
-            "Value": "15"
-        },
-        {
-            "Key": "placement",
-            "Value": "Header"
-        },
-        {
-            "Key": "disabled",
-            "Value": "false"
-        }
-    ]
-}
-{
-    "Type": "applycontentmarking",
-    "SubType": "footer",
-    "Settings": [
-        {
-            "Key": "text",
-            "Value": "PROTECTED"
-        },
-        {
-            "Key": "fontsize",
-            "Value": "10"
-        },
-        {
-            "Key": "fontcolor",
-            "Value": "#000000"
-        },
-        {
-            "Key": "alignment",
-            "Value": "Center"
-        },
-        {
-            "Key": "margin",
-            "Value": "15"
-        },
-        {
-            "Key": "placement",
-            "Value": "Footer"
-        },
-        {
-            "Key": "disabled",
-            "Value": "false"
-        }
-    ]
-}
-{
-    "Type": "encrypt",
-    "SubType": null,
-    "Settings": [
-        {
-            "Key": "disabled",
-            "Value": "true"
-        },
-        {
-            "Key": "protectiontype",
-            "Value": "template"
-        },
-        {
-            "Key": "aiptemplatescopes",
-            "Value": "[\"All\"]"
-        }
-    ]
-}
-```
-* Conditions: Not configured
-* Local Settings: Not configured
-* Tooltip: `3 High business impact Damage to the national interest, organisations, or individuals`
+Table 31 lists the sensitivity label policy configuration for Protected.
+
+| Configuration Item    | Value                                                        |
+| --------------------- | ------------------------------------------------------------ |
+| Name                  | PROTECTED                                                    |
+| Description for Users | 3 High business impact. Damage to the national<br /> interest, organisations or individuals. |
+| Scope                 | Files & Emails                                               |
+| Protection Settings   | Mark the content: Checked<br />Encrypt files and emails: Unchecked<br />Apply a header: Checked<br />Customize text: PROTECTED<br />Apply a footer: Unchecked<br />Font site: 10<br />Font color: Red<br />Align text: Center |
+
+Table 32 lists the sensitivity label policy configuration for Protected (ACCESS=Legal-Privilege).
+
+| Configuration Item    | Value                                                        |
+| --------------------- | ------------------------------------------------------------ |
+| Name                  | PROTECTED ACCESS=Legal-Privilege                             |
+| Description for Users | 3 High business impact. Damage to the national<br /> interest, organisations or individuals. |
+| Scope                 | Files & Emails                                               |
+| Protection Settings   | Mark the content: Checked<br />Encrypt files and emails: Unchecked<br />Apply a header: Checked<br />Customize text: PROTECTED ACCESS=Legal-Privilege<br />Apply a footer: Unchecked<br />Font site: 10<br />Font color: Red<br />Align text: Center |
+
+Table 33 lists the sensitivity label policy configuration for Protected (ACCESS=Legislative-Secrecy).
+
+| Configuration Item    | Value                                                        |
+| --------------------- | ------------------------------------------------------------ |
+| Name                  | PROTECTED ACCESS=Legislative-Secrecy                         |
+| Description for Users | 3 High business impact. Damage to the national<br /> interest, organisations or individuals. |
+| Scope                 | Files & Emails                                               |
+| Protection Settings   | Mark the content: Checked<br />Encrypt files and emails: Unchecked<br />Apply a header: Checked<br />Customize text: PROTECTED ACCESS=Legislative-Secrecy<br />Apply a footer: Unchecked<br />Font site: 10<br />Font color: Red<br />Align text: Center |
+
+Table 34 lists the sensitivity label policy configuration for Protected (ACCESS=Personal-Privacy).
+
+| Configuration Item    | Value                                                        |
+| --------------------- | ------------------------------------------------------------ |
+| Name                  | PROTECTED ACCESS=Personal-Privacy                            |
+| Description for Users | 3 High business impact. Damage to the national<br /> interest, organisations or individuals. |
+| Scope                 | Files & Emails                                               |
+| Protection Settings   | Mark the content: Checked<br />Encrypt files and emails: Unchecked<br />Apply a header: Checked<br />Customize text: PROTECTED ACCESS=Personal-Privacy<br />Apply a footer: Unchecked<br />Font site: 10<br />Font color: Red<br />Align text: Center |
+
+Table 35 lists the sensitivity label policy configuration for Protected (CAVEAT=SH CABINET).
+
+| Configuration Item    | Value                                                        |
+| --------------------- | ------------------------------------------------------------ |
+| Name                  | PROTECTED CAVEAT=SH CABINET                                  |
+| Description for Users | 3 High business impact. Damage to the national<br /> interest, organisations or individuals. |
+| Scope                 | Files & Emails                                               |
+| Protection Settings   | Mark the content: Checked<br />Encrypt files and emails: Unchecked<br />Apply a header: Checked<br />Customize text: PROTECTED CAVEAT=SH CABINET<br />Apply a footer: Unchecked<br />Font site: 10<br />Font color: Red<br />Align text: Center |
+
+Table 36 lists the sensitivity label policy configuration for Protected (ACCESS=Legal-Privilege CAVEAT=SH CABINET).
+
+| Configuration Item    | Value                                                        |
+| --------------------- | ------------------------------------------------------------ |
+| Name                  | PROTECTED ACCESS=Legal-Privilege CAVEAT=SH CABINET           |
+| Description for Users | 3 High business impact. Damage to the national<br /> interest, organisations or individuals. |
+| Scope                 | Files & Emails                                               |
+| Protection Settings   | Mark the content: Checked<br />Encrypt files and emails: Unchecked<br />Apply a header: Checked<br />Customize text: PROTECTED ACCESS=Legal-Privilege <br />CAVEAT=SH CABINET<br />Apply a footer: Unchecked<br />Font site: 10<br />Font color: Red<br />Align text: Center |
+
+Table 37 lists the sensitivity label policy configuration for Protected (ACCESS=Legislative-Secrecy CAVEAT=SH CABINET).
+
+| Configuration Item    | Value                                                        |
+| --------------------- | ------------------------------------------------------------ |
+| Name                  | PROTECTED ACCESS=Legislative-Secrecy CAVEAT=SH CABINET       |
+| Description for Users | 3 High business impact. Damage to the national<br /> interest, organisations or individuals. |
+| Scope                 | Files & Emails                                               |
+| Protection Settings   | Mark the content: Checked<br />Encrypt files and emails: Unchecked<br />Apply a header: Checked<br />Customize text: PROTECTED ACCESS=Legislative-Secrecy <br />CAVEAT=SH CABINET<br />Apply a footer: Unchecked<br />Font site: 10<br />Font color: Red<br />Align text: Center |
+
+Table 38 lists the sensitivity label policy configuration for Protected (ACCESS=Personal-Privacy CAVEAT=SH CABINET).
+
+| Configuration Item    | Value                                                        |
+| --------------------- | ------------------------------------------------------------ |
+| Name                  | PROTECTED ACCESS=Personal-Privacy CAVEAT=SH CABINET          |
+| Description for Users | 3 High business impact. Damage to the national<br /> interest, organisations or individuals. |
+| Scope                 | Files & Emails                                               |
+| Protection Settings   | Mark the content: Checked<br />Encrypt files and emails: Unchecked<br />Apply a header: Checked<br />Customize text: PROTECTED ACCESS=Personal-Privacy <br />CAVEAT=SH CABINET<br />Apply a footer: Unchecked<br />Font site: 10<br />Font color: Red<br />Align text: Center |
 
 ### Sensitivity label policy
 
-Table 25 lists the Sensitivity label policy configuration.
+Please note, the user may only need to publish the sensitivity labels (sensitivity, security classification, information management markers and caveats) that are required for the organisation or agency.
 
-`Office 365 Security & compliance > Information protection > Label polices > agency acronym sensitivity labels`
+Table 39 lists the Sensitivity label policy configuration.
+
+`Microsoft 365 Security Center > Classification > Sensitivity labels > Label policies> agency acronym sensitivity labels`
 
 Item | Configuration
 --- | ---
@@ -1552,9 +1366,11 @@ Policy settings | Label is mandatory<br>Users must provide justification to remo
 
 ### Data Loss Prevention (DLP) compliance policy
 
+`Microsoft 365 compliance > Data loss prevention > Policies`
+
 * Name: `Australia Privacy Act`
   * Enabled: `True`
-  * Workload: `Exchange, SharePoint, OneDriveForBusiness, Teams`
+  * Locations: `Exchange, SharePoint, OneDriveForBusiness, Teams`
   * Mode: `Enable`
   * Type: `DLP`
   * Exchange Location:
@@ -1724,3 +1540,83 @@ Policy settings | Label is mandatory<br>Users must provide justification to remo
   * Exchange Sender Member Of: `Not Configured`
   * Exchange Sender Exception: `Not Configured`
   * Exchange Sender Member Of Exception: `Not Configured`
+
+## Microsoft 365 Defender
+
+The ABAC settings for Microsoft 365 Defender can be found below. This includes Safe Links, Safe Attachments, and Anti-phishing configuration.
+
+Please note, if a setting is not mentioned below, it should be assumed to have been left at its default setting.
+
+`Office365 Security & Compliance > Threat management > Policy > Safe links`
+
+### Safe Links
+
+* Name: `Default Safe Links Policy`
+* Description: `This policy is the default Safe Links policy for the environment`
+* Users and domains:
+  * Users: `Not Configured`
+  * Groups: `Not Configured`
+  * Domains: `All Agency domains`
+* Protection Settings:
+  * Select the action for unknown potentially malicious URLs in messages: `On - URLs will be rewritten and checked against a list of known malicious links when user clicks on the link`
+  * Select the action for unknown or potentially malicious URLs within Microsoft Teams: `On - Microsoft Teams will check against a list of known malicious links when user clicks on the link; URLs will not be rewritten`
+  * Apply real-time URL scanning for suspicious links and links that point to files: `Enabled`
+    * Wait for URL scanning to complete before delivering the message: `Enabled`
+  * Apply Safe Links to email messages sent within the organisation: `Enabled`
+  * Do not track user clicks: `Disabled`
+  * Do not let users click through to the original URL: `Enabled`
+  * Display the organization branding on notification and warning pages: `Disabled`
+  * Do not rewrite the following URLs: `Not Configured`
+* Notification:
+  * How would you like to notify your users: `Use the default notification text`
+
+### Safe Attachments
+
+`Office365 Security & Compliance > Threat management > Policy > Safe Attachments`
+
+#### Global Settings
+
+* Turn on Defender for Office 365 for SharePoint, OneDrive, and Microsoft Teams: `Enabled`
+* Turn on Safe Documents for Office Clients: `Enabled`
+  * Allow people to click through Protected View even if Safe Documents has identified the file as malicious: `Disabled`
+
+### Policy
+
+* Name: `Default Safe Attachments Policy`
+* Description: `This policy is the default Safe Attachments policy for the environment`
+* Users and domains:
+  * Users: `Not Configured`
+  * Groups: `Not Configured`
+  * Domains: `All Agency domains`
+* Settings:
+  * Safe Attachments unknown malware response: `Block - Block current and future messages and attachments with detected malware`
+  * Enable Redirect: `Enabled`
+    * Send messages that contain blocked, monitored, or replaced attachments to the specified email address: `quarantine@agency.gov.au`
+  * Apply the Safe Attachments detection response if scanning can't complete (timeout or errors): `Enabled`
+
+### Anti-phishing
+
+`Office365 Security & Compliance > Threat management > Policy > Anti-phishing`
+
+* Name: `Office365 AntiPhish Default (Default)`
+* Phishing email threshold: `2 - Aggressive`
+* Enable users to protect: `Configured - agency executives added`
+* Enabled domains to protect: `Enabled`
+  * Include domains I own: `Enabled`
+  * Include custom domains: `Disabled`
+* Add trusted senders and domains: `Not configured`
+* Enable mailbox intelligence: `Enabled`
+  * Enable Intelligence for impersonation protection: `Enabled`
+* Spoof
+  * Enable spoof intelligence: `Enabled`
+* Actions
+* Message actions
+  * If message is detected as an impersonated user:`Quarantine the message`
+  * If message is detected as an impersonated domain: `Quarantine the message`
+  * If Mailbox Intelligence detects an impersonated user: `Quarantine the message`
+  * If message is detected as spoof: `Quarantine the message`
+* Safety tips & indicators
+  * Show user impersonation safety tip: `Enabled`
+  * Show domain impersonation safety tip: `Enabled`
+  * Show user impersonation unusual characters safety tip: `Enabled`
+  * Show (?) for unauthenticated senders for spoof: `Enabled`

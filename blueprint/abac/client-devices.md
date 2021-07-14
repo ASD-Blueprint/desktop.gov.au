@@ -4,7 +4,7 @@ title: Client devices
 menu: abac
 ---
 
-The ABAC settings for the Agency workstation configuration can be found below. This includes the Windows Defender Application Control configuration (WDAC). 
+The ABAC settings for the Agency workstation configuration can be found below. This includes the Windows Defender Application Control (WDAC) configuration. 
 
 Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting.
 

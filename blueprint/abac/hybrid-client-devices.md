@@ -4,7 +4,7 @@ title: Hybrid - client devices
 menu: abac
 ---
 
-The ABAC settings for the Agency workstation configuration can be found below. This includes base configuration, Windows 10 task sequence, and Windows Defender Application Control configuration. This workstation configuration should be utilised as the basis for the Agency specific Operating System image used prior to Autopilot taking over the image.
+The ABAC settings for the Agency workstation configuration can be found below. This includes base configuration, Windows 10 task sequence, and Windows Defender Application Control (WDAC) configuration. This workstation configuration should be utilised as the basis for the Agency specific Operating System image used prior to Autopilot taking over the image.
 
 Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting.
 

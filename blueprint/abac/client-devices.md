@@ -37,7 +37,7 @@ A base policy generated from a gold image machine should only be utilised where 
 $PolicyPath=$env:userprofile+"\Desktop\"
 $PolicyName="GoldImagePolicy"
 $WDACPolicy=$PolicyPath+$PolicyName+".xml"
-New-CIPolicy -Level PcaCertificate -FilePath $WDACPolicy –UserPEs 3> CIPolicyLog.txt -Fallback hash
+New-CIPolicy -Level Publisher -FilePath $WDACPolicy –UserPEs 3> CIPolicyLog.txt -Fallback hash
 ```
 5. Review the CIPolicy.txt file for any items which could not be whitelisted.
 6. Using an administrative PowerShell session run
@@ -57,6 +57,13 @@ Set-RuleOption -FilePath $WDACPolicy -Option 17 # Enable Allow Supplemental
 Set-RuleOption -FilePath $WDACPolicy -Option 19 # Enable Dynamic Code Security
 ```
 7. Deploy the file locally in audit mode and validate no additional files require whitelisting
+
+```powershell
+$WDACPolicyCIP=$PolicyPath+"{<Policy GUID>}.cip"
+ConvertFrom-CIPolicy $WDACPolicy $WDACPolicyCIP
+Copy-Item $WDACPolicyCIP "<OS Volume>\Windows\System32\CodeIntegrity\CIPolicies\Active\{<Policy GUID>}.cip"
+```
+
 8. Using an administrative PowerShell session run the following to switch the policy into enforce mode
 ```powershell
 Set-RuleOption -FilePath $WDACPolicy -Option 3 -Delete

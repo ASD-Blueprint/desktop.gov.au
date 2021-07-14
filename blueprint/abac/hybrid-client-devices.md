@@ -189,7 +189,7 @@ This is an example AutopilotConfigurationFile.json only. This file will be agenc
 
 ## Application control
 
-WDAC utilise one or more policies to defined what drivers and files are whitelisted to run on a Windows 10 devices. Multiple policies can only be leveraged when the policies are deployed utilising Microsoft Endpoint Manager and the Application Control Configuration Service Provider (CSP). When deployed utilising Group Policy, all policies must be merged into the single policy. This policy can be signed to ensure that it cannot be tampered with. Details on signing policy can be found in the [WDAC policy - policy signing](#wdac-policy---policy-signing) section.
+WDAC utilises one or more policies to defined what drivers and files are whitelisted to run on a Windows 10 devices. Multiple policies can only be leveraged when the policies are deployed utilising Microsoft Endpoint Manager and the Application Control Configuration Service Provider (CSP). When deployed utilising Group Policy, all policies must be merged into the single policy. This policy can be signed to ensure that it cannot be tampered with. Details on signing policy can be found in the [WDAC policy - policy signing](#wdac-policy---policy-signing) section.
 
 Once implemented, the procedure to remove the WDAC policy can be found in the [WDAC policy - removal](#wdac-policy---removal) section.
 
@@ -201,7 +201,7 @@ The base policy contains the whitelist for the operating system, base applicatio
 
 #### Gold image base
 
-A base policy generated from a gold image machine should only be utlised where all Windows 10 machines in the environment utilise the same image. The procedure to generate the policy is as follows:
+A base policy generated from a gold image machine should only be utilised where all Windows 10 machines in the environment utilise the same image. The procedure to generate the policy is as follows:
 
 1. Deploy the image to a standard organisational Windows 10 device.
 2. Ensure all standard software is installed (e.g. Microsoft Office).
@@ -211,7 +211,7 @@ A base policy generated from a gold image machine should only be utlised where a
 $PolicyPath=$env:userprofile+"\Desktop\"
 $PolicyName="GoldImagePolicy"
 $WDACPolicy=$PolicyPath+$PolicyName+".xml"
-New-CIPolicy -Level PcaCertificate -FilePath $WDACPolicy –UserPEs 3> CIPolicyLog.txt -Fallback hash
+New-CIPolicy -Level Publisher -FilePath $WDACPolicy –UserPEs 3> CIPolicyLog.txt -Fallback hash
 ```
 5. Review the CIPolicy.txt file for any items which could not be whitelisted.
 6. Using an administrative PowerShell session run
@@ -268,6 +268,12 @@ Set-RuleOption -FilePath $WDACPolicy -Option 19 # Enable Dynamic Code Security
 Set-RuleOption -FilePath $WDACPolicy -Option 3 -Delete
 ```
 7. Deploy the file locally in enforce mode and validate no additional files require whitelisting
+
+```powershell
+$WDACPolicyCIP=$PolicyPath+"{<Policy GUID>}.cip"
+ConvertFrom-CIPolicy $WDACPolicy $WDACPolicyCIP
+Copy-Item $WDACPolicyCIP "<OS Volume>\Windows\System32\CodeIntegrity\{<Policy GUID>}.cip"
+```
 8. [Deploy the file globally](hybrid-platform.html#application-control) 
 
 ### WDAC policy - whitelisting an application

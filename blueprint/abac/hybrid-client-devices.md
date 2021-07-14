@@ -189,7 +189,7 @@ This is an example AutopilotConfigurationFile.json only. This file will be agenc
 
 ## Application control
 
-WDAC utilises one or more policies to defined what drivers and files are whitelisted to run on a Windows 10 devices. Multiple policies can only be leveraged when the policies are deployed utilising Microsoft Endpoint Manager and the Application Control Configuration Service Provider (CSP). When deployed utilising Group Policy, all policies must be merged into the single policy. This policy can be signed to ensure that it cannot be tampered with. Details on signing policy can be found in the [WDAC policy - policy signing](#wdac-policy---policy-signing) section.
+WDAC utilises one or more policies to define what drivers and files are whitelisted to run on a Windows 10 devices. Multiple policies can only be leveraged when the policies are deployed utilising Microsoft Endpoint Manager and the Application Control Configuration Service Provider (CSP). When deployed utilising Group Policy, all policies must be merged into the single policy. This policy can be signed to ensure that it cannot be tampered with. Details on signing policy can be found in the [WDAC policy - policy signing](#wdac-policy---policy-signing) section.
 
 Once implemented, the procedure to remove the WDAC policy can be found in the [WDAC policy - removal](#wdac-policy---removal) section.
 

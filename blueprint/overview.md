@@ -165,20 +165,20 @@ This blueprint does not include design information for a Secure Internet Gateway
 
 ### Secure system administration
 
-The blueprint provides agencies guidance for cloud native and hybrid deployments to securely administer the environment. It is important for the agency to develop a risk based approach to determine what is sufficient for the agency.
+The blueprint provides agencies guidance for cloud native and hybrid deployments to securely administer the environment. It is important for agencies to follow a risk based approach to determine what is sufficient.
 
-Most hybrid agencies will have an incumbent secure administration model and set of associated policy and procedures, this may include privileged administration workstations (PAW) and jump host zones to provide a secure and resilient boundary for the administration of critical assets. 
+Most hybrid agencies will have an incumbent secure administration model and set of associated policy and procedures. For example, this may include privileged access workstations (PAW) and jump host environments that provide a secure and resilient boundary for the administration of critical assets. 
 
-Cloud native environments usually do not have have a jump host environment or PAW to use, or may not require one. Such a solution could be suitably hosted natively within M365/Azure and components of the blueprint may assist with the goal of developing a suitable jump host/PAW environment for the agency.
+Cloud native environments usually do not have have a jump host environment or PAW to use. Such a solution could be suitably hosted natively within M365/Azure with components of the blueprint to assist with the goal of developing a suitable secure administration environment for the agency.
 
-PAWs and jump host solution for cloud native may comprise of:
+PAW and jump host solution for cloud native may comprise of:
 * **Separate credentials** are provided for non-privileged and privileged duties
 * **Hardened PAW** (Windows operating system) enrolled into Intune with associated Conditional Access polices to provide a zero trust entry point into the associated cloud apps to administer. Local administrative privileges should be restricted on the PAW, it is used to access the jump server solution or direct access to cloud admin portals
-* **Web filtering system** to restrict privileged accounts to the set of agency approved admin portals only. This product could be a suitably risk assessed cloud platform or built as IaaS (Infrastructure as a Service). The web filtering solution should be mandatory on the jump host or PAWs, [tenant restrictions](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/tenant-restrictions) should be implemented to prevent misuse or data exfiltration to other Microsoft tenancies
+* **Web filtering system** to restrict privileged accounts to the set of agency approved admin portals only. This product could be a suitably risk assessed cloud platform or built as IaaS (Infrastructure as a Service). The web filtering solution should be mandatory on the jump host or PAWs. [Tenant restrictions](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/tenant-restrictions) should be implemented to prevent misuse or data exfiltration to other Microsoft tenancies
 * **Virtual jump host** solution may be built leveraging Azure Virtual Desktop (AVD) session hosts, which includes tie-in to Multifactor Authentication (MFA) though Conditional Access policies. This jump host may be the trusted location where admin portals are used, as well as a secure place to administer other hybrid assets. Network security groups can be used to restrict management traffic flows to these hosts only
 * **Restriction of management traffic flows** limited to only critical assets should be implemented where possible. This could be achieved utilising the Windows Defender native firewall functionality, web filtering, network security groups on cloud hosted jump hosts, and Conditional Access policies.
 
-Please seek further guidance developing this pattern by reviewing the associated ISM controls for systems management to implement a secure administation model.
+Review the Australian Government Information Security Manual (ISM) controls for systems management to assist with implementing a secure administration model.
 
 ### Virtual private network
 

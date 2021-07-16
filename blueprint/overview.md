@@ -180,6 +180,16 @@ PAW and jump host solution for cloud native may comprise of:
 
 Review the Australian Government Information Security Manual (ISM) controls for systems management to assist with implementing a secure administration model.
 
+### Zero Trust security model
+
+"Zero Trust" is an IT security concept where the organisation does not automatically trust the user, the device they're connecting from, or the network location they're connecting from - just because they are a known entity.  
+
+Implementing Zero Trust lowers the agencies risk profile but also increases the business agility as new devices and applications can be adopted more rapidly.
+
+The blueprint supports this Zero Trust initiative through various M365 features such as requiring device enrolment with Conditional Access and enforcing Azure Active Directory Identity Protection. Agencies should take a risk based approach when utilising features such as trusted IP locations, use these as a last resort when implementing a trust model.
+
+For more information, review [Zero Trust Security Model and Framework | Microsoft Security](https://www.microsoft.com/en-au/security/business/zero-trust).
+
 ### Virtual private network
 
 If you are considering the use of Apple iOS devices such as iPhones or iPads, [ACSC's Security Configuration Guide for Apple iOS 14 Devices](https://www.cyber.gov.au/acsc/view-all-content/publications/security-configuration-guide-apple-ios-14-devices) requires the use of a virtual private network to protect in transit communication. The blueprint includes [suggested per app VPN configuration](/blueprint/abac/intune-configuration.html#ios-per-app-vpn), however the selection and configuration of a VPN server is the responsibility of the agency. Please ensure you leverage a risk based approach in the selection and configuration of a VPN server.

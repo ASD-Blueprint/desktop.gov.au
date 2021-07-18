@@ -188,7 +188,7 @@ Implementing Zero Trust lowers the agencies risk profile but also increases the 
 
 The blueprint supports this Zero Trust initiative through various M365 features such as requiring device enrolment with Conditional Access and enforcing Azure Active Directory Identity Protection. Agencies should take a risk based approach when utilising features such as trusted IP locations, use these as a last resort when implementing a trust model.
 
-For more information, review [Zero Trust Security Model and Framework | Microsoft Security](https://www.microsoft.com/en-au/security/business/zero-trust).
+For more information, review [Microsoft's Zero Trust Security Model and Framework](https://www.microsoft.com/en-au/security/business/zero-trust).
 
 ### Virtual private network
 

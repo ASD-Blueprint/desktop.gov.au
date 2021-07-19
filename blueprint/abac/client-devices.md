@@ -4,13 +4,13 @@ title: Client devices
 menu: abac
 ---
 
-The ABAC settings for the Agency workstation configuration can be found below. This includes the Windows Defender Application Control configuration (WDAC). 
+The ABAC settings for the Agency workstation configuration can be found below. This includes the Windows Defender Application Control (WDAC) configuration. 
 
 Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting.
 
 ## Application control
 
-WDAC utilise one or more policies to defined what drivers and files are whitelisted to run on a Windows 10 devices. Multiple policies can only be leveraged when the policies are deployed utilising Microsoft Endpoint Manager and the Application Control Configuration Service Provider (CSP). Multiple policies will not work on machines pre 1903. When multiple policy files are leveraged the fall into one of the following scenarios:
+WDAC utilises one or more policies to define what drivers and files are whitelisted to run on a Windows 10 devices. Multiple policies can only be leveraged when the policies are deployed utilising Microsoft Endpoint Manager and the Application Control Configuration Service Provider (CSP). Multiple policies will not work on machines pre 1903. When multiple policy files are leveraged they fall into one of the following scenarios:
 * **Enforce and Audit Side-by-side** - A base policy configured to enforce and a second base policy configured to audit. This is used to test a new base policy prior to enforcement.
 * **Multiple Base Policies Enforced** - Two or more base policies configured in enforce mode. For applications to run they must be whitelisted in both.
 * **Supplementary Policies** - A base policy and one or more supplementary policies in enforce mode. For applications to run they must only be whitelisted in one of the policies.  
@@ -37,7 +37,7 @@ A base policy generated from a gold image machine should only be utilised where 
 $PolicyPath=$env:userprofile+"\Desktop\"
 $PolicyName="GoldImagePolicy"
 $WDACPolicy=$PolicyPath+$PolicyName+".xml"
-New-CIPolicy -Level PcaCertificate -FilePath $WDACPolicy –UserPEs 3> CIPolicyLog.txt -Fallback hash
+New-CIPolicy -Level Publisher -FilePath $WDACPolicy –UserPEs 3> CIPolicyLog.txt -Fallback hash
 ```
 5. Review the CIPolicy.txt file for any items which could not be whitelisted.
 6. Using an administrative PowerShell session run
@@ -57,6 +57,13 @@ Set-RuleOption -FilePath $WDACPolicy -Option 17 # Enable Allow Supplemental
 Set-RuleOption -FilePath $WDACPolicy -Option 19 # Enable Dynamic Code Security
 ```
 7. Deploy the file locally in audit mode and validate no additional files require whitelisting
+
+```powershell
+$WDACPolicyCIP=$PolicyPath+"{<Policy GUID>}.cip"
+ConvertFrom-CIPolicy $WDACPolicy $WDACPolicyCIP
+Copy-Item $WDACPolicyCIP "<OS Volume>\Windows\System32\CodeIntegrity\CIPolicies\Active\{<Policy GUID>}.cip"
+```
+
 8. Using an administrative PowerShell session run the following to switch the policy into enforce mode
 ```powershell
 Set-RuleOption -FilePath $WDACPolicy -Option 3 -Delete
@@ -100,7 +107,7 @@ Set-RuleOption -FilePath $WDACPolicy -Option 3 -Delete
 
 ### WDAC policy - supplementary policy
 
-Supplementary policies expand on the base policy and allow for whitelisting to be targeted to users and/or groups. Supplementary pollcies can contain both allow and deny rules. A supplementary policy is a base policy until it is linked as a supplementary policy to another base policy. 
+Supplementary policies expand on the base policy and allow for whitelisting to be targeted to users and/or groups. Supplementary policies can contain both allow and deny rules. A supplementary policy is a base policy until it is linked as a supplementary policy to another base policy. 
 
 Supplementary policies will not work on machines pre 1903. If you are deploying to pre 1903 machines they must be merged into the base policy. [Merge policy](hybrid-client-devices.html#wdac-policy---whitelisting-an-application) instructions are available in the hybrid client whitelisting section.
 

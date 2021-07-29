@@ -708,7 +708,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 IPv6 | Disabled | As per ACSC hardening guidance for Windows 10 1909 IPv6 will be disabled.<br>Exceptions to this rule are if IPv6 is wholly deployed within an Agency network with no IPv4.
 Wireless | Enabled | Where applicable, wireless capable devices will have Wi-Fi enabled to allow use case of mobile working.
-Wireless Configuration | Refer to Table 86 for wireless configuration recommendations. | As per ACSC hardening guidance for Windows 10 1909 and security compliance requirements. 
+Wireless Configuration | Refer to Table below for wireless configuration recommendations. | As per ACSC hardening guidance for Windows 10 1909 and security compliance requirements. 
 Broadband | Not Configured | If Agency devices have Subscriber Identity Module (SIM) capability this can be enabled without affecting an agencies cyber security posture.
 Network Bridging | Disabled | As per ACSC hardening guidance for Windows 10 1909 and security and compliance requirements.
 Wake on LAN (WoL) | Configured via existing MECM solution if in use | Wake on LAN configured to allow existing MECM management tasks to operate on computers regardless of power status.

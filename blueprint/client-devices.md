@@ -19,7 +19,7 @@ For each component within the document there is a brief description of the conte
 
 * ACSC Windows 10 hardening guidelines have been broadly implemented as outlined within the SSP and SSP Annex.
 * The Microsoft Endpoint Manager (MEM) Console is the preferred method to manage all settings regardless of a cloud native or hybrid implementation. Although a combination of the Microsoft Endpoint Configuration Manager (MECM) Console and Group Policy Objects (GPOs) would  be able to achieve the same settings in a hybrid environment, this blueprint does not include MECM and GPOs example configurations due to the level of dissimilarities and per agency customisation in existing MECM and GPOs configurations across Commonwealth entities.
-* Minimum version of MECM 1710 is required for co-management, recommended minimum version at is 2002 update version. See `support for Configuration Manager current branch versions.`
+* Minimum version of MECM 1710 is required for co-management, recommended minimum version at is 2002 update version. See [support for Configuration Manager current branch versions.](https://docs.microsoft.com/en-us/mem/configmgr/core/servers/manage/current-branch-versions-supported)
 
 ## Windows 10 hardware
 

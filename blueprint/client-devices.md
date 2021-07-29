@@ -235,7 +235,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Windows 10 Edition | Windows 10 Enterprise 64-bit | Enterprise is required to support BitLocker.<br>The 64-bit edition of Windows is required to support security such as BitLocker and Windows Defender Application Control (WDAC) as specified by ACSC Windows 10 hardening guide.
 Windows 10 Servicing Channels | Semi-Annual Channel | Semi-Annual Channel is the recommended ring to deploy to most enterprise clients, especially those with Office 365. 
-Windows 10 Build | 21H1 | At the time of the latest update to this design, build 21H1 is the latest Semi-annual Channel release and recommended by Microsoft ([Windows 10 - release information](https://docs.microsoft.com/en-us/windows/release-health/release-information)). At the time of writing build 1909 remains the most recent version to have undergone formal evaluation (refer to [`Common` Criteria `evaluations`](https://www.commoncriteriaportal.org/products/)). 
+Windows 10 Build | 21H1 | At the time of the latest update to this design, build 21H1 is the latest Semi-annual Channel release and recommended by Microsoft ([Windows 10 - release information](https://docs.microsoft.com/en-us/windows/release-health/release-information)). At the time of writing build 1909 remains the most recent version to have undergone formal evaluation (refer to [Common Criteria evaluations](https://www.commoncriteriaportal.org/products/)). 
 
 ### Activation and licencing
 
@@ -776,7 +776,7 @@ Within these release cycles, you can choose the architecture of 32-bit or 64-bit
 
 Pro Plus is an optional configuration which installed Office 365 locally on a client machine.
 
-Microsoft Project and Visio (365 and 2019) are available as click-to-run editions that can be either licensed through Microsoft 365 or through hybrid licensing. Regardless of the license type, they can be installed through Intune or MECM (for hybrid deployments). The installation media is configured using the [Office Deployment Tool (ODT)](https://www.microsoft.com/download/details.aspx?id=49117) which generated the installer and configuration options for the deployment. Microsoft Office 365 E3/E5 licensing does not include the rights to use these applications. There are some caveats to what combination of Office versions are supported alongside Project and Visio, please see the [supported scenarios](https://docs.microsoft.com/en-us/deployoffice/install-different-office-visio-and-project-versions-on-the-same-computer).
+Microsoft Project and Visio (365 and 2019) are available as click-to-run editions that can be either licensed through Microsoft 365 or through hybrid licensing. Regardless of the license type, they can be installed through Intune or MECM (for hybrid deployments). The installation media is configured using the [Office Deployment Tool (ODT)](https://www.microsoft.com/download/details.aspx?id=49117) which generates the installer and configuration options for the deployment. Microsoft Office 365 E3/E5 licensing does not include the rights to use these applications. There are some caveats to what combination of Office versions are supported alongside Project and Visio, please see the [supported scenarios](https://docs.microsoft.com/en-us/deployoffice/install-different-office-visio-and-project-versions-on-the-same-computer).
 
 Microsoft Office Edition Design Decisions for all agencies and implementation types.
 

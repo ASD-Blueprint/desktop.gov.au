@@ -233,7 +233,6 @@ The figure below shows the high-level mail flow for agencies leveraging on-premi
 
 Design Decisions summary for all agencies and implementation types.
 
-{:.auto}
 Implementation Type | Mail Gateway | Mail Connectors | Mail Ingress | Mail Egress | Sensitivity Labels
 --- | --- | --- | --- | --- | ---
 Cloud  | Exchange Online Protection (EOP) | Not required | EOP | EOP | Required
@@ -292,7 +291,6 @@ Exchange 2010 has reached [end of support](https://docs.microsoft.com/en-us/micr
 
 Exchange Hybrid Server Supported Configurations.
 
-{:.auto}
 On-premises environment | Exchange 2019 Hybrid Deployment | Exchange 2016 Hybrid Deployment | Exchange 2013 Hybrid Deployment | Exchange 2010 Hybrid Deployment
 --- | --- | --- | --- | ---
 Exchange 2019 | Supported | Not supported | Not supported | Not supported
@@ -302,7 +300,6 @@ Exchange 2010 | Not supported | Supported | Supported | Supported
 
 The following table outlines the Exchange server roles required to be installed based on on-premises Exchange environment version. The roles mentioned for Exchange 2013 and 2010 can be installed separately or on one server, Microsoft strongly recommend installing all roles on one server.
 
-{:.auto}
 On-premises environment | Mailbox server | Client Access server | Hub Transport
 --- | --- | --- | ---
 Exchange 2016 and newer | At least one instance | Not required | Not required
@@ -1398,7 +1395,6 @@ The Microsoft 365 Management Activity API enables third-party applications to co
 
 A list of Office 365 applications, their auditing capabilities and duration wait time once an event occurs.
 
-{:.auto}
 Application | User Activity | Admin Activity | Duration wait time
 --- | --- | --- | ---
 Exchange Online | x | x | 30 minutes

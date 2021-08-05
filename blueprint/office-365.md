@@ -580,7 +580,7 @@ A mailbox can only be assigned one OWA policy and every mailbox must have a poli
 Features and settings which can be controlled by an OWA policy include:
 
 * Third party file provider integration.
-* Office 365 group creation.
+* Office 365 group creation from within OWA.
 * Microsoft Satisfaction survey prompts.
 
 OWA Policy Design Decisions for all agencies and implementation types.
@@ -1053,7 +1053,7 @@ Microsoft Teams Access Design Decisions for all agencies and implementation type
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Team creation permission | Selected administrators | Teams will be created by select administrators to ensure that Teams are created using a documented approval workflow, avoiding Team proliferation.<br>This setting is required as Azure AD group creation is restricted which only allows administrators to create 365 groups, and hence Teams.
+Team creation permission | `rol-AgencyName-o365groupcreators` via restriction of 365 Group creation | Teams will be created by select administrators or users (via group) to ensure that Teams are created using a documented approval workflow, avoiding Team proliferation.<br>This setting is required as Azure AD group creation is restricted to delegated individuals which only allows administrators or delegated users to create 365 groups, and hence Teams. 
 Administrative action over Teams after creation | Team Owners | Team Owners will either be selected administrators (for Teams such as branches with many users) or managers and their delegates (such as in a section with relatively small user counts). Team owners will be assigned logically at creation time and updated as required.
 Team membership allocation | Manual by administrators or Team Owners | Team membership will be allocated manually initially with dynamic group allocation investigated in a future project phase when the logic for group membership is developed.
 

@@ -408,13 +408,17 @@ These tools can coexist to provide enhanced capabilities.
 * DKIM - DKIM, unlike SPF is a tool to verify whether the content of the message is trustworthy. This is completed using a public/private key signing process.
 * DMARC - DMARC enables both SPF and DKIM using policy. A DMARC policy sets out how to handle messages which do not align to what the receiver knows about the sender. This can include rejecting the message; suggesting the message is quarantined; or allowing the message.
 
+While DKIM within Office 365 can sign messages, the Agency gateway may also be configured to do this also which may cause issues with DMARC verification.
+
+Note, agencies that enable DKIM signing within Office 365 that also add additional business logic to email at the egress mail gateway, such as adding a default Agency email disclaimer, would fail DKIM authentication as the contents of the email had changed after the email had been sent from Exchange Online. In this scenario consider migrating the business logic from the mail gateway to native Exchange Online transport rules.
+
 SPF, DKIM, & DMARC Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-SPF | Configured | Configuration of SPF record(s) are required as a baseline for the deployment.
-DKIM | Configured | DKIM is a public/private key signing process used to verify the content of an email.<br>DKIM signing is enabled on emails originating from an organisation's domains.
-DMARC | Configured | One DMARC policy is to be configured per Agency domain. This is to be configured at the gateway that the Agency consumes.<br>DMARC records are configured for all domains such that emails are rejected if they fail SPF or DKIM checks.
+SPF | Configured | Configuration of SPF record(s) are required as a baseline for the deployment and are configured to "hard fail" as per ACSC recommendations.<br />The SPF record(s) are configured for all such authorised senders for that domain, including the Office 365 SPF sender address (spf.protection.outlook.com) if applicable to ensure mail sent from Exchange Online passes SPF. <br />SPF record(s) are to be configured by the DNS provider that that Agency consumes. 
+DKIM | Configured | DKIM is a public/private key signing process used to verify the content of an email.<br>DKIM signing is enabled on emails originating from an organisation's domains as per ACSC recommendations.<br />DKIM is either enabled on the Agency mail gateway solution (hybrid) or within Office 365 (cloud native). 
+DMARC | Configured | One DMARC policy is to be configured per Agency domain as per ACSC recommendations. This is to be configured at the gateway that the Agency consumes.<br>DMARC records are configured for all domains such that emails are rejected if they fail SPF or DKIM checks. 
 
 ### Accepted domains
 

@@ -1275,6 +1275,8 @@ Office 365 retention policies assist with meeting these requirements by providin
 
 When information is subject to a retention policy, end-users can continue to edit and work with the content as if nothing has changed because the content is retained in place, in its original location. But if someone edits or deletes content that is subject to the policy, a copy is saved to a secure location where it's retained while the policy is in effect.
 
+The use of Office 365 retention policies (including litigation or preservation holds) does not replace the need for regular backups and the ability to recover that important data, agencies should determine their own requirements for backup and recovery in accordance with their business continuity requirements.
+
 Retention policy Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification

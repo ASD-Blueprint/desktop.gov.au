@@ -1384,6 +1384,7 @@ Policy settings | Label is mandatory<br>Users must provide justification to remo
   * Locations: `Exchange, SharePoint, OneDriveForBusiness, Teams`
   * Mode: `Enable`
   * Type: `DLP`
+  * Content Types: `Australian Driver's License number, Australian Passport Number`
   * Exchange Location:
     * DisplayName: `All`
     * Name: `All`
@@ -1427,6 +1428,7 @@ Policy settings | Label is mandatory<br>Users must provide justification to remo
   * Workload: `Exchange, SharePoint, OneDriveForBusiness, Teams`
   * Mode: `Enable`
   * Type: `DLP`
+  * Content Types: `Australian Driver's License number, Australian Tax File Number`
   * Exchange Location:
     * DisplayName: `All`
     * Name: `All`
@@ -1470,6 +1472,7 @@ Policy settings | Label is mandatory<br>Users must provide justification to remo
   * Workload: `Exchange, SharePoint, OneDriveForBusiness, Teams`
   * Mode: `Enable`
   * Type: `DLP`
+  * Content Types: `Australian Tax File Number, Australian Medical Account Number`
   * Exchange Location:
     * DisplayName: `All`
     * Name: `All`
@@ -1508,11 +1511,12 @@ Policy settings | Label is mandatory<br>Users must provide justification to remo
   * Exchange Sender Member Of: `Not Configured`
   * Exchange Sender Exception: `Not Configured`
   * Exchange Sender Member Of Exception: `Not Configured`
-* Name: `Detect Australian Drivers licence numbers`
+* Name: `Australian Financial Data`
   * Enabled: `True`
   * Workload: `Exchange, SharePoint, OneDriveForBusiness, Teams`
-  * Mode: `TestWithNotifications`
+  * Mode: `Enable`
   * Type: `DLP`
+  * Content Types: `SWIFT Code, Australian Tax File Number, Australian Bank Account Number, Credit Card Number`
   * Exchange Location:
     * DisplayName: `All`
     * Name: `All`
@@ -1547,6 +1551,34 @@ Policy settings | Label is mandatory<br>Users must provide justification to remo
     * Workload: `Teams`
     * SchemaVersion: `2`
   * Teams Location Exception: `Not Configured`
+  * Exchange Sender: `Not Configured`
+  * Exchange Sender Member Of: `Not Configured`
+  * Exchange Sender Exception: `Not Configured`
+  * Exchange Sender Member Of Exception: `Not Configured`
+* Name: `PROTECTED Data`
+  * Enabled: `True`
+  * Workload: `SharePoint, OneDriveForBusiness`
+  * Mode: `Enable`
+  * Type: `DLP`
+  * Content Types: `PROTECTED (Senstive info types)`
+  * SharePoint Location:
+    * DisplayName: `All`
+    * Name: `All`
+    * ImmutableIdentity: `All`
+    * Type: `Tenant`
+    * Workload: `SharePoint`
+    * SchemaVersion: `2`
+  * SharePoint Location Exception: `Not Configured`
+  * OneDrive Location:
+    * DisplayName: `All`
+    * Name: `All`
+    * ImmutableIdentity: `All`
+    * Type: `Tenant`
+    * Workload: `OneDriveForBusiness`
+    * SchemaVersion: `2`
+  * OneDrive Location Exception: `Not Configured`
+  * SharePoint On-Premises Location: `Not Configured`
+  * SharePoint On-Premises Location Exception: `Not Configured`
   * Exchange Sender: `Not Configured`
   * Exchange Sender Member Of: `Not Configured`
   * Exchange Sender Exception: `Not Configured`

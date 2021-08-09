@@ -1335,16 +1335,18 @@ Location | Teams chats messages – All users included | The Office 365 location
 
 ### Data Loss Prevention
 
-Data Loss Prevention (DLP) policies enable an organisation to identify, monitor, and automatically protect sensitive information across Office 365. DLP policies can be targeted to one or more products within the Office 365 suite.
+Data Loss Prevention (DLP) policies enable an organisation to identify, monitor, and automatically protect sensitive information across Office 365 and endpoint devices. DLP policies can be targeted to one or more products within the Office 365 suite.
 
 A DLP policy can be configured to:
 
-* Identify sensitive information, documents in a specific site (for SharePoint only) or specific labels contained in Exchange Online, SharePoint Online, and OneDrive for Business.
+* Identify sensitive information (Sensitive information types), documents in a specific site (for SharePoint only) or specific labels (Sensitivity labels) contained in Exchange Online, SharePoint Online, locally on devices (endpoint DLP) and OneDrive for Business.
 * Prevent end-users from accidentally sharing sensitive information.
 * Prevent end-users from accidentally deleting a document.
-* Educate end-users by presenting messages them on how to stay compliant when relevant. This is done without interrupting their workflow
+* Educate end-users by presenting messages them on how to stay compliant when relevant. This is done without interrupting their workflow.
 
-At the time of writing Office 365 has 100 prebuilt sensitive information types (Australian Passport Numbers etc.). In addition to the prebuilt sensitive information types custom types can be created. These custom types look for strings, patterns, or key words.
+At the time of writing Office 365 has over 200 prebuilt sensitive information types (Australian Passport Numbers etc.). In addition to the prebuilt sensitive information types custom types can be created. These custom types look for strings, patterns, or key words.
+
+Note, endpoint DLP requires onboarding of those devices into Microsoft Defender for Endpoint and requires an E5 license. Agencies should consider the use of Endpoint DLP as part of a unified DLP strategy.
 
 Data Loss Prevention Design Decisions for all agencies and implementation types.
 
@@ -1356,7 +1358,7 @@ Data Loss Prevention Configuration applicable to all agencies and implementation
 
 Configuration | Value | Description
 --- | --- | ---
-**Name: Australian Privacy Act** | | |
+**Name: Australian Privacy Act** | | 
 Locations | Protect content in Exchange email, Teams chats, channel messages, OneDrive and SharePoint documents.  | The locations where the policy will apply.
 Content type | Australian Driver's Licence number<br>Australian Passport number | The types of sensitive information being detected. 
 Sharing detection | With people outside my organisation | When the policy is applied.
@@ -1364,7 +1366,7 @@ Notify users | Enabled | Users are notified when the policy is triggered. They a
 Amount of instances | 5 | The amount of sensitive information required to trigger the policy (10 is the default).
 Send incident reports | Enabled  | User and nominated administrator are notified when the policy is triggered.
 Restrict access or encrypt the content | Disabled | Access to the content that triggers the policy can be encrypted or and access limited. 
-**Name: Australian Personally Identifiable Information (PII) data** | | |
+**Name: Australian Personally Identifiable Information (PII) data** | | 
 Locations | Protect content in Exchange email, Teams chats, channel messages, OneDrive and SharePoint documents.  | The locations where the policy will apply.
 Content type | Australia Tax File Number <br>Australia Driver's Licence Number | The types of sensitive information being detected. 
 Sharing detection | With people outside my organisation | When the policy is applied.
@@ -1372,7 +1374,7 @@ Notify users | Enabled | Users are notified when the policy is triggered. They a
 Amount of instances | 5 | The amount of sensitive information required to trigger the policy (10 is the default).
 Send incident reports | Enabled  | User and nominated administrator are notified when the policy is triggered.
 Restrict access or encrypt the content | Disabled | Access to the content that triggers the policy can be encrypted or and access limited. 
-**Name: Australian Health Records Act (HRIP Act)** | | |
+**Name: Australian Health Records Act (HRIP Act)** | | 
 Locations | Protect content in Exchange email, Teams chats, channel messages, OneDrive and SharePoint documents.  | The locations where the policy will apply.
 Content type | Australia Tax File Number <br>Australia Medical Account Number | The types of sensitive information being detected. 
 Sharing detection | With people outside my organisation | When the policy is applied.
@@ -1380,13 +1382,21 @@ Notify users | Enabled | Users are notified when the policy is triggered. They a
 Amount of instances | 5 | The amount of sensitive information required to trigger the policy (10 is the default).
 Send incident reports | Enabled  | User and nominated administrator are notified when the policy is triggered.
 Restrict access or encrypt the content | Disabled | Access to the content that triggers the policy can be encrypted or and access limited. 
-**Name: Australian Financial Data** | | |
+**Name: Australian Financial Data** | | 
 Locations | Protect content in Exchange email, Teams chats, channel messages, OneDrive and SharePoint documents.  | The locations where the policy will apply.
 Content type | SWIFT Code <br>Australia Tax File Number <br>Australia Bank Account Number <br>Credit Card Number | The types of sensitive information being detected. 
 Sharing detection | With people outside my organisation | When the policy is applied.
 Notify users | Enabled | Users are notified when the policy is triggered. They are also provided policy tips for managing sensitive information. 
 Number of instances | 10 | The amount of sensitive information required to trigger the policy (10 is the default).
 Send incident reports | Enabled  | User and nominated administrator are notified when the policy is triggered.
+Restrict access or encrypt the content | Disabled | Access to the content that triggers the policy can be encrypted or and access limited. 
+**Name: PROTECTED Data*** |  |  
+Locations | Protect content in OneDrive and SharePoint documents. | The locations where the policy will apply. 
+Content type | All published PROTECTED sensitivity labels (Any of these) | The types of sensitive information being detected. 
+Sharing detection | With people outside my organisation | When the policy is applied. 
+Notify users | Enabled | Users are notified when the policy is triggered. They are also provided policy tips for managing sensitive information. 
+Amount of instances | 1 | The amount of sensitive information required to trigger the policy (10 is the default). 
+Send incident reports | Enabled | User and nominated administrator are notified when the policy is triggered. 
 Restrict access or encrypt the content | Disabled | Access to the content that triggers the policy can be encrypted or and access limited. 
 
 ### Audit and logging

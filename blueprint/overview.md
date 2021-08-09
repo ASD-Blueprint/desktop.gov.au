@@ -165,7 +165,7 @@ This blueprint does not include design information for a Secure Internet Gateway
 
 ### Secure system administration
 
-Most hybrid agencies should already have a secure administration model with set of policies and procedures. For example, this may include privileged access workstations (PAW) and jump host environments that provide a secure and resilient boundary for the administration of critical assets.
+Most hybrid agencies should already have a secure administration model with set of policies and procedures. For example, this may include privileged access workstations (PAW) and jump host (sometimes referred to as bastion host, jump box or jump server) environments that provide a secure and resilient boundary for the administration of critical assets.
 
 Cloud native environments usually do not have a jump host environment or PAW. However, such a solution could be hosted within M365/Azure utilising components of the blueprint to provide a secure administration environment for the agency.
 

@@ -167,7 +167,7 @@ This blueprint does not include design information for a Secure Internet Gateway
 
 "Zero Trust" is an IT security concept where the organisation does not automatically trust the user, the device they're on, or the network location they're connecting from - just because they are a known entity.
 
-Implementing Zero Trust lowers the agency's risk profile but also increases business agility as new devices and applications can be adopted faster.
+Implementing Zero Trust lowers the agency's risk profile and increases business agility as new devices and applications can be adopted faster.
 
 The blueprint supports the Zero Trust concept through M365 features like requiring device enrolment with conditional access and enforcing Azure Active Directory Identity Protection. Agencies should take a risk based approach when utilising features such as trusted IP locations, use these as a last resort when implementing a trust model.
 

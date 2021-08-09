@@ -147,7 +147,7 @@ user | \Microsoft Publisher 2016\Security | Publisher Automation Security Level 
 
 ### Agency-BlockAppsLocalAdmins-User
 
-Please note, application of this configuration profile will prevent users in the local administrators group from using web browsers and outlook. Please review guidance on [secure systems administration](https://desktop.gov.au/blueprint/overview.html#secure-system-administration) prior to deploying this profile.
+Please note, application of this configuration profile will prevent users in the local administrators group from using web browsers and Outlook. Please review guidance on [secure systems administration](/blueprint/overview.html#secure-system-administration) prior to deploying this profile.
 
 * Name: `Agency-BlockAppsLocalAdmins-User`
 * Description: `This policy blocks members of 'BUILTIN\Administrators' from accessing common Web Browsers and Outlook`

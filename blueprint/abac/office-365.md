@@ -188,19 +188,30 @@ Domain | MX Preferences | Mail Exchanger
 --- | --- | ---
 Agency.gov.au | `10` | `Agency-gov-au.mail.protection.outlook.com`
 
-### SPF records
+### SPF and DMARC records
 
-Table 5 describes the SPF records configuration settings.
+Table 5 describes the SPF and DMARC records configuration settings.
 
-Please note, SPF and DMARC records are configured through the user's DNS provider. 
+Please note, SPF and DMARC DNS records are configured through the user's DNS provider. DMARC is required for outbound email when using custom Agency domain in Office 365. DMARC for inbound mail is provided through Exchange Online Protection when MX record is not pointed to a third-party, for more information see [setup DMARC for inbound email](https://docs.microsoft.com/en-us/microsoft-365/security/office-365-security/use-dmarc-to-validate-email?view=o365-worldwide#set-up-dmarc-for-inbound-mail).
 
-Domain | SPF Record | DMARC Policy
+Domain | SPF Record | DMARC Record 
 --- | --- | ---
-Agency.gov.au | `"v=spf1 include:spf.protection.outlook.com -all"` | Not configured
+Agency.gov.au | `"v=spf1 include:spf.protection.outlook.com -all"` | `"v=DMARC1; p=reject; pct=100; rua=mailto:<rua reporting address>; ruf=mailto:<ruf reporting address>; fo=1"` 
+
+### DKIM records
+
+Table 6 describes the DKIM records configuration settings. 
+
+Please note, DKIM DNS selector records are configured through the user's DNS provider. This configuration assumes DKIM signing is handled by Exchange Online Protection and not a third-party selector.
+
+| Type  | Domain        | Host name               | TTL      | Points to address or value                                   |
+| ----- | ------------- | ----------------------- | -------- | ------------------------------------------------------------ |
+| CNAME | Agency.gov.au | `selector1._domainkey ` | `5 Min.` | `selector1-agency-gov-au._domainkey.<agencyinitialdomain>.onmicrosoft.com.` |
+| CNAME | Agency.gov.au | `selector2._domainkey ` | `5 Min.` | `selector2-agency-gov-au._domainkey.<agencyinitialdomain>.onmicrosoft.com.` |
 
 ### Remote domains
 
-Table 6 describes the Remote Domains configuration settings.
+Table 7 describes the Remote Domains configuration settings.
 
 `Exchange admin center > Mail flow > Remote domains`
 
@@ -224,7 +235,7 @@ No organisational add-ins have been configured.
 
 ### CAS mailbox plan
 
-Table 7 describes the CAS Mailbox Plan configuration settings.
+Table 8 describes the CAS Mailbox Plan configuration settings.
 
 Please note, CAS mailbox plan can be retrieved (or set) through Exchange Online PowerShell.
 
@@ -273,7 +284,7 @@ EWS | True
 
 ### Authentication policy
 
-Table 8 describes the Authentication Policy configuration settings.
+Table 9 describes the Authentication Policy configuration settings.
 
 Please note, authentication policies can be retrieved (or set) through Exchange Online PowerShell.
 
@@ -300,7 +311,7 @@ Allow Basic Authentication PowerShell | True
 
 ### Outlook Web Access policy
 
-Table 9 describes the Outlook Web Access Policy configuration settings.
+Table 10 describes the Outlook Web Access Policy configuration settings.
 
 Please note, Outlook web access policies can be retrieved (or set) through Exchange Online PowerShell.
 
@@ -562,7 +573,7 @@ Outlook Beta Toggle Enabled | True
 
 ### Address lists
 
-Table 10 describes the Address List configuration settings.
+Table 11 describes the Address List configuration settings.
 
 Please note, address lists can be retrieved (or set) through Exchange Online PowerShell. The *'Address Lists'* role within Exchange Online is required, for the account used to view or update Address lists.
 
@@ -588,7 +599,7 @@ Please note, if a setting is not mentioned in the below, it should be assumed to
 
 ### Connection filtering
 
-Table 11 describes the Connection Filter configuration settings.
+Table 12 describes the Connection Filter configuration settings.
 
 `Microsoft 365 compliance > Threat Management > Policy > Anti-Spam `
 
@@ -598,7 +609,7 @@ Connection filter policy (Default) |  |  | True | Default
 
 ### Anti-malware
 
-Table 12 describes the Malware Filter configuration settings.
+Table 13 describes the Malware Filter configuration settings.
 
 `Microsoft 365 compliance > Threat Management > Policy > Anti-malware `
 
@@ -619,7 +630,7 @@ Filter file types | ace,ani,app,exe,jar,reg,scr,vbe,vbs
 
 ### Policy filtering
 
-Table 13 describes the Policy Filter configuration settings.
+Table 14 describes the Policy Filter configuration settings.
 
 Name | State | Mode | Priority | Comments
 --- | --- | --- | --- | ---
@@ -627,7 +638,7 @@ Not Configured | N/A | N/A | N/A | N/A
 
 ### Content filtering
 
-Table 14 describes the Content (spam) Filter configuration settings.
+Table 15 describes the Content (spam) Filter configuration settings.
 
 Please note, content (spam) filtering policies are best retrieved (or set) through Exchange Online PowerShell as some parameters are not available in the Microsoft 365 Defender portal.
 
@@ -671,7 +682,7 @@ Please note, if a setting is not mentioned in the below, it should be assumed to
 
 ### Client configuration
 
-Table 15 describes the Teams Client configuration settings.
+Table 16 describes the Teams Client configuration settings.
 
 `Microsoft Teams Admin center > Org-wide settings > Teams Settings `
 
@@ -698,7 +709,7 @@ Surface Hub accounts can send mails | True
 
 ### Teams policy
 
-Table 16 describes the Teams policy configuration settings.
+Table 17 describes the Teams policy configuration settings.
 
 `Microsoft Teams Admin center > Teams > Teams policies  `
 
@@ -710,7 +721,7 @@ Create private channels | True
 
 ### Calling policy
 
-Table 17 describes the Teams Calling policy configuration settings.
+Table 18 describes the Teams Calling policy configuration settings.
 
 `Microsoft Teams Admin center > Voice > Calling policies  `
 
@@ -769,7 +780,7 @@ Busy on busy enabled type | Disabled
 
 ### Meeting policy
 
-Table 18 describes the Teams Meeting policy configuration settings.
+Table 19 describes the Teams Meeting policy configuration settings.
 
 `Microsoft Teams Admin center > Meetings > Meeting policies  `
 
@@ -939,7 +950,7 @@ Allow Organizers to Override Lobby Settings | False
 
 ### Messaging policy
 
-Table 19 describes the Teams Messaging policy configuration settings.
+Table 20 describes the Teams Messaging policy configuration settings.
 
 `Microsoft Teams Admin center > Messaging policies  `
 
@@ -1020,7 +1031,7 @@ Audio Message Enabled Type | ChatsAndChannels
 
 ### Live events policies
 
-Table 20 describes the Teams Live events policy configuration settings.
+Table 21 describes the Teams Live events policy configuration settings.
 
 `Microsoft Teams Admin center > Meetings > Live events policies  `
 
@@ -1041,7 +1052,7 @@ Broadcast Record Mode | AlwaysEnabled
 
 ### External access settings
 
-Table 21 describes the External access configuration settings.
+Table 22 describes the External access configuration settings.
 
 `Microsoft Teams Admin center > Org-wide settings > External access  `
 
@@ -1053,7 +1064,7 @@ Table 21 describes the External access configuration settings.
 
 ### Guest access settings
 
-Table 22 describes the External access configuration settings.
+Table 23 describes the External access configuration settings.
 
 `Microsoft Teams Admin center > Org-wide settings > Guest access  `
 
@@ -1080,7 +1091,7 @@ Get-SPOTenant
 
 ### Tenant configuration
 
-Table 23 describes the SharePoint Online Tenant configuration settings.
+Table 24 describes the SharePoint Online Tenant configuration settings.
 
 Configuration Item | Value
 --- | ---
@@ -1161,7 +1172,7 @@ Please note, if a setting is not mentioned in the below, it should be assumed to
 
 `Microsoft 365 compliance > Information governance > Labels`
 
-Table 24 describes the Retention labels configuration settings.
+Table 25 describes the Retention labels configuration settings.
 
 Configuration Item | Value
 --- | ---
@@ -1216,7 +1227,7 @@ The following tables describe the sensitivity label configuration settings.
 
 #### Unofficial
 
-Table 25 lists the sensitivity label policy configuration for Unofficial.
+Table 26 lists the sensitivity label policy configuration for Unofficial.
 
 | Configuration Item    | Value                                                        |
 | --------------------- | ------------------------------------------------------------ |
@@ -1227,7 +1238,7 @@ Table 25 lists the sensitivity label policy configuration for Unofficial.
 
 #### Official
 
-Table 26 lists the sensitivity label policy configuration for Official.
+Table 27 lists the sensitivity label policy configuration for Official.
 
 | Configuration Item    | Value                                                        |
 | --------------------- | ------------------------------------------------------------ |
@@ -1238,7 +1249,7 @@ Table 26 lists the sensitivity label policy configuration for Official.
 
 #### Official Sensitive
 
-Table 27 lists the sensitivity label policy configuration for Official Sensitive.
+Table 28 lists the sensitivity label policy configuration for Official Sensitive.
 
 | Configuration Item    | Value                                                        |
 | --------------------- | ------------------------------------------------------------ |
@@ -1247,7 +1258,7 @@ Table 27 lists the sensitivity label policy configuration for Official Sensitive
 | Scope                 | Files & Emails                                               |
 | Protection Settings   | Mark the content: Checked<br />Encrypt files and emails: Unchecked<br />Apply a header: Checked<br />Customize text: OFFICIAL: Sensitive<br />Apply a footer: Checked<br />Font site: 10<br />Font color: Red<br />Align text: Center |
 
-Table 28 lists the sensitivity label policy configuration for Official Sensitive (ACCESS=Legal-Privilege).
+Table 29 lists the sensitivity label policy configuration for Official Sensitive (ACCESS=Legal-Privilege).
 
 | Configuration Item    | Value                                                        |
 | --------------------- | ------------------------------------------------------------ |
@@ -1256,7 +1267,7 @@ Table 28 lists the sensitivity label policy configuration for Official Sensitive
 | Scope                 | Files & Emails                                               |
 | Protection Settings   | Mark the content: Checked<br />Encrypt files and emails: Unchecked<br />Apply a header: Checked<br />Customize text: OFFICIAL: Sensitive ACCESS=Legal-Privilege<br />Apply a footer: Checked<br />Font site: 10<br />Font color: Red<br />Align text: Center |
 
-Table 29 lists the sensitivity label policy configuration for Official Sensitive (ACCESS=Legislative-Secrecy).
+Table 30 lists the sensitivity label policy configuration for Official Sensitive (ACCESS=Legislative-Secrecy).
 
 | Configuration Item    | Value                                                        |
 | --------------------- | ------------------------------------------------------------ |
@@ -1265,7 +1276,7 @@ Table 29 lists the sensitivity label policy configuration for Official Sensitive
 | Scope                 | Files & Emails                                               |
 | Protection Settings   | Mark the content: Checked<br />Encrypt files and emails: Unchecked<br />Apply a header: Checked<br />Customize text: OFFICIAL: Sensitive ACCESS=Legislative-Secrecy<br />Apply a footer: Checked<br />Font site: 10<br />Font color: Red<br />Align text: Center |
 
-Table 30 lists the sensitivity label policy configuration for Official Sensitive (ACCESS=Personal-Privacy).
+Table 31 lists the sensitivity label policy configuration for Official Sensitive (ACCESS=Personal-Privacy).
 
 | Configuration Item    | Value                                                        |
 | --------------------- | ------------------------------------------------------------ |
@@ -1276,7 +1287,7 @@ Table 30 lists the sensitivity label policy configuration for Official Sensitive
 
 #### Protected
 
-Table 31 lists the sensitivity label policy configuration for Protected.
+Table 32 lists the sensitivity label policy configuration for Protected.
 
 | Configuration Item    | Value                                                        |
 | --------------------- | ------------------------------------------------------------ |
@@ -1285,7 +1296,7 @@ Table 31 lists the sensitivity label policy configuration for Protected.
 | Scope                 | Files & Emails                                               |
 | Protection Settings   | Mark the content: Checked<br />Encrypt files and emails: Unchecked<br />Apply a header: Checked<br />Customize text: PROTECTED<br />Apply a footer: Unchecked<br />Font site: 10<br />Font color: Red<br />Align text: Center |
 
-Table 32 lists the sensitivity label policy configuration for Protected (ACCESS=Legal-Privilege).
+Table 33 lists the sensitivity label policy configuration for Protected (ACCESS=Legal-Privilege).
 
 | Configuration Item    | Value                                                        |
 | --------------------- | ------------------------------------------------------------ |
@@ -1294,7 +1305,7 @@ Table 32 lists the sensitivity label policy configuration for Protected (ACCESS=
 | Scope                 | Files & Emails                                               |
 | Protection Settings   | Mark the content: Checked<br />Encrypt files and emails: Unchecked<br />Apply a header: Checked<br />Customize text: PROTECTED ACCESS=Legal-Privilege<br />Apply a footer: Unchecked<br />Font site: 10<br />Font color: Red<br />Align text: Center |
 
-Table 33 lists the sensitivity label policy configuration for Protected (ACCESS=Legislative-Secrecy).
+Table 34 lists the sensitivity label policy configuration for Protected (ACCESS=Legislative-Secrecy).
 
 | Configuration Item    | Value                                                        |
 | --------------------- | ------------------------------------------------------------ |
@@ -1303,7 +1314,7 @@ Table 33 lists the sensitivity label policy configuration for Protected (ACCESS=
 | Scope                 | Files & Emails                                               |
 | Protection Settings   | Mark the content: Checked<br />Encrypt files and emails: Unchecked<br />Apply a header: Checked<br />Customize text: PROTECTED ACCESS=Legislative-Secrecy<br />Apply a footer: Unchecked<br />Font site: 10<br />Font color: Red<br />Align text: Center |
 
-Table 34 lists the sensitivity label policy configuration for Protected (ACCESS=Personal-Privacy).
+Table 35 lists the sensitivity label policy configuration for Protected (ACCESS=Personal-Privacy).
 
 | Configuration Item    | Value                                                        |
 | --------------------- | ------------------------------------------------------------ |
@@ -1312,7 +1323,7 @@ Table 34 lists the sensitivity label policy configuration for Protected (ACCESS=
 | Scope                 | Files & Emails                                               |
 | Protection Settings   | Mark the content: Checked<br />Encrypt files and emails: Unchecked<br />Apply a header: Checked<br />Customize text: PROTECTED ACCESS=Personal-Privacy<br />Apply a footer: Unchecked<br />Font site: 10<br />Font color: Red<br />Align text: Center |
 
-Table 35 lists the sensitivity label policy configuration for Protected (CAVEAT=SH CABINET).
+Table 36 lists the sensitivity label policy configuration for Protected (CAVEAT=SH CABINET).
 
 | Configuration Item    | Value                                                        |
 | --------------------- | ------------------------------------------------------------ |
@@ -1321,7 +1332,7 @@ Table 35 lists the sensitivity label policy configuration for Protected (CAVEAT=
 | Scope                 | Files & Emails                                               |
 | Protection Settings   | Mark the content: Checked<br />Encrypt files and emails: Unchecked<br />Apply a header: Checked<br />Customize text: PROTECTED CAVEAT=SH CABINET<br />Apply a footer: Unchecked<br />Font site: 10<br />Font color: Red<br />Align text: Center |
 
-Table 36 lists the sensitivity label policy configuration for Protected (ACCESS=Legal-Privilege CAVEAT=SH CABINET).
+Table 37 lists the sensitivity label policy configuration for Protected (ACCESS=Legal-Privilege CAVEAT=SH CABINET).
 
 | Configuration Item    | Value                                                        |
 | --------------------- | ------------------------------------------------------------ |
@@ -1330,7 +1341,7 @@ Table 36 lists the sensitivity label policy configuration for Protected (ACCESS=
 | Scope                 | Files & Emails                                               |
 | Protection Settings   | Mark the content: Checked<br />Encrypt files and emails: Unchecked<br />Apply a header: Checked<br />Customize text: PROTECTED ACCESS=Legal-Privilege <br />CAVEAT=SH CABINET<br />Apply a footer: Unchecked<br />Font site: 10<br />Font color: Red<br />Align text: Center |
 
-Table 37 lists the sensitivity label policy configuration for Protected (ACCESS=Legislative-Secrecy CAVEAT=SH CABINET).
+Table 38 lists the sensitivity label policy configuration for Protected (ACCESS=Legislative-Secrecy CAVEAT=SH CABINET).
 
 | Configuration Item    | Value                                                        |
 | --------------------- | ------------------------------------------------------------ |
@@ -1339,7 +1350,7 @@ Table 37 lists the sensitivity label policy configuration for Protected (ACCESS=
 | Scope                 | Files & Emails                                               |
 | Protection Settings   | Mark the content: Checked<br />Encrypt files and emails: Unchecked<br />Apply a header: Checked<br />Customize text: PROTECTED ACCESS=Legislative-Secrecy <br />CAVEAT=SH CABINET<br />Apply a footer: Unchecked<br />Font site: 10<br />Font color: Red<br />Align text: Center |
 
-Table 38 lists the sensitivity label policy configuration for Protected (ACCESS=Personal-Privacy CAVEAT=SH CABINET).
+Table 39 lists the sensitivity label policy configuration for Protected (ACCESS=Personal-Privacy CAVEAT=SH CABINET).
 
 | Configuration Item    | Value                                                        |
 | --------------------- | ------------------------------------------------------------ |
@@ -1352,7 +1363,7 @@ Table 38 lists the sensitivity label policy configuration for Protected (ACCESS=
 
 Please note, the user may only need to publish the sensitivity labels (sensitivity, security classification, information management markers and caveats) that are required for the organisation or agency.
 
-Table 39 lists the Sensitivity label policy configuration.
+Table 40 lists the Sensitivity label policy configuration.
 
 `Microsoft 365 Security Center > Classification > Sensitivity labels > Label policies> agency acronym sensitivity labels`
 

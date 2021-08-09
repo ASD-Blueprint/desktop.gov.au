@@ -195,38 +195,42 @@ These records are not set within Azure or Exchange and have been configured with
 
 Domain | MX Preferences | Mail Exchanger
 --- | --- | ---
-Agency.onmicrosoft.com | `0` | `Agency.mail.protection.outlook.com`
+Agency.onmicrosoft.com | 10 | `Agency.mail.protection.outlook.com`
+Agency.gov.au | 10 | `<agency mx provider>` 
 
-### SPF records
+### SPF and DMARC records
 
 Table 11 describes the SPF records have been configured.
 
-These records are not set within Azure or Exchange and have been configured with the hosting provider.
+Please note, SPF and DMARC DNS records are configured through the user's DNS provider. DMARC and SPF and DMARC configuration is specific to the gateway provider and also any additional SPF senders that may be required in a Hybrid configuration. DMARC configuration below is included as an example.
 
 Domain | SPF Record | DMARC Policy
 --- | --- | ---
-Agency.onmicrosoft.com | `"v=spf1 include:spf.protection.outlook.com -all"` | Not configured`
+Agency.onmicrosoft.com | `"v=spf1 include:spf.protection.outlook.com -all"` | Not configured 
+Agency.gov.au | Specific to gateway provider | `"v=DMARC1; p=reject; pct=100; rua=mailto:<rua reporting address>; ruf=mailto:<ruf reporting address>; fo=1"` 
+
+### DKIM records
+
+Table 12 describes the DKIM records configuration settings. 
+
+Please note, DKIM DNS selector records are configured through the user's DNS provider. This configuration assumes DKIM signing is handled by Exchange Online Protection and not a third-party selector. 
+
+| Type  | Domain        | Host name               | TTL      | Points to address or value                                   |
+| ----- | ------------- | ----------------------- | -------- | ------------------------------------------------------------ |
+| CNAME | Agency.gov.au | `selector1._domainkey ` | `5 Min.` | `selector1-agency-gov-au._domainkey.<agencyinitialdomain>.onmicrosoft.com.` |
+| CNAME | Agency.gov.au | `selector2._domainkey ` | `5 Min.` | `selector2-agency-gov-au._domainkey.<agencyinitialdomain>.onmicrosoft.com.` |
 
 ### DNS records
 
-Table 12a describes the DNS record settings for Agency.gov.au (default)
+Table 12 describes the DNS record settings for Agency.gov.au (default). 
+
+Note, The Autodiscover service external DNS entry is specific to the Hybrid implementation of the Agency. If all mailboxes have been migrated to Office 365 within a Hybrid configuration then this can be pointed as an alias to the Office 365 Autodiscover service using `autodiscover.outlook.com`.
 
 Type | Priority | Host name | Points to address or value | TTL
 --- | --- | --- | --- | ---
-MX | 0 | Agency Domain | Agency-gov-au.mail.protection.outlook.com | 1 hour
-TXT | - | Agency Domain | v=spf1 include:spf.protection.outlook.com -all | 1 hour
-CNAME | - | Autodiscover.Agency Domain | Autodiscover.outlook.com | 1 hour
-
-Table 12b describes the DNS record settings for Agency.onmicrosoft.com
-
-Type | Host name | Points to address or value | TTL
---- | --- | --- | ---
-TXT | `selector1-Agency-mail-onmicrosoft-com._domainkey.Agency.onmicrosoft.com` | `v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCff/x+ZR9dYMl+d137AAu0aM7u0keutv/J+YdV1vegammbcwgnu7IrFFuS1WpOWiyc1IUp/XoskpKPHpA9k6L/UafJjTxI+KI2nrx7qgY7DXFqTsHIEVZDpdnMZOHmooW24i7HZ/0Yh/ZSkUYr1mE/MoUnS77PgYRDT+BjuG5lnQIDAQAB;` | 1 hour
-TXT | `selector1-Agency-onmicrosoft-com._domainkey.Agency.onmicrosoft.com` | `v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDaUXUBDLyhaVehWKVTyJHQA1TIpu34b9dh3dZaaEMfiq5vHV2Mrs5r+H+nfNtxIfxAaOPyMLTEPhIipmeie2qQSbm+pUCAj09s/fOZqjwYZ0Y4/6RfNe0VzawvX4Fls9NbuZaiEe6PN5kqABzEq755bfJMLqVT+gzXZuea+K5SIQIDAQAB;` | 1 hour
-TXT | `selector1-Agency-gov-au._domainkey.Agency.onmicrosoft.com` | `v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDejs4tfJJ9cwb/aCteu+IPMEjoJI4z5Jir3Y5eK0vREh0FSpir/qBk6tH5xPMSDFsH8qWErOTN57mZ6E8IB4CTgxI0kakYmZJr9USAoyUJNCrgjuwcJ9cNcKqJmkYAo4/dUO6B80SKT8pNIzkSrhq92Y6CejFPm1zUYTL8CZOypQIDAQAB;` | 1 hour
-TXT | `selector2-Agency-mail-onmicrosoft-com._domainkey.Agency.onmicrosoft.com `| `v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC9HlySKa1sSUdHI8WkaUEiINtRLExcis6p+R7p3DKzTEe3Ir0k9IPj3o0hp0mNfWZ62b8uOBhTir9ZTwdGP6Yr2UehFDWgz+nrEXQA0XFOfXiU+BHPW3XVy6rLRD/9jFqmnLuZi3I2CVmsVO/cdiMjoDwj5qbCvD3DCwWXkGHK5QIDAQAB;` | 1 hour
-TXT | `selector2-Agency-onmicrosoft-com._domainkey.Agency.onmicrosoft.com` | `v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCvReE2Is6fDDFtKI/JEcNDOrIuEm3ry+PACwEEwzHuu5UW0nv1nQfQqnR61xz/o+HOR7GZLgu1DjfMWB9EUaub/yaNGrt/qn7X9rcaLRiK9UW+c/TuC4DkSuH+Ks0MmfUYp7UhiBIWaBTCx47qkvVE6qU8AZuwvt7hB8TF4Cyr9QIDAQAB;` | 1 hour
-TXT | `selector2-Agency-gov-au._domainkey.Agency.onmicrosoft.com` | `v=DKIM1; k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCsk8uDLWkqiD80eR5aNtnwZgH31CqWFHpF2hYd8FEIeWfJtYwQ77JhHNBVsPc1IxwuHYSH1DN0xn9CZ8eLaKiyykOZpLWhozMSYLNB944+FCDZzT8rKhrBAOQ0Gsv1CKYbNHkOwvIePmy2eFQOS0CfFNU7dIHnnqPfjFxfs9ErQQIDAQAB;` | 1 hour
+MX | 10 | Agency Domain | `<agency mx provider>` | 1 hour
+TXT | - | Agency Domain | Specific to gateway provider | 1 hour
+CNAME | - | Autodiscover.Agency.gov.au Domain | Specific to hybrid implementation | 1 hour
 
 ### Accepted domains
 

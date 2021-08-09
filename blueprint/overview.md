@@ -165,18 +165,17 @@ This blueprint does not include design information for a Secure Internet Gateway
 
 ### Secure system administration
 
-The blueprint provides agencies guidance for cloud native and hybrid deployments to securely administer the environment. It is important for agencies to follow a risk based approach to determine what is sufficient.
+Most hybrid agencies should already have a secure administration model with set of policies and procedures. For example, this may include privileged access workstations (PAW) and jump host environments that provide a secure and resilient boundary for the administration of critical assets.
 
-Most hybrid agencies will have an incumbent secure administration model and set of associated policy and procedures. For example, this may include privileged access workstations (PAW) and jump host environments that provide a secure and resilient boundary for the administration of critical assets. 
+Cloud native environments usually do not have a jump host environment or PAW. However, such a solution could be hosted within M365/Azure utilising components of the blueprint to provide a secure administration environment for the agency.
 
-Cloud native environments usually do not have have a jump host environment or PAW to use. Such a solution could be suitably hosted natively within M365/Azure with components of the blueprint to assist with the goal of developing a suitable secure administration environment for the agency.
+PAW and jump host solutions for cloud native may comprise of:
 
-PAW and jump host solution for cloud native may comprise of:
 * **Separate credentials** are provided for non-privileged and privileged duties
-* **Hardened PAW** (Windows operating system) enrolled into Intune with associated Conditional Access polices to provide a zero trust entry point into the associated cloud apps to administer. Local administrative privileges should be restricted on the PAW, it is used to access the jump server solution or direct access to cloud admin portals
-* **Web filtering system** to restrict privileged accounts to the set of agency approved admin portals only. This product could be a suitably risk assessed cloud platform or built as IaaS (Infrastructure as a Service). The web filtering solution should be mandatory on the jump host or PAWs. [Tenant restrictions](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/tenant-restrictions) should be implemented to prevent misuse or data exfiltration to other Microsoft tenancies
-* **Virtual jump host** solution may be built leveraging Azure Virtual Desktop (AVD) session hosts, which includes tie-in to Multifactor Authentication (MFA) though Conditional Access policies. This jump host may be the trusted location where admin portals are used, as well as a secure place to administer other hybrid assets. Network security groups can be used to restrict management traffic flows to these hosts only
-* **Restriction of management traffic flows** limited to only critical assets should be implemented where possible. This could be achieved utilising the Windows Defender native firewall functionality, web filtering, network security groups on cloud hosted jump hosts, and Conditional Access policies.
+* **Hardened PAW** (Windows operating system) enrolled into Intune and coupled with conditional access polices to provide a zero trust entry point into the associated cloud apps to administer. Local administrative privileges should be restricted on the PAW, it is used to access the jump server solution or direct access to cloud admin portals
+* **Web filtering system** to restrict privileged accounts to the set of agency approved admin portals only. This product could be a risk assessed cloud platform or built as an infrastructure as a service server. The web filtering solution should be mandatory on the jump host or PAWs. [Tenant restrictions](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/tenant-restrictions) should be implemented to prevent misuse or data exfiltration to other Microsoft tenancies
+* **Virtual jump host** solution may be built leveraging Azure Virtual Desktop (AVD) session hosts, which includes seamlessly provides Multifactor Authentication (MFA) though Conditional Access policies. This jump host may be the trusted location where admin portals are used, as well as a secure place to administer other hybrid assets. Network security groups can be used to restrict management traffic flows to these hosts only
+* **Restriction of management traffic flows** limited to only critical assets should be implemented where possible. This could be achieved by utilising the Windows Defender native firewall functionality, web filtering, network security groups on cloud hosted jump hosts, and Conditional Access policies.
 
 Review the Australian Government Information Security Manual (ISM) controls for systems management to assist with implementing a secure administration model.
 

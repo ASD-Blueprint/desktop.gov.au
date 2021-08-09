@@ -165,7 +165,7 @@ This blueprint does not include design information for a Secure Internet Gateway
 
 ### Zero Trust security model
 
-"Zero Trust" is an IT security concept where the organisation does not automatically trust the user, the device they're on, or the network location they're connecting from - just because they are a known entity.
+"Zero Trust" is an IT security concept where the organisation does not automatically trust the user, the device they're on, or the network location they're connecting from.
 
 Implementing Zero Trust lowers the agency's risk profile and increases business agility as new devices and applications can be adopted faster.
 

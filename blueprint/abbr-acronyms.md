@@ -96,7 +96,7 @@ OAUTH | Open Authentication
 OEM | Original Equipment Manufacturer
 OTP | One-Time Password
 OWA | Outlook on the Web
-PAW | Priviledged Access Workstation 
+PAW | Privileged Access Workstation 
 PDF | Portable Document Format
 PEM | Privacy Enhanced Mail
 PHS | Password hash synchronisation

@@ -187,7 +187,7 @@ Customer lockbox provides a time-boxed, secure mechanism for Microsoft Support E
 
 Customer Lockbox address situations where Microsoft Engineers require access to client data within Office 365 to resolve an incident. All access requests are recorded for auditing purpose.
 
-Customer Lockbox requires is included with Microsoft 365 E5 licensing or E5 Compliance licensing.
+Customer Lockbox requires Microsoft 365 E5 licensing or E5 Compliance licensing.
 
 Customer Lockbox Design Decisions for all agencies and implementation types.
 

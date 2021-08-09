@@ -158,7 +158,7 @@ Please note, application of this configuration profile will prevent users in the
     * Name: `Agency-BlockAppsLocalAdmins-User`
     * Description: `This policy blocks members of 'BUILTIN\Administrators' from accessing common Web Browsers and Outlook`
     * OMA-URI: `./Vendor/MSFT/AppLocker/ApplicationLaunchRestrictions/000000002/EXE/Policy`
-    * Custom XML: [block-apps-local-admins.xml](/assets/files/abac/block-apps-local-admins.xml)
+    * Custom XML: [block-apps-local-admins.txt](/assets/files/abac/block-apps-local-admins.txt)
 * Scope tags: `Default`
 * Assignments
   * Included groups: `rol-agency-administrators`

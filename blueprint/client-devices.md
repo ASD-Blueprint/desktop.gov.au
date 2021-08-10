@@ -465,7 +465,7 @@ Fast User Switching Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Fast User Switching | Disabled | Meets ACSC Windows 10 1909 hardening guidelines
+Fast User Switching | Disabled | To minimise potential attack surface of the SOE.
 
 ### Corporate branding
 

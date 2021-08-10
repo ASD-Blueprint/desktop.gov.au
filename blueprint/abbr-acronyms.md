@@ -19,7 +19,6 @@ APP ID | Application Identifier
 ARM | Azure Resource Manager
 ASR | Attack Surface Reduction
 ATP | Advanced Threat Protection
-AVD | Azure Virtual Desktop 
 AWS | Amazon Web Services
 BAU | Business as Usual
 BIOS | Basic Input Output System
@@ -60,7 +59,6 @@ HIPS | Host-based Intrusion Protection System
 HRIP | Health Records and Information Privacy
 HTTP | Hypertext Transfer Protocol
 HTTPS | Hypertext Transfer Protocol Secure
-IaaS | Infrastructure as a Service 
 IAM | Identity Access Management
 ICAP | Internet Content Adaption Protocol
 ICT | Information and Communications Technology

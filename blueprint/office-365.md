@@ -408,7 +408,7 @@ These tools can coexist to provide enhanced capabilities.
 * DKIM - DKIM, unlike SPF is a tool to verify whether the content of the message is trustworthy. This is completed using a public/private key signing process.
 * DMARC - DMARC enables both SPF and DKIM using policy. A DMARC policy sets out how to handle messages which do not align to what the receiver knows about the sender. This can include rejecting the message; suggesting the message is quarantined; or allowing the message.
 
-While DKIM within Office 365 can sign messages, the Agency gateway may also be configured to do this also which may cause issues with DMARC verification.
+While DKIM within Office 365 can sign messages, the Agency gateway may also be configured to do this which may cause issues with DMARC verification.
 
 Note, agencies that enable DKIM signing within Office 365 that also add additional business logic to email at the egress mail gateway, such as adding a default Agency email disclaimer, would fail DKIM authentication as the contents of the email had changed after the email had been sent from Exchange Online. In this scenario consider migrating the business logic from the mail gateway to native Exchange Online transport rules.
 

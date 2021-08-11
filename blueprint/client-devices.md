@@ -1139,14 +1139,15 @@ Windows 10 Hardening Design Decisions for all agencies and implementation types.
   * Restrict Unauthenticated RPC clients: Enabled (RPC Runtime Unauthenticated Client Restriction to Apply: Authenticated)
 * Reporting system information
   * Justification: To align with the ACSC Windows 10 hardening guidance.
-  * Microsoft Support Diagnostic Tool: Turn on MSDT interactive communication with support provider: Disabled
+  * Microsoft Support Diagnostic Tool:
+    * Turn on MSDT interactive communication with support provider: Disabled
   * Turn off Inventory Collector: Enabled
   * Turn off Steps Recorder: Enabled
   * Allow Telemetry: Enabled (0: Security)
   * Configure Corporate Windows Error Reporting: Enabled
 * Safe Mode
   * Justification: To align with the ACSC Windows 10 hardening guidance.
-  * SafeModeBlockNonAdmins: REG_DWORD 0x00000001 (1)
+  * SafeModeBlockNonAdmins: `REG_DWORD 0x00000001 (1)`
 * Secure channel communications
   * Justification: To align with the ACSC Windows 10 hardening guidance.
   * Digitally encrypt or sign secure channel data (always): Enabled

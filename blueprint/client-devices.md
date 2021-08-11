@@ -1106,7 +1106,6 @@ Windows 10 Hardening Design Decisions for all agencies and implementation types.
 * MSS settings
   * Justification: To align with the ACSC Windows 10 hardening guidance.
   * IP source routing protection level: Enabled
-  * IP source routing protection level: Enabled
   * Allow ICMP redirects to override OSPF generated routes: Disabled
   * Allow the computer to ignore NetBIOS name release requests except from WINS servers: Enabled
 * Network authentication

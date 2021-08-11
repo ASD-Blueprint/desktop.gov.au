@@ -895,7 +895,7 @@ Microsoft Defender Smart Screen Configuration | Enabled and configured | Meets A
 Microsoft Defender Credential Guard Configuration | Enabled and configured | Aligns with security and compliance requirements. Enabled without lock allows Microsoft Defender Credential Guard to be managed remotely
 Microsoft Defender Firewall Configuration | Enabled and configured | Meets ACSC Windows 10 1909 hardening guidelines and aligns with security and compliance requirements
 
-### Windows 10 Hardening
+### Windows 10 hardening
 
 The following design components apply to the hardening of Microsoft Windows 10 1909 and above.
 
@@ -903,58 +903,342 @@ The Windows 10 security settings detailed in this section are based on Microsoft
 
 Windows 10 Hardening Design Decisions for all agencies and implementation types.
 
-Decision Point | Design Decision | Justification
---- | --- | ---
-Attack Surface Reduction | Configured:<br>Attack Surface Reduction rules – Enabled(BE9BA2D9-53EA-4CDC-84E5-9B1EEEE46550,D4F940AB-401B-4EFC-AADC-AD5F3C50688A,3B576869-A4EC-4529-8536-B80A7769E899,5668C1F-73B5-4CF0-BB93-3ECF5CB7CC84,3E037E1-3EB8-44C8-A917-57927947596D,5BEB7EFE-FD9A-4556-801D-275E5FFC04CC,92E97FA1-2EDF-4476-BDD6-9DD0B4DDDC7B,01443614-CD74-433A-B99E-2ECDC07BFC25E,C1DB55AB-C21A-4637-BB3F-A12568109D35,9E6C4E1F-7D60-472F-BA1A-A39EF669E4B2,D1E49AAC-8F56-4280-B9BA-993A6D77406C,B2B3F03D-6A65-4F7B-A9C7-1C7EF74A9BA4,26190899-1602-49E8-8B27-EB1D0A1CE869,7674BA52-37EB-4A4F-A9A1-F0F9A1619A2C,E6DB77E5-3DF2-4CF1-B95A-636979351E5B) | To align with the ACSC Windows 10 hardening guidance.
-Credential caching | Configured:<br>Interactive logon: Number of previous logons to cache – 1 logon<br>Network access: Do not allow storage of passwords and credentials for network authentication – Enabled<br>WDigest Authentication – Disabled<br>Turn On Virtualization Based Security – Enabled | To align with the ACSC Windows 10 hardening guidance.
-Controlled Folder Access | Configured:<br>Configure allowed applications – Enabled<br>Configure Controlled folder access – Enabled<br>Configure protected folders – Enabled | To align with the ACSC Windows 10 hardening guidance.
-Credential entry | Configured:<br>Do not display network selection UI – Enabled<br>Enumerate local users on domain-joined computers – Disabled<br>Do not display the password reveal button – Enabled<br>Enumerate administrator accounts on elevation – Disabled<br>Require trusted path for credential entry – Enabled<br>Prevent the use of security questions for local accounts – Enabled<br>Disable or enable software Secure Attention Sequence – Disabled<br>Sign-in last interactive user automatically after a system-initiated restart – Disabled<br>Interactive logon: Do not require CTRL+ALT+DEL – Disabled | To align with the ACSC Windows 10 hardening guidance.
-Early Launch Antimalware | Configured:<br>Boot-Start Driver Initialization Policy – Enabled | To align with the ACSC Windows 10 hardening guidance.
-Elevating privileges | Configured:<br>User Account Control: Admin Approval Mode for the Built-in Administrator account – Enabled<br>User Account Control: Allow UIAccess applications to prompt for elevation without using the secure desktop – Disabled<br>User Account Control: Behavior of the elevation prompt for administrators in Admin Approval Mode – Prompt for credentials on the secure desktop<br>User Account Control: Behavior of the elevation prompt for standard users – Prompt for credentials on the secure desktop<br>User Account Control: Detect application installations and prompt for elevation – Enabled<br>User Account Control: Only elevate UIAccess applications that are installed in secure locations – Enabled<br>User Account Control: Run all administrators in Admin Approval Mode – Enabled<br>User Account Control: Switch to the secure desktop when prompting for elevation – Enabled<br>User Account Control: Virtualize file and registry write failures to per-user locations – Enabled | To align with the ACSC Windows 10 hardening guidance.
-Exploit protection | Configured:<br>Use a common set of exploit protection settings – Enabled<br>Prevent users from modifying settings – Enabled<br>Turn off Data Execution Prevention for Explorer – Disabled<br>Enabled Structured Exception Handling Overwrite Protection (SEHOP) – Enabled | To align with the ACSC Windows 10 hardening guidance.
-Local administrator accounts | Configured:<br>Accounts: Administrator account status – Disabled<br>Apply UAC restrictions to local accounts on network logons – Enabled | To align with the ACSC Windows 10 hardening guidance.
-Password policy | Configured:<br>Turn off picture password sign-in – Enabled<br>Turn on convenience PIN sign-in – Disabled<br>Maximum password age – 365 days<br>Minimum password length – 14 characters<br>Password must meet complexity requirements – Enabled<br>Store passwords using reversible encryption – Disabled<br>Accounts: Limit local account use of blank passwords to console logon only – Enabled | To align with the ACSC Windows 10 hardening guidance.
-Account lockout policy | Configured:<br>Account lockout duration – 0<br>Account lockout threshold – 5 invalid login attempts<br>Reset account lockout counter after – 15 minutes | To align with the ACSC Windows 10 hardening guidance.
-Anonymous connections | Configured:<br>Enable insecure guest logons – Disabled<br>Network access: Allow anonymous SID/Name translation – Disabled<br>Network access: Do not allow anonymous enumeration of SAM accounts – Enabled<br>Network access: Do not allow anonymous enumeration of SAM accounts and shares – Enabled<br>Network access: Let Everyone permissions apply to anonymous users – Disabled<br>Network access: Restrict anonymous access to Named Pipes and Shares – Enabled<br>Network access: Restrict clients allowed to make remote calls to SAM - O:BAG:BAD:(A;;RC;;;BA)<br>Network security: Allow Local System to use computer identity for NTLM – Enabled<br>Network security: Allow LocalSystem NULL session fallback – Disabled<br>Access this computer from the network – Administrators, Remote Desktop Users<br>Deny access to this computer from the network - NT AUTHORITY\Local Account | To align with the ACSC Windows 10 hardening guidance.
-Antivirus software | Configured:<br>Turn off Windows Defender Antivirus – Disabled<br>Configure local setting override for reporting to Microsoft MAPS – Disabled<br>Configure the ‘Block at First Sight’ feature – Enabled<br>Join Microsoft MAPS – Enabled (Advanced MAPS)<br>Send file samples when further analysis is required – Enabled (Send safe samples)<br>Configure extended cloud check – Enabled (High blocking level)<br>Configure removal of items from Quarantine folder – Disabled<br>Scan all downloaded files and attachments – Enabled<br>Turn off real-time protection – Disabled<br>Turn on behavior monitoring – Enabled<br>Turn on process scanning whenever real-time protection is enabled – Enabled<br>Allow users to pause scan – Disabled<br>Check for the latest virus and spyware definitions before running a scheduled scan – Enabled<br>Scan archive files – Enabled<br>Scan packed executables – Enabled<br>Scan removable drives – Enabled<br>Turn on e-mail scanning – Enabled<br>Turn on heuristics – Enabled | To align with the ACSC Windows 10 hardening guidance.
-Attachment Manager | Configured:<br>Do not preserve zone information in file attachments – Disabled<br>Hide mechanisms to remove zone information – Enabled | To align with the ACSC Windows 10 hardening guidance.
-Audit event management | Configured:<br>Audit event management – Enabled<br>Audit Application – Enabled (65535KB)<br>Audit Security – Enabled (2097152KB)<br>Audit System – Enabled (65535KB)<br>Manage auditing and security log – Administrators | To align with the ACSC Windows 10 hardening guidance.
-Autoplay and AutoRun | Configured:<br>Disallow Autoplay for non-volume devices – Enabled<br>Set the default behavior for AutoRun – Enabled (Default AutoRun Behavior: Do not execute any autorun commands)<br>Turn off Autoplay – Enabled (Turn off Autoplay on: All drives) | To align with the ACSC Windows 10 hardening guidance.
-Bridging networks | Configured:<br>Prohibit installation and configuration of Network Bridge on your DNS domain network – Enabled<br>Prohibit use of Internet Connection Sharing on your DNS domain network – Enabled<br>Route all traffic through the internal network – Enabled (Select from the following states: Enabled State)<br>Prohibit connection to non-domain networks when connected to domain authenticated network – Enabled | To align with the ACSC Windows 10 hardening guidance.
-Built-in guest accounts | Configured:<br>Accounts: Guest account status – Disabled | To align with the ACSC Windows 10 hardening guidance.
-CD burner access | Configured:<br>Remove CD Burning features – Enabled | To align with the ACSC Windows 10 hardening guidance.
-Command Prompt | Configured:<br>Prevent access to the command prompt – Enabled (Disable the command prompt script processing also: Yes) | To align with the ACSC Windows 10 hardening guidance.
-Direct Memory Access | Configured:<br>Prevent installation of devices that match any of these device IDs – Enabled (Prevent installation of devices that match any of these Device IDs:<br>PCI\CC_0C0010, PCI\CC_0C0A<br>Also apply to matching devices that are already installed.)<br>Prevent installation of devices using drivers that match these device setup classes – Enabled (Prevent installation of devices using drivers for these device setup classes:<br>{d48179be-ec20-11d1-b6b8-00c04fa372a7}<br>Also apply to matching devices that are already installed.) | To align with the ACSC Windows 10 hardening guidance.
-Endpoint device control | Configured:<br>All Removable Storage classes: Deny all access – Enabled<br>CD and DVD: Deny execute access – Enabled<br>CD and DVD: Deny read access – Disabled<br>CD and DVD: Deny write access – Enabled<br>Custom Classes: Deny read access – Disabled<br>Custom Classes: Deny write access – Enabled<br>Floppy Drives: Deny execute access – Enabled<br>Floppy Drives: Deny read access – Disabled<br>Floppy Drives: Deny write access – Enabled<br>Removable Disks: Deny execute access – Enabled<br>Removable Disks: Deny read access – Disabled<br>Removable Disks: Deny write access – Enabled<br>Tape Drives: Deny execute access – Enabled<br>Tape Drives: Deny read access – Disabled<br>Tape Drives: Deny write access – Enabled<br>WPD Devices: Deny read access – Disabled<br>WPD Devices: Deny write access – Enabled | To align with the ACSC Windows 10 hardening guidance.
-File and print sharing | Configured:<br>Prevent the computer from joining a homegroup – Enabled<br>Prevent users from sharing files within their profile – Enabled | To align with the ACSC Windows 10 hardening guidance.
-Hard drive encryption | Configured:<br>BitLocker Drive Encryption – Enabled<br>Disable new DMA devices when this computer is locked – Enabled<br>Prevent memory overwrite on restart – Disabled<br>Fixed Data Drives – Enabled<br>Allow network unlocked at startup – Enabled<br>Allow Secure Boot for integrity validation – Enabled<br>Enforce drive encryption type on operating system drives – Enabled (Full encryption)<br>Reset platform validation data after BitLocker recovery – Enabled<br>Removable Data Drives – Enabled<br>Control use of BitLocker on removable drives – Enabled (Allow users to apply BitLocker protection on removable data drives)<br>Deny write access to removable drives not protected by BitLocker – Enabled<br>Enforce drive encryption type on removable data drives – Enabled (Full encryption)<br>Pre-boot PIN – Disabled | To align with the ACSC Windows 10 hardening guidance, with the exception of pre-boot PIN for useability.
-Installing applications and drivers | Configured:<br>Configure Windows Defender SmartScreen – Enabled (Warn and prevent bypass)<br>Allow user control over installs – Disabled<br>Always install with elevated privileges – Disabled<br>Devices: Prevent users from installing printer drivers – Enabled<br>Always install with elevated privileges – Disabled | To align with the ACSC Windows 10 hardening guidance.
-Legacy and run once lists | Configured:<br>Do not process the legacy run list – Enabled<br>Do not process the run once list – Enabled<br>Run these programs at user logon – Disabled | To align with the ACSC Windows 10 hardening guidance.
-Microsoft accounts | Configured:<br>Block all consumer Microsoft account user authentication – Enabled<br>Prevent the usage of OneDrive for file storage – Enabled<br>Accounts: Block Microsoft accounts – Users can’t add or log on with Microsoft accounts | To align with the ACSC Windows 10 hardening guidance.
-MSS settings | Configured:<br>IP source routing protection level – Enabled<br>IP source routing protection level – Enabled<br>Allow ICMP redirects to override OSPF generated routes – Disabled<br>Allow the computer to ignore NetBIOS name release requests except from WINS servers – Enabled | To align with the ACSC Windows 10 hardening guidance.
-Network authentication | Configured:<br>Configure encryption types allowed for Kerberos – AES128_HMAC_SHA1, AES256_HMAC_SHA1<br>LAN Manager authentication level – Send NTLMv2 response only. Refuse LM & NTLM<br>Minimum session security for NTLM SSP based clients – Require NTLMv2 session security, Require 128-bit encryption<br>Minimum session security for NTLM SSP based servers – Require NTLMv2 session security, Require 128-bit encryption | To align with the ACSC Windows 10 hardening guidance.
-No LM Hash policy | Configured:<br>Do not store LAN Manager hash value on next password change – Enabled | To align with the ACSC Windows 10 hardening guidance.
-PowerShell | Configured:<br>Turn on PowerShell Script Block Logging – Enabled<br>Turn on Script Execution – Enabled (Allow only signed scripts) | To align with the ACSC Windows 10 hardening guidance.
-Registry editing tools | Configured:<br>Prevent access to registry editing tools – Enabled (Disable regedit from running silently: Yes) | To align with the ACSC Windows 10 hardening guidance.
-Remote Assistance | Configured:<br>Configure Offer Remote Assistance – Disabled<br>Configure Solicited Remote Assistance – Disabled | To align with the ACSC Windows 10 hardening guidance.
-Remote Desktop Services | Configured:<br>Allow users to connect remotely by using Remote Desktop Services – Disabled<br>Allow log on through Remote Desktop Services – blank<br>Deny log on through Remote Desktop Services – Administrators, NT AUTHORITY\Local Account | To align with the ACSC Windows 10 hardening guidance.
-Remote Procedure Call | Configured:<br>Restrict Unauthenticated RPC clients – Enabled (RPC Runtime Unauthenticated Client Restriction to Apply: Authenticated) | To align with the ACSC Windows 10 hardening guidance.
-Reporting system information | Configured:<br>Microsoft Support Diagnostic Tool: Turn on MSDT interactive communication with support provider – Disabled<br>Turn off Inventory Collector – Enabled<br>Turn off Steps Recorder – Enabled<br>Allow Telemetry – Enabled (0 – Security)<br>Configure Corporate Windows Error Reporting – Enabled | To align with the ACSC Windows 10 hardening guidance.
-Safe Mode | Configured:<br>SafeModeBlockNonAdmins – REG_DWORD 0x00000001 (1) | To align with the ACSC Windows 10 hardening guidance.
-Secure channel communications | Configured:<br>Digitally encrypt or sign secure channel data (always) – Enabled<br>Digitally encrypt secure channel data (when possible) – Enabled<br>Digitally sign secure channel data (when possible) – Enabled<br>Require strong (Windows 2000 or later) session key – Enabled | To align with the ACSC Windows 10 hardening guidance.
-Security policies | Configured:<br>Turn off multicast name resolution – Enabled<br>Allow Windows to automatically connect to suggested open hotspots, to networks shared by contacts, and to hotspots offering paid services – Disabled<br>Turn off Microsoft consumer experiences – Enabled<br>Turn off heap termination on corruption – Disabled<br>Turn off shell protocol protected mode – Disabled<br>Prevent downloading of enclosures – Enabled<br>Allow indexing of encrypted files – Disabled<br>Enables or disables Windows Game Recording and Broadcasting – disabled<br>Disable machine account password changes – Disabled<br>Maximum machine account password age – 30 days<br>Allow PKU2U authentication requests to this computer to use online identities – Disabled<br>Force logoff when logon hours expire – Enabled<br>LDAP client signing requirements – Negotiate signing<br>Require case insensitivity for non-Windows subsystems – Enabled<br>Strengthen default permissions of internal system objects – Enabled | To align with the ACSC Windows 10 hardening guidance.
-Server Message Block sessions | Configured:<br>Configure SMB v1 client driver – Enabled (Configure MrxSmb10 driver: Disable driver)<br>Configure SMB v1 server – Disabled<br>Digitally sign communications (always) – Enabled<br>Digitally sign communications (if server agrees) – Enabled<br>Send unencrypted password to third-party SMB servers – Disabled<br>Amount of idle time required before suspending session – 15 minutes | To align with the ACSC Windows 10 hardening guidance.
-Session locking | Configured:<br>Prevent enabling lock screen camera – Enabled<br>Prevent enabling lock screen slide show – Enabled<br>Allow users to select when a password is required when resuming from connected standby – Disabled<br>Turn off app notifications on the lock screen – Enabled<br>Show lock in the user tile menu – Enabled<br>Allow Windows Ink Workspace – Enabled (On, but disallow access above lock)<br>Machine inactivity limit – 900 seconds<br>Enable screen saver – Enabled<br>Password protect the screen saver – Enabled<br>Screen saver timeout – Enabled (Seconds: 900)<br>Turn off toast notifications on the lock screen – Enabled<br>Do not suggest third-party content in Windows spotlight – Enabled | To align with the ACSC Windows 10 hardening guidance.
-Sound Recorder | Configured:<br>Do not allow Sound Recorder to run – Enabled | To align with the ACSC Windows 10 hardening guidance.
-System backup and restore | Configured:<br>Back up files and directories – Administrators<br>Restore files and directories – Administrators | To align with the ACSC Windows 10 hardening guidance.
-System cryptography | Configured:<br>Force strong key protection for user keys stored on the computer – User must enter a password each time they use a key<br>Use FIPS compliant algorithms for encryption, hashing, and signing – Enabled | To align with the ACSC Windows 10 hardening guidance.
-User rights policies | Configured:<br>Access Credential Manager as a trusted caller – blank<br>Act as part of the operating system – blank<br>Allow log on locally – Administrators, Users<br>Create a pagefile – Administrators<br>Create a token object – blank<br>Create global objects – Administrators, LOCAL SERVICE, NETWORK SERVICE, SERVICE<br>Create permanent shared objects – blank<br>Debug programs – Administrators<br>Enable computer and user accounts to be trusted for delegation – blank<br>Force shutdown from a remote system – Administrators<br>Impersonate a client after authentication – Administrators, LOCAL SERVICE, NETWORK SERVICE, SERVICE<br>Load and unload device drivers – Administrators<br>Lock pages in memory – blank<br>Modify firmware environment values – Administrators<br>Perform volume maintenance tasks – Administrators<br>Profile single process – Administrators<br>Take ownership of files or other objects – Administrators | To align with the ACSC Windows 10 hardening guidance.
-Windows Remote Management | Configured:<br>Allow Basic authentication – Disabled<br>Allow unencrypted traffic – Disabled<br>Disallow Digest authentication – Enabled<br>Disallow WinRM from storing RunAs credentials – Enabled<br> | To align with the ACSC Windows 10 hardening guidance.
-Windows Remote Shell access	| Configured:<br>Allow Remote Shell Access – Disabled	| To align with the ACSC Windows 10 hardening guidance.
-Windows Search and Cortana | Configured:<br>Allow Cortana – Disabled | To align with the ACSC Windows 10 hardening guidance.
-Windows To Go	| Configured:<br>Windows To Go Default Startup Options – Disabled	| To align with the ACSC Windows 10 hardening guidance.
+* Attack Surface Reduction
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * Attack Surface Reduction rules – Enabled
+  ```(BE9BA2D9-53EA-4CDC-84E5-9B1EEEE46550,D4F940AB-401B-4EFC-AADC-AD5F3C50688A,3B576869-A4EC-4529-8536-B80A7769E899,5668C1F-73B5-4CF0-BB93-3ECF5CB7CC84,3E037E1-3EB8-44C8-A917-57927947596D,5BEB7EFE-FD9A-4556-801D-275E5FFC04CC,92E97FA1-2EDF-4476-BDD6-9DD0B4DDDC7B,01443614-CD74-433A-B99E-2ECDC07BFC25E,C1DB55AB-C21A-4637-BB3F-A12568109D35,9E6C4E1F-7D60-472F-BA1A-A39EF669E4B2,D1E49AAC-8F56-4280-B9BA-993A6D77406C,B2B3F03D-6A65-4F7B-A9C7-1C7EF74A9BA4,26190899-1602-49E8-8B27-EB1D0A1CE869,7674BA52-37EB-4A4F-A9A1-F0F9A1619A2C,E6DB77E5-3DF2-4CF1-B95A-636979351E5B)```
+* Credential caching
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * Interactive logon: Number of previous logons to cache: 1 logon
+  * Network access: Do not allow storage of passwords and credentials for network authentication: Enabled
+  * WDigest Authentication: Disabled
+  * Turn On Virtualization Based Security: Enabled
+* Controlled Folder Access
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * Configure allowed applications: Enabled
+  * Configure Controlled folder access: Enabled
+  * Configure protected folders: Enabled
+* Credential entry
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * Do not display network selection UI: Enabled
+  * Enumerate local users on domain-joined computers: Disabled
+  * Do not display the password reveal button: Enabled
+  * Enumerate administrator accounts on elevation: Disabled
+  * Require trusted path for credential entry: Enabled
+  * Prevent the use of security questions for local accounts: Enabled
+  * Disable or enable software Secure Attention Sequence: Disabled
+  * Sign-in last interactive user automatically after a system-initiated restart: Disabled
+  * Interactive logon: Do not require CTRL+ALT+DEL: Disabled
+* Early Launch Antimalware
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * Boot-Start Driver Initialization Policy: Enabled
+* Elevating privileges
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * User Account Control
+    * Admin Approval Mode for the Built-in Administrator account: Enabled
+    * Allow UIAccess applications to prompt for elevation without using the secure desktop: Disabled
+    * Behavior of the elevation prompt for administrators in Admin Approval Mode: Prompt for credentials on the secure desktop
+    * Behavior of the elevation prompt for standard users: Prompt for credentials on the secure desktop
+    * Detect application installations and prompt for elevation: Enabled
+    * Only elevate UIAccess applications that are installed in secure locations: Enabled
+    * Run all administrators in Admin Approval Mode: Enabled
+    * Switch to the secure desktop when prompting for elevation: Enabled
+    * Virtualize file and registry write failures to per-user locations: Enabled
+* Exploit protection
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * Use a common set of exploit protection settings: Enabled
+  * Prevent users from modifying settings: Enabled
+  * Turn off Data Execution Prevention for Explorer: Disabled
+  * Enabled Structured Exception Handling Overwrite Protection (SEHOP): Enabled
+* Local administrator accounts
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * Accounts: Administrator account status: Disabled
+  * Apply UAC restrictions to local accounts on network logons: Enabled
+* Password policy
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * Turn off picture password sign-in: Enabled
+  * Turn on convenience PIN sign-in: Disabled
+  * Maximum password age: 365 days
+  * Minimum password length: 14 characters
+  * Password must meet complexity requirements: Enabled
+  * Store passwords using reversible encryption: Disabled
+  * Accounts: Limit local account use of blank passwords to console logon only: Enabled
+* Account lockout policy
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * Account lockout duration: 0
+  * Account lockout threshold: 5 invalid login attempts
+  * Reset account lockout counter after: 15 minutes
+* Anonymous connections
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * Enable insecure guest logons: Disabled
+  * Network access:
+    * Allow anonymous SID/Name translation: Disabled
+    * Do not allow anonymous enumeration of SAM accounts: Enabled
+    * Do not allow anonymous enumeration of SAM accounts and shares: Enabled
+    * Let Everyone permissions apply to anonymous users: Disabled
+    * Restrict anonymous access to Named Pipes and Shares: Enabled
+    * Restrict clients allowed to make remote calls to SAM - O:BAG:BAD:(A;;RC;;;BA)
+  * Network security:
+    * Allow Local System to use computer identity for NTLM: Enabled
+    * Allow LocalSystem NULL session fallback: Disabled
+  * Access this computer from the network: Administrators, Remote Desktop Users
+  * Deny access to this computer from the network - NT AUTHORITY\Local Account
+* Antivirus software
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * Turn off Windows Defender Antivirus: Disabled
+  * Configure local setting override for reporting to Microsoft MAPS: Disabled
+  * Configure the ‘Block at First Sight’ feature: Enabled
+  * Join Microsoft MAPS: Enabled (Advanced MAPS)
+  * Send file samples when further analysis is required: Enabled (Send safe samples)
+  * Configure extended cloud check: Enabled (High blocking level)
+  * Configure removal of items from Quarantine folder: Disabled
+  * Scan all downloaded files and attachments: Enabled
+  * Turn off real-time protection: Disabled
+  * Turn on behavior monitoring: Enabled
+  * Turn on process scanning whenever real-time protection is enabled: Enabled
+  * Allow users to pause scan: Disabled
+  * Check for the latest virus and spyware definitions before running a scheduled scan: Enabled
+  * Scan archive files: Enabled
+  * Scan packed executables: Enabled
+  * Scan removable drives: Enabled
+  * Turn on e-mail scanning: Enabled
+  * Turn on heuristics: Enabled
+* Attachment Manager
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * Do not preserve zone information in file attachments: Disabled
+  * Hide mechanisms to remove zone information: Enabled
+* Audit event management
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * Audit event management: Enabled
+  * Audit Application: Enabled (65535KB)
+  * Audit Security: Enabled (2097152KB)
+  * Audit System: Enabled (65535KB)
+  * Manage auditing and security log: Administrators
+* Autoplay and AutoRun
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * Disallow Autoplay for non-volume devices: Enabled
+  * Set the default behavior for AutoRun: Enabled (Default AutoRun Behavior: Do not execute any autorun commands)
+  * Turn off Autoplay: Enabled (Turn off Autoplay on: All drives)
+* Bridging networks
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * Prohibit installation and configuration of Network Bridge on your DNS domain network: Enabled
+  * Prohibit use of Internet Connection Sharing on your DNS domain network: Enabled
+  * Route all traffic through the internal network: Enabled (Select from the following states: Enabled State)
+  * Prohibit connection to non-domain networks when connected to domain authenticated network: Enabled
+* Built-in guest accounts
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * Accounts: Guest account status: Disabled
+* CD burner access
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * Remove CD Burning features: Enabled
+* Command Prompt
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * Prevent access to the command prompt: Enabled (Disable the command prompt script processing also: Yes)
+* Direct Memory Access
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * Prevent installation of devices that match any of these device IDs: Enabled
+    * Prevent installation of devices that match any of these Device IDs: `PCI\CC_0C0010, PCI\CC_0C0A`
+    * Also apply to matching devices that are already installed.
+  * Prevent installation of devices using drivers that match these device setup classes: Enabled
+    * Prevent installation of devices using drivers for these device setup classes: `{d48179be-ec20-11d1-b6b8-00c04fa372a7}`
+    * Also apply to matching devices that are already installed.
+* Endpoint device control
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * All Removable Storage classes: Deny all access: Enabled
+  * CD and DVD:
+    * Deny execute access: Enabled
+    * Deny read access: Disabled
+    * Deny write access: Enabled
+  * Custom Classes:
+    * Deny read access: Disabled
+    * Deny write access: Enabled
+  * Floppy Drives:
+    * Deny execute access: Enabled
+    * Deny read access: Disabled
+    * Deny write access: Enabled
+  * Removable Disks:
+    * Deny execute access: Enabled
+    * Deny read access: Disabled
+    * Deny write access: Enabled
+  * Tape Drives:
+    * Deny execute access: Enabled
+    * Deny read access: Disabled
+    * Deny write access: Enabled
+  * WPD Devices:
+    * Deny read access: Disabled
+    * Deny write access: Enabled
+* File and print sharing
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * Prevent the computer from joining a homegroup: Enabled
+  * Prevent users from sharing files within their profile: Enabled
+* Hard drive encryption
+  * Justification: To align with the ACSC Windows 10 hardening guidance, with the exception of pre-boot PIN for useability.
+  * BitLocker Drive Encryption: Enabled
+  * Disable new DMA devices when this computer is locked: Enabled
+  * Prevent memory overwrite on restart: Disabled
+  * Fixed Data Drives: Enabled
+  * Allow network unlocked at startup: Enabled
+  * Allow Secure Boot for integrity validation: Enabled
+  * Enforce drive encryption type on operating system drives: Enabled (Full encryption)
+  * Reset platform validation data after BitLocker recovery: Enabled
+  * Removable Data Drives: Enabled
+  * Control use of BitLocker on removable drives: Enabled (Allow users to apply BitLocker protection on removable data drives)
+  * Deny write access to removable drives not protected by BitLocker: Enabled
+  * Enforce drive encryption type on removable data drives: Enabled (Full encryption)
+  * Pre-boot PIN: Disabled
+* Installing applications and drivers
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * Configure Windows Defender SmartScreen: Enabled (Warn and prevent bypass)
+  * Allow user control over installs: Disabled
+  * Always install with elevated privileges: Disabled
+  * Devices: Prevent users from installing printer drivers: Enabled
+  * Always install with elevated privileges: Disabled
+* Legacy and run once lists
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * Do not process the legacy run list: Enabled
+  * Do not process the run once list: Enabled
+  * Run these programs at user logon: Disabled
+* Microsoft accounts
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * Block all consumer Microsoft account user authentication: Enabled
+  * Prevent the usage of OneDrive for file storage: Enabled
+  * Accounts: Block Microsoft accounts: Users can’t add or log on with Microsoft accounts
+* MSS settings
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * IP source routing protection level: Enabled
+  * IP source routing protection level: Enabled
+  * Allow ICMP redirects to override OSPF generated routes: Disabled
+  * Allow the computer to ignore NetBIOS name release requests except from WINS servers: Enabled
+* Network authentication
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * Configure encryption types allowed for Kerberos: AES128_HMAC_SHA1, AES256_HMAC_SHA1
+  * LAN Manager authentication level: Send NTLMv2 response only. Refuse LM & NTLM
+  * Minimum session security for NTLM SSP based clients: Require NTLMv2 session security, Require 128-bit encryption
+  * Minimum session security for NTLM SSP based servers: Require NTLMv2 session security, Require 128-bit encryption
+* No LM Hash policy
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * Do not store LAN Manager hash value on next password change: Enabled
+* PowerShell
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * Turn on PowerShell Script Block Logging: Enabled
+  * Turn on Script Execution: Enabled (Allow only signed scripts)
+* Registry editing tools
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * Prevent access to registry editing tools: Enabled (Disable regedit from running silently: Yes)
+* Remote Assistance
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * Configure Offer Remote Assistance: Disabled
+  * Configure Solicited Remote Assistance: Disabled
+* Remote Desktop Services
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * Allow users to connect remotely by using Remote Desktop Services: Disabled
+  * Allow log on through Remote Desktop Services: blank
+  * Deny log on through Remote Desktop Services: Administrators, NT AUTHORITY\Local Account
+* Remote Procedure Call
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * Restrict Unauthenticated RPC clients: Enabled (RPC Runtime Unauthenticated Client Restriction to Apply: Authenticated)
+* Reporting system information
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * Microsoft Support Diagnostic Tool: Turn on MSDT interactive communication with support provider: Disabled
+  * Turn off Inventory Collector: Enabled
+  * Turn off Steps Recorder: Enabled
+  * Allow Telemetry: Enabled (0: Security)
+  * Configure Corporate Windows Error Reporting: Enabled
+* Safe Mode
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * SafeModeBlockNonAdmins: REG_DWORD 0x00000001 (1)
+* Secure channel communications
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * Digitally encrypt or sign secure channel data (always): Enabled
+  * Digitally encrypt secure channel data (when possible): Enabled
+  * Digitally sign secure channel data (when possible): Enabled
+  * Require strong (Windows 2000 or later) session key: Enabled
+* Security policies
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * Turn off multicast name resolution: Enabled
+  * Allow Windows to automatically connect to suggested open hotspots, to networks shared by contacts, and to hotspots offering paid services: Disabled
+  * Turn off Microsoft consumer experiences: Enabled
+  * Turn off heap termination on corruption: Disabled
+  * Turn off shell protocol protected mode: Disabled
+  * Prevent downloading of enclosures: Enabled
+  * Allow indexing of encrypted files: Disabled
+  * Enables or disables Windows Game Recording and Broadcasting: disabled
+  * Disable machine account password changes: Disabled
+  * Maximum machine account password age: 30 days
+  * Allow PKU2U authentication requests to this computer to use online identities: Disabled
+  * Force logoff when logon hours expire: Enabled
+  * LDAP client signing requirements: Negotiate signing
+  * Require case insensitivity for non-Windows subsystems: Enabled
+  * Strengthen default permissions of internal system objects: Enabled
+* Server Message Block sessions
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * Configure SMB v1 client driver: Enabled (Configure MrxSmb10 driver: Disable driver)
+  * Configure SMB v1 server: Disabled
+  * Digitally sign communications (always): Enabled
+  * Digitally sign communications (if server agrees): Enabled
+  * Send unencrypted password to third-party SMB servers: Disabled
+  * Amount of idle time required before suspending session: 15 minutes
+* Session locking
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * Prevent enabling lock screen camera: Enabled
+  * Prevent enabling lock screen slide show: Enabled
+  * Allow users to select when a password is required when resuming from connected standby: Disabled
+  * Turn off app notifications on the lock screen: Enabled
+  * Show lock in the user tile menu: Enabled
+  * Allow Windows Ink Workspace: Enabled (On, but disallow access above lock)
+  * Machine inactivity limit: 900 seconds
+  * Enable screen saver: Enabled
+  * Password protect the screen saver: Enabled
+  * Screen saver timeout: Enabled (Seconds: 900)
+  * Turn off toast notifications on the lock screen: Enabled
+  * Do not suggest third-party content in Windows spotlight: Enabled
+* Sound Recorder
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * Do not allow Sound Recorder to run: Enabled
+* System backup and restore
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * Back up files and directories: Administrators
+  * Restore files and directories: Administrators
+* System cryptography
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * Force strong key protection for user keys stored on the computer: User must enter a password each time they use a key
+  * Use FIPS compliant algorithms for encryption, hashing, and signing: Enabled
+* User rights policies
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * Access Credential Manager as a trusted caller: blank
+  * Act as part of the operating system: blank
+  * Allow log on locally: Administrators, Users
+  * Create a pagefile: Administrators
+  * Create a token object: blank
+  * Create global objects: Administrators, LOCAL SERVICE, NETWORK SERVICE, SERVICE
+  * Create permanent shared objects: blank
+  * Debug programs: Administrators
+  * Enable computer and user accounts to be trusted for delegation: blank
+  * Force shutdown from a remote system: Administrators
+  * Impersonate a client after authentication: Administrators, LOCAL SERVICE, NETWORK SERVICE, SERVICE
+  * Load and unload device drivers: Administrators
+  * Lock pages in memory: blank
+  * Modify firmware environment values: Administrators
+  * Perform volume maintenance tasks: Administrators
+  * Profile single process: Administrators
+  * Take ownership of files or other objects: Administrators
+* Windows Remote Management
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * Allow Basic authentication: Disabled
+  * Allow unencrypted traffic: Disabled
+  * Disallow Digest authentication: Enabled
+  * Disallow WinRM from storing RunAs credentials: Enabled
+* Windows Remote Shell access
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * Allow Remote Shell Access: Disabled
+* Windows Search and Cortana
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * Allow Cortana: Disabled
+* Windows To Go
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
+  * Windows To Go Default Startup Options: Disabled
 
-### Microsoft Edge Hardening
+### Microsoft Edge hardening
 
 The Microsoft Edge security settings support Edge version 80 and later.
 
@@ -1122,7 +1406,7 @@ Implementation approach | Only digitally signed macros are enabled | In line wit
 Email and Web Content Filtering | Enabled | In line with the ACSC Microsoft Office Macro security policy recommendation
 Configuration Method | Agency preference | Macro hardening can be configured via the Agencies existing Group Policies or Intune as well as Attack Surface Reduction in Windows Defender Exploit Guard
 
-### OLE Hardening
+### OLE hardening
 
 Object Linking and Embedding (OLE) is a functionality within Microsoft Office which allows for the embedding and linking to documents and other objects. OLE is utilised to seamlessly integrate several types of data or components within a Microsoft Office file. 
 

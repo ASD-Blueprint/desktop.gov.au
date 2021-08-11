@@ -1072,7 +1072,7 @@ Windows 10 Hardening Design Decisions for all agencies and implementation types.
   * Prevent the computer from joining a homegroup: Enabled
   * Prevent users from sharing files within their profile: Enabled
 * Hard drive encryption
-  * Justification: To align with the ACSC Windows 10 hardening guidance, with the exception of pre-boot PIN for useability.
+  * Justification: To align with the ACSC Windows 10 hardening guidance.
   * BitLocker Drive Encryption: Enabled
   * Disable new DMA devices when this computer is locked: Enabled
   * Prevent memory overwrite on restart: Disabled
@@ -1085,7 +1085,7 @@ Windows 10 Hardening Design Decisions for all agencies and implementation types.
   * Control use of BitLocker on removable drives: Enabled (Allow users to apply BitLocker protection on removable data drives)
   * Deny write access to removable drives not protected by BitLocker: Enabled
   * Enforce drive encryption type on removable data drives: Enabled (Full encryption)
-  * Pre-boot PIN: Disabled
+  * Pre-boot PIN: Enabled
 * Installing applications and drivers
   * Justification: To align with the ACSC Windows 10 hardening guidance.
   * Configure Windows Defender SmartScreen: Enabled (Warn and prevent bypass)

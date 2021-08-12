@@ -129,10 +129,14 @@ menu: abac
 
 * Customize helpdesk line: `No`
 
-`Azure Active Directory > Password reset > On-premises integration`
+`PowerShell (MSOL) > Disable Self-Service user creation`
 
-* Write back passwords to your on-premises directory?: `Not configured`
-* Allow users to unlock accounts without resetting their password?: `Not configured`
+* Allow users to Email verify: `Disabled`
+* Allow Ad Hoc self-service sign-up: `Disabled`
+
+```powershell
+ Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions $false
+```
 
 ### Microsoft 365 groups
 

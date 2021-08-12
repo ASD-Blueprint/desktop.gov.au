@@ -129,6 +129,15 @@ The ABAC settings for the Agency Identity and Access Management can be found bel
 * Notify users on password resets?: `Yes`
 * Notify all admins when other admins reset their password?: `Yes`
 
+`PowerShell (MSOL) > Disable Self-Service user creation`
+
+* Allow users to Email verify: `Disabled`
+* Allow Ad Hoc self-service sign-up: `Disabled`
+
+```powershell
+ Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions $false
+```
+
 ### Microsoft 365 groups
 
 `Search > Azure Active Directory > Groups > General`

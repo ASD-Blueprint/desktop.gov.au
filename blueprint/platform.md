@@ -99,6 +99,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Cloud Based Service Accounts | Configured | Break glass accounts are required to be cloud based to ensure access to the tenant if there are issues with authentication.
 Allow the registration of applications by users | Disabled | Only administrators can register applications.
+Allow self-service sign-up form email verified users | Disabled | Only administrators can create user accounts. 
 Restrict access to the Azure AD administrative portal | Enabled | Only administrators have access to the portal.
 Allow LinkedIn connections | Disabled | To meet the Agency's requirements not to share information with third party Agencies without approval.
 External Collaboration | Configured | As required by the Agency, provided the external Agencies are at the same classification.

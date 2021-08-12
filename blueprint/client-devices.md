@@ -1505,7 +1505,7 @@ Configuration | Value | Description
 --- | --- | ---
 **Security** | | |
 Supervised Mode | Enable | Agency iPhones are managed devices. This is in line with the ACSC iOS Secure Configuration Hardening guide for PROTECTED devices.
-Device passcode | Device passcode of 14 characters or above. Alphanumic in nature and must contain a minimum of 1 special character | iOS devices, by default, is encrypted once a passcode is provided to the device. Configured in line with ISM requirements on password length.
+Device passcode | Device passcode of 14 characters or above. Alphanumeric in nature and must contain a minimum of 1 special character | iOS devices, by default, is encrypted once a passcode is provided to the device. Configured in line with ISM requirements on password length.
 Biometrics | Disable | This is in line with the ACSC iOS Secure Configuration Hardening guide for PROTECTED devices.
 Mobile Device Management | Enable | Mobile Device Management provides the Agency better auditing tools on the device. In line with ACSC iOS Secure Configuration Hardening guide for PROTECTED devices
 Maximum Auto-Lock  | 2 minutes | Auto Lock will lock a device if it is inactive for specified time

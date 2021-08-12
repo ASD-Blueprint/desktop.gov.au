@@ -1269,7 +1269,7 @@ Windows Defender Application Control (WDAC) helps mitigate these types of securi
 * Enforce the use of drivers signed by Windows Hardware Quality labs and produced by partners who have an Extended Verification certificate.
 * Block unsigned and unapproved scripts, MSIs, Universal Windows Store Applications, and .NET applications.
 
-To reduce management overhead, WDAC allows for the use of managed installers; such as Microsoft Endpoint Configuration Manager. When configured, items deployed via the managaged installer are added into the allow list. 
+To reduce management overhead, WDAC allows for the use of managed installers; such as Microsoft Endpoint Configuration Manager. When configured, items deployed via the managed installer are added into the allow list. 
 
 When deploying WDAC it is important that it is deployed utilising audit mode prior to enforcement. 
 

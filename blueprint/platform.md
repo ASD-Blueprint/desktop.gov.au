@@ -1156,6 +1156,24 @@ SIEM Solution | Not Configured | SIEM Solution configuration is custom to each a
 Azure log ingestion | Not Configured | SIEM Solution configuration is custom to each agency based on its specific requirements. This blueprint does not specify a SIEM and as such does not offer configuration guidance, however Agencies should consider their operational requirements in this area. This blueprint provides guidance on Azure logs, Defender ATP and Office ATP which audit most Azure, Defender, and Office logs for up to two years. These technologies send alert emails to Global Administrators and selected Office 365 administrators.
 Office 365 log ingestion | Not Configured | SIEM Solution configuration is custom to each agency based on its specific requirements. This blueprint does not specify a SIEM and as such does not offer configuration guidance, however Agencies should consider their operational requirements in this area. This blueprint provides guidance on Azure logs, Defender ATP and Office ATP which audit most Azure, Defender, and Office logs for up to two years. These technologies send alert emails to Global Administrators and selected Office 365 administrators.
 
+### Azure AD tenant restrictions
+
+Office 365 and other enterprise SaaS applications that use Azure AD as their identity provider all share URLs with common domain names like outlook.office.com and login.microsoftonline.com. Blocking these internet addresses to prevent users from accessing other third-party Office 365 tenancies and services would also keep these users from accessing the Agency's Office 365 tenant. With Azure AD tenant restrictions, agencies with a supported web filtering (proxy) system can specify the list of approved Azure AD tenants that their users are permitted to access (e.g. GovTeams). Azure AD then only grants access to these permitted tenants.
+
+Azure AD tenant restrictions prerequisites are as follows:
+
+- A minimum of M365 E3 licensing (Azure AD Premium 1).
+- The Agency's web filtering service supports TLS interception, HTTP header insertion, URL and FQDN filtering.
+- Endpoints must trust the Web Filtering services PKI certificate chain for TLS communications.  
+
+For more detail on Azure AD tenant restrictions, see [use tenant restrictions to manage access to SaaS apps](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/tenant-restrictions).
+
+Tenant restrictions Design Decisions for all agencies and implementation types.
+
+| Decision Point      | Design Decision | Justification                                                |
+| ------------------- | --------------- | ------------------------------------------------------------ |
+| Tenant restrictions | Configured      | Agencies that have implemented an enterprise Web filtering solution that is capable of this feature (using TLS inspection and HTTP header insertion) should implement tenant restrictions for PROTECTED to prevent data exfiltration. |
+
 ## Client configuration
 
 ### Microsoft Endpoint Manager - Intune

@@ -35,7 +35,7 @@ The selected processor architecture and associated firmware capability directly 
 
 Agencies should select a reputable hardware platform that supports enterprise features, such as having an interface to provision zero-touch UEFI configuration and updates.
 
-Note, agencies that wish to implement virtual desktops or a VDI (Virtual Desktop Infrastructure) should assess the chosen virtualisation or hypervisor (including cloud platforms) platform to determine the features available meet the desired security risk profile for the agency.
+Note: agencies that wish to implement virtual desktops or VDI (Virtual Desktop Infrastructure) should assess the chosen virtualisation or hypervisor (including cloud platforms) platform to determine the features available meet the desired security risk profile for the agency.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -54,7 +54,7 @@ Input Device(s) | Keyboard<br>Mouse<br>Multi-touch display screen to enable Wind
 Minimum HDD Space | 128GB | To meet design specifications.
 Microphone | Required for speech recognition (optional) | Speech recognition is not required to be enabled but may be needed for agencies with accessibility requirements.
 BIOS | Minimum UEFI 2.3.1  | Required to support Secure Boot, Windows Defender Device Guard, Windows Defender Credential Guard, Windows Defender Exploit Guard and Kernel DMA Protection. 
-TPM | Minimum version 2.0 (with device attestation preferred) | Required to support Microsoft Endpoint Manager - Intune (Intune) Windows Autopilot and MECM.<br />Note, TPM device attestation is preferred to allow [Windows Autopilot Self-deploying mode](https://docs.microsoft.com/en-us/mem/autopilot/self-deploying). 
+TPM | Minimum version 2.0 (with device attestation preferred) | Required to support Microsoft Endpoint Manager - Intune (Intune) Windows Autopilot and MECM. Note: TPM device attestation is preferred to allow [Windows Autopilot Self-deploying mode](https://docs.microsoft.com/en-us/mem/autopilot/self-deploying).
 
 ### Drivers and peripherals
 
@@ -64,11 +64,15 @@ Drivers that are essential to the hardware platform can be deployed in the base 
 
 Other drivers like printer drivers can be deployed after the end user has logged onto the device using either a "Follow Me Print" or "Defined print queue list" selected by the end user.
 
-Peripheral installation can natively be controlled through Group policies or Intune (administrative templates or the [Device installation CSP](https://docs.microsoft.com/en-us/windows/client-management/mdm/policy-csp-deviceinstallation)). As device identifiers may be spoofed, a defence in depth approach should be followed using additional methods  of protection - such as denying write to removable media unless the device is encrypted by BitLocker, blocking of unsigned and untrusted executables and ensuring Microsoft Defender is actively scanning for threats on removable media.
+Peripheral installation can natively be controlled through Group Policies or Intune (administrative templates or the [Device installation CSP](https://docs.microsoft.com/en-us/windows/client-management/mdm/policy-csp-deviceinstallation)). As device identifiers may be spoofed, a defence in depth approach should be followed using additional methods of protection such as:
 
-When restricting the installation of peripherals, there are many common HID (human input devices) devices (mice, keyboards etc.) where a blanket allow approach may be taken to avoid additional operational overheads, see [System-Defined Device Setup Classes](https://docs.microsoft.com/en-us/windows-hardware/drivers/install/system-defined-device-setup-classes-available-to-vendors). 
+* denying write to removable media unless the device is encrypted by BitLocker, 
+* blocking of unsigned and untrusted executables, and 
+* ensuring Microsoft Defender is actively scanning for threats on removable media.
 
-Bluetooth pairing and allowed services are also controllable, the default state of Windows allows all services so care should taken to define only the [Bluetooth services](https://docs.microsoft.com/en-us/windows/client-management/mdm/policy-csp-bluetooth#servicesallowedlist-usage-guide) required.
+When restricting the installation of peripherals, there are many common human input devices (HID) (eg mice, keyboards etc.) where a blanket allow approach may be taken to avoid additional operational overheads, see [System-Defined Device Setup Classes](https://docs.microsoft.com/en-us/windows-hardware/drivers/install/system-defined-device-setup-classes-available-to-vendors). 
+
+Bluetooth pairing and allowed services are also controllable. The default state of Windows allows all services, thus care should be taken to define only the [Bluetooth services](https://docs.microsoft.com/en-us/windows/client-management/mdm/policy-csp-bluetooth#servicesallowedlist-usage-guide) required.
 
 Drivers and Peripherals Design Decisions for all agencies and implementation types.
 
@@ -78,7 +82,7 @@ Driver Integration | Configured | Deployed via Microsoft Windows Update which al
 Approved Peripheral Devices | Configured | The SOE will enforce a list of agency approved peripheral devices using Intune device installation policy. 
 Unapproved Peripheral Devices | Blocked | The SOE will block installation of unapproved peripheral devices using Intune policy. 
 Signed Device Driver Store | Configured | Deployed via Microsoft Windows Update which aligns with the ACSC guidance. 
-Peripheral Drivers | Configured | Deployed via Microsoft Windows Update which aligns with the ACSC guidance. Unauthorised driver installation is block via WDAC (Windows Defender Application Control). 
+Peripheral Drivers | Configured | Deployed via Microsoft Windows Update which aligns with the ACSC guidance. Unauthorised driver installation is blocked via WDAC (Windows Defender Application Control). 
 Workstation Device Drivers | Configured | Deployed via Microsoft Windows Update which aligns with the ACSC guidance. Specific vendor updates can be deployed through Intune if Windows Update does not provide a suitable driver. 
 Printer Drivers | Configured | Deployed via Microsoft Windows Update which aligns with the ACSC guidance. 
 Bluetooth Restrictions | Configured | The agency should define a list of approved Bluetooth services to only those necessary, using [Intune device restrictions profile](https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/control-usb-devices-using-intune?view=o365-worldwide#limit-services-that-use-bluetooth). 
@@ -300,7 +304,7 @@ Printing | Enabled | Printing enabled for office use only. Printer drivers must 
 Microsoft Print to PDF | Enabled | Enables user support for Print to PDF. 
 Microsoft XPS Doc Writer | Enabled | Enables user support for Microsoft XPS Doc Writer functionality. 
 Remote Differential Compression Application Programming Interface (API) Support | Enabled | Required for application compatibility. 
-Windows PowerShell | Enabled | Support administration scripting activities, with Constrained Language Mode.<br />Note, PowerShell version 2.0 should be disabled or removed. 
+Windows PowerShell | Enabled | Support administration scripting activities, with Constrained Language Mode. Note: PowerShell version 2.0 should be disabled or removed. 
 
 ### Universal Windows Platform applications
 
@@ -331,7 +335,7 @@ Mixed Reality | Removed | 3D Viewer, Print 3D, Mixed Reality Portal.
 Mobile | Removed | Your Phone, Mobile Plans, Connect App. 
 OfficeHub | Removed | MyOffice. 
 OneNote | Provisioned | Microsoft OneNote Application. 
-Paint3D | Provisioned | Microsoft Paint3d Application. 
+Paint3D | Provisioned | Microsoft Paint3D Application. 
 People | Removed | The People app in Windows is a modern take on the flat contact lists of the past. It is built for the way people communicate today and is connected to cloud services. 
 Photos | Removed | The best place to enjoy, organise, edit, and share digital memories.
 Snip and Sketch | Provisioned | Capture a specific area of the screen.
@@ -491,10 +495,10 @@ Corporate Branding Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Lock Screen | Custom<br>Corporate wallpaper | Customised to the agency corporate wallpaper to provide a corporate look and feel. 
-Logon Screen | Custom<br>Corporate wallpaper | Customised to the agency corporate wallpaper to provide a corporate look and feel. 
-Wallpaper | Custom<br>Corporate wallpaper | Customised to the agency corporate wallpaper to provide a corporate look and feel. 
-Default Account Picture  | Custom<br />Agency logo <br /> | Customised to the agency logo to provide a corporate look and feel. 
+Lock Screen | Custom Corporate wallpaper | Customised to the agency corporate wallpaper to provide a corporate look and feel. 
+Logon Screen | Custom Corporate wallpaper | Customised to the agency corporate wallpaper to provide a corporate look and feel. 
+Wallpaper | Custom Corporate wallpaper | Customised to the agency corporate wallpaper to provide a corporate look and feel. 
+Default Account Picture | Custom Agency logo | Customised to the agency logo to provide a corporate look and feel. 
 Theme | Agency choice | Customised to the agency's requirements. 
 Theme Colour | Agency choice | Customised to the agency's requirements. 
 Windows Colour | Default  | Customised to the agency's requirements. 
@@ -652,9 +656,9 @@ Operational Support Design Decisions for all agencies and implementation types.
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Intune | Enabled | Intune management functions cannot be disabled when a device is enrolled in Intune and Azure AD.
-WinRM | Enabled | To meet operating support requirements for the Agency.<br>Consideration should be made to harden the use of WinRM in the agency environment to increase the security of Windows 10 endpoints.
-Windows Remote Assistance | Disabled | Aligns with Windows 10 1909 hardening guide and reduces the attack surfice. 
-Remote Desktop | Enabled | To meet operating support requirements for the Agency.<br>Access is granted via Active Directory Groups. 
+WinRM | Enabled | To meet operating support requirements for the Agency. Consideration should be made to harden the use of WinRM in the agency environment to increase the security of Windows 10 endpoints.
+Windows Remote Assistance | Disabled | Aligns with Windows 10 1909 hardening guide and reduces the attack surface.
+Remote Desktop | Enabled | To meet operating support requirements for the Agency. Access is granted via Active Directory Groups. 
 Remote Desktop Client | Enabled | Remote Desktop will be enabled for Windows 10 devices. 
 Remote Control via Teams | Enabled | Users can share the desktop within the Microsoft Teams application. 
 

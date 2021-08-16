@@ -1164,7 +1164,7 @@ Azure AD tenant restrictions prerequisites are as follows:
 
 - A minimum of M365 E3 licensing (Azure AD Premium 1).
 - The Agency's web filtering service supports TLS interception, HTTP header insertion, URL and FQDN filtering.
-- Endpoints must trust the Web Filtering services PKI certificate chain for TLS communications.  
+- Endpoints must trust the web filtering services PKI certificate chain for TLS communications.  
 
 For more detail on Azure AD tenant restrictions, see [use tenant restrictions to manage access to SaaS apps](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/tenant-restrictions).
 

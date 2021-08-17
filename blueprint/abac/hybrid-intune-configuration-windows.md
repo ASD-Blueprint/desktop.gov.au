@@ -145,6 +145,25 @@ user | \Microsoft Publisher 2016\Security | Publisher Automation Security Level 
   * Included groups: `rol-Agency-Users`
   * Excluded groups: -
 
+### Agency-BlockAppsLocalAdmins-User
+
+Please note, application of this configuration profile will prevent users in the local administrators group from using web browsers and Outlook. Please review guidance on [secure systems administration](/blueprint/overview.html#secure-system-administration) prior to deploying this profile.
+
+* Name: `Agency-BlockAppsLocalAdmins-User`
+* Description: `This policy blocks members of 'BUILTIN\Administrators' from accessing common Web Browsers and Outlook`
+* Type: `Windows 10 and later`
+* Profile Type: `Custom`
+* Configuration settings
+  * OMA-URI Settings
+    * Name: `Agency-BlockAppsLocalAdmins-User`
+    * Description: `This policy blocks members of 'BUILTIN\Administrators' from accessing common Web Browsers and Outlook`
+    * OMA-URI: `./Vendor/MSFT/AppLocker/ApplicationLaunchRestrictions/000000002/EXE/Policy`
+    * Custom XML: [block-apps-local-admins.txt](/assets/files/abac/block-apps-local-admins.txt)
+* Scope tags: `Default`
+* Assignments
+  * Included groups: `rol-agency-administrators`
+  * Excluded groups: - 
+
 ### Agency-DeliveryOptimisation
 
 * Name: `Agency-DeliveryOptimisation`

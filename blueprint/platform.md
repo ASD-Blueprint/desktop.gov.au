@@ -157,7 +157,7 @@ Microsoft 365 Group Design Decisions for all agencies and implementation types.
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Microsoft 365 Group creation restrictions | Configured <br>Only administrators and select users can create/configure Microsoft 365 groups. | This will ensure that groups are approved before being created, ensuring all groups have a purpose.<br>This setting also affects Exchange, SharePoint, Microsoft Planner and Teams.
-Naming Policy | Agency to determine | Naming can align to organisation team structure and help identify working group or a project. The Agency should determine what naming policy meets their business requirements. 
+Naming Policy | Agency to determine | Naming can align to organisational team structure and help identify the working group or a project. The Agency should determine what naming policy meets their business requirements. 
 Group Expiration  | All groups - annually | Group Expiration is required to simplify the management overhead associated with groups and to limit Azure AD clutter.
 
 ### Emergency access admin accounts
@@ -270,7 +270,7 @@ Conditional Access Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Conditional Access Enabled| Device Based | To meet security and business requirements. This allows only approved and agency issued devices access to the Agency's resources.
+Conditional Access Enabled| Device Based | To meet security and business requirements. This allows only approved and agency issued devices access to the Agency's resources. Agencies should avoid using Trusted IPs where possible and leverage Intune compliance. Compliance status is reported back to Azure AD and is evaluated with Conditional Access. 
 
 Additional Conditional Access Design Decisions for hybrid implementations.
 

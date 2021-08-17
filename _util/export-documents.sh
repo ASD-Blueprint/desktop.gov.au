@@ -11,7 +11,6 @@ items="./blueprint/security/hybrid-incident-response-plan
 ./blueprint/security/hybrid-security-risk-management-plan
 ./blueprint/security/hybrid-system-security-plan
 ./blueprint/security/hybrid-standard-operating-procedures
-./blueprint/security/hybrid-continuous-monitoring-plan
 ./blueprint/security/incident-response-plan
 ./blueprint/security/security-risk-management-plan
 ./blueprint/security/system-security-plan

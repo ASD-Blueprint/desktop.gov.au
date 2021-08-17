@@ -269,7 +269,7 @@ menu: abac
   * Applications: `None`
   * Licenses: `None`
   * Azure role assignment: `None`
-* Group Name: `Microsoft365_Grant_CreateGroups`
+* Group Name: `rol-AgencyName-o365groupcreators`
   * Membership type: `Assigned`
   * Source: `Cloud`
   * Type: `Security`
@@ -279,6 +279,40 @@ menu: abac
   * Applications: `None`
   * Licenses: `None`
   * Azure role assignment: `None`
+
+### Delegate Office 365 Group Creation
+
+Delegation of 365 Group creation is set through [Azure AD (preview module) PowerShell for Graph](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). For reference see [manage creation of groups](https://docs.microsoft.com/en-us/microsoft-365/solutions/manage-creation-of-groups?view=o365-worldwide).
+
+```powershell
+$GroupName = "rol-<AgencyName>-o365groupcreator"
+$AllowGroupCreation = $False
+
+Connect-AzureAD
+
+$settingsObjectID = (Get-AzureADDirectorySetting | Where-object -Property Displayname -Value "Group.Unified" -EQ).id
+if(!$settingsObjectID)
+{
+    $template = Get-AzureADDirectorySettingTemplate | Where-object {$_.displayname -eq "group.unified"}
+    $settingsCopy = $template.CreateDirectorySetting()
+    New-AzureADDirectorySetting -DirectorySetting $settingsCopy
+    $settingsObjectID = (Get-AzureADDirectorySetting | Where-object -Property Displayname -Value "Group.Unified" -EQ).id
+}
+
+$settingsCopy = Get-AzureADDirectorySetting -Id $settingsObjectID
+$settingsCopy["EnableGroupCreation"] = $AllowGroupCreation
+
+if($GroupName)
+{
+  $settingsCopy["GroupCreationAllowedGroupId"] = (Get-AzureADGroup -SearchString $GroupName).objectid
+}
+ else {
+$settingsCopy["GroupCreationAllowedGroupId"] = $GroupName
+}
+Set-AzureADDirectorySetting -Id $settingsObjectID -DirectorySetting $settingsCopy
+
+(Get-AzureADDirectorySetting -Id $settingsObjectID).Values
+```
 
 ### Emergency access admin accounts
 

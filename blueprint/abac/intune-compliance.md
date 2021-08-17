@@ -17,8 +17,8 @@ The following Microsoft Endpoint Manager - Intune (Intune) applications can be f
     * Require Secure Boot to be enabled on the device: `Require`
     * Require code integrity: `Require`
   * Device Properties
-    * Minimum OS version: `10.0.18362.10000`
-    * Minimum OS version for mobile devices: `10.0.18362.10000`
+    * Minimum OS version: `10.0.19042.10000`
+    * Minimum OS version for mobile devices: `10.0.19042.10000`
   * System Security
     * Require a password to unlock mobile devices: `Not configured`
     * Simple passwords: `Block`

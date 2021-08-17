@@ -44,7 +44,7 @@ Office 365 Region Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Office 365 Region | Australia | Aligns with ACSC guidance of utilising cloud services located in Australia . 
+Office 365 Region | Australia | Aligns with ACSC guidance of utilising cloud services located in Australia.
 
 ### Licence
 
@@ -127,7 +127,7 @@ Services and Add-ins Design Decisions for all agencies and implementation types.
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Azure Speech Services | Disabled | Enabling the organization-wide language model allows Azure speech service to gather data from emails and other locations to improve M365 applications that use Azure Speech Services. There is no requirement for text to speech in the blueprint and should be evaluated further if there is an agency requirement. 
-Bookings | Disabled | Exposes a public web page that provides access to users calendars for 3rd parties. There is no requirement to enable the feature as other methods of collaboration are in use. 
+Bookings | Disabled | Exposes a public web page that provides access to user calendars for 3rd parties. There is no requirement to enable the feature as other methods of collaboration are in use. 
 Calendar | Disabled | External sharing is disabled to prevent potential data spills.
 Cortana | Disabled | To align with ACSC Windows 10 1909 hardening recommendations to disable Windows web results and Cortana, to limit the risk of accidental disclosure of sensitive information. 
 Microsoft Graph Data Connect | Enabled | API connectivity is required for solution management. 
@@ -150,7 +150,7 @@ Role Based Access Control (RBAC) defines what a user or administrator has access
 
 Privileged Identity Management (PIM) can be leveraged to enhance the RBAC model for Azure Active Directory role-based management access, and parts of other Microsoft services like Office 365 and Microsoft Endpoint Manager. PIM requests are made through the Azure portal for elevated access only when they are required, and access is expired after a specified period.
 
-PIM requires an Azure AD Premium P2 license which is included with Microsoft 365 E5 licensing or E5 Security Step-up licensing .
+PIM requires an Azure AD Premium P2 license which is included with Microsoft 365 E5 licensing or E5 Security Step-up licensing.
 
 The following Office 365 roles can be assigned via PIM:
 
@@ -171,8 +171,7 @@ The following Office 365 roles can be assigned via PIM:
 * Security administrator.
 * Security reader.
 
-Note, using PIM for the SharePoint administrator role, the Device administrator role, and roles trying to access the Microsoft Security and Compliance Center might experience delays of up to a few hours after activating the role, see [](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-roles) for further information. 
-
+Note, using PIM for the SharePoint administrator role, the Device administrator role, and roles trying to access the Microsoft Security and Compliance Center might experience delays of up to a few hours after activating the role, see [https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-roles](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-roles) for further information.
 
 Role Based and Access Control Design Decisions for all agencies and implementation types.
 
@@ -279,11 +278,11 @@ Enable split tunnelling connection for VPN users | Configured | Split tunnelling
 
 This section is only relevant for agencies implementing a hybrid solution that leverages an on-premises Exchange Server(s).
 
-Exchange Online can be used standalone (cloud only) or integrated with an on-premises Exchange Server(s) and Active Directory Domain Services, extending the organisations messaging farm in a hybrid configuration.
+Exchange Online can be used standalone (cloud only) or integrated with an on-premises Exchange Server(s) and Active Directory Domain Services, extending the organisation's messaging farm in a hybrid configuration.
 
 A Hybrid configuration provides administrators with added flexibility to transition users to the Cloud without isolating them from the on-premises resources. A Hybrid configuration can also assist with transport routing for compliance reasons (e.g. Govlink) when "centralized mail transport" is enabled. The [Edge Transport](https://docs.microsoft.com/en-us/exchange/edge-transport-servers) service may be deployed in scenarios where the agency does not wish to expose Hybrid mail servers directly to Exchange Online Protection.
 
-Agencies wishing to synchronise their existing on-premises Active Directory Domain Services for identity (hybrid identity) must maintain an on-premises Exchange server for recipient management purposes, this is because most of the user attributes cannot be managed from Exchange online due to directory synchronisation rules, for more information see [](https://docs.microsoft.com/en-us/exchange/decommission-on-premises-exchange).
+Agencies wishing to synchronise their existing on-premises Active Directory Domain Services for identity (hybrid identity) must maintain an on-premises Exchange server for recipient management purposes, this is because most of the user attributes cannot be managed from Exchange online due to directory synchronisation rules, for more information see [decommissioning on-premises Exchange servers](https://docs.microsoft.com/en-us/exchange/decommission-on-premises-exchange).
 
 Establishing a hybrid deployment requires an Exchange hybrid server that is supported with your existing on-premises Exchange Server. Microsoft recommends the deployment of the newest Exchange Hybrid server for your environment to ensure the best compatibility with Exchange Online. 
 
@@ -416,9 +415,9 @@ SPF, DKIM, & DMARC Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-SPF | Configured | Configuration of SPF record(s) are required as a baseline for the deployment and are configured to "hard fail" as per ACSC recommendations.<br />The SPF record(s) are configured for all such authorised senders for that domain, including the Office 365 SPF sender address (spf.protection.outlook.com) if applicable to ensure mail sent from Exchange Online passes SPF. <br />SPF record(s) are to be configured by the DNS provider that that Agency consumes. 
-DKIM | Configured | DKIM is a public/private key signing process used to verify the content of an email.<br>DKIM signing is enabled on emails originating from an organisation's domains as per ACSC recommendations.<br />DKIM is either enabled on the Agency mail gateway solution (hybrid) or within Office 365 (cloud native). 
-DMARC | Configured | One DMARC policy is to be configured per Agency domain as per ACSC recommendations. This is to be configured at the gateway that the Agency consumes.<br>DMARC records are configured for all domains such that emails are rejected if they fail SPF or DKIM checks. 
+SPF | Configured | Configuration of SPF record(s) are required as a baseline for the deployment and are configured to "hard fail" as per ACSC recommendations. The SPF record(s) are configured for all such authorised senders for that domain, including the Office 365 SPF sender address (spf.protection.outlook.com) if applicable to ensure mail sent from Exchange Online passes SPF. SPF record(s) are to be configured by the DNS provider that that Agency consumes. 
+DKIM | Configured | DKIM is a public/private key signing process used to verify the content of an email. DKIM signing is enabled on emails originating from an organisation's domains as per ACSC recommendations. DKIM is either enabled on the Agency mail gateway solution (hybrid) or within Office 365 (cloud native).
+DMARC | Configured | One DMARC policy is to be configured per Agency domain as per ACSC recommendations. This is to be configured at the gateway that the Agency consumes. DMARC records are configured for all domains such that emails are rejected if they fail SPF or DKIM checks. 
 
 ### Accepted domains
 

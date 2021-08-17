@@ -192,7 +192,7 @@ Agency.gov.au | `10` | `Agency-gov-au.mail.protection.outlook.com`
 
 Table 5 describes the SPF and DMARC records configuration settings.
 
-Please note, SPF and DMARC DNS records are configured through the user's DNS provider. DMARC is required for outbound email when using custom Agency domain in Office 365. DMARC for inbound mail is provided through Exchange Online Protection when MX record is not pointed to a third-party, for more information see [setup DMARC for inbound email](https://docs.microsoft.com/en-us/microsoft-365/security/office-365-security/use-dmarc-to-validate-email?view=o365-worldwide#set-up-dmarc-for-inbound-mail).
+Please note: SPF and DMARC DNS records are configured through the agency's DNS provider. DMARC is required for outbound email when using custom Agency domain in Office 365. DMARC for inbound mail is provided through Exchange Online Protection when MX record is not pointed to a third-party, for more information see [setup DMARC for inbound email](https://docs.microsoft.com/en-us/microsoft-365/security/office-365-security/use-dmarc-to-validate-email?view=o365-worldwide#set-up-dmarc-for-inbound-mail).
 
 Domain | SPF Record | DMARC Record 
 --- | --- | ---
@@ -202,7 +202,7 @@ Agency.gov.au | `"v=spf1 include:spf.protection.outlook.com -all"` | `"v=DMARC1;
 
 Table 6 describes the DKIM records configuration settings. 
 
-Please note, DKIM DNS selector records are configured through the user's DNS provider. This configuration assumes DKIM signing is handled by Exchange Online Protection and not a third-party selector.
+Please note: DKIM DNS selector records are configured through the agency's DNS provider. This configuration assumes DKIM signing is handled by Exchange Online Protection and not a third-party selector.
 
 | Type  | Domain        | Host name               | TTL      | Points to address or value                                   |
 | ----- | ------------- | ----------------------- | -------- | ------------------------------------------------------------ |

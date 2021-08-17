@@ -202,7 +202,7 @@ Agency.gov.au | 10 | `<agency mx provider>`
 
 Table 11 describes the SPF records have been configured.
 
-Please note, SPF and DMARC DNS records are configured through the user's DNS provider. DMARC and SPF and DMARC configuration is specific to the gateway provider and also any additional SPF senders that may be required in a Hybrid configuration. DMARC configuration below is included as an example.
+Please note: SPF and DMARC DNS records are configured through the agency's DNS provider. DMARC and SPF configuration is unique to an agency's needs so please ensure you collect all relevant parts. The following configuration are included as examples.
 
 Domain | SPF Record | DMARC Policy
 --- | --- | ---
@@ -213,7 +213,7 @@ Agency.gov.au | Specific to gateway provider | `"v=DMARC1; p=reject; pct=100; ru
 
 Table 12 describes the DKIM records configuration settings. 
 
-Please note, DKIM DNS selector records are configured through the user's DNS provider. This configuration assumes DKIM signing is handled by Exchange Online Protection and not a third-party selector. 
+Please note: DKIM DNS selector records are configured through the agency's DNS provider. This configuration assumes DKIM signing is handled by Exchange Online Protection and not a third-party selector. 
 
 | Type  | Domain        | Host name               | TTL      | Points to address or value                                   |
 | ----- | ------------- | ----------------------- | -------- | ------------------------------------------------------------ |
@@ -222,9 +222,9 @@ Please note, DKIM DNS selector records are configured through the user's DNS pro
 
 ### DNS records
 
-Table 12 describes the DNS record settings for Agency.gov.au (default). 
+Table 13 describes the DNS record settings for Agency.gov.au (default). 
 
-Note, The Autodiscover service external DNS entry is specific to the Hybrid implementation of the Agency. If all mailboxes have been migrated to Office 365 within a Hybrid configuration then this can be pointed as an alias to the Office 365 Autodiscover service using `autodiscover.outlook.com`.
+Note: the Autodiscover service external DNS entry is specific to the Hybrid implementation of the Agency. If all mailboxes have been migrated to Office 365 within a Hybrid configuration then this can be pointed as an alias to the Office 365 Autodiscover service using `autodiscover.outlook.com`.
 
 Type | Priority | Host name | Points to address or value | TTL
 --- | --- | --- | --- | ---
@@ -236,7 +236,7 @@ CNAME | - | Autodiscover.Agency.gov.au Domain | Specific to hybrid implementatio
 
 `Exchange Admin Centre > mail flow > Accepted domains`
 
-Table 13 describes the Accepted Domains settings.
+Table 14 describes the Accepted Domains settings.
 
 Name | Accepted Domain | Domain Type
 --- | --- | ---
@@ -246,7 +246,7 @@ Agency.mail.onmicrosoft.com | Agency.mail.onmicrosoft.com | Authoritative
 
 ### Remote domains
 
-Table 14 describes the Remote Domains have been configured.
+Table 15 describes the Remote Domains have been configured.
 
 Item | Configuration
 --- | ---
@@ -269,7 +269,7 @@ Non-MIME character set | None
 
 ### CAS mailbox plan
 
-Table 15 describes the CAS Mailbox Plans that have been configured. These settings have been configured with PowerShell.
+Table 16 describes the CAS Mailbox Plans that have been configured. These settings have been configured with PowerShell.
 
 Item | Configuration
 --- | ---

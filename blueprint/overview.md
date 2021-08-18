@@ -163,6 +163,22 @@ Collaboration is initially controlled by lists of allowed domains. Individual us
 
 This blueprint does not include design information for a Secure Internet Gateway (SIG). A SIG is listed as a requirement in the Protective Security Policy Framework (PSPF) [Robust ICT Systems](https://www.protectivesecurity.gov.au/information/robust-ict-systems/Pages/default.aspx). 
 
+### Secure system administration
+
+Most hybrid agencies should already have a secure administration model with set of policies and procedures. For example, this may include privileged access workstations (PAW) and jump host (sometimes referred to as bastion host, jump box or jump server) environments that provide a secure and resilient boundary for the administration of critical assets.
+
+Cloud native environments usually do not have a jump host environment or PAW. However, such a solution could be hosted within M365/Azure utilising components of the blueprint to provide a secure administration environment for the agency.
+
+PAW and jump host solutions for cloud native may comprise of:
+
+* **Separate credentials** are provided for non-privileged and privileged duties
+* **Hardened PAW** (Windows operating system) enrolled into Intune and coupled with conditional access polices to provide a zero trust entry point into the associated cloud apps to administer. Local administrative privileges should be restricted on the PAW, it is used to access the jump server solution or direct access to cloud admin portals
+* **Web filtering system** to restrict privileged accounts to the set of agency approved admin portals only. This product could be a risk assessed cloud platform or built as an infrastructure as a service server. The web filtering solution should be mandatory on the jump host or PAWs. [Tenant restrictions](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/tenant-restrictions) should be implemented to prevent misuse or data exfiltration to other Microsoft tenancies
+* **Virtual jump host** solution may be built leveraging Azure Virtual Desktop (AVD) session hosts, which seamlessly provides Multifactor Authentication (MFA) though Conditional Access policies. This jump host may be the trusted location where admin portals are used, as well as a secure place to administer other hybrid assets. Network security groups can be used to restrict management traffic flows to these jump hosts only
+* **Restriction of management traffic flows** limited to only critical assets should be implemented where possible. This could be achieved by utilising the Windows Defender native firewall functionality, web filtering, network security groups on cloud hosted jump hosts, and Conditional Access policies.
+
+Review the Australian Government Information Security Manual [(ISM) controls for systems management](https://www.cyber.gov.au/acsc/view-all-content/publications/secure-administration) to assist with implementing a secure administration model.
+
 ### Zero Trust security model
 
 "Zero Trust" is an IT security concept where the organisation does not automatically trust the user, the device they're on, or the network location they're connecting from.

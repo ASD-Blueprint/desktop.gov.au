@@ -112,9 +112,9 @@ Application Proxy | Not Configured | No requirement has been identified.
 Licences | Configured | Configured to assign Microsoft 365 licences to user groups. Ensures consistent configuration.
 Custom Domain Names | Configured | {agency}.onmicrosoft.com<br>{agency}.gov.au 
 Mobility (MDM and MAM) | Not Configured | Default settings.
-Company Branding | Configured | Agency specific logos will be required to provide a corporate look and feel. 
+Company Branding | Configured | Agency specific logos will be required to provide a corporate look and feel.<br />The Agency specific logon banner text is provided under the "Sign-in page text" area of company branding to remind users of their security responsibilities. 
 
-Additional Azure AD Design Decisions for cloud native implementations
+Additional Azure AD Design Decisions for cloud native implementations.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -123,7 +123,7 @@ Password Reset | Configured | For self-service password reset, users will need t
 Identity Format | Configured | Usernames will conform to firstname.lastname{sequence number}<br>Note: The sequence number is only required if duplicate names would be created.
 Display Name | Fistname Lastname | Agency's should avoid using the "Lastname, Firstname" format within the directory as this can cause display issues within Microsoft 365 applications. 
 
-Additional Azure AD Design Decisions for hybrid implementations
+Additional Azure AD Design Decisions for hybrid implementations.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -146,7 +146,13 @@ Management of Microsoft 365 Groups can be streamlined through the enforcement of
 * Prefix-Suffix Naming Policy – Setting of prefixes or suffixes for groups names. The prefixes/suffixes can be either fixed strings or user attributes; and
 * Custom Blocked Words – Blocking of words in the name based on a custom list.
 
-While naming policies for Office 365 groups can assist IT with group identification and organisation, this name displays within user applications with that name prefix (e.g the name of the Team in Teams), so it is important to pick something meaningful to the user. It is recommended to avoid using prefixes for this reason.
+While naming policies for Office 365 groups can assist IT with governance of group resources, this name displays within user applications (e.g the name of the Team in Teams) with that name prefix or suffix, so it is important to pick something meaningful to the user group to form the group name. 
+
+In order to create an effective Microsoft 365 group naming strategy, consider adopting a naming standard that assists users with identifying what the groups purpose of function is. Dynamic attributes such as the user's (who created the group) Department or Office locations attribute can be substituted, for example:
+
+- *<Team Name> - Human Resources Dept*
+
+- *Agency - <Project Name> - Sydney*.
 
 In conjunction with the Naming Policy, Microsoft 365 groups can also be given expiration dates. This assists with unused group clean-up activities. The expiration period commences on group creation and can be renewed at the end of the period (The owner or contact for groups with no owners has 30 days to renew the group). When a group expires, it is soft deleted for 30 days. Retention policies will however hold the data for the period of the retention policy. An expiration policy can be applied globally to all groups or to specific groups.
 
@@ -263,6 +269,7 @@ When a user attempts to access an application or system from any device, one or 
 * Application based - Application based Conditional Access policies provide the ability to allow or block an application based on policy configuration.
 * Risk based - Risk based Conditional Access protects corporate data from malicious hackers based on a user's Sign-In risk. The sign-in risk is an indicator for the likelihood (high, medium, or low) that a sign-in attempt was not performed by the legitimate owner of a user account. Azure AD calculates the sign-in risk level during the sign-in of a user.
 * Session based – Session based Conditional Access policies enables the control of user sessions by redirecting the user through a reverse proxy instead of directly to the app. From then on, user requests and responses go through Cloud App Security rather than directly to the app.
+* Terms of Use - Terms of Use policy presents the user a one-off company legal disclaimer in order to access the system through the use of Conditional Access. It's purpose is to enforce that users accept their security responsibilities before access is granted. Users are prompted to accept the policy on first use, or after the policy has changed - their acceptance is recorded in Azure AD. As the Terms of Use is presented only once, the Agencies "Logon Banner" text should be presented on the desktop and Azure AD portal branding in addition to the Terms of Use.
 
 Based on the above conditions, the user will either be allowed, prompted for multi-factor authentication, or blocked.
 
@@ -272,19 +279,19 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Conditional Access Enabled| Device Based | To meet security and business requirements. This allows only approved and agency issued devices access to the Agency's resources. Agencies should avoid using Trusted IPs where possible and leverage Intune compliance. Compliance status is reported back to Azure AD and is evaluated with Conditional Access. 
 
-Additional Conditional Access Design Decisions for hybrid implementations.
+Conditional Access Policy Design Decisions for all agencies and implementation types.
 
 Configuration | Description
 --- | ---
 BLOCK - Legacy Authentication | This global policy blocks all connections from insecure legacy protocols like ActiveSync, IMAP, POP3, etc.
 BLOCK - High-Risk Sign-Ins | This global policy blocks all high-risk authentications (requires Azure AD Premium P2).
 BLOCK - Countries not Allowed | This global policy blocks all connections from countries not in the Allowed countries list.
-GRANT - Terms of Use | This global policy forces Terms of Use on all authentications.
+GRANT - Terms of Use | This global policy forces Terms of Use on all authentications. Terms of Use is a one-off acceptance, it is used for users to accept their security responsibilities before access is granted. 
 GRANT - Browser Access | General browser access policy that grants authentication from a browser on any device with MFA requirement.
 SESSION - Block Unmanaged Browser File Downloads | Browsers on unmanaged devices can never download files and attachments from SharePoint Online and Exchange Online.
 GRANT - Intune Enrolment | Devices can authenticate to Intune for enrolment.
 GRANT - Mobile Device Access | Grants access to managed mobile devices that are enrolled and compliant in Intune. An approved Microsoft app is required.
-GRANT - Windows Device Access | Grants access to managed Windows devices that are Hybrid Azure AD Joined (joined to on-prem AD and Azure AD).
+GRANT - Windows Device Access | Grants access to managed Windows devices that are Intune enrolled, and or Hybrid Azure AD Joined (joined to an on-premises AD and Azure AD).<br />Note, Hybrid Azure AD join only applies to Hybrid implementation types. 
 GRANT - Guest Access (B2B) | Approved apps that guest users can access (requires MFA).
 BLOCK - Guest Access (B2B) | Blocked apps that guest users can never access.
 

@@ -46,15 +46,20 @@ menu: abac
 
 * Guest user access: `Guest users have limited access to properties and memberships of directory objects`
 * Guest invite settings
-  * Admins and users in the guest inviter role can invite: `Yes`
-  * Members can invite: `No`
+  * Guest invite restrictions:
+    * Only users assigned to specific admin roles can invite guest users : `Checked`
+    * Enable guest self-service sign up via user flows: `No`
   * Guests can invite: `No`
   * Enable guest self-service sign up via user flows: `No`
-* Enable Email One-time passcode for guests: `Disable email one-time passcode for guests`
 * Collaboration restrictions
   * Allow invitations only to the specified domains (most restrictive): `Selected`
   * Target domains:
     * `<Agency>.gov.au`
+
+`Azure Active Directory > External Identities > Configured identity providers `
+
+* Email one-time passcode for guests:
+  * Enable email one-time passcode for guests effective now: `Checked`
 
 `Azure Active Directory > Groups > General`
 
@@ -87,7 +92,7 @@ menu: abac
   * Sign-in Page background image (1920x1080px):	Generic Australian Government Background
   * Banner logo (280x60px): Generic Australian Government Logo
   * Username hint: `user@agency.gov.au`
-  * Sign-in page text: -  
+  * Sign-in page text: - `<Insert Agency Logon Banner/dislaimer warning message>`  
     Note: User terms are configured using Conditional Access Policies.
   * Sign-in page background color: -
   * Square logo image (240x240px): Generic Australian Government Logo
@@ -154,7 +159,7 @@ menu: abac
 
 `Search > Azure Active Directory > Groups > Naming policy`
 
-* Group naming policy: `Grp-<Department>-<Group name>`
+* Group naming policy: `Agency to define`
 
 `Search > Azure Active Directory > Groups > Expiration`
 
@@ -166,7 +171,7 @@ menu: abac
 
 * Group Name: `ADMIN_O365_Admin`
   * Membership type: `Assigned`
-  * Source: `Windows server AD`
+  * Source: `Cloud`
   * Type: `Security`
   * Members: `Admin accounts`
   * Owners: `None`
@@ -176,7 +181,7 @@ menu: abac
   * Azure role assignment: `None`
 * Group Name: `ADMIN_O365_DCA_Accounts`
   * Membership type: `Assigned`
-  * Source: `Windows server AD`
+  * Source: `Cloud`
   * Type: `Security`
   * Members: `Admin accounts`
   * Owners: `None`
@@ -186,7 +191,7 @@ menu: abac
   * Azure role assignment: `None`
 * Group Name: `ADMIN_O365_GlobalAdmins`
   * Membership type: `Assigned`
-  * Source: `Windows server AD`
+  * Source: `Cloud`
   * Type: `Security`
   * Members: `Admin accounts`
   * Owners: `None`
@@ -253,11 +258,8 @@ menu: abac
   * Type: `Security`
   * Members
     * Break Glass account
-      * TenantAdmin
-      * TenantAdmin2
-    * AAD Connect Synchronization accounts
-      * `Sync_<AAD Server 1>_<account GUID>`
-      * `Sync_<AAD Server 2>_<account GUID>`
+      * break.glass_priv1
+      * break.glass_priv2
   * Owners: `None`
   * Group membership: `None`
   * Applications: `None`
@@ -323,7 +325,7 @@ Set-AzureADDirectorySetting -Id $settingsObjectID -DirectorySetting $settingsCop
 `Azure Active Directory > Users > Break Glass > Profile`
 
 * Name: `Break Glass`
-* User Principal Name: `break.glass_priv@<Tenant Name>.onmicrosoft.com`
+* User Principal Name: `break.glass_priv<number>@<Tenant Name>.onmicrosoft.com`
 * User Type: `Member`
 
 `Azure Active Directory > Users > Break Glass > Assigned roles`
@@ -336,55 +338,1190 @@ Set-AzureADDirectorySetting -Id $settingsObjectID -DirectorySetting $settingsCop
 
 `Azure Active Directory > Users > Break Glass > Licenses`
 
-* Products: `Microsoft 365 E5`
+* Products: `None`
 * Assignment Paths: `Inherited (rol-Agency-Administrators)`
 
-### Azure Active Directory identity protection
+### Azure Active Directory Identity Protection
 
-`Azure Active Directory > Security > Identity Protection > Sign-in risk policy`
+`Azure Active Directory > Security > Identity Protection > MFA registration policy`
 
-* Policy Name: `Sign-in risk remediation policy`
-  * Assignments
-    * Users
-      * Include: `All users`
-      * Exclude: `Break Glass`
-    * Sign-in risk: `Medium and above`
-  * Controls
-    * Select the controls to be enforced: `Allow access`
-    * Require multi-factor authentication: `Checked`
-  * Enforce policy: `On`
+* Policy name: `Multi-factor authentication registration policy`
 
-`Azure Active Directory > Security > Identity Protection > User risk policy`
+`Azure Active Directory > Security > Identity Protection > MFA registration policy > Assignments`
 
-* Policy Name: `User risk remediation policy`
-  * Assignments
-    * Users
-      * Include: `All users`
-      * Exclude: -
-    * Sign-in risk: `Medium and above`
-  * Controls
-    * Select the controls to be enforced: `Allow access`
-    * Require password change: `Checked`
-  * Enforce policy: `On`
+* Users: `Included:  All Users`
+* Excluded: `Office365_Conditional_Access_Exclude`
+
+`Azure Active Directory > Security > Identity Protection > MFA registration policy > Controls`
+
+* Access: `Require Azure MFA registration`
+* Enforce Policy: `On`
+
+`Azure Active Directory > Security > Identity Protection > Sign-in Risk policy`
+
+* Include users: `All users`
+* Exclude users
+
+```
+Break glass accounts
+break.glass_priv1@<Agency>.onmicrosoft.com
+break.glass_priv2@<Agency>.onmicrosoft.com
+```
+
+* Sign-in risk settings: `Medium and above`
+* Access: `Allow access (Require MFA)`
+* Enforce policy: `On`
+
+`Azure Active Directory > Security > Identity Protection > User Risk Policy`
+
+* Include users: `All users`
+* Exclude users
+
+```
+Break glass accounts
+reak.glass_priv@<Agency>.onmicrosoft.com
+```
+
+* User risk setting: `Medium and above`
+* Access: `Allow access (with require password change selected)`
+* Enforce policy: `On`
 
 ### Azure Active Directory multifactor authentication
 
-`Multi-Factor Authentication > Fraud alert`
-
-* Allow users to submit fraud alerts: `On`
-* Automatically block users who report fraud: `On`
-* Code to report fraud during initial greeting: `0`
-
-`Multi-Factor Authentication > Getting started > Configure additional cloud-based MFA settings`
+`Azure Active Directory > Security > Multi-Factor Authentication > Getting started > Configure additional cloud-based MFA settings`
 
 * App passwords: `Do not allow users to create app passwords to sign in to non-browser apps`
 * Trusted IPs: `Not configured`
 * Verification options: `Notification through mobile app`, `Verification code from mobile app or hardware token`
 * Remember multi-factor authentication: `Not configured`
 
+`Azure Active Directory > Security > Multi-Factor Authentication > Fraud alert`
+
+* Allow users to submit fraud alerts: `On`
+* Automatically block users who report fraud: `On`
+* Code to report fraud during initial greeting: `0`
+
+## Privileged identity management
+
+### Authentication administrator
+
+`Azure AD Privileged Identity Management > Azure AD roles > Roles > Authentication Administrator > Role settings`
+
+* Activation
+  * Activation maximum duration: `10 hours`
+  * On activation, require: `Azure MFA`
+  * Require justification on activation: `Checked`
+  * Require ticket information on activation: `Not checked`
+  * Require approval to activate: `Not checked`
+  * Select approvers(s):
+    * Members: None
+    * Groups: None 
+    * If no specific approvers are selected, privileged role administrators/global administrators will become the default approvers.
+* Assignment
+  * Allow permanent eligible assignment: `Not checked`
+  * Expire eligible assignments after: `6 month(s)`
+  * Allow permanent active assignment: `Not checked`
+  * Expire active assignments after: `1 month(s)`
+  * Require Azure Multi-Factor Authentication on active assignment: `Checked`
+  * Require justification on active assignment: `Checked`
+* Notification
+  * Send notifications when members are assigned as eligible to this role
+    * Role assignment alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to the assigned user (assignee)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve a role assignment renewal/extension
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+  * Send notifications when members are assigned as active to this role:
+    * Role assignment alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to the assigned user (assignee)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve a role assignment renewal/extension
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+  * Send notifications when eligible members activate this role:
+    * Role activation alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to activated user (requestor)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve an activation
+      * Default recipients: `Checked`
+      * Additional recipients: `Only designated approvers can receive this email`
+      * Critical emails only: `Not checked`
+
+### Azure information protection administrator
+
+`Azure AD Privileged Identity Management > Azure AD roles > Roles > Azure Information Protection Administrator > Role settings`
+
+* Activation
+  * Activation maximum duration: `10 hours`
+  * On activation, require: `Azure MFA`
+  * Require justification on activation: `Checked`
+  * Require ticket information on activation: `Not checked`
+  * Require approval to activate: `Not checked`
+  * Select approvers(s):
+    * Members: None
+    * Groups: None 
+    * If no specific approvers are selected, privileged role administrators/global administrators will become the default approvers.
+* Assignment
+  * Allow permanent eligible assignment: `Checked`
+  * Expire eligible assignments after: `Not configured`
+  * Allow permanent active assignment: `Checked`
+  * Expire active assignments after: `Not configured`
+  * Require Azure Multi-Factor Authentication on active assignment: `Not checked`
+  * Require justification on active assignment: `Checked`
+* Notification
+  * Send notifications when members are assigned as eligible to this role
+    * Role assignment alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to the assigned user (assignee)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve a role assignment renewal/extension
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+  * Send notifications when members are assigned as active to this role:
+    * Role assignment alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to the assigned user (assignee)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve a role assignment renewal/extension
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+  * Send notifications when eligible members activate this role:
+    * Role activation alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to activated user (requestor)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve an activation
+      * Default recipients: `Checked`
+      * Additional recipients: `Only designated approvers can receive this email`
+      * Critical emails only: `Not checked`
+
+### Global administrator
+
+`Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Global Administrator > Role Settings`
+
+* Activation
+  * Activation maximum duration: `10 hours`
+  * On activation, require: `Azure MFA`
+  * Require justification on activation: `Checked`
+  * Require ticket information on activation: `Not checked`
+  * Require approval to activate: `Checked`
+  * Select approvers(s):
+    * Members: None
+    * Groups: None 
+    * If no specific approvers are selected, privileged role administrators/global administrators will become the default approvers.
+* Assignment
+  * Allow permanent eligible assignment: `Checked`
+  * Expire eligible assignments after: `Not configured`
+  * Allow permanent active assignment: `Checked`
+  * Expire active assignments after: `Not configured`
+  * Require Azure Multi-Factor Authentication on active assignment: `Checked`
+  * Require justification on active assignment: `Checked`
+* Notification
+  * Send notifications when members are assigned as eligible to this role
+    * Role assignment alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to the assigned user (assignee)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve a role assignment renewal/extension
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+  * Send notifications when members are assigned as active to this role:
+    * Role assignment alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to the assigned user (assignee)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve a role assignment renewal/extension
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+  * Send notifications when eligible members activate this role:
+    * Role activation alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to activated user (requestor)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve an activation
+      * Default recipients: `Checked`
+      * Additional recipients: `Only designated approvers can receive this email`
+      * Critical emails only: `Not checked`
+
+### Exchange administrator
+
+`Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Exchange Administrator > Role Settings`
+
+* Activation
+  * Activation maximum duration: `10 hours`
+  * On activation, require: `Azure MFA`
+  * Require justification on activation: `Checked`
+  * Require ticket information on activation: `Not checked`
+  * Require approval to activate: `Not checked`
+  * Select approvers(s):
+    * Members: None
+    * Groups: None 
+    * If no specific approvers are selected, privileged role administrators/global administrators will become the default approvers.
+* Assignment
+  * Allow permanent eligible assignment: `Checked`
+  * Expire eligible assignments after: `Not configured`
+  * Allow permanent active assignment: `Checked`
+  * Expire active assignments after: `Not configured`
+  * Require Azure Multi-Factor Authentication on active assignment: `Not checked`
+  * Require justification on active assignment: `Checked`
+* Notification
+  * Send notifications when members are assigned as eligible to this role
+    * Role assignment alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to the assigned user (assignee)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve a role assignment renewal/extension
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+  * Send notifications when members are assigned as active to this role:
+    * Role assignment alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to the assigned user (assignee)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve a role assignment renewal/extension
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+  * Send notifications when eligible members activate this role:
+    * Role activation alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to activated user (requestor)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve an activation
+      * Default recipients: `Checked`
+      * Additional recipients: `Only designated approvers can receive this email`
+      * Critical emails only: `Not checked`
+
+### Helpdesk administrator
+
+`Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Helpdesk Administrator > Role Settings`
+
+* Activation
+  * Activation maximum duration: `10 hours`
+  * On activation, require: `Azure MFA`
+  * Require justification on activation: `Checked`
+  * Require ticket information on activation: `Not checked`
+  * Require approval to activate: `Not checked`
+  * Select approvers(s):
+    * Members: None
+    * Groups: None 
+    * If no specific approvers are selected, privileged role administrators/global administrators will become the default approvers.
+* Assignment
+  * Allow permanent eligible assignment: `Checked`
+  * Expire eligible assignments after: `Not configured`
+  * Allow permanent active assignment: `Checked`
+  * Expire active assignments after: `Not configured`
+  * Require Azure Multi-Factor Authentication on active assignment: `Not checked`
+  * Require justification on active assignment: `Checked`
+* Notification
+  * Send notifications when members are assigned as eligible to this role
+    * Role assignment alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to the assigned user (assignee)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve a role assignment renewal/extension
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+  * Send notifications when members are assigned as active to this role:
+    * Role assignment alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to the assigned user (assignee)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve a role assignment renewal/extension
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+  * Send notifications when eligible members activate this role:
+    * Role activation alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to activated user (requestor)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve an activation
+      * Default recipients: `Checked`
+      * Additional recipients: `Only designated approvers can receive this email`
+      * Critical emails only: `Not checked`
+
+### Intune administrator
+
+`Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Intune Administrator > Role Settings`
+
+* Activation
+  * Activation maximum duration: `10 hours`
+  * On activation, require: `Azure MFA`
+  * Require justification on activation: `Checked`
+  * Require ticket information on activation: `Not checked`
+  * Require approval to activate: `Not checked`
+  * Select approvers(s):
+    * Members: None
+    * Groups: None 
+    * If no specific approvers are selected, privileged role administrators/global administrators will become the default approvers.
+* Assignment
+  * Allow permanent eligible assignment: `Checked`
+  * Expire eligible assignments after: `Not configured`
+  * Allow permanent active assignment: `Checked`
+  * Expire active assignments after: `Not configured`
+  * Require Azure Multi-Factor Authentication on active assignment: `Not checked`
+  * Require justification on active assignment: `Checked`
+* Notification
+  * Send notifications when members are assigned as eligible to this role
+    * Role assignment alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to the assigned user (assignee)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve a role assignment renewal/extension
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+  * Send notifications when members are assigned as active to this role:
+    * Role assignment alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to the assigned user (assignee)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve a role assignment renewal/extension
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+  * Send notifications when eligible members activate this role:
+    * Role activation alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to activated user (requestor)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve an activation
+      * Default recipients: `Checked`
+      * Additional recipients: `Only designated approvers can receive this email`
+      * Critical emails only: `Not checked`
+
+### Office Apps administrator
+
+`Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Office Apps Administrator > Role Settings`
+
+* Activation
+  * Activation maximum duration: `10 hours`
+  * On activation, require: `Azure MFA`
+  * Require justification on activation: `Checked`
+  * Require ticket information on activation: `Not checked`
+  * Require approval to activate: `Not checked`
+  * Select approvers(s):
+    * Members: None
+    * Groups: None 
+    * If no specific approvers are selected, privileged role administrators/global administrators will become the default approvers.
+* Assignment
+  * Allow permanent eligible assignment: `Checked`
+  * Expire eligible assignments after: `Not configured`
+  * Allow permanent active assignment: `Checked`
+  * Expire active assignments after: `Not configured`
+  * Require Azure Multi-Factor Authentication on active assignment: `Not checked`
+  * Require justification on active assignment: `Checked`
+* Notification
+  * Send notifications when members are assigned as eligible to this role
+    * Role assignment alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to the assigned user (assignee)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve a role assignment renewal/extension
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+  * Send notifications when members are assigned as active to this role:
+    * Role assignment alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to the assigned user (assignee)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve a role assignment renewal/extension
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+  * Send notifications when eligible members activate this role:
+    * Role activation alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to activated user (requestor)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve an activation
+      * Default recipients: `Checked`
+      * Additional recipients: `Only designated approvers can receive this email`
+      * Critical emails only: `Not checked`
+
+### Power BI administrator
+
+`Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Power BI Administrator > Role Settings`
+
+* Activation
+  * Activation maximum duration: `10 hours`
+  * On activation, require: `Azure MFA`
+  * Require justification on activation: `Checked`
+  * Require ticket information on activation: `Not checked`
+  * Require approval to activate: `Not checked`
+  * Select approvers(s):
+    * Members: None
+    * Groups: None 
+    * If no specific approvers are selected, privileged role administrators/global administrators will become the default approvers.
+* Assignment
+  * Allow permanent eligible assignment: `Checked`
+  * Expire eligible assignments after: `Not configured`
+  * Allow permanent active assignment: `Checked`
+  * Expire active assignments after: `Not configured`
+  * Require Azure Multi-Factor Authentication on active assignment: `Not checked`
+  * Require justification on active assignment: `Checked`
+* Notification
+  * Send notifications when members are assigned as eligible to this role
+    * Role assignment alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to the assigned user (assignee)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve a role assignment renewal/extension
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+  * Send notifications when members are assigned as active to this role:
+    * Role assignment alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to the assigned user (assignee)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve a role assignment renewal/extension
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+  * Send notifications when eligible members activate this role:
+    * Role activation alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to activated user (requestor)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve an activation
+      * Default recipients: `Checked`
+      * Additional recipients: `Only designated approvers can receive this email`
+      * Critical emails only: `Not checked`
+
+### Power Platform administrator
+
+`Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Power Platform Administrator > Role Settings`
+
+* Activation
+  * Activation maximum duration: `10 hours`
+  * On activation, require: `Azure MFA`
+  * Require justification on activation: `Checked`
+  * Require ticket information on activation: `Not checked`
+  * Require approval to activate: `Not checked`
+  * Select approvers(s):
+    * Members: None
+    * Groups: None 
+    * If no specific approvers are selected, privileged role administrators/global administrators will become the default approvers.
+* Assignment
+  * Allow permanent eligible assignment: `Checked`
+  * Expire eligible assignments after: `Not configured`
+  * Allow permanent active assignment: `Checked`
+  * Expire active assignments after: `Not configured`
+  * Require Azure Multi-Factor Authentication on active assignment: `Not checked`
+  * Require justification on active assignment: `Checked`
+* Notification
+  * Send notifications when members are assigned as eligible to this role
+    * Role assignment alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to the assigned user (assignee)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve a role assignment renewal/extension
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+  * Send notifications when members are assigned as active to this role:
+    * Role assignment alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to the assigned user (assignee)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve a role assignment renewal/extension
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+  * Send notifications when eligible members activate this role:
+    * Role activation alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to activated user (requestor)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve an activation
+      * Default recipients: `Checked`
+      * Additional recipients: `Only designated approvers can receive this email`
+      * Critical emails only: `Not checked`
+
+### Privileged role administrator
+
+`Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Provileged Role Administrator > Role Settings`
+
+* Activation
+  * Activation maximum duration: `10 hours`
+  * On activation, require: `Azure MFA`
+  * Require justification on activation: `Checked`
+  * Require ticket information on activation: `Not checked`
+  * Require approval to activate: `Not checked`
+  * Select approvers(s):
+    * Members: None
+    * Groups: None 
+    * If no specific approvers are selected, privileged role administrators/global administrators will become the default approvers.
+* Assignment
+  * Allow permanent eligible assignment: `Checked`
+  * Expire eligible assignments after: `Not configured`
+  * Allow permanent active assignment: `Checked`
+  * Expire active assignments after: `Not configured`
+  * Require Azure Multi-Factor Authentication on active assignment: `Not checked`
+  * Require justification on active assignment: `Checked`
+* Notification
+  * Send notifications when members are assigned as eligible to this role
+    * Role assignment alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to the assigned user (assignee)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve a role assignment renewal/extension
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+  * Send notifications when members are assigned as active to this role:
+    * Role assignment alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to the assigned user (assignee)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve a role assignment renewal/extension
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+  * Send notifications when eligible members activate this role:
+    * Role activation alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to activated user (requestor)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve an activation
+      * Default recipients: `Checked`
+      * Additional recipients: `Only designated approvers can receive this email`
+      * Critical emails only: `Not checked`
+
+### Security administrator
+
+`Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Security Administrator > Role Settings`
+
+* Activation
+  * Activation maximum duration: `10 hours`
+  * On activation, require: `Azure MFA`
+  * Require justification on activation: `Checked`
+  * Require ticket information on activation: `Not checked`
+  * Require approval to activate: `Not checked`
+  * Select approvers(s):
+    * Members: None
+    * Groups: None 
+    * If no specific approvers are selected, privileged role administrators/global administrators will become the default approvers.
+* Assignment
+  * Allow permanent eligible assignment: `Checked`
+  * Expire eligible assignments after: `Not configured`
+  * Allow permanent active assignment: `Checked`
+  * Expire active assignments after: `Not configured`
+  * Require Azure Multi-Factor Authentication on active assignment: `Not checked`
+  * Require justification on active assignment: `Checked`
+* Notification
+  * Send notifications when members are assigned as eligible to this role
+    * Role assignment alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to the assigned user (assignee)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve a role assignment renewal/extension
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+  * Send notifications when members are assigned as active to this role:
+    * Role assignment alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to the assigned user (assignee)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve a role assignment renewal/extension
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+  * Send notifications when eligible members activate this role:
+    * Role activation alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to activated user (requestor)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve an activation
+      * Default recipients: `Checked`
+      * Additional recipients: `Only designated approvers can receive this email`
+      * Critical emails only: `Not checked`
+
+### Security Operator
+
+`Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Security Operator > Role Settings`
+
+* Activation
+  * Activation maximum duration: `10 hours`
+  * On activation, require: `Azure MFA`
+  * Require justification on activation: `Checked`
+  * Require ticket information on activation: `Not checked`
+  * Require approval to activate: `Not checked`
+  * Select approvers(s):
+    * Members: None
+    * Groups: None 
+    * If no specific approvers are selected, privileged role administrators/global administrators will become the default approvers.
+* Assignment
+  * Allow permanent eligible assignment: `Checked`
+  * Expire eligible assignments after: `Not configured`
+  * Allow permanent active assignment: `Checked`
+  * Expire active assignments after: `Not configured`
+  * Require Azure Multi-Factor Authentication on active assignment: `Not checked`
+  * Require justification on active assignment: `Checked`
+* Notification
+  * Send notifications when members are assigned as eligible to this role
+    * Role assignment alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to the assigned user (assignee)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve a role assignment renewal/extension
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+  * Send notifications when members are assigned as active to this role:
+    * Role assignment alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to the assigned user (assignee)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve a role assignment renewal/extension
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+  * Send notifications when eligible members activate this role:
+    * Role activation alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to activated user (requestor)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve an activation
+      * Default recipients: `Checked`
+      * Additional recipients: `Only designated approvers can receive this email`
+      * Critical emails only: `Not checked`
+
+### SharePoint administrator
+
+`Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > SharePoint Administrator > Role Settings`
+
+* Activation
+  * Activation maximum duration: `10 hours`
+  * On activation, require: `Azure MFA`
+  * Require justification on activation: `Checked`
+  * Require ticket information on activation: `Not checked`
+  * Require approval to activate: `Not checked`
+  * Select approvers(s):
+    * Members: None
+    * Groups: None 
+    * If no specific approvers are selected, privileged role administrators/global administrators will become the default approvers.
+* Assignment
+  * Allow permanent eligible assignment: `Checked`
+  * Expire eligible assignments after: `Not configured`
+  * Allow permanent active assignment: `Checked`
+  * Expire active assignments after: `Not configured`
+  * Require Azure Multi-Factor Authentication on active assignment: `Checked`
+  * Require justification on active assignment: `Checked`
+* Notification
+  * Send notifications when members are assigned as eligible to this role
+    * Role assignment alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to the assigned user (assignee)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve a role assignment renewal/extension
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+  * Send notifications when members are assigned as active to this role:
+    * Role assignment alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to the assigned user (assignee)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve a role assignment renewal/extension
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+  * Send notifications when eligible members activate this role:
+    * Role activation alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to activated user (requestor)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve an activation
+      * Default recipients: `Checked`
+      * Additional recipients: `Only designated approvers can receive this email`
+      * Critical emails only: `Not checked`
+
+### Teams communications administrator
+
+`Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Teams Communication Administrator > Role Settings`
+
+* Activation
+  * Activation maximum duration: `10 hours`
+  * On activation, require: `Azure MFA`
+  * Require justification on activation: `Checked`
+  * Require ticket information on activation: `Not checked`
+  * Require approval to activate: `Not checked`
+  * Select approvers(s):
+    * Members: None
+    * Groups: None 
+    * If no specific approvers are selected, privileged role administrators/global administrators will become the default approvers.
+* Assignment
+  * Allow permanent eligible assignment: `Checked`
+  * Expire eligible assignments after: `Not configured`
+  * Allow permanent active assignment: `Checked`
+  * Expire active assignments after: `Not configured`
+  * Require Azure Multi-Factor Authentication on active assignment: `Not checked`
+  * Require justification on active assignment: `Checked`
+* Notification
+  * Send notifications when members are assigned as eligible to this role
+    * Role assignment alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to the assigned user (assignee)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve a role assignment renewal/extension
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+  * Send notifications when members are assigned as active to this role:
+    * Role assignment alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to the assigned user (assignee)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve a role assignment renewal/extension
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+  * Send notifications when eligible members activate this role:
+    * Role activation alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to activated user (requestor)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve an activation
+      * Default recipients: `Checked`
+      * Additional recipients: `Only designated approvers can receive this email`
+      * Critical emails only: `Not checked`
+
+### Teams communications support engineer
+
+`Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Teams Communications Support Engineer > Role Settings`
+
+* Activation
+  * Activation maximum duration: `10 hours`
+  * On activation, require: `Azure MFA`
+  * Require justification on activation: `Checked`
+  * Require ticket information on activation: `Not checked`
+  * Require approval to activate: `Not checked`
+  * Select approvers(s):
+    * Members: None
+    * Groups: None 
+    * If no specific approvers are selected, privileged role administrators/global administrators will become the default approvers.
+* Assignment
+  * Allow permanent eligible assignment: `Checked`
+  * Expire eligible assignments after: `Not configured`
+  * Allow permanent active assignment: `Checked`
+  * Expire active assignments after: `Not configured`
+  * Require Azure Multi-Factor Authentication on active assignment: `Not checked`
+  * Require justification on active assignment: `Checked`
+* Notification
+  * Send notifications when members are assigned as eligible to this role
+    * Role assignment alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to the assigned user (assignee)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve a role assignment renewal/extension
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+  * Send notifications when members are assigned as active to this role:
+    * Role assignment alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to the assigned user (assignee)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve a role assignment renewal/extension
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+  * Send notifications when eligible members activate this role:
+    * Role activation alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to activated user (requestor)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve an activation
+      * Default recipients: `Checked`
+      * Additional recipients: `Only designated approvers can receive this email`
+      * Critical emails only: `Not checked`
+
+### Teams communications support specialist
+
+`Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Teams Communications Support Specialist > Role Settings`
+
+* Activation
+  * Activation maximum duration: `10 hours`
+  * On activation, require: `Azure MFA`
+  * Require justification on activation: `Checked`
+  * Require ticket information on activation: `Not checked`
+  * Require approval to activate: `Not checked`
+  * Select approvers(s):
+    * Members: None
+    * Groups: None 
+    * If no specific approvers are selected, privileged role administrators/global administrators will become the default approvers.
+* Assignment
+  * Allow permanent eligible assignment: `Checked`
+  * Expire eligible assignments after: `Not configured`
+  * Allow permanent active assignment: `Checked`
+  * Expire active assignments after: `Not configured`
+  * Require Azure Multi-Factor Authentication on active assignment: `Not checked`
+  * Require justification on active assignment: `Checked`
+* Notification
+  * Send notifications when members are assigned as eligible to this role
+    * Role assignment alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to the assigned user (assignee)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve a role assignment renewal/extension
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+  * Send notifications when members are assigned as active to this role:
+    * Role assignment alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to the assigned user (assignee)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve a role assignment renewal/extension
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+  * Send notifications when eligible members activate this role:
+    * Role activation alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to activated user (requestor)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve an activation
+      * Default recipients: `Checked`
+      * Additional recipients: `Only designated approvers can receive this email`
+      * Critical emails only: `Not checked`
+
+### Teams service administrator
+
+`Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Teams service Administrator > Role Settings`
+
+* Activation
+  * Activation maximum duration: `10 hours`
+  * On activation, require: `Azure MFA`
+  * Require justification on activation: `Checked`
+  * Require ticket information on activation: `Not checked`
+  * Require approval to activate: `Not checked`
+  * Select approvers(s):
+    * Members: None
+    * Groups: None 
+    * If no specific approvers are selected, privileged role administrators/global administrators will become the default approvers.
+* Assignment
+  * Allow permanent eligible assignment: `Checked`
+  * Expire eligible assignments after: `Not configured`
+  * Allow permanent active assignment: `Checked`
+  * Expire active assignments after: `Not configured`
+  * Require Azure Multi-Factor Authentication on active assignment: `Not checked`
+  * Require justification on active assignment: `Checked`
+* Notification
+  * Send notifications when members are assigned as eligible to this role
+    * Role assignment alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to the assigned user (assignee)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve a role assignment renewal/extension
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+  * Send notifications when members are assigned as active to this role:
+    * Role assignment alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to the assigned user (assignee)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve a role assignment renewal/extension
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+  * Send notifications when eligible members activate this role:
+    * Role activation alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to activated user (requestor)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve an activation
+      * Default recipients: `Checked`
+      * Additional recipients: `Only designated approvers can receive this email`
+      * Critical emails only: `Not checked`
+
+### User administrator
+
+`Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > User Administrator > Role Settings`
+
+* Activation
+  * Activation maximum duration: `10 hours`
+  * On activation, require: `Azure MFA`
+  * Require justification on activation: `Checked`
+  * Require ticket information on activation: `Not checked`
+  * Require approval to activate: `Not checked`
+  * Select approvers(s):
+    * Members: None
+    * Groups: None 
+    * If no specific approvers are selected, privileged role administrators/global administrators will become the default approvers.
+* Assignment
+  * Allow permanent eligible assignment: `Checked`
+  * Expire eligible assignments after: `Not configured`
+  * Allow permanent active assignment: `Checked`
+  * Expire active assignments after: `Not configured`
+  * Require Azure Multi-Factor Authentication on active assignment: `Not checked`
+  * Require justification on active assignment: `Checked`
+* Notification
+  * Send notifications when members are assigned as eligible to this role
+    * Role assignment alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to the assigned user (assignee)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve a role assignment renewal/extension
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+  * Send notifications when members are assigned as active to this role:
+    * Role assignment alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to the assigned user (assignee)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve a role assignment renewal/extension
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+  * Send notifications when eligible members activate this role:
+    * Role activation alert
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Notification to activated user (requestor)
+      * Default recipients: `Checked`
+      * Additional recipients: `Not configured`
+      * Critical emails only: `Not checked`
+    * Request to approve an activation
+      * Default recipients: `Checked`
+      * Additional recipients: `Only designated approvers can receive this email`
+      * Critical emails only: `Not checked`
+
 ### Licensing
 
-Table 6 describes the user (`rol-agency-users`) licensing settings that are configured within the tenant available at `Azure Active Directory > Groups > All groups > rol-Agency-Users > Licenses > Microsoft 365 E5`
+The following table describes the user (`rol-agency-users`) licensing settings that are configured within the tenant available at `Azure Active Directory > Groups > All groups > rol-Agency-Users > Licenses > Microsoft 365 E5`
 
 Item | Configuration
 --- | ---
@@ -455,7 +1592,7 @@ Windows 10 Enterprise | On
 Windows Update for Business Deployment Service | On
 Yammer Enterprise | Off
 
-Table 7 describes the admin (`rol-agency-administrators`) licensing settings that are configured within the tenant.
+The following table describes the admin (`rol-agency-administrators`) licensing settings that are configured within the tenant.
 
 `Azure Active Directory | Groups | All groups > rol-Agency-Administrators | Licenses > Microsoft 365 E5`
 
@@ -682,9 +1819,9 @@ Min OS version | 12.0 | Block access
 
 Notification rule | Device groups | Alert severity | Recipients
 --- | --- | --- | ---
-High severity alert | Any device in my organization | High | itsa@agency.gov.au
-Medium severity alert | Any device in my organization | Medium | itsa@agency.gov.au
-Low severity alert | Any device in my organization | Low | itsa@agency.gov.au
+High severity alert | Any device in my organization | High | DefenderAlerts@agency.gov.au 
+Medium severity alert | Any device in my organization | Medium | DefenderAlerts@agency.gov.au 
+Low severity alert | Any device in my organization | Low | DefenderAlerts@agency.gov.au 
 
 * Power BI reports: `Not Configured`
 * Advanced features
@@ -705,6 +1842,7 @@ Low severity alert | Any device in my organization | Low | itsa@agency.gov.au
   * Microsoft Cloud App Security: `On`
   * Microsoft Secure Score: `Off`
   * Web content filtering: `On`
+  * Download quarantined files: `Off`
   * Share endpoint alerts with Microsoft Compliance Center: `Off`
   * Microsoft Intune connection: `On`
   * Device discovery: `On`
@@ -714,8 +1852,8 @@ Low severity alert | Any device in my organization | Low | itsa@agency.gov.au
 
 Rank | Device group | Remediation level
 --- | --- | ---
-1 | Windows 10 | Semi - require approval for all folders
-Last | Ungrouped devices (default) | Semi - require approval for all folders
+1 | Windows 10 | Full - Remediate threats automatically 
+Last | Ungrouped devices (default) | Full - Remediate threats automatically 
 
 #### Permissions
 
@@ -742,7 +1880,7 @@ Last | Ungrouped devices (default) | Semi - require approval for all folders
 * Device groups
   * Device group name: `Windows 10`
     * Rank: `1`
-    * Automation level: `Semi - require approval for all folders`
+    * Automation level: `Full - remediate threats automatically`
     * Members: 
 ```
 Name Starts with <Agency 3 characters>
@@ -754,7 +1892,7 @@ And OS In <Not configured>
       * Azure AD user groups with access to this machine group: `rol-agency-security-defenderatp-admins`, `rol-agency-security-defenderatp-viewer`, `rol-agency-security-defenderatp-remediation`
   * Device group name: `Ungrouped devices (default)`
     * Rank: `Last`
-    * Automation level: `Semi - require approval for all folders`
+    * Automation level: ``Full - remediate threats automatically`
     * User access
       * Azure AD user groups with access to this machine group: `rol-agency-security-defenderatp-admins`, `rol-agency-security-defenderatp-viewer`, `rol-agency-security-defenderatp-remediation`  
 
@@ -807,10 +1945,10 @@ Streaming media & downloads
 
 * Onboarding
   * Select operating system to start offboarding process: `Windows 10`
-  * Deployment method: `Local Script (for up to 10 machines)`
+  * Deployment method: `Intune`
 * Offboarding
   * Select operating system to start offboarding process: `Windows 10`
-  * Deployment method: `Local Script (for up to 10 machines)`
+  * Deployment method: `Intune`
 
 ### Microsoft Cloud App Security
 
@@ -969,7 +2107,7 @@ GDPR – User ownership | Medium (x2) | Excluded N/As
 
 ### Log Analytics
 
-Table 12 describes the Log Analytics settings that are configured within the Log Analytics Workspace.
+The following table describes the Log Analytics settings that are configured within the Log Analytics Workspace.
 
 Configuration | Value 
 --- | ---
@@ -995,11 +2133,13 @@ Diagnostic Setting Name | Send to Log Analytics
 Log | AuditLogs <br> SignInLogs <br> NonInteractiveUserSignInLogs <br> ServicePrincipalSignInLogs <br> ManagedIdentitySignInLogs <br> ProvisioningLogs
 Destination details | Send to Log Analytics Workspace (agency-log-workspace)
 
-## Microsoft Endpoint Manager - Intune (Intune) configuration
+## Client configuration (Cloud implementation types)
 
-All Windows 10 client configuration is accomplished via Microsoft Intune policies. These Intune configuration policies are detailed in separate documents that are explained in Table 13 below. 
+### Intune configuration
 
-Table 13 Additional Intune Configuration Documents
+All Windows 10 client configuration is accomplished via Microsoft Intune policies. These Intune configuration policies are detailed in separate documents that are explained in table below. 
+
+Additional Intune Configuration Documents.
 
 Section | Description | Document Name
 --- | --- | ---
@@ -1013,127 +2153,9 @@ Software Updates | Windows 10 update rings | DTA – Cloud-Only ABAC – Intune 
 
 ### Printing
 
-Table 14 describes the Printing settings that are configured within Intune.
+The following table describes the Printing settings that are configured within Intune.
 
 Item | Configuration
 --- | ---
 Printer addition restrictions | Can be configured using scripts deployed by Intune.
 Unsecure location printing | Configured in Intune Security Baselines.
-
-## Role based access control
-
-### Privileged identity management
-
-`Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Global Administrator > Role Settings`
-
-* Activation
-  * Activation maximum duration: `1 hour`
-  * On activation, require: `Azure MFA`
-  * Require justification on activation: `Checked`
-  * Require ticket information on activation: `Not checked`
-  * Require approval to activate: `Checked`
-  * Select approvers(s): `No approver selected`
-* Assignment
-  * Allow permanent eligible assignment: `Checked`
-  * Expire eligible assignments after: `Not configured`
-  * Allow permanent active assignment: `Checked`
-  * Expire active assignments after: `Not configured`
-  * Require Azure Multi-Factor Authentication on active assignment: `Not checked`
-  * Require justification on active assignment: `Checked`
-* Notification
-  * Send notifications when members are assigned as eligible to this role
-    * Role assignment alert
-      * Default recipients: `Checked`
-      * Additional recipients: `Not configured`
-      * Critical emails only: `Not checked`
-    * Notification to the assigned user (assignee)
-      * Default recipients: `Checked`
-      * Additional recipients: `Not configured`
-      * Critical emails only: `Not checked`
-    * Request to approve a role assignment renewal/extension
-      * Default recipients: `Checked`
-      * Additional recipients: `Not configured`
-      * Critical emails only: `Not checked`
-  * Send notifications when members are assigned as active to this role:
-    * Role assignment alert
-      * Default recipients: `Checked`
-      * Additional recipients: `Not configured`
-      * Critical emails only: `Not checked`
-    * Notification to the assigned user (assignee)
-      * Default recipients: `Checked`
-      * Additional recipients: `Not configured`
-      * Critical emails only: `Not checked`
-    * Request to approve a role assignment renewal/extension
-      * Default recipients: `Checked`
-      * Additional recipients: `Not configured`
-      * Critical emails only: `Not checked`
-  * Send notifications when eligible members activate this role:
-    * Role activation alert
-      * Default recipients: `Checked`
-      * Additional recipients: `Not configured`
-      * Critical emails only: `Not checked`
-    * Notification to activated user (requestor)
-      * Default recipients: `Checked`
-      * Additional recipients: `Not configured`
-      * Critical emails only: `Not checked`
-    * Request to approve an activation
-      * Default recipients: `Checked`
-      * Additional recipients: `Only designated approvers can receive this email`
-      * Critical emails only: `Not checked`
-
-`Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Global Reader > Role Settings`
-
-* Activation
-  * Activation maximum duration: `1 hour`
-  * On activation, require: `Azure MFA`
-  * Require justification on activation: `Checked`
-  * Require ticket information on activation: `Not checked`
-  * Require approval to activate: `Not checked`
-  * Select approvers(s): `No approver selected`
-* Assignment
-  * Allow permanent eligible assignment: `Checked`
-  * Expire eligible assignments after: `Not configured`
-  * Allow permanent active assignment: `Checked`
-  * Expire active assignments after: `Not configured`
-  * Require Azure Multi-Factor Authentication on active assignment: `Not checked`
-  * Require justification on active assignment: `Checked`
-* Notification
-  * Send notifications when members are assigned as eligible to this role
-    * Role assignment alert
-      * Default recipients: `Checked`
-      * Additional recipients: `Not configured`
-      * Critical emails only: `Not checked`
-    * Notification to the assigned user (assignee)
-      * Default recipients: `Checked`
-      * Additional recipients: `Not configured`
-      * Critical emails only: `Not checked`
-    * Request to approve a role assignment renewal/extension
-      * Default recipients: `Checked`
-      * Additional recipients: `Not configured`
-      * Critical emails only: `Not checked`
-  * Send notifications when members are assigned as active to this role:
-    * Role assignment alert
-      * Default recipients: `Checked`
-      * Additional recipients: `Not configured`
-      * Critical emails only: `Not checked`
-    * Notification to the assigned user (assignee)
-      * Default recipients: `Checked`
-      * Additional recipients: `Not configured`
-      * Critical emails only: `Not checked`
-    * Request to approve a role assignment renewal/extension
-      * Default recipients: `Checked`
-      * Additional recipients: `Not configured`
-      * Critical emails only: `Not checked`
-  * Send notifications when eligible members activate this role:
-    * Role activation alert
-      * Default recipients: `Checked`
-      * Additional recipients: `Not configured`
-      * Critical emails only: `Not checked`
-    * Notification to activated user (requestor)
-      * Default recipients: `Checked`
-      * Additional recipients: `Not configured`
-      * Critical emails only: `Not checked`
-    * Request to approve an activation
-      * Default recipients: `Checked`
-      * Additional recipients: `Only designated approvers can receive this email`
-      * Critical emails only: `Not checked`

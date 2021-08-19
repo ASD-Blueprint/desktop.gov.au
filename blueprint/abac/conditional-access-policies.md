@@ -1,5 +1,5 @@
 ---
-layout: page
+:layout: page
 title: Conditional access policies
 menu: abac
 ---
@@ -55,11 +55,11 @@ This global policy blocks all connections from unsecure legacy protocols like Ac
   * Session
     * Use app enforced restrictions: `N/A`
     * Use Conditional Access App Control: `False`
-    * Sign-in frequency" `False`
+    * Sign-in frequency: `False`
     * Persistent browser session: `False`
 * Enable policy: `On`
 
-## High risk sign-ins
+## Block - High risk sign-ins
 
 This global policy blocks all high-risk authentications (requires Azure AD Premium P2).
 
@@ -106,13 +106,13 @@ This global policy blocks all high-risk authentications (requires Azure AD Premi
   * Session
     * Use app enforced restrictions: `N/A`
     * Use Conditional Access App Control: `False`
-    * Sign-in frequency" `False`
+    * Sign-in frequency: `False`
     * Persistent browser session: `False`
 * Enable policy: `On`
 
-## Allowed countries
+## Block - Allowed countries
 
-The global policy blocks all connections from countries not in the allowed countries whitelist.
+The global policy blocks all connections from countries not in the allowed countries allow list.
 
 * Name: `BLOCK – Countries Not Allowed`
 * Assignments
@@ -160,11 +160,11 @@ The global policy blocks all connections from countries not in the allowed count
   * Session
     * Use app enforced restrictions: `N/A`
     * Use Conditional Access App Control: `False`
-    * Sign-in frequency" `False`
+    * Sign-in frequency: `False`
     * Persistent browser session: `False`
 * Enable policy: `On`
 
-## Terms of use
+## Grant - Terms of use
 
 This global policy forces Terms of Use on all authentications.
 
@@ -210,11 +210,11 @@ This global policy forces Terms of Use on all authentications.
 * Session
     * Use app enforced restrictions: `N/A`
     * Use Conditional Access App Control: `False`
-    * Sign-in frequency" `False`
+    * Sign-in frequency: `False`
     * Persistent browser session: `False`
 * Enable policy: `On`
 
-## Browser access
+## Grant - Browser access
 
 General browser access policy that grants authentication from a browser on any device with MFA requirement.
 
@@ -253,7 +253,7 @@ General browser access policy that grants authentication from a browser on any d
   * Grant
     * Block access: `No`
     * Grant access: `Yes`
-    * Require multi-factor authentication: `False `
+    * Require multi-factor authentication: `True `
     * Require device to be marked as compliant: `False`
     * Require Hybrid Azure AD joined device: `False`
     * Require approved client app: `False`
@@ -265,7 +265,7 @@ General browser access policy that grants authentication from a browser on any d
 * Session
     * Use app enforced restrictions: `N/A`
     * Use Conditional Access App Control: `False`
-    * Sign-in frequency" `False`
+    * Sign-in frequency: `False`
     * Persistent browser session: `False`
 * Enable policy: `On`
 
@@ -323,7 +323,7 @@ Browsers on unmanaged devices can never download files and attachments from Shar
 * Session
     * Use app enforced restrictions: `N/A`
     * Use Conditional Access App Control: `False`
-    * Sign-in frequency" `False`
+    * Sign-in frequency: `False`
     * Persistent browser session: `False`
 * Enable policy: `On`
 
@@ -379,7 +379,7 @@ Devices are allowed to authenticate to Microsoft Endpoint Manager - Intune (Intu
 * Session
     * Use app enforced restrictions: `N/A`
     * Use Conditional Access App Control: `False`
-    * Sign-in frequency" `False`
+    * Sign-in frequency: `False`
     * Persistent browser session: `False`
 * Enable policy: `On`
 
@@ -399,8 +399,7 @@ Grants access to managed mobile devices that are enrolled and compliant in Intun
   * Cloud apps or actions
     * Select what policy this applies to: `Cloud apps`
     * Include: `Select apps`
-      * `Office 365 Exchange Online`
-      * `Office 365 SharePoint Online`
+      * `Office 365`
     * Exclude: `Microsoft Intune`
   * Conditions
     * User risk:
@@ -434,11 +433,11 @@ Grants access to managed mobile devices that are enrolled and compliant in Intun
 * Session
     * Use app enforced restrictions: `N/A`
     * Use Conditional Access App Control: `False`
-    * Sign-in frequency" `False`
+    * Sign-in frequency: `False`
     * Persistent browser session: `False`
 * Enable policy: `On`
 
-## Windows device access
+## Grant - Windows device access
 
 Grants access to managed Windows devices that are Azure AD joined.
 
@@ -483,7 +482,7 @@ Grants access to managed Windows devices that are Azure AD joined.
     * Grant access: `Yes`
     * Require multi-factor authentication: `True`
     * Require device to be marked as compliant: `True`
-    * Require Hybrid Azure AD joined device: `False`
+    * Require Hybrid Azure AD joined device: `True (hybrid implementations only) ` 
     * Require approved client app: `False`
     * Require app protection policy: `False`
     * Require password change: `False`
@@ -493,7 +492,7 @@ Grants access to managed Windows devices that are Azure AD joined.
 * Session
     * Use app enforced restrictions: `N/A`
     * Use Conditional Access App Control: `False`
-    * Sign-in frequency" `False`
+    * Sign-in frequency: `False`
     * Persistent browser session: `False`
 * Enable policy: `On`
 
@@ -546,7 +545,7 @@ Approved apps that guest users can access (requires MFA).
 * Session
     * Use app enforced restrictions: `N/A`
     * Use Conditional Access App Control: `False`
-    * Sign-in frequency" `False`
+    * Sign-in frequency: `False`
     * Persistent browser session: `False`
 * Enable policy: `On`
 

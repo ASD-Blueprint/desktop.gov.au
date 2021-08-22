@@ -1016,8 +1016,8 @@ Role group Design Decisions for hybrid implementations.
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Members of the Azure ATP Administrators group | Specific users in the Agency's Cyber Security team only | Only specific users that require administrative access should be added to this group.
-Members of the Azure ATP Users group | {agency_domain_name} \<br>Admin_CyberIntelligence | Includes membership of the whole Cyber Intelligence team that are responsible for the day-to-day use and management of Azure ATP.
-Members of the Azure ATP Viewers group | {agency_domain_name} \<br>Admin_AZ_TSG_PR_ Assurance_Comp | Includes membership of the Assurance team to enable auditing of Azure ATP.
+Members of the Azure ATP Users group | {agency_domain_name} \<br>rol-ATPUsers | Includes membership of the whole Cyber team that are responsible for the day-to-day use and management of Azure ATP.
+Members of the Azure ATP Viewers group | {agency_domain_name} \<br>rol-ATPViewers | Includes membership of the Cyber team to enable auditing of Azure ATP.
 
 ### Azure ATP – notifications
 

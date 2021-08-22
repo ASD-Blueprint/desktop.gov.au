@@ -59,7 +59,7 @@ This global policy blocks all connections from unsecure legacy protocols like Ac
     * Persistent browser session: `False`
 * Enable policy: `On`
 
-## Block - High risk sign-ins
+## Block - high risk sign-ins
 
 This global policy blocks all high-risk authentications (requires Azure AD Premium P2).
 
@@ -110,7 +110,7 @@ This global policy blocks all high-risk authentications (requires Azure AD Premi
     * Persistent browser session: `False`
 * Enable policy: `On`
 
-## Block - Allowed countries
+## Block - allowed countries
 
 The global policy blocks all connections from countries not in the allowed countries allow list.
 
@@ -164,7 +164,7 @@ The global policy blocks all connections from countries not in the allowed count
     * Persistent browser session: `False`
 * Enable policy: `On`
 
-## Grant - Terms of use
+## Grant - terms of use
 
 This global policy forces Terms of Use on all authentications.
 
@@ -214,7 +214,7 @@ This global policy forces Terms of Use on all authentications.
     * Persistent browser session: `False`
 * Enable policy: `On`
 
-## Grant - Browser access
+## Grant - browser access
 
 General browser access policy that grants authentication from a browser on any device with MFA requirement.
 

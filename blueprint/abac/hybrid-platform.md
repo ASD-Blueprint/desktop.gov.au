@@ -47,7 +47,7 @@ menu: abac
 * Guest user access: `Guest users have limited access to properties and memberships of directory objects`
 * Guest invite settings
   * Guest invite restrictions:
-    * Only users assigned to specific admin roles can invite guest users : `Checked`
+    * Only users assigned to specific admin roles can invite guest users: `Checked`
     * Enable guest self-service sign up via user flows: `No`
   * Guests can invite: `No`
   * Enable guest self-service sign up via user flows: `No`
@@ -58,7 +58,7 @@ menu: abac
 
 `Azure Active Directory > External Identities > Configured identity providers `
 
-* Email one-time passcode for guests:
+* Email one-time passcode for guests
   * Enable email one-time passcode for guests effective now: `Checked`
 
 `Azure Active Directory > Groups > General`
@@ -92,7 +92,7 @@ menu: abac
   * Sign-in Page background image (1920x1080px):	Generic Australian Government Background
   * Banner logo (280x60px): Generic Australian Government Logo
   * Username hint: `user@agency.gov.au`
-  * Sign-in page text: - `<Insert Agency Logon Banner/dislaimer warning message>`  
+  * Sign-in page text: `<insert agency logon banner/disclaimer warning message>`
     Note: User terms are configured using Conditional Access Policies.
   * Sign-in page background color: -
   * Square logo image (240x240px): Generic Australian Government Logo
@@ -102,7 +102,7 @@ menu: abac
 `Azure Active Directory > Devices > Device settings`
 
 * Users may join devices to Azure AD: `All`
-* Devices to be Azure AD joined or Azure AD registered require Muti-Factor Authentication: `No`
+* Devices to be Azure AD joined or Azure AD registered require Multi-Factor Authentication: `No`
 * Maximum number of devices per user: `Unlimited`
 * Additional local administrators on all Azure AD joined devices: -
 * Enterprise State Roaming: -
@@ -370,7 +370,7 @@ Break glass accounts
 break.glass_priv1@<Agency>.onmicrosoft.com
 break.glass_priv2@<Agency>.onmicrosoft.com
 
-AAD Connect Sync Accounts (hybird only)
+AAD Connect Sync Accounts (hybrid only)
 Sync_<account_1>_<account guid>@<Agency>.onmicrosoft.com
 Sync_<account_2>_<account guid>@<Agency>.onmicrosoft.com
 ```
@@ -413,7 +413,7 @@ Sync_<account_2>_<account guid>@<Agency>.onmicrosoft.com
 * Automatically block users who report fraud: `On`
 * Code to report fraud during initial greeting: `0`
 
-### Hybrid Identity - Azure AD Connect (Hybrid implementation types only) 
+### Hybrid Identity - Azure AD Connect (hybrid implementation types only) 
 
 Primary Azure AD Connect settings
 
@@ -693,8 +693,7 @@ The following table describes the Azure AD attributes being synchronized via Azu
 * Authentication Method: `PTA`
 * Number of PTA servers: `3`
 * Add Proxy settings
-
-* * Add the following text to the end of the file `C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config` to enable proxy settings. This file needs to be opened as "administrator" context.`
+  * Add the following text to the end of the file `C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config` to enable proxy settings. This file needs to be opened as "administrator" context.`
 
 ```
 <system.net>
@@ -1284,7 +1283,7 @@ The ABAC settings for the Agency Privileged Identity Management can be found bel
 
 ### Privileged role administrator
 
-`Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Provileged Role Administrator > Role Settings`
+`Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Privileged Role Administrator > Role Settings`
 
 * Activation
   * Activation maximum duration: `10 hours`
@@ -1997,7 +1996,6 @@ The following table describes the admin (`rol-agency-administrators`) licensing 
 * Enrollment state: `With enrollment`
 * Targeted apps
   * Protected apps:
-
 ```
 Office-365-ProPlus-1810-Allowed.xml
 Recommended-Denied-Office-365-ProPlus-1810.xml
@@ -2022,7 +2020,6 @@ Microsoft Movies and TV
 Microsoft Messaging
 Company Portal
 ```
-
   * Exempt apps: -
 * Required settings
   * Windows Information Protection mode: `Block`
@@ -2032,14 +2029,11 @@ Company Portal
     * Type: `Cloud resources`
     * Name: `Office365`
     * Value:
-
 ```
 Agency.sharepoint.com|Agency-my.sharepoint.com|Agency-files.sharepoint.com|tasks.office.com|protection.office.com|meet.lync.com|teams.microsoft.com|www.yammer.com|yammer.com|persona.yammer.com|outlook.office.com|outlook.office365.com|attachments.office.net|Agency.crm.dynamics.com|Agency.visualstudio.com|Agency.powerbi.com
 ```
-
     * Enterprise Proxy Servers list is authoritative (do not auto-detect): `Off`
     * Enterprise IP Ranges list is authoritative (do not auto-detect): `Off`
-
   * Data protection
     * Upload a Data Recovery Agent (DRA) certificate to allow recovery of encrypted data: `Not configured`
     * Prevent corporate data from being accessed by apps when the device is locked. Applies only to Windows 10 Mobile: `Off`
@@ -2208,20 +2202,15 @@ Last | Ungrouped devices (default) | Semi - require approval for all folders
   * Device group name: `Windows 10`
     * Rank: `1`
     * Automation level: `Semi - require approval for all folders`
-    * Members: 
-
+    * Members:
 ```
 Name Starts with <Agency 3 characters>
 And Domain Starts with <Not configured>
 And Tag: Starts with <Not configured>
 And OS In <Not configured>
 ```
-
-```
 * User access
   * Azure AD user groups with access to this machine group: `rol-agency-security-defenderatp-admins`, `rol-agency-security-defenderatp-viewer`, `rol-agency-security-defenderatp-remediation`
-```
-
   * Device group name: `Ungrouped devices (default)`
     * Rank: `Last`
     * Automation level: `Semi - require approval for all folders`
@@ -2248,7 +2237,6 @@ And OS In <Not configured>
 * Web content filtering
   * Policy name: `Adult Sites`
     * Blocked categories:
-
 ```
 Cults
 Gambling
@@ -2258,25 +2246,16 @@ Sex education
 Tasteless
 Violence
 ```
-
-```
 * Scope: `All devices`
-```
-
   * Policy name: `High Traffic Sites`
     * Blocked categories:
-
 ```
 Download sites
 Image sharing
 Peer-to-peer
 Streaming media & downloads
 ```
-
-```
 * Scope: `All devices`
-```
-
 * Automation uploads
   * Content analysis: `On`
   * File extension names: `wsf,tcl,sys,scr,'',job,ws,ko.gz,vbe,bat,ps1,vb,com,air,cpl,exe,rb,cmd,msi,url,reg,gadget,dll,ko,js,pl,sh,rgs,inf,vbs,elf,py`
@@ -2571,7 +2550,7 @@ WindowsAuthenticationController:usernamemixed
 ```
 
   * Alerts
-    * Create an alert for each matching event with the policy’s severity: `Configured`
+    * Create an alert for each matching event with the policy's severity: `Configured`
     * Send alert as email: `Not configured`
     * Send alert as text message: `Not configured`
     * Send alerts to Power Automate: `Not configured`
@@ -2705,7 +2684,7 @@ WindowsAuthenticationController:usernamemixed
 ```
 
   * Alerts
-    * Create an alert for each matching event with the policy’s severity: `Configured`
+    * Create an alert for each matching event with the policy's severity: `Configured`
     * Send alert as email: `Not configured`
     * Send alert as text message: `Not configured`
     * Send alerts to Power Automate: `Not configured`
@@ -2810,7 +2789,7 @@ Log Analytics Contributor Group | rol-agency-log-admin
 Configuration | Value 
 --- | ---
 Diagnostic Setting Name | Send to Log Analytics
-Log | AuditLogs <br/> SignInLogs <br/> NonInteractiveUserSignInLogs <br/> ServicePrincipalSignInLogs <br/> ManagedIdentitySignInLogs <br/> ProvisioningLogs 
+Log | AuditLogs <br> SignInLogs <br> NonInteractiveUserSignInLogs <br> ServicePrincipalSignInLogs <br> ManagedIdentitySignInLogs <br> ProvisioningLogs 
 Destination details | Send to Log Analytics Workspace (agency-log-workspace)
 
 #### Azure Active Directory
@@ -2821,7 +2800,7 @@ Diagnostic Setting Name | Send to Log Analytics
 Log | AuditLogs <br> SignInLogs <br> NonInteractiveUserSignInLogs <br> ServicePrincipalSignInLogs <br> ManagedIdentitySignInLogs <br> ProvisioningLogs
 Destination details | Send to Log Analytics Workspace (agency-log-workspace)
 
-## Client configuration (Hybrid implementation types)
+## Client configuration (hybrid implementation types)
 
 ### Microsoft co-management configuration
 
@@ -2882,21 +2861,21 @@ Co-Management monitor screen is showing
 
 Item | Value
 --- | ---
-Printer addition restrictions | Existing Group Policy Objects (GPOs) will be utilised. 
+Printer addition restrictions | Existing Group Policy Objects (GPOs) will be utilised
 Driver Delivery | Existing SCCM solution will be utilized in driver delivery
-External Printer Connectivity | Existing Group Policy Objects (GPOs) and Microsoft Endpoint Configuration Manager (MECM) will be utilised to configure External Printer Connectivity via Always On VPN. 
-Hybrid Cloud Print | Not Configured. 
+External Printer Connectivity | Existing Group Policy Objects (GPOs) and Microsoft Endpoint Configuration Manager (MECM) will be utilised to configure External Printer Connectivity via Always On VPN
+Hybrid Cloud Print | Not Configured
 
 ### End user internet access
 
 Item | Value
 --- | ---
-Internet Access Mechanism | Configured via existing GPO’s and MECM. 
-Web Proxy Auto Discover Configuration | Configured via existing GPO’s using Web Proxy Auto Discover (WPAD) configuration file.
-DNS Provider | Existing on-premises Active Directory DNS services will be utilised. 
-Business Applications Connectivity | Existing on-premises proxy will be utilised. 
-Office 365 Application Connectivity | Configured via existing GPO’s and MECM. 
-Office 365 Authentication Traffic | Existing on-premises proxy will be utilised. 
+Internet Access Mechanism | Configured via existing GPO's and MECM
+Web Proxy Auto Discover Configuration | Configured via existing GPO's using Web Proxy Auto Discover (WPAD) configuration file
+DNS Provider | Existing on-premises Active Directory DNS services will be utilised
+Business Applications Connectivity | Existing on-premises proxy will be utilised
+Office 365 Application Connectivity | Configured via existing GPO's and MECM
+Office 365 Authentication Traffic | Existing on-premises proxy will be utilised
 Windows Updates | Existing MECM solution will be utilised 
 
 ## Application control

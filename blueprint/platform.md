@@ -78,7 +78,7 @@ Identity and Access Management (IAM) is the framework upon which digital identit
 
 Azure Active Directory (Azure AD) is a cloud-based directory service which stores identity information and offers Information and Access Management (IAM) for Microsoft cloud products, custom developed applications, and third-party applications. The identities within this directory service can be either cloud based or synchronised from an on-premises AD domain via the Azure AD Connect client.
 
-Azure AD allows users to sign in and access resources like Microsoft Office 365, the Azure management portal, and other SaaS (Software as a Service) Software applications. Azure AD also provides control over the following directory activities:
+Azure AD allows users to sign in and access resources like Microsoft Office 365, the Azure management portal, and other SaaS (Software as a Service) applications. Azure AD also provides control over the following directory activities:
 
 * Registration of applications – The registration of application controls whether users can grant permissions to applications and register them within Azure AD.
 * Restriction of the Azure AD administrative portal – The restriction of the Azure AD portal controls who can viewing of the contents of the Azure AD. The contents include user identity data.
@@ -112,7 +112,7 @@ Application Proxy | Not Configured | No requirement has been identified.
 Licences | Configured | Configured to assign Microsoft 365 licences to user groups. Ensures consistent configuration.
 Custom Domain Names | Configured | {agency}.onmicrosoft.com<br>{agency}.gov.au 
 Mobility (MDM and MAM) | Not Configured | Default settings.
-Company Branding | Configured | Agency specific logos will be required to provide a corporate look and feel.<br />The Agency specific logon banner text is provided under the "Sign-in page text" area of company branding to remind users of their security responsibilities. 
+Company Branding | Configured | Agency specific logos will be required to provide a corporate look and feel. The agency specific logon banner text is provided under the "Sign-in page text" area of company branding to remind users of their security responsibilities. 
 
 Additional Azure AD Design Decisions for cloud native implementations.
 
@@ -121,7 +121,7 @@ Decision Point | Design Decision | Justification
 Identity Source | Azure AD | As this is a cloud only implementation Azure AD will be the source of identity.
 Password Reset | Configured | For self-service password reset, users will need to provide an alternate email address, mobile app and phone number during registration. To reset their password, they will need to provide two methods of verification.
 Identity Format | Configured | Usernames will conform to firstname.lastname{sequence number}<br>Note: The sequence number is only required if duplicate names would be created.
-Display Name | Fistname Lastname | Agency's should avoid using the "Lastname, Firstname" format within the directory as this can cause display issues within Microsoft 365 applications. 
+Display Name | Fistname Lastname | Agencies should avoid using the "Lastname, Firstname" format within the directory as this can cause display issues within Microsoft 365 applications. 
 
 Additional Azure AD Design Decisions for hybrid implementations.
 
@@ -146,13 +146,12 @@ Management of Microsoft 365 Groups can be streamlined through the enforcement of
 * Prefix-Suffix Naming Policy – Setting of prefixes or suffixes for groups names. The prefixes/suffixes can be either fixed strings or user attributes; and
 * Custom Blocked Words – Blocking of words in the name based on a custom list.
 
-While naming policies for Office 365 groups can assist IT with governance of group resources, this name displays within user applications (e.g the name of the Team in Teams) with that name prefix or suffix, so it is important to pick something meaningful to the user group to form the group name. 
+While naming policies for Office 365 groups can assist IT with governance of group resources, this name displays within user applications (e.g the name of the team in Teams) with that name prefix or suffix, so it is important to pick something meaningful to the user group to form the group name.
 
-In order to create an effective Microsoft 365 group naming strategy, consider adopting a naming standard that assists users with identifying what the groups purpose of function is. Dynamic attributes such as the user's (who created the group) Department or Office locations attribute can be substituted, for example:
+In order to create an effective Microsoft 365 group naming strategy, consider adopting a naming standard that assists users with identifying what the group's purpose or function is. Dynamic attributes such as the user's (who created the group) department or office locations attribute can be substituted, for example:
 
-- *<Team Name> - Human Resources Dept*
-
-- *Agency - <Project Name> - Sydney*.
+* `<Team Name> - Human Resources Dept`
+* `Agency - <Project Name> - Sydney`
 
 In conjunction with the Naming Policy, Microsoft 365 groups can also be given expiration dates. This assists with unused group clean-up activities. The expiration period commences on group creation and can be renewed at the end of the period (The owner or contact for groups with no owners has 30 days to renew the group). When a group expires, it is soft deleted for 30 days. Retention policies will however hold the data for the period of the retention policy. An expiration policy can be applied globally to all groups or to specific groups.
 
@@ -269,7 +268,7 @@ When a user attempts to access an application or system from any device, one or 
 * Application based - Application based Conditional Access policies provide the ability to allow or block an application based on policy configuration.
 * Risk based - Risk based Conditional Access protects corporate data from malicious hackers based on a user's Sign-In risk. The sign-in risk is an indicator for the likelihood (high, medium, or low) that a sign-in attempt was not performed by the legitimate owner of a user account. Azure AD calculates the sign-in risk level during the sign-in of a user.
 * Session based – Session based Conditional Access policies enables the control of user sessions by redirecting the user through a reverse proxy instead of directly to the app. From then on, user requests and responses go through Cloud App Security rather than directly to the app.
-* Terms of Use - Terms of Use policy presents the user a one-off company legal disclaimer in order to access the system through the use of Conditional Access. It's purpose is to enforce that users accept their security responsibilities before access is granted. Users are prompted to accept the policy on first use, or after the policy has changed - their acceptance is recorded in Azure AD. As the Terms of Use is presented only once, the Agencies "Logon Banner" text should be presented on the desktop and Azure AD portal branding in addition to the Terms of Use.
+* Terms of Use - Terms of Use policy presents the user a one-off company legal disclaimer in order to access the system through the use of Conditional Access. Its purpose is to remind users of their security responsibilities before access is granted. Users are prompted to accept the policy on first use, or after the policy has changed. Their acceptance is recorded in Azure AD. As the Terms of Use is presented only once, the agency's "Logon Banner" text should be presented on the desktop and Azure AD portal branding in addition to the Terms of Use.
 
 Based on the above conditions, the user will either be allowed, prompted for multi-factor authentication, or blocked.
 
@@ -291,7 +290,7 @@ GRANT - Browser Access | General browser access policy that grants authenticatio
 SESSION - Block Unmanaged Browser File Downloads | Browsers on unmanaged devices can never download files and attachments from SharePoint Online and Exchange Online.
 GRANT - Intune Enrolment | Devices can authenticate to Intune for enrolment.
 GRANT - Mobile Device Access | Grants access to managed mobile devices that are enrolled and compliant in Intune. An approved Microsoft app is required.
-GRANT - Windows Device Access | Grants access to managed Windows devices that are Intune enrolled, and or Hybrid Azure AD Joined (joined to an on-premises AD and Azure AD).<br />Note, Hybrid Azure AD join only applies to Hybrid implementation types. 
+GRANT - Windows Device Access | Grants access to managed Windows devices that are Intune enrolled and/or Hybrid Azure AD Joined (joined to an on-premises AD and Azure AD). Note, Hybrid Azure AD join only applies to Hybrid implementation types. 
 GRANT - Guest Access (B2B) | Approved apps that guest users can access (requires MFA).
 BLOCK - Guest Access (B2B) | Blocked apps that guest users can never access.
 
@@ -597,11 +596,13 @@ This capability is enabled from within the Advanced Features settings within Mic
 
 ![Figure 6 - Defender ATP and MCAS Integration](/assets/images/platform-defender-mcas.png)
 
+Important Note: Microsoft Defender ATP should be configured prior to enabling this feature. 
+
 Microsoft Defender ATP integration Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Microsoft Defender ATP portal configuration | Microsoft Cloud App Security enabled | To enable Defender ATP integration with MCAS. <br />Important Note: Microsoft Defender ATP should be configured prior to enabling this feature. 
+Microsoft Defender ATP portal configuration | Microsoft Cloud App Security enabled | To enable Defender ATP integration with MCAS
 
 ### MCAS - cloud discovery enrichment
 
@@ -1165,13 +1166,13 @@ Office 365 log ingestion | Not Configured | SIEM Solution configuration is custo
 
 ### Azure AD tenant restrictions
 
-Office 365 and other enterprise SaaS applications that use Azure AD as their identity provider all share URLs with common domain names like outlook.office.com and login.microsoftonline.com. Blocking these internet addresses to prevent users from accessing other third-party Office 365 tenancies and services would also keep these users from accessing the Agency's Office 365 tenant. With Azure AD tenant restrictions, agencies with a supported web filtering (proxy) system can specify the list of approved Azure AD tenants that their users are permitted to access (e.g. GovTeams). Azure AD then only grants access to these permitted tenants.
+Office 365 and other enterprise SaaS applications that use Azure AD as their identity provider all share URLs with common domain names like `outlook.office.com` and `login.microsoftonline.com`. Blocking these internet addresses to prevent users from accessing other third-party Office 365 tenancies and services would also prevent users from accessing the agency's own Office 365 tenancy. With Azure AD tenant restrictions, agencies with a supported web filtering (proxy) system can specify the list of approved Azure AD tenants that their users are permitted to access (e.g. GovTeams). Azure AD then only grants access to these permitted tenants.
 
 Azure AD tenant restrictions prerequisites are as follows:
 
-- A minimum of M365 E3 licensing (Azure AD Premium 1).
-- The Agency's web filtering service supports TLS interception, HTTP header insertion, URL and FQDN filtering.
-- Endpoints must trust the web filtering services PKI certificate chain for TLS communications.  
+* A minimum of M365 E3 licensing (Azure AD Premium 1).
+* The agency's web filtering service supports TLS interception, HTTP header insertion, URL and FQDN filtering.
+* Endpoints must trust the web filtering services PKI certificate chain for TLS communications.  
 
 For more detail on Azure AD tenant restrictions, see [use tenant restrictions to manage access to SaaS apps](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/tenant-restrictions).
 
@@ -1337,7 +1338,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Automatically Join Devices | Azure Active Directory (Azure AD) | Devices will automatically joint the Azure Active Directory.
 Auto-enrol devices | Configured | Enrolled automatically into Intune MDM.
-Restrict the Local Administrator Account | Configured | Aligns with the ACSC Hardening guide for Windows 10 . 
+Restrict the Local Administrator Account | Configured | Aligns with the ACSC Hardening guide for Windows 10.
 Create and auto-assign devices | Configured | For ease of management and enrolment for devices within Agency.
 Deployment profile | Refer to DTA – Intune Enrolment -ABAC document | Deployment profile will ensure that all workstations are configured in accordance with the Agency standards with no user intervention.
 
@@ -1616,7 +1617,7 @@ Retention policies are created that ensure that data is retained forever for:
 
 Workstation configuration is stored in Intune. (AutoPilot rebuild).
 
-Cloud based native Office 365 tools will not meet an Agencies requirement for on-premises and cloud backups. Agencies will need to investigate third party backup solutions which can backup data either to a designated physical location or cloud hosted backup service.
+Cloud based native Office 365 tools will not meet an agency's requirement for on-premises and cloud backups. Agencies will need to investigate third party backup solutions which can backup data either to a designated physical location or cloud backup/storage service.
 
 RPO, RTO and Retention Periods Design Decisions for all agencies and implementation types.
 
@@ -1696,7 +1697,7 @@ When deploying the RBAC model in Azure, there are two scopes where access can be
 * Tenant Scope - Roles within the Tenant Scope allow access to perform tasks at the Tenant and Office 365 administration level. By default, there are 51 built-in RBAC roles that can be assigned at this level to ensure least privilege access is implemented.
 * Subscription Scope – Roles within the Subscription Scope allow access to perform tasks within a subscription. Subscription roles do not have permissions at the Tenant Scope level.
 
-Azure AD AD roles can be assigned to groups which can simplify the management of role assignments in Azure AD. 
+Azure AD roles can be assigned to groups which can simplify the management of role assignments in Azure AD. 
 
 Privileged Identity Management (PIM) can be leveraged to enhance the Azure RBAC model. PIM is an implementation of Just-in-time (JIT) access. JIT access ensures that an administrative account only has privileges when required to complete a function. JIT aligns to the principal of Zero Standing Privilege. Group assignment of Azure AD roles is also supported with PIM.
 

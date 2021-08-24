@@ -47,7 +47,7 @@ menu: abac
 * Guest user access: `Guest users have limited access to properties and memberships of directory objects`
 * Guest invite settings
   * Guest invite restrictions:
-    * Only users assigned to specific admin roles can invite guest users : `Checked`
+    * Only users assigned to specific admin roles can invite guest users: `Checked`
     * Enable guest self-service sign up via user flows: `No`
   * Guests can invite: `No`
   * Enable guest self-service sign up via user flows: `No`
@@ -92,7 +92,7 @@ menu: abac
   * Sign-in Page background image (1920x1080px):	Generic Australian Government Background
   * Banner logo (280x60px): Generic Australian Government Logo
   * Username hint: `user@agency.gov.au`
-  * Sign-in page text: - `<Insert Agency Logon Banner/dislaimer warning message>`  
+  * Sign-in page text: `<insert agency logon banner/disclaimer warning message>`
     Note: User terms are configured using Conditional Access Policies.
   * Sign-in page background color: -
   * Square logo image (240x240px): Generic Australian Government Logo
@@ -102,7 +102,7 @@ menu: abac
 `Azure Active Directory > Devices > Device settings`
 
 * Users may join devices to Azure AD: `All`
-* Devices to be Azure AD joined or Azure AD registered require Muti-Factor Authentication: `No`
+* Devices to be Azure AD joined or Azure AD registered require Multi-Factor Authentication: `No`
 * Maximum number of devices per user: `Unlimited`
 * Additional local administrators on all Azure AD joined devices: -
 * Enterprise State Roaming: -
@@ -379,7 +379,7 @@ break.glass_priv2@<Agency>.onmicrosoft.com
 
 ```
 Break glass accounts
-reak.glass_priv@<Agency>.onmicrosoft.com
+break.glass_priv@<Agency>.onmicrosoft.com
 ```
 
 * User risk setting: `Medium and above`
@@ -963,7 +963,7 @@ reak.glass_priv@<Agency>.onmicrosoft.com
 
 ### Privileged role administrator
 
-`Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Provileged Role Administrator > Role Settings`
+`Azure Active Directory > Identity Governance > Azure AD roles > Azure AD roles > Roles > Privileged Role Administrator > Role Settings`
 
 * Activation
   * Activation maximum duration: `10 hours`

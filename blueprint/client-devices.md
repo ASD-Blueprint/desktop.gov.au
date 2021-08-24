@@ -914,7 +914,7 @@ Microsoft Defender Firewall Configuration | Enabled and configured | Meets ACSC 
 
 ### Windows 10 hardening
 
-The following design components apply to the hardening of Microsoft Windows 10 1909 and above.
+The following design components apply to the hardening of Microsoft Windows 10 21H1 and above.
 
 The Windows 10 security settings detailed in this section are based on Microsoft best practice and ACSC Hardening Guidance.
 
@@ -955,7 +955,7 @@ Windows 10 Hardening Design Decisions for all agencies and implementation types.
     * Admin Approval Mode for the Built-in Administrator account: Enabled
     * Allow UIAccess applications to prompt for elevation without using the secure desktop: Disabled
     * Behavior of the elevation prompt for administrators in Admin Approval Mode: Prompt for credentials on the secure desktop
-    * Behavior of the elevation prompt for standard users: Prompt for credentials on the secure desktop
+    * Behavior of the elevation prompt for standard users: Automatically deny elevation requests
     * Detect application installations and prompt for elevation: Enabled
     * Only elevate UIAccess applications that are installed in secure locations: Enabled
     * Run all administrators in Admin Approval Mode: Enabled
@@ -1251,13 +1251,10 @@ Windows 10 Hardening Design Decisions for all agencies and implementation types.
 * Windows Search and Cortana
   * Justification: To align with the ACSC Windows 10 hardening guidance.
   * Allow Cortana: Disabled
-* Windows To Go
-  * Justification: To align with the ACSC Windows 10 hardening guidance.
-  * Windows To Go Default Startup Options: Disabled
 
 ### Microsoft Edge hardening
 
-The Microsoft Edge security settings support Edge version 80 and later.
+The Microsoft Edge security settings support Edge version 90 and later.
 
 The Microsoft Edge security settings detailed in this section are based on Microsoft best practice and ACSC Hardening Guidance.
 
@@ -1265,16 +1262,17 @@ Microsoft Edge Hardening Design Decisions for all agencies and implementation ty
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Allow Adobe Flash	| Disabled	| To align with the ACSC Windows 10 hardening guidance.
-Allow Developer Tools	| Disable	| To align with the ACSC Windows 10 hardening guidance.
+Allow download restrictions	| Block potentially dangerous or unwanted downloads	| To align with the ACSC Windows 10 hardening guidance.
 Configure Do Not Track	| Enable	| To align with the ACSC Windows 10 hardening guidance.
-Configure Password Manager	| Disable	| To align with the ACSC Windows 10 hardening guidance.
-Configure Pop-up Blocker	| Enabled	| To align with the ACSC Windows 10 hardening guidance.
+Control the mode of DNS-over-HTTPS | Disable DNS-over-HTTPS | To align with the ACSC Windows 10 hardening guidance.
+Control where developer tools can be used | Don’t allow using the developer tools | To align with the ACSC Windows 10 hardening guidance.
+DNS interception checks enabled | Disabled | To align with the ACSC Windows 10 hardening guidance.
+Default pop-up window setting | Do not allow any site to show popups | To align with the ACSC Windows 10 hardening guidance.
+Enable saving passwords to the password manager	| Disable	| To align with the ACSC Windows 10 hardening guidance.
 Configure Windows Defender SmartScreen	| Enabled	| To align with the ACSC Windows 10 hardening guidance.
-Prevent access to the about:flags page in Microsoft Edge	| Enabled	| To align with the ACSC Windows 10 hardening guidance.
-Prevent bypassing Windows Defender SmartScreen prompts for files	| Enabled	| To align with the ACSC Windows 10 hardening guidance.
-Prevent bypassing Windows Defender SmartScreen prompts for sites	| Enabled	| To align with the ACSC Windows 10 hardening guidance.
-Prevent users and apps from accessing dangerous websites	| Enabled – Block	| To align with the ACSC Windows 10 hardening guidance.
+Prevent bypassing Microsoft Defender SmartScreen prompts for sites | Enabled	| To align with the ACSC Windows 10 hardening guidance.
+Prevent bypassing of Microsoft Defender SmartScreen warnings about downloads | Enabled	| To align with the ACSC Windows 10 hardening guidance.
+Prevent users and apps from accessing dangerous websites | Enabled (Block) | To align with the ACSC Windows 10 hardening guidance.
 Turn on Windows Defender Application Guard in Managed Mode	| Enabled	| To align with the ACSC Windows 10 hardening guidance.
 
 ### Windows Defender Application Control

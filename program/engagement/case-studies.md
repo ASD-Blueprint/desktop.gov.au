@@ -3,7 +3,7 @@ layout: engagement
 title: A case study
 ---
 
-Since its inception in 2019, the DTA has supported several agencies to use the blueprint. The following case study outlines what a successful implementation of the Protected Utility blueprint looks like in an agency. We have also created a [shareable PDF version](/assets/files/pdf/DTA-Protected-Utility-Program-OCO-Case-Study.pdf).  
+Since its inception in 2019, the DTA has supported several agencies to use the blueprint. The following case study outlines what a successful implementation of the Protected Utility blueprint looks like in an agency. We have also created a [shareable PDF version](/assets/files/pdf/dta-pub-program-oco-case-study.pdf).  
 
 ## Office of the Commonwealth Ombudsman (OCO)
 

@@ -5,6 +5,8 @@ title: Key Messaging
 
 To engage people before, during and after a change to the blueprint is implemented, it is important that you provide clear, simple and timely communication that resonates with your key audience groups. We have created examples of constructive messaging for agency leaders, change champions and staff to support you in communicating changes that may arise from the blueprint implementation and associated business process transformation. The messaging is designed to inspire your communications, so you can enable agency leaders, change champions and staff to feel excited, comfortable, engaged and supported throughout the change.
 
+Download a copy of the [key messaging](/assets/files/pdf/dta-pub-key-messaging.html)
+
 ## How to use
 
 This messaging has been created for technical and non-technical agency staff and service providers to support you in communicating changes associated with the blueprint implementation and business process transformation.

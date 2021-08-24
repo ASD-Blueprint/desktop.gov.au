@@ -54,8 +54,8 @@ The Adopt and Engage phase helps you to mitigate risks such as:
 
 ## DTA tools, templates and guidance
 
-* [Change readiness assessment]()
-* [Benefits assessment](), leading to a benefits register
+* [Change readiness assessment](/assets/files/pdf/dta-pub-change-impact-assessment.xlsx)
+* [Benefits assessment](/assets/files/pdf/dta-pub-benefits-assessment-toolkit.xlsx), leading to a benefits register
 * Training and skills analysis.
 
 ## Your checklist  

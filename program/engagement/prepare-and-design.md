@@ -69,9 +69,9 @@ The Prepare and Design phase helps you to mitigate risks such as:
 - Procurement Plan
 - Statement of Work and Section 23
 - Business needs or user stories
-- [Strategy analysis](assets/files/pdf/DTA-PUB-Strategy-Analysis-Toolkit_vFINAL.pdf)
+- Strategy analysis [Toolkit](assets/files/pdf/dta-pub-strategy-analysis-toolkit.pdf), [Template](dta-pub-strategy-analysis.xlsx)
 - [Operational Model](), which can enable you to consider the roles and costs involved in supporting your blueprint implementation. 
-- [Risk assessment](assets/files/pdf/DTA-PUB-Risk-Assessment-Toolkit_vFINAL.pdf) or [change impact assessment](assets/files/pdf/DTA-PUB-Change-Impact-Assessment-Toolkit_vFINAL.pdf)
+- Risk assessment [Toolkit](assets/files/pdf/dta-pub-risk-assessment-toolkit.pdf), [Template](/assets/files/pdf/dta-pub-risk-assessment.xlsx) or change impact assessment [Toolkit](assets/files/pdf/dta-pub-change-impact-assessment-toolkit.pdf), [Template](/assets/files/pdf/dta-pub-change-impact-assessment.xlsx) 
 
 ## Your checklist
 

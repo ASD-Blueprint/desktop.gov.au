@@ -291,7 +291,7 @@ menu: abac
 Delegation of 365 Group creation is set through [Azure AD (preview module) PowerShell for Graph](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). For reference see [manage creation of groups](https://docs.microsoft.com/en-us/microsoft-365/solutions/manage-creation-of-groups?view=o365-worldwide).
 
 ```powershell
-$GroupName = "rol-<AgencyName>-o365groupcreator"
+$GroupName = "rol-<AgencyName>-o365groupcreators"
 $AllowGroupCreation = $False
 
 Connect-AzureAD

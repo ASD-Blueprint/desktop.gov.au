@@ -1401,6 +1401,33 @@ Decision Point | Design Decision | Justification
 Allow Telemetry  | Enabled | In line with the ACSC hardening guideline policy recommendations and meets requirements for future Desktop Analytics use.
 Telemetry Level | 2 – Enhanced | Microsoft recommend Enhanced Limited for Desktop Analytics. 
 
+### Microsoft Office hardening
+
+The following design components apply to the hardening of Microsoft Office 365 ProPlus.
+
+The Microsoft Office security settings detailed in this section are based on Microsoft best practice and ACSC Hardening Guidance.
+
+Microsoft Office Hardening Design Decisions for all agencies and implementation types.
+
+* Attack Surface Reduction
+  * Justification: To align with the ACSC Microsoft Office hardening guidance.
+  * Attack Surface Reduction rules – Enabled
+  * Block executable content from email client and webmail<br>BE9BA2D9-53EA-4CDC-84E5-9B1EEEE46550
+  * Block all Office applications from creating child processes<br>D4F940AB-401B-4EFC-AADC-AD5F3C50688A
+  * Block Office applications from creating executable content<br>3B576869-A4EC-4529-8536-B80A7769E899
+  * Block Office applications from injecting code into other processes<br>75668C1F-73B5-4CF0-BB93-3ECF5CB7CC84
+  * Block Win32 API calls from Office macro<br>92E97FA1-2EDF-4476-BDD6-9DD0B4DDDC7B
+  * Block Office communication application from creating child processes<br>26190899-1602-49E8-8B27-EB1D0A1CE869.
+* Flash content
+  * Justification: To align with the ACSC Microsoft Office hardening guidance.
+  * Block Flash activation in Office documents: Block all activation
+* Loading external content
+  * Justification: To align with the ACSC Microsoft Office hardening guidance.
+  * Always prevent untrusted Microsoft Query files from opening: Enabled
+  * Don’t allow Dynamic Data Exchange (DDE) server launch in Excel: Enabled
+  * Don’t allow Dynamic Data Exchange (DDE) server lookup in Excel: Enabled
+  * Update automatic links at Open: Disabled
+* Macros
   * Justification: To align with the ACSC Microsoft Office hardening guidance.
   * See following section.
 * Object Linking and Embedding packages

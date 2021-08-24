@@ -1264,7 +1264,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Allow download restrictions	| Block potentially dangerous or unwanted downloads	| To align with the ACSC Windows 10 hardening guidance.
 Configure Do Not Track	| Enable	| To align with the ACSC Windows 10 hardening guidance.
-Control the mode of DNS-over-HTTPS | Disable DNS-over HTTPS | To align with the ACSC Windows 10 hardening guidance.
+Control the mode of DNS-over-HTTPS | Disable DNS-over-HTTPS | To align with the ACSC Windows 10 hardening guidance.
 Control where developer tools can be used | Don’t allow using the developer tools | To align with the ACSC Windows 10 hardening guidance.
 DNS interception checks enabled | Disabled | To align with the ACSC Windows 10 hardening guidance.
 Default pop-up window setting | Do not allow any site to show popups | To align with the ACSC Windows 10 hardening guidance.

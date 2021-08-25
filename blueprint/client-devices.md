@@ -17,7 +17,6 @@ For each component within the document there is a brief description of the conte
 
 ## Assumptions
 
-* ACSC Windows 10 hardening guidelines have been broadly implemented as outlined within the SSP and SSP Annex.
 * The Microsoft Endpoint Manager (MEM) Console is the preferred method to manage all settings regardless of a cloud native or hybrid implementation. Although a combination of the Microsoft Endpoint Configuration Manager (MECM) Console and Group Policy Objects (GPOs) would  be able to achieve the same settings in a hybrid environment, this blueprint does not include MECM and GPOs example configurations due to the level of dissimilarities and per agency customisation in existing MECM and GPOs configurations across Commonwealth entities.
 * Minimum version of MECM 1710 is required for co-management, recommended minimum version at is 2002 update version. See [support for Configuration Manager current branch versions.](https://docs.microsoft.com/en-us/mem/configmgr/core/servers/manage/current-branch-versions-supported)
 
@@ -47,7 +46,7 @@ Minimum physical hardware configuration for the Windows 10 SOE applicable to all
 Component | Description | Justification
 --- | --- | ---
 Architecture | x64 | Required to Support more than 4GB RAM. 
-Processor | At least 4 logical processors, VT-x (Intel) or AMD-V CPU extensions, 2 GHz or higher with Second Level Address Translation (SLAT) support | SLAT is required to support Windows Defender Application Guard as required by ACSC hardening guide for Windows 10 1909. 
+Processor | At least 4 logical processors, VT-x (Intel) or AMD-V CPU extensions, 2 GHz or higher with Second Level Address Translation (SLAT) support | SLAT is required to support Windows Defender Application Guard. 
 RAM | 8GB | To meet design specifications.
 Graphics Card | DirectX 9 WDDM 1.0 | To meet design specifications. Integrated or dedicated. 
 Input Device(s) | Keyboard<br>Mouse<br>Multi-touch display screen to enable Windows 10 touch screen features (optional) | Keyboard and mouse may be built into a laptop, but touch screens are optional.
@@ -118,7 +117,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 UEFI version | At least 2.3.1 | This is minimum UEFI version required for Device Guard. 
 Secure Boot | Enabled | Secure Boot is a requirement for the use of Windows Credential Guard and provides greater security protection for users. 
-Secure Boot Configuration Method | Configured via Intune | Meets ACSC Windows 10 1909 hardening guidelines.
+Secure Boot Configuration Method | Configured via MEM or MECM | To align with the ACSC Windows 10 hardening guidance.
 
 ### Trusted platform module
 
@@ -133,7 +132,7 @@ Trusted Platform Module Design Decisions for all agencies and implementation typ
 Decision Point | Design Decision | Justification
 --- | --- | ---
 TPM | Enabled in BIOS/UEFI from hardware vendor or manually configured | Required for Windows 10 and BitLocker. 
-TPM Version | 2.0 | Meets ACSC Windows 10 1909 hardening guidelines. 
+TPM Version | 2.0 | To align with the ACSC Windows 10 hardening guidance. 
 
 ## Windows 10 deployment & management
 
@@ -359,8 +358,8 @@ Microsoft Store Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Microsoft Public Store | Disabled | Meets ACSC Windows 10 1909 hardening guidelines and aligns with security and compliance requirements. 
-Microsoft Store for Business | Disabled | Meets ACSC Windows 10 1909 hardening guidelines and aligns with security and compliance requirements. 
+Microsoft Public Store | Disabled | To align with the ACSC Windows 10 hardening guidance.
+Microsoft Store for Business | Disabled | To align with the ACSC Windows 10 hardening guidance. 
 
 ### Enterprise applications
 
@@ -408,20 +407,20 @@ Decision Point | Design Decision | Justification
 Power Management technology | Intune, MECM or Group Policy | Agency preference of technology to configure power options. <br>If using MECM or GPO, consideration should be made to migrate these to Intune in future.
 Default Power Option Battery | Balanced | Default setting, no requirement to change has been identified. 
 Default Power Option Powered | Better Performance | Default setting, no requirement to change has been identified. 
-Allow standby states when sleeping (on battery)  | Disabled | Meets ACSC Windows 10 1909 hardening guidelines. 
-Allow standby states when sleeping (plugged in) | Disabled | Meets ACSC Windows 10 1909 hardening guidelines. 
-Require a password when a computer wake (on battery) | Enabled | Meets ACSC Windows 10 1909 hardening guidelines. 
-Require a password when a computer wakes (plugged in) | Enabled | Meets ACSC Windows 10 1909 hardening guidelines. 
-Specify system hibernate timeout (on battery) | Enabled<br>System Hibernate Timeout (seconds): 0 | Meets ACSC Windows 10 1909 hardening guidelines. 
-Specify system hibernate timeout (plugged in) | Enabled<br>System Hibernate Timeout (seconds): 0 | Meets ACSC Windows 10 1909 hardening guidelines. 
-Specify system sleep timeout (on battery) | Enabled<br>System Sleep Timeout (seconds): 0 | Meets ACSC Windows 10 1909 hardening guidelines. 
-Specify system sleep timeout (plugged in) | Enabled<br>System Sleep Timeout (seconds): 0 | Meets ACSC Windows 10 1909 hardening guidelines. 
-Specify the unattended sleep timeout (on battery) | Enabled<br>Unattended Sleep Timeout (seconds): 0 | Meets ACSC Windows 10 1909 hardening guidelines. 
-Specify the unattended sleep timeout (plugged in) | Enabled<br>Unattended Sleep Timeout (seconds): 0 | Meets ACSC Windows 10 1909 hardening guidelines. 
-Turned off hybrid sleep (on battery) | Enabled | Meets ACSC Windows 10 1909 hardening guidelines. 
-Turned off hybrid sleep (plugged in) | Enabled | Meets ACSC Windows 10 1909 hardening guidelines. 
-Show hibernate in the power options menu | Disabled | Meets ACSC Windows 10 1909 hardening guidelines. 
-Show sleep in the power options menu | Disabled | Meets ACSC Windows 10 1909 hardening guidelines. 
+Allow standby states when sleeping (on battery)  | Disabled | To align with the ACSC Windows 10 hardening guidance. 
+Allow standby states when sleeping (plugged in) | Disabled | To align with the ACSC Windows 10 hardening guidance. 
+Require a password when a computer wake (on battery) | Enabled | To align with the ACSC Windows 10 hardening guidance. 
+Require a password when a computer wakes (plugged in) | Enabled | To align with the ACSC Windows 10 hardening guidance. 
+Specify system hibernate timeout (on battery) | Enabled<br>System Hibernate Timeout (seconds): 0 | To align with the ACSC Windows 10 hardening guidance. 
+Specify system hibernate timeout (plugged in) | Enabled<br>System Hibernate Timeout (seconds): 0 | To align with the ACSC Windows 10 hardening guidance. 
+Specify system sleep timeout (on battery) | Enabled<br>System Sleep Timeout (seconds): 0 | To align with the ACSC Windows 10 hardening guidance. 
+Specify system sleep timeout (plugged in) | Enabled<br>System Sleep Timeout (seconds): 0 | To align with the ACSC Windows 10 hardening guidance. 
+Specify the unattended sleep timeout (on battery) | Enabled<br>Unattended Sleep Timeout (seconds): 0 | To align with the ACSC Windows 10 hardening guidance. 
+Specify the unattended sleep timeout (plugged in) | Enabled<br>Unattended Sleep Timeout (seconds): 0 | To align with the ACSC Windows 10 hardening guidance. 
+Turned off hybrid sleep (on battery) | Enabled | To align with the ACSC Windows 10 hardening guidance. 
+Turned off hybrid sleep (plugged in) | Enabled | To align with the ACSC Windows 10 hardening guidance. 
+Show hibernate in the power options menu | Disabled | To align with the ACSC Windows 10 hardening guidance. 
+Show sleep in the power options menu | Disabled | To align with the ACSC Windows 10 hardening guidance. 
 
 ### Windows Search and Cortana
 
@@ -563,9 +562,10 @@ Screen Saver Design Decisions for all agencies and implementation types.
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Screen Saver | Disabled | Not required, the device will be configured to sleep after 15 minutes. 
-Machine Inactivity | Configured – 900 seconds | This is defined as per ACSC 1909 Windows 10 Hardening guide. 
+Machine Inactivity | Configured – 900 seconds | To align with the ACSC Windows 10 hardening guidance.
 Users Can Configure the Screen Saver | No | Disable the ability for users to configure the screen saver for all Windows 10 SOE devices. 
-Require Password on Wake | Configured | Users will be required to enter their password on machine wake up. This is defined as per ACSC 1909 Windows 10 Hardening guide. 
+Require Password on Wake | Configured | Users will be required to enter their password on machine wake up to align with the ACSC Windows 10 hardening guidance.
+ 
 
 ### Profiles, personalization, and folder redirection
 
@@ -657,7 +657,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Intune | Enabled | Intune management functions cannot be disabled when a device is enrolled in Intune and Azure AD.
 WinRM | Enabled | To meet operating support requirements for the Agency. Consideration should be made to harden the use of WinRM in the agency environment to increase the security of Windows 10 endpoints.
-Windows Remote Assistance | Disabled | Aligns with Windows 10 1909 hardening guide and reduces the attack surface.
+Windows Remote Assistance | Disabled | To align with the ACSC Windows 10 hardening guidance and reduces the attack surface.
 Remote Desktop | Enabled | To meet operating support requirements for the Agency. Access is granted via Active Directory Groups. 
 Remote Desktop Client | Enabled | Remote Desktop will be enabled for Windows 10 devices. 
 Remote Control via Teams | Enabled | Users can share the desktop within the Microsoft Teams application. 
@@ -690,10 +690,10 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Patching technology | Agency preference of Intune, MECM or WSUS  | For cloud native deployments, Intune is the only option available.<br><br>For hybrid deployments, all three options are available for implementation. Intune provides a simpler approach to patching whilst MECM and WSUS provide more granular control of patch deployment.
 Patching Testing Method | Pilot and Production  | Allows early deployment and test of Windows updates to selected users prior to the full release of updates to the remaining users.<br><br>The Pilot group will be a select number of users who will actively provide feedback on updates before rollout to all users. 
-Feature Updates | Enabled | Meets ACSC hardening guidance for Windows 10 1909. 
-Quality Updates | Enabled | Meets ACSC hardening guidance for Windows 10 1909. 
-Driver Updates | Enabled | Meets ACSC hardening guidance for Windows 10 1909. 
-Microsoft Product Updates | Enabled | Meets ACSC hardening guidance for Windows 10 1909. 
+Feature Updates | Enabled | To align with the ACSC Windows 10 hardening guidance. 
+Quality Updates | Enabled | To align with the ACSC Windows 10 hardening guidance. 
+Driver Updates | Enabled | To align with the ACSC Windows 10 hardening guidance. 
+Microsoft Product Updates | Enabled | To align with the ACSC Windows 10 hardening guidance. 
 Patching Frequency | Existing Agency patch scheduling based on Essential Eight guidance | The Agencies existing patch schedule should reflect:<br><br>Patches, updates or vendor mitigations for security vulnerabilities in operating systems are applied two weeks of release, or within 48 hours if an exploit exists. <br />Meets ACSC Essential Eight guidance for patching Operating Systems. 
 
 ### Networking
@@ -710,11 +710,12 @@ Networking Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-IPv6 | Disabled | As per ACSC hardening guidance for Windows 10 1909 IPv6 will be disabled.<br>Exceptions to this rule are if IPv6 is wholly deployed within an Agency network with no IPv4.
+IPv6 | Disabled | To align with the ACSC Windows 10 hardening guidance.
+<br>Exceptions to this rule are if IPv6 is wholly deployed within an Agency network with no IPv4.
 Wireless | Enabled | Where applicable, wireless capable devices will have Wi-Fi enabled to allow use case of mobile working.
-Wireless Configuration | Refer to Table below for wireless configuration recommendations. | As per ACSC hardening guidance for Windows 10 1909 and security compliance requirements. 
+Wireless Configuration | Refer to Table below for wireless configuration recommendations. | To align with the ACSC Windows 10 hardening guidance. 
 Broadband | Not Configured | If Agency devices have Subscriber Identity Module (SIM) capability this can be enabled without affecting an agencies cyber security posture.
-Network Bridging | Disabled | As per ACSC hardening guidance for Windows 10 1909 and security and compliance requirements.
+Network Bridging | Disabled | To align with the ACSC Windows 10 hardening guidance.
 Wake on LAN (WoL) | Configured via existing MECM solution if in use | Wake on LAN configured to allow existing MECM management tasks to operate on computers regardless of power status.
 
 Wireless Configuration applicable to all agencies and implementation types.
@@ -722,9 +723,9 @@ Wireless Configuration applicable to all agencies and implementation types.
 Configuration | Value | Description
 --- | --- | ---
 Connect to Wireless Hotspots | Enabled | Allows users to connect to wireless hotspots when working remotely. 
-Automatically Connect to Suggested Open Hotspots | Disabled | Meets ACSC hardening guidance for Windows 10 1909 and aligns with security and compliance requirements. 
-Prohibit installation and configuration of Network Bridge | Enabled | Meets ACSC hardening guidance for Windows 10 1909 and aligns with security and compliance requirements. 
-Single Sign On 802.1x | Enabled | Meets ACSC hardening guidance for Windows 10 1909 and aligns with security and compliance requirements. 
+Automatically Connect to Suggested Open Hotspots | Disabled | To align with the ACSC Windows 10 hardening guidance. 
+Prohibit installation and configuration of Network Bridge | Enabled | To align with the ACSC Windows 10 hardening guidance. 
+Single Sign On 802.1x | Enabled | To align with the ACSC Windows 10 hardening guidance. 
 Wireless Profile Configuration | Configured | Will be configured depending on the Agency requirements. 
 
 ### Delivery optimisation
@@ -905,12 +906,12 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Microsoft Defender | Enabled | Microsoft Defender will be enabled to align with ACSC guidance. 
 Microsoft Defender Capabilities Enabled in the SOE | Components:<br>Microsoft Defender Antivirus<br>Microsoft Defender Exploit Guard<br>Microsoft Defender Application Control<br>Microsoft Defender SmartScreen<br>Microsoft Defender Application Guard<br>Microsoft Defender Credential Guard<br>Microsoft Defender Firewall | Provides required security controls for the SOE. 
-Microsoft Defender Antivirus Exclusions | Enabled and configured | Meets ACSC Windows 10 1909 hardening guidelines and aligns with security and compliance requirements. 
-Microsoft Defender Exploit Guard Configuration | Enabled and configured | Meets ACSC Windows 10 1909 hardening guidelines and aligns with security and compliance requirements. 
-Microsoft Defender Application Control Configuration | Enabled and configured | Meets ACSC Windows 10 1909 hardening guidelines and aligns with security and compliance requirements. 
-Microsoft Defender Smart Screen Configuration | Enabled and configured | Meets ACSC Windows 10 1909 hardening guidelines and aligns with security and compliance requirements. 
+Microsoft Defender Antivirus Exclusions | Enabled and configured | To align with the ACSC Windows 10 hardening guidance. 
+Microsoft Defender Exploit Guard Configuration | Enabled and configured | To align with the ACSC Windows 10 hardening guidance. 
+Microsoft Defender Application Control Configuration | Enabled and configured | To align with the ACSC Windows 10 hardening guidance. 
+Microsoft Defender Smart Screen Configuration | Enabled and configured | To align with the ACSC Windows 10 hardening guidance.
 Microsoft Defender Credential Guard Configuration | Enabled and configured | Aligns with security and compliance requirements. Enabled without lock allows Microsoft Defender Credential Guard to be managed remotely. 
-Microsoft Defender Firewall Configuration | Enabled and configured | Meets ACSC Windows 10 1909 hardening guidelines and aligns with security and compliance requirements. 
+Microsoft Defender Firewall Configuration | Enabled and configured | To align with the ACSC Windows 10 hardening guidance. 
 
 ### Windows 10 hardening
 
@@ -1004,7 +1005,7 @@ Windows 10 Hardening Design Decisions for all agencies and implementation types.
   * Justification: To align with the ACSC Windows 10 hardening guidance.
   * Turn off Windows Defender Antivirus: Disabled
   * Configure local setting override for reporting to Microsoft MAPS: Disabled
-  * Configure the ‘Block at First Sight’ feature: Enabled
+  * Configure the 'Block at First Sight' feature: Enabled
   * Join Microsoft MAPS: Enabled (Advanced MAPS)
   * Send file samples when further analysis is required: Enabled (Send safe samples)
   * Configure extended cloud check: Enabled (High blocking level)
@@ -1119,7 +1120,7 @@ Windows 10 Hardening Design Decisions for all agencies and implementation types.
   * Justification: To align with the ACSC Windows 10 hardening guidance.
   * Block all consumer Microsoft account user authentication: Enabled
   * Prevent the usage of OneDrive for file storage: Enabled
-  * Accounts: Block Microsoft accounts: Users can’t add or log on with Microsoft accounts
+  * Accounts: Block Microsoft accounts: Users can't add or log on with Microsoft accounts
 * MSS settings
   * Justification: To align with the ACSC Windows 10 hardening guidance.
   * IP source routing protection level: Enabled
@@ -1265,7 +1266,7 @@ Decision Point | Design Decision | Justification
 Allow download restrictions	| Block potentially dangerous or unwanted downloads	| To align with the ACSC Windows 10 hardening guidance.
 Configure Do Not Track	| Enable	| To align with the ACSC Windows 10 hardening guidance.
 Control the mode of DNS-over-HTTPS | Disable DNS-over-HTTPS | To align with the ACSC Windows 10 hardening guidance.
-Control where developer tools can be used | Don’t allow using the developer tools | To align with the ACSC Windows 10 hardening guidance.
+Control where developer tools can be used | Don't allow using the developer tools | To align with the ACSC Windows 10 hardening guidance.
 DNS interception checks enabled | Disabled | To align with the ACSC Windows 10 hardening guidance.
 Default pop-up window setting | Do not allow any site to show popups | To align with the ACSC Windows 10 hardening guidance.
 Enable saving passwords to the password manager	| Disable	| To align with the ACSC Windows 10 hardening guidance.
@@ -1293,7 +1294,7 @@ Application Control Design Decisions for all agencies and implementation types.
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Application Whitelisting Product | WDAC | Microsoft recommended product for [application control](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control#choose-when-to-use-wdac-or-applocker) and aligns with ACSC Essential Eight guidance. 
-User Mode Code Integrity | Enabled | Restricts both kernel-mode and user-mode binaries. This aligns with the ACSC Windows 10 1909 hardening guidance.
+User Mode Code Integrity | Enabled | Restricts both kernel-mode and user-mode binaries. To align with the ACSC Windows 10 hardening guidance.
 Windows Hardware Quality Labs Signing | Required | Blocks the execution of legacy drivers and ensures drivers have passed [Windows Hardware Certification Testing](https://docs.microsoft.com/en-us/windows-hardware/drivers/install/whql-release-signature). 
 Flight Signing | Disabled  | Restricts the use of non production release binaries. Flightroot-signed binaries will not be trusted.
 Unsigned System Integrity Policy | Agency Decision | The use of signed policies prevent administrative tampering and kernel mode exploit access. However, it does increase the administrative overhead associated with management and updating of policies. There is no current ACSC guidance on the configuration of signed integrity polices. 
@@ -1306,9 +1307,10 @@ Update Policy No Reboot | Enabled | Ensures new policies can be applied without 
 Allow Supplemental Policies | Intune deployed: Enabled; Group Policy deployed: Disabled | Supplemental polices allow for policies to be targeted to users/groups. This is however not supported when policies are deployed by Group Policy.
 Dynamic Code Security | Enabled | Enforces WDAC policies on .NET applications and dynamically-loaded libraries.
 Managed Installer | Enabled | Allow lists applications deployed using a managed installer such as Microsoft Endpoint Configuration Manager.
-Hypervisor-protected code integrity | Enabled | To align with the ACSC Windows 10 1909 hardening guidance.
+Hypervisor-protected code integrity | Enabled | To align with the ACSC Windows 10 hardening guidance.
 Application Control method | A combination of publisher certificate and path rules and will be used. | Controlled via Intune for cloud managed devices and Group policy for hybrid devices.
-Microsoft Block Rules | Configured | To align with the ACSC Windows 10 1909 hardening guidance. The latest Microsoft recommended block rules for [Windows 10](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-block-rules) and [Drivers](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-driver-block-rules) are available online at Microsoft website.
+Microsoft Block Rules | Configured | To align with the ACSC Windows 10 hardening guidance.
+ The latest Microsoft recommended block rules for [Windows 10](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-block-rules) and [Drivers](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-driver-block-rules) are available online at Microsoft website.
 Intelligent Security Graph connection | Disabled | The Intelligent Security Graph connection allows applications to be run if they are deemed as good and there is no explicit block rule configured. 
 
 ### Identity providers
@@ -1326,9 +1328,9 @@ Identity Providers Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Guest Account (Local) | Disabled | In line with the ACSC Windows 10 1909 hardening guidelines. 
-Guest Account Name | Renamed | In line with the ACSC Windows 10 1909 hardening guidelines. 
-Microsoft Accounts | Disabled | In line with the ACSC Windows 10 1909 hardening guidelines. 
+Guest Account (Local) | Disabled | To align with the ACSC Windows 10 hardening guidance. 
+Guest Account Name | Renamed | To align with the ACSC Windows 10 hardening guidance.
+Microsoft Accounts | Disabled | To align with the ACSC Windows 10 hardening guidance.
 Windows Hello for Business | Disabled | Does not meet security requirements.
 Windows Hello for Business Configuration Method | Disabled | Does not meet security requirements.
 
@@ -1453,9 +1455,9 @@ Local Administrator Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Local Administrator Account | Disabled | The local administrator account will be disabled in line with the ACSC Windows 10 1909 hardening guideline policy recommendations. 
+Local Administrator Account | Disabled | The local administrator account will be disabled to align with the ACSC Windows 10 hardening guidance.
 Local Administrator Account Name | Renamed | The local administrator account will be renamed during the image deployment<br>In line with [Microsoft recommendations for securing the local administrator account](https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/accounts-rename-administrator-account). 
-Local Administrator Account Password | Randomised | In line with the ACSC Windows 10 1909 hardening guideline policy recommendations. 
+Local Administrator Account Password | Randomised | To align with the ACSC Windows 10 hardening guidance.
 Additional Local Administrator Accounts | Not Configured | Additional administrator accounts will not be created during the image deployment. 
 LAPS | Not Configured | Not required for the solution. The local Administrator account will be disabled and renamed. 
 

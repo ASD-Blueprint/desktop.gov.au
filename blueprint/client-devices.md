@@ -1005,7 +1005,7 @@ Windows 10 Hardening Design Decisions for all agencies and implementation types.
   * Justification: To align with the ACSC Windows 10 hardening guidance.
   * Turn off Windows Defender Antivirus: Disabled
   * Configure local setting override for reporting to Microsoft MAPS: Disabled
-  * Configure the ‘Block at First Sight’ feature: Enabled
+  * Configure the 'Block at First Sight' feature: Enabled
   * Join Microsoft MAPS: Enabled (Advanced MAPS)
   * Send file samples when further analysis is required: Enabled (Send safe samples)
   * Configure extended cloud check: Enabled (High blocking level)
@@ -1120,7 +1120,7 @@ Windows 10 Hardening Design Decisions for all agencies and implementation types.
   * Justification: To align with the ACSC Windows 10 hardening guidance.
   * Block all consumer Microsoft account user authentication: Enabled
   * Prevent the usage of OneDrive for file storage: Enabled
-  * Accounts: Block Microsoft accounts: Users can’t add or log on with Microsoft accounts
+  * Accounts: Block Microsoft accounts: Users can't add or log on with Microsoft accounts
 * MSS settings
   * Justification: To align with the ACSC Windows 10 hardening guidance.
   * IP source routing protection level: Enabled
@@ -1265,8 +1265,8 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Allow download restrictions	| Block potentially dangerous or unwanted downloads	| To align with the ACSC Windows 10 hardening guidance.
 Configure Do Not Track	| Enable	| To align with the ACSC Windows 10 hardening guidance.
-Control the mode of DNS-over-HTTPS | Disable DNS-over HTTPS | To align with the ACSC Windows 10 hardening guidance.
-Control where developer tools can be used | Don’t allow using the developer tools | To align with the ACSC Windows 10 hardening guidance.
+Control the mode of DNS-over-HTTPS | Disable DNS-over-HTTPS | To align with the ACSC Windows 10 hardening guidance.
+Control where developer tools can be used | Don't allow using the developer tools | To align with the ACSC Windows 10 hardening guidance.
 DNS interception checks enabled | Disabled | To align with the ACSC Windows 10 hardening guidance.
 Default pop-up window setting | Do not allow any site to show popups | To align with the ACSC Windows 10 hardening guidance.
 Enable saving passwords to the password manager	| Disable	| To align with the ACSC Windows 10 hardening guidance.

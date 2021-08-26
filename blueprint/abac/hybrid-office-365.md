@@ -256,7 +256,7 @@ The following table describes the DKIM records configuration settings per implem
 
 Note, the Autodiscover service external DNS entry is specific to the Hybrid implementation of the Agency. Once all mailboxes have been migrated to Office 365 within a Hybrid configuration this can be pointed as an alias to the Office 365 Autodiscover service using `autodiscover.outlook.com`.
 
-Hybrid implementation types will require additional external DNS depending on the hybrid implementation (classic or modern). The additional certificate requirements for hybrid can be located at - [certificate requirements for hybrid deployments](https://docs.microsoft.com/en-us/exchange/certificate-requirements).
+Hybrid implementation types will require additional external DNS records depending on the hybrid implementation (classic or modern). The additional certificate requirements for hybrid can be located at - [certificate requirements for hybrid deployments](https://docs.microsoft.com/en-us/exchange/certificate-requirements).
 
 The following table describes the DNS record settings for Agency.gov.au (default) per implementation type. 
 

@@ -264,8 +264,8 @@ Implementation |Type | Priority | Host name | Points to address or value | TTL
 --- | --- | --- | --- | --- |--- 
 Cloud-native |MX | `10` | Agency Domain | `Agency-gov-au.mail.protection.outlook.com` | 1 hour 
 Hybrid |MX | `10` | Agency Domain | Agency mx provider address. | 1 hour
-Hybrid |CNAME | `10` | Agency Edge Transport address | Agency edge transport gateway address. | 1 hour 
-Hybrid |CNAME | `10` | Agency CAS/EWS NAT address | Agency CAS/EWS NAT when using hybrid classic full. | 1 hour 
+Hybrid |CNAME | - | Agency Edge Transport address | Agency edge transport gateway address. | 1 hour 
+Hybrid |CNAME | - | Agency CAS/EWS NAT address | Agency CAS/EWS NAT when using hybrid classic full. | 1 hour 
 All |TXT | - | Agency Domain | Text string provided by Office 365 domain setup wizard. | 1 hour
 Cloud-native |CNAME | - | Autodiscover.Agency.gov.au | `autodiscover.outlook.com` | 1 hour 
 Hybrid |CNAME | - | Autodiscover.Agency.gov.au | Agency autodiscover NAT address. | 1 hour

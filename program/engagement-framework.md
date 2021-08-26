@@ -114,8 +114,7 @@ The engagement framework is designed in accordance with the following principles
 ## Engagement Framework phases
 
 The engagement framework, in summary, contains the following phases. We have developed a visual overview to simplify this information onto one page:
-The following information describes the visual. 
 
-![Engagement_model](/assets/images/engagement-framework-overview.jpg "Engagement model")
+[![Engagement model](/assets/images/engagement-framework-overview.png "Engagement model")](/images/engagement-framework-overview.png)
 
 The following information describes the visual.

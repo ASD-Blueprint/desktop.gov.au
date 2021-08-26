@@ -1,5 +1,0 @@
----
-layout: engagement
-title: Patterns
----
-

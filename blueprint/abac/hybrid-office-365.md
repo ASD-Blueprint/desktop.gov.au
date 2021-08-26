@@ -1009,7 +1009,7 @@ Get-AddressList -identity 'Address List Name'
 
 The following table describes the Address List configuration settings for all implementation types. 
 
-| Configuration Item          | Value                                                        |
+| Item                        | Configuration                                                |
 | --------------------------- | ------------------------------------------------------------ |
 | All Contacts                | `((Alias -ne $null) -and (((ObjectCategory -like 'person') -and (ObjectClass -eq 'contact'))))` |
 | All Distribution Lists      | `((Alias -ne $null) -and (ObjectCategory -like 'group'))`    |
@@ -1047,7 +1047,7 @@ The following table describes the Connection Filter configuration settings for p
 
 The following table describes the Malware Filter configuration settings for all implementation types.
 
-| Configuration Item                         | Value                               |
+| Item                                       | Configuration                       |
 | ------------------------------------------ | ----------------------------------- |
 | Name                                       | Default-Malware-Filter-Policy       |
 | Custom Notifications                       | False                               |
@@ -1072,7 +1072,7 @@ Get-HostedContentFilterPolicy | Format-List
 
 The following table describes the Content (spam) Filter configuration settings for all implementation types.
 
-| Configuration Item                   | Value                                                        |
+| Item                                 | Configuration                                                |
 | ------------------------------------ | ------------------------------------------------------------ |
 | Name                                 | Default-HostedContentFilterPolicy                            |
 | Add X Header Value                   | Not Configured                                               |
@@ -1112,7 +1112,7 @@ Please note, if a setting is not mentioned in the below, it should be assumed to
 
 The following table describes the Teams Client configuration settings for all implementation types.
 
-| Configuration Item                                           | Value                                  |
+| Item                                                         | Configuration                          |
 | ------------------------------------------------------------ | -------------------------------------- |
 | Suggested feeds can appear in a user's activity feed         | True                                   |
 | Tags are managed by                                          | Team Owners                            |
@@ -1139,7 +1139,7 @@ The following table describes the Teams Client configuration settings for all im
 
 The following table describes the Teams policy configuration settings for all implementation types.
 
-| Configuration Item      | Value                     |
+| Item                    | Configuration             |
 | ----------------------- | ------------------------- |
 | Name                    | Global (Org-wide default) |
 | Description             | Not Configured            |
@@ -1151,7 +1151,7 @@ The following table describes the Teams policy configuration settings for all im
 
 The following table describes the Teams Calling policy configuration settings for all implementation types.
 
-| Configuration Item             | Value                                    |
+| Item                           | Configuration                            |
 | ------------------------------ | ---------------------------------------- |
 | Name                           | Global                                   |
 | Description                    | Not Configured                           |
@@ -1210,7 +1210,7 @@ The following table describes the Teams Calling policy configuration settings fo
 
 The following table describes the Teams Meeting policy configuration settings for all implementation types.
 
-| Configuration Item                              | Value                                                        |
+| Item                                            | Configuration                                                |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | Name                                            | Global                                                       |
 | Description                                     | Not Configured                                               |
@@ -1380,7 +1380,7 @@ The following table describes the Teams Meeting policy configuration settings fo
 
 The following table describes the Teams Messaging policy configuration settings for all implementation types.
 
-| Configuration Item                 | Value                         |
+| Item                               | Configuration                 |
 | ---------------------------------- | ----------------------------- |
 | Name                               | Global                        |
 | Description                        | Global Teams Messaging Policy |
@@ -1461,7 +1461,7 @@ The following table describes the Teams Messaging policy configuration settings 
 
 The following table describes the Teams Live events policy configuration settings for all implementation types.
 
-| Configuration Item                 | Value             |
+| Item                               | Configuration     |
 | ---------------------------------- | ----------------- |
 | Name                               | Global            |
 | Description                        | Not Configured    |
@@ -1482,7 +1482,7 @@ The following table describes the Teams Live events policy configuration setting
 
 The following table describes the External access configuration settings for all implementation types.
 
-| Configuration Item                                           | Value                                       |
+| Item                                                         | Configuration                               |
 | ------------------------------------------------------------ | ------------------------------------------- |
 | Users can communicate with other Skype for Business and Teams users | True                                        |
 | Users can communicate with Skype users                       | True                                        |
@@ -1494,9 +1494,9 @@ The following table describes the External access configuration settings for all
 
 The following table describes the External access configuration settings for all implementation types.
 
-| Configuration Item          | Value |
-| --------------------------- | ----- |
-| Allow guest access in Teams | True  |
+| Item                        | Configuration |
+| --------------------------- | ------------- |
+| Allow guest access in Teams | True          |
 
 ## SharePoint Online & OneDrive
 
@@ -1519,7 +1519,7 @@ Get-SPOTenant
 
 The following table describes the SharePoint Online Tenant configuration settings for all implementation types. 
 
-| Configuration Item                                  | Value                                            |
+| Item                                                | Configuration                                    |
 | --------------------------------------------------- | ------------------------------------------------ |
 | Storage quota                                       | 1025048576                                       |
 | Storage quota allocated                             | 104857600                                        |
@@ -1678,7 +1678,7 @@ Note, retention policies should not be used in place of an adequate backup solut
 
 The following table describes the Retention labels configuration settings for all implementation types.
 
-| Configuration Item                    | Value                                                        |
+| Item                                  | Configuration                                                |
 | ------------------------------------- | ------------------------------------------------------------ |
 | Name                                  | Teams Channel messages Indefinite Hold                       |
 | Status                                | On                                                           |
@@ -1739,7 +1739,7 @@ The following tables describe the sensitivity label configuration settings for a
 
 The following table lists the sensitivity label policy configuration for Unofficial.
 
-| Configuration Item    | Value                                                        |
+| Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
 | Name                  | UNOFFICIAL                                                   |
 | Description for Users | No damage. This information does not form part of official duty. |
@@ -1750,7 +1750,7 @@ The following table lists the sensitivity label policy configuration for Unoffic
 
 The following table lists the sensitivity label policy configuration for Official.
 
-| Configuration Item    | Value                                                        |
+| Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
 | Name                  | OFFICIAL                                                     |
 | Description for Users | 1 No or insignificant damage. This is the majority of routine information. |
@@ -1761,7 +1761,7 @@ The following table lists the sensitivity label policy configuration for Officia
 
 The following table lists the sensitivity label policy configuration for Official Sensitive.
 
-| Configuration Item    | Value                                                        |
+| Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
 | Name                  | OFFICIAL Sensitive                                           |
 | Description for Users | 2 Low to medium business impact. Limited damage <br />to an individual, organisation or government generally if compromised |
@@ -1770,7 +1770,7 @@ The following table lists the sensitivity label policy configuration for Officia
 
 The following table lists the sensitivity label policy configuration for Official Sensitive (ACCESS=Legal-Privilege).
 
-| Configuration Item    | Value                                                        |
+| Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
 | Name                  | OFFICIAL Sensitive ACCESS=Legal-Privilege                    |
 | Description for Users | 2 Low to medium business impact. Limited damage <br />to an individual, organisation or government generally if compromised |
@@ -1779,7 +1779,7 @@ The following table lists the sensitivity label policy configuration for Officia
 
 The following table lists the sensitivity label policy configuration for Official Sensitive (ACCESS=Legislative-Secrecy).
 
-| Configuration Item    | Value                                                        |
+| Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
 | Name                  | OFFICIAL Sensitive ACCESS=Legislative-Secrecy                |
 | Description for Users | 2 Low to medium business impact. Limited damage <br />to an individual, organisation or government generally if compromised |
@@ -1788,7 +1788,7 @@ The following table lists the sensitivity label policy configuration for Officia
 
 The following table lists the sensitivity label policy configuration for Official Sensitive (ACCESS=Personal-Privacy).
 
-| Configuration Item    | Value                                                        |
+| Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
 | Name                  | OFFICIAL Sensitive ACCESS=Personal-Privacy                   |
 | Description for Users | 2 Low to medium business impact. Limited damage <br />to an individual, organisation or government generally if compromised |
@@ -1799,7 +1799,7 @@ The following table lists the sensitivity label policy configuration for Officia
 
 The following table lists the sensitivity label policy configuration for Protected.
 
-| Configuration Item    | Value                                                        |
+| Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
 | Name                  | PROTECTED                                                    |
 | Description for Users | 3 High business impact. Damage to the national<br /> interest, organisations or individuals. |
@@ -1808,7 +1808,7 @@ The following table lists the sensitivity label policy configuration for Protect
 
 The following table lists the sensitivity label policy configuration for Protected (ACCESS=Legal-Privilege).
 
-| Configuration Item    | Value                                                        |
+| Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
 | Name                  | PROTECTED ACCESS=Legal-Privilege                             |
 | Description for Users | 3 High business impact. Damage to the national<br /> interest, organisations or individuals. |
@@ -1817,7 +1817,7 @@ The following table lists the sensitivity label policy configuration for Protect
 
 The following table lists the sensitivity label policy configuration for Protected (ACCESS=Legislative-Secrecy).
 
-| Configuration Item    | Value                                                        |
+| Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
 | Name                  | PROTECTED ACCESS=Legislative-Secrecy                         |
 | Description for Users | 3 High business impact. Damage to the national<br /> interest, organisations or individuals. |
@@ -1826,7 +1826,7 @@ The following table lists the sensitivity label policy configuration for Protect
 
 The following table lists the sensitivity label policy configuration for Protected (ACCESS=Personal-Privacy).
 
-| Configuration Item    | Value                                                        |
+| Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
 | Name                  | PROTECTED ACCESS=Personal-Privacy                            |
 | Description for Users | 3 High business impact. Damage to the national<br /> interest, organisations or individuals. |
@@ -1835,7 +1835,7 @@ The following table lists the sensitivity label policy configuration for Protect
 
 The following table lists the sensitivity label policy configuration for Protected (CAVEAT=SH CABINET).
 
-| Configuration Item    | Value                                                        |
+| Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
 | Name                  | PROTECTED CAVEAT=SH CABINET                                  |
 | Description for Users | 3 High business impact. Damage to the national<br /> interest, organisations or individuals. |
@@ -1844,7 +1844,7 @@ The following table lists the sensitivity label policy configuration for Protect
 
 The following table lists the sensitivity label policy configuration for Protected (ACCESS=Legal-Privilege CAVEAT=SH CABINET).
 
-| Configuration Item    | Value                                                        |
+| Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
 | Name                  | PROTECTED ACCESS=Legal-Privilege CAVEAT=SH CABINET           |
 | Description for Users | 3 High business impact. Damage to the national<br /> interest, organisations or individuals. |
@@ -1853,7 +1853,7 @@ The following table lists the sensitivity label policy configuration for Protect
 
 The following table lists the sensitivity label policy configuration for Protected (ACCESS=Legislative-Secrecy CAVEAT=SH CABINET).
 
-| Configuration Item    | Value                                                        |
+| Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
 | Name                  | PROTECTED ACCESS=Legislative-Secrecy CAVEAT=SH CABINET       |
 | Description for Users | 3 High business impact. Damage to the national<br /> interest, organisations or individuals. |
@@ -1862,7 +1862,7 @@ The following table lists the sensitivity label policy configuration for Protect
 
 The following table lists the sensitivity label policy configuration for Protected (ACCESS=Personal-Privacy CAVEAT=SH CABINET).
 
-| Configuration Item    | Value                                                        |
+| Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
 | Name                  | PROTECTED ACCESS=Personal-Privacy CAVEAT=SH CABINET          |
 | Description for Users | 3 High business impact. Damage to the national<br /> interest, organisations or individuals. |

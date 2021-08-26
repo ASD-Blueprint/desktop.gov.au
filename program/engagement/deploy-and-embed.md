@@ -30,22 +30,22 @@ This is where the rubber hits the road and we begin the blueprint implementation
 ## Benefits
 
 The Deploy and Embed phase helps you to realise the benefits of the blueprint design by: 
+
 * Deploying the Modern Workplace and technology platforms into your ICT environment based on the blueprint design
-* Embedding the new ways of working so you have less reliance on legacy systems and don’t lose any of your data.
-
-
+* Embedding the new ways of working so you have less reliance on legacy systems and don’t lose any of your data
 
 ## Mitigating key risks
 
 The Deploy and Embed phase helps you to mitigate risks such as: 
+
 * Making sure you implement technology in a planned fashion to maximise the adoption of the Modern Workplace and prevent delays 
 * Making sure the time and effort you invest into planning for business change results in successful implementation of the modern technology platform
 * Maximising your time, effort and financial investment to realise the benefits of a Modern Workplace 
-* Making sure you’re not relying on outdated, bespoke legacy systems.
+* Making sure you’re not relying on outdated, bespoke legacy systems
 
-## Key Objectives
+## Key objectives
 
-* Establish successful implementation of the blueprint.
+* Establish successful implementation of the blueprint
 
 ## Key actions
 
@@ -54,28 +54,29 @@ The Deploy and Embed phase helps you to mitigate risks such as:
 * Implement blueprint technology 
 * Configure appropriate application security controls
 * Undergo testing and provide assurance that the deployment has worked
-* Seek relevant architectural and security accreditation for the deployment.
+* Seek relevant architectural and security accreditation for the deployment
 
 ## DTA tools, templates and guidance
 
 * User guides
 * User stories
 * Sprint plan
-* Feature log.
+* Feature log
 
 ## Your checklist 
 
 You’re ready to proceed to the next phase when you have completed these tasks:
+
 * Establish business consultation for the deployment
 * Set up the relevant technical environment
 * Implement blueprint technology 
 * Configure appropriate application security controls
 * Undergo testing and provide assurance that the deployment has worked
-* Seek relevant architectural and security accreditation for the deployment.
+* Seek relevant architectural and security accreditation for the deployment
 
 ## DTA support 
 
-* The [community portal](https://community.desktop.gov.au/): for asking questions, FAQ, and understanding which agencies are using the blueprint 
-* The [desktop.gov.au](https://desktop.gov.au/) website: for information, the latest version of the blueprint, and knowledge articles. 
+* The [community portal](https://community.desktop.gov.au/) for asking questions, FAQ, and understanding which agencies are using the blueprint 
+* The [desktop.gov.au](https://desktop.gov.au/) website for information, the latest version of the blueprint, and knowledge articles. 
 
 ## Tasks and activities

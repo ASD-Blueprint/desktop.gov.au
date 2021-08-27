@@ -33,8 +33,6 @@ The Deploy and Embed phase helps you to realise the benefits of the blueprint de
 * Deploying the Modern Workplace and technology platforms into your ICT environment based on the blueprint design
 * Embedding the new ways of working so you have less reliance on legacy systems and don’t lose any of your data.
 
-
-
 ## Mitigating key risks
 
 The Deploy and Embed phase helps you to mitigate risks such as: 

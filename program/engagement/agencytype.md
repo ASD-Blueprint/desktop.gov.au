@@ -2,13 +2,13 @@
 layout: engagement
 title: Self-assess your agency
 timeline: 
-- title: 1. Lean
+- title:
   body: | 
   
 --- 
 
 We understand that each agency’s circumstances and starting points are different. As such, we’ve tailored the Protected Utility blueprint engagement framework to help you to identify where you are in your process – that way you can engage with this framework in the most efficient and relevant way by aligning your agency type according to which one you think best describes your agency.
-We have created a [shareable PDF version]() of this process. 
+We have created a [shareable PDF version](/assets/files/pdf/dta-pub-technology-maturity-assessment-toolkit.pdf) of this process. 
 
 ### Which agency type are you?
 

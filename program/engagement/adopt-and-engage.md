@@ -21,21 +21,23 @@ Even the best systems in the world will fail if people will not engage with them
 ## Benefits 
 
 The Adopt and Engage phase helps you to move to a Modern Workplace by: 
+
 * Adopting business change risk mitigation measures
 * Adopting cyber risk awareness to improve your agency’s security
 * Understanding the skills and training required to successfully transition to the new ways of working
 * Adopting a Modern Workplace and reducing barriers to business change 
 * Engaging staff via strategic communications and creating buy-in to the new ways of working
-* Assessing the readiness of the agency staff for the transition to a Modern Workplace.
+* Assessing the readiness of the agency staff for the transition to a Modern Workplace
 
 ## Mitigating key risks
 
 The Adopt and Engage phase helps you to mitigate risks such as: 
+
 * Making sure your new technology suits your business models, processes, practices and culture
 * Maximising value for money in the adoption of the new Modern Workplace
 * Making sure staff are engaged and empowered to increase productivity, reduce turnover and increase the uptake of the new ways of working
 * Making sure leaders are fully embracing the value of their staff using a Modern Workplace
-* Developing staff skills required to embrace the new ways of working.
+* Developing staff skills required to embrace the new ways of working
 
 
 ## Key objectives 
@@ -43,32 +45,35 @@ The Adopt and Engage phase helps you to mitigate risks such as:
 * Determine focus areas from a business and technology change perspective
 * Establish successful adoption of the blueprint
 * Communicate early benefits
-* Align staff with the platform.
+* Align staff with the platform
 
 ## Key actions 
 
 * Prepare strategic communications
 * Adopt the business change and support staff with training
 * Assess business readiness
-* Engage staff with communications and realise benefits iteratively.
+* Engage staff with communications and realise benefits iteratively
 
 ## DTA tools, templates and guidance
 
 * [Change readiness assessment](/assets/files/pdf/dta-pub-change-impact-assessment.xlsx)
 * [Benefits assessment](/assets/files/pdf/dta-pub-benefits-assessment-toolkit.xlsx), leading to a benefits register
-* Training and skills analysis.
+* Training and skills analysis
 
 ## Your checklist  
 
 You’re ready to proceed to the next phase when you have completed these tasks:
+
 * Prepare and communicate strategic messages 
 * Adopt the business change and support staff with training
 * Assess business readiness 
-* Engage staff and realise benefits iteratively.
+* Engage staff and realise benefits iteratively
 
 ## DTA support
+
 DTA will support you:
+
 * The [community portal](https://community.desktop.gov.au/): for asking questions, FAQ and understanding which agencies are using the blueprint
-* The [desktop.gov.au](https://desktop.gov.au) website: for information, the latest version of the blueprint and knowledge articles.
+* The [desktop.gov.au](https://desktop.gov.au) website: for information, the latest version of the blueprint and knowledge articles
 
 ## Tasks and activities

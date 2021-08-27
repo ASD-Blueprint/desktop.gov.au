@@ -26,24 +26,23 @@ timeline:
     We have also developed an [operational model]() which outlines and cost estimates the key roles and skills required to adopt the blueprint in agencies. 
 ---
 
-## Protected Utility – how can my agency adopt the blueprint?
-
 The [Protected Utility blueprint](/blueprint/index.html) provides a validated and secure design for government agencies to standardise the way you work as well as communicate and collaborate securely. 
 
 As we appreciate this is a large and complex process to undertake, we have created this engagement framework as a step-by-step change guide to understanding how the Protected Utility blueprint can be used in your agency. It is designed to support your agency’s self-discovery and help you navigate the blueprint adoption process in a way that’s easy, clear and consistent – so your people will realise the maximum value of adopting the new ways of working faster. 
 
 The engagement framework has five approximate stages. These stages are fluid and may happen concurrently or in cycles:
+
 1. [Connect and Align](/program/engagement/connect-and-align.html) 
 2. [Prepare and Design](/program/engagement/prepare-and-design.html)
 3. [Deploy and Embed](/program/engagement/deploy-and-embed.html)
 4. [Adopt and Engage](/program/engagement/adopt-and-engage.html)
-5. [Assess and Advocate.](/program/engagement/assess-and-advocate.html)
+5. [Assess and Advocate](/program/engagement/assess-and-advocate.html).
 
 The framework contains suggestions, tools, templates, and guidance for successfully adopting the blueprint. It is not intended to be a prescriptive, ‘tick the box’, or one-size-fits all model. Instead, it is intended for agencies to use as required and adapt to their business needs and modernisation journey.
 
-## Summary of Key Resources
+## Summary of key resources
 
-We have selected the following important resources to assist you in your change journey to adopt the blueprint. These resources are equivalent to the information contained on this webpage, but in downloadable and sharable format.
+We have selected the following important resources to assist you in your change journey to adopt the blueprint. These resources are equivalent to the information contained on this webpage, but in downloadable and shareable format.
 
 ---
 
@@ -55,10 +54,10 @@ We have selected the following important resources to assist you in your change 
 
 ---
 
-> *'I want the engagement framework in a sharable PowerPoint so I can browse through it in my own time.’*
+> *'I want the engagement framework in a shareable PowerPoint so I can browse through it in my own time.’*
 
 >> Engagement framework PowerPoint. 
->> This is a sharable PowerPoint with visuals you may like to share within your agency. It contains equivalent information that you are reading on this website, but in a print medium. 
+>> This is a shareable PowerPoint with visuals you may like to share within your agency. It contains equivalent information that you are reading on this website, but in a print medium. 
 
 >> [Webpage version](/program/engagement/engagement-framework.html)(current page) [PowerPoint version](/assets/files/ppt/dta-pub-engagement-framework.pptx)
 
@@ -100,18 +99,13 @@ We have selected the following important resources to assist you in your change 
 The engagement framework is designed in accordance with the following principles:
 
 1. **Best Practice:** The engagement framework draws upon best practice change management, business analysis and technology implementation expertise.
-
 2. **Clear:** The engagement framework outlines the blueprint adoption process in a way that’s easy, clear and consistent – so your people can realise the maximum value of adopting the new ways of working faster.
-
 3. **Self-direction:** The engagement framework is designed to support your agency’s self-discovery, so you can use the engagement framework in your technology environment based on your agency’s objectives.  
-
 4. **Relevant:** The framework supports you to understand and link existing people, process and technology initiatives to the engagement framework, so it’s aligned with your needs. 
-
 5. **Flexible:** We understand that each agency’s circumstances and starting points are different, so each phase in the engagement framework is flexible to enable you to navigate the process in line with your agency’s needs. 
-
 6. **Proven:** The engagement framework outlines a validated Whole of Government approach that the DTA recommends for agencies to use.
 
-## Engagement Framework phases
+## Engagement framework phases
 
 The engagement framework, in summary, contains the following phases. We have developed a visual overview to simplify this information onto one page:
 

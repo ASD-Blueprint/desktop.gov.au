@@ -74,9 +74,4 @@ You’re ready to proceed to the next phase when you have completed these tasks:
 * Undergo testing and provide assurance that the deployment has worked
 * Seek relevant architectural and security accreditation for the deployment
 
-## DTA support 
-
-* The [community portal](https://community.desktop.gov.au/) for asking questions, FAQ, and understanding which agencies are using the blueprint 
-* The [desktop.gov.au](https://desktop.gov.au/) website for information, the latest version of the blueprint, and knowledge articles. 
-
 ## Tasks and activities

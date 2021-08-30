@@ -86,11 +86,4 @@ You’re ready to proceed to the next phase when you have completed these tasks:
 * Identify adoption benefits and risks
 * Develop benefits realisation plan
 
-## DTA support
-
-DTA will support you via access to:
-
-* The [community portal](https://community.desktop.gov.au/) for asking questions, FAQ and understanding which agencies are using the blueprint
-* The [desktop.gov.au](https://desktop.gov.au/) website for information, the latest version of the blueprint and knowledge articles.
-
 ## Tasks and activities

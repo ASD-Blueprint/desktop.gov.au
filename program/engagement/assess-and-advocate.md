@@ -23,27 +23,30 @@ timeline:
 Technology is always changing and improving. At this final stage of the engagement, we would appreciate your participation in helping us continually improve the blueprint adoption experience. By actively engaging with the Whole of Government community, sharing your learnings and participating in evaluation of the blueprint, you will make the experience better for future adaptations and new agency adopters. 
 
 ## Benefits 
+
 The Assess and Advocate phase helps you to contribute to the ongoing improvement of the blueprint: 
+
 * Assessing the lessons learnt, so you can maximise the use of the blueprint, mitigate adoption risks and continue to improve your service
 * Assessing improved blueprint designs for greater security 
 * Advocating for best practice through greater connection with other agencies, management of common pitfalls and opportunities to ask questions
 * Providing your feedback to the wider Whole of Government community and the DTA to improve the blueprint and access to the blueprint.
 
-
 ## Mitigating key risks 
+
 * The Assess and Advocate phase helps you to mitigate risks such as: 
 * Making sure the blueprint design and service improves to reflect real-time practice
 * Making sure digital capability is improved across Whole of Government
 * Making sure opportunities for standardising and modernising ICT are embraced and aren’t lost in silos. 
 
-
 ## Key objectives 
+
 * Continuously evaluate the platform
 * Share benefits 
 * Bring Whole of Government community closer together
 * Establish best practice.
  
 ## Key actions 
+
 * Evaluate your implementation of the blueprint
 * Advocate benefits
 * Engage with Whole of Government community
@@ -51,6 +54,7 @@ The Assess and Advocate phase helps you to contribute to the ongoing improvement
 * Ongoing maintenance and improvement based on blueprint updates.
 
 ## DTA tools, templates and guidance
+
 * The [blueprint document](https://desktop.gov.au/blueprint/)
 * Community survey
 * Newsletter
@@ -60,16 +64,11 @@ The Assess and Advocate phase helps you to contribute to the ongoing improvement
 ## Your checklist
 
 In this phase you will complete these steps: 
+
 * Provide feedback about the blueprint back to the DTA, if practical evaluate your implementation of blueprint
 * Advocate benefits
 * Engage with Whole of Government community
 * Share knowledge with Whole of Government
 * Ongoing maintenance and improvement based on blueprint updates.
-
-## DTA support
-
-DTA will support you via access to:
-* The [community portal](https://community.desktop.gov.au/): for asking questions, FAQ and understanding which agencies are using the blueprint
-* The [desktop.gov.au](https://desktop.gov.au) website: for information, the latest version of the blueprint and knowledge articles.
 
 ## Tasks and activities

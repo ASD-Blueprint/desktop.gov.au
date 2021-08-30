@@ -105,6 +105,14 @@ The engagement framework is designed in accordance with the following principles
 5. **Flexible:** We understand that each agency’s circumstances and starting points are different, so each phase in the engagement framework is flexible to enable you to navigate the process in line with your agency’s needs. 
 6. **Proven:** The engagement framework outlines a validated Whole of Government approach that the DTA recommends for agencies to use.
 
+## DTA support 
+
+DTA will support you via access to:
+
+* The [community portal](https://community.desktop.gov.au/) for asking questions, FAQ and understanding which agencies are using the blueprint
+* The [desktop.gov.au](https://desktop.gov.au/) website for information, the latest version of the blueprint, and knowledge articles
+* The [protectedutility@dta.gov.au](mailto:protectedutility@dta.gov.au) mailbox for initial enquiries
+
 ## Engagement framework phases
 
 The engagement framework, in summary, contains the following phases. We have developed a visual overview to simplify this information onto one page:

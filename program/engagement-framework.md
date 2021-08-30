@@ -6,7 +6,7 @@ timeline:
   body: | 
     This is where you start your blueprint adoption experience. The Connect and Align phase is about setting you up with a clear understanding of the path ahead; for how to use [the blueprint](/blueprint/index.html) and how to align it to your business needs.
     
-    A large part of this phase is about being able to [self-identify your agency type](/program/engagement/agencytype.html). We can also put you in touch with other agencies who have implemented technology based on the blueprint, which you can read about in our [case studies](/program/engagement/case-studies.html). You may also register an account on the Community Portal to share ideas and ask questions. 
+    A large part of this phase is about being able to [self-identify your agency type](/program/engagement/agency-type.html). We can also put you in touch with other agencies who have implemented technology based on the blueprint, which you can read about in our [case studies](/program/engagement/case-studies.html). You may also register an account on the Community Portal to share ideas and ask questions. 
 - title: 2. Prepare and Design
   body: | 
     In the [Prepare and Design phase](/program/engagement/prepare-and-design.html), it's time to start planning your transition to the blueprint. To arm yourself with the right information to develop an effective plan, this phase will take you through the relevant assessments you'll need to carry out to understand your starting point in terms of your business (systems and processes); your people (who will be impacted and how); and your technology. For example, you may like to assess your [technology maturity](/assets/files/pdf/dta-pub-technology-maturity-assessment-toolkit.pdf) or [business strategy]().
@@ -74,7 +74,7 @@ We have selected the following important resources to assist you in your change 
 >> Key communications messaging material. 
 >> This is material we have developed to help agencies sell the value of the modern workplace to key user groups. It can be re-used for your own purposes before and while adopting a modern workplace based on the blueprint. 
 
->> [Webpage version](/program/engagement/messaging.html) [PDF version](/assets/files/pdf/dta-pub-key-messaging.pdf) 
+>> [Webpage version](/program/engagement/key-messaging.html) [PDF version](/assets/files/pdf/dta-pub-key-messaging.pdf) 
 
 ---
 
@@ -83,7 +83,7 @@ We have selected the following important resources to assist you in your change 
 >> Agency self-assessment. 
 >> We developed a self-assessment to help you understand your agency needs and type. Based on this assessment, you will be able to understand risks, benefits and needs which are most relevant to you when adopting the blueprint. 
 
->> [Webpage version](/program/engagement/agencytype.html) [PDF version]() 
+>> [Webpage version](/program/engagement/agency-type.html) [PDF version]() 
 
 ---
 

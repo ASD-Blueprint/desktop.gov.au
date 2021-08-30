@@ -28,7 +28,7 @@ timeline:
 
 - title: Step 7 - Read key messaging related to where you’re at  
   body: | 
-     Review [key messaging](/program/engagement/messaging.html) that we have provided which can help you sell the change to various stakeholders in your organisation.  
+     Review [key messaging](/program/engagement/key-messaging.html) that we have provided which can help you sell the change to various stakeholders in your organisation.  
 --- 
 
 In the Prepare and Design phase, it's time to start planning your transition to the blueprint. To arm yourself with the right information to develop an effective plan, this phase will take you through the relevant assessments you'll need to carry out to understand your starting point in terms of your business (systems and processes); your people (who will be impacted and how); and your technology.

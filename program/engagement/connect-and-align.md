@@ -59,12 +59,6 @@ The Connect and Align phase helps you to mitigate risks such as:
 * Define initial needs
 * Establish starting phase
 
-## DTA tools, templates and guidance
-
-* The [blueprint](/blueprint/index.html) 
-* Community portal
-* The engagement framework
-
 ## Your checklist
 
 You’re ready to proceed to the next phase when you have completed these tasks:
@@ -75,13 +69,5 @@ You’re ready to proceed to the next phase when you have completed these tasks:
 * Define initial needs (identify and enlist key stakeholders to engage with the DTA; identify blockers and enablers to getting started)
 * Establish starting phase
 * Read the [case studies](/program/engagement/case-studies.html) or connected with another agency who has undergone a prior implementation
-
-## DTA support 
-
-DTA will support you via access to:
-
-* The [community portal](https://community.desktop.gov.au/) for asking questions, FAQ and understanding which agencies are using the blueprint
-* The [desktop.gov.au](https://desktop.gov.au/) website for information, the latest version of the blueprint, and knowledge articles
-* The [protectedutility@dta.gov.au](mailto:protectedutility@dta.gov.au) mailbox for initial enquiries
 
 ## Tasks and activities

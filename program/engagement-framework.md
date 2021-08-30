@@ -44,55 +44,12 @@ The framework contains suggestions, tools, templates, and guidance for successfu
 
 We have selected the following important resources to assist you in your change journey to adopt the blueprint. These resources are equivalent to the information contained on this webpage, but in downloadable and shareable format.
 
----
-
-> *‘I want to see what another agency has done with the blueprint’.*
-
->> [Case study from the Office of Commonwealth Ombudsman](/program/engagement/case-studies.html) which has transitioned to the modern workplace based the blueprint. 
-
->> [Webpage version](/program/engagement/case-studies.html) [PDF version](/assets/files/pdf/dta-pub-oco-case-study.pdf) 
-
----
-
-> *'I want the engagement framework in a shareable PowerPoint so I can browse through it in my own time.’*
-
->> Engagement framework PowerPoint. 
->> This is a shareable PowerPoint with visuals you may like to share within your agency. It contains equivalent information that you are reading on this website, but in a print medium. 
-
->> [Webpage version](/program/engagement/engagement-framework.html)(current page) [PowerPoint version](/assets/files/ppt/dta-pub-engagement-framework.pptx)
-
----
-
-> *‘Just give me a one-page overview of the engagement framework information contained on this page, thanks’*
-
->> [PDF version](/assets/files/pdf/dta-pub-engagement-framework.pdf)
-
----
-
-> *‘I want some key ideas to sell the blueprint to my staff’.*
-
->> Key communications messaging material. 
->> This is material we have developed to help agencies sell the value of the modern workplace to key user groups. It can be re-used for your own purposes before and while adopting a modern workplace based on the blueprint. 
-
->> [Webpage version](/program/engagement/key-messaging.html) [PDF version](/assets/files/pdf/dta-pub-key-messaging.pdf) 
-
----
-
-> *‘I want to understand how my agency needs fit into the blueprint’*
-
->> Agency self-assessment. 
->> We developed a self-assessment to help you understand your agency needs and type. Based on this assessment, you will be able to understand risks, benefits and needs which are most relevant to you when adopting the blueprint. 
-
->> [Webpage version](/program/engagement/agency-type.html) [PDF version]() 
-
----
-
-> *‘I want to understand what skills I will need and how much it costs to use the blueprint in my agency’*
-
->> [Operational model.]() 
->> We have also developed an operational model which outlines, and cost estimates the key roles and skills required to adopt the blueprint in agencies. This will be published on this webpage during August 2021. 
-
----
+* [Engagement framework](/program/engagement-framework.html) ([PowerPoint version](/assets/files/ppt/dta-pub-engagement-framework.pptx)) 
+* One page engagement framework overview ([PDF version](/assets/files/pdf/dta-pub-engagement-framework.pdf))
+* [Agency self-assessment](/program/engagement/agency-type.html) ([PDF version](/assets/files/pdf/dta-pub-technology-maturity-assessment-toolkit.pdf)) to help you understand your agency needs and type. Based on this assessment, you will be able to understand risks, benefits and needs which are most relevant to you when adopting the blueprint.
+* [Key messaging](/program/engagement/key-messaging.html) ([PDF version](/assets/files/pdf/dta-pub-key-messaging.pdf)) to help agencies communicate the value of the modern workplace to key user groups. It can be re-used for your own purposes before and while adopting a modern workplace based on the blueprint.
+* [Operational model]() estimates the key roles and skills required to adopt the blueprint
+* [Case study from the Office of Commonwealth Ombudsman](/program/engagement/case-studies.html) ([PDF version](/assets/files/pdf/dta-pub-oco-case-study.pdf)) which has transitioned to the modern workplace based the blueprint
 
 ## Design principles
 

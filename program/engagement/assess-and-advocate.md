@@ -4,13 +4,13 @@ title: Phase 5 Assess and Advocate
 timeline: 
 - title: Step 1 – Provide feedback about the blueprint back to the DTA, if practical evaluate your implementation of the blueprint
   body: | 
-    It’s important to facilitate continual evaluation of your agency’s adoption of the blueprint to share feedback with the DTA. It can also be beneficial to support your agency’s learnings and ongoing needs. Evaluation can be achieved through the ongoing delivery of staff surveys and feedback workshops.
+    It's important to facilitate continual evaluation of your agency's adoption of the blueprint to share feedback with the DTA. It can also be beneficial to support your agency's learnings and ongoing needs. Evaluation can be achieved through the ongoing delivery of staff surveys and feedback workshops.
 - title: Step 2 – Advocate the benefits of the new ways of working
   body: | 
-    Support your agency’s people to maximise the value of the new ways of working by sharing the benefits of the Modern Workplace within your agency and to other agencies. This can be achieved through communications activities and storytelling that highlights the new ways of working and what’s in it for your key audience groups.  
+    Support your agency's people to maximise the value of the new ways of working by sharing the benefits of the Modern Workplace within your agency and to other agencies. This can be achieved through communications activities and storytelling that highlights the new ways of working and what's in it for your key audience groups.  
 - title: Step 3 – Engage with the Whole of Government community
   body: | 
-    Active engagement with the Whole of Government community can create major opportunities for you, your agency and the Whole of Government at large. Engagement with the community and attendance at Whole of Government Modern Workplace training will be enable you to share and apply learnings to continually improve the ways of working for your agency’s staff.
+    Active engagement with the Whole of Government community can create major opportunities for you, your agency and the Whole of Government at large. Engagement with the community and attendance at Whole of Government Modern Workplace training will be enable you to share and apply learnings to continually improve the ways of working for your agency's staff.
 - title: Step 4 – Share knowledge with the Whole of Government
   body: | 
     By sharing knowledge with the Whole of Government and posting threads on the [Community Portal](https://community.desktop.gov.au), your feedback will be used to iteratively improve the blueprint design, desktop services and community consultation across government. You are encouraged to share your lessons learnt with the Whole of Government and you are invited to participate in evaluation workshops. 
@@ -36,7 +36,7 @@ The Assess and Advocate phase helps you to contribute to the ongoing improvement
 * The Assess and Advocate phase helps you to mitigate risks such as: 
 * Making sure the blueprint design and service improves to reflect real-time practice
 * Making sure digital capability is improved across Whole of Government
-* Making sure opportunities for standardising and modernising ICT are embraced and aren’t lost in silos. 
+* Making sure opportunities for standardising and modernising ICT are embraced and aren't lost in silos. 
 
 ## Key objectives 
 

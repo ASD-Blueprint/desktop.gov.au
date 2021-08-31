@@ -3,18 +3,20 @@ layout: engagement
 title: Frequently asked questions
 ---
 
-## What does ‘Protected Utility’ mean?
+## What does 'Protected Utility' mean?
 
-‘Protected Utility’ means working on documents, spreadsheets and other common desktop applications in a secure environment classified up to the Protected level. Protected Utility also means being able to work on these applications anywhere in the world using an internet connection and a device.
+'Protected Utility' means working on documents, spreadsheets and other common desktop applications in a secure environment classified up to the Protected level. Protected Utility also means being able to work on these applications anywhere in the world using an internet connection and a device.
 
 ## What is the Protected Utility blueprint?
 
 The [Protected Utility blueprint](/blueprint/index.html), released publicly in March 2020, is a design for creating and configuring this secure operating environment using the Microsoft 365 cloud suite. The blueprint helps agencies manage information at up to the Protected level. The blueprint will help agencies migrate away from aging and often unsecure systems.
  
-## What is the DTA’s role in the context of Protected Utility?
+## What is the DTA's role in the context of Protected Utility?
+
 The DTA is assisting agencies to adopt the blueprint, helping them uplift their cyber security. This helps agencies focus on core business objectives and not on managing their ICT infrastructure.
 
 ## What benefit does the blueprint provide me if I use it?
+
 * Employees can work remotely on Protected documents and information, from anywhere in the world.
 * Employees can collaborate together on documents in real time, use video conferencing, instant messaging, and create document repositories to store and share information.
 * Organisations can move away from using unsecure, aging, and bespoke legacy systems, and move to modern, secure, and configurable systems that are well-supported by enterprise vendors such as Microsoft.
@@ -33,6 +35,7 @@ Through the Protected Utility blueprint, the Government is investing in common p
 ## How does the DTA support the blueprint?
 
 DTA was funded to:
+
 * Develop a blueprint which standardises the design for a secure Modern Workplace based on Microsoft 365 technologies. 
 * Support the transition of up to 6 Commonwealth agencies, identified in conjunction with the Australian Cyber Security Centre (ACSC), to the blueprint.  
  
@@ -41,6 +44,7 @@ As such, the DTA has published the Protected Utility blueprint as a pattern or g
 ## Which agencies have the DTA assisted to use the blueprint so far?
 
 The DTA has supported the following agencies in understanding the blueprint: 
+
 * Australian Electoral Commission (AEC) 
 * Bureau of Meteorology (BOM)
 * Department of Education, Skills and Employment (DESE) 

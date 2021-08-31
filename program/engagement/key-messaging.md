@@ -10,6 +10,7 @@ Download a copy of the [key messaging](/assets/files/pdf/dta-pub-blueprint-key-m
 ## How to use
 
 This messaging has been created for technical and non-technical agency staff and service providers to support you in communicating changes associated with the blueprint implementation and business process transformation.
+
 We have provided a communications framework that can be copied, pasted and adapted for your own purposes during the change process. The messaging was created in line with the phases of the Protected Utility blueprint engagement framework.
 
 ## Key messaging matrix 
@@ -18,7 +19,7 @@ We have provided a communications framework that can be copied, pasted and adapt
 
 Key messages for the Prepare and Design phase:
 
-* We’re bringing greater efficiency and security to the way we work using Microsoft Office 365 (MO365). This change will bring the benefits of a Modern Workplace (MWP) which you can access from any location
+* We're bringing greater efficiency and security to the way we work using Microsoft Office 365 (MO365). This change will bring the benefits of a Modern Workplace (MWP) which you can access from any location
 * MO365 is a cloud-based platform that uses tools from Microsoft O365 and it will improve our w ays of working through real time collaboration, efficiency and security
 * The transformation is based on cutting edge, proven, Whole of Government (WoG) advice from the Digital Transformation Agency (DTA)
 * This is an exciting opportunity for our agency, and we will make sure you are informed and supported as we navigate the change together
@@ -36,11 +37,11 @@ Key messages for the Prepare and Design phase:
     * We will make sure you have the information you need to lead your teams and provide you with access to training on your schedule.
   * Desired outcomes:
     * Leaders are confident, supported and prepared to lead their teams
-    * Leaders are aware of how the change will support their agency’s needs and they are actively engaged so they can lead their teams.
+    * Leaders are aware of how the change will support their agency's needs and they are actively engaged so they can lead their teams.
 * Paul, agency change champion
   * Key support and benefits:
     * You have been selected to be a change leader and you w ill have a key role to play in supporting your agency over the coming months as we transition to new ways of working
-    * As we roll out the new system there will be noticeable changes such as access to a range of new technologies, as well as ‘behind the scenes’ changes to improve the security of our operating environment
+    * As we roll out the new system there will be noticeable changes such as access to a range of new technologies, as well as ‘behind the scenes' changes to improve the security of our operating environment
     * As a change champion, we ask that you share your honest and candid feedback throughout the process to help us to solve problems related to the change and evaluate if the change is working for us
     * We also ask that you advocate for the new ways of working and support other staff in the agency, as the change rolls out.
   * Desired outcomes:
@@ -48,10 +49,10 @@ Key messages for the Prepare and Design phase:
     * They understand their role and how they w ill be involved in the change.
 * Bianca, agency staff
   * Key support and benefits:
-    * We’re empowering you with more flexible ways of working, so you can work online, offline, and remotely, with greater ease and flexibility
+    * We're empowering you with more flexible ways of working, so you can work online, offline, and remotely, with greater ease and flexibility
     * You will be able to video conference, work on documents together in real time, share screens, whiteboard, brainstorm and organise information more efficiently
     * It will be easier for you to increase your digital skills and embrace new opportunities so you can be more competitive when you want to move into new positions across other agencies
-    * We’ll also make sure that you’re supported, have access to training and are engaged on your schedule.
+    * We'll also make sure that you're supported, have access to training and are engaged on your schedule.
   * Desired outcomes:
     * Staff are excited, supported and prepared for the direct change impacts
     * Staff are aware that there will be opportunities for them to get involved in the change and access training on their schedule.
@@ -60,10 +61,10 @@ Key messages for the Prepare and Design phase:
 
 Key messages for the Deploy and Embed and Adopt and Engage phases:
 
-* We’re excited to announce that we’re now rolling out MO365, so soon you’ll be able to see the benefits of a MWP based on cutting edge, proven, WoG advice from the Digital Transformation Agency
+* We're excited to announce that we're now rolling out MO365, so soon you'll be able to see the benefits of a MWP based on cutting edge, proven, WoG advice from the Digital Transformation Agency
 * MO365 is a cloud-based platform that uses tools from Microsoft O365 and it will improve our ways of working through real time collaboration, efficiency and security
 * You will receive communications soon with information about our new platform, key timing as well as options for virtual and in-person training
-* We’re really excited to start this journey together and we welcome your questions along the way
+* We're really excited to start this journey together and we welcome your questions along the way
 * Your leaders will be checking in with you to ensure you are supported and have the information you need for a smooth transition to the new system.
 
 #### Our user personas
@@ -72,7 +73,7 @@ Key messages for the Deploy and Embed and Adopt and Engage phases:
   * Key support and benefits:
     * Clear guidance and instructions will be released once the pilot concludes and the change rolls out to the rest of the organisation
     * As we roll out MO365, your teams will have continued interoperability with existing tools, so you can continue to work to your timelines with ease
-    * You will have access to secure cloud-based communications tools to work in a way that’s more connected, including Microsoft Teams, OneDrive, SharePoint Online and Office Pro Plus
+    * You will have access to secure cloud-based communications tools to work in a way that's more connected, including Microsoft Teams, OneDrive, SharePoint Online and Office Pro Plus
     * The changes will upgrade the security of our MWP to the Protected level, behind the scenes
     * We will also be sharing key FAQs and a survey, to address any early questions or feedback you might have.
   * Desired outcomes:
@@ -107,7 +108,7 @@ Key messages for the Assess and Advocate phase:
 * Now that you have transitioned to the new ways of working, you should be starting to see the benefits of a MWP, as well as a secure and validated WoG approach
 * MO365 is a cloud-based platform that uses tools from Microsoft O365 and it will continue to improve our ways of working through real time collaboration, efficiency and security
 * You will continue to receive communications about our new platform, key timing as well as more options for virtual and in-person training
-* We’re really excited to continue this journey together and support you as you embrace our new ways of working.
+* We're really excited to continue this journey together and support you as you embrace our new ways of working.
 
 #### Our user personas
 

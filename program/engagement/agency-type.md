@@ -3,7 +3,7 @@ layout: engagement
 title: Self-assess your agency
 --- 
 
-We understand that each agency’s circumstances and starting points are different. As such, we’ve tailored the Protected Utility blueprint engagement framework to help you to identify where you are in your process – that way you can engage with this framework in the most efficient and relevant way by aligning your agency type according to which one you think best describes your agency.
+We understand that each agency's circumstances and starting points are different. As such, we've tailored the Protected Utility blueprint engagement framework to help you to identify where you are in your process – that way you can engage with this framework in the most efficient and relevant way by aligning your agency type according to which one you think best describes your agency.
 
 We have created a [shareable PDF version](/assets/files/pdf/dta-pub-technology-maturity-assessment-toolkit.pdf) of this process. 
 
@@ -22,9 +22,9 @@ There are two factors you need to take into consideration when determining which
   * Do you have internal resources capable of directing this change initiative?
   * How big of a job will it be to roll out the business transformation? (How big is the shift and how many people need to shift?)
 
-Your placement on this spectrum will help you navigate the engagement framework in a way that’s relevant and meaningful to your agency’s needs. 
+Your placement on this spectrum will help you navigate the engagement framework in a way that's relevant and meaningful to your agency's needs. 
 
-To help you to validate which agency you align to, we’ve created the following checklist.
+To help you to validate which agency you align to, we've created the following checklist.
 
 ## Lean
 
@@ -65,7 +65,7 @@ You're likely to be a self-directed agency if:
 
 ## Complex
 
-* “It’s not a priority. We have a strategy in place. Our long term objective is not aligned with the DTA”
+* “It's not a priority. We have a strategy in place. Our long term objective is not aligned with the DTA”
 
 You're likely to be a complex agency if:
 

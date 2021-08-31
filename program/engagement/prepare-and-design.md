@@ -4,9 +4,9 @@ title: Phase 2 Prepare and Design
 timeline: 
 - title: Step 1 – Articulate your mission and strategy 
   body: | 
-     Using a Strategy Analysis Tool, your strategy partner vendor can facilitate workshops to enable you to articulate your agency’s mission and strategy as part of your blueprint benefit realisation plan. A people, process and technology (POPIT) assessment can also be conducted to support to you to understand the business and ICT environment that your agency operates in.
+     Using a Strategy Analysis Tool, your strategy partner vendor can facilitate workshops to enable you to articulate your agency's mission and strategy as part of your blueprint benefit realisation plan. A people, process and technology (POPIT) assessment can also be conducted to support to you to understand the business and ICT environment that your agency operates in.
 
-- title: Step 2 – Assess your agency’s business change and technical (environment) maturity  
+- title: Step 2 – Assess your agency's business change and technical (environment) maturity  
   body: | 
      Assess the benefits, risks and change maturity associated with adopting a Modern Workplace with the support of your strategy partner. A technology assessment will help you to understand your roadmap, technology maturity and environment including your applications, licensing, hardware, peripherals and technical support. A change maturity assessment will also enable you to determine the scale and scope of the business change as well as identify areas of risk from a change management perspective.
 
@@ -24,9 +24,9 @@ timeline:
 
 - title: Step 6 – Develop a benefit realisation plan for your agency 
   body: | 
-     A benefit realisation plan will support you to identify the recommended path forward in terms of technology and business change. By developing your agency’s benefit realisation plan for the blueprint adoption, you will be able to provide a recommended path forward in terms of technology and business change which contains relevant high-level options, costs, benefits, disbeliefs, assumptions and constraints.
+     A benefit realisation plan will support you to identify the recommended path forward in terms of technology and business change. By developing your agency's benefit realisation plan for the blueprint adoption, you will be able to provide a recommended path forward in terms of technology and business change which contains relevant high-level options, costs, benefits, disbeliefs, assumptions and constraints.
 
-- title: Step 7 - Read key messaging related to where you’re at  
+- title: Step 7 - Read key messaging related to where you're at  
   body: | 
      Review [key messaging](/program/engagement/key-messaging.html) that we have provided which can help you sell the change to various stakeholders in your organisation.  
 --- 
@@ -77,7 +77,7 @@ The Prepare and Design phase helps you to mitigate risks such as:
 
 ## Your checklist
 
-You’re ready to proceed to the next phase when you have completed these tasks:
+You're ready to proceed to the next phase when you have completed these tasks:
 
 * Define mission and strategy as part of your blueprint benefit realisation plan and understand how it relates to your organisational strategies 
 * Assess business change and technical (environment) maturity 

@@ -89,7 +89,7 @@ We have selected the following important resources to assist you in your change 
 
 > *‘I want to understand what skills I will need and how much it costs to use the blueprint in my agency’*
 
->> [Operational model.]() 
+>> [Operational model.](/program/engagement/ops-model.html) 
 >> We have also developed an operational model which outlines, and cost estimates the key roles and skills required to adopt the blueprint in agencies. This will be published on this webpage during August 2021. 
 
 ---

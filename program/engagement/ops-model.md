@@ -4,13 +4,10 @@ title: Operations model
 ---
 
 
-### About
-This guide for calculating the sustainment costs of the Microsoft 365 environment
+The operations model was develeoped to help calculate the sustainment costs of the Microsoft 365 environment.
 
 ### Audience
-This guide is written for technical and non- technical Australian Public Service (APS) agency senior leadership and DTA investment team to estimate the cost of maintaining a Microsoft Modern Workplace (MWP), supported by the Protected Utility Program.
-
-## Summary
+This guide is written for technical and non-technical Australian Public Service (APS) agency senior leadership and DTA investment team to estimate the cost of maintaining a Microsoft Modern Workplace (MWP), supported by the Protected Utility Program.
 
 ### Why this guide and calculator were created
 

@@ -1411,21 +1411,39 @@ Microsoft Office Hardening Design Decisions for all agencies and implementation 
 
 * Attack Surface Reduction
   * Justification: To align with the ACSC Microsoft Office hardening guidance.
-  * Attack Surface Reduction rules – Enabled
-  * Block executable content from email client and webmail<br>BE9BA2D9-53EA-4CDC-84E5-9B1EEEE46550
-  * Block all Office applications from creating child processes<br>D4F940AB-401B-4EFC-AADC-AD5F3C50688A
-  * Block Office applications from creating executable content<br>3B576869-A4EC-4529-8536-B80A7769E899
-  * Block Office applications from injecting code into other processes<br>75668C1F-73B5-4CF0-BB93-3ECF5CB7CC84
-  * Block Win32 API calls from Office macro<br>92E97FA1-2EDF-4476-BDD6-9DD0B4DDDC7B
-  * Block Office communication application from creating child processes<br>26190899-1602-49E8-8B27-EB1D0A1CE869.
+  * Attack Surface Reduction rules: Enabled
+  * Block executable content from email client and webmail
+```
+BE9BA2D9-53EA-4CDC-84E5-9B1EEEE46550
+```
+  * Block all Office applications from creating child processes
+```
+D4F940AB-401B-4EFC-AADC-AD5F3C50688A
+```
+  * Block Office applications from creating executable content
+```
+3B576869-A4EC-4529-8536-B80A7769E899
+```
+  * Block Office applications from injecting code into other processes
+```
+75668C1F-73B5-4CF0-BB93-3ECF5CB7CC84
+```
+  * Block Win32 API calls from Office macro
+```
+92E97FA1-2EDF-4476-BDD6-9DD0B4DDDC7B
+```
+  * Block Office communication application from creating child processes
+```
+26190899-1602-49E8-8B27-EB1D0A1CE869
+```
 * Flash content
   * Justification: To align with the ACSC Microsoft Office hardening guidance.
   * Block Flash activation in Office documents: Block all activation
 * Loading external content
   * Justification: To align with the ACSC Microsoft Office hardening guidance.
   * Always prevent untrusted Microsoft Query files from opening: Enabled
-  * Don’t allow Dynamic Data Exchange (DDE) server launch in Excel: Enabled
-  * Don’t allow Dynamic Data Exchange (DDE) server lookup in Excel: Enabled
+  * Don't allow Dynamic Data Exchange (DDE) server launch in Excel: Enabled
+  * Don't allow Dynamic Data Exchange (DDE) server lookup in Excel: Enabled
   * Update automatic links at Open: Disabled
 * Macros
   * Justification: To align with the ACSC Microsoft Office hardening guidance.
@@ -1457,7 +1475,7 @@ Microsoft Office Hardening Design Decisions for all agencies and implementation 
 * Office File Validation
   * Justification: To align with the ACSC Microsoft Office hardening guidance.
   * Turn off file validation: Disabled (Excel, PowerPoint and Word)
-* Running extneral programs
+* Running external programs
   * Justification: To align with the ACSC Microsoft Office hardening guidance.
   * Run Programs: Disable (Don't run any programs)
 * Protected View
@@ -1470,7 +1488,7 @@ Microsoft Office Hardening Design Decisions for all agencies and implementation 
 * Trusted documents
   * Justification: To align with the ACSC Microsoft Office hardening guidance.
   * Turn off trusted documents: Enabled
-  * Turn off Trusted Documents on the network: Enabled
+  * Turn off trusted documents on the network: Enabled
 * Hidden markup
   * Justification: To align with the ACSC Microsoft Office hardening guidance.
   * Make hidden markup visible: Enabled (PowerPoint and Word)
@@ -1502,7 +1520,7 @@ Office Macro Hardening Design Decisions for all agencies and implementation type
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Implementation approach | Only macros digitally signed by a trusted publisher are enabled |To align with the ACSC Microsoft Office Macro Security guidance and enable Agencies to leverage macros securely with the least business impact. 
+Implementation approach | Only macros digitally signed by a trusted publisher are enabled | To align with the ACSC Microsoft Office Macro Security guidance and enable Agencies to leverage macros securely with the least business impact. 
 Configuration method | Agency preference | Macro hardening can be configured via the Agencies existing Group Policies or Intune, as well as Attack Surface Reduction in Windows Defender Exploit Guard. 
 Specific configuration | See below | To align with the ACSC Microsoft Office Macro Security guidance.
 
@@ -1584,8 +1602,7 @@ Office OLE Hardening Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-OLE configuration | Block all |   To align with the ACSC Microsoft Office hardening guidance.
-
+OLE configuration | Block all | To align with the ACSC Microsoft Office hardening guidance.
 
 ### Local administrator
 

@@ -1309,8 +1309,7 @@ Dynamic Code Security | Enabled | Enforces WDAC policies on .NET applications an
 Managed Installer | Enabled | Allow lists applications deployed using a managed installer such as Microsoft Endpoint Configuration Manager.
 Hypervisor-protected code integrity | Enabled | To align with the ACSC Windows 10 hardening guidance.
 Application Control method | A combination of publisher certificate and path rules and will be used. | Controlled via Intune for cloud managed devices and Group policy for hybrid devices.
-Microsoft Block Rules | Configured | To align with the ACSC Windows 10 hardening guidance.
- The latest Microsoft recommended block rules for [Windows 10](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-block-rules) and [Drivers](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-driver-block-rules) are available online at Microsoft website.
+Microsoft Block Rules | Configured | To align with the ACSC Windows 10 hardening guidance. The latest Microsoft recommended block rules for [Windows 10](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-block-rules) and [Drivers](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-driver-block-rules) are available online at Microsoft.
 Intelligent Security Graph connection | Disabled | The Intelligent Security Graph connection allows applications to be run if they are deemed as good and there is no explicit block rule configured. 
 
 ### Identity providers
@@ -1401,6 +1400,106 @@ Decision Point | Design Decision | Justification
 Allow Telemetry  | Enabled | In line with the ACSC hardening guideline policy recommendations and meets requirements for future Desktop Analytics use.
 Telemetry Level | 2 – Enhanced | Microsoft recommend Enhanced Limited for Desktop Analytics. 
 
+### Microsoft Office hardening
+
+The following design components apply to the hardening of Microsoft Office 365 ProPlus.
+
+The Microsoft Office security settings detailed in this section are based on Microsoft best practice and ACSC Hardening Guidance.
+
+Microsoft Office Hardening Design Decisions for all agencies and implementation types.
+
+* Attack Surface Reduction
+  * Justification: To align with the ACSC Microsoft Office hardening guidance.
+  * Attack Surface Reduction rules: Enabled
+  * Block executable content from email client and webmail
+```
+BE9BA2D9-53EA-4CDC-84E5-9B1EEEE46550
+```
+  * Block all Office applications from creating child processes
+```
+D4F940AB-401B-4EFC-AADC-AD5F3C50688A
+```
+  * Block Office applications from creating executable content
+```
+3B576869-A4EC-4529-8536-B80A7769E899
+```
+  * Block Office applications from injecting code into other processes
+```
+75668C1F-73B5-4CF0-BB93-3ECF5CB7CC84
+```
+  * Block Win32 API calls from Office macro
+```
+92E97FA1-2EDF-4476-BDD6-9DD0B4DDDC7B
+```
+  * Block Office communication application from creating child processes
+```
+26190899-1602-49E8-8B27-EB1D0A1CE869
+```
+* Flash content
+  * Justification: To align with the ACSC Microsoft Office hardening guidance.
+  * Block Flash activation in Office documents: Block all activation
+* Loading external content
+  * Justification: To align with the ACSC Microsoft Office hardening guidance.
+  * Always prevent untrusted Microsoft Query files from opening: Enabled
+  * Don't allow Dynamic Data Exchange (DDE) server lookup in Excel: Enabled
+  * Update automatic links at Open: Disabled
+* Macros
+  * Justification: To align with the ACSC Microsoft Office hardening guidance.
+  * See following section.
+* Object Linking and Embedding packages
+  * Justification: To align with the ACSC Microsoft Office hardening guidance.
+  * See following section.
+* ActiveX
+  * Justification: To align with the ACSC Microsoft Office hardening guidance.
+  * Disable All ActiveX: Enabled
+* Add-ins
+  * Justification: To align with the ACSC Microsoft Office hardening guidance.
+  * Disable Trust Bar Notification for unsigned application add-ins and block them: Enabled
+  * Require that application add-ins are signed by Trusted Publishers: Enabled
+* Extension Hardening
+  * Justification: To align with the ACSC Microsoft Office hardening guidance.
+  * Force file extension to match file type: Enabled - Always match file type
+* File Type Blocking
+  * Justification: To align with the ACSC Microsoft Office hardening guidance.
+  * Set default file block behavior: Enabled -  Blocked files are not opened
+  * Excel: File Block Settings
+  ```(dBase III / IV files, Dif and Sylk files, Excel 2 macrosheets and add-in files, Excel 2 worksheets, Excel 3 macrosheets and add-in files, Excel 3 worksheets, Excel 4 macrosheets and add-in files, Excel 4 workbooks, Excel 4 worksheets, Excel 95 workbooks, Excel 95-97 workbooks and templates, Excel 97-2003 workbooks and templates, Web pages and Excel 2003 XML spreadsheets)```
+  * PowerPoint: File Block Settings
+  ```(PowerPoint 97-2003 presentations, shows, templates and add-in files)```
+  * Visio: File Block Settings
+  ```(Visio 2000-2002 Binary Drawings, Templates and Stencils, Visio 2003-2010 Binary Drawings, Templates and Stencils, Visio 5.0 or earlier Binary Drawings, Templates and Stencils)```
+  * Word: File Block Settings
+  ```(Word 2 and earlier binary documents and templates, Word 2000 binary documents and templates, Word 2003 binary documents and templates, Word 2007 and later binary documents and templates, Word 6.0 binary documents and templates, Word 95 binary documents and templates, Word 97 binary documents and templates, Word XP binary documents and templates)```
+* Office File Validation
+  * Justification: To align with the ACSC Microsoft Office hardening guidance.
+  * Turn off file validation: Disabled (Excel, PowerPoint and Word)
+* Running external programs
+  * Justification: To align with the ACSC Microsoft Office hardening guidance.
+  * Run Programs: Disable (Don't run any programs)
+* Protected View
+  * Justification: To align with the ACSC Microsoft Office hardening guidance.
+  * Always open untrusted database files in Protected View: Enabled
+  * Do not open files from the Internet zone in Protected View: Disabled
+  * Do not open files in unsafe locations in Protected View: Disabled
+  * Set document behaviour if file validation fails: Enabled (Block files)
+  * Turn off Protected View for attachments opened from Outlook: Disabled
+* Trusted documents
+  * Justification: To align with the ACSC Microsoft Office hardening guidance.
+  * Turn off trusted documents: Enabled
+  * Turn off trusted documents on the network: Enabled
+* Hidden markup
+  * Justification: To align with the ACSC Microsoft Office hardening guidance.
+  * Make hidden markup visible: Enabled (PowerPoint and Word)
+* Reporting information
+  * Justification: To align with the ACSC Microsoft Office hardening guidance.
+  * Allow including screenshot with Office Feedback: Disabled
+  * Automatically receive small updates to improve reliability: Disabled
+  * Configure the type of diagnostic data sent by Office to Microsoft: Enabled (Basic)
+  * Disable Opt-in Wizard on first run: Enabled
+  * Enable Customer Experience Improvement Program: Disabled
+  * Send Office Feedback: Disabled
+  * Send personal information: Disabled
+
 ### Office macro hardening
 
 Microsoft Office files can include Visual Basic for Applications (VBA) programming code (macro) embedded into the document.
@@ -1411,9 +1510,7 @@ The ACSC provides guidelines in securing systems against malicious macros and re
 
 * All macros are disabled.
 * Only macros from trusted locations or sandboxed environment are enabled.
-* Only digitally signed macros are enabled.
-
-Email and web content filtering is recommended to be implemented by the ACSC to ensure that macros are not delivered to users via email by malicious actors.
+* Only macros digitally signed by trusted publishers are enabled.
 
 Where trusted locations are used, ACSC recommends that when using trusted locations, only privileged users that are responsible for validating that the macros are free from malicious code can write to and modify contents within the trusted location. 
 
@@ -1421,9 +1518,75 @@ Office Macro Hardening Design Decisions for all agencies and implementation type
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Implementation approach | Only digitally signed macros are enabled | In line with the ACSC Microsoft Office Macro security policy recommendation. 
-Email and Web Content Filtering | Enabled | In line with the ACSC Microsoft Office Macro security policy recommendation. 
-Configuration Method | Agency preference | Macro hardening can be configured via the Agencies existing Group Policies or Intune, as well as Attack Surface Reduction in Windows Defender Exploit Guard. 
+Implementation approach | Only macros digitally signed by a trusted publisher are enabled | To align with the ACSC Microsoft Office Macro Security guidance and enable Agencies to leverage macros securely with the least business impact. 
+Configuration method | Agency preference | Macro hardening can be configured via the Agencies existing Group Policies or Intune, as well as Attack Surface Reduction in Windows Defender Exploit Guard. 
+Specific configuration | See below | To align with the ACSC Microsoft Office Macro Security guidance.
+
+* Microsoft Office 2016 Security Settings
+  * Automation Security: Enabled (Use application macro security level)
+  * Disable all Trust Bar notifications for security issues: Enabled
+  * Disable VBA for Office applications: Disabled
+  * Macro Runtime Scan Scope: Enable for all documents
+  * Allow mix of policy and user locations: Disabled
+* Microsoft Access 2016
+  * Turn off trusted documents: Enabled
+  * Turn off Trusted Documents on the network: Enabled
+  * VBA Macro Notification Settings: Enabled (Disable all except digitally signed macros)
+  * Allow Trusted Locations on the network: Disabled
+  * Disable all trusted locations: Enabled
+  * Disable commands: Enabled (19092)
+* Microsoft Excel 2016
+  * Disable commands: Enabled (19092)
+  * Scan encrypted macros in Excel Open XML workbooks: Scan encrypted macros (default)
+  * Block macros from running in Office files from the Internet: Enabled
+  * Trust access to Visual Basic Project: Disabled
+  * Turn off trusted documents: Enabled
+  * Turn off Trusted Documents on the network: Enabled
+  * VBA Macro Notification Settings: Enabled (Disable all except digitally signed macros)
+  * Allow Trusted Locations on the network: Disabled
+  * Disable all trusted locations: Enabled
+* Microsoft Outlook 2016
+  * Disable commands: Enabled (19092)
+  * Apply macro security settings to macros, add-ins and additional actions: Enabled
+  * Security settings for macros: Enabled (Security Level: Warn for signed, disable unsigned)
+* Microsoft PowerPoint 2016
+  * Disable commands: Enabled (19092)
+  * Scan encrypted macros in PowerPoint Open XML presentations: Scan encrypted macros (default)
+  * Block macros from running in Office files from the Internet: Enabled
+  * Trust access to Visual Basic Project: Disabled
+  * Turn off trusted documents: Enabled
+  * Turn off Trusted Documents on the network: Enabled
+  * VBA Macro Notification Settings: Enabled (Disable all except digitally signed macros)
+  * Allow Trusted Locations on the network: Disabled
+  * Disable all trusted locations: Enabled
+* Microsoft Project 2016
+  * Allow Trusted Locations on the network: Disabled
+  * Disable all trusted locations: Enabled
+  * VBA Macro Notification Settings: Enabled (Disable all except digitally signed macros)
+* Microsoft Publisher 2016
+  * Disable commands: Enabled (19092)
+  * Publisher Automation Security Level: Enabled (By UI (prompted))
+  * VBA Macro Notification Settings: Enabled (Disable all except digitally signed macros)
+* Microsoft Visio 2016
+  * Disable commands: Enabled (19092)
+  * Enable Microsoft Visual Basic for Applications project creation: Disabled
+  * Load Microsoft Visual Basic for Applications projects from text: Disabled
+  * Allow Trusted Locations on the network: Disabled
+  * Block macros from running in Office files from the Internet: Enabled
+  * Disable all trusted locations: Enabled
+  * Turn off trusted documents: Enabled
+  * Turn off Trusted Documents on the network: Enabled
+  * VBA Macro Notification Settings: Enabled (Disable all except digitally signed macros)
+* Microsoft Word 2016
+  * Disable commands: Enabled (19092)
+  * Scan encrypted macros in Word Open XML documents: Scan encrypted macros (default)
+  * Block macros from running in Office files from the Internet: Enabled
+  * Trust access to Visual Basic Project: Disabled
+  * Turn off trusted documents: Enabled
+  * Turn off Trusted Documents on the network: Enabled
+  * VBA Macro Notification Settings: Enabled (Disable all except digitally signed macros)
+  * Allow Trusted Locations on the network: Disabled
+  * Disable all trusted locations: Enabled
 
 ### OLE hardening
 
@@ -1437,7 +1600,7 @@ Office OLE Hardening Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-OLE configuration | Block all | To meet the essential 8 requirements and to align to ACSC guidance
+OLE configuration | Block all | To align with the ACSC Microsoft Office hardening guidance.
 
 ### Local administrator
 

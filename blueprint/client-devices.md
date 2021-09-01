@@ -1441,7 +1441,6 @@ D4F940AB-401B-4EFC-AADC-AD5F3C50688A
 * Loading external content
   * Justification: To align with the ACSC Microsoft Office hardening guidance.
   * Always prevent untrusted Microsoft Query files from opening: Enabled
-  * Don't allow Dynamic Data Exchange (DDE) server launch in Excel: Enabled
   * Don't allow Dynamic Data Exchange (DDE) server lookup in Excel: Enabled
   * Update automatic links at Open: Disabled
 * Macros

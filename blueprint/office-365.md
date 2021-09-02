@@ -23,8 +23,6 @@ Microsoft Planner | Microsoft Planner is a planning application with integration
 
 For each component within the document there is a brief description of the contents of the section, a commentary on the items that have been considered in determining the decisions and the design decisions themselves.
 
-
-
 ## Assumptions
 
 * Where data for any Microsoft service does not reside in Australia this has been explicitly called out.
@@ -1438,11 +1436,11 @@ Unified Audit Logging | Enabled<br>10-year retention | To provide visibility int
 
 ## Exchange Online protection
 
-Exchange Online Protection has a feature known as Connection filtering which verifies the identity of the sender using SPF, DKIM, DMARC and Microsoft intelligence.
+Exchange Online Protection (EOP) is a series of filtering services within Exchange Online that protects the Agency against spam, malware, and other email threats.
 
 ### Connection filtering
 
-Connection filtering within Exchange Online Protection refers to the verification of the sender using SPF, DKIM, DMARC and Microsoft intelligence.
+Connection filtering within Exchange Online Protection provides Exchange Online with a list of known safe IP (IP allow list) addresses to assist with mail filtering. It can also be used to reject messages from various known malicious sources (IP block list). Microsoft provide a dynamic allow list that identifies various sources (safe list) that are considered safe from 3rd-party lists.
 
 Exchange Online Protection Connection Filtering is always enabled however it can, to a degree, be configured. A connection filter can be implemented to always allow or always block traffic based upon an IP list.
 
@@ -1458,9 +1456,9 @@ Configuration | Value | Description
 --- | --- | ---
 Connection filter policy name | Default | This policy is the default policy configured when Exchange Online is enabled and is consistent with best practice. 
 Scoped to | All Domains | This is the default setting configured when Exchange Online is enabled.
-IP Allow list | Not Configured | This is the default setting configured when Exchange Online is enabled.
-IP Block list | Not Configured | This is the default setting configured when Exchange Online is enabled.
-Safe list | Disabled | This is the default setting configured when Exchange Online is enabled.
+IP Allow list | Not Configured | This is the default setting configured when Exchange Online is enabled. Agencies should determine their allow list specific to their environment. 
+IP Block list | Not Configured | This is the default setting configured when Exchange Online is enabled. 
+Safe list | Disabled | This is the default setting configured when Exchange Online is enabled. 
 
 ### Anti-malware
 

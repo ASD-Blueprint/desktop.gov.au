@@ -2878,7 +2878,7 @@ The following configuration is required for Intune Co-management is for Hybrid i
 * MDM terms of use URL: `https://portal.manage.microsoft.com/TermsofUse.aspx`
 * MDM discovery URL: `https://enrollment.manage.microsoft.com/enrollmentserver/discovery.svc`
 
-`SCCM admin console > About Microsoft Endpoint Configuration Manager`
+`MECM admin console > About Microsoft Endpoint Configuration Manager`
 
 * Version: `2107`
 * SOE Name: `Intune Auto Enrolment`

@@ -781,9 +781,9 @@ Within these release cycles, you can choose the architecture of 32-bit or 64-bit
 
 Microsoft 365 Apps for enterprise provides there feature update channels for customers to choose:
 
-- Current Channel - new Office features are available as soon as they are released, not on a set schedule.
-- Monthly Enterprise Channel: new office features are released in a predicable once a month schedule.
-- Semi-annual Enterprise Channel: new Office features are released twice a year. 
+* Current Channel - new Office features are available as soon as they are released, not on a set schedule.
+* Monthly Enterprise Channel: new office features are released in a predictable monthly schedule.
+* Semi-annual Enterprise Channel: new Office features are released twice a year. 
 
 Microsoft Project and Visio (365 and 2019) are available as click-to-run editions that can be either licensed through Microsoft 365 or through hybrid licensing. Regardless of the license type, they can be installed through Intune or MECM (for hybrid deployments). The installation media is configured using the [Office Deployment Tool (ODT)](https://www.microsoft.com/download/details.aspx?id=49117) which generates the installer and configuration options for the deployment. Microsoft Office 365 E3/E5 licensing does not include the rights to use these applications. There are some caveats to what combination of Office versions are supported alongside Project and Visio, please see the [supported scenarios](https://docs.microsoft.com/en-us/deployoffice/install-different-office-visio-and-project-versions-on-the-same-computer).
 
@@ -791,7 +791,7 @@ Microsoft Office Edition Design Decisions for all agencies and implementation ty
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Microsoft Office Version | Microsoft 365 Apps for enterprise 64-bit | Aligns with modernisation vision and provides access to the latest and most updated features.
+Microsoft Office Version | Microsoft 365 Apps for Enterprise 64-bit | Aligns with modernisation vision and provides access to the latest and most updated features.
 Microsoft 365 Apps Update channel | Monthly Enterprise | Provides the latest features for Office apps, such as Excel and Word, on a regular predictable basis. This will ensure new features are available but can be planned within the Agency's change management process. 
 
 ### Office features

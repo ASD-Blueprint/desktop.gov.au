@@ -336,7 +336,7 @@ OfficeHub | Removed | MyOffice.
 OneNote | Provisioned | Microsoft OneNote Application. 
 Paint3D | Provisioned | Microsoft Paint3D Application. 
 People | Removed | The People app in Windows is a modern take on the flat contact lists of the past. It is built for the way people communicate today and is connected to cloud services. 
-Photos | Removed | The best place to enjoy, organise, edit, and share digital memories.
+Photos | Provisioned | The best place to enjoy, organise, edit, and share digital memories.
 Snip and Sketch | Provisioned | Capture a specific area of the screen.
 MS Paint | Provisioned | Creative paint and drawing tool.
 Sticky Notes | Provisioned | Sticky Notes. 
@@ -350,7 +350,7 @@ The Microsoft Store is an online store for applications available for Windows 8 
 
 The Microsoft Public Store is the central location for browsing the library of available Windows UWP Applications that can be installed on Windows 10. The Microsoft Public Store includes both free and paid applications. Applications published by Microsoft and other developers are available.
 
-The Microsoft Store for Business allows organisations to purchase applications in larger volumes and customise which applications are available to users. Applications which are made available can either be distributed directly from the store or through a managed distribution approach. Applications which have been developed within the organisation can also be added and distributed as required.
+The Microsoft Store for Business (private store) allows organisations to purchase applications in larger volumes and customise which applications are available to users. Applications which are made available can either be distributed directly from the store or through a managed distribution approach. Applications which have been developed within the organisation can also be added and distributed as required.
 
 Licensing can also be managed through the Microsoft Store for Business and administrators can reclaim and reuse application licenses.
 
@@ -359,7 +359,7 @@ Microsoft Store Design Decisions for all agencies and implementation types.
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Microsoft Public Store | Disabled | To align with the ACSC Windows 10 hardening guidance.
-Microsoft Store for Business | Disabled | To align with the ACSC Windows 10 hardening guidance. 
+Microsoft Store for Business | Enabled | To allow the delivery of enterprise volume purchased apps including the Intune Company Portal. 
 
 ### Enterprise applications
 
@@ -565,7 +565,7 @@ Screen Saver | Disabled | Not required, the device will be configured to sleep a
 Machine Inactivity | Configured – 900 seconds | To align with the ACSC Windows 10 hardening guidance.
 Users Can Configure the Screen Saver | No | Disable the ability for users to configure the screen saver for all Windows 10 SOE devices. 
 Require Password on Wake | Configured | Users will be required to enter their password on machine wake up to align with the ACSC Windows 10 hardening guidance.
- 
+
 
 ### Profiles, personalization, and folder redirection
 
@@ -774,12 +774,16 @@ Microsoft Office is available in two release cycles and within those release cyc
 
 Microsoft Office has two release cycles:
 
-* Office 365 – Office 365 combines the Microsoft Office desktop suite with cloud-based versions of Microsoft's communications and collaboration services—including Microsoft Exchange Online, Microsoft SharePoint Online, Office Online, and Microsoft Teams. Office 365 is upgraded with new features on a regular basis
-* Traditional Office – Traditional Office is sold as a one-time purchase and provides Office applications for a single computer. There are no upgrade options which means to upgrade to the next major release, another copy of Office will have to be procured. Traditional Office is not upgraded with new features for the life of the release
+* Microsoft 365 Apps for enterprise – Microsoft 365 Apps for enterprise combines the Microsoft Office desktop suite with cloud-based versions of Microsoft's communications and collaboration services—including Microsoft Exchange Online, Microsoft SharePoint Online, Office Online, and Microsoft Teams. Microsoft 365 Apps for enterprise is upgraded with new features on a regular basis via feature update channels.
+* Traditional Microsoft Office – Traditional Microsoft Office is sold as a one-time purchase and provides Office applications for a single computer. There are no upgrade channel options which means to upgrade to the next major release, another copy of MS Office will have to be procured. Traditional Microsoft Office is not upgraded with new features for the life of the release. Microsoft Office 2019 is the latest traditional version available.
 
 Within these release cycles, you can choose the architecture of 32-bit or 64-bit. Microsoft Office provides 32-bit or 64-bit version to be installed on Windows 10 devices. Microsoft 64-bit version of Office will be automatically chosen to be installed, unless 32-bit version is installed. The 64-bit version of Office provides ability working with larger datasets and files. However, 64-bit version of Office does not support legacy macros, and COM Add-In.
 
-Pro Plus is an optional configuration which installed Office 365 locally on a client machine.
+Microsoft 365 Apps for enterprise provides there feature update channels for customers to choose:
+
+* Current Channel - new Office features are available as soon as they are released, not on a set schedule.
+* Monthly Enterprise Channel: new office features are released in a predictable monthly schedule.
+* Semi-annual Enterprise Channel: new Office features are released twice a year. 
 
 Microsoft Project and Visio (365 and 2019) are available as click-to-run editions that can be either licensed through Microsoft 365 or through hybrid licensing. Regardless of the license type, they can be installed through Intune or MECM (for hybrid deployments). The installation media is configured using the [Office Deployment Tool (ODT)](https://www.microsoft.com/download/details.aspx?id=49117) which generates the installer and configuration options for the deployment. Microsoft Office 365 E3/E5 licensing does not include the rights to use these applications. There are some caveats to what combination of Office versions are supported alongside Project and Visio, please see the [supported scenarios](https://docs.microsoft.com/en-us/deployoffice/install-different-office-visio-and-project-versions-on-the-same-computer).
 
@@ -787,7 +791,8 @@ Microsoft Office Edition Design Decisions for all agencies and implementation ty
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Microsoft Office Version | Office 365 Pro Plus 64-bit | Aligns with modernisation vision and provides access to the latest and most updated features.
+Microsoft Office Version | Microsoft 365 Apps for Enterprise 64-bit | Aligns with modernisation vision and provides access to the latest and most updated features.
+Microsoft 365 Apps Update channel | Monthly Enterprise | Provides the latest features for Office apps, such as Excel and Word, on a regular predictable basis. This will ensure new features are available but can be planned within the Agency's change management process. 
 
 ### Office features
 

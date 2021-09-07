@@ -54,7 +54,6 @@ The following ABAC settings outlines the Azure Active Directory configuration fo
     * Only users assigned to specific admin roles can invite guest users: `Checked`
     * Enable guest self-service sign up via user flows: `No`
   * Guests can invite: `No`
-  * Enable guest self-service sign up via user flows: `No`
 * Collaboration restrictions
   * Allow invitations only to the specified domains (most restrictive): `Selected`
   * Target domains:

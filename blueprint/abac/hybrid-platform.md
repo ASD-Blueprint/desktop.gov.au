@@ -451,7 +451,7 @@ Not selected – Federation with PingFederate
 * Forest for Configured Directories: `<agency_forest_name>.local`
 * Active Directory UPN Suffix: `<Agency>.gov.au`
 * Azure AD Domain: `Verified`
-* Attribute used for login: `userPrincipleName   (User ID)`
+* Attribute used for login: `userPrincipalName   (User ID)`
 * Domain and OU filtering
   * Directory: `<agency_forest_name>.local`
   * Sync selected domains and OUs:

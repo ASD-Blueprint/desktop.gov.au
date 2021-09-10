@@ -4,33 +4,13 @@ title: Microsoft Endpoint Manager - Intune applications
 menu: abac
 ---
 
-The following Microsoft Endpoint Manager - Intune (Intune) applications can be found in the Azure Portal at `Microsoft Endpoint Manager > Apps`
+## Windows Applications
 
-## Privileged access
+The following Microsoft Endpoint Manager - Intune (Intune) applications for Windows, some applications are scripts that are packaged as applications.
 
-* Name: `Privileged Access`
-* Description: `Azure Portal`
-* Type: `Web link`
-* App information
-  * Publisher: `Microsoft`
-  * App URL: `https://portal.azure.com/#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickstart`
-  * Require a managed browser to open this link: `No`
-  * Category: `Productivity`
-  * Show this as a featured app in the Company Portal: `No`
-  * Information URL: -
-  * Privacy URL: -
-  * Developer: -
-  * Owner: -
-  * Notes: -
-  * Logo: -
-* Scope tags: `Default`
-* Assignments
-  * Required: `grp-iPhone-Devices`, `grp-iOS-Devices`, `rol-Agency-Users`
-  * Available for enrolled devices: -
-  * Available with or without enrollment: -
-  * Uninstall: -
+Windows Applications can be found in the Azure Portal at `Microsoft Endpoint Manager > Apps > Windows`
 
-## Configuration Manager Trace (CMTrace) install
+### Configuration Manager Trace (CMTrace) install
 
 * Name: `CMTrace Install`
 * Description: `Install CMTrace.exe and create shortcut on desktop to Intune log location to monitor.`
@@ -81,7 +61,36 @@ You will need a copy of:
 * [CMTraceInstall.ps1](/assets/files/abac/CMTraceInstall.txt)
 * [CMTraceRemove.ps1](/assets/files/abac/CMTraceRemove.txt)
 
-## Company portal
+### Microsoft 365 Apps for Enterprise 
+
+* Name: `Microsoft 365 Apps for Enterprise`
+* Type: `Microsoft 365 Apps (Windows 10 and Later)`
+* App information
+  * Publisher: `Microsoft`
+  * Category: `Productivity`
+  * Show this as a featured app in the Company Portal: `Yes`
+  * Information URL: -
+  * Privacy URL: -
+  * Developer: `Microsoft`
+  * Owner: `Microsoft`
+  * Notes: -
+  * Logo: -
+* App suite configuration
+  * Apps to be installed as part of the suite: `Excel, OneNote, Outlook, PowerPoint, Publisher, Teams, Word`
+  * Architecture: `64-bit`
+  * Update channel: `Monthly Enterprise Channel`
+  * Remove other versions: `Yes`
+  * Version to install: `Latest`
+  * Use shared computer activation: `Yes`
+  * Accept the Microsoft Software License Terms on behalf of users: `Yes`
+  * Install background service for Microsoft Search in Bing: `No`
+  * Apps to be installed as part of the suite: `No languages selected`
+* Scope tags: `Default`
+* Assignments
+  * Required: `grp-agency-windows10-dynamic`
+  * Uninstall: -
+
+### Intune Company portal
 
 * Name: `Company Portal`
 * Description: -
@@ -105,7 +114,7 @@ You will need a copy of:
   * Available with or without enrollment: -
   * Uninstall: -
 
-## Defender Advanced Threat Protection (ATP) registry recommendations
+### Defender Advanced Threat Protection (ATP) registry recommendations
 
 * Name: `Defender ATP Registry Recommendations`
 * Description: `Registry settings as per MS Defender ATP recommendations`
@@ -155,7 +164,13 @@ You will need a copy of:
 
 *  [DefenderATP.ps1](/assets/files/abac/DefenderATP.txt)
 
-## Microsoft Authenticator
+## iOS Applications
+
+The following Microsoft Endpoint Manager - Intune (Intune) applications for iOS.
+
+Windows Applications can be found in the Azure Portal at `Microsoft Endpoint Manager > Apps > iOS/iPadOS`
+
+### Microsoft Authenticator
 
 * Name: `Microsoft Authenticator`
 * Description: `Sign in is easy, convenient, and secure when you use Microsoft Authenticator. Use your phone, not your password, to log into your Microsoft account. You simply have to enter your username, then approve the notification sent to your phone. Your fingerprint, face ID, or PIN will provide a second layer of security in this two step verification process. After, you'll have access to all your Microsoft products`
@@ -180,7 +195,32 @@ You will need a copy of:
   * Available with or without enrollment: -
   * Uninstall: -
 
-## Microsoft Edge
+### Adobe Acrobat Reader for PDF
+
+* Name: `Adobe Acrobat Reader for PDF`
+* Description: `The free Adobe Acrobat Reader PDF app is trusted by millions of people around the world. Adobe Acrobat Reader is the free global standard for reliably viewing, signing, and commenting on PDF documents.`
+* Type: `iOS store app`
+* App information
+  * Publisher: `Adobe Inc.`
+  * Appstore URL: `https://apps.apple.com/au/app/adobe-acrobat-reader-for-pdf/id469337564?uo=4`
+  * Minimum operating system: `iOS 14.0`
+  * Applicable device type: `iPad`, `iPhone and iPod`
+  * Category: -
+  * Show this as a featured app in the Company Portal: `Yes`
+  * Information URL: -
+  * Privacy URL: -
+  * Developer: -
+  * Owner: -
+  * Notes: -
+  * Logo: ![Adobe Acrobat Reader for PDF](/assets/images/abac/adobe-acrobat-reader.png)
+* Scope tags: `Default`
+* Assignments
+  * Required: -
+  * Available for enrolled devices: `rol-Agency-Administrators`, `rol-Agency-Users`
+  * Available with or without enrollment: -
+  * Uninstall: -
+
+### Microsoft Edge
 
 * Name: `Microsoft Edge`
 * Description: `Introducing the new Microsoft Edge. It’s time to expect more. More privacy. More control. More productivity. More value. Browse anywhere with one continuous experience from your phone to your computer and other signed-in devices. Microsoft Edge gives you the tools to protect your privacy online with features like tracking prevention, AdBlock Plus and InPrivate mode. Organise the web in a way that cuts through the clutter, making it easier to find, view and manage your content on-the-go. With world class compatibility, performance and new features, the new Microsoft Edge is the only browser you’ll ever need.`
@@ -205,31 +245,7 @@ You will need a copy of:
   * Available with or without enrollment: -
   * Uninstall: -
 
-## Microsoft Edge for Windows 10
-
-* Name: `Microsoft Edge for Windows 10`
-* Description: `Microsoft Edge is the browser for business with modern and legacy web compatibility, new privacy features such as Tracking prevention, and built-in productivity tools such as enterprise-grade PDF support and access to Office and corporate search right from a new tab.`
-* Type: `Microsoft Edge (Windows 10)`
-* App information
-  * Publisher: `Microsoft`
-  * Category: `Productivity`
-  * Show this as a featured app in the Company Portal: `Yes`
-  * Information URL: `https://www.microsoft.com/en-us/windows/microsoft-edge`
-  * Privacy URL: `https://privacy.microsoft.com/en-US/privacystatement`
-  * Developer: `Microsoft`
-  * Owner: `Microsoft`
-  * Notes: -
-  * Channel: `Stable`
-  * Language: `Operating system default`
-  * Logo: ![Microsoft Edge for Windows 10](/assets/images/abac/microsoft-edge-for-windows-10.png)
-* Scope tags: `Default`
-* Assignments
-  * Required: `grp-agency-windows10-dynamic`
-  * Available for enrolled devices: -
-  * Available with or without enrollment: -
-  * Uninstall: -
-
-## Microsoft Excel
+### Microsoft Excel
 
 * Name: `Microsoft Excel`
 * Description: `Microsoft Excel, the spreadsheet app, lets you create, view, edit, and share your files quickly and easily. Manage spreadsheets, tables and workbooks attached to email messages from your phone with this powerful productivity app from Microsoft.`
@@ -254,7 +270,7 @@ You will need a copy of:
   * Available with or without enrollment: -
   * Uninstall: -
 
-## Microsoft OneDrive
+### Microsoft OneDrive
 
 * Name: `Microsoft OneDrive`
 * Description: `Do more wherever you go with Microsoft OneDrive. Get to and share your documents, photos, and other files from your iOS device, computer (PC or Mac), and any other devices you use. Use the Office mobile apps to stay productive and work together, no matter where you are. The OneDrive app for iOS lets you easily work with your personal and work files when you're on the go.`
@@ -279,7 +295,7 @@ You will need a copy of:
   * Available with or without enrollment: -
   * Uninstall: -
 
-## Microsoft Outlook
+### Microsoft Outlook
 
 * Name: `Microsoft Outlook`
 * Description: `Outlook lets you bring all your email accounts and calendars in one convenient spot. Whether it's staying on top of your inbox or scheduling the next big thing, we make it easy to be your most productive, organized, and connected self.`
@@ -304,7 +320,7 @@ You will need a copy of:
   * Available with or without enrollment: -
   * Uninstall: -
 
-## Microsoft Teams
+### Microsoft Teams
 
 * Name: `Microsoft Teams`
 * Description: `Microsoft Teams is your hub for teamwork in Office 365. All your team conversations, files, meetings, and apps live together in a single shared workspace, and you can take it with you on your favourite mobile device. Whether you’re sprinting towards a deadline or sharing your next big idea, Teams can help you achieve more.`
@@ -329,7 +345,7 @@ You will need a copy of:
   * Available with or without enrollment: -
   * Uninstall: -
 
-## Microsoft Word
+### Microsoft Word
 
 * Name: `Microsoft Word`
 * Description: `The trusted Word app lets you create, edit, view, and share your files with others quickly and easily. Send, view and edit Office docs attached to emails from your phone with this powerful word processing app from Microsoft.`
@@ -354,7 +370,7 @@ You will need a copy of:
   * Available with or without enrollment: -
   * Uninstall: -
 
-## Power Apps
+### Power Apps
 
 * Name: `Power Apps`
 * Description: `Get Power Apps to use business apps made for your team and organization. Install Power Apps for iPhone and iPad to: Use custom Power Apps that were shared with you; Get work done from anywhere and on any device; Automate tasks and accomplish more • Access, capture, and share business data.`
@@ -379,7 +395,7 @@ You will need a copy of:
   * Available with or without enrollment: -
   * Uninstall: -
 
-## Microsoft Whiteboard
+### Microsoft Whiteboard
 
 * Name: `Microsoft Whiteboard`
 * Description: `Microsoft Whiteboard provides a freeform intelligent canvas where teams can ideate, create and collaborate visually via the cloud. Designed for pen and touch, it lets you write or draw as smoothly as you would with ink, while automatically recognising and transforming shapes and tables as you draw. It enhances teamwork by allowing all team members to edit and comment directly on the canvas in real time, no matter where they are. And all your work stays safe in the cloud, ready to be picked back up from another location or device.`
@@ -404,7 +420,7 @@ You will need a copy of:
   * Available with or without enrollment: -
   * Uninstall: -
 
-## Microsoft Planner
+### Microsoft Planner
 
 * Name: `Microsoft Planner`
 * Description: `Planner provides a simple, visual way to organize teamwork. Planner makes it easy for your team to create new plans, organize and assign tasks, share files, chat about what you’re working on, and get updates on progress.`
@@ -429,30 +445,68 @@ You will need a copy of:
   * Available with or without enrollment: -
   * Uninstall: -
 
-## Microsoft 365 Apps for Windows 10
+## Windows Information Protection
 
-* Name: `Microsoft 365 Apps for Windows 10`
-* Type: `Microsoft 365 Apps for Windows 10`
-* App information
-  * Publisher: `Microsoft`
-  * Category: `Productivity`
-  * Show this as a featured app in the Company Portal: `Yes`
-  * Information URL: `https://products.office.com/en-us/explore-office-for-home`
-  * Privacy URL: `https://privacy.microsoft.com/en-US/privacystatement`
-  * Developer: `Microsoft`
-  * Owner: `Microsoft`
-  * Notes: -
-  * Logo: ![Microsoft Office](/assets/images/abac/microsoft-office.png)
-* App suite configuration
-  * Apps to be installed as part of the suite: `Excel, Outlook, PowerPoint, Publisher, Teams, Word`
-  * Architecture: `64-bit`
-  * Update channel: `Current Channel`
-  * Remove other versions: `Yes`
-  * Version to install: `Latest`
-  * Use shared computer activation: `Yes`
-  * Accept the Microsoft Software License Terms on behalf of users: `Yes`
-  * Apps to be installed as part of the suite: `No languages selected`
-* Scope tags: `Default`
+`Microsoft Endpoint Manager > Apps > App protection policies`
+
+* Name: `Windows Information Protection`
+* Description: `Application Protection policies`
+* Enrollment state: `With enrollment`
+* Targeted apps
+  * Protected apps:
+
+```
+Office-365-ProPlus-1810-Allowed.xml
+Recommended-Denied-Office-365-ProPlus-1810.xml
+MsEdge - WIPMode-Allow - Enterprise AppLocker Policy File.xml
+IE11
+Microsoft OneDrive
+Notepad
+Microsoft Paint
+Microsoft Remote Desktop
+Microsoft Teams
+Microsoft Azure Information Protection
+Microsoft Edge
+Microsoft People
+Word Mobile
+Excel Mobile
+PowerPoint Mobile
+OneDrive App
+OneNote
+Mail and Calendar for Windows 10
+Microsoft Photos
+Groove Music
+Microsoft Movies and TV
+Microsoft Messaging
+Company Portal
+```
+
+  * Exempt apps: -
+* Required settings
+  * Windows Information Protection mode: `Block`
+  * Corporate identity: `<Agency>.gov.au`
+* Advanced settings
+  * Network perimeter
+    * Type: `Cloud resources`
+    * Name: `Office365`
+    * Value:
+
+```
+Agency.sharepoint.com|Agency-my.sharepoint.com|Agency-files.sharepoint.com|tasks.office.com|protection.office.com|meet.lync.com|teams.microsoft.com|www.yammer.com|yammer.com|persona.yammer.com|outlook.office.com|outlook.office365.com|attachments.office.net|Agency.crm.dynamics.com|Agency.visualstudio.com|Agency.powerbi.com
+```
+
+    * Enterprise Proxy Servers list is authoritative (do not auto-detect): `Off`
+    * Enterprise IP Ranges list is authoritative (do not auto-detect): `Off`
+
+  * Data protection
+    * Upload a Data Recovery Agent (DRA) certificate to allow recovery of encrypted data: `Not configured`
+    * Prevent corporate data from being accessed by apps when the device is locked. Applies only to Windows 10 Mobile: `Off`
+    * Revoke encryption keys on unenroll: `On`
+    * Show the enterprise data protection icon: `On`
+    * Use Azure RMS for WIP: `Off`
+    * Allow Windows Search Indexer to search encrypted items: `On`
+    * Encrypted file extensions: -
 * Assignments
-  * Required: `grp-agency-windows10-dynamic`
-  * Uninstall: -
+  * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`
+  * Excluded groups: -
+* Scope tags: `Default`

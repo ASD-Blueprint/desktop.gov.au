@@ -293,6 +293,7 @@ GRANT - Mobile Device Access | Grants access to managed mobile devices that are 
 GRANT - Windows Device Access | Grants access to managed Windows devices that are Intune enrolled and/or Hybrid Azure AD Joined (joined to an on-premises AD and Azure AD). Note, Hybrid Azure AD join only applies to Hybrid implementation types. 
 GRANT - Guest Access (B2B) | Approved apps that guest users can access (requires MFA).
 BLOCK - Guest Access (B2B) | Blocked apps that guest users can never access.
+GRANT - Require MFA and PAW for Administrators | Require MFA for administration roles in Azure AD and define a Privileged Access Workstation (PAW) allowed location. 
 
 ###  Active Directory
 

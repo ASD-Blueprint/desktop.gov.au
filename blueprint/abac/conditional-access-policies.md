@@ -4,7 +4,7 @@ title: Conditional access policies
 menu: abac
 ---
 
-## Conditional access named locations
+## Conditional Access - named locations
 
 Conditional Access rules can be assigned according to several variables including named locations. These are the public internet (IP) addresses that Azure Active Directory sees, this is not the Agency's internal private IP addressing scheme. Named locations are Agency defined and are used to authorise logon from:
 
@@ -25,7 +25,7 @@ Note, named locations should be avoided for the purposes of supressing MFA on a 
   * Mark as trusted location: `Selected`
   * IP ranges: Agency defined
 
-## Conditional Access terms of use
+## Conditional Access - terms of use
 
 The Terms of Use document is a pdf document provided by the department and is uploaded to Azure Active Directory. This is then presented to users during the first logon process prior to agreeing to the terms of use. 
 
@@ -34,18 +34,18 @@ Note, terms of user does not replace the logon banner warning text.
 `Azure AD Conditional Access > Terms of use`
 
 * Name: `<Agency> Terms of Use`
-* Display Name: `<Agency Name> ICT Acceptable Use Policy`
-* Require users to expand the terms of use: `Off`
+* Display Name: `<Agency Name> Acceptable Use Policy`
+* Require users to expand the terms of use: `On`
 * Require users to consent on every device: `Off`
-* Expire contents: `Off`
-* Expire starting on: `N/A`
-* Frequency: `N/A`
+* Expire contents: `On`
+* Expire starting on: `30/06/xxxx`
+* Frequency: `Annually`
 * Duration before re-acceptance required (days): `N/A`
 * Languages
   * English: Agency supplied
   * Other languages as required
 
-## Conditional Access policies
+## Conditional Access - policies
 
 The following Conditional Access policies can be found in the Azure Portal at `Azure AD Conditional Access | Policies`. The polices here are a baseline and should be customised to the Agencies requirements for both hybrid and cloud-only implementations types.
 
@@ -95,8 +95,8 @@ This global policy blocks all connections from unsecure legacy protocols like Ac
     * Require app protection policy: `False`
     * Require password change: `False`
     * Terms of Use: `False`
-    * Require all the selected controls: `No`
-    * Require one of the selected controls: `Yes`
+    * Require all the selected controls: `Yes`
+    * Require one of the selected controls: `No`
   * Session
     * Use app enforced restrictions: `N/A`
     * Use Conditional Access App Control: `False`
@@ -155,7 +155,7 @@ This global policy blocks all high-risk authentications (requires Azure AD Premi
     * Persistent browser session: `False`
 * Enable policy: `On`
 
-## Block - Countries Not Allowed
+## BLOCK - Countries Not Allowed
 
 The global policy blocks all connections from countries not in the allowed countries allow list.
 
@@ -250,126 +250,13 @@ This global policy forces Terms of Use on all authentications.
     * Require app protection policy: `False`
     * Require password change: `False`
     * Terms of Use: `True`
-    * Require all the selected controls: `No`
-    * Require one of the selected controls: `Yes`
+    * Require all the selected controls: `Yes`
+    * Require one of the selected controls: `No`
 * Session
-    * Use app enforced restrictions: `N/A`
-    * Use Conditional Access App Control: `False`
-    * Sign-in frequency: `False`
-    * Persistent browser session: `False`
-* Enable policy: `On`
-
-## Grant - Browser Access
-
-General browser access policy that grants authentication from a browser on any device with MFA requirement.
-
-* Name: `GRANT – Browser Access`
-* Assignments
-  * Users and groups
-    * Include: `rol-Agency-users`
-    * Exclude
-      * All guest and external users: `False`
-      * Directory roles: `False`
-      * Users and groups: `True`
-        * Excluded users and groups: `None`
-  * Cloud apps or actions
-    * Select what policy this applies to: `Cloud apps`
-    * Include: `Office 365`
-    * Exclude: `None`
-  * Conditions
-    * User risk:
-      * Configure: `No`
-    * Sign-in risk
-      * Configure: `No`
-    * Device platforms:
-      * Configure: `No`
-    * Locations:
-      * Configure: `No`
-    * Client apps
-      * Configure: `Yes`
-        * Browser: `True`
-        * Mobile apps and desktop clients: `False`
-        * Modern authentication clients: `False`
-        * Exchange ActiveSync clients: `False`
-        * Other clients: `False`
-    * Device state:
-      * Configure: `No`
-* Access controls
-  * Grant
-    * Block access: `No`
-    * Grant access: `Yes`
-    * Require multi-factor authentication: `True `
-    * Require device to be marked as compliant: `False`
-    * Require Hybrid Azure AD joined device: `False`
-    * Require approved client app: `False`
-    * Require app protection policy: `False`
-    * Require password change: `False`
-    * Terms of Use: `False`
-    * Require all the selected controls: `No`
-    * Require one of the selected controls: `Yes`
-* Session
-    * Use app enforced restrictions: `N/A`
-    * Use Conditional Access App Control: `False`
-    * Sign-in frequency: `False`
-    * Persistent browser session: `False`
-* Enable policy: `On`
-
-## SESSION - Block Unmanaged Browser File Downloads
-
-Browsers on unmanaged devices cannot download files and attachments from SharePoint Online and Exchange Online.
-
-* Name: `SESSION - Block Unmanaged Browser File Downloads`
-* Assignments
-  * Users and groups
-    * Include: `All users`
-    * Exclude
-      * All guest and external users: `False`
-      * Directory roles: `False`
-      * Users and groups: `True`
-        * Excluded users and groups: `None`
-  * Cloud apps or actions
-    * Select what policy this applies to: `Cloud apps`
-    * Include: `Select apps`
-      * `Office 365 Exchange Online`
-      * `Office 365 SharePoint Online`
-    * Exclude: `None`
-  * Conditions
-    * User risk:
-      * Configure: `No`
-    * Sign-in risk
-      * Configure: `No`
-    * Device platforms:
-      * Configure: `No`
-    * Locations:
-      * Configure: `No`
-    * Client apps
-      * Configure: `Yes`
-        * Browser: `True`
-        * Mobile apps and desktop clients: `False`
-        * Exchange ActiveSync clients: `False`
-        * Other clients: `False`
-    * Device state:
-      * Configure: `Yes`
-      * Include: `All device state`
-      * Exclude: `Device marked as compliant`
-* Access controls
-  * Grant
-    * Block access: `No`
-    * Grant access: `Yes`
-    * Require multi-factor authentication: `False `
-    * Require device to be marked as compliant: `False`
-    * Require Hybrid Azure AD joined device: `False`
-    * Require approved client app: `False`
-    * Require app protection policy: `False`
-    * Require password change: `False`
-    * Terms of Use: `False`
-    * Require all the selected controls: `No`
-    * Require one of the selected controls: `Yes`
-* Session
-    * Use app enforced restrictions: `N/A`
-    * Use Conditional Access App Control: `False`
-    * Sign-in frequency: `False`
-    * Persistent browser session: `False`
+  * Use app enforced restrictions: `N/A`
+  * Use Conditional Access App Control: `False`
+  * Sign-in frequency: `False`
+  * Persistent browser session: `False`
 * Enable policy: `On`
 
 ## GRANT - Intune Enrolment
@@ -412,27 +299,27 @@ Devices are allowed to authenticate to Microsoft Endpoint Manager - Intune (Intu
   * Grant
     * Block access: `No`
     * Grant access: `Yes`
-    * Require multi-factor authentication: `False `
+    * Require multi-factor authentication: `True `
     * Require device to be marked as compliant: `False`
     * Require Hybrid Azure AD joined device: `False`
     * Require approved client app: `False`
     * Require app protection policy: `False`
     * Require password change: `False`
     * Terms of Use: `False`
-    * Require all the selected controls: `No`
-    * Require one of the selected controls: `Yes`
+    * Require all the selected controls: `Yes`
+    * Require one of the selected controls: `No`
 * Session
-    * Use app enforced restrictions: `N/A`
-    * Use Conditional Access App Control: `False`
-    * Sign-in frequency: `False`
-    * Persistent browser session: `False`
+  * Use app enforced restrictions: `N/A`
+  * Use Conditional Access App Control: `False`
+  * Sign-in frequency: `False`
+  * Persistent browser session: `False`
 * Enable policy: `On`
 
-## GRANT - Mobile Device Access
+## GRANT - iOS Device Access
 
-Grants access to managed mobile devices that are enrolled and compliant in Intune. An approved Microsoft app is required.
+Grants access to managed iOS devices that are enrolled and compliant in Intune. An approved Microsoft app is required.
 
-* Name: `GRANT – Mobile Device Access`
+* Name: `GRANT – iOS Device Access`
 * Assignments
   * Users and groups
     * Include: `All users`
@@ -445,7 +332,9 @@ Grants access to managed mobile devices that are enrolled and compliant in Intun
     * Select what policy this applies to: `Cloud apps`
     * Include: `Select apps`
       * `Office 365`
-    * Exclude: `Microsoft Intune`
+    * Exclude:  `Select apps`
+      *  `Microsoft Intune`
+      * `Microsoft Intune Enrolment` 
   * Conditions
     * User risk:
       * Configure: `No`
@@ -467,7 +356,7 @@ Grants access to managed mobile devices that are enrolled and compliant in Intun
     * Block access: `No`
     * Grant access: `Yes`
     * Require multi-factor authentication: `True`
-    * Require device to be marked as compliant: `False`
+    * Require device to be marked as compliant: `True`
     * Require Hybrid Azure AD joined device: `False`
     * Require approved client app: `True`
     * Require app protection policy: `False`
@@ -476,13 +365,13 @@ Grants access to managed mobile devices that are enrolled and compliant in Intun
     * Require all the selected controls: `Yes`
     * Require one of the selected controls: `No`
 * Session
-    * Use app enforced restrictions: `N/A`
-    * Use Conditional Access App Control: `False`
-    * Sign-in frequency: `False`
-    * Persistent browser session: `False`
+  * Use app enforced restrictions: `N/A`
+  * Use Conditional Access App Control: `False`
+  * Sign-in frequency: `False`
+  * Persistent browser session: `False`
 * Enable policy: `On`
 
-## Grant - Windows Device Access
+## GRANT - Windows Device Access
 
 Grants access to managed Windows devices that are enrolled and compliant.
 
@@ -535,17 +424,17 @@ Grants access to managed Windows devices that are enrolled and compliant.
     * Require all the selected controls: `Yes`
     * Require one of the selected controls: `No`
 * Session
-    * Use app enforced restrictions: `N/A`
-    * Use Conditional Access App Control: `False`
-    * Sign-in frequency: `False`
-    * Persistent browser session: `False`
+  * Use app enforced restrictions: `N/A`
+  * Use Conditional Access App Control: `False`
+  * Sign-in frequency: `False`
+  * Persistent browser session: `False`
 * Enable policy: `On`
 
-## Grant - Guest Access (B2B)
+## GRANT - Guest Access (B2B)
 
 Approved apps that guest users can access (requires MFA).
 
-* Name: `GRANT – Guest Access`
+* Name: `GRANT – Guest Access (B2B)`
 * Assignments
   * Users and groups
     * Include: `Select guests and external users`
@@ -557,9 +446,7 @@ Approved apps that guest users can access (requires MFA).
   * Cloud apps or actions
     * Select what policy this applies to: `Cloud apps`
     * Include: `Select apps`
-      * `Office 365 SharePoint Online`
-      * `Microsoft Planner`
-      * `Microsoft Teams`
+      * `Office 365`
     * Exclude: `None`
   * Conditions
     * User risk:
@@ -585,18 +472,18 @@ Approved apps that guest users can access (requires MFA).
     * Require app protection policy: `False`
     * Require password change: `False`
     * Terms of Use: `False`
-    * Require all the selected controls: `No`
-    * Require one of the selected controls: `Yes`
+    * Require all the selected controls: `Yes`
+    * Require one of the selected controls: `No`
 * Session
-    * Use app enforced restrictions: `N/A`
-    * Use Conditional Access App Control: `False`
-    * Sign-in frequency: `False`
-    * Persistent browser session: `False`
+  * Use app enforced restrictions: `N/A`
+  * Use Conditional Access App Control: `False`
+  * Sign-in frequency: `False`
+  * Persistent browser session: `False`
 * Enable policy: `On`
 
-## Block - Guest Access (B2B)
+## BLOCK - Guest Access (B2B)
 
-* Name: `BLOCK – Guest Access`
+* Name: `BLOCK – Guest Access (B2B)`
 * Assignments
   * Users and groups
     * Include: `All users`
@@ -609,9 +496,7 @@ Approved apps that guest users can access (requires MFA).
     * Select what policy this applies to: `Cloud apps`
     * Include: `All cloud apps`
     * Exclude
-      * `Office 365 SharePoint Online`
-      * `Microsoft Planner`
-      * `Microsoft Teams`
+      * `Office 365`
   * Conditions
     * User risk:
       * Configure: `No`
@@ -629,7 +514,7 @@ Approved apps that guest users can access (requires MFA).
   * Grant
     * Block access: `Yes`
     * Grant access: `No`
-    * Require multi-factor authentication: `True`
+    * Require multi-factor authentication: `False`
     * Require device to be marked as compliant: `False`
     * Require Hybrid Azure AD joined device: `False`
     * Require approved client app: `False`
@@ -637,71 +522,30 @@ Approved apps that guest users can access (requires MFA).
     * Require password change: `False`
     * Terms of Use: `False`
     * Require all the selected controls: `No`
-    * Require one of the selected controls: `Yes`
+    * Require one of the selected controls: `No`
 * Session
-    * Use app enforced restrictions: `N/A`
-    * Use Conditional Access App Control: `False`
-    * Sign-in frequency: `False`
-    * Persistent browser session: `False`
+  * Use app enforced restrictions: `N/A`
+  * Use Conditional Access App Control: `False`
+  * Sign-in frequency: `False`
+  * Persistent browser session: `False`
 * Enable policy: `On`
 
-### GRANT - Require MFA and PAW for Administrators
+### SESSION - Admin Sign-in Frequency
 
-This global policy requires all administrators to authenticate using multi-factor authentication and PAW location. 
+This global policy enforces a sign-in frequency to ensure administrators sessions do not remain active when keep me signed In (KMSI) is enabled on the tenant. 
 
-* Name: `GRANT - Require MFA and PAW for Administrators`
+* Name: `SESSION - Admin Sign-in Frequency`
 * Assignments
   * Users and groups
     * Include: `Select users and groups`
-      * Directory roles
-
-```
-Application Administrator
-Authentication Administrator
-Azure DevOps Administrator
-Azure Information Protection Administrator
-B2C IEF Keyset Administrator
-B2C IEF Policy Administrator
-Billing Administrator
-Cloud Application Administrator
-Cloud Device Administrator
-Compliance Administrator
-Compliance Data Administrator
-Conditional Access Administrator
-Desktop Analytics Administrator
-Dynamics 365 Administrator
-Exchange Administrator
-External ID User Flow Administrator
-External ID User Flow Attribute Administrator
-Global Administrator
-Groups Administrator
-Helpdesk Administrator
-Intune Administrator
-Kaizala Administrator
-License Administrator
-Office Apps Administrator
-Password Administrator
-Power BI Administrator
-Power Platform Administrator
-Privileged Authentication Administrator
-Privileged Role Administrator
-Search Administrator
-Security Administrator
-Service Support Administrator
-SharePoint Administrator
-Skype for Business Administrator
-Teams Communications Administrator
-Teams Communications Engineer
-Teams Communications Specialist
-Teams Service Administrator
-User Administrator
-```
-
+      * Directory roles: `Select all directory roles`
     * Exclude
       * All guest and external users: `False`
       * Directory roles: `False`
-      * Users and groups: `True`
-        * Excluded users and groups: 1 x break glass account (all implementation types), On-premises AD sync accounts (hybrid only)
+  * Users and groups: `True`
+    * Excluded users and groups: `select users and groups`
+      * `break glass accounts`
+      * `on premises sync accounts (hybrid only)`
 
   * Cloud apps or actions
     * Select what policy this applies to: `Cloud apps`
@@ -714,13 +558,13 @@ User Administrator
       * Configure: `Yes`
       * Include: `Any device`
     * Locations
-      * Configure: `PAW Location`
+      * Configure: `No`
     * Client apps
       * Configure: `Yes`
       * Browser: `True`
       * Mobile apps and desktop clients: `True`
       * Modern authentication clients: `True`
-      * Exchange ActiveSync clients: `True`
+      * Exchange ActiveSync clients: `False`
       * Apply policy only to supported platforms: `False`
       * Other clients: `True`
     * Device state

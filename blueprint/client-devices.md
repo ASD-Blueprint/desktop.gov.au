@@ -1281,6 +1281,21 @@ Prevent bypassing of Microsoft Defender SmartScreen warnings about downloads | E
 Prevent users and apps from accessing dangerous websites | Enabled (Block) | To align with the ACSC Windows 10 hardening guidance.
 Turn on Windows Defender Application Guard in Managed Mode	| Enabled	| To align with the ACSC Windows 10 hardening guidance.
 
+### Web Advertisement Blocking
+
+Web advertisements may be used by threat actors to deliver malicious code or to attempt to phish legitimate users.
+
+The ACSC recommends blocking web advertisements at the browser level.  Microsoft Edge's native web advertisement capability is limited and does not provide an effective mitigation against the risk of malicious web advertisement. Edge supports third-party add-ons to provide greater web advertisement blocking capability. Examples include uBlock Origin and Ad Block Plus. Note, that the DTA does not explicitly recommend these or any other third-party add-ons, and agencies should perform their own risk assessments before enabling them as part of a blueprint deployment.
+
+Agencies may also implement web advertisement at the proxy level (if supported by their existing proxy implementations) for additional protection against web advertisement-based threats.
+
+Web Advertisement Blocking Design Decisions for all agencies and implementation types.
+
+Decision Point | Design Decision | Justification
+--- | --- | ---
+Native Edge advertisement blocking 	| Enabled - BlockAds (default)	| To align with Essential Eight user application hardening guidance.
+Third-party add-on | Deployed via MEM | To align with Essential Eight user application hardening guidance.
+
 ### Windows Defender Application Control
 
 Application control is a crucial line of defence for protecting enterprises given today's threat landscape, and it has an inherent advantage over traditional antivirus solutions. Specifically, application control moves away from the traditional application trust model where all applications are assumed trustworthy by default to one where applications must earn trust in order to run. ASD frequently cite application control as one of the most effective means for addressing the threat of executable file-based malware (.exe, .dll, etc.).

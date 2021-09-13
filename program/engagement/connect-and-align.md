@@ -7,7 +7,7 @@ timeline:
     Start your blueprint adoption experience by familiarising yourself with all the phases and stages ahead of you. By doing so before jumping ahead, you will be armed with the right information to make this experience clear and efficient – so your agency will realise the maximum value of adopting the new ways of working faster.
 - title: Step 2 - Review the engagement framework
   body: |
-    Download and read each phase of the [engagement framework](/assets/files/pdf/dta-pub-engagement-framework.pdf) from end-to-end to gain an overview of each phase before taking action.
+    Download and read each phase of the [engagement framework](/assets/files/pdf/dta-engagement-framework.pdf) from end-to-end to gain an overview of each phase before taking action.
 - title: Step 3 - Review the blueprint
   body: | 
     After reading through the engagement framework phases, you'll have the context to review the [blueprint](/blueprint/index.html). The blueprint is a complex and technical document that should be reviewed by qualified technical staff. By reading through the detail of this document you will gain an understanding of where and when you may need to involve external partners to help you realise your shift to the Modern Workplace.

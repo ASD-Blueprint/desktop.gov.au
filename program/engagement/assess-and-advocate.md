@@ -33,7 +33,8 @@ The Assess and Advocate phase helps you to contribute to the ongoing improvement
 
 ## Mitigating key risks 
 
-* The Assess and Advocate phase helps you to mitigate risks such as: 
+The Assess and Advocate phase helps you to mitigate risks such as:
+
 * Making sure the blueprint design and service improves to reflect real-time practice
 * Making sure digital capability is improved across Whole of Government
 * Making sure opportunities for standardising and modernising ICT are embraced and aren't lost in silos. 

@@ -16,7 +16,7 @@ timeline:
    
    Often, a vendor (a technology partner or systems integrator) is required to assist the customer through the technology aspects of this process, while an organisational change management partner could assist you roll out and plan the change. 
    
-   Additionally, you may like to use some of the communications material we have provided to develop messaging to sell the implementation to your various stakeholder groups.  
+   Additionally, you may like to use some of the [communications material](/program/engagement/key-messaging.html) we have provided to develop messaging to sell the implementation to your various stakeholder groups.  
 - title: 4. Adopt and Engage
   body: | 
     Even the best systems in the world will fail if people don't engage with them. That's why intentional steps are recommended to engage, upskill and motivate your teams as they transition to new ways of working. The Adopt and Engage phase is designed to empower leaders with a clear vision for business change as your agency moves to a Modern Workplace. Before you do this however, you may like to assess your [business readiness](/assets/files/pdf/dta-business-readiness-assessment-toolkit.pdf) to adopt the change. 

@@ -23,7 +23,7 @@ timeline:
 - title: 5. Assess and Advocate
   body: | 
     Technology is always changing and improving. At this final stage of the engagement, we would appreciate your participation in helping us continually improve the blueprint adoption experience. By actively engaging with the Whole of Government community, sharing your learnings on the [Community Portal](https://community.desktop.gov.au/), and participating in evaluation of the blueprint, you will make the experience better for future adaptations and new agency adopters. 
-    We have also developed an [operational model]() which outlines and cost estimates the key roles and skills required to adopt the blueprint in agencies. 
+    We have also developed an [operations model](/program/engagement/operations-model.html) which outlines and cost estimates the key roles and skills required to adopt the blueprint in agencies. 
 ---
 
 The [Protected Utility blueprint](/blueprint/index.html) provides a validated and secure design for government agencies to standardise the way you work as well as communicate and collaborate securely. 
@@ -48,7 +48,7 @@ We have selected the following important resources to assist you in your change 
 * One page engagement framework overview ([PDF version](/assets/files/pdf/dta-pub-engagement-framework.pdf))
 * [Agency self-assessment](/program/engagement/agency-type.html) ([PDF version](/assets/files/pdf/dta-pub-technology-maturity-assessment-toolkit.pdf)) to help you understand your agency needs and type. Based on this assessment, you will be able to understand risks, benefits and needs which are most relevant to you when adopting the blueprint.
 * [Key messaging](/program/engagement/key-messaging.html) ([PDF version](/assets/files/pdf/dta-pub-key-messaging.pdf)) to help agencies communicate the value of the modern workplace to key user groups. It can be re-used for your own purposes before and while adopting a modern workplace based on the blueprint.
-* [Operational model]() estimates the key roles and skills required to adopt the blueprint
+* [Operations model](/program/engagement/operations-model.html) estimates the key roles and skills required to adopt the blueprint
 * [Case study from the Office of Commonwealth Ombudsman](/program/engagement/case-studies.html) ([PDF version](/assets/files/pdf/dta-pub-oco-case-study.pdf)) which has transitioned to the modern workplace based the blueprint
 
 ## Design principles

@@ -83,10 +83,10 @@ In February 2021, we moved the blueprint to Github to enable collaboration from 
 
 ### Agency support – Protected Utility blueprint adoption 
 
-The DTA has supported more than 10 agencies to date by delivering change readiness assessments, change implementation roadmaps, benefits realisation plans, training needs analysis, security management plans and operational model risk assessments. In assisting agencies to migrate from aging and often unsecure legacy systems by adopting the blueprint, this has enabled agencies to focus on core business objectives, rather than managing their ICT infrastructure. 
+The DTA has supported more than 10 agencies to date by delivering change readiness assessments, change implementation roadmaps, benefits realisation plans, training needs analysis, security management plans and operations model risk assessments. In assisting agencies to migrate from aging and often unsecure legacy systems by adopting the blueprint, this has enabled agencies to focus on core business objectives, rather than managing their ICT infrastructure. 
 
 ### Skills uplift through M365 training – APS Digital Profession  
 
-The DTA identified the digital skills and capability training needed through discovery with multiple agencies and is delivering the training in partnership with Microsoft. We have developed an [operational model](/program/engagement/ops-model.html) which outlines and cost estimates these skills in agencies. 
+The DTA identified the digital skills and capability training needed through discovery with multiple agencies and is delivering the training in partnership with Microsoft. We have developed an [operations model](/program/engagement/operations-model.html) which outlines and cost estimates these skills in agencies. 
 
 From November 2020, the DTA delivered digital skills and capability training for IT administrators and end-users in M365 and Azure. These course offerings have now ended.  

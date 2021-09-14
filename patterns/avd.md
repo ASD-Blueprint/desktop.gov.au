@@ -1,9 +1,10 @@
 ---
 layout: page
 title: Azure Virtual Desktop
+excerpt: Azure Virtual Desktop (AVD) is a PaaS offering that allows administrators to configure, deploy, and manage, scalable flexible solutions. AVD enables administrators to publish full desktops or remote apps. Corporations and departments are able to reduce the number of virtual machines and OS overhead while providing the same resources to users.
 ---
 
-Azure Virtual Desktop (AVD) is a PaaS offering managed by Microsoft that allows administrators to configure, deploy, and manage, scalable flexible solutions. AVD enables administrators to publish either full desktops or distinct remote apps from a single host pool or create individual app groupings for different sets of users.
+Azure Virtual Desktop (AVD) is a PaaS offering managed by Microsoft that allows administrators to configure, deploy, and manage, scalable flexible solutions. AVD enables administrators to publish full desktops or remote apps from a single host pool or create individual app groupings for different sets of users.
 
 Using the Windows 10 Enterprise multi-session capability exclusively available to Azure Virtual Desktop on Azure services, corporations and departments are able to reduce the number of virtual machines and OS overhead while providing the same resources to users.
 
@@ -17,7 +18,7 @@ AVD provides the following benefits over a traditional Desktop-as-a-Service plat
 
 The following sections of this document outline design defaults and guidance when deploying an AVD platform and is to be treated as an addendum to the [client devices](/blueprint/client-devices.html) design.  
 
-![Figure 2 Typical AVD Architecture](/assets/images/patterns/avd-figure-2-typical-avd-architechure.png "Figure 2 Typical AVD Architecture")
+[![Typical AVD Architecture](/assets/images/patterns/avd-typical-avd-architecture.png)](/assets/images/patterns/avd-figure-2-typical-avd-architecture.png)
 
 This diagram shows a typical architectural overview for AVD.
 
@@ -45,13 +46,13 @@ The following represent the prerequisites before deploying Azure Virtual Desktop
 
 Cloud native:
 
-  * Azure AD Connect synced to a cloud-only AD DS IaaS (Infrastructure as a Service) within the Azure deployment, or
-  * Azure AD DS PaaS configured within the Azure deployment (automatically synchronised to Azure AD)
+* Azure AD Connect synced to a cloud-only AD DS IaaS (Infrastructure as a Service) within the Azure deployment, or
+* Azure AD DS PaaS configured within the Azure deployment (automatically synchronised to Azure AD)
 
 Hybrid:
 
-  * Azure AD Connect connected to AD DS (on-premises or hosted in Azure)
-  * An Azure subscription that contains a virtual network that can connect to the AD DS domain.
+* Azure AD Connect connected to AD DS (on-premises or hosted in Azure)
+* An Azure subscription that contains a virtual network that can connect to the AD DS domain.
 
 ## Platform components
 
@@ -77,7 +78,7 @@ NTLM Requirements (Hybrid Only) | Add AVD hostnames to security groups | For hyb
 
 The following figure outlines a suggested AD DS OU Structure with proposed OUs to accommodate the Virtual Desktop and hybrid joined devices.
 
-![Figure 3 Suggested AD DS OU Structure](/assets/images/patterns/avd-figure-3-suggested-ad-ds-ou-structure.png)
+![Suggested AD DS OU Structure](/assets/images/patterns/avd-suggested-ad-ds-ou-structure.png)
 
 ### Group policies
 

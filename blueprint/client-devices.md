@@ -1285,15 +1285,15 @@ Turn on Windows Defender Application Guard in Managed Mode	| Enabled	| To align 
 
 Web advertisements may be used by threat actors to deliver malicious code or to attempt to phish legitimate users.
 
-The ACSC recommends blocking web advertisements at the browser level.  Microsoft Edge's native web advertisement capability is limited and does not provide an effective mitigation against the risk of malicious web advertisement. Edge supports third-party add-ons to provide greater web advertisement blocking capability. Examples include uBlock Origin and Ad Block Plus. Note, that the DTA does not explicitly recommend these or any other third-party add-ons, and agencies should perform their own risk assessments before enabling them as part of a blueprint deployment.
+The ACSC recommends blocking web advertisements at the browser level. Microsoft Edge's native web advertisement capability is limited and does not provide an effective mitigation against the risk of malicious web advertisement. Edge supports third-party add-ons to provide greater web advertisement blocking with examples including uBlock Origin and Ad Block Plus. However, please note that the DTA does not explicitly recommend either product or other third-party add-ons. Instead, agencies should perform their own risk based assessment prior to using them as part of a blueprint deployment.
 
-Agencies may also implement web advertisement at the proxy level (if supported by their existing proxy implementations) for additional protection against web advertisement-based threats.
+If supported by their existing proxy implementations, agencies may also implement web advertisement at the proxy level for additional protection against web advertisement-based threats.
 
 Web Advertisement Blocking Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Native Edge advertisement blocking 	| Enabled - BlockAds (default)	| To align with Essential Eight user application hardening guidance.
+Native Edge advertisement blocking | Enabled - BlockAds (default)	| To align with Essential Eight user application hardening guidance.
 Third-party add-on | Deployed via MEM | To align with Essential Eight user application hardening guidance.
 
 ### Windows Defender Application Control

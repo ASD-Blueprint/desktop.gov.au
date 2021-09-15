@@ -18,9 +18,9 @@ AVD provides the following benefits over a traditional Desktop-as-a-Service plat
 
 The following sections of this document outline design defaults and guidance when deploying an AVD platform and is to be treated as an addendum to the [client devices](/blueprint/client-devices.html) design.  
 
-[![Typical AVD Architecture](/assets/images/patterns/avd-typical-avd-architecture.png)](/assets/images/patterns/avd-figure-2-typical-avd-architecture.png)
+[![Typical AVD Architecture](/assets/images/patterns/avd-typical-avd-architecture.png)](/assets/images/patterns/avd-typical-avd-architecture.png)
 
-This diagram shows a typical architectural overview for AVD.
+This diagram shows a typical architectural overview for AVD.
 
 * The user endpoints reside either within an agency’s on-premises network (hybrid) or on the public internet (cloud native). For hybrid deployments, ExpressRoute or a site-to-site VPN extends the on-premises network into Azure. Azure AD Connect integrates the agency’s hybrid identity (Active Directory Domain Services (AD DS)) with Azure Active Directory (Azure AD). Cloud native deployments that do not have a hybrid identity (AD DS) can leverage cloud-native Azure AD Domain Services.
 * The AVD control plane handles Web Access, Gateway, Broker, Diagnostics, and extensibility components like REST APIs.

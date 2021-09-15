@@ -1281,7 +1281,7 @@ Prevent bypassing of Microsoft Defender SmartScreen warnings about downloads | E
 Prevent users and apps from accessing dangerous websites | Enabled (Block) | To align with the ACSC Windows 10 hardening guidance.
 Turn on Windows Defender Application Guard in Managed Mode	| Enabled	| To align with the ACSC Windows 10 hardening guidance.
 
-### Web Advertisement Blocking
+#### Web advertisement blocking
 
 Web advertisements may be used by threat actors to deliver malicious code or to attempt to phish legitimate users.
 

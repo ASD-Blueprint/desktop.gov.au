@@ -636,7 +636,6 @@ The following table describes the Outlook Web Access Policy configuration settin
 | Allow Copy Contacts To Device Address Book                  | True                       |
 | Predicted Actions Enabled                                   | False                      |
 | User Diagnostic Enabled                                     | False                      |
-| Facebook Enabled                                            | False                      |
 | LinkedIn Enabled                                            | False                      |
 | Wac External Services Enabled                               | True                       |
 | Wac OMEX Enabled                                            | False                      |
@@ -715,7 +714,6 @@ The following table describes the Outlook Web Access Policy configuration settin
 | Allow Copy Contacts To Device Address Book                  | True                       |
 | Predicted Actions Enabled                                   | False                      |
 | User Diagnostic Enabled                                     | False                      |
-| Facebook Enabled                                            | False                      |
 | LinkedIn Enabled                                            | False                      |
 | Wac External Services Enabled                               | True                       |
 | Wac OMEX Enabled                                            | False                      |

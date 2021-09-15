@@ -197,7 +197,7 @@ AVD Control Plane | West US | Metadata will be stored in Azure geography associa
 Azure License Entitlement | Microsoft 365 E3/E5 <br>Windows 10 Enterprise E3/E5 | Any of these licensing entitlements will provide access to AVD. <br><br>Note: AVD can be accessed from non-Windows Pro endpoints if a Microsoft 365 E3/E5 or Windows 10 VDA per user license is available.
 Windows 10 Enterprise and Windows 10 Enterprise Multi Session License Entitlements | Microsoft 365 E3/E5 <br>Windows E3/E5 | Any of these licensing entitlements will provide access to Windows 10 and Windows 10 Multisession on Azure.
 Encryption | TLS 1.2 | [TLS 1.2 is used for all connections](https://docs.microsoft.com/en-us/azure/virtual-desktop/network-connectivity) initiated from the clients and session hosts to the Azure Virtual Desktop infrastructure components.
-Identity and Access Configuration | Refer to AVD Control Plane Configuration. | To meet the requirements of this design
+Identity and Access Configuration | Refer to AVD Control Plane Configuration table | To meet the requirements of this design
 Connectivity | Optimised through SIG public internet | AVD does not currently support [ExpressRoute](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-faqs) optimisation, it is recommended that outgoing connections from within the agency to AVD desktops are optimised by bypassing the agency web proxy, but still egressing the agency’s SIG (direct route). Connections outside of the environment will connect using the public internet. <br><br>Note: at time of writing, [Azure RDP Shortpath](https://docs.microsoft.com/en-us/azure/virtual-desktop/shortpath) is a preview feature which supports direct connection to session hosts in with hybrid connectivity configurations.
     
 AVD Control Plane Configuration table:
@@ -233,7 +233,7 @@ Metadata | West US | Metadata will be stored in Azure geography associated with 
 Host Pool Types | Pooled | Pooled is the preferred selection to ensure consistency.
 Load Balancing Method | Breadth-First | User sessions to be distributed evenly across the session hosts in a host pool.
 Number of Host Pools | Dependant on User Personas | The number of host pools will be aligned to the number and size of the user personas, and the VM-types assigned.
-Host Pool Configuration | Refer to Host Pool Configuration. | To meet the requirements of this design.
+Host Pool Configuration | Refer to Host Pool Configuration table | To meet the requirements of this design.
 
 Host Pool Configuration table:
 
@@ -288,7 +288,7 @@ Encryption | Azure Disk Encryption | Session host disks to be encrypted at rest 
 Graphical Application Support | [GPU Capable VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes-gpu) available in selected Australian Regions | Windows 10 VMs with higher GPU capability are available from Azure if there is a need to run graphical applications.
 Session Host Power Management | [Azure Automation](https://docs.microsoft.com/en-us/azure/virtual-desktop/set-up-scaling-script) | Azure Automation will be utilised to scale session host power management. This will enable shutting down and deallocating session host VMs during off-peak usage hours, and powering on and reallocating as required (during peak hours).
 Session Host Configuration | Refer to Session Host Configuration table | Session Host configuration.
-Deployed Applications | Refer to Enterprise Applications Configuration table | Applications to be deployed post platform deployment.
+Deployed Applications | Agency defined | Applications to be deployed post platform deployment.
 OS Optimisations | [Virtual Desktop Optimization Tool](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/windows-virtual-desktop-optimization-tool-now-available/m-p/1558614) | Microsoft recommend some optimisation to the OS image to increase performance and scalability and enhance the overall end user experience. 
 Antivirus | Microsoft Defender of Endpoint | Microsoft Defender for Endpoint will be configured for the AVD platform. <br><br>For configuration items that apply specifically to an AVD environment, such as a dedicated VDI file share and specific exclusions, refer to [Deployment guide for Microsoft Defender Antivirus in a virtual desktop infrastructure (VDI) environment](https://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/deployment-vdi-microsoft-defender-antivirus?view=o365-worldwide) and for common client device configuration settings, refer to [client devices design](https://desktop.gov.au/blueprint/client-devices.html).
 
@@ -529,7 +529,7 @@ Decision Point | Design Decision | Justification
 Device Ownership | Corporate Devices (Intune Managed)<br>BYOD Device (External AVD Access) | Both corporate and BYOD devices may access the AVD solution.  
 Device Types | Corporate Devices (Windows)<br>BYOD Devices (Any Supported AVD Platform) | Government agencies primarily utilise PCs to access the environments and BYOD will need to access via a support platform or a HTML5 capable browser.  
 Supported Client Devices and Web Clients | See Supported [Client Devices](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients) and [Web Clients](https://docs.microsoft.com/en-us/azure/virtual-desktop/user-documentation/connect-web) | Any of the supported client devices or web clients can be used to access the AVD platform.
-Client Device Configuration | Refer to Client Device Considerations | To meet the requirements of this solution.
+Client Device Configuration | Refer to Client Device Considerations table | To meet the requirements of this solution.
 
 Client Device Considerations table:
 

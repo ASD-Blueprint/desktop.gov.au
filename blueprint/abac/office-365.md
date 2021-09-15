@@ -616,13 +616,10 @@ The following table describes the Outlook Web Access Policy configuration settin
 | WSS Access On Public Computers Enabled                      | True                       |
 | WSS Access On Private Computers Enabled                     | True                       |
 | Change Password Enabled                                     | True                       |
-| UNC Access On Public Computers Enabled                      | True                       |
-| UNC Access On Private Computers Enabled                     | True                       |
 | ActiveSync Integration Enabled                              | True                       |
 | All Address Lists Enabled                                   | True                       |
 | Rules Enabled                                               | True                       |
 | Public Folders Enabled                                      | False                      |
-| SMime Enabled                                               | True                       |
 | Recover Deleted Items Enabled                               | True                       |
 | Instant Messaging Enabled                                   | False                      |
 | Text Messaging Enabled                                      | True                       |
@@ -631,7 +628,6 @@ The following table describes the Outlook Web Access Policy configuration settin
 | Instant Messaging Type                                      | Ocs                        |
 | Display Photos Enabled                                      | True                       |
 | Set Photo Enabled                                           | False                      |
-| Allow Offline On                                            | NoComputers                |
 | Set Photo URL                                               |                            |
 | Places Enabled                                              | False                      |
 | Weather Enabled                                             | True                       |
@@ -659,7 +655,7 @@ The following table describes the Outlook Web Access Policy configuration settin
 | Reference Attachments Enabled                               | True                       |
 | Save Attachments To Cloud Enabled                           | True                       |
 | Message Previews Disabled                                   | False                      |
-| Direct File Access On Public Computers Enabled              | True                       |
+| Direct File Access On Public Computers Enabled              | False                      |
 | Direct File Access On Private Computers Enabled             | True                       |
 | Web Ready Document Viewing On Public Computers Enabled      | True                       |
 | Web Ready Document Viewing On Private Computers Enabled     | True                       |
@@ -699,13 +695,10 @@ The following table describes the Outlook Web Access Policy configuration settin
 | WSS Access On Public Computers Enabled                      | True                       |
 | WSS Access On Private Computers Enabled                     | True                       |
 | Change Password Enabled                                     | True                       |
-| UNC Access On Public Computers Enabled                      | True                       |
-| UNC Access On Private Computers Enabled                     | True                       |
 | ActiveSync Integration Enabled                              | True                       |
 | All Address Lists Enabled                                   | True                       |
 | Rules Enabled                                               | True                       |
 | Public Folders Enabled                                      | True                       |
-| SMime Enabled                                               | True                       |
 | Recover Deleted Items Enabled                               | True                       |
 | Instant Messaging Enabled                                   | True                       |
 | Text Messaging Enabled                                      | True                       |
@@ -714,7 +707,6 @@ The following table describes the Outlook Web Access Policy configuration settin
 | Instant Messaging Type                                      | Ocs                        |
 | Display Photos Enabled                                      | True                       |
 | Set Photo Enabled                                           | True                       |
-| Allow Offline On                                            | AllComputers               |
 | Set Photo URL                                               |                            |
 | Places Enabled                                              | True                       |
 | Weather Enabled                                             | True                       |

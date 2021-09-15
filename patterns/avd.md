@@ -138,7 +138,7 @@ Virtual Disk Type | VHDX | VHDX is the latest available disk type and suitable f
 Concurrent Users Sessions | Allowed | Concurrent user sessions must be enabled to allow Citrix hosted shared desktop scenarios.
 Local Cache Persistence | Enabled | Local cache folders will be kept on user logout providing a faster experience for re-logons.
 Redirections File Path | Azure Storage account | The redirections configuration XML will be hosted on a common share, to be determined by the agency. 
-Redirection Exclusions | `[TBD-DOMAIN]\NETLOGON\FsLogix\Redirections.xml`<br><br>ZZZ See section Appendix 1 – FSLogix Profile Redirections | Base configurations recommended initially. This configuration will be updated as required during the build and test of the solution.
+Redirection Exclusions | `[TBD-DOMAIN]\NETLOGON\FsLogix\Redirections.xml`<br><br>See section [Appendix 1 – FSLogix Profile Redirections](#appendix-1--fslogix-profile-redirections) | Base configurations recommended initially. This configuration will be updated as required during the build and test of the solution.
 Directory Naming Configuration | Swapped: Username_SIDs | This configuration allows for easier navigation of the user VHDX when troubleshooting and during maintenance.
 
 
@@ -194,8 +194,8 @@ The table below describes the AVD Control Plane design decisions for the solutio
 Decision Point | Design Decision | Justification
 --- | --- | ---
 AVD Control Plane | West US | Metadata will be stored in Azure geography associated with West US. <br><br>AVD Control Planes are not currently available in Australia, and therefore a US region has been selected. <br><br>Note: This is not the location where virtual desktops are hosted, this will be within the Azure spoke in the Australia Central regions. <br><br>The stored information is encrypted at rest, and geo-redundant mirrors are maintained within the geography. Customer data, such as app settings and user data, resides in the location the customer chooses and isn't managed by the service. For further information, see [Data locations for Azure Virtual Desktop - Azure Microsoft Docs](https://docs.microsoft.com/en-us/azure/virtual-desktop/data-locations).
-Azure License Entitlement | Microsoft 365 E3/E5<br>Windows 10 Enterprise E3/E5 | Any of these licensing entitlements will provide access to AVD. <br><br>Note: AVD can be accessed from non-Windows Pro endpoints if a Microsoft 365 E3/E5 or Windows 10 VDA per user license is available.
-Windows 10 Enterprise and Windows 10 Enterprise Multi Session License Entitlements | Microsoft 365 E3/E5Windows E3/E5 | Any of these licensing entitlements will provide access to Windows 10 and Windows 10 Multisession on Azure.
+Azure License Entitlement | Microsoft 365 E3/E5 <br>Windows 10 Enterprise E3/E5 | Any of these licensing entitlements will provide access to AVD. <br><br>Note: AVD can be accessed from non-Windows Pro endpoints if a Microsoft 365 E3/E5 or Windows 10 VDA per user license is available.
+Windows 10 Enterprise and Windows 10 Enterprise Multi Session License Entitlements | Microsoft 365 E3/E5 <br>Windows E3/E5 | Any of these licensing entitlements will provide access to Windows 10 and Windows 10 Multisession on Azure.
 Encryption | TLS 1.2 | [TLS 1.2 is used for all connections](https://docs.microsoft.com/en-us/azure/virtual-desktop/network-connectivity) initiated from the clients and session hosts to the Azure Virtual Desktop infrastructure components.
 Identity and Access Configuration | Refer to AVD Control Plane Configuration. | To meet the requirements of this design
 Connectivity | Optimised through SIG public internet | AVD does not currently support [ExpressRoute](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-faqs) optimisation, it is recommended that outgoing connections from within the agency to AVD desktops are optimised by bypassing the agency web proxy, but still egressing the agency’s SIG (direct route). Connections outside of the environment will connect using the public internet. <br><br>Note: at time of writing, [Azure RDP Shortpath](https://docs.microsoft.com/en-us/azure/virtual-desktop/shortpath) is a preview feature which supports direct connection to session hosts in with hybrid connectivity configurations.
@@ -244,7 +244,7 @@ Friendly Name | Aligned to Host Pool name | Descriptive text that aligns to the 
 Access | Aligned to user groups | The AVD Session Hosts will accept any user connection with access to the host pool.
 Azure Resource Group | `<rg>-<agn>-<avd>` | Host Pool naming will be configured as follows:<br><br>`<rg>` = Resource Group <br>`<agn>` = Agency Name<br>`<avd>` = Azure Virtual Desktop
 App Groups | `<agn>-<hp>-<os>-<pooltype>-<appgroup>` | Host Pool naming will be configured as follows:<br><br>`<agn>` = Agency Name<br>`<hp>` = Host Pool<br>`<os>` = Windows Version<br>`<pooltype>` = Pool Name<br>`<appgroup>` = Application Group<br><br>e.g. agency-hp-win10-fin-accapps
-Max Session Limit | Dependant on user-types | To ensure no more than a defined number of users can connect to a single Windows 10 session. Can restrict number of users to a maximum limit per session host.  For best performance and density estimates, see section Session Host Sizing ZZZ for further information.
+Max Session Limit | Dependant on user-types | To ensure no more than a defined number of users can connect to a single Windows 10 session. Can restrict number of users to a maximum limit per session host.  For best performance and density estimates, see section Session Host Sizing in the next section for further information.
 Session Host Members | View Client Devices guidelines | As per the Client device’s blueprint guidelines.
 Validation Environment | Enabled | Allows to monitor service updates before rolling them out to the Production host pool.
 Assignment Method | Automatic | Users will be automatically assigned to a session host.
@@ -276,7 +276,7 @@ The table below describes the Session Host design decisions for the solution.
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Azure Region | Any Azure Australian region | In-line with government requirements and existing Azure Tenant / Subscription regions for this blueprint.
-Number of Session Hosts | Dependant on user persona types and the size of the group. | General guidance for Light, Medium, Heavy and Power user configuration is provided below.<br><br>See Session Host Sizing. ZZZ<br><br>For further information, see [virtual machine sizing](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/virtual-machine-recs).
+Number of Session Hosts | Dependant on user persona types and the size of the group. | General guidance for Light, Medium, Heavy and Power user configuration is provided below.<br><br>See Session Host Sizing table.<br><br>For further information, see [virtual machine sizing](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/virtual-machine-recs).
 Number of Images | One per User Persona type | It is recommended that one image will be deployed per User Persona type to allow easier image management. 
 Operating System | Windows 10 Enterprise Multi-Session, with Microsoft 365 Apps from the Azure Marketplace | Latest stable version of Windows 10 available from the Azure Marketplace.
 Supported Language Packs | EN-AU | The default language is English.
@@ -336,7 +336,7 @@ The table below describes the App Group design decisions for the solution.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Azure Region | West US | Metadata will be stored in Azure geography associated with (US) West US. For further information, see Control plane section. ZZZ
+Azure Region | West US | Metadata will be stored in Azure geography associated with (US) West US. For further information, see [Control plane](#control-plane) section.
 Number of App Groups | Aligned to unique images required | App groups will be created as per unique images required.
 App Group Type | Desktop (one per host pool) <br>RemoteApp (multiple as required per host pool) | Desktop provides the full desktop experience, only one created per host pool. RemoteApp provides published apps, multiple can be created per host pool.
 App Group Configuration | Refer to App Group Configuration table | To meet the requirements of this design.

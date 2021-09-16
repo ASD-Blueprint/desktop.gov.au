@@ -63,7 +63,7 @@ iOS | Enrolment<br>Security<br>Remote Wipe
 
 ## Assumptions
 
-* Azure Multifactor Authentication (MFA) natively supports the OATH (Open Authentication) standard for selected hardware tokens. To use Azure MFA with OATH support, and to achieve an Essential 8 Maturity level of 3, use tokens that are "verifier impersonation resistant" and uses either: something users have and something users know, or something users have that is unlocked by something users know or are. This blueprint and associated security documentation assume the use of soft tokens (with Microsoft Authenticator) and a level 2 maturity in this aspect of the Essential 8. 
+* Azure AD Multi-Factor Authentication (MFA) natively supports the Open Authentication (OATH) standard for selected hardware tokens. To use Azure MFA with OATH support, and to achieve an Essential 8 Maturity level of 3, use tokens that are "verifier impersonation resistant" and uses either: something users have and something users know, or something users have that is unlocked by something users know or are. This blueprint and associated security documentation assume the use of soft tokens (with Microsoft Authenticator) and a level 2 maturity in this aspect of the Essential 8. 
 * Microsoft 365 and Microsoft Azure solutions hold audit data for a period based on the service and the license level of the organisation. The time for most services is under 2 years. For organisations with a requirement to hold audit data past this period, Security Information and Event Management (SIEM) integration should be considered. Service audit data within the Microsoft 365 and Azure clouds is often housed in discrete systems and the opportunities to bring the data under a single pane is limited. Azure Monitor or Azure Sentinel are two Microsoft offerings which could be leveraged for this purpose however a holistic solution should be considered to ensure any legislative requirements are met.
 * The blueprint has been designed to cater for government organisations allowing end user devices internet access from anywhere (head office, regional office or home) direct connected and via proxy servers, VPN servers or Security Internet Gateways (SIGs). Where connected through a proxy server, rules will be configured to allow direct connection for some Microsoft 365 services. Mobile users will access Microsoft 365 services directly. These users will be subject to Conditional Access policies to reduce unauthorised access risk.
 * The Intune Console is the preferred method to manage all settings regardless of Cloud native or Hybrid. Although a combination of the Microsoft Endpoint Configuration Manager (MECM) Console and Group Policy Objects (GPOs) would be able to achieve the same settings in a hybrid environment, this blueprint does not include MECM and GPOs example configurations due to the level of dissimilarities and per agency customisation in existing MECM and GPOs configurations across Commonwealth entities.
@@ -200,7 +200,7 @@ Conditional Access | At least one of the accounts is to be completely excluded f
 Physical access to account details | Account details will be stored on paper in an appropriate location. | It is strongly recommended that the accounts are stored on paper, in two or three separate parts, in secure, fireproof safes that are in disparate locations.
 Monitoring of accounts | Account usage will be monitored via MCAS. | Use of these accounts is monitored and only used in genuine emergencies.
 
-### Azure Active Directory identity protection
+### Azure AD Identity Protection
 
 Azure AD Identity Protection is the function of provisioning access rights to a resource. Azure AD Identity Protection can take the form of an access policy. An access policy defines the business rules on whether authenticated user is granted or denied access to a resource. Azure AD utilises Conditional Access to define the access policies for Office 365 data. Azure AD using Identity Protection utilises analytics to further minimise the risk that access is provisioned to a compromised authenticated user.
 
@@ -223,9 +223,9 @@ Azure AD Identity Protection | Enable the sign-in risk policy and user risk poli
 User risk policy | Enabled | The user risk policy detects the probability that a user account has been compromised by detecting risk events that are a typical of a user's behaviour, alerting when high risk behaviour is detected.
 Sign-in risk policy | Enabled | Azure AD analyses each sign-in of a user. The objective of the analysis is to detect suspicious actions that come along with the sign-in. Automated actions will be configured to be taken when high risk behaviour is detected.
 
-### Azure AD multifactor authentication
+### Azure AD Multi-Factor Authentication
 
-Authentication is a primary security control to protect both information assets - ranging from logging into a Windows device, to sending an email or collaborating on a document. When deploying Microsoft 365, the identity for each individual staff member is either in the cloud or both in the cloud and on-premises. Employing multiple authentication factors present a significant challenge for attackers gaining access to a system. Traditional authentication methods rely purely on something the user knows, such as a password. Note, a username does not technically count as an authentication factor. A user enters a username to only claim an identity, then must provide an authentication factor to validate this claim (identification vs authentication). Multi-factor authentication (MFA) is recommended by the ACSC for all users to prove a user's identity before being granted access.
+Authentication is a primary security control to protect both information assets - ranging from logging into a Windows device, to sending an email or collaborating on a document. When deploying Microsoft 365, the identity for each individual staff member is either in the cloud or both in the cloud and on-premises. Employing multiple authentication factors present a significant challenge for attackers gaining access to a system. Traditional authentication methods rely purely on something the user knows, such as a password. Note, a username does not technically count as an authentication factor. A user enters a username to only claim an identity, then must provide an authentication factor to validate this claim (identification vs authentication). Multi-Factor Authentication (MFA) is recommended by the ACSC for all users to prove a user's identity before being granted access.
 
 Multi-factor authentication is any combination of two or more authentication sources from the following categories. Biometrics are yet to be accepted as part of the industry standard definition of an authentication factor.
 
@@ -257,7 +257,7 @@ MFA for User Apps | Configured | MFA is required.
 
 Note: OATH tokens are to be purchased separately if required.
 
-### Conditional access
+### Conditional Access
 
 Conditional Access provides access controls that can be applied to user login requests. These access controls provide an extra level of security to help protect corporate data and information.
 
@@ -491,7 +491,7 @@ HTTPS | 443 (TCP/UDP) | Enable outbound HTTPS traffic for operations such as ena
 Information Technology (IT) Security refers to protection of networks, servers, intranets, data systems, data and computer systems. To protect these items, Microsoft Azure contains several security features and products which together:
 
 * Secure the Platform – Microsoft Azure and Office 365, through their features and products to enable security in depth.
-* Provide Risk Assessments – Azure Identity Protection, Azure ATP and Microsoft Defender ATP utilise analytics and machine learning to detect and flag unusual/risky behaviour.
+* Provide Risk Assessments – Azure AD Identity Protection, Defender for Identity, and Microsoft Defender for Endpoint utilise analytics and machine learning to detect and flag unusual/risky behaviour.
 * Provide Visibility into User Behaviour – Microsoft Cloud App Security (MCAS) provides security operations dashboards which provide visibility into the activities being undertaken within the environment.
 * Control Data Exfiltration –Data Loss Prevention policies and MCAS session policies control the flow and protection of information inside and outside of the environment.
 
@@ -537,7 +537,7 @@ In addition to the standard Azure AD roles, MCAS also has its own service-specif
 
 ### MCAS - Cloud discovery
 
-The MCAS Cloud Discovery design decisions can be found below. MCAS Cloud Discovery components are made up of Log Collectors, Microsoft Defender ATP Integration, Cloud Discovery Enrichment, User Data Anonymisation, Custom Apps and App Filters & Queries.
+The MCAS Cloud Discovery design decisions can be found below. MCAS Cloud Discovery components are made up of Log Collectors, Microsoft Defender for Endpoint Integration, Cloud Discovery Enrichment, User Data Anonymisation, Custom Apps and App Filters & Queries.
 
 The cloud discovery component of MCAS enables the detection of cloud apps by analysing logs that are uploaded to it.
 
@@ -549,13 +549,11 @@ There are two types of cloud discovery reports that are generated by MCAS, depen
 Continuous reports can be generated a few ways such as configuring one or more of the following [automated log upload capabilities](https://docs.microsoft.com/en-us/cloud-app-security/set-up-cloud-discovery):
 
 * Log collector – centralisation of logs from one or more proxy or firewall devices to a Docker-powered collector using Syslog and/or File Transfer Protocol (FTP).
-* Microsoft Defender ATP integration – native integration with Defender ATP logs directly from onboarded endpoint devices running, regardless of whether they connect to cloud services via a managed gateway or directly via the internet.
+* Microsoft Defender for Endpoint integration – native integration with Defender for Endpoint logs directly from onboarded endpoint devices running, regardless of whether they connect to cloud services via a managed gateway or directly via the internet.
 
 MCAS supports a wide range of [popular proxy and firewall vendors and products](https://docs.microsoft.com/en-us/cloud-app-security/set-up-cloud-discovery#supported-firewalls-and-proxies-) for both snapshot and continuous reports (via log collectors)  . A custom parser can also be configured for unsupported devices allowing manual attribute mapping.
 
-Once a cloud app has been discovered and its usage reviewed it can be either sanctioned (approved) or unsanctioned (prohibited) via the Discovered Apps tab. Tagging a cloud app as unsanctioned does not block access directly but allows for the generation of a block script that can be downloaded from MCAS and imported into a proxy of firewall appliance.
-
-Note, if MCAS is integrated with Defender ATP, or other options then unsanctioned apps will be blocked automatically without the need to generate block scripts.
+Once a cloud app has been discovered and its usage reviewed it can be either Sanctioned (approved) or Unsanctioned (prohibited) via the Discovered Apps tab. By default, tagging a cloud app as unsanctioned does not block access directly but allows for the generation of a block script that can be downloaded from MCAS and imported into a proxy or firewall appliance. If MCAS is integrated with Defender for Endpoint, app access enforcement can be enabled to block access to apps marked as Unsanctioned.
 
 Cloud Discovery Design Decisions for all agencies and implementation types.
 
@@ -563,10 +561,11 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Cloud Discovery report type | Continuous reports | To provide continuous visibility while minimising management overhead. 
 Log collector | Will be deployed to collect logs from the Agency's existing proxy or firewalls and upload them to MCAS. | To provide automatic upload of logs. 
-Microsoft Defender ATP integration | Enabled | To provide additional visibility from agency endpoints that have been onboarded into the Defender ATP.
+Microsoft Defender for Endpoint integration | Enabled | To provide additional visibility from agency endpoints that have been onboarded into the Defender for Endpoint.
+Enforce app access | Enabled | To block access to apps marked as Unsanctioned.
 List of sanctioned and unsanctioned cloud apps | To be developed during build with the Agency's Cyber Intelligence team. | Provides visibility within the Agency as to what cloud applications are in use and by which department within the Agency.
 
-### MCAS - log collector
+### MCAS - Log collector
 
 A log collector receives logs from supported firewall and proxy devices, providing processing and compression before uploading to MCAS. The compression typically results in outbound traffic from the log collectors being 10% the size of received traffic. Configure automatic log upload for continuous reports at [https://docs.microsoft.com/en-us/cloud-app-security/discovery-docker](https://docs.microsoft.com/en-us/cloud-app-security/discovery-docker)
 
@@ -588,23 +587,23 @@ Log collector deployment mode | Docker container | Maximise support life as virt
 Log collector location | Within the Agency Gateway zone | Minimise number of firewall ports to be opened between the existing proxies and the log collector.
 Log collector operating system | Agency's discretion of supported operating system for MCAS Log Collector. | MCAS supports Windows and Linux (Ubuntu, RHEL, CentOS) operating systems for the Log Collector.
 
-### MCAS - Microsoft Defender ATP integration
+### MCAS - Microsoft Defender for Endpoint integration
 
-Defender ATP integration enables cloud app and service traffic to be sent from supported Windows 10 devices (1709 or later) to MCAS to provide additional data for continuous reporting.
+Defender for Endpoint integration enables cloud app and service traffic to be sent from supported Windows 10 devices (1709 or later) to MCAS to provide additional data for continuous reporting.
 
-This capability is enabled from within the Advanced Features settings within Microsoft Defender ATP portal, as shown below in Figure 6. Figure reproduced from [https://docs.microsoft.com/en-us/cloud-app-security/wdatp-integration](https://docs.microsoft.com/en-us/cloud-app-security/wdatp-integration)
+This capability is enabled from within the Endpoints > Advanced Features settings within the Microsoft 365 Defender portal, as shown below in Figure 6. Figure reproduced from [https://docs.microsoft.com/en-au/cloud-app-security/mde-integration](https://docs.microsoft.com/en-au/cloud-app-security/mde-integration)
 
-![Figure 6 - Defender ATP and MCAS Integration](/assets/images/platform-defender-mcas.png)
+![Figure 6 - Defender for Endpoint and MCAS Integration](/assets/images/platform-defender-mcas.png)
 
-Important Note: Microsoft Defender ATP should be configured prior to enabling this feature. 
+Important Note: Microsoft Defender for Endpoint should be configured prior to enabling this feature. 
 
-Microsoft Defender ATP integration Design Decisions for all agencies and implementation types.
+Microsoft Defender for Endpoint integration Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Microsoft Defender ATP portal configuration | Microsoft Cloud App Security enabled | To enable Defender ATP integration with MCAS
+Microsoft Defender for Endpoint portal configuration | Microsoft Cloud App Security enabled | To enable Defender for Endpoint integration with MCAS.
 
-### MCAS - cloud discovery enrichment
+### MCAS - Cloud discovery enrichment
 
 To further enrich cloud discovery data MCAS can integrate with Azure AD to replace users identified with Azure AD usernames.
 
@@ -616,7 +615,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 User enrichment | Enabled | To identify users by Azure AD username.
 
-### MCAS - user data anonymisation
+### MCAS - User data anonymisation
 
 To protect the privacy of users MCAS supports anonymisation of usernames when logs are uploaded. This is done by encrypting the usernames included in logs using Advanced Encryption Standard (AES) with a 128-bit key which is unique to each tenant.
 
@@ -629,7 +628,7 @@ Decision Point | Design Decision | Justification
 Username anonymisation | Not enabled | Reduced investigation effort by not requiring security analysts to decrypt usernames on demand. If the Agency identifies a requirement this can be enabled.
 Machine name anonymisation | Not enabled | Reduced investigation effort by not requiring security analysts to decrypt machine names on demand. If the Agency identifies a requirement this can be enabled.
 
-### MCAS - custom apps
+### MCAS - Custom apps
 
 In addition to the extensive library of cloud apps that are natively available in Cloud Discovery, custom cloud apps – for example internally developed Line of Business (LOB) applications – can be added to provide visibility in their use.
 
@@ -641,7 +640,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Custom Apps | Configured on demand | Custom apps will be added to Cloud Discovery as they are identified by the Agency.
 
-### MCAS - app filters and queries 
+### MCAS - App filters and queries 
 
 MCAS supports the creation and assignment of custom app tags from within the portal. Security analysts can create and apply custom tags to allow them to filter and query results specific to an area of interest. For example, a custom tag may be created for a business unit and that tag applied to only the applications that are approved for their use (i.e. Procurement). An analyst can then quickly filter based on this tag to review the use of these applications.
 
@@ -651,7 +650,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Custom tags | Configured on demand | Custom tags will be added to Cloud Discovery as they are identified by the Agency.
 
-### MCAS - app connectors
+### MCAS - App connectors
 
 The MCAS App Connector design decisions can be found below. MCAS App Connector components are made up of MCAS -Azure and MCAS – Office 365.
 
@@ -704,7 +703,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Microsoft Office 365 Connector Configuration | Selected Components:<br>Azure AD Users and Groups<br>Azure AD Management events<br>Azure AD Sign-in events<br>Azure AD Apps<br>Office 365 activities<br>Office 365 files | All components of Office 365 on which Cloud App Security can obtain information. 
 
-### MCAS - policies
+### MCAS - Policies
 
 MCAS supports a range of policy types to address the various risks associated with leveraging cloud apps, ranging from the detection of new and therefore unsanctioned cloud apps to identifying anomalous user activities that are outside the pattern of normal behaviour.
 
@@ -730,19 +729,19 @@ Use of policies | Use of policies is agency-specific and would require further d
 
 ### MCAS - Threat Protection
 
-The MCAS Threat Protection design decisions can be found below. Threat Protection components include Azure Advanced Threat Protection.
+The MCAS Threat Protection design decisions can be found below. Threat Protection components include Microsoft Defender for Identity.
 
-### MCAS – Azure Advanced Threat Protection Integration
+### MCAS - Microsoft Defender for Identity integration
 
-Azure ATP provides User Entity Behavioural Analytics (UEBA) by monitoring authentication requests to on-premises Active Directory (AD) Domain Controllers (DCs).
+Microsoft Defender for Identity provides User Entity Behavioural Analytics (UEBA) by monitoring authentication requests to on-premises Active Directory (AD) Domain Controllers (DCs).
 
-Integrating Azure ATP with MCAS extends this capability to hybrid environments and presents all Azure ATP Suspicious Activity (SA) alerts to the MCAS dashboard, reducing the need for security analysts to monitor multiple consoles. To connect Azure ATP to MCAS the user enabling the setting must be an Azure AD Global Admin. Integration is enabled in the MCAS console and does not require configuration from the Azure ATP console.
+Integrating Defender for Identity with MCAS extends this capability to hybrid environments and presents all Defender for Identity Suspicious Activity (SA) alerts to the MCAS dashboard, reducing the need for security analysts to monitor multiple consoles. To connect Defender for Identity to MCAS the user enabling the setting must be an Azure AD Global Admin. Integration is enabled in the MCAS console and does not require configuration from the Defender for Identity console.
 
-Azure ATP integration Design Decisions for all agencies and implementation types.
+Defender for Identity integration Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Azure ATP data integration | Enabled | Azure ATP will be deployed within the Agency's environment.
+Defender for Identity integration | Enabled | To enable integration between security tools deployed within the Agency's environment.
 
 ### MCAS - Information Protection
 
@@ -781,7 +780,7 @@ Inspect protected files | Enabled | MCAS is enabled to inspect protected files a
 
 MCAS can be configured to monitor all activities generated within those subscriptions.
 
-Similar to Azure ATP integration, this centralises alerts into the MCAS dashboard, reducing the need for security analysts to monitor multiple consoles. The Azure Security Centre standard tier license must be acquired and enabled for one or more subscriptions within the tenant.
+Similar to Defender for Identity integration, this centralises alerts into the MCAS dashboard, reducing the need for security analysts to monitor multiple consoles. The Azure Security Centre standard tier license must be acquired and enabled for one or more subscriptions within the tenant.
 
 Azure Security Design Decisions for all agencies and implementation types.
 
@@ -789,7 +788,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Azure Security Centre integration | Enabled | Provides Azure Security alerts and activities to the MCAS dashboard simplifying security operations. 
 
-### MCAS - files
+### MCAS - Files
 
 As previously described, file policies can be used to manage documents stored in cloud apps. To enable this capability MCAS must be allowed to monitor files stored in these apps.
 
@@ -801,7 +800,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 File monitoring | Enabled | Allow MCAS to monitor files stored in connected cloud apps.
 
-### MCAS - conditional access app control protection
+### MCAS - Conditional Access app control protection
 
 The Conditional Access App Control Protection design decisions can be found below. Conditional Access App Control components include Default Behaviour, User Monitoring, Device Identification and App Onboarding/Maintenance.
 
@@ -825,7 +824,7 @@ Decision Point | Design Decision | Justification
 Access control policies | Use of policies is agency-specific and would need further development with internal Cyber Security Teams. | Provides a greater security posture for the Agency applications.
 Session control policies | Use of policies is agency-specific and would need further development with internal Cyber Security Teams. | Provides a greater security posture for users within the Agency.
 
-### MCAS - default behaviour
+### MCAS - Default behaviour
 
 In the event of a system outage or downtime MCAS can be configured with a Default Behaviour.
 
@@ -837,7 +836,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Default behaviour configuration | Allow access | To prevent interruption to business functions in the event of an outage or downtime.
 
-### MCAS - user monitoring
+### MCAS - User monitoring
 
 When using Conditional Access App Control to manage access and sessions, MCAS provides the option to notify users that their activities are being monitored.
 
@@ -849,7 +848,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 User monitoring notifications | Not enabled | There is no default requirement to notify users. Agencies can enable User Monitoring as appropriate to meet operational requirements without impacting the cyber security posture of the environment.
 
-### MCAS - device identification
+### MCAS - Device identification
 
 MCAS and Conditional Access App Control can be utilised to identify managed devices within the organisation.
 
@@ -867,7 +866,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Use of client certificates for device identification | Not configured | No requirement to use client certificates has been identified as the Agency will leverage Intune for compliant and Hybrid Azure AD devices.
 
-### MCAS - app onboarding/maintenance
+### MCAS - App onboarding/maintenance
 
 Specific users can be identified that can enable currently unsupported cloud apps to be onboarded to Conditional Access App Control for development and testing purposes.
 
@@ -879,7 +878,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Included users | To be developed during build with the Agency's Cyber Intelligence team. | Agency to determine if a requirement for users and non-supported apps exist within the environment.
 
-### MCAS - security extensions
+### MCAS - Security extensions
 
 To integrate with other security solutions, for example Security Information and Event Management (SIEM) products, MCAS supports a range of security extensions. These include:
 
@@ -908,7 +907,7 @@ To enable MCAS alerts and activities to be integrated into existing security ana
 
 The MCAS SIEM agent runs on a server – either on-premises or as IaaS – and acts as a forwarder between MCAS and the SIEM. The SIEM agent makes an outgoing request to MCAS over an encrypted Hypertext Transfer Protocol Secure (HTTPS) channel using port 443, leveraging the MCAS RESTful APIs. Once the data has been downloaded it then forwards it to the SIEM as syslog messages on a configurable Transmission Control Protocol (TCP) or User Datagram Protocol (UDP) port.  
 
-Note, if both Azure ATP and MCAS are configured to send alerts to the same SIEM duplicate alerts will be received with different alert IDs. It is recommended to only send these alerts from one source.
+Note, if both Defender for Identity and MCAS are configured to send alerts to the same SIEM duplicate alerts will be received with different alert IDs. It is recommended to only send these alerts from one source.
 
 At the time of writing the SIEM agent only supports Micro Focus ArcSight and generic [Common Event Format (CEF)](https://docs.microsoft.com/en-us/cloud-app-security/siem). Supported time formats include Request for Comment (RFC) 5424, 3164 and 3164 with year. The agent can be installed on either Windows or Linux operating systems and requires Java 8.
 
@@ -929,7 +928,7 @@ Use of SIEM agent | Yes | To support integration between MCAS and the Agency's e
 SIEM agent install location | Agency's discretion of supported operating system for MCAS SIEM agents. | MCAS supports Windows and Linux operating systems for the SIEM agents.
 Microsoft Security Graph API integration | Not configured | Agency to determine whether requirement exists based on existing SIEM solution.
 
-### MCAS - external Data Loss Prevention (DLP)
+### MCAS - External Data Loss Prevention (DLP)
 
 In addition to integration with third-party SIEMs, MCAS also supports integration with third-party DLP providers, enabling existing investments in on-premises solutions to be extended into the cloud.
 
@@ -941,7 +940,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 External DLP | Not configured | Not configured by default however an Agency can determine whether a DLP solution will be leveraged and if there is a requirement to be integrated with MCAS.
 
-### MCAS - playbooks
+### MCAS - Playbooks
 
 MCAS supports playbook-based automation by integrating with Microsoft Flow (also known as Power Automate).
 
@@ -953,7 +952,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Playbooks | Not configured | Not configured by default however an Agency can determine whether Playbooks will be leveraged to assist in automating pre-approved and consistent responses reducing analyst intervention. Use of Playbooks is subject to licensing.
 
-### MCAS - firewall
+### MCAS - Firewall
 
 Microsoft Cloud App Security is a cloud-based service that helps keep the organisation secure from threats by collecting data from a Cloud based tenant and Hybrid on-premises infrastructure and analysing this data. To achieve this firewall rules and proxy allow lists needs to be in place to allow communication between all the components.
 
@@ -961,70 +960,70 @@ Firewall rules and proxy allow lists will be implemented as part of the Microsof
 
 Further details on firewall configuration and proxy allow lists for the solution can be found in the Network Configuration ABAC.
 
-### Azure Advanced Threat Protection
+### Microsoft Defender for Identity
 
-Microsoft Azure Advanced Threat Protection (Azure ATP) is an Azure-hosted security capability designed to monitor AD traffic and alert on suspicious authentication-related activities. Azure ATP leverages Machine Learning (ML) to analyse user, device, and resource authentication behaviours to build a baseline, then alert security analysts when an authentication attempt occurs that is not consistent with the baseline. Traffic corresponding to known authentication-based attacked, such as Pass-the-Hash (PtH) and Pass-the-Ticket (PtT), is also recognised by Azure ATP and specific alerts generated.
+Microsoft Defender for Identity is an Azure-hosted security capability designed to monitor AD traffic and alert on suspicious authentication-related activities. Defender for Identity leverages Machine Learning (ML) to analyse user, device, and resource authentication behaviours to build a baseline, then alert security analysts when an authentication attempt occurs that is not consistent with the baseline. Traffic corresponding to known authentication-based attacked, such as Pass-the-Hash (PtH) and Pass-the-Ticket (PtT), is also recognised by Defender for Identity and specific alerts generated.
 
-The Azure ATP architecture is composed of a Azure ATP cloud service with the following components:
+The Defender for Identity architecture is composed of a Defender for Identity cloud service with the following components:
 
-* Azure ATP cloud service – Is hosted on Azure infrastructure and at time of writing Azure ATP cloud service is deployed in the US, Europe, and Asia data centres.
-* Azure ATP portal – Management interface where the Azure ATP instance can be created, displays data collected by Azure ATP sensors and is the central console for monitoring, managing and investigating threats.
-* Azure ATP sensor – Sensors are installed on all domain controllers which monitor and collect domain controller traffic that is feed back to the Azure ATP portal for analysis.
+* Defender for Identity cloud service – Is hosted on Azure infrastructure and at time of writing Defender for Identity cloud service is deployed in the US, Europe, and Asia data centres.
+* Defender for Identity portal – Management interface where the Defender for Identity instance can be created, displays data collected by Defender for Identity sensors and is the central console for monitoring, managing and investigating threats.
+* Defender for Identity sensor – Sensors are installed on all domain controllers which monitor and collect domain controller traffic that is feed back to the Defender for Identity portal for analysis.
 
-A high-level illustration of Azure ATP architecture is shown below in Figure 7. Figure reproduced from [https://docs.microsoft.com/en-us/azure-advanced-threat-protection/atp-prerequisites](https://docs.microsoft.com/en-us/azure-advanced-threat-protection/atp-prerequisites)
+A high-level illustration of Defender for Identity architecture is shown below in Figure 7. Figure reproduced from [https://docs.microsoft.com/en-au/defender-for-identity/prerequisites](https://docs.microsoft.com/en-au/defender-for-identity/prerequisites)
 
-![Figure 7 - Azure ATP Architecture](/assets/images/platform-azure-atp.png)
+![Figure 7 - Microsoft Defender for Identity Architecture](/assets/images/platform-defender-for-identity.png)
 
-A single Azure ATP instance can monitor multiple AD DS forests and their respective domains.
+A single Defender for Identity instance can monitor multiple AD DS forests and their respective domains.
 
-Azure ATP relies on Network Name Resolution (NNR) to correlate between raw activities (containing IP addresses) and the relevant devices involved in the activities to be able to generate security alerts for suspicious activities. To correlate IP addresses to device names, Azure ATP sensors lookup the IP addresses using these methods:
+Defender for Identity relies on Network Name Resolution (NNR) to correlate between raw activities (containing IP addresses) and the relevant devices involved in the activities to be able to generate security alerts for suspicious activities. To correlate IP addresses to device names, Defender for Identity sensors lookup the IP addresses using these methods:
 
 * NTLM over RPC (TCP Port 135).
 * NetBIOS (UDP port 137).
 * RDP (TCP port 3389) – only the first packet of Client hello.
 * Queries the DNS server using reverse DNS lookup of the IP address (UDP 53).
 
-Microsoft recommends using all the above methods, however if this is not possible the Agency should use the DNS lookup method and at least one of the other methods available at [https://docs.microsoft.com/en-us/azure-advanced-threat-protection/atp-nnr-policy](https://docs.microsoft.com/en-us/azure-advanced-threat-protection/atp-nnr-policy).
+Microsoft recommends using all the above methods, however if this is not possible the Agency should use the DNS lookup method and at least one of the other methods available at [https://docs.microsoft.com/en-au/defender-for-identity/nnr-policy](https://docs.microsoft.com/en-au/defender-for-identity/nnr-policy).
 
-Azure ATP Design Decisions for hybrid implementations
+Defender for Identity Design Decisions for hybrid implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-License | Enterprise Mobility + Security 5 (EMS E5) | An Enterprise Mobility + Security 5 (EMS E5) license is required for Azure ATP.
-Number of Azure ATP instances | One | A single Azure ATP instance can monitor multiple AD DS forests.
-Azure ATP instance name | {agency-instance-name}.atp.azure.com | The Azure ATP cloud service will be given an Azure ATP instance name which will be used to access the Azure ATP portal.
-Forests and domains to be monitored by Azure ATP | {agency}.gov.au | Nominated agency forests and domains.
-Azure ATP sensor deployment | To all DC's within the identified forests and domains. | Best practice to ensure all authentication traffic is monitored by Azure ATP.
-Internet connectivity | Domain controllers must have internet connectivity | Domain controllers which will have Azure ATP sensors installed, must have internet connectivity to the Azure ATP Cloud Service. <br>Azure ATP sensors support the use of a web proxy / WPAD for internet connectivity.
-Directory service accounts | A standard AD user account & password<br><br>A group Managed Service Account (gMSA) | If the Agency environment consists of Windows Server 2008 R2 SP1 domain controllers a standard AD user account and password is required with read access to all objects in the monitored domains.<br><br>If Agency environment consists of Windows Server 2012 or above domain controllers than a group Managed Service Account (gMSA) is required with read access to all objects in the monitored domain.<br><br>If the Agency environment consists of a mixture of domain controller operating system versions, then a combination of group Managed Service Account (gMSA) and Standard user account is required. See [ATP prerequisites](https://docs.microsoft.com/en-us/azure-advanced-threat-protection/atp-prerequisites).
-Network Name Resolution (NNR) | Reverse DNS lookup and one other method (listed above) | This is the minimum NNR requirement for Azure ATP. Microsoft recommends using all of the above-mentioned resolution methods available within Agency environment.
-Deleted Objects container permissions | Read-only | Microsoft recommends users should have read-only permissions assigned on the [Deleted objects container](https://docs.microsoft.com/en-us/azure-advanced-threat-protection/atp-prerequisites#before-you-start) to allow Azure ATP to detect user deletions from the Agencies Active Directory.
+License | Enterprise Mobility + Security 5 (EMS E5) | An Enterprise Mobility + Security 5 (EMS E5) license is required for Defender for Identity.
+Number of Defender for Identity instances | One | A single Defender for Identity instance can monitor multiple AD DS forests.
+Defender for Identity instance name | {agency-instance-name}.atp.azure.com | The Defender for Identity cloud service will be given an Defender for Identity instance name which will be used to access the Defender for Identity portal.
+Forests and domains to be monitored by Defender for Identity | {agency}.gov.au | Nominated agency forests and domains.
+Defender for Identity sensor deployment | To all DC's within the identified forests and domains. | Best practice to ensure all authentication traffic is monitored by Defender for Identity.
+Internet connectivity | Domain controllers must have internet connectivity | Domain controllers which will have Defender for Identity sensors installed, must have internet connectivity to the Defender for Identity Cloud Service. <br>Defender for Identity sensors support the use of a web proxy / WPAD for internet connectivity.
+Directory service accounts | A standard AD user account & password<br><br>A group Managed Service Account (gMSA) | If the Agency environment consists of Windows Server 2008 R2 SP1 domain controllers a standard AD user account and password is required with read access to all objects in the monitored domains.<br><br>If Agency environment consists of Windows Server 2012 or above domain controllers than a group Managed Service Account (gMSA) is required with read access to all objects in the monitored domain.<br><br>If the Agency environment consists of a mixture of domain controller operating system versions, then a combination of group Managed Service Account (gMSA) and Standard user account is required. See [Microsoft Defender for Identity prerequisites](https://docs.microsoft.com/en-au/defender-for-identity/prerequisites).
+Network Name Resolution (NNR) | Reverse DNS lookup and one other method (listed above) | This is the minimum NNR requirement for Defender for Identity. Microsoft recommends using all of the above-mentioned resolution methods available within Agency environment.
+Deleted Objects container permissions | Read-only | Microsoft recommends users should have read-only permissions assigned on the [Deleted objects container](https://docs.microsoft.com/en-au/defender-for-identity/prerequisites#before-you-start) to allow Defender for Identity to detect user deletions from the Agencies Active Directory.
 
-### Azure ATP – role groups
+### Defender for Identity – Role groups
 
-Azure ATP provides security groups to allow the implementation of a Role-Based Access Control (RBAC) model.
+Defender for Identity provides security groups to allow the implementation of a Role-Based Access Control (RBAC) model.
 
-Azure AD provides the basis for the Azure ATP role groups. When Azure ATP is enabled for the first time it automatically creates the three security groups in Azure AD. The three Azure ATP security groups are:
+Azure AD provides the basis for the Defender for Identity role groups. When Defender for Identity is enabled for the first time it automatically creates the three security groups in Azure AD, using the product's previous name - Azure ATP. The three Defender for Identity security groups are:
 
-* Azure ATP {Instance Name} Administrators – Provides full administrative access to the specific Azure ATP instance including all configuration settings.
-* Azure ATP {Instance Name} Users – Able to modify configurations relating to suspicious activities (i.e. change status and add exclusions), alerts and scheduled reports, but not the configuration of Azure ATP sensors or data sources.
-* Azure ATP {Instance Name} Viewers – Access to log into the Azure ATP console to view suspicious activities and download reports. Not able to modify the status of a suspicious activity or add any exclusions.
+* Azure ATP {Instance Name} Administrators – Provides full administrative access to the specific Defender for Identity instance including all configuration settings.
+* Azure ATP {Instance Name} Users – Able to modify configurations relating to suspicious activities (i.e. change status and add exclusions), alerts and scheduled reports, but not the configuration of Defender for Identity sensors or data sources.
+* Azure ATP {Instance Name} Viewers – Access to log into the Defender for Identity console to view suspicious activities and download reports. Not able to modify the status of a suspicious activity or add any exclusions.
 
-Note, in addition to the role groups described above, any tenant Global and Security Admins can login to the Azure ATP portal.
+Note, in addition to the role groups described above, any tenant Global and Security Admins can login to the Defender for Identity portal.
 
 Role group Design Decisions for hybrid implementations.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Members of the Azure ATP Administrators group | Specific users in the Agency's Cyber Security team only | Only specific users that require administrative access should be added to this group.
-Members of the Azure ATP Users group | {agency_domain_name} \<br>rol-ATPUsers | Includes membership of the whole Cyber team that are responsible for the day-to-day use and management of Azure ATP.
-Members of the Azure ATP Viewers group | {agency_domain_name} \<br>rol-ATPViewers | Includes membership of the Cyber team to enable auditing of Azure ATP.
+Members of the Azure ATP Administrators group | Agency decision | Only specific users that require administrative access should be added to this group.
+Members of the Azure ATP Users group | Agency decision | Include membership of the cyber security team that are responsible for the day-to-day use and management of Defender for Identity.
+Members of the Azure ATP Viewers group | Agency decision | Include membership of the cyber security team to enable auditing of Defender for Identity.
 
-### Azure ATP – notifications
+### Defender for Identity – Notifications
 
-In addition to creating alerts in the Azure ATP console whenever a new suspicious activity or health issue is detected, Azure ATP can also be configured to send email and syslog notifications. This enables security analysts to monitor existing mailboxes and leverage toolsets such as a Security Information and Event Management (SIEM) product rather than constantly having to login and view the Azure ATP portal.
+In addition to creating alerts in the Defender for Identity console whenever a new suspicious activity or health issue is detected, Defender for Identity can also be configured to send email and syslog notifications. This enables security analysts to monitor existing mailboxes and leverage toolsets such as a Security Information and Event Management (SIEM) product rather than constantly having to login and view the Defender for Identity portal.
 
-Azure ATP does not require a Simple Mail Transfer Protocol (SMTP) server to be configured to send email alerts. However, the syslog configuration of a SIEM is required to send alerts to it. The required settings include:
+Defender for Identity does not require a Simple Mail Transfer Protocol (SMTP) server to be configured to send email alerts. However, the syslog configuration of a SIEM is required to send alerts to it. The required settings include:
 
 * Fully Qualified Domain Name (FQDN) / Internet Protocol (IP) address.
 * Port that that SIEM is listening on for syslog alerts.
@@ -1038,41 +1037,41 @@ Decision Point | Design Decision | Justification
 Mail notifications | Enabled for both suspicious activities and health alerts | Notify relevant security teams when unwarranted and unauthorised activities occur.
 Syslog notifications | Enabled for both suspicious activities and health alerts | If the Agency has an existing SIEM solution enable the SIEM to gather all possible security-related events.
 
-### Azure ATP – integration with Defender ATP
+### Defender for Identity – Integration with Defender for Endpoint
 
-Azure ATP supports native integration with Defender Advanced Threat Protection (Defender ATP).
+Defender for Identity supports native integration with Defender for Endpoint.
 
-The purpose of this is to combine Azure ATP's monitoring of AD and DCs specifically, with Defender ATP's monitoring of general endpoints, to provide a single interface that combines events and alerts from both.
+The purpose of this is to combine Defender for Identity's monitoring of AD and DCs specifically, with Defender for Endpoint's monitoring of general endpoints, to provide a single interface that combines events and alerts from both.
 
-Integration with Defender ATP Design Decisions for hybrid implementations.
+Integration with Defender for Endpoint Design Decisions for hybrid implementations.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Integration with Defender ATP | Enabled | To integrate data feeds and alerts from both products.
+Integration with Defender for Endpoint | Enabled | To integrate data feeds and alerts from both products.
 
-### Azure ATP – firewall
+### Defender for Identity – Firewall
 
-As Azure ATP is reliant upon the Azure ATP portal and the Azure ATP sensor firewall ports are required to be opened to allow communication between infrastructure (Domain Controllers and Standalone servers) and Azure ATP. These port configurations are updated frequently and are available online from Microsoft ([Azure ATP Configure Proxy](https://docs.microsoft.com/en-us/azure-advanced-threat-protection/configure-proxy), [Azure ATP Sensor Firewall ports](https://docs.microsoft.com/en-us/azure-advanced-threat-protection/atp-prerequisites)).
+As Defender for Identity is reliant upon the Defender for Identity portal and the Defender for Identity sensors, firewall ports are required to be opened to allow communication between infrastructure (Domain Controllers and standalone servers) and Defender for Identity. These port configurations are updated frequently and are available online from Microsoft ([Configure endpoint proxy and Internet connectivity settings for your Microsoft Defender for Identity Sensor](https://docs.microsoft.com/en-au/defender-for-identity/configure-proxy), [Microsoft Defender for Identity prerequisites](https://docs.microsoft.com/en-au/defender-for-identity/prerequisites)).
 
-It is important to note the traffic between the client and the Azure ATP portal offering is TLS1.2 encrypted. Configuration will occur on the proxy, external gateway and local infrastructure servers of the Agency as required.
+It is important to note the traffic between the client and the Defender for Identity portal offering is TLS1.2 encrypted. Configuration will occur on the proxy, external gateway and local infrastructure servers of the Agency as required.
 
-Firewall rules and proxy allow lists will be implemented as part of the Azure ATP solution.
+Firewall rules and proxy allow lists will be implemented as part of the Defender for Identity solution.
 
-* Azure ATP service location – As mentioned previously Azure ATP data centres are deployed in the United States, Europe, and Asia. The Agency's Azure ATP instance when created will be in the data centre that is geographically closest to the Agency's Azure Active Directory service. This will assist in determining which service location to utilise for generating allow lists.
-* Maximal security and data privacy – Azure ATP cloud services use certificate based mutual authentication for communication between Azure ATP cloud backend and all Azure ATP sensors. To make the authentication process seamless as possible if the Agency's environment utilises SSL inspection then the inspection should be configured for mutual authentication.
+* Defender for Identity service location – As mentioned previously, Defender for Identity data centres are deployed in the United States, Europe, and Asia. The Agency's Defender for Identity instance will be created in the data centre that is geographically closest to the Agency's Azure AD service. This will assist in determining which service location to utilise for generating allow lists. For Azure AD tenants located in Australia, Defender for Identity will be created in Asia.
+* Maximal security and data privacy – Defender for Identity cloud services use certificate based mutual authentication for communication between Defender for Identity cloud backend and all Defender for Identity sensors. To make the authentication process seamless as possible if the Agency's environment utilises SSL inspection then the inspection should be configured for mutual authentication.
 
-Further details on the firewall configuration for the solution can be found in the Network Configuration ABAC.
+Further details on the firewall configuration for the solution can be found in the [Hybrid - Network Configuration ABAC](https://desktop.gov.au/blueprint/abac/hybrid-network-configuration.html).
 
-### Azure ATP – integration with MCAS
+### Defender for Identity – Integration with MCAS
 
-MCAS is a Cloud Access Security Broker that provide visibility, control over data travel and powerful analytics to identify and deal with cyberthreats. Integrating Azure ATP with MCAS extends this capability to hybrid environments and presents all Azure ATP Suspicious Activity (SA) alerts to the MCAS dashboard, reducing the need for security analysts to monitor multiple consoles.
+MCAS is a Cloud Access Security Broker that provide visibility, control over data travel and powerful analytics to identify and deal with cyberthreats. Integrating Defender for Identity with MCAS extends this capability to hybrid environments and presents all Defender for Identity Suspicious Activity (SA) alerts to the MCAS dashboard, reducing the need for security analysts to monitor multiple consoles.
 
-To connect Azure ATP to MCAS the user enabling the setting must be an Azure AD Global Admin. Integration is enabled in the MCAS console and does not require configuration from the Azure ATP console. MCAS allows Agencies to access the Azure ATP data within a single monitoring and management portal reducing the number of monitoring consoles required, however the following needs to be considered:
+To connect Defender for Identity to MCAS the user enabling the setting must be an Azure AD Global Admin. Integration is enabled in the MCAS console and does not require configuration from the Defender for Identity console. MCAS allows Agencies to access the Defender for Identity data within a single monitoring and management portal reducing the number of monitoring consoles required, however the following needs to be considered:
 
-* Alerts – MCAS can display Azure ATP alerts within the Alerts queue. MCAS also provides additional alert filtering not available within Azure ATP.
-* Alerts management – Management of alerts can be performed in both MCAS and Azure ATP portals. Closing alerts in one portal will not necessarily close the same alert in the other portal. It is recommended to choose which portal will be used to manage and remediate alerts to avoid duplicate effort.
-* SIEM notification – both Azure ATP and MCAS can be configured to send alert notification to a SIEM. In the event this is configured duplicate SIEM notifications for the same alerts will be visible within SIEM under different alert ID's. To avoid this situation, it is recommended to choose which portal will be used to perform alert management and then only this portal is to be configured to send alert notification to a SIEM.
-* Activities – MCAS displays Azure ATP alerts also in the activity log. MCAS provides additional activity filtering not available within Azure ATP.
+* Alerts – MCAS can display Defender for Identity alerts within the Alerts queue. MCAS also provides additional alert filtering not available within Defender for Identity.
+* Alerts management – Management of alerts can be performed in both MCAS and Defender for Identity portals. Closing alerts in one portal will not necessarily close the same alert in the other portal. It is recommended to choose which portal will be used to manage and remediate alerts to avoid duplicate effort.
+* SIEM notification – both Defender for Identity and MCAS can be configured to send alert notification to a SIEM. In the event this is configured duplicate SIEM notifications for the same alerts will be visible within SIEM under different alert ID's. To avoid this situation, it is recommended to choose which portal will be used to perform alert management and then only this portal is to be configured to send alert notification to a SIEM.
+* Activities – MCAS displays Defender for Identity alerts also in the activity log. MCAS provides additional activity filtering not available within Defender for Identity.
 
 Integration with MCAS Design Decisions for hybrid implementations
 
@@ -1080,27 +1079,27 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Integration with MCAS | Enabled | To integrate data feeds and alerts from both products.
 
-### Microsoft Defender Advanced Threat Protection
+### Microsoft Defender for Endpoint
 
-Microsoft Defender ATP (formally Windows Defender Advanced Threat Protection) extends the standard Microsoft Defender capabilities to provide additional reporting, pre-breach protection, post-breach detection, automation, and response. Microsoft Defender ATP does not require an agent on the endpoint or any on-premises infrastructure, instead it leverages Microsoft's cloud platform. A single dashboard allows administrators to monitor the compliance and security of all ATP-enabled devices, as well as providing ISO27001 certified Endpoint Detection and Response (EDR) functionality.
+Microsoft Defender for Endpoint (formally Defender Advanced Threat Protection) extends the standard Microsoft Defender capabilities to provide additional reporting, pre-breach protection, post-breach detection, automation, and response. Microsoft Defender for Endpoint does not require an agent on the endpoint or any on-premises infrastructure, instead it leverages Microsoft's cloud platform. A single dashboard allows administrators to monitor the compliance and security of all Defender-enabled devices, as well as providing ISO27001 certified Endpoint Detection and Response (EDR) functionality.
 
-Microsoft Defender Advanced Threat Protection can be configured with the following options:
+Microsoft Defender for Endpoint can be configured with the following options:
 
 * Data Retention Period - Data Retention Period defines how long gathered telemetry data is stored and available for use in online reporting.
 * Alert Notifications - Alert Notifications are configurable rulesets that allow a person or group of people to receive a notification on the occurrence of a pre-set event.
 * Secure Score Baseline - Secure Score Baseline configures the product baselines for calculating the score of Microsoft Defender security controls on the secure score dashboard. If third-party solutions are in use the corresponding controls should be excluded from the calculations.
 * Administration Roles and Machine Groups - Administration roles provide the ability to configure role-based access and granular options for regulating permissions to portal features and data. Machine groups enabled machines to be organised into groups and apply configured automated remediation levels and assigned administrators.
 
-Microsoft Defender ATP Design Decisions for all agencies and implementation types.
+Microsoft Defender for Endpoint Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Microsoft Defender ATP | Configured | To provide increased security and meet the requirements of this document.
+Microsoft Defender for Endpoint | Configured | To provide increased security and meet the requirements of this document.
 Sample Collection | Enabled | Required configuration to enable<br>Deep Analysis on files when required. 
-Data storage location | US | As of June 2019, the available Azure data centres to host Windows Defender ATP are located in the US, UK and Europe. All data used by Windows Defender ATP is protected at minimum by Advanced Encryption Standard (AES) 256-bit encryption, both at rest and inflight.  The US has been selected due to policy alignment under the Cloud Act. 
+Data storage location | US | As of June 2019, the available Azure data centres to host Defender for Endpoint are located in the US, UK and Europe. All data used by Defender for Endpoint is protected at minimum by Advanced Encryption Standard (AES) 256-bit encryption, both at rest and inflight.  The US has been selected due to policy alignment under the Cloud Act. 
 Data Retention Period | 180 Days | Default configuration and suitable for the organisation's requirements.
 Alert Notifications | Send Information, Low, Medium, High to Security team. | Alerts will be sent to agency's Cyber Intelligence team for action.
-Secure Score Baseline | Windows Defender Antivirus<br>Windows Defender Application Control<br>Windows Defender Exploit Guard<br>Windows Defender Application Guard<br>Windows Defender SmartScreen<br>Windows Defender Firewall<br>Windows Defender Credential Guard<br>Windows Defender Attack Surface Reduction | Meets the requirements of this design. 
+Microsoft Secure Score integration | Enabled | Forwards data from Defender for Endpoint to Secure Score to provide visibility into device security posture. 
 Administration Roles | Full Administrator:<br>Admin_{agency}-securityadmin | Administrative roles will be segregated as per the ACSC Restricting Administrative Privileges (April 2019) guide.
 Machine Groups | All Clients | Machines will be segregated into groups with automated remediation levels assigned the administrators that monitor these groups. Groups will be developed with the Agency and documented in the As-Built-As-Configured documentation.
 Machine onboarding and Configuration | Configured | Onboarding and configuration will be performed by Intune.
@@ -1160,9 +1159,9 @@ SIEM Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-SIEM Solution | Not Configured | SIEM Solution configuration is custom to each agency based on its specific requirements. This blueprint does not specify a SIEM and as such does not offer configuration guidance, however Agencies should consider their operational requirements in this area. This blueprint provides guidance on Azure logs, Defender ATP and Office ATP which audit most Azure, Defender, and Office logs for up to two years. These technologies send alert emails to Global Administrators and selected Office 365 administrators.
-Azure log ingestion | Not Configured | SIEM Solution configuration is custom to each agency based on its specific requirements. This blueprint does not specify a SIEM and as such does not offer configuration guidance, however Agencies should consider their operational requirements in this area. This blueprint provides guidance on Azure logs, Defender ATP and Office ATP which audit most Azure, Defender, and Office logs for up to two years. These technologies send alert emails to Global Administrators and selected Office 365 administrators.
-Office 365 log ingestion | Not Configured | SIEM Solution configuration is custom to each agency based on its specific requirements. This blueprint does not specify a SIEM and as such does not offer configuration guidance, however Agencies should consider their operational requirements in this area. This blueprint provides guidance on Azure logs, Defender ATP and Office ATP which audit most Azure, Defender, and Office logs for up to two years. These technologies send alert emails to Global Administrators and selected Office 365 administrators.
+SIEM Solution | Not Configured | SIEM Solution configuration is custom to each agency based on its specific requirements. This blueprint does not specify a SIEM and as such does not offer configuration guidance, however Agencies should consider their operational requirements in this area. This blueprint provides guidance on Azure logs, Defender for Endpoint and Defender for Office 365 which audit most Azure, Defender, and Office logs for up to two years. These technologies send alert emails to Global Administrators and selected Office 365 administrators.
+Azure log ingestion | Not Configured | SIEM Solution configuration is custom to each agency based on its specific requirements. This blueprint does not specify a SIEM and as such does not offer configuration guidance, however Agencies should consider their operational requirements in this area. This blueprint provides guidance on Azure logs, Defender for Endpoint and Defender for Office 365 which audit most Azure, Defender, and Office logs for up to two years. These technologies send alert emails to Global Administrators and selected Office 365 administrators.
+Office 365 log ingestion | Not Configured | SIEM Solution configuration is custom to each agency based on its specific requirements. This blueprint does not specify a SIEM and as such does not offer configuration guidance, however Agencies should consider their operational requirements in this area. This blueprint provides guidance on Azure logs, Defender for Endpoint and Defender for Office 365 which audit most Azure, Defender, and Office logs for up to two years. These technologies send alert emails to Global Administrators and selected Office 365 administrators.
 
 ### Azure AD tenant restrictions
 
@@ -1219,7 +1218,7 @@ Intune Design Decisions for cloud native implementations.
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Co-management | Disabled | Co-Management is disabled as this is not a function that is used in a cloud only solution.
-Enrolled Device Types | Windows 10: 10.0.17134 (minimum)<br>iOS: 14.0 | The use of Windows 10 on designated hardware is mandatory.<br>The following platforms will be disabled:<br>macOS<br>Android
+Enrolled Device Types | Windows 10: 21H1 / 10.0.19043.100 (minimum)<br>iOS: 14.7 (minimum)<br><br>The following platforms will be prevented from enrolling:<br>macOS<br>Android | As per the Client Devices design.
 Device Compliance | Enabled | Device Compliance is enabled. All devices will be Intune enrolled and have a custom set of compliance policies applied.
 Device Enrolment | Enabled | All users must be enrolled to ensure device compliance.
 Company Portal | Enabled | The Company Portal is enabled for application deployment. Applications to be deployed will be set by requirements.
@@ -1240,7 +1239,7 @@ Users can create Microsoft 365 groups in the Azure portals | No | Group creation
 **Directory-wide Groups** | | |
 Enable an "All Users" group in the directory | No | This group is not required. All users to be a member of a controlled group.
 
-### Intune - mobile application management
+### Intune - Mobile application management
 
 Mobile Application Management (MAM) allows the management and protection of an Agency's data within an application. It controls data flows into and out of the application container which houses corporate data.
 
@@ -1262,7 +1261,7 @@ Decision Point | Design Decision | Justification
 Mobile Application Management Method | Windows 10 – Not Configured<br>iOS - Intune | Agencies operating in hybrid environments can elect to have Windows 10 applications managed by an existing management solution such as MECM and Group Policy, or to manage Windows 10 applications via Intune. This blueprint offers an example of using MECM as the Windows10 Management tool for illustrative purposes however agencies can elect to have Intune as the primary MAM method for both platforms without affecting cyber security postures.<br>Mobile applications (iOS) will be deployed via Intune.
 Applications Managed | Microsoft Azure Information Protection<br>Microsoft Corporate Portal<br>Adobe Reader<br>Microsoft Suite - <br>Outlook<br>Word<br>Excel<br>Teams<br>PowerPoint<br>OneNote<br>OneDrive | Agencies operating in hybrid environments can elect to have Windows 10 applications managed by an existing management solution such as MECM and Group Policy, or to manage Windows 10 applications via Intune. This blueprint offers an example of using MECM as the Windows10 Management tool for illustrative purposes however agencies can elect to have Intune as the primary MAM method for both platforms without affecting cyber security postures.<br>Mobile applications (iOS) will be deployed via Intune.
 
-### Intune - enrolment
+### Intune - Enrolment
 
 Device enrolment registers the Windows 10 and iOS devices into the corporate device management solution and ensures the device is then able to be managed by administrators.
 
@@ -1281,7 +1280,7 @@ Decision Point | Design Decision | Justification
 Windows Enrolment | Configured | Windows 10 devices must be enrolled in Intune prior to management of the device.
 iOS Enrolment | Configured | iOS devices must be enrolled in Intune prior to management of the device.
 
-### Intune - co-management
+### Intune - Co-management
 
 Co-management provides the ability to manage devices via MECM and Intune. 
 
@@ -1311,7 +1310,7 @@ Resource Access policies controlled by | Intune preferred | Resources in this in
 Office Click-to-Run policies controlled by | Intune preferred | Office Click-to-Run application deployment and updates to be managed through Intune. Staged migration to be completed from MECM if previously in use.
 Windows Update policies controlled by | Intune preferred | Windows 10 updates will be managed via Intune update rings. Staged migration to be completed from MECM if previously in use.
 MECM minimum version | At least MECM update 1802 | Compatible with co-management and determined by the Agency.
-Enrolled Device Types | Windows 10: 10.0.19042 (minimum) | The use of Windows 10 on designated hardware is mandatory.<br>The following platforms will be disabled:<br>macOS<br>Android<br>iOS<br>Note: iOS is permitted but controlled by Intune only
+Enrolled Device Types | Windows 10: 21H1 / 10.0.19043.100 (minimum) | As per the Client Devices design.<br>Note: iOS is permitted but controlled by Intune only.
 Device Compliance | Enabled | Device Compliance is enabled. All devices will be Intune enrolled and have a custom set of compliance policies applied.
 User Enrolment | Enabled | All users must be enrolled to ensure device compliance.
 Company Portal | Enabled | The Company Portal is enabled for application deployment. Applications to be deployed will be set by Agency requirements.
@@ -1342,7 +1341,7 @@ Restrict the Local Administrator Account | Configured | Aligns with the ACSC Har
 Create and auto-assign devices | Configured | For ease of management and enrolment for devices within Agency.
 Deployment profile | Refer to DTA – Intune Enrolment -ABAC document | Deployment profile will ensure that all workstations are configured in accordance with the Agency standards with no user intervention.
 
-### Intune - device compliance
+### Intune - Device compliance
 
 Device Compliance Policies are rules, such as device PIN length or encryption requirements, that are applied to devices. These policies must be met before a device is considered compliant, the device compliance status can then be used by services such as Conditional Access to grant or disallow access to applications or services.
 
@@ -1356,7 +1355,7 @@ Device Compliance Profiles deployed ensure a strong security posture for the ent
 * Device Properties – Including a minimum and maximum Operating System version.
 * Configuration Manager Compliance – Whether the endpoint is compliance will all Configuration Manager evaluations. This is especially applicable in a co-managed scenario such as this deployment.
 * System Security – Password compliance, standards, length, and complexity. This also includes device level firewall, TPM, Antivirus, Antispyware, and Microsoft Defender Antimalware settings.
-* Microsoft Defender ATP – Configures the maximum allowed machine risk score, if exceeded the device is marked as noncompliant.
+* Microsoft Defender for Endpoint – Configures the maximum allowed machine risk score, if exceeded the device is marked as noncompliant.
 
 Device Compliance Design Decisions for all agencies and implementation types.
 
@@ -1364,7 +1363,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Compliance Assessment | Configured | Since mobile devices routinely leave the office environment, and the protection it affords, it is important that organisations develop a mobile device usage policy governing their use.
 
-### Intune - device configuration
+### Intune - Device configuration
 
 Device Configuration Profiles provide the ability to control settings and features on supported endpoints. These include, device and user settings, browser settings, and hardware settings. Device Configuration Profiles can be deployed to specific users or devices by using Azure AD groups.
 
@@ -1405,37 +1404,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Windows 10 and later polices | Not Configured | Management solution such as MECM and Group Policy are applied to manage settings.
 
-### Intune - security baselines
-
-Security Baselines are pre-configured groups of Windows settings that are recommended by Microsoft. The security baselines are templates and are used to create a profile that is specific to the environment for deployment and applied to enrolled devices.
-
-Within Intune, pre-configured Security Baselines profiles can be associated to devices to align them with Microsoft security best practices. These profiles contain multiple device specific configuration profiles and control several security related settings such as, but not limited to:
-
-* App Runtime
-* Autoplay
-* BitLocker.
-
-These baselines provide robust security guidelines and are generated by Microsoft.
-
-In the case of a co-managed / hybrid scenario, security baselines should only be used when they do not conflict with settings deployed through MECM and Group Policy.
-
-Security Baselines Design Decisions for cloud native implementations
-
-Decision Point | Design Decision | Justification
---- | --- | ---
-Windows 10 Security Baselines | Configured | System configuration is managed via Intune.
-Microsoft Defender ATP Baselines | Configured | System configuration is managed via Intune.
-Microsoft Edge Baseline | Configured | System configuration is managed via Intune.
-
-Security Baselines Design Decisions for hybrid implementations.
-
-Decision Point | Design Decision | Justification
---- | --- | ---
-Windows 10 Security Baselines | Configured | Agencies operating in hybrid environments can elect to have system configuration managed by an existing management solution such as MECM and Group Policy, or to manage system configuration via Intune. This blueprint offers an example of using Intune as the system configuration Management tool for illustrative purposes however agencies can elect to have MECM and Group Policy as the primary system configuration method without affecting cyber security postures.<br>System configuration will be deployed via Intune.
-Microsoft Defender ATP Baselines | Configured | Agencies operating in hybrid environments can elect to have system configuration managed by an existing management solution such as MECM and Group Policy, or to manage system configuration via Intune. This blueprint offers an example of using Intune as the system configuration Management tool for illustrative purposes however agencies can elect to have MECM and Group Policy as the primary system configuration method without affecting cyber security postures.<br>System configuration will be deployed via Intune.
-Microsoft Edge Baseline | Configured | Agencies operating in hybrid environments can elect to have system configuration managed by an existing management solution such as MECM and Group Policy, or to manage system configuration via Intune. This blueprint offers an example of using Intune as the system configuration Management tool for illustrative purposes however agencies can elect to have MECM and Group Policy as the primary system configuration method without affecting cyber security postures.<br>System configuration will be deployed via Intune.
-
-### Intune - information protection
+### Intune - Information protection
 
 Application protection policies are rules that ensure an Agency's data remains safe or contained in a managed application.
 
@@ -1451,7 +1420,7 @@ Mobile Apps | Default set will be protected on mobile devices. Detailed settings
 Network Boundary – Cloud Resources | Default SharePoint URLs will be protected. Detailed settings are in the DTA – Platform – ABAC document. | If additional URLs are identified these can also be added to the Cloud Resources scope.
 Network Boundary – Network Domain | Production domain will be protected. Detailed settings are in the DTA – Platform – ABAC document. | If additional network subnets are identified these can also be added to the Network Domain scope.
 
-### Intune - software updates
+### Intune - Software updates
 
 Windows Update for Business uses Intune to manage the installation of updates and features from Microsoft Windows Update servers. There is no requirement for on-premises servers or storage of update files.
 
@@ -1528,7 +1497,6 @@ Applications types that can be managed include:
 * Store Apps (Android, iOS, Windows Phone, Microsoft Store and Google Play)
 * The Microsoft Office suite
 * Microsoft Edge
-* Microsoft Defender ATP
 * Web links
 * Built-In applications
 * Line of Business applications
@@ -1680,17 +1648,15 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Azure Portal | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://portal.azure.com](https://portal.azure.com/).<br>Standard users do not have access to the portal.
 Microsoft 365 Admin Center | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://admin.microsoft.com/](https://admin.microsoft.com/). 
-Microsoft Defender ATP Portal | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://securitycenter.windows.com/](https://securitycenter.windows.com/). 
+Microsoft 365 Defender (Microsoft 365 security) | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://security.microsoft.com/](https://security.microsoft.com/). 
 MCAS Portal | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://portal.cloudappsecurity.com/](https://portal.cloudappsecurity.com/). 
 Microsoft 365 Compliance Center | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://compliance.microsoft.com/](https://compliance.microsoft.com/). 
 Microsoft Endpoint Manager Admin Center | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://endpoint.microsoft.com/](https://endpoint.microsoft.com/). 
-Microsoft 365 Security Center | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://security.microsoft.com/](https://security.microsoft.com/). 
-Azure ATP Portal | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://portal.atp.azure.com/](https://portal.atp.azure.com/). 
-Microsoft Defender Security Intelligence Portal | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://microsoft.com/wdsi/](https://microsoft.com/wdsi/). 
+Defender for Identity Portal | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://portal.atp.azure.com/](https://portal.atp.azure.com/). 
 
-### Role Based Access Control (RBAC)
+### Role Based Access Control
 
-RBAC defines what an end user or administrator can do. In relation to system administration, RBAC provides various roles each of which can only perform certain tasks. For example, help desk staff may be able to only view certain resources, whereas system administrators could view, create, and delete those resources.
+Role Based Access Control (RBAC) defines what an end user or administrator can do. In relation to system administration, RBAC provides various roles each of which can only perform certain tasks. For example, help desk staff may be able to only view certain resources, whereas system administrators could view, create, and delete those resources.
 
 When deploying the RBAC model in Azure, there are two scopes where access can be granted. The use of the scopes can be used separately or together depending on the services activated. The scopes include:
 

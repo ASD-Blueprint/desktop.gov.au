@@ -165,7 +165,7 @@ Please note, if a setting is not mentioned in the below, it should be assumed to
 
 #### Cloud-native implementation types
 
-Note, cloud-native connector configuration assumes Office 365 is not configured with a 3rd party gateway for mail flow. 
+Cloud-native connector configuration assumes Office 365 is not configured with a 3rd party gateway for mail flow. 
 
 Agencies that are required to route traffic through a 3rd party mail gateway will require connectors to be configured.
 
@@ -197,7 +197,7 @@ The following table describes the Exchange Online inbound mail connectors for a 
 | Status                                               | On                                                           |
 | Retain internal Exchange email headers (recommended) | Enable                                                       |
 | How to identify your organization                    | Identify the organization by verifying that messages are coming Inbound from xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
-| Security restrictions                                | Reject messages if they aren’t encrypted using Transport Layer Security ‎(TLS)‎, or the subject name on the certificate that the organization uses to authenticate with Office 365 doesn’t‎ match this domain name: *.Agency.gov.au |
+| Security restrictions                                | Reject messages if they aren’t encrypted using Transport Layer Security ‎(TLS)‎, or the subject name on the certificate that the organization uses to authenticate with Office 365 doesn’t‎ match this domain name: `*.Agency.gov.au` |
 
 The following table describes the Exchange Online outbound mail connectors for a Hybrid implementation type.
 
@@ -211,7 +211,7 @@ The following table describes the Exchange Online outbound mail connectors for a
 | How to identify your organization                    | Identify the organization by verifying that messages are going outbound from xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
 | When to use the connector                            | Only when email messages are sent to these domains: *        |
 | Routing method                                       | Route email messages through these smart hosts: Agency.gov.au |
-| Security restrictions                                | Always use Transport Layer Security ‎(TLS)‎ and connect only if the recipient’s email server certificate is issued by a trusted certificate authority ‎(CA)‎, and the subject name matches this domain: mail.Agency.gov.au |
+| Security restrictions                                | Always use Transport Layer Security ‎(TLS)‎ and connect only if the recipient’s email server certificate is issued by a trusted certificate authority ‎(CA)‎, and the subject name matches this domain: `mail.Agency.gov.au` |
 
 ### MX records
 
@@ -731,7 +731,7 @@ For Hybrid implementation types, the Archive is configured using the On-Premises
 `Exchange Admin Center > recipients > mailboxes > <username> > mailbox features`
 
 ```powershell
-Enable-RemoteMailbox -Identity “Jane Smith” –Archive
+Enable-RemoteMailbox -Identity "Jane Smith" -Archive
 ```
 
 For Cloud-native implementation types, the Archive is configured using the Exchange Online Admin Center or Exchange Online PowerShell.
@@ -783,13 +783,11 @@ The following mail flow rules have been configured for all implementation types.
 
 * Apply this rule if: The recipient is located `Outside the organization`
 * Do the following actions: Append the message with the disclaimer
-
-```
-'<br/>
-<br/>
-<p style="font-size:8pt; line-height:10pt; font-family: 'Cambria','times roman',serif;">The content of this email is confidential and intended for the recipient specified in message only. It is strictly forbidden to share any part of this message with any third party, without a written consent of the sender. If you received this message by mistake, please reply to this message and follow with its deletion, so that we can ensure such a mistake does not occur in the future.</p>'. 
-```
-
+  ```
+  '<br/>
+  <br/>
+  <p style="font-size:8pt; line-height:10pt; font-family: 'Cambria','times roman',serif;">The content of this email is confidential and intended for the recipient specified in message only. It is strictly forbidden to share any part of this message with any third party, without a written consent of the sender. If you received this message by mistake, please reply to this message and follow with its deletion, so that we can ensure such a mistake does not occur in the future.</p>'. 
+  ```
 * If the disclaimer can't be applied, reject the message.
 * ExceptIfSubjectMatchesPatterns: -
 * FromScope: -
@@ -1571,19 +1569,15 @@ The following table describes the SharePoint Online Tenant configuration setting
 `SharePoint admin center > Policies > Sharing > External Sharing`
 
 * Content can be shared with:
-
-```
-SharePoint: New and existing guests
-OneDrive: Only people in your organization
-```
-
+  ```
+  SharePoint: New and existing guests
+  OneDrive: Only people in your organization
+  ```
 * Limit external sharing by domain:
-
-```
-Agency.gov.au
-<other trusted Agencies>
-```
-
+  ```
+  Agency.gov.au
+  <other trusted Agencies>
+  ```
 * Allow only users in specific security groups to share externally: `False`
 * Guests must sign in using the same account to which sharing invitations are sent: `True`
 * Allow guests to share items they don’t own: `False`

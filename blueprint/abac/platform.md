@@ -144,7 +144,7 @@ The following ABAC settings outlines the Azure Active Directory configuration fo
 * Allow Ad Hoc self-service sign-up: `Disabled`
 
 ```powershell
- Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions $false
+Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions $false
 ```
 
 ### Microsoft 365 groups
@@ -317,10 +317,10 @@ Connect-AzureAD
 $settingsObjectID = (Get-AzureADDirectorySetting | Where-object -Property Displayname -Value "Group.Unified" -EQ).id
 if(!$settingsObjectID)
 {
-    $template = Get-AzureADDirectorySettingTemplate | Where-object {$_.displayname -eq "group.unified"}
-    $settingsCopy = $template.CreateDirectorySetting()
-    New-AzureADDirectorySetting -DirectorySetting $settingsCopy
-    $settingsObjectID = (Get-AzureADDirectorySetting | Where-object -Property Displayname -Value "Group.Unified" -EQ).id
+  $template = Get-AzureADDirectorySettingTemplate | Where-object {$_.displayname -eq "group.unified"}
+  $settingsCopy = $template.CreateDirectorySetting()
+  New-AzureADDirectorySetting -DirectorySetting $settingsCopy
+  $settingsObjectID = (Get-AzureADDirectorySetting | Where-object -Property Displayname -Value "Group.Unified" -EQ).id
 }
 
 $settingsCopy = Get-AzureADDirectorySetting -Id $settingsObjectID
@@ -331,7 +331,7 @@ if($GroupName)
   $settingsCopy["GroupCreationAllowedGroupId"] = (Get-AzureADGroup -SearchString $GroupName).objectid
 }
  else {
-$settingsCopy["GroupCreationAllowedGroupId"] = $GroupName
+  $settingsCopy["GroupCreationAllowedGroupId"] = $GroupName
 }
 Set-AzureADDirectorySetting -Id $settingsObjectID -DirectorySetting $settingsCopy
 
@@ -387,8 +387,8 @@ The following ABAC settings outlines the Identity Protection configuration for a
 
   | Implementation | Accounts to exclude                                          |
   | -------------- | ------------------------------------------------------------ |
-  | Cloud-native   | `break.glass_priv1@<Agency>.onmicrosoft.com`<br/>`break.glass_priv2@<Agency>.onmicrosoft.com` |
-  | Hybrid         | `break.glass_priv1@<Agency>.onmicrosoft.com`<br/>`break.glass_priv2@<Agency>.onmicrosoft.com`<br />`Sync_<account_1>_<account guid>@<Agency>.onmicrosoft.com`<br/>`Sync_<account_2>_<account guid>@<Agency>.onmicrosoft.com` |
+  | Cloud-native   | `break.glass_priv1@<Agency>.onmicrosoft.com`<br>`break.glass_priv2@<Agency>.onmicrosoft.com` |
+  | Hybrid         | `break.glass_priv1@<Agency>.onmicrosoft.com`<br>`break.glass_priv2@<Agency>.onmicrosoft.com`<br>`Sync_<account_1>_<account guid>@<Agency>.onmicrosoft.com`<br>`Sync_<account_2>_<account guid>@<Agency>.onmicrosoft.com` |
 
   Sign-in risk settings: `Medium and above`
 
@@ -403,8 +403,8 @@ The following ABAC settings outlines the Identity Protection configuration for a
 
   | Implementation | Accounts to exclude                                          |
   | -------------- | ------------------------------------------------------------ |
-  | Cloud-native   | `break.glass_priv1@<Agency>.onmicrosoft.com`<br/>`break.glass_priv2@<Agency>.onmicrosoft.com` |
-  | Hybrid         | `break.glass_priv1@<Agency>.onmicrosoft.com`<br/>`break.glass_priv2@<Agency>.onmicrosoft.com`<br />`Sync_<account_1>_<account guid>@<Agency>.onmicrosoft.com`<br/>`Sync_<account_2>_<account guid>@<Agency>.onmicrosoft.com` |
+  | Cloud-native   | `break.glass_priv1@<Agency>.onmicrosoft.com`<br>`break.glass_priv2@<Agency>.onmicrosoft.com` |
+  | Hybrid         | `break.glass_priv1@<Agency>.onmicrosoft.com`<br>`break.glass_priv2@<Agency>.onmicrosoft.com`<br>`Sync_<account_1>_<account guid>@<Agency>.onmicrosoft.com`<br>`Sync_<account_2>_<account guid>@<Agency>.onmicrosoft.com` |
 
   User risk setting: `Medium and above`
 
@@ -439,14 +439,12 @@ Primary Azure AD Connect settings
 * Directory to connect to: `<Agency>.gov.au`
 * Source of truth for account information: `On-Premises Active Directory (<Agency>.gov.au)`
 * User sign-in method
-
 ```
 Selected - Pass-through authentication
 Not selected – Password Hash Synchronization
 Not selected – Federation with AD FS
 Not selected – Federation with PingFederate
 ```
-
 * Enable Single Sign-on: `Enabled`
 * Directory Type: `Active Directory`
 * Forest for Configured Directories: `<agency_forest_name>.local`
@@ -456,19 +454,17 @@ Not selected – Federation with PingFederate
 * Domain and OU filtering
   * Directory: `<agency_forest_name>.local`
   * Sync selected domains and OUs:
-
-```
-Department
-  * Groups
-    * Admin
-    * Security Access
-  * Users
-    * Admin
-    * General
-    * Service Accounts
-  * Computers
-```
-
+  ```
+  Department
+    . Groups
+    .  . Admin
+    .  . Security Access
+    . Users
+    .  . Admin
+    .  . General
+    .  . Service Accounts
+    . Computers
+  ```
   * How users should be identified in your on-premises directories: `Users are represented only once across all directories`
   * How users should be identified with Azure AD: `ms-DS-Consistency-Guid`
   * Filter users and devices: `Synchronize all users and devices`
@@ -480,30 +476,27 @@ Department
   * Group writeback: `Disabled`
   * Azure AD app and attribute filtering: `Enabled`
   * Azure AD Apps: The following applications are enabled:
+  ```
+  Office 365 ProPlus
+  Exchange Online
+  SharePoint Online
+  Lync Online
+  Azure RMS
+  Intune
+  Dynamics CRM
+  3rd party application
+  ```
 
-```
-Office 365 ProPlus
-Exchange Online
-SharePoint Online
-Lync Online
-Azure RMS
-Intune
-Dynamics CRM
-3rd party application
-```
-
-Standby Azure AD Connect settings
+Standby Azure AD Connect settings:
 
 * Source of truth for account information: `On-Premises Active Directory (<Agency>.gov.au)`
 * User sign-in method
-
 ```
 Selected - Pass-through authentication
 Not selected – Password Hash Synchronization
 Not selected – Federation with AD FS
 Not selected – Federation with PingFederate
 ```
-
 * Enable Single Sign-on: `Enabled`
 * Directory Type: `Active Directory`
 * Forest for Configured Directories: `<agency_forest_name>.local`
@@ -511,21 +504,19 @@ Not selected – Federation with PingFederate
 * Azure AD Domain: `Verified`
 * Attribute used for login: `userPrincipleName   (User ID)`
 * Domain and OU filtering
-  * Directory | <agency_forest_name>.local
+  * Directory \| `<agency_forest_name>.local`
   * Sync selected domains and OUs
-
-```
-Department
-  * Groups
-    * Admin
-    * Security Access
-  * Users
-    * Admin
-    * General
-    * Service Accounts
-  * Computers
-```
-
+  ```
+  Department
+      . Groups
+      .  . Admin
+      .  . Security Access
+      . Users
+      .  . Admin
+      .  . General
+      .  . Service Accounts
+      . Computers
+  ```
   * How users should be identified in your on-premises directories: `Users are represented only once across all directories`
   * How users should be identified with Azure AD: `ms-DS-Consistency-Guid`
   * Filter users and devices: `Synchronize all users and devices`
@@ -537,7 +528,6 @@ Department
   * Group writeback: `Disabled`
   * Azure AD app and attribute filtering: `Enabled`
   * Azure AD Apps: The following applications are enabled:
-
 ```
 Office 365 ProPlus
 Exchange Online
@@ -712,31 +702,30 @@ The following ABAC settings outlines the AD Connect authentication method config
 * Authentication Method: `PTA`
 * Number of PTA servers: `3`
 * Add Proxy settings
-  * Add the following text to the end of the file `C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config` to enable proxy settings. This file needs to be opened as "administrator" context.`
-
-```
-<system.net>
-  <defaultProxy enabled="true" useDefaultCredentials="true">
-    <proxy
-      usesystemdefault="true"
-      proxyaddress="http://<proxyserveraddress>:8080"
-      bypassonlocal="true"
-    />
-  </defaultProxy>
-</system.net>
-```
-
+  * Add the following text to the end of the file `C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config` to enable proxy settings. This file needs to be opened as "administrator" context.
+  
+  ```xml
+  <system.net>
+    <defaultProxy enabled="true" useDefaultCredentials="true">
+      <proxy
+        usesystemdefault="true"
+        proxyaddress="http://<proxyserveraddress>:8080"
+        bypassonlocal="true"
+      />
+    </defaultProxy>
+  </system.net>
+  ```
 * Required Protocols
   * Enable outbound HTTP – 80 (TCP/UDP)
   * Enable outbound HTTPS – 443 (TCP/UDP)
 * Register PTA Connector
   * Execute the following power shell command to register PTA connector:
+  
+  ```
+  cd C:\Program Files\Microsoft Azure AD Connect Authentication Agent
 
-```
-cd C:\Program Files\Microsoft Azure AD Connect Authentication Agent
-
-./RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "PassthroughAuthPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
-```
+  ./RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "PassthroughAuthPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
+  ```
 
 ## Privileged identity management
 
@@ -2017,32 +2006,30 @@ The following ABAC settings outlines the application protection policy configura
 * Enrollment state: `With enrollment`
 * Targeted apps
   * Protected apps:
-
-```
-Office-365-ProPlus-1810-Allowed.xml
-Recommended-Denied-Office-365-ProPlus-1810.xml
-MsEdge - WIPMode-Allow - Enterprise AppLocker Policy File.xml
-Microsoft OneDrive
-Notepad
-Microsoft Paint
-Microsoft Remote Desktop
-Microsoft Teams
-Microsoft Azure Information Protection
-Microsoft Edge
-Microsoft People
-Word Mobile
-Excel Mobile
-PowerPoint Mobile
-OneDrive App
-OneNote
-Mail and Calendar for Windows 10
-Microsoft Photos
-Groove Music
-Microsoft Movies and TV
-Microsoft Messaging
-Company Portal
-```
-
+  ```
+  Office-365-ProPlus-1810-Allowed.xml
+  Recommended-Denied-Office-365-ProPlus-1810.xml
+  MsEdge - WIPMode-Allow - Enterprise AppLocker Policy File.xml
+  Microsoft OneDrive
+  Notepad
+  Microsoft Paint
+  Microsoft Remote Desktop
+  Microsoft Teams
+  Microsoft Azure Information Protection
+  Microsoft Edge
+  Microsoft People
+  Word Mobile
+  Excel Mobile
+  PowerPoint Mobile
+  OneDrive App
+  OneNote
+  Mail and Calendar for Windows 10
+  Microsoft Photos
+  Groove Music
+  Microsoft Movies and TV
+  Microsoft Messaging
+  Company Portal
+  ```
   * Exempt apps: -
 * Required settings
   * Windows Information Protection mode: `Block`
@@ -2052,14 +2039,11 @@ Company Portal
     * Type: `Cloud resources`
     * Name: `Office365`
     * Value:
-
-```
-Agency.sharepoint.com|Agency-my.sharepoint.com|Agency-files.sharepoint.com|tasks.office.com|protection.office.com|meet.lync.com|teams.microsoft.com|www.yammer.com|yammer.com|persona.yammer.com|outlook.office.com|outlook.office365.com|attachments.office.net|Agency.crm.dynamics.com|Agency.visualstudio.com|Agency.powerbi.com
-```
-
+    ```
+    Agency.sharepoint.com|Agency-my.sharepoint.com|Agency-files.sharepoint.com|tasks.office.com|protection.office.com|meet.lync.com|teams.microsoft.com|www.yammer.com|yammer.com|persona.yammer.com|outlook.office.com|outlook.office365.com|attachments.office.net|Agency.crm.dynamics.com|Agency.visualstudio.com|Agency.powerbi.com
+    ```
     * Enterprise Proxy Servers list is authoritative (do not auto-detect): `Off`
     * Enterprise IP Ranges list is authoritative (do not auto-detect): `Off`
-
   * Data protection
     * Upload a Data Recovery Agent (DRA) certificate to allow recovery of encrypted data: `Not configured`
     * Prevent corporate data from being accessed by apps when the device is locked. Applies only to Windows 10 Mobile: `Off`
@@ -2082,24 +2066,22 @@ Agency.sharepoint.com|Agency-my.sharepoint.com|Agency-files.sharepoint.com|tasks
   * Target to apps on all device types: `Yes`
   * Device types: -
   * Public apps:
-
-```
-Skype for Business
-Microsoft Excel
-Microsoft Outlook
-Microsoft PowerPoint
-Microsoft Word
-Microsoft OneNote
-Microsoft Planner
-Azure Information Protection
-Microsoft SharePoint
-Microsoft OneDrive
-Microsoft Teams
-Microsoft Stream
-Microsoft To-Do
-Microsoft Visio Viewer
-```
-
+  ```
+  Skype for Business
+  Microsoft Excel
+  Microsoft Outlook
+  Microsoft PowerPoint
+  Microsoft Word
+  Microsoft OneNote
+  Microsoft Planner
+  Azure Information Protection
+  Microsoft SharePoint
+  Microsoft OneDrive
+  Microsoft Teams
+  Microsoft Stream
+  Microsoft To-Do
+  Microsoft Visio Viewer
+  ```
 * Data protection
   * Data Transfer
     * Backup org data to iTunes and iCloud backups: `Block`
@@ -2231,14 +2213,12 @@ The following ABAC settings outlines the Microsoft Defender Advanced Threat Prot
     * Rank: `1`
     * Automation level: `Full - Remediate threats automatically`
     * Members:
-
-```
-Name Starts with <Agency 3 characters>
-And Domain Starts with <Not configured>
-And Tag: Starts with <Not configured>
-And OS In <Not configured>
-```
-
+    ```
+    Name Starts with <Agency 3 characters>
+    And Domain Starts with <Not configured>
+    And Tag: Starts with <Not configured>
+    And OS In <Not configured>
+    ```
 * User access
   * Azure AD user groups with access to this machine group: `rol-Agency-security-defenderatp-admins`, `rol-Agency-security-defenderatp-viewer`, `rol-Agency-security-defenderatp-remediation`
   * Device group name: `Ungrouped devices (default)`
@@ -2267,28 +2247,24 @@ And OS In <Not configured>
 * Web content filtering
   * Policy name: `Adult Sites`
     * Blocked categories:
-
-```
-Cults
-Gambling
-Nudity
-Pornography/Sexually explicit
-Sex education
-Tasteless
-Violence
-```
-
+    ```
+    Cults
+    Gambling
+    Nudity
+    Pornography/Sexually explicit
+    Sex education
+    Tasteless
+    Violence
+    ```
 * Scope: `All devices`
   * Policy name: `High Traffic Sites`
     * Blocked categories:
-
-```
-Download sites
-Image sharing
-Peer-to-peer
-Streaming media & downloads
-```
-
+    ```
+    Download sites
+    Image sharing
+    Peer-to-peer
+    Streaming media & downloads
+    ```
 * Scope: `All devices`
 * Automation uploads
   * Content analysis: `On`
@@ -2350,24 +2326,21 @@ The following ABAC settings outlines the Microsoft Cloud App Security configurat
     * Log collectors: `Not configured`
   * App tags
     * Sanctioned:
-
-```
-Microsoft Skype for Business
-Microsoft SharePoint Online
-Office 365
-Microsoft Flow
-Microsoft Exchange Online
-Microsoft Teams
-Microsoft Power BI
-Microsoft OneDrive for Business
-Microsoft Cloud App Security
-Microsoft Azure
-```
-
+    ```
+    Microsoft Skype for Business
+    Microsoft SharePoint Online
+    Office 365
+    Microsoft Flow
+    Microsoft Exchange Online
+    Microsoft Teams
+    Microsoft Power BI
+    Microsoft OneDrive for Business
+    Microsoft Cloud App Security
+    Microsoft Azure
+    ```
     * Unsanctioned: `Not configured`
     * Monitored: `Not configured`
     * Restricted: `Not configured`
-
   * Exclude entities: `Not configured`
   * Microsoft Defender ATP
     * Block unsanctioned apps: `Checked`
@@ -2471,126 +2444,120 @@ Microsoft Azure
   * Act on activity: `Single activity`
   * Policy Filters
     * Office 365
-
-```
-SAS:EndAuth
-WindowsAuthenticationController:usernamemixed
-OrgIdWsTrust2:extsts
-WindowsAuthenticationController:sso
-DebugMode:Set
-Federation:oauth2claimsprovider
-ForeignRealmIndexLogonInitialAuthUsingSAML20PostSimpleSign
-SSO Logon
-bind:BindComplete
-OAuth2:Authorize
-Federation:oauth2msa
-WsFederation:wsfederation
-OAuth2:Token
-Federation:oauth2
-bind:Bind
-OrgIdWsFederation:federation
-LOGIN
-UserInfo:Index
-ForeignRealmIndexLogonInitialAuthUsingADFSFederatedToken
-DeviceAuth:ReprocessTls
-KeyDataService:GetKeyData
-WindowsAuthenticationController:windowstransport
-PasswordLogonCookieCopyUsingDAToken
-Login:login
-SAS:ProcessAuth
-Consent:Set
-Login:resume
-Saml2:processrequest
-PIA:PIAProcessAuth
-OAuth2:DeviceAuth
-cmsi:Cmsi
-PasswordLogonSilentReAuthUsingDAToken
-ForeignRealmIndexLogonCookieCopyUsingDAToken
-OAuth2:ApproveSession
-Consent:Grant
-Login:reprocess
-MessagePrompt:MessagePrompt
-OrgIdWsFederation:postsrfactionhandler
-DeviceAuth:PKeyAuth
-SAS:BeginAuth
-OrgIdWsTrust2:process
-PasswordLogonInitialAuthUsingPassword
-ForeignRealmIndexLogonCookieCopyUsingSha1RememberMyPassword
-kmsi:kmsi
-SSPR:end
-WindowsAuthenticationController:sso
-PasswordLogonInitialAuthUsingADFSFederatedToken
-DeviceAuth:ReprocessTls
-KeyDataService:GetKeyData
-OrgIdWsTrust2:extsts
-OAuth2:Authorize
-SidToName:SidToName
-SAS:ProcessAuth
-```
-
+    ```
+    SAS:EndAuth
+    WindowsAuthenticationController:usernamemixed
+    OrgIdWsTrust2:extsts
+    WindowsAuthenticationController:sso
+    DebugMode:Set
+    Federation:oauth2claimsprovider
+    ForeignRealmIndexLogonInitialAuthUsingSAML20PostSimpleSign
+    SSO Logon
+    bind:BindComplete
+    OAuth2:Authorize
+    Federation:oauth2msa
+    WsFederation:wsfederation
+    OAuth2:Token
+    Federation:oauth2
+    bind:Bind
+    OrgIdWsFederation:federation
+    LOGIN
+    UserInfo:Index
+    ForeignRealmIndexLogonInitialAuthUsingADFSFederatedToken
+    DeviceAuth:ReprocessTls
+    KeyDataService:GetKeyData
+    WindowsAuthenticationController:windowstransport
+    PasswordLogonCookieCopyUsingDAToken
+    Login:login
+    SAS:ProcessAuth
+    Consent:Set
+    Login:resume
+    Saml2:processrequest
+    PIA:PIAProcessAuth
+    OAuth2:DeviceAuth
+    cmsi:Cmsi
+    PasswordLogonSilentReAuthUsingDAToken
+    ForeignRealmIndexLogonCookieCopyUsingDAToken
+    OAuth2:ApproveSession
+    Consent:Grant
+    Login:reprocess
+    MessagePrompt:MessagePrompt
+    OrgIdWsFederation:postsrfactionhandler
+    DeviceAuth:PKeyAuth
+    SAS:BeginAuth
+    OrgIdWsTrust2:process
+    PasswordLogonInitialAuthUsingPassword
+    ForeignRealmIndexLogonCookieCopyUsingSha1RememberMyPassword
+    kmsi:kmsi
+    SSPR:end
+    WindowsAuthenticationController:sso
+    PasswordLogonInitialAuthUsingADFSFederatedToken
+    DeviceAuth:ReprocessTls
+    KeyDataService:GetKeyData
+    OrgIdWsTrust2:extsts
+    OAuth2:Authorize
+    SidToName:SidToName
+    SAS:ProcessAuth
+    ```
     * Azure
-
-```
-OAuth2:DeviceAuth
-SAS:BeginAuth
-PIA:PIAProcessAuth
-DeviceAuth:ReprocessTls
-KeyDataService:GetKeyData
-OAuth2:Token
-Login:reprocess
-MessagePrompt:MessagePrompt
-Federation:oauth2claimsprovider
-Federation:oauth2
-Consent:Grant
-Login:reprocess
-SAS:EndAuth
-OrgIdWsFederation:postsrfactionhandler
-Login:login
-bind:Bind
-SAS:ProcessAuth
-SSPR:end
-WindowsAuthenticationController:usernamemixed
-OAuth2:DeviceAuth
-OAuth2:ApproveSession
-WsFederation:wsfederation
-KeyDataService:GetKeyData
-Consent:Set
-OAuth2:Token
-LOGIN
-PIA:PIAProcessAuth
-DeviceAuth:PKeyAuth
-OrgIdWsFederation:federation
-Login:resume
-kmsi:kmsi
-LOGIN
-```
-
+    ```
+    OAuth2:DeviceAuth
+    SAS:BeginAuth
+    PIA:PIAProcessAuth
+    DeviceAuth:ReprocessTls
+    KeyDataService:GetKeyData
+    OAuth2:Token
+    Login:reprocess
+    MessagePrompt:MessagePrompt
+    Federation:oauth2claimsprovider
+    Federation:oauth2
+    Consent:Grant
+    Login:reprocess
+    SAS:EndAuth
+    OrgIdWsFederation:postsrfactionhandler
+    Login:login
+    bind:Bind
+    SAS:ProcessAuth
+    SSPR:end
+    WindowsAuthenticationController:usernamemixed
+    OAuth2:DeviceAuth
+    OAuth2:ApproveSession
+    WsFederation:wsfederation
+    KeyDataService:GetKeyData
+    Consent:Set
+    OAuth2:Token
+    LOGIN
+    PIA:PIAProcessAuth
+    DeviceAuth:PKeyAuth
+    OrgIdWsFederation:federation
+    Login:resume
+    kmsi:kmsi
+    LOGIN
+    ```
     * Microsoft
-
-```
-OAuth2:DeviceAuth
-Login:resume
-Consent:Grant
-SAS:BeginAuth
-WsFederation:wsfederation
-OAuth2:Authorize
-Saml2:processrequest
-login
-Login:reprocess
-Federation:oauth2claimsprovider
-Federation:oauth2
-OrgIdWsTrust2:process
-kmsi:kmsi
-SAS:EndAuth
-LOGIN
-Login:login
-DeviceAuth:ReprocessTls
-MessagePrompt:MessagePrompt
-SAS:ProcessAuth
-Consent:Set
-WindowsAuthenticationController:usernamemixed
-```
-
+    ```
+    OAuth2:DeviceAuth
+    Login:resume
+    Consent:Grant
+    SAS:BeginAuth
+    WsFederation:wsfederation
+    OAuth2:Authorize
+    Saml2:processrequest
+    login
+    Login:reprocess
+    Federation:oauth2claimsprovider
+    Federation:oauth2
+    OrgIdWsTrust2:process
+    kmsi:kmsi
+    SAS:EndAuth
+    LOGIN
+    Login:login
+    DeviceAuth:ReprocessTls
+    MessagePrompt:MessagePrompt
+    SAS:ProcessAuth
+    Consent:Set
+    WindowsAuthenticationController:usernamemixed
+    ```
   * Alerts
     * Create an alert for each matching event with the policy's severity: `Configured`
     * Send alert as email: `Not configured`
@@ -2608,126 +2575,120 @@ WindowsAuthenticationController:usernamemixed
   * Act on activity: `Single activity`
   * Policy Filters
     * Office 365
-
-```
-SAS:EndAuth
-WindowsAuthenticationController:usernamemixed
-OrgIdWsTrust2:extsts
-WindowsAuthenticationController:sso
-DebugMode:Set
-Federation:oauth2claimsprovider
-ForeignRealmIndexLogonInitialAuthUsingSAML20PostSimpleSign
-SSO Logon
-bind:BindComplete
-OAuth2:Authorize
-Federation:oauth2msa
-WsFederation:wsfederation
-OAuth2:Token
-Federation:oauth2
-bind:Bind
-OrgIdWsFederation:federation
-LOGIN
-UserInfo:Index
-ForeignRealmIndexLogonInitialAuthUsingADFSFederatedToken
-DeviceAuth:ReprocessTls
-KeyDataService:GetKeyData
-WindowsAuthenticationController:windowstransport
-PasswordLogonCookieCopyUsingDAToken
-Login:login
-SAS:ProcessAuth
-Consent:Set
-Login:resume
-Saml2:processrequest
-PIA:PIAProcessAuth
-OAuth2:DeviceAuth
-cmsi:Cmsi
-PasswordLogonSilentReAuthUsingDAToken
-ForeignRealmIndexLogonCookieCopyUsingDAToken
-OAuth2:ApproveSession
-Consent:Grant
-Login:reprocess
-MessagePrompt:MessagePrompt
-OrgIdWsFederation:postsrfactionhandler
-DeviceAuth:PKeyAuth
-SAS:BeginAuth
-OrgIdWsTrust2:process
-PasswordLogonInitialAuthUsingPassword
-ForeignRealmIndexLogonCookieCopyUsingSha1RememberMyPassword
-kmsi:kmsi
-SSPR:end
-WindowsAuthenticationController:sso
-PasswordLogonInitialAuthUsingADFSFederatedToken
-DeviceAuth:ReprocessTls
-KeyDataService:GetKeyData
-OrgIdWsTrust2:extsts
-OAuth2:Authorize
-SidToName:SidToName
-SAS:ProcessAuth
-```
-
+    ```
+    SAS:EndAuth
+    WindowsAuthenticationController:usernamemixed
+    OrgIdWsTrust2:extsts
+    WindowsAuthenticationController:sso
+    DebugMode:Set
+    Federation:oauth2claimsprovider
+    ForeignRealmIndexLogonInitialAuthUsingSAML20PostSimpleSign
+    SSO Logon
+    bind:BindComplete
+    OAuth2:Authorize
+    Federation:oauth2msa
+    WsFederation:wsfederation
+    OAuth2:Token
+    Federation:oauth2
+    bind:Bind
+    OrgIdWsFederation:federation
+    LOGIN
+    UserInfo:Index
+    ForeignRealmIndexLogonInitialAuthUsingADFSFederatedToken
+    DeviceAuth:ReprocessTls
+    KeyDataService:GetKeyData
+    WindowsAuthenticationController:windowstransport
+    PasswordLogonCookieCopyUsingDAToken
+    Login:login
+    SAS:ProcessAuth
+    Consent:Set
+    Login:resume
+    Saml2:processrequest
+    PIA:PIAProcessAuth
+    OAuth2:DeviceAuth
+    cmsi:Cmsi
+    PasswordLogonSilentReAuthUsingDAToken
+    ForeignRealmIndexLogonCookieCopyUsingDAToken
+    OAuth2:ApproveSession
+    Consent:Grant
+    Login:reprocess
+    MessagePrompt:MessagePrompt
+    OrgIdWsFederation:postsrfactionhandler
+    DeviceAuth:PKeyAuth
+    SAS:BeginAuth
+    OrgIdWsTrust2:process
+    PasswordLogonInitialAuthUsingPassword
+    ForeignRealmIndexLogonCookieCopyUsingSha1RememberMyPassword
+    kmsi:kmsi
+    SSPR:end
+    WindowsAuthenticationController:sso
+    PasswordLogonInitialAuthUsingADFSFederatedToken
+    DeviceAuth:ReprocessTls
+    KeyDataService:GetKeyData
+    OrgIdWsTrust2:extsts
+    OAuth2:Authorize
+    SidToName:SidToName
+    SAS:ProcessAuth
+    ```
     * Azure
-
-```
-OAuth2:DeviceAuth
-SAS:BeginAuth
-PIA:PIAProcessAuth
-DeviceAuth:ReprocessTls
-KeyDataService:GetKeyData
-OAuth2:Token
-Login:reprocess
-MessagePrompt:MessagePrompt
-Federation:oauth2claimsprovider
-Federation:oauth2
-Consent:Grant
-Login:reprocess
-SAS:EndAuth
-OrgIdWsFederation:postsrfactionhandler
-Login:login
-bind:Bind
-SAS:ProcessAuth
-SSPR:end
-WindowsAuthenticationController:usernamemixed
-OAuth2:DeviceAuth
-OAuth2:ApproveSession
-WsFederation:wsfederation
-KeyDataService:GetKeyData
-Consent:Set
-OAuth2:Token
-LOGIN
-PIA:PIAProcessAuth
-DeviceAuth:PKeyAuth
-OrgIdWsFederation:federation
-Login:resume
-kmsi:kmsi
-LOGIN
-```
-
+    ```
+    OAuth2:DeviceAuth
+    SAS:BeginAuth
+    PIA:PIAProcessAuth
+    DeviceAuth:ReprocessTls
+    KeyDataService:GetKeyData
+    OAuth2:Token
+    Login:reprocess
+    MessagePrompt:MessagePrompt
+    Federation:oauth2claimsprovider
+    Federation:oauth2
+    Consent:Grant
+    Login:reprocess
+    SAS:EndAuth
+    OrgIdWsFederation:postsrfactionhandler
+    Login:login
+    bind:Bind
+    SAS:ProcessAuth
+    SSPR:end
+    WindowsAuthenticationController:usernamemixed
+    OAuth2:DeviceAuth
+    OAuth2:ApproveSession
+    WsFederation:wsfederation
+    KeyDataService:GetKeyData
+    Consent:Set
+    OAuth2:Token
+    LOGIN
+    PIA:PIAProcessAuth
+    DeviceAuth:PKeyAuth
+    OrgIdWsFederation:federation
+    Login:resume
+    kmsi:kmsi
+    LOGIN
+    ```
     * Microsoft
-
-```
-OAuth2:DeviceAuth
-Login:resume
-Consent:Grant
-SAS:BeginAuth
-WsFederation:wsfederation
-OAuth2:Authorize
-Saml2:processrequest
-login
-Login:reprocess
-Federation:oauth2claimsprovider
-Federation:oauth2
-OrgIdWsTrust2:process
-kmsi:kmsi
-SAS:EndAuth
-LOGIN
-Login:login
-DeviceAuth:ReprocessTls
-MessagePrompt:MessagePrompt
-SAS:ProcessAuth
-Consent:Set
-WindowsAuthenticationController:usernamemixed
-```
-
+    ```
+    OAuth2:DeviceAuth
+    Login:resume
+    Consent:Grant
+    SAS:BeginAuth
+    WsFederation:wsfederation
+    OAuth2:Authorize
+    Saml2:processrequest
+    login
+    Login:reprocess
+    Federation:oauth2claimsprovider
+    Federation:oauth2
+    OrgIdWsTrust2:process
+    kmsi:kmsi
+    SAS:EndAuth
+    LOGIN
+    Login:login
+    DeviceAuth:ReprocessTls
+    MessagePrompt:MessagePrompt
+    SAS:ProcessAuth
+    Consent:Set
+    WindowsAuthenticationController:usernamemixed
+    ```
   * Alerts
     * Create an alert for each matching event with the policy's severity: `Configured`
     * Send alert as email: `Not configured`
@@ -2850,7 +2811,7 @@ The following tables describe the Log Analytics settings that are configured wit
 | Item                    | Configuration                                                |
 | ----------------------- | ------------------------------------------------------------ |
 | Diagnostic Setting Name | Send to Log Analytics                                        |
-| Log                     | AuditLogs <br>SignInLogs <br>NonInteractiveUserSignInLogs <br>ServicePrincipalSignInLogs <br>ManagedIdentitySignInLogs <br>ProvisioningLogs<br />RiskyUsers<br/>UserRiskEvents |
+| Log                     | AuditLogs <br>SignInLogs <br>NonInteractiveUserSignInLogs <br>ServicePrincipalSignInLogs <br>ManagedIdentitySignInLogs <br>ProvisioningLogs<br>RiskyUsers<br>UserRiskEvents |
 | Destination details     | Send to Log Analytics Workspace (agency-log-workspace)       |
 
 ## Client configuration
@@ -2937,7 +2898,7 @@ The following table outlines the client printing configuration per implementatio
 | All            | Printer addition restrictions | Device Restrictions Intune Policy will be used to prevent addition and delivery of new printers via DNS name of printer: `Endpoint Manager Admin center > Devices > Device Restrictions > Printer > Add New Printers: Block` |
 | All            | Shared Printer Connections    | Prevent user install via Intune policy CSP: `Devices_PreventUsersFromInstallingPrinterDriversWhenConnectingToSharedPrinters` |
 | Cloud-native   | Driver Delivery               | Intune application deployment (*.intunewin) via script or native printer installation utility will be used for printer driver installation. |
-| Hybrid         | Driver Delivery               | Existing MECM solution will be utilised in driver delivery for local printers. <br />Point to Print is enabled through GPO for printer driver installation from network printer queues. |
+| Hybrid         | Driver Delivery               | Existing MECM solution will be utilised in driver delivery for local printers. <br>Point to Print is enabled through GPO for printer driver installation from network printer queues. |
 | All            | External Printer Connectivity | External Printer Connectivity will be via an Always On VPN.  |
 | All            | Hybrid Cloud Print            | Not Configured.                                              |
 
@@ -2955,7 +2916,7 @@ The following table outlines the client internet access configuration scenarios 
 | Cloud-native   | Office 365 Authentication Traffic | Configured to traverse the web proxy (if part of Agency pattern). Cloud-native implementation types without a proxy that supports SSL inspection will not be able to implement tenancy whitelisting feature. |
 | Hybrid         | Office 365 Authentication Traffic | Existing on-premises proxy will be utilised for Hybrid implementation types. |
 | Cloud          | Windows Updates                   | Client Devices will retrieve updates direct from Microsoft. Windows Update for Business Update Rings are configured in Intune as per the [Software Updates ABAC](https://desktop.gov.au/blueprint/abac/intune-software-updates.html). |
-| Hybrid         | Windows Updates                   | Existing MECM/WSUS solution will be utilised for update retrieval.<br />Hybrid Agencies may wish to transition over to Windows Update Rings in Intune (Windows Update for Business) by moving the Windows Update Policy slider to Intune. For more information on this configuration pattern see [Windows Update for Business with management solutions](https://docs.microsoft.com/en-us/windows/deployment/update/waas-integrate-wufb). |
+| Hybrid         | Windows Updates                   | Existing MECM/WSUS solution will be utilised for update retrieval.<br>Hybrid Agencies may wish to transition over to Windows Update Rings in Intune (Windows Update for Business) by moving the Windows Update Policy slider to Intune. For more information on this configuration pattern see [Windows Update for Business with management solutions](https://docs.microsoft.com/en-us/windows/deployment/update/waas-integrate-wufb). |
 
 ## Application control
 

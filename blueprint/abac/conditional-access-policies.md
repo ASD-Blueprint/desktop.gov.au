@@ -8,12 +8,12 @@ menu: abac
 
 Conditional Access rules can be assigned according to several variables including named locations. These are the public internet (IP) addresses that Azure Active Directory sees, this is not the Agency's internal private IP addressing scheme. Named locations are Agency defined and are used to authorise logon from:
 
-- Agency approved countries,
-- Agency approved network egress or proxy locations (more used in hybrid implementation types),
-- Defining Internet Service Provider (ISP) provider addresses when used with bespoke security use-cases,
-- Agency Privileged Access Workstation (PAW) or Jump Server network egress locations for administration policy use cases (e.g. allowed admin roles).
+* Agency approved countries,
+* Agency approved network egress or proxy locations (more used in hybrid implementation types),
+* Defining Internet Service Provider (ISP) provider addresses when used with bespoke security use-cases,
+* Agency Privileged Access Workstation (PAW) or Jump Server network egress locations for administration policy use cases (e.g. allowed admin roles).
 
-Note, named locations should be avoided for the purposes of supressing MFA on a corporate LAN setting. Consider the use of `Device state` for this scenario.
+Note, named locations should be avoided for the purposes of suppressing MFA on a corporate LAN setting. Consider the use of `Device state` for this scenario.
 
 `Azure AD Conditional Access > Named locations`
 

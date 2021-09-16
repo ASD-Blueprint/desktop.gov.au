@@ -141,12 +141,10 @@ Use security keys for sign-in | Not configured
   * Enrolment types: `Device enrollment`
 * Assignments
   * Included groups:
-
-```
-rol-Agency-Users
-rol-Agency-Administrators
-```
-
+  ```
+  rol-Agency-Users
+  rol-Agency-Administrators
+  ```
   * Excluded groups: -
 
 ## Enrolment restrictions

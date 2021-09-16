@@ -553,7 +553,7 @@ Continuous reports can be generated a few ways such as configuring one or more o
 
 MCAS supports a wide range of [popular proxy and firewall vendors and products](https://docs.microsoft.com/en-us/cloud-app-security/set-up-cloud-discovery#supported-firewalls-and-proxies-) for both snapshot and continuous reports (via log collectors)  . A custom parser can also be configured for unsupported devices allowing manual attribute mapping.
 
-Once a cloud app has been discovered and its usage reviewed it can be either Sanctioned (approved) or Unsanctioned (prohibited) via the Discovered Apps tab. By default, tagging a cloud app as unsanctioned does not block access directly but allows for the generation of a block script that can be downloaded from MCAS and imported into a proxy of firewall appliance. If MCAS is integrated with Defender for Endpoint, app access enforcement can be enabled to block access to apps marked as Unsanctioned.
+Once a cloud app has been discovered and its usage reviewed it can be either Sanctioned (approved) or Unsanctioned (prohibited) via the Discovered Apps tab. By default, tagging a cloud app as unsanctioned does not block access directly but allows for the generation of a block script that can be downloaded from MCAS and imported into a proxy or firewall appliance. If MCAS is integrated with Defender for Endpoint, app access enforcement can be enabled to block access to apps marked as Unsanctioned.
 
 Cloud Discovery Design Decisions for all agencies and implementation types.
 
@@ -1015,9 +1015,9 @@ Role group Design Decisions for hybrid implementations.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Members of the Azure ATP Administrators group | Agency decision	 | Only specific users that require administrative access should be added to this group.
-Members of the Azure ATP Users group | Agency decision	 | Include membership of the cyber security team that are responsible for the day-to-day use and management of Defender for Identity.
-Members of the Azure ATP Viewers group | Agency decision	 | Include membership of the cyber security team to enable auditing of Defender for Identity.
+Members of the Azure ATP Administrators group | Agency decision | Only specific users that require administrative access should be added to this group.
+Members of the Azure ATP Users group | Agency decision | Include membership of the cyber security team that are responsible for the day-to-day use and management of Defender for Identity.
+Members of the Azure ATP Viewers group | Agency decision | Include membership of the cyber security team to enable auditing of Defender for Identity.
 
 ### Defender for Identity – Notifications
 

@@ -23,4 +23,4 @@ Technical Guides:
 
 - [Client Devices - WDAC policy creation](/blueprint/abac/wdac-policy-creation.html)
 - [Client Devices - Task Sequence deployment](/blueprint/abac/hybrid-task-sequence.html) (for hybrid environments)
-
+- [Administration - Disable inactive users automation](/blueprint/abac/admin-disable-inactive-users.html) (for cloud environments)

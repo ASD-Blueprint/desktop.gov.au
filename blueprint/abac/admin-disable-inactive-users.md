@@ -65,7 +65,7 @@ Register the Application for Microsoft Graph.
 
 6. Navigate to `Azure Portal > Active Directory >App registrations > Application Name > Certificates and secrets `.
 
-   ![API secrets](/assets/images/abac/app-registration-api.png)
+   ![Certificates and secrets](/assets/images/abac/app-registration-secret.png)
 
 7. Generate a client secret and take note of the details (client ID and secret) for use in the script below. The client secret is to be stored securely as it can be used to query the environment. The script example uses a client secret for Graph API, for additional security it is recommended to generate certificates.
 

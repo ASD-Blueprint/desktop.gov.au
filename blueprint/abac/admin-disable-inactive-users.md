@@ -6,14 +6,14 @@ menu: abac
 
 The following guide provides instructions to automate disabling and suspending inactive accounts for cloud implementation types.
 
-The following is guidance from the ACSC for inactive accounts:
+The following is guidance from the Australian Cyber Security Centre (ACSC) for inactive accounts:
 
 - **ISM** - Access to systems, applications and data repositories is removed or suspended after one month of inactivity.
-- **Essential 8** - Privileged access to systems and applications is automatically disabled after 45 days of inactivity.
+- **Essential Eight** - Privileged access to systems and applications is automatically disabled after 45 days of inactivity.
 
-Azure Active Directory does not include the ability to disable inactive accounts automatically, automation can be implemented to provide this administrative function.
+Azure Active Directory (Azure AD) does not include the ability to disable inactive accounts automatically, however, automation can be implemented to provide this administrative function.
 
-With hybrid implementation types, access is managed through Active Directory Domain Services management tools and Active Directory sync mirrors these changes to Azure Active Directory, this also may include 3rd-party identity management toolsets for automation.
+With hybrid implementation types, access is managed through Active Directory Domain Services (AD DS) management tools and Active Directory sync mirrors these changes to Azure AD. This also may include third-party identity management toolsets for automation.
 
 This guide includes a sample script that uses the Microsoft Graph API and Azure AD PowerShell modules. The Microsoft Graph API is used to query the sign-in activity within the tenant as it is the only method to reliably ascertain the last interactive sign-in from Azure AD sign-in logs. 
 
@@ -74,8 +74,8 @@ Register the Application for Microsoft Graph.
 The following is a sample script that is used to query Microsoft Graph for user sign in information:
 
 - Users that have not signed in within 30 days are disabled,
-- emergency administrative accounts (break glass) are exempt,
-- accounts that have not yet logged onto are exempt.
+- Emergency administrative accounts (break glass) are exempt, and
+- Accounts that have not yet logged onto are exempt.
 
 The script is ideally ran within an Azure Automation account on a schedule. The permissions delegated to the script to disable user accounts would be granted to the Azure Automation RunAs account within the tenant.
 

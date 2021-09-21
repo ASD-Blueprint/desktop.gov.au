@@ -8,7 +8,7 @@ For all implementation types:
 * [Conditional access policies](/blueprint/abac/conditional-access-policies.html)
 * [Office 365](/blueprint/abac/office-365.html)
 * [Platform](/blueprint/abac/platform.html)
-* Client Devices (Microsoft Endpoint Manager)
+* Client devices (Microsoft Endpoint Manager)
   * [Applications](/blueprint/abac/intune-applications.html)
   * [Compliance](/blueprint/abac/intune-compliance.html)
   * [Configuration](/blueprint/abac/intune-configuration.html)
@@ -19,8 +19,8 @@ For hybrid environments:
 
 * [Network configuration](/blueprint/abac/hybrid-network-configuration.html)
 
-Technical Guides:
+Technical guides:
 
-- [Client Devices - WDAC policy creation](/blueprint/abac/wdac-policy-creation.html)
-- [Client Devices - Task Sequence deployment](/blueprint/abac/hybrid-task-sequence.html) (for hybrid environments)
+- [Client devices - WDAC policy creation](/blueprint/abac/wdac-policy-creation.html)
+- [Client devices - task sequence deployment](/blueprint/abac/hybrid-task-sequence.html) (for hybrid environments)
 

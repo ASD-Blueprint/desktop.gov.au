@@ -108,7 +108,7 @@ Set-RuleOption -FilePath $WDACPolicy -Option 3 -Delete
 
 Supplementary policies expand on the base policy and allow for whitelisting to be targeted to users and/or groups. Supplementary policies can contain both allow and deny rules. A supplementary policy is a base policy until it is linked as a supplementary policy to another base policy. 
 
-Supplementary policies will not work on machines pre 1903. If you are deploying to pre 1903 machines they must be merged into the base policy. [Merge policy](hybrid-client-devices.html#wdac-policy---whitelisting-an-application) instructions are available in the hybrid client whitelisting section.
+Supplementary policies will not work on machines pre 1903. If you are deploying to pre 1903 machines they must be merged into the base policy. [Merge policy](#merging-with-the-base-policy) instructions are available further below.
 
 #### Whitelisting an application
 
@@ -157,6 +157,18 @@ $SupWDACPolicyName = {Name of the supplementary policy}
 $WDACPolicy = {path to the policy file}
 $WDACPolicyID = {base policy id available within the base policy PolicyID tags}
 Set-CIPolicyIdInfo -FilePath $SupWDACPolicy -PolicyName $SupWDACPolicyName -SupplementsBasePolicyID $WDACPolicyID -BasePolicyToSupplementPath $WDACPolicy
+```
+
+#### Merging with the base policy
+
+To merge base policies together the following procedure is used:
+
+* Using an administrative PowerShell session run
+```powershell
+$InitialCIPolicy= {Path to the first base policy}
+$AuditCIPolicy= {Path to the new base policy}
+$MergedCIPolicy= {location to output the policy}
+Merge-CIPolicy -PolicyPaths $InitialCIPolicy,$AuditCIPolicy -OutputFilePath $MergedCIPolicy
 ```
 
 ### WDAC policy - policy signing

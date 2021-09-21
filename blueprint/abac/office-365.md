@@ -771,7 +771,7 @@ The following table describes the mailbox archive settings for all implementatio
 | Item                | Configuration                                                |
 | ------------------- | ------------------------------------------------------------ |
 | Mailbox Auditing    | Enabled for organisation by default                          |
-| Centralized Logging | Not configured<br />E5 subscriptions log search is via the Microsoft 365 compliance center. |
+| Centralized Logging | Not configured<br>E5 subscriptions log search is via the Microsoft 365 compliance center. |
 
 ### Mail flow rules
 
@@ -784,8 +784,8 @@ The following mail flow rules have been configured for all implementation types.
 * Apply this rule if: The recipient is located `Outside the organization`
 * Do the following actions: Append the message with the disclaimer
   ```
-  '<br/>
-  <br/>
+  '<br>
+  <br>
   <p style="font-size:8pt; line-height:10pt; font-family: 'Cambria','times roman',serif;">The content of this email is confidential and intended for the recipient specified in message only. It is strictly forbidden to share any part of this message with any third party, without a written consent of the sender. If you received this message by mistake, please reply to this message and follow with its deletion, so that we can ensure such a mistake does not occur in the future.</p>'. 
   ```
 * If the disclaimer can't be applied, reject the message.
@@ -1729,7 +1729,7 @@ The following table lists the sensitivity label policy configuration for Unoffic
 | Name                  | UNOFFICIAL                                                   |
 | Description for Users | No damage. This information does not form part of official duty. |
 | Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content: Checked<br />Encrypt files and emails: Unchecked<br />Apply a header: Checked<br />Customize text: UNOFFICIAL<br />Apply a footer: Checked<br />Font site: 10<br />Font color: Red<br />Align text: Center |
+| Protection Settings   | Mark the content: Checked<br>Encrypt files and emails: Unchecked<br>Apply a header: Checked<br>Customize text: UNOFFICIAL<br>Apply a footer: Checked<br>Font site: 10<br>Font color: Red<br>Align text: Center |
 
 #### Official
 
@@ -1740,7 +1740,7 @@ The following table lists the sensitivity label policy configuration for Officia
 | Name                  | OFFICIAL                                                     |
 | Description for Users | 1 No or insignificant damage. This is the majority of routine information. |
 | Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content: Checked<br />Encrypt files and emails: Unchecked<br />Apply a header: Checked<br />Customize text: OFFICIAL<br />Apply a footer: Checked<br />Font site: 10<br />Font color: Red<br />Align text: Center |
+| Protection Settings   | Mark the content: Checked<br>Encrypt files and emails: Unchecked<br>Apply a header: Checked<br>Customize text: OFFICIAL<br>Apply a footer: Checked<br>Font site: 10<br>Font color: Red<br>Align text: Center |
 
 #### Official Sensitive
 
@@ -1749,36 +1749,36 @@ The following table lists the sensitivity label policy configuration for Officia
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
 | Name                  | OFFICIAL Sensitive                                           |
-| Description for Users | 2 Low to medium business impact. Limited damage <br />to an individual, organisation or government generally if compromised |
+| Description for Users | 2 Low to medium business impact. Limited damage <br>to an individual, organisation or government generally if compromised |
 | Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content: Checked<br />Encrypt files and emails: Unchecked<br />Apply a header: Checked<br />Customize text: OFFICIAL: Sensitive<br />Apply a footer: Checked<br />Font site: 10<br />Font color: Red<br />Align text: Center |
+| Protection Settings   | Mark the content: Checked<br>Encrypt files and emails: Unchecked<br>Apply a header: Checked<br>Customize text: OFFICIAL: Sensitive<br>Apply a footer: Checked<br>Font site: 10<br>Font color: Red<br>Align text: Center |
 
 The following table lists the sensitivity label policy configuration for Official Sensitive (ACCESS=Legal-Privilege).
 
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
 | Name                  | OFFICIAL Sensitive ACCESS=Legal-Privilege                    |
-| Description for Users | 2 Low to medium business impact. Limited damage <br />to an individual, organisation or government generally if compromised |
+| Description for Users | 2 Low to medium business impact. Limited damage <br>to an individual, organisation or government generally if compromised |
 | Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content: Checked<br />Encrypt files and emails: Unchecked<br />Apply a header: Checked<br />Customize text: OFFICIAL: Sensitive ACCESS=Legal-Privilege<br />Apply a footer: Checked<br />Font site: 10<br />Font color: Red<br />Align text: Center |
+| Protection Settings   | Mark the content: Checked<br>Encrypt files and emails: Unchecked<br>Apply a header: Checked<br>Customize text: OFFICIAL: Sensitive ACCESS=Legal-Privilege<br>Apply a footer: Checked<br>Font site: 10<br>Font color: Red<br>Align text: Center |
 
 The following table lists the sensitivity label policy configuration for Official Sensitive (ACCESS=Legislative-Secrecy).
 
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
 | Name                  | OFFICIAL Sensitive ACCESS=Legislative-Secrecy                |
-| Description for Users | 2 Low to medium business impact. Limited damage <br />to an individual, organisation or government generally if compromised |
+| Description for Users | 2 Low to medium business impact. Limited damage <br>to an individual, organisation or government generally if compromised |
 | Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content: Checked<br />Encrypt files and emails: Unchecked<br />Apply a header: Checked<br />Customize text: OFFICIAL: Sensitive ACCESS=Legislative-Secrecy<br />Apply a footer: Checked<br />Font site: 10<br />Font color: Red<br />Align text: Center |
+| Protection Settings   | Mark the content: Checked<br>Encrypt files and emails: Unchecked<br>Apply a header: Checked<br>Customize text: OFFICIAL: Sensitive ACCESS=Legislative-Secrecy<br>Apply a footer: Checked<br>Font site: 10<br>Font color: Red<br>Align text: Center |
 
 The following table lists the sensitivity label policy configuration for Official Sensitive (ACCESS=Personal-Privacy).
 
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
 | Name                  | OFFICIAL Sensitive ACCESS=Personal-Privacy                   |
-| Description for Users | 2 Low to medium business impact. Limited damage <br />to an individual, organisation or government generally if compromised |
+| Description for Users | 2 Low to medium business impact. Limited damage <br>to an individual, organisation or government generally if compromised |
 | Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content: Checked<br />Encrypt files and emails: Unchecked<br />Apply a header: Checked<br />Customize text: OFFICIAL: Sensitive ACCESS=Personal-Privacy<br />Apply a footer: Checked<br />Font site: 10<br />Font color: Red<br />Align text: Center |
+| Protection Settings   | Mark the content: Checked<br>Encrypt files and emails: Unchecked<br>Apply a header: Checked<br>Customize text: OFFICIAL: Sensitive ACCESS=Personal-Privacy<br>Apply a footer: Checked<br>Font site: 10<br>Font color: Red<br>Align text: Center |
 
 #### Protected
 
@@ -1787,72 +1787,72 @@ The following table lists the sensitivity label policy configuration for Protect
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
 | Name                  | PROTECTED                                                    |
-| Description for Users | 3 High business impact. Damage to the national<br /> interest, organisations or individuals. |
+| Description for Users | 3 High business impact. Damage to the national<br> interest, organisations or individuals. |
 | Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content: Checked<br />Encrypt files and emails: Unchecked<br />Apply a header: Checked<br />Customize text: PROTECTED<br />Apply a footer: Unchecked<br />Font site: 10<br />Font color: Red<br />Align text: Center |
+| Protection Settings   | Mark the content: Checked<br>Encrypt files and emails: Unchecked<br>Apply a header: Checked<br>Customize text: PROTECTED<br>Apply a footer: Unchecked<br>Font site: 10<br>Font color: Red<br>Align text: Center |
 
 The following table lists the sensitivity label policy configuration for Protected (ACCESS=Legal-Privilege).
 
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
 | Name                  | PROTECTED ACCESS=Legal-Privilege                             |
-| Description for Users | 3 High business impact. Damage to the national<br /> interest, organisations or individuals. |
+| Description for Users | 3 High business impact. Damage to the national<br> interest, organisations or individuals. |
 | Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content: Checked<br />Encrypt files and emails: Unchecked<br />Apply a header: Checked<br />Customize text: PROTECTED ACCESS=Legal-Privilege<br />Apply a footer: Unchecked<br />Font site: 10<br />Font color: Red<br />Align text: Center |
+| Protection Settings   | Mark the content: Checked<br>Encrypt files and emails: Unchecked<br>Apply a header: Checked<br>Customize text: PROTECTED ACCESS=Legal-Privilege<br>Apply a footer: Unchecked<br>Font site: 10<br>Font color: Red<br>Align text: Center |
 
 The following table lists the sensitivity label policy configuration for Protected (ACCESS=Legislative-Secrecy).
 
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
 | Name                  | PROTECTED ACCESS=Legislative-Secrecy                         |
-| Description for Users | 3 High business impact. Damage to the national<br /> interest, organisations or individuals. |
+| Description for Users | 3 High business impact. Damage to the national<br> interest, organisations or individuals. |
 | Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content: Checked<br />Encrypt files and emails: Unchecked<br />Apply a header: Checked<br />Customize text: PROTECTED ACCESS=Legislative-Secrecy<br />Apply a footer: Unchecked<br />Font site: 10<br />Font color: Red<br />Align text: Center |
+| Protection Settings   | Mark the content: Checked<br>Encrypt files and emails: Unchecked<br>Apply a header: Checked<br>Customize text: PROTECTED ACCESS=Legislative-Secrecy<br>Apply a footer: Unchecked<br>Font site: 10<br>Font color: Red<br>Align text: Center |
 
 The following table lists the sensitivity label policy configuration for Protected (ACCESS=Personal-Privacy).
 
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
 | Name                  | PROTECTED ACCESS=Personal-Privacy                            |
-| Description for Users | 3 High business impact. Damage to the national<br /> interest, organisations or individuals. |
+| Description for Users | 3 High business impact. Damage to the national<br> interest, organisations or individuals. |
 | Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content: Checked<br />Encrypt files and emails: Unchecked<br />Apply a header: Checked<br />Customize text: PROTECTED ACCESS=Personal-Privacy<br />Apply a footer: Unchecked<br />Font site: 10<br />Font color: Red<br />Align text: Center |
+| Protection Settings   | Mark the content: Checked<br>Encrypt files and emails: Unchecked<br>Apply a header: Checked<br>Customize text: PROTECTED ACCESS=Personal-Privacy<br>Apply a footer: Unchecked<br>Font site: 10<br>Font color: Red<br>Align text: Center |
 
 The following table lists the sensitivity label policy configuration for Protected (CAVEAT=SH CABINET).
 
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
 | Name                  | PROTECTED CAVEAT=SH CABINET                                  |
-| Description for Users | 3 High business impact. Damage to the national<br /> interest, organisations or individuals. |
+| Description for Users | 3 High business impact. Damage to the national<br> interest, organisations or individuals. |
 | Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content: Checked<br />Encrypt files and emails: Unchecked<br />Apply a header: Checked<br />Customize text: PROTECTED CAVEAT=SH CABINET<br />Apply a footer: Unchecked<br />Font site: 10<br />Font color: Red<br />Align text: Center |
+| Protection Settings   | Mark the content: Checked<br>Encrypt files and emails: Unchecked<br>Apply a header: Checked<br>Customize text: PROTECTED CAVEAT=SH CABINET<br>Apply a footer: Unchecked<br>Font site: 10<br>Font color: Red<br>Align text: Center |
 
 The following table lists the sensitivity label policy configuration for Protected (ACCESS=Legal-Privilege CAVEAT=SH CABINET).
 
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
 | Name                  | PROTECTED ACCESS=Legal-Privilege CAVEAT=SH CABINET           |
-| Description for Users | 3 High business impact. Damage to the national<br /> interest, organisations or individuals. |
+| Description for Users | 3 High business impact. Damage to the national<br> interest, organisations or individuals. |
 | Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content: Checked<br />Encrypt files and emails: Unchecked<br />Apply a header: Checked<br />Customize text: PROTECTED ACCESS=Legal-Privilege <br />CAVEAT=SH CABINET<br />Apply a footer: Unchecked<br />Font site: 10<br />Font color: Red<br />Align text: Center |
+| Protection Settings   | Mark the content: Checked<br>Encrypt files and emails: Unchecked<br>Apply a header: Checked<br>Customize text: PROTECTED ACCESS=Legal-Privilege <br>CAVEAT=SH CABINET<br>Apply a footer: Unchecked<br>Font site: 10<br>Font color: Red<br>Align text: Center |
 
 The following table lists the sensitivity label policy configuration for Protected (ACCESS=Legislative-Secrecy CAVEAT=SH CABINET).
 
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
 | Name                  | PROTECTED ACCESS=Legislative-Secrecy CAVEAT=SH CABINET       |
-| Description for Users | 3 High business impact. Damage to the national<br /> interest, organisations or individuals. |
+| Description for Users | 3 High business impact. Damage to the national<br> interest, organisations or individuals. |
 | Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content: Checked<br />Encrypt files and emails: Unchecked<br />Apply a header: Checked<br />Customize text: PROTECTED ACCESS=Legislative-Secrecy <br />CAVEAT=SH CABINET<br />Apply a footer: Unchecked<br />Font site: 10<br />Font color: Red<br />Align text: Center |
+| Protection Settings   | Mark the content: Checked<br>Encrypt files and emails: Unchecked<br>Apply a header: Checked<br>Customize text: PROTECTED ACCESS=Legislative-Secrecy <br>CAVEAT=SH CABINET<br>Apply a footer: Unchecked<br>Font site: 10<br>Font color: Red<br>Align text: Center |
 
 The following table lists the sensitivity label policy configuration for Protected (ACCESS=Personal-Privacy CAVEAT=SH CABINET).
 
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
 | Name                  | PROTECTED ACCESS=Personal-Privacy CAVEAT=SH CABINET          |
-| Description for Users | 3 High business impact. Damage to the national<br /> interest, organisations or individuals. |
+| Description for Users | 3 High business impact. Damage to the national<br> interest, organisations or individuals. |
 | Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content: Checked<br />Encrypt files and emails: Unchecked<br />Apply a header: Checked<br />Customize text: PROTECTED ACCESS=Personal-Privacy <br />CAVEAT=SH CABINET<br />Apply a footer: Unchecked<br />Font site: 10<br />Font color: Red<br />Align text: Center |
+| Protection Settings   | Mark the content: Checked<br>Encrypt files and emails: Unchecked<br>Apply a header: Checked<br>Customize text: PROTECTED ACCESS=Personal-Privacy <br>CAVEAT=SH CABINET<br>Apply a footer: Unchecked<br>Font site: 10<br>Font color: Red<br>Align text: Center |
 
 ### Sensitivity label policy
 

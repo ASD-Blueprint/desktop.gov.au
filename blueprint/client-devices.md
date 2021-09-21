@@ -694,7 +694,7 @@ Feature Updates | Enabled | To align with the ACSC Windows 10 hardening guidance
 Quality Updates | Enabled | To align with the ACSC Windows 10 hardening guidance. 
 Driver Updates | Enabled | To align with the ACSC Windows 10 hardening guidance. 
 Microsoft Product Updates | Enabled | To align with the ACSC Windows 10 hardening guidance. 
-Patching Frequency | Existing Agency patch scheduling based on Essential Eight guidance | The Agencies existing patch schedule should reflect:<br><br>Patches, updates or vendor mitigations for security vulnerabilities in operating systems are applied two weeks of release, or within 48 hours if an exploit exists. <br />Meets ACSC Essential Eight guidance for patching Operating Systems. 
+Patching Frequency | Existing Agency patch scheduling based on Essential Eight guidance | The Agencies existing patch schedule should reflect:<br><br>Patches, updates or vendor mitigations for security vulnerabilities in operating systems are applied two weeks of release, or within 48 hours if an exploit exists. <br>Meets ACSC Essential Eight guidance for patching Operating Systems. 
 
 ### Networking
 

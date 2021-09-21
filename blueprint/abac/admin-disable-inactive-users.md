@@ -4,30 +4,30 @@ title: Disable inactive accounts automation
 menu: abac
 ---
 
-The following guide provides instructions to automate disabling and suspending inactive accounts for cloud implementation types.
+The following guide provides instructions to automate disabling and suspending inactive accounts for cloud-native implementation types.
 
 The following is guidance from the Australian Cyber Security Centre (ACSC) for inactive accounts:
 
-- **ISM** - Access to systems, applications and data repositories is removed or suspended after one month of inactivity.
-- **Essential Eight** - Privileged access to systems and applications is automatically disabled after 45 days of inactivity.
+* Access to systems, applications and data repositories is removed or suspended after one month of inactivity (**ISM** security control 1404).
+* Privileged access to systems and applications is automatically disabled after 45 days of inactivity (**Essential Eight**).
 
 Azure Active Directory (Azure AD) does not include the ability to disable inactive accounts automatically, however, automation can be implemented to provide this administrative function.
 
-With hybrid implementation types, access is managed through Active Directory Domain Services (AD DS) management tools and Active Directory sync mirrors these changes to Azure AD. This also may include third-party identity management toolsets for automation.
+With hybrid implementation types, access is managed through Active Directory Domain Services (AD DS) management tools and Active Directory mirrors changes to Azure AD. This may also include third-party tooling for automation.
 
 This guide includes a sample script that uses the Microsoft Graph API and Azure AD PowerShell modules. The Microsoft Graph API is used to query the sign-in activity within the tenant as it is the only method to reliably ascertain the last interactive sign-in from Azure AD sign-in logs. 
 
-The script can be ran either manually by an administrator or automatically via a schedule. If the Agency has an Azure Subscription, it can be scheduled from within an Azure Automation account.
+The script can be executed manually by an administrator or automatically on a schedule. If the agency has an Azure subscription, it can be scheduled from within an Azure Automation account.
 
-For simplicity, the script will disable all accounts after 30 days of inactivity across the board, excluding break glass accounts or those that are yet to sign in. 
+For simplicity, the script disables all accounts after 30 days of inactivity, excluding break glass accounts or those that are yet to sign in.
 
-Agencies can use the script logic as a template to enhance it based on their requirements. 
+Agencies can tweak the script to better reflect their needs.
 
-Agencies should test the script thoroughly, and should adapt for their own needs and security requirements. The script is provided as a sample and without warranty, limited error checking and handling is provided.
+The script is provided as a sample and without warranty, limited error checking or handling provided.
 
 ## Microsoft Graph API
 
-In order to use the Graph API to query sign-in information, the Agency must create an Azure AD App registration which will be used by the script to authenticate to the Graph.
+In order to use the Graph API to query sign-in information, the agency must create an Azure AD App registration which will be used by the script to authenticate to the Graph API.
 
 One of the following role based access control groups are required to create the app registration:
 
@@ -39,31 +39,31 @@ Global Administrator
 
 Register the Application for Microsoft Graph.
 
-1. Navigate to `Azure Portal > Active Directory > App Registration > New Registration`.
+1. Navigate to `Azure Portal > Active Directory > App Registration > New Registration`
 
    ![Register an application](/assets/images/abac/app-registration.png)
 
 2. Provide the following details for the Application registration:
 
-   - Name: `Agency to define`
-   - Who can use this application or access this API: `Accounts in this organizational directory only`
-   - Redirect URI: Web | `http://localhost`
+   * Name: `Agency to define`
+   * Who can use this application or access this API: `Accounts in this organizational directory only`
+   * Redirect URI: Web \| `http://localhost`
 
-3. Navigate to `Azure Portal > Active Directory >App registrations > Application Name > API permissions `.
+3. Navigate to `Azure Portal > Active Directory > App registrations > Application Name > API permissions`
 
    ![API permissions](/assets/images/abac/app-registration-api.png)
 
 4. Add the following permissions to the application
 
-   - API Permissions name: `Microsoft Graph`
-     - Type: `Application Permissions`
-     - Permission:`AuditLog.Read.All`
-     - Permission: `Directory.Read.All`
-     - Permission:`User.Read.All`
+   * API Permissions name: `Microsoft Graph`
+     * Type: `Application Permissions`
+     * Permission:`AuditLog.Read.All`
+     * Permission: `Directory.Read.All`
+     * Permission:`User.Read.All`
 
 5. Click on the `Grant admin consent`  button to complete the registration.
 
-6. Navigate to `Azure Portal > Active Directory >App registrations > Application Name > Certificates and secrets `.
+6. Navigate to `Azure Portal > Active Directory > App registrations > Application Name > Certificates and secrets`
 
    ![Certificates and secrets](/assets/images/abac/app-registration-secret.png)
 
@@ -71,16 +71,17 @@ Register the Application for Microsoft Graph.
 
 ## Sample automation script
 
-The following is a sample script that is used to query Microsoft Graph for user sign in information:
+The following is a sample script that is used to query Microsoft Graph API for user sign-in information:
 
-- Users that have not signed in within 30 days are disabled,
-- Emergency administrative accounts (break glass) are exempt, and
-- Accounts that have not yet logged onto are exempt.
+* Users that have not signed in within 30 days are disabled,
+* Emergency administrative accounts (break glass) are exempt, and
+* Accounts that have not yet logged on are excluded.
 
-The script is ideally ran within an Azure Automation account on a schedule. The permissions delegated to the script to disable user accounts would be granted to the Azure Automation RunAs account within the tenant.
+The script is ideally executed within an Azure Automation account on a schedule. The permissions delegated to the script to disable user accounts would be granted to the Azure Automation RunAs account within the tenant.
 
 ```powershell
 # Sample Script - disable user accounts in tenant that have not been logged in within 30 days
+# Source: https://desktop.gov.au/blueprint/abac/admin-disable-inactive-users.html
 
 # Connection information for Azure AD using Azure Automation account/runbook
 $connectionName = AzureRunAsConnection
@@ -95,7 +96,7 @@ Connect-AzureAD -TenantId $servicePrincipalConnection.TenantId `
 # Connection information for Graph API connection - specific to Agency
 $clientID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 $tenantName = "agency.onmicrosoft.com"
-$ClientSecret = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+$clientSecret = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 $resource = "https://graph.microsoft.com/"
  
 $ReqTokenBody = @{
@@ -143,7 +144,7 @@ Foreach ($User in $Users) {
         If ($TimeSpan.Days -gt 30) {
             write-host "User to be disabled true" $User.userPrincipalName "Last logon:"$user.LastLoginDate $TimeSpan.Days "days ago"
             If ($User.userPrincipalName -notlike '*break.glass*') {
-                write-host $User.userPrincipalName "-User not breakglass account, porceed with disable of user"
+                write-host $User.userPrincipalName "-User not breakglass account, proceed with disable of user"
                 Set-AzureADUser -ObjectId $User.userPrincipalName -AccountEnabled $false
                 Revoke-AzureADUserAllRefreshToken -ObjectId $User.userPrincipalName
             } else {

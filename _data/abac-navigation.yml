@@ -2,9 +2,6 @@
   url: /blueprint/abac.html
 
   subitems:
-    - title: WDAC Policy Creation
-      url: /blueprint/abac/wdac-policy-creation.html
-
     - title: Conditional access policies
       url: /blueprint/abac/conditional-access-policies.html
 
@@ -29,8 +26,11 @@
     - title: Platform
       url: /blueprint/abac/platform.html
 
-    - title: Hybrid - Task Sequence Deploy
+    - title: Hybrid - task sequence deploy
       url: /blueprint/abac/hybrid-task-sequence.html
     
     - title: Hybrid - network configuration
       url: /blueprint/abac/hybrid-network-configuration.html
+
+    - title: WDAC policy creation
+      url: /blueprint/abac/wdac-policy-creation.html

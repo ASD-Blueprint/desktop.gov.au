@@ -36,15 +36,20 @@
                                         </li>
                                         {% for subitem in item.subitems %}
                                         <li{% if subitem.url == page.url %} class="active"{% endif %}><a href="{{ subitem.url }}">{{ subitem.title }}</a>
-                                    
                                             {% if subitem.url == page.url %}
                                             <nav class="navbar" id="toc-container">
                                                 {% include toc.html class="nav.au-link-list" html=content %}
                                             </nav>
                                             {% endif %}
-                                    
                                         </li>
                                         {% endfor %}
+                                        {% if page.dir == '/patterns/' and page.url != page.dir %}
+                                        <li class="active"><a href="{{ page.url }}">{{ page.title }}</a>
+                                            <nav class="navbar" id="toc-container">
+                                                {% include toc.html class="nav.au-link-list" html=content %}
+                                            </nav>
+                                        </li>
+                                        {% endif %}
                                     </ul>
 
                                     {% endif %}

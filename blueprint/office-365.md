@@ -855,7 +855,7 @@ Configuration | Value | Description
 --- | --- | ---
 **External Sharing** | | 
 SharePoint | New and existing guests | Guest access is available in accordance with Collaboration in the DTA – Platform Design document. 
-More external sharing settings | Limit external sharing by domain<br>Guests must sign in using the same account to which the sharing invitations are sent | Checked. `Add domains that are allowed`<br>Checked.
+More external sharing settings | Limit external sharing by domain: Checked <br>Add domains that are allowed: Checked | Guests must sign in using the same account to which the sharing invitations are sent.
 OneDrive | Only people in your organisation | No external sharing allowed.
 **File and folder links** | | 
 Choose the type of link that is created by default when users get links | Specific people | Internal link which can only be sent to people in your organisation.

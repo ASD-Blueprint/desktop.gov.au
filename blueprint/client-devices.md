@@ -694,7 +694,7 @@ Feature Updates | Enabled | To align with the ACSC Windows 10 hardening guidance
 Quality Updates | Enabled | To align with the ACSC Windows 10 hardening guidance. 
 Driver Updates | Enabled | To align with the ACSC Windows 10 hardening guidance. 
 Microsoft Product Updates | Enabled | To align with the ACSC Windows 10 hardening guidance. 
-Patching Frequency | Existing Agency patch scheduling based on Essential Eight guidance | The Agencies existing patch schedule should reflect:<br><br>Patches, updates or vendor mitigations for security vulnerabilities in operating systems are applied two weeks of release, or within 48 hours if an exploit exists. <br />Meets ACSC Essential Eight guidance for patching Operating Systems. 
+Patching Frequency | Existing Agency patch scheduling based on Essential Eight guidance | The Agencies existing patch schedule should reflect:<br><br>Patches, updates or vendor mitigations for security vulnerabilities in operating systems are applied two weeks of release, or within 48 hours if an exploit exists. <br>Meets ACSC Essential Eight guidance for patching Operating Systems. 
 
 ### Networking
 
@@ -1280,6 +1280,21 @@ Prevent bypassing Microsoft Defender SmartScreen prompts for sites | Enabled	| T
 Prevent bypassing of Microsoft Defender SmartScreen warnings about downloads | Enabled	| To align with the ACSC Windows 10 hardening guidance.
 Prevent users and apps from accessing dangerous websites | Enabled (Block) | To align with the ACSC Windows 10 hardening guidance.
 Turn on Windows Defender Application Guard in Managed Mode	| Enabled	| To align with the ACSC Windows 10 hardening guidance.
+
+#### Web advertisement blocking
+
+Web advertisements may be used by threat actors to deliver malicious code or to attempt to phish legitimate users.
+
+The ACSC recommends blocking web advertisements at the browser level. Microsoft Edge's native web advertisement capability is limited and does not provide an effective mitigation against the risk of malicious web advertisement. Edge supports third-party add-ons to provide greater web advertisement blocking with examples including uBlock Origin and Ad Block Plus. However, please note that the DTA does not explicitly recommend either product or other third-party add-ons. Instead, agencies should perform their own risk based assessment prior to using them as part of a blueprint deployment.
+
+If supported by their existing proxy implementations, agencies may also implement web advertisement at the proxy level for additional protection against web advertisement-based threats.
+
+Web Advertisement Blocking Design Decisions for all agencies and implementation types.
+
+Decision Point | Design Decision | Justification
+--- | --- | ---
+Native Edge advertisement blocking | Enabled - BlockAds (default)	| To align with Essential Eight user application hardening guidance.
+Third-party add-on | Deployed via MEM | To align with Essential Eight user application hardening guidance.
 
 ### Windows Defender Application Control
 

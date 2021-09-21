@@ -286,13 +286,12 @@ BLOCK - Legacy Authentication | This global policy blocks all connections from i
 BLOCK - High-Risk Sign-Ins | This global policy blocks all high-risk authentications (requires Azure AD Premium P2).
 BLOCK - Countries not Allowed | This global policy blocks all connections from countries not in the Allowed countries list.
 GRANT - Terms of Use | This global policy forces Terms of Use on all authentications. Terms of Use is a one-off acceptance, it is used for users to accept their security responsibilities before access is granted. 
-GRANT - Browser Access | General browser access policy that grants authentication from a browser on any device with MFA requirement.
-SESSION - Block Unmanaged Browser File Downloads | Browsers on unmanaged devices can never download files and attachments from SharePoint Online and Exchange Online.
 GRANT - Intune Enrolment | Devices can authenticate to Intune for enrolment.
-GRANT - Mobile Device Access | Grants access to managed mobile devices that are enrolled and compliant in Intune. An approved Microsoft app is required.
+GRANT - iOS Device Access | Grants access to managed iOS devices that are enrolled and compliant in Intune. An approved Microsoft app is required on iOS. 
 GRANT - Windows Device Access | Grants access to managed Windows devices that are Intune enrolled and/or Hybrid Azure AD Joined (joined to an on-premises AD and Azure AD). Note, Hybrid Azure AD join only applies to Hybrid implementation types. 
 GRANT - Guest Access (B2B) | Approved apps that guest users can access (requires MFA).
 BLOCK - Guest Access (B2B) | Blocked apps that guest users can never access.
+SESSION - Admin Sign-in Frequency | Enforces a sign-in frequency to ensure administrators sessions do not remain active when keep me signed In (KMSI) is enabled on the tenant. 
 
 ###  Active Directory
 

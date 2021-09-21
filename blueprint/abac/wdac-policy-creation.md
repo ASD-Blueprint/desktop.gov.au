@@ -1,16 +1,17 @@
 ---
 layout: page
-title: Client devices
+title: WDAC policy creation
 menu: abac
 ---
 
-The ABAC settings for the Agency workstation configuration can be found below. This includes the Windows Defender Application Control (WDAC) configuration. 
+The following guide includes instructions on how to generate the Windows Defender Application Control (WDAC) configuration for all implementation types. 
 
 Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting.
 
 ## Application control
 
 WDAC utilises one or more policies to define what drivers and files are whitelisted to run on a Windows 10 devices. Multiple policies can only be leveraged when the policies are deployed utilising Microsoft Endpoint Manager and the Application Control Configuration Service Provider (CSP). Multiple policies will not work on machines pre 1903. When multiple policy files are leveraged they fall into one of the following scenarios:
+
 * **Enforce and Audit Side-by-side** - A base policy configured to enforce and a second base policy configured to audit. This is used to test a new base policy prior to enforcement.
 * **Multiple Base Policies Enforced** - Two or more base policies configured in enforce mode. For applications to run they must be whitelisted in both.
 * **Supplementary Policies** - A base policy and one or more supplementary policies in enforce mode. For applications to run they must only be whitelisted in one of the policies.  
@@ -37,7 +38,7 @@ A base policy generated from a gold image machine should only be utilised where 
 $PolicyPath=$env:userprofile+"\Desktop\"
 $PolicyName="GoldImagePolicy"
 $WDACPolicy=$PolicyPath+$PolicyName+".xml"
-New-CIPolicy -Level Publisher -FilePath $WDACPolicy –UserPEs 3> CIPolicyLog.txt -Fallback hash
+New-CIPolicy -Level Publisher -FilePath $WDACPolicy -UserPEs 3> CIPolicyLog.txt -Fallback hash
 ```
 5. Review the CIPolicy.txt file for any items which could not be whitelisted.
 6. Using an administrative PowerShell session run
@@ -57,13 +58,11 @@ Set-RuleOption -FilePath $WDACPolicy -Option 17 # Enable Allow Supplemental
 Set-RuleOption -FilePath $WDACPolicy -Option 19 # Enable Dynamic Code Security
 ```
 7. Deploy the file locally in audit mode and validate no additional files require whitelisting
-
 ```powershell
 $WDACPolicyCIP=$PolicyPath+"{<Policy GUID>}.cip"
 ConvertFrom-CIPolicy $WDACPolicy $WDACPolicyCIP
 Copy-Item $WDACPolicyCIP "<OS Volume>\Windows\System32\CodeIntegrity\CIPolicies\Active\{<Policy GUID>}.cip"
 ```
-
 8. Using an administrative PowerShell session run the following to switch the policy into enforce mode
 ```powershell
 Set-RuleOption -FilePath $WDACPolicy -Option 3 -Delete
@@ -109,7 +108,7 @@ Set-RuleOption -FilePath $WDACPolicy -Option 3 -Delete
 
 Supplementary policies expand on the base policy and allow for whitelisting to be targeted to users and/or groups. Supplementary policies can contain both allow and deny rules. A supplementary policy is a base policy until it is linked as a supplementary policy to another base policy. 
 
-Supplementary policies will not work on machines pre 1903. If you are deploying to pre 1903 machines they must be merged into the base policy. [Merge policy](hybrid-client-devices.html#wdac-policy---whitelisting-an-application) instructions are available in the hybrid client whitelisting section.
+Supplementary policies will not work on machines pre 1903. If you are deploying to pre 1903 machines they must be merged into the base policy. [Merge policy](#merging-with-the-base-policy) instructions are available further below.
 
 #### Whitelisting an application
 
@@ -150,7 +149,8 @@ New-CIPolicy -Level $whitelistlevel -FilePath $Outputlocation -Fallback $fallbac
 To convert a base policy to a supplementary policy of another base policy they must be linked. Upon linking the policyID of the supplementary policy will be set to a new GUID. This new guid is required when deploying the supplementary policy via Microsoft Endpoint Manager. 
 
 The procedure to link the policies is as follows:
-1. Using an administrative PowerShell session run
+
+* Using an administrative PowerShell session run
 ```powershell
 $SupWDACPolicy = {path to the supplementary policy file}
 $SupWDACPolicyName = {Name of the supplementary policy}
@@ -159,14 +159,27 @@ $WDACPolicyID = {base policy id available within the base policy PolicyID tags}
 Set-CIPolicyIdInfo -FilePath $SupWDACPolicy -PolicyName $SupWDACPolicyName -SupplementsBasePolicyID $WDACPolicyID -BasePolicyToSupplementPath $WDACPolicy
 ```
 
+#### Merging with the base policy
+
+To merge base policies together the following procedure is used:
+
+* Using an administrative PowerShell session run
+```powershell
+$InitialCIPolicy= {Path to the first base policy}
+$AuditCIPolicy= {Path to the new base policy}
+$MergedCIPolicy= {location to output the policy}
+Merge-CIPolicy -PolicyPaths $InitialCIPolicy,$AuditCIPolicy -OutputFilePath $MergedCIPolicy
+```
+
 ### WDAC policy - policy signing
 
 Prior to deployment of the WDAC policy it can be signed using an internal Certificate Authority code signing certificate or a purchased code signing certificate.
 
 The procedure to sign the policy is as follows:
+
 * Using an administrative PowerShell session run
 ```powershell
-Add-SignerRule -FilePath {Path to the XML policy file} -CertificatePath {Path to exported .cer certificate} -Kernel -User –Update
+Add-SignerRule -FilePath {Path to the XML policy file} -CertificatePath {Path to exported .cer certificate} -Kernel -User -Update
 ConvertFrom-CIPolicy -XmlFilePath {Path to the XML policy file} -BinaryFilePath `Binary output location`
 {Path to signtool.exe} sign -v /n {Certificate Subject name} -p7 . -p7co 1.3.6.1.4.1.311.79.1 -fd sha256 {Binary policy location}
 ```

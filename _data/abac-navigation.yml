@@ -32,5 +32,8 @@
     - title: Hybrid - network configuration
       url: /blueprint/abac/hybrid-network-configuration.html
 
+    - title: Administration - disable inactive accounts automation
+      url: /blueprint/abac/admin-disable-inactive-users.html
+
     - title: WDAC policy creation
       url: /blueprint/abac/wdac-policy-creation.html

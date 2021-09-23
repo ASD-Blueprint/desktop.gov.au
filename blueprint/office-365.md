@@ -1259,7 +1259,7 @@ The following methods can be used to assist with PSPF compliance when using MIP:
 
 * Prepend the protective marking to the subject field using Exchange Online transport rules and MIP header checks.
 * For calendar invites, advise users to add the classification to the body, and use transport rules to add the required subject and header values.
-* Add the  `X-Protective-Marking` header associated with the MIP label at the email gateway, as transport rules cannot not populate the user's email address in the `ORIGIN=user@agency.gov.au` property inside the `X-Protective-Marking` header.
+* Add the  `X-Protective-Marking` header associated with the MIP label at the email gateway, as transport rules cannot populate the user's email address in the `ORIGIN=user@agency.gov.au` property inside the `X-Protective-Marking` header.
 
 Email gateway rules are available in the [Network Configuration ABAC document](https://www.desktop.gov.au/blueprint/abac/hybrid-network-configuration.html). These rules are based on regular expressions and are easily adaptable to vendor specific email gateways.
 

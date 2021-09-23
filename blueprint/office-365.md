@@ -1246,7 +1246,7 @@ Classification labels are published to users using Label Policies. Label Policie
 * Automatically applied based on the location of the document - Labels can be configured to automatically apply based on the location of the document. For example, SharePoint.
 * Automatically applied based on detected Sensitive Information Type - Labels can be configured to automatically apply based on the type of sensitive information found. For example, documents containing Australia driver's license numbers.
 
-At the time of writing, Sensitivity labels cannot be configured to satisfy some specific requirements listed in the Protective Security Policy Framework (PSPF). Some of these limitations are as follows:
+At the time of writing, Sensitivity labels cannot be configured to satisfy all of the requirements listed in the Protective Security Policy Framework (PSPF). Some of these limitations are as follows:
 
 - Sensitivity labels do not set the `X-Protective-Marking` header (internet message header extension).
 - Messages received from outside of the Agency that have the appropriate  `X-Protective-Marking ` header set are not interpreted by the native labelling in the Outlook client.

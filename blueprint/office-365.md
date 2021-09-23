@@ -1233,12 +1233,12 @@ Alert Policies Status | Default Alert Policies enabled | Custom alert policies a
 
 ### Classification labels
 
-Classification labels which is located under the Office 365 Security & Compliance Center offers the ability to both control the data flow of sensitive information and control the retention of data. Classifications labels consists of the following:
+Classification labels which is located under the Microsoft 365 Security & Compliance Center offers the ability to both control the data flow of sensitive information and control the retention of data. Classifications labels consists of the following:
 
 * Sensitivity Labels – Allow label specific protection policy settings to be enforced.
 * Retention Labels – Allow label specific retention policy settings to be enforced.
 
-Sensitivity labels can be applied in the supported Office applications either in Office 365 ProPlus, Office Online or using the Azure Information Protection (AIP) unified labelling client.
+Sensitivity labels can be applied in the supported Office applications either in Microsoft 365 Apps for enterprise, Office Online or using the Microsoft Information Protection (MIP) unified labelling client.
 
 Classification labels are published to users using Label Policies. Label Policies define the users who can utilise the label and the locations within Office 365 where it can be used. Classification labels can be applied in the following ways:
 
@@ -1246,14 +1246,22 @@ Classification labels are published to users using Label Policies. Label Policie
 * Automatically applied based on the location of the document - Labels can be configured to automatically apply based on the location of the document. For example, SharePoint.
 * Automatically applied based on detected Sensitive Information Type - Labels can be configured to automatically apply based on the type of sensitive information found. For example, documents containing Australia driver's license numbers.
 
-At the time of writing, Sensitivity labels cannot be configured to satisfy some specific requirements listed in the Protective Security Policy Framework (PSPF). The PSPF requires the protective marking to be applied to email messages via either:
+At the time of writing, Sensitivity labels cannot be configured to satisfy some specific requirements listed in the Protective Security Policy Framework (PSPF). Some of these limitations are as follows:
 
-* Appending the protective marking to the Subject field using a specified syntax (Subject Field Marking).
-* Including the protective marking in an Internet Message Header Extension using a specified syntax (Internet Message Header Extension).
+- Sensitivity labels do not set the `X-Protective-Marking` header (internet message header extension).
+- Messages received from outside of the Agency that have the appropriate  `X-Protective-Marking ` header set are not interpreted by the native labelling in the Outlook client.
+- Sensitivity labels are not available within a shared or delegated mailbox in the iOS Outlook client.
+- The MIP labelling clients cannot append the protective marking to the subject field (subject field marking) to an email.
+- When downgrading a Sensitivity label, the downgrade cannot be prevented, only forcing the user to justify the downgrade. 
+- Sensitivity labels are not available within calendar invites.
 
-Sensitivity labels create a protective marking within the message header and when combined with Exchange mail flow rules the subject can be modified to prepend text in the subject according to the sensitivity.
+The following methods can be used to assist with PSPF compliance when using MIP:
 
-Email gateway rules are available in the Network Configuration ABAC document. These rules are based on regular expressions and are easily adaptable to vendor specific email gateways.
+* Prepend the protective marking to the subject field using Exchange Online transport rules and MIP header checks.
+* For calendar invites, advise users to add the classification to the body, and use transport rules to add the required subject and header values.
+* Add the  `X-Protective-Marking` header associated with the MIP label at the email gateway, as transport rules cannot not populate the user's email address in the `ORIGIN=user@agency.gov.au` property inside the `X-Protective-Marking` header.
+
+Email gateway rules are available in the [Network Configuration ABAC document](https://www.desktop.gov.au/blueprint/abac/hybrid-network-configuration.html). These rules are based on regular expressions and are easily adaptable to vendor specific email gateways.
 
 Classification Label Design Decisions for all agencies and implementation types.
 

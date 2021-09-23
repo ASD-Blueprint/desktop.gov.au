@@ -1681,7 +1681,7 @@ Enrolling iOS Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Enrolment method | Automated device enrollment | Devices will be pre-configured before the device is handed over to the end user. This in line with the ACSC iOS Secure Configuration Hardening guide for PROTECTED devices.
+Enrolment method | Automated device enrollment through Apple Business Manager | Devices will be pre-configured before the device is handed over to the end user. This in line with the ACSC iOS Secure Configuration Hardening guide for PROTECTED devices.
 
 ### Securing iOS devices
 
@@ -1693,13 +1693,17 @@ MDM provides the capability to configure iOS devices. These devices must be conf
 * Branding – The Agencies branding for lock screen, wallpapers, and reporting if the device is lost can be configured.
 * Device features – Configures device features, for example, AirDrop and Bluetooth pairing, within iOS devices.
 
+Using Intune together with Apple Business Manager provides the ability to restrict applications deployed to iOS devices. They improve the user experience during the onboarding process and remove the requirement for an Apple ID and the public Apple App Store. When restricting application deployments, the App Store is blocked and all application management is completed through the Intune Company Portal. All applications must be licensed within Apple Business Manager and use device based licensing. 
+
 Securing iOS devices Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Mobile Device Management | Mobile devices will be managed using Intune | Leveraging the capabilities already available in the licensing agreement. Intune and Apple Business Manager will be adopted to manage mobile devices.
 Security policies and hardening requirements | Security policies will be enforced on all mobile devices managed by the Agency | Security policies will be configured in line with the ACSC Security Configuration Guide – Apple iOS 14 Devices.
-Device Features | Configured | Device features configured in line with ACSC guidance. 
+Apple Business Manager Enrollment Token App Delivery | Agency licensed apps purchased under the Volume Purchase Program (VPP) are installed directly to devices, without needing an Apple ID on the device | Configured inline with ACSC iOS hardening guidance, simplifies management and improves user experience with device onboarding. 
+Public App Store access | Disabled | Configured inline with ACSC iOS hardening guidance. Applications are installed under the VPP.
+Device Features | Configured | Device features configured in line with ACSC hardening guidance. 
 
 Mobile Device Management Configuration applicable to all agencies and implementation types.
 
@@ -1720,7 +1724,7 @@ Allow iCloud backup, document data and Keychain | Disable | The Agencies data on
 Managed Open-In | Enable  | Managed Open-In is enable segregates between corporate managed and personal application in an iOS device. This in line with the ACSC iOS Secure Configuration Hardening guide for PROTECTED devices.
 Allow documents from managed sources in unmanaged destination | Disable | The Agencies data cannot be moved between managed and unmanaged application destination. This is to prevent PROTECTED from being transferred to an unmanaged application or location. 
 Treat AirDrop as unmanaged destination | Disable | AirDrop provides the ability to wirelessly transfer documents between Apple devices. Setting AirDrop as an unmanaged destination prevents users from accidentally transferring Agency data to unsecure applications or locations. 
-Restricted Application List | Configured | Unapproved application installs will be alerted upon. 
+Restricted Application List | Configured | Unapproved application installs will be alerted upon. App Store is also disabled as applications will be delivered through the VPP. 
 
 ### Securing iOS applications
 

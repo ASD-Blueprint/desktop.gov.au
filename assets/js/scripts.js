@@ -7,7 +7,7 @@ $( document ).ready( function() {
 	$('th:not(.au-table__header)').addClass('au-table__header');
 	$('td:not(.au-table__cell)').addClass('au-table__cell');
 	$('table.au-table').wrap( '<div class="responsive-table"></div>');
-	$('#content-area table').tablesorter();
+	$('#content-area table.sortable').tablesorter();
 
 	$('#back-to-top a').on( 'click', function() {
 		$('html, body').animate({

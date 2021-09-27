@@ -25,6 +25,7 @@ The following Microsoft Endpoint Manager - Intune (Intune) compliance settings c
     * Password type: `Alphanumeric`
     * Password Complexity: `Require digits, lowercase and uppercase letters`
     * Minimum password length: `14`
+    * Maximum minutes of inactivity before password is required: `15 Minutes`
     * Password expiration (days): `365`
     * Number of previous passwords to prevent reuse: `5`
     * Require password when device returns from idle state (Mobile and Holographic): `Require`
@@ -33,8 +34,8 @@ The following Microsoft Endpoint Manager - Intune (Intune) compliance settings c
     * Trusted Platform Module (TPM): `Require`
     * Antivirus: `Require`
     * Antispyware: `Require`
-  * Defender
     * Microsoft Defender Antimalware: `Require`
+    * Microsoft Defender Antimalware minimum version: `4.18.0.0`
     * Microsoft Defender Antimalware security intelligence up-to-date: `Require`
     * Real-time protection: `Require`
   * Microsoft Defender for Endpoint
@@ -55,19 +56,20 @@ The following Microsoft Endpoint Manager - Intune (Intune) compliance settings c
 * Platform: `iOS/iPadOS`
 * Profile type: `iOS compliance policy`
 * Compliance settings
-  * Email
-    * Unable to set up email on the device: `Not Required`
   * Device Health
     * Jailbroken devices: `Block`
     * Require the device to be at or under the Device Threat Level: `Medium`
   * Device Properties
     * Minimum OS version: `14.7`
     * Minimum OS build version: `16G70`
-  * System Security: `
+  * Microsoft Defender for Endpoint
+    * Require the device to be at or under the machine risk score: `Medium`
+  * System Security:
     * Require a password to unlock mobile devices.: `Required`
     * Simple passwords: `Block`
     * Minimum password length: `14`
     * Required password type: `Alphanumeric`
+    * Number of non-alphanumeric characters in password: `1`
     * Maximum minutes after screen lock before password is required: `Immediately`
     * Maximum minutes of inactivity until screen locks: `15 Minutes`
     * Password expiration (days): `365`
@@ -87,6 +89,5 @@ The following settings configure the way the compliance service treats devices. 
 The configuration can be found at `Microsoft Endpoint Manager > Devices > Compliance policies | Compliance policy settings`
 
 * Mark devices with no compliance policy assigned as: `Not Compliant`
-* Enhanced jailbreak detection: `enabled`
-* Compliance status: `iOS/iPadOS`
-* Profile type: `iOS compliance policy`
+* Enhanced jailbreak detection: `Enabled`
+* Compliance status validity period (days): `30`

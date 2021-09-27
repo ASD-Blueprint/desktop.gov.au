@@ -56,11 +56,6 @@ The following table outlines the configuration settings within the profile.
 | Game  DVR (desktop only)                                     | Block                                                        |
 | User  control over installations                             | Block                                                        |
 | Install  apps with elevated privileges                       | Block                                                        |
-| **Cellular and connectivity**                                |                                                              |
-| Bluetooth pre-pairing                                        | Block                                                        |
-| Bluetooth  advertising                                       | Block                                                        |
-| Bluetooth  proximal connections                              | Block                                                        |
-| Bluetooth  allowed services                                  | String: [bluetooth-allowed-services.txt](/assets/files/abac/bluetooth-allowed-services.txt) |
 | **Cloud and Storage**                                        |                                                              |
 | Non-Microsoft account                                        | Block                                                        |
 | **Control Panel and Settings**                               |                                                              |
@@ -125,7 +120,7 @@ The following table outlines the settings within the profile.
 | Enable saving passwords to  the password manager             | Device | \Microsoft Edge\Password  manager and protection             | Disabled                                                     |
 | Intranet Sites: Include all  network paths (UNCs)            | Device | \Windows Components\Internet  Explorer\Internet Control Panel\Security Page | Disabled                                                     |
 | Ads setting for sites with  intrusive ads                    | Device | \Microsoft Edge                                              | Enabled – Block ads on sites  with intrusive ads. (Default value) |
-| Block access to a list of  URLs                              | Device | \Microsoft Edge                                              | Enabled                                                      |
+| Block access to a list of  URLs                              | Device | \Microsoft Edge                                              | Enabled AGENCY to configure                                  |
 | Block all ads on Bing search  results                        | Device | \Microsoft Edge                                              | Enabled                                                      |
 | Configure Do Not Track                                       | Device | \Microsoft Edge                                              | Enabled                                                      |
 | Configure Microsoft Defender  SmartScreen                    | Device | \Microsoft Edge\SmartScreen  settings                        | Enabled                                                      |
@@ -145,8 +140,6 @@ The following table outlines the settings within the profile.
 | DNS interception checks  enabled                             | Device | \Microsoft Edge                                              | Disabled                                                     |
 | Control the mode of  DNS-over-HTTPS                          | Device | \Microsoft Edge                                              | Enabled: Disable DNS-over-HTTPS                              |
 | Allow download restrictions                                  | Device | \Microsoft Edge                                              | Enabled:  Block  potentially dangerous or unwanted downloads |
-| Prevent users and apps from  accessing dangerous websites    | Device | \Microsoft Defender  Antivirus\Microsoft Defender Exploit Guard\Network Protection | Enabled: Block                                               |
-| Turn on Microsoft Defender  Application Guard in Managed Mode | Device | \Windows  Components\Microsoft Defender Application Guard    | Enabled                                                      |
 
 #### ACSC - Endpoint Protection
 
@@ -165,34 +158,9 @@ The following table outlines the configuration settings within the profile.
 
 | Item                                                         | Configuration                                                |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| **Microsoft Defender Firewall**                              |                                                              |
-| Opportunistically match authentication set per  keying module | Disable                                                      |
-| **Application  Guard**                                       |                                                              |
-| Application Guard                                            | Enabled for Edge                                             |
 | **Microsoft  Defender SmartScreen**                          |                                                              |
 | SmartScreen for apps and files                               | Enable                                                       |
 | Unverified files execution                                   | Block                                                        |
-| **Microsoft  Defender Exploit Guard**                        |                                                              |
-| Upload XML                                                   | Agency to generate XML from from a reference computer. <br>See [create exploit guard policy](https://docs.microsoft.com/en-us/mem/configmgr/protect/deploy-use/create-deploy-exploit-guard-policy) |
-| User editing of exploit protection interface                 | Block                                                        |
-| **Microsoft  Defender Security Center**                      |                                                              |
-| Virus and threat protection                                  | Allow                                                        |
-| Ransomware protection                                        | Allow                                                        |
-| Account protection                                           | Allow                                                        |
-| Firewall and network protection                              | Allow                                                        |
-| App and browser control                                      | Allow                                                        |
-| Hardware protection                                          | Not configured                                               |
-| Device performance and health                                | Allow                                                        |
-| Family options                                               | Allow                                                        |
-| Windows Security Center icon in the system tray              | Allow                                                        |
-| Clear TPM button                                             | Allow                                                        |
-| TPM firmware update warning                                  | Allow                                                        |
-| Tamper Protection                                            | Enabled                                                      |
-| IT contact information                                       | Display only in app                                          |
-| IT organization name                                         | AGENCY defined                                               |
-| IT department phone number or Skype ID                       | Not configured                                               |
-| IT department email address                                  | Not configured                                               |
-| IT support website URL                                       | AGENCY defined                                               |
 | **Local  device security options**                           |                                                              |
 | Add new Microsoft accounts                                   | Block                                                        |
 | Remote log on without password                               | Block                                                        |
@@ -200,7 +168,7 @@ The following table outlines the configuration settings within the profile.
 | Rename admin account                                         | Blueprint_admin                                              |
 | Guest account                                                | Block                                                        |
 | Rename guest account                                         | Blueprint_guest                                              |
-| Minutes to lock screen inactivity until screen  saver activates | 15                                                           |
+| Minutes to lock screen inactivity until screen saver activates | 15                                                         |
 | User information on lock screen                              | User display name only                                       |
 | Anonymous access to Named Pipes and Shares                   | Block                                                        |
 | Anonymous enumeration of SAM accounts                        | Block                                                        |
@@ -214,7 +182,7 @@ The following table outlines the configuration settings within the profile.
 | LAN Manager Authentication Level                             | NTLMv2                                                       |
 | Insecure Guest Logons                                        | Block                                                        |
 | UIA integrity without secure location                        | Block                                                        |
-| Virtualize file and registry write failures to  per-user locations | Enabled                                                      |
+| Virtualize file and registry write failures to  per-user locations | Enabled                                                |
 | Elevated prompt for app installations                        | Enabled                                                      |
 | Admin Approval Mode For Built-in Administrator               | Enabled                                                      |
 | Run all admins in Admin Approval Mode                        | Enabled                                                      |
@@ -226,7 +194,6 @@ The following table outlines the configuration settings within the profile.
 | Xbox  Live Auth Manager Service                              | Disabled                                                     |
 | Xbox  Live Game Save Service                                 | Disabled                                                     |
 | Xbox  Live Networking Service                                | Disabled                                                     |
-| **Attack Surface Reduction**                                 | Configure ASR via Endpoint Security settings.                |
 
 #### ACSC - Macro and Add-In Security
 
@@ -250,14 +217,14 @@ The following table outlines the settings within the profile.
 | Allow Trusted Locations on the network                       | User | \Microsoft Access 2016\Application  Settings\Security\Trust Center\Trusted Locations | Disabled                                                     |
 | Allow Trusted Locations on the network                       | User | \Microsoft Project 2016\Project Options\Security\Trust  Center | Disabled                                                     |
 | Allow Trusted Locations on the network                       | User | \Microsoft Visio 2016\Visio Options\Security\Trust  Center   | Disabled                                                     |
+| Allow Trusted Locations on the network                       | User | \Microsoft Word 2016\Word Options\Security\Trust  Center\Trusted Locations | Disabled                                                      |
+| Allow Trusted Locations on the network                       | User | \Microsoft Excel 2016\Excel Options\Security\Trust  Center\Trusted Locations | Disabled                                                      |
 | Disable VBA for Office applications                          | User | \Microsoft Office 2016\Security Settings                     | Disabled                                                     |
 | Enable Microsoft Visual Basic for Applications project  creation | User | \Microsoft Visio 2016\Visio Options\Security\Macro  Security | Disabled                                                     |
 | Load Microsoft Visual Basic for Applications projects  from text | User | \Microsoft Visio 2016\Visio Options\Security\Macro  Security | Disabled                                                     |
 | Trust access to Visual Basic Project                         | User | \Microsoft Word 2016\Word Options\Security\Trust Center      | Disabled                                                     |
 | Trust access to Visual Basic Project                         | User | \Microsoft PowerPoint 2016\PowerPoint Options\Security\Trust  Center | Disabled                                                     |
 | Trust access to Visual Basic Project                         | User | \Microsoft Excel 2016\Excel Options\Security\Trust  Center   | Disabled                                                     |
-| Allow Trusted Locations on the network                       | User | \Microsoft Word 2016\Word Options\Security\Trust  Center\Trusted Locations | Enabled                                                      |
-| Allow Trusted Locations on the network                       | User | \Microsoft Excel 2016\Excel Options\Security\Trust  Center\Trusted Locations | Enabled                                                      |
 | Apply macro security settings to macros, add-ins and  additional actions | User | \Microsoft Outlook 2016\Security\Trust Center                | Enabled                                                      |
 | Automation Security                                          | User | \Microsoft Office 2016\Security Settings                     | Enabled – Use application macro security level               |
 | Block additional file extensions for OLE embedding           | User | \Microsoft Office 2016\Security Settings                     | Enabled                                                      |
@@ -280,7 +247,7 @@ The following table outlines the settings within the profile.
 | Disable commands                                             | User | \Microsoft Visio 2016\Disable Items in User  Interface\Predefined | Enabled – <br>Developer tab \| Macros <br>Developer tab \| Visual Basic |
 | Disable commands                                             | User | \Microsoft Access 2016\Disable Items in User  Interface\Predefined | Enabled - <br>Database tools \| Macro \| Visual Basic<br>Database tools \| Macro \| Run Macro <br>Database tools \| Macro \| Convert Macros to Visual Basic <br>Database tools \| Macro \| Create Shortcut Menu from Macro |
 | Disable commands                                             | User | \Microsoft Word 2016\Disable Items in User  Interface\Predefined | Enabled -  <br>Developer tab \| Code \| Macros <br>Developer tab \| Code \| Record Macros <br>Developer tab \| Code \| Macro Security <br>Developer tab \| Code \| Visual Basic |
-| Disable commands                                             | User | \Microsoft Publisher 2016\Disable Items in User  Interface\Predefined | Enabled - <br>Developer tab \| Code \| Macros <br>Developer tab \| Code \| Macro Security <br>Developer tab \| Code \| Visual Basic <br>Developer tab \| Code \| Macro Security   Developer tab \| Add-Ins \| COM Add-Ins |
+| Disable commands                                             | User | \Microsoft Publisher 2016\Disable Items in User  Interface\Predefined | Enabled - <br>Developer tab <br>Developer tab \| Code \| Macros <br>Developer tab \| Code \| Macro Security <br>Developer tab \| Code \| Visual Basic <br> Developer tab \| Add-Ins \| COM Add-Ins |
 | List of managed add-ins                                      | User | \Microsoft Outlook 2016\Miscellaneous                        | Agency defined                                               |
 | Macro Runtime Scan Scope                                     | User | \Microsoft Office 2016\Security Settings                     | Enabled – Enable for all documents                           |
 | Publisher Automation Security Level                          | User | \Microsoft Publisher 2016\Security                           | Enabled – High (disabled)                                    |
@@ -344,7 +311,7 @@ The following table outlines the settings within the profile.
 | Apply UAC restrictions to local accounts on network  logons  | Device | \MS Security Guide                                           | Enabled                                                      |
 | Boot-Start Driver Initialization Policy                      | Device | \System\Early Launch Antimalware                             | Enabled – Good and unknown                                   |
 | Configure SMB v1 client driver                               | Device | \MS Security Guide                                           | Enabled – Disable driver (recommended)                       |
-| Configure Solicited Remote Assistance                        | Device | \System\Remote Assistance                                    | Enabled – Allow helpers to remotely control the  computer   1   Hours   Mailto |
+| Configure Solicited Remote Assistance                        | Device | \System\Remote Assistance                                    | Enabled – Allow helpers to remotely control the  computer, 1, Hours, Mailto |
 | Disallow Autoplay for non-volume devices                     | Device | \Windows Components\AutoPlay Policies                        | Enabled                                                      |
 | Disallow Digest authentication                               | Device | \Windows Components\Windows Remote Management  (WinRM)\WinRM Client | Enabled                                                      |
 | Disallow WinRM from storing RunAs credentials                | Device | \Windows Components\Windows Remote Management  (WinRM)\WinRM Service | Enabled                                                      |
@@ -358,7 +325,8 @@ The following table outlines the settings within the profile.
 | MSS: (DisableIPSourceRouting) IP source routing  protection level (protects against packet spoofing) | Device | \MSS (Legacy)                                                | Enabled – Highest protection, source routing is  completely disabled |
 | Prevent enabling lock screen camera                          | Device | \Control Panel\Personalization                               | Enabled                                                      |
 | Prevent enabling lock screen slide show                      | Device | \Control Panel\Personalization                               | Enabled                                                      |
-| Prevent installation of devices using drivers that  match these device setup classes | Device | \System\Device Installation\Device Installation  Restrictions | Enabled                                                      |
+| Prevent installation of devices that match any of these device IDs | Device | \System\Device Installation\Device Installation Restrictions | Enabled - Device IDs: `PCI\CC_0C0010, PCI\CC_0C0A` <br>(Also apply to matching devices that are already installed.) |
+| Prevent installation of devices using drivers that  match these device setup classes | Device | \System\Device Installation\Device Installation  Restrictions | Enabled - Setup classes: `{d48179be-ec20-11d1-b6b8-00c04fa372a7}` <br>(Also apply to matching devices that are already installed.)                                                      |
 | Prohibit connection to non-domain networks when  connected to domain authenticated network | Device | \Network\Windows Connection Manager                          | Enabled                                                      |
 | Prohibit installation and configuration of Network  Bridge on your DNS domain network | Device | \Network\Network Connections                                 | Enabled                                                      |
 | Remote host allows delegation of non-exportable  credentials | Device | \System\Credentials Delegation                               | Enabled                                                      |
@@ -374,7 +342,7 @@ The following table outlines the settings within the profile.
 | Specify the system hibernate timeout (plugged in)            | Device | \System\Power Management\Sleep Settings                      | Enabled - 0                                                  |
 | Specify the system sleep timeout (on battery)                | Device | \System\Power Management\Sleep Settings                      | Enabled - 300                                                |
 | Specify the system sleep timeout (plugged in)                | Device | \System\Power Management\Sleep Settings                      | Enabled - 0                                                  |
-| Turn off Autoplay                                            | Device | \Windows Components\AutoPlay Policies                        | Enabled                                                      |
+| Turn off Autoplay                                            | Device | \Windows Components\AutoPlay Policies                        | Enabled - All drives                                                 |
 | Turn off Data Execution Prevention for Explorer              | Device | \Windows Components\File Explorer                            | Enabled                                                      |
 | Turn off heap termination on corruption                      | Device | \Windows Components\File Explorer                            | Enabled                                                      |
 | Turn off picture password sign-in                            | Device | \System\Logon                                                | Enabled                                                      |
@@ -403,7 +371,6 @@ The following table outlines the OMA-URI settings within the profile.
 | Configure System Guard                                       | This policy allows the IT admin to configure  the launch of System Guard. | `./Vendor/MSFT/Policy/Config/DeviceGuard/`<br>`ConfigureSystemGuardLaunch` | Integer: 1     |
 | Turn On Virtualization Based Security                        | Added in Windows 10, version 1709. Turns on  virtualization based security(VBS) at the next reboot. virtualization based  security uses the Windows Hypervisor to provide support for security  services. Value type is integer. | `./Vendor/MSFT/Policy/Config/DeviceGuard/`<br>`EnableVirtualizationBasedSecurity` | Integer: 1     |
 | Required Platform Security Features                          | Added in Windows 10, version 1709. Specifies  the platform security level at the next reboot. Value type is integer. | `./Vendor/MSFT/Policy/Config/DeviceGuard/`<br>`RequirePlatformSecurityFeatures` | Integer: 1     |
-| Enabled with UEFI lock                                       | Added in Windows 10, version 1709. This  setting lets users turn on Credential Guard with virtualization-based  security to help protect credentials at next reboot. Value type is integer. | `./Vendor/MSFT/Policy/Config/DeviceGuard/LsaCfgFlags`          | Integer: 1     |
 | Enumeration policy for external devices  incompatible with Kernel DMA Protection | Not configured                                               | `./Vendor/MSFT/Policy/Config/`<br>`DmaGuard/DeviceEnumerationPolicy` | Integer: 0     |
 | Allow Windows to automatically connect to  suggested open hotspots, to networks shared by contacts, and to hotspots  offering paid services | This policy is intended to provide  additional security against external DMA capable devices. It allows for more  control over the enumeration of external DMA capable devices incompatible  with DMA Remapping/device memory isolation and sandboxing. Device memory sandboxing allows the OS to  leverage the I/O Memory Management Unit (IOMMU) of a device to block  unallowed I/O, or memory access, by the peripheral. In other words, the OS  assigns a certain memory range to the peripheral. If the peripheral attempts  to read/write to memory outside of the assigned range, the OS blocks it. This policy only takes effect when Kernel  DMA Protection is supported and enabled by the system firmware. Kernel DMA  Protection is a platform feature that cannot be controlled via policy or by  end user. It has to be supported by the system at the time of manufacturing.  To check if the system supports Kernel DMA Protection, please check the  Kernel DMA Protection field in the Summary page of MSINFO32.exe. | `./Vendor/MSFT/Policy/Config/Wifi/`<br>`AllowAutoConnectToWiFiSenseHotspots` | Integer: 0     |
 | Allow Windows to automatically connect to  suggested open hotspots, to networks shared by contacts, and to hotspots  offering paid services | Allow or disallow the device to  automatically connect to Wi-Fi hotspots. | `./Vendor/MSFT/Policy/Config/Wifi/`<br>`AllowAutoConnectToWiFiSenseHotspots` | Integer: 0     |
@@ -440,125 +407,13 @@ The following table outlines the OMA-URI settings within the profile.
 | Windows Hello for Business                                   | Boolean value that sets Windows Hello for  Business as a method for signing into Windows. | `./Vendor/MSFT/PassportforWork/f87adb37-069d-44ab-b352-f6d61ecc6db2/Policies/UsePassportForWork` | Boolean: False |
 | Store for Business Private only                              | Block the Windows 10 public store but allow access to the business store. | `./Vendor/MSFT/Policy/Config/ApplicationManagement/`<br>`RequirePrivateStoreOnly` | Integer: 1     |
 
-#### AGENCY - Custom - Desktop Configuration CSP
-
-The following table outlines the profile is created for all implementation types.
-
-| Item               | Configuration                               |
-| ------------------ | ------------------------------------------- |
-| Profile Name       | AGENCY - Custom - Desktop Configuration CSP |
-| Profile type       | Custom                                      |
-| Platform supported | Windows 10 and later                        |
-| Groups excluded    | 0                                           |
-| Assigned           | Yes                                         |
-| Groups assigned    | `grp-agency-windows10-dynamic`              |
-
-The following table outlines the OMA-URI settings within the profile.
-
-| Name                             | Description    | OMA-URI                                                      | Value                                                        |
-| -------------------------------- | -------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| DefaultAssociationsConfiguration | Not configured | `./Vendor/MSFT/Policy/Config/ApplicationDefaults/`<br>`DefaultAssociationsConfiguration` | Agency to generate base64 file on reference computer. <br>See [ApplicationDefaults policy csp](https://docs.microsoft.com/en-us/windows/client-management/mdm/policy-csp-applicationdefaults). |
-| TimeZone                         | Not configured | `./Device/Vendor/MSFT/Policy/Config/TimeLanguageSettings/`<br>`ConfigureTimeZone` | String: AUS Eastern Standard Time                            |
-
-#### AGENCY - Custom - Device Restrictions
-
-The following table outlines the profile is created for all implementation types.
-
-| Item               | Configuration                         |
-| ------------------ | ------------------------------------- |
-| Profile Name       | AGENCY - Custom - Device Restrictions |
-| Profile type       | Device Restrictions                   |
-| Platform supported | Windows 10 and later                  |
-| Groups excluded    | 0                                     |
-| Assigned           | Yes                                   |
-| Groups assigned    | `grp-agency-windows10-dynamic`        |
-
-The following table outlines the configuration settings within the profile.
-
-| Item                           | Configuration                                                |
-| ------------------------------ | ------------------------------------------------------------ |
-| **Personalization**            |                                                              |
-| Desktop background picture URL | Agency to define                                             |
-| **Start**                      |                                                              |
-| Start Menu Layout              | File: [Start_menu_layout.xml](/assets/files/abac/Start_menu_layout.xml) |
-
-#### AGENCY - Custom - Edge Browser
-
-The following table outlines the profile is created for all implementation types.
-
-| Item               | Configuration                                                |
-| ------------------ | ------------------------------------------------------------ |
-| Profile Name       | AGENCY - Custom - Edge Browser                               |
-| Profile type       | Administrative templates                                     |
-| Platform supported | Windows 10 and later                                         |
-| Groups excluded    | 0                                                            |
-| Assigned           | Yes                                                          |
-| Groups assigned    | `grp-agency-windows10-dynamic, rol-Agency-Administrators, rol-Agency-users` |
-
-The following table outlines the settings within the profile.
-
-| Item                                                         | Type   | ADMX Path                                                    | Value                                           |
-| ------------------------------------------------------------ | ------ | ------------------------------------------------------------ | ----------------------------------------------- |
-| Action to take on startup                                    | Device | \Microsoft Edge\Startup, home page and new tab page          | Open a list of URLs                             |
-| Browser  sign-in settings                                    | Device | \Microsoft  Edge                                             | Force users to sign-in to use the browser       |
-| Configure  the new tab page URL                              | Device | \Microsoft  Edge\Startup, home page and new tab page         | Agency to define                                |
-| Configure  whether a user always has a default profile automatically signed in with  their work or school account | Device | \Microsoft  Edge                                             | Enabled                                         |
-| Default  search provider name                                | Device | \Microsoft  Edge\Default search provider                     | Agency to define                                |
-| Default  search provider search URL                          | Device | \Microsoft  Edge\Default search provider                     | Agency to define                                |
-| Default  search provider URL for suggestions                 | Device | \Microsoft  Edge\Default search provider                     | Agency to define                                |
-| Enable  the default search provider                          | Device | \Microsoft  Edge\Default search provider                     | Enabled                                         |
-| Force  synchronization of browser data and do not show the sync consent prompt | Device | \Microsoft  Edge                                             | Enabled                                         |
-| Hide  the First-run experience and splash screen             | Device | \Microsoft  Edge                                             | Enabled                                         |
-| Site  to Zone Assignment List                                | Device | \Windows  Components\Internet Explorer\Internet Control Panel\Security Page | https://autologon.microsoftazuread-sso.com  - 1 |
-| Sites  to open when the browser starts                       | Device | \Microsoft  Edge\Startup, home page and new tab page         | Agency to define                                |
-
-#### AGENCY - Custom - Interactive Logon Banner CSP
-
-The following table outlines the profile is created for all implementation types.
-
-| Item               | Configuration                                  |
-| ------------------ | ---------------------------------------------- |
-| Profile Name       | AGENCY - Custom - Interactive Logon Banner CSP |
-| Profile type       | Custom                                         |
-| Platform supported | Windows 10 and later                           |
-| Groups excluded    | 0                                              |
-| Assigned           | Yes                                            |
-| Groups assigned    | `grp-agency-windows10-dynamic`                 |
-
-The following table outlines the OMA-URI settings within the profile.
-
-| Name                               | Description    | OMA-URI                                                      | Value                                      |
-| ---------------------------------- | -------------- | ------------------------------------------------------------ | ------------------------------------------ |
-| Interactive Login Banner -   Title | Not configured | `./Vendor/MSFT/Policy/Config/LocalPoliciesSecurityOptions/`<br>`InteractiveLogon_MessageTitleForUsersAttemptingToLogOn` | String: Agency to define warning title     |
-| Interactive Login Banner - Text    | Not Configured | `./Vendor/MSFT/Policy/Config/LocalPoliciesSecurityOptions/`<br>`InteractiveLogon_MessageTextForUsersAttemptingToLogOn` | String: Agency to define logon banner text |
-
-#### AGENCY - Custom - Windows Defender Application Control CSP
-
-The following table outlines the profile is created for all implementation types.
-
-| Item               | Configuration                                              |
-| ------------------ | ---------------------------------------------------------- |
-| Profile Name       | AGENCY - Custom - Windows Defender Application Control CSP |
-| Profile type       | Custom                                                     |
-| Platform supported | Windows 10 and later                                       |
-| Groups excluded    | 0                                                          |
-| Assigned           | Yes                                                        |
-| Groups assigned    | `grp-agency-windows10-dynamic`                             |
-
-The following table outlines the OMA-URI settings within the profile.
-
-| Name            | Description                                                  | OMA-URI                                                      | Value                                                        |
-| --------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| WDACBasePolicy  | The ApplicationControl CSP enforces that the "ID" segment of a given policy URI is the same GUID as the policy ID in the policy blob. Each Policy GUID node contains a Policy node and a corresponding PolicyInfo node. | `./Vendor/MSFT/ApplicationControl/Policies/(policy GUID)/Policy` | Base64 (file) (see [Client devices technical instruction](https://www.desktop.gov.au/blueprint/abac/client-devices.html) |
-| WDACSuppPolicy1 | Additional supplemental policy from generated from a base WDAC policy. | `./Vendor/MSFT/ApplicationControl/Policies/(policy GUID)/Policy` | Base64 (file) (see [Client devices technical instruction](https://www.desktop.gov.au/blueprint/abac/client-devices.html) |
-
-#### DTA - Blueprint - Delivery Optimisation
+#### Blueprint - Delivery Optimisation
 
 The following table outlines the profile is created for all implementation types.
 
 | Item               | Configuration                           |
 | ------------------ | --------------------------------------- |
-| Profile Name       | DTA - Blueprint - Delivery Optimisation |
+| Profile Name       | Blueprint - Delivery Optimisation |
 | Profile type       | Delivery Optimisation                   |
 | Platform supported | Windows 10 and later                    |
 | Groups excluded    | 0                                       |
@@ -583,33 +438,13 @@ The following table outlines the configuration settings within the profile.
 | Maximum  cache size type                             | Percentage                                    |
 | Maximum  cache size (in %)                           | 20                                            |
 
-#### DTA - Blueprint - Identity Protection
-
-The following table outlines the profile is created for all implementation types.
-
-| Item               | Configuration                         |
-| ------------------ | ------------------------------------- |
-| Profile Name       | DTA - Blueprint - Identity Protection |
-| Profile type       | Identity Protection                   |
-| Platform supported | Windows 10 and later                  |
-| Groups excluded    | 0                                     |
-| Assigned           | Yes                                   |
-| Groups assigned    | `grp-agency-windows10-dynamic`        |
-
-The following table outlines the configuration settings within the profile.
-
-| Item                                 | Configuration  |
-| ------------------------------------ | -------------- |
-| Configure Windows Hello for Business | Disable        |
-| Use security keys for sign-in        | Not configured |
-
-#### DTA - Blueprint - Network Boundary
+#### Blueprint - Network Boundary
 
 The following table outlines the profile is created for all implementation types.
 
 | Item               | Configuration                      |
 | ------------------ | ---------------------------------- |
-| Profile Name       | DTA - Blueprint - Network Boundary |
+| Profile Name       | Blueprint - Network Boundary |
 | Profile type       | Network Boundary                   |
 | Platform supported | Windows 10 and later               |
 | Groups excluded    | 0                                  |
@@ -620,22 +455,20 @@ The following table outlines the configuration settings within the profile.
 
 | Item                                              | Configuration                                                |
 | ------------------------------------------------- | ------------------------------------------------------------ |
-| Cloud resources                                   | `tasks.office.com|protection.office.com|meet.lync.com|teams.microsoft.com|www.yammer.com|yammer.com|persona.yammer.com|outlook.office.com|outlook.office365.com|attachments.office.net` |
-| Auto detection of other enterprise proxy servers | Not configured                                               |
-| Auto detection of other enterprise IP ranges      | Not configured                                               |
+| Cloud resources                                   | `sharepoint.com|www.yammer.com|yammer.com|persona.yammer.com|outlook.office.com|outlook.office365.com|attachments.office.net|crm.dynamics.com|visualstudio.com|powerbi.com|teams.microsoft.com|tasks.office.com|protection.office.com|meet.lync.com|project.microsoft.com` |
 
-#### AGENCY - Custom - OneDrive Device
+#### Blueprint - OneDrive Device
 
 The following table outlines the profile is created for all implementation types.
 
 | Item               | Configuration                                          |
 | ------------------ | ------------------------------------------------------ |
-| Profile Name       | AGENCY - Custom - OneDrive Device                      |
+| Profile Name       | Blueprint - OneDrive Device                      |
 | Profile type       | Administrative templates                               |
 | Platform supported | Windows 10 and later                                   |
 | Groups excluded    | 0                                                      |
 | Assigned           | Yes                                                    |
-| Groups assigned    | `grp-agency-windows10-dynamic, rol-Agency-users` |
+| Groups assigned    | `grp-agency-windows10-dynamic` |
 
 The following table outlines the settings within the profile.
 
@@ -644,17 +477,17 @@ The following table outlines the settings within the profile.
 | Silently move Windows known folders to OneDrive              | Device | \OneDrive | Enabled: Agency tenant ID<br>Show notification: No |
 | Prevent users from syncing libraries and folders shared from other organizations | Device | \OneDrive | Enabled                                              |
 | Require users to confirm large delete operations             | Device | \OneDrive | Enabled                                              |
-| Set the sync client update ring                              | Device | \OneDrive | Enabled: Production                                  |
+| Set the sync app update ring                              | Device | \OneDrive | Enabled: Production                                  |
 | Prevent users from redirecting their Windows known folders to their PC | Device | \OneDrive | Enabled                                              |
 | Use OneDrive Files On-Demand                                 | Device | \OneDrive | Enabled                                              |
 
-#### AGENCY - Custom - OneDrive User
+#### Blueprint - OneDrive User
 
 The following table outlines the profile is created for all implementation types.
 
 | Item               | Configuration                                       |
 | ------------------ | --------------------------------------------------- |
-| Profile Name       | AGENCY - Custom - OneDrive User                     |
+| Profile Name       | Blueprint - OneDrive User                     |
 | Profile type       | Administrative templates                            |
 | Platform supported | Windows 10 and later                                |
 | Groups excluded    | 0                                                   |
@@ -668,17 +501,131 @@ The following table outlines the settings within the profile.
 | Coauthor and share in Office desktop apps             | User | \OneDrive | Enabled |
 | Prevent users from syncing personal OneDrive accounts | User | \OneDrive | Enabled |
 
+#### Custom - Desktop Configuration CSP
+
+The following table outlines the profile is created for all implementation types.
+
+| Item               | Configuration                               |
+| ------------------ | ------------------------------------------- |
+| Profile Name       | Custom - Desktop Configuration CSP |
+| Profile type       | Custom                                      |
+| Platform supported | Windows 10 and later                        |
+| Groups excluded    | 0                                           |
+| Assigned           | Yes                                         |
+| Groups assigned    | `grp-agency-windows10-dynamic`              |
+
+The following table outlines the OMA-URI settings within the profile.
+
+| Name                             | Description    | OMA-URI                                                      | Value                                                        |
+| -------------------------------- | -------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| DefaultAssociationsConfiguration | Not configured | `./Vendor/MSFT/Policy/Config/ApplicationDefaults/`<br>`DefaultAssociationsConfiguration` | Agency to generate base64 file on reference computer. <br>See [ApplicationDefaults policy csp](https://docs.microsoft.com/en-us/windows/client-management/mdm/policy-csp-applicationdefaults). |
+| TimeZone                         | Not configured | `./Device/Vendor/MSFT/Policy/Config/TimeLanguageSettings/`<br>`ConfigureTimeZone` | String: AUS Eastern Standard Time                            |
+
+#### Custom - Device Restrictions
+
+The following table outlines the profile is created for all implementation types.
+
+| Item               | Configuration                         |
+| ------------------ | ------------------------------------- |
+| Profile Name       | Custom - Device Restrictions |
+| Profile type       | Device Restrictions                   |
+| Platform supported | Windows 10 and later                  |
+| Groups excluded    | 0                                     |
+| Assigned           | Yes                                   |
+| Groups assigned    | `grp-agency-windows10-dynamic`        |
+
+The following table outlines the configuration settings within the profile.
+
+| Item                           | Configuration                                                |
+| ------------------------------ | ------------------------------------------------------------ |
+| **Locked Screen Experience**            |                                                              |
+| Locked screen picture URL (Desktop only) | Agency to define                                             |
+| **Personalization**            |                                                              |
+| Desktop background picture URL | Agency to define                                             |
+| **Start**                      |                                                              |
+| Start Menu Layout              | File: [Start_menu_layout.xml](/assets/files/abac/Start_menu_layout.xml) |
+
+#### Custom - Edge Browser
+
+The following table outlines the profile is created for all implementation types.
+
+| Item               | Configuration                                                |
+| ------------------ | ------------------------------------------------------------ |
+| Profile Name       | Custom - Edge Browser                               |
+| Profile type       | Administrative templates                                     |
+| Platform supported | Windows 10 and later                                         |
+| Groups excluded    | 0                                                            |
+| Assigned           | Yes                                                          |
+| Groups assigned    | `grp-agency-windows10-dynamic, rol-Agency-Administrators, rol-Agency-users` |
+
+The following table outlines the settings within the profile.
+
+| Item                                                         | Type   | ADMX Path                                                    | Value                                           |
+| ------------------------------------------------------------ | ------ | ------------------------------------------------------------ | ----------------------------------------------- |
+| Action to take on startup                                    | Device | \Microsoft Edge\Startup, home page and new tab page          | Open a list of URLs                             |
+| Browser  sign-in settings                                    | Device | \Microsoft  Edge                                             | Force users to sign-in to use the browser       |
+| Configure  the new tab page URL                              | Device | \Microsoft  Edge\Startup, home page and new tab page         | Agency to define                                |
+| Configure  whether a user always has a default profile automatically signed in with  their work or school account | Device | \Microsoft  Edge                                             | Enabled                                         |
+| Default  search provider name                                | Device | \Microsoft  Edge\Default search provider                     | Agency to define                                |
+| Default  search provider search URL                          | Device | \Microsoft  Edge\Default search provider                     | Agency to define                                |
+| Default  search provider URL for suggestions                 | Device | \Microsoft  Edge\Default search provider                     | Agency to define                                |
+| Enable  the default search provider                          | Device | \Microsoft  Edge\Default search provider                     | Enabled                                         |
+| Force  synchronization of browser data and do not show the sync consent prompt | Device | \Microsoft  Edge                                             | Enabled                                         |
+| Hide  the First-run experience and splash screen             | Device | \Microsoft  Edge                                             | Enabled                                         |
+| Site  to Zone Assignment List                                | Device | \Windows  Components\Internet Explorer\Internet Control Panel\Security Page | https://autologon.microsoftazuread-sso.com  - 1 |
+| Sites  to open when the browser starts                       | Device | \Microsoft  Edge\Startup, home page and new tab page         | Agency to define                                |
+
+#### Custom - Interactive Logon Banner CSP
+
+The following table outlines the profile is created for all implementation types.
+
+| Item               | Configuration                                  |
+| ------------------ | ---------------------------------------------- |
+| Profile Name       | Custom - Interactive Logon Banner CSP |
+| Profile type       | Custom                                         |
+| Platform supported | Windows 10 and later                           |
+| Groups excluded    | 0                                              |
+| Assigned           | Yes                                            |
+| Groups assigned    | `grp-agency-windows10-dynamic`                 |
+
+The following table outlines the OMA-URI settings within the profile.
+
+| Name                               | Description    | OMA-URI                                                      | Value                                      |
+| ---------------------------------- | -------------- | ------------------------------------------------------------ | ------------------------------------------ |
+| Interactive Login Banner -   Title | Not configured | `./Vendor/MSFT/Policy/Config/LocalPoliciesSecurityOptions/`<br>`InteractiveLogon_MessageTitleForUsersAttemptingToLogOn` | String: Agency to define warning title     |
+| Interactive Login Banner - Text    | Not Configured | `./Vendor/MSFT/Policy/Config/LocalPoliciesSecurityOptions/`<br>`InteractiveLogon_MessageTextForUsersAttemptingToLogOn` | String: Agency to define logon banner text |
+
+#### Custom - Windows Defender Application Control CSP
+
+The following table outlines the profile is created for all implementation types.
+
+| Item               | Configuration                                              |
+| ------------------ | ---------------------------------------------------------- |
+| Profile Name       | Custom - Windows Defender Application Control CSP |
+| Profile type       | Custom                                                     |
+| Platform supported | Windows 10 and later                                       |
+| Groups excluded    | 0                                                          |
+| Assigned           | Yes                                                        |
+| Groups assigned    | `grp-agency-windows10-dynamic`                             |
+
+The following table outlines the OMA-URI settings within the profile.
+
+| Name            | Description                                                  | OMA-URI                                                      | Value                                                        |
+| --------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| WDACBasePolicy  | The ApplicationControl CSP enforces that the "ID" segment of a given policy URI is the same GUID as the policy ID in the policy blob. Each Policy GUID node contains a Policy node and a corresponding PolicyInfo node. | `./Vendor/MSFT/ApplicationControl/Policies/(policy GUID)/Policy` | Base64 (file) (see [Client devices technical instruction](https://www.desktop.gov.au/blueprint/abac/client-devices.html) |
+| WDACSuppPolicy1 | Additional supplemental policy from generated from a base WDAC policy. | `./Vendor/MSFT/ApplicationControl/Policies/(policy GUID)/Policy` | Base64 (file) (see [Client devices technical instruction](https://www.desktop.gov.au/blueprint/abac/client-devices.html) |
+
 ### iOS Devices
 
 `Microsoft Endpoint Manager > Devices > Configuration profiles > Create Profile > iOS/iPadOS`
 
-#### AGENCY - iOS device restrictions
+#### Blueprint - iOS device restrictions
 
 The following table outlines the profile is created for all implementation types.
 
 | Item               | Configuration                                 |
 | ------------------ | --------------------------------------------- |
-| Profile Name       | AGENCY - iOS device restrictions              |
+| Profile Name       | Blueprint - iOS device restrictions              |
 | Profile type       | Device Restrictions                           |
 | Platform supported | iOS/iPadOS                                    |
 | Groups excluded    | 0                                             |
@@ -687,6 +634,57 @@ The following table outlines the profile is created for all implementation types
 
 Configuration settings:
 
+* App Store, Doc Viewing, Gaming
+  * Block viewing corporate documents in unmanaged apps: `Yes`
+  * Treat AirDrop as an unmanaged destination: `Yes`
+  * Viewing non-corporate documents in corporate apps: `Yes`
+  * Block in-app purchases: `Yes`
+  * Block download of explicit sexual content in Apple Books: `Yes`
+  * Block App store: `Yes`
+  * Block playback of explicit iTunes music, podcast, or news content: `Yes`
+  * Block adding Game Center friends: `Yes`
+  * Block Game Center: `Yes`
+  * Block multiplayer gaming in the Game Center: `Yes`
+  * Block Access to network drive in Files app: `Yes`
+* Built-in Apps
+  * Block Siri: `Yes`
+  * Require Safari fraud warnings: `Yes`
+  * Block internet search results from Spotlight: `Yes`
+  * Safari cookies: `Block all cookies, and block cross site tracking`
+  * Block Safari JavaScript: `Yes`
+  * Block Safari pop-ups: `Yes`
+  * Block Siri for dictation: `Yes`
+  * Block camera: `Yes`
+  * Block Apple Book: `Yes`
+  * Block iTunes Store: `Yes`
+  * Block Find My iPhone: `Yes`
+  * Block Find My Friends: `Yes`
+  * Block user modification to the Find My Friends settings: `Yes`
+  * Block removal of system apps from device: `Yes`
+  * Block Safari Autofill: `Yes`
+* Cloud and Storage
+  * Force Encrypted backup: `Yes`
+  * Block managed apps from storing data in iCloud: `Yes`
+  * Block backup of enterprise books: `Yes`
+  * Block notes and highlights sync for enterprise books: `Yes`
+  * Block iCloud Photos sync: `Yes`
+  * Block iCloud Photo Library: `Yes`
+  * Block My photo stream: `Yes`
+  * Block Handoff: `Yes`
+  * Block iCloud backup: `Yes`
+  * Block iCloud document and data sync: `Yes`
+  * Block iCloud Keychain sync: `Yes`
+* Connected Devices
+  * Force wrist detection for paired Apple Watch: `Yes`
+  * Require AirPlay outgoing requests pairing password: `Yes`
+  * Block Apple Watch auto unlock: `Yes`
+  * Block AirDrop: `Yes`
+  * Block pairing with Apple Watch: `Yes`
+  * Block pairing with non-Configurator hosts: `Yes`
+  * Block AirPrint: `Block`
+  * Block setting up new nearby devices: `Yes`
+  * Block access to USB drive in Files app: `Yes`
+  * Disable near-field communication (NFC): `Yes`
 * General
   * Block sending diagnostic and usage data to Apple: `Yes`
   * Block screenshots and screen recording: `Yes`
@@ -694,25 +692,25 @@ Configuration settings:
   * Block over-the-air PKI updates: `Yes`
   * Force limited ad tracking: `Yes`
   * Block trusting new enterprise app authors: `Yes`
-  * Block app clips: `Yes`
   * Limit Apple personalized advertising: `Yes`
   * Block modification of account settings: `Block`
   * Block Screen Time: `Yes`
   * Block use of erase all content and settings: `Yes`
   * Block modification of device name: `Yes`
-  * Block modification of notifications settings: `Not configured`
+  * Block modification of notifications settings: `Yes`
   * Block modification of Wallpaper: `Yes`
   * Block configuration profile changes: `Yes`
   * Allow activation lock: `Yes`
-  * Block removing apps: `Not configured`
-  * Allow USB accessories while device is locked: `Not configured`
+  * Block removing apps: `Yes`
+  * Block app clips: `Yes`
   * Force automatic date and time: `Yes`
-  * Require teacher permission to leave Classroom app unmanaged classes: `Not configured`
-  * Allow Classroom to lock to an app and lock the device without prompting: `Not configured`
-  * Allow students to automatically join Classroom classes without prompting: `Not configured`
-  * Block VPN creation: `Not configured`
+  * Block VPN creation: `Yes`
   * Block modification of eSIM settings: `Yes`
-  * Defer software updates: `Not configured`
+* Lock Screen Experience
+  * Block Control Center access in lock screen: `Yes`
+  * Block Notification Center access in lock screen: `Yes`
+  * Block Today view in lock screen: `Yes`
+  * Block Wallet notifications in lock screen: `Yes`
 * Password
   * Require Password: `Yes`
   * Block Simple passwords: `Yes`
@@ -725,61 +723,9 @@ Configuration settings:
   * Password expiration (days): `365`
   * Prevent reuse of previous passwords: `5`
   * Block Touch ID and Face ID unlock: `Yes`
-* Automated device enrollment
-  * Block Passcode modification: `Not configured`
-  * Block modification of Touch and Face ID faces: `Not configured`
   * Block password AutoFill: `Yes`
   * Block password proximity requests: `Yes`
   * Block password sharing: `Yes`
-  * Require Touch ID and Face ID authentication for password or credit card information AutoFill: `Yes`
-* Lock Screen Experience
-  * Block Control Center access while device locked: `Not configured`
-  * Block Notification Center access while device locked: `Yes`
-  * Block Today view while device locked: `Yes`
-  * Block Wallet notifications while device locked: `Block`
-* App Store, Doc Viewing, Gaming
-  * Block viewing corporate documents in unmanaged apps: `Yes`
-  * Allow unmanaged apps to read from managed contacts accounts: `Not configured`
-  * Treat AirDrop as an unmanaged destination: `Yes`
-  * Viewing non-corporate documents in corporate apps: `Block`
-  * Require iTunes Store password for all purchases: `Not configured`
-  * Block In-app purchases: `Yes`
-  * Block download of explicit sexual content in Apple Books: `Yes`
-  * Allow managed apps to write contacts to unmanaged contacts accounts: `Not configured`
-  * Rating Region: `No region configured`
-  * Block App store: `Not configured`
-  * Block installing apps using App Store: `Not configured`
-  * Block automatic app downloads: `Not configured`
-  * Block playback of explicit iTunes music, podcast, or news content: `Yes`
-  * Block adding Game Center friends: `Yes`
-  * Block game Center: `Yes`
-  * Block multiplayer gaming: `Yes`
-  * Block Access to network drive in Files app: `Yes`
-* Built-in Apps
-  * Block Siri: `Yes`
-  * Block Siri while device is locked: `N/A`
-  * Require Safari fraud warnings: `Yes`
-  * Block spotlight search to return results from internet: `Yes`
-  * Safari cookies: `Block all cookies`
-  * Block Safari JavaScript: `Yes`
-  * Block Safari Pop-ups: `Yes`
-  * Block Camera: `Not configured`
-  * Block FaceTime: `Not configured`
-  * Require Siri proximity filter: `N/A`
-  * Block user-generated content in Siri: `N/A`
-  * Block Apple News: `Not configured`
-  * Block Apple Book: `Yes`
-  * Block iMessage: `Not configured`
-  * Block Podcasts: `Yes`
-  * Music service: `Yes`
-  * Block iTunes Radio service: `Yes`
-  * Block iTunes Store: `Yes`
-  * Block Find My iPhone: `Not configured`
-  * Block Find My Friends: `Yes`
-  * Block user modification to the Find My Friends settings: `Yes`
-  * Block removal of system apps from device: `Not configured`
-  * Block Safari: `Not configured`
-  * Block Safari Autofill: `Yes`
 * Restricted Apps
   * Type of restricted app list: `Approved apps` 
 
@@ -788,7 +734,7 @@ Configuration settings:
 | https://apps.apple.com/au/app/adobe-acrobat-reader-for-pdf/id469337564 | com.adobe.Adobe-Reader           | Adobe Acrobat Reader for PDF | Adobe Inc             |
 | https://apps.apple.com/us/app/microsoft-authenticator/id983156458 | com.microsoft.azureauthenticator | Microsoft Authenticator      | Microsoft Corporation |
 | https://apps.apple.com/us/app/microsoft-edge/id1288723196    | com.microsoft.msedge             | Microsoft Edge               | Microsoft Corporation |
-| https://apps.apple.com/us/app/microsoft-edge/id1288723196    | com.microsoft.Office.Excel       | Microsoft Excel              | Microsoft Corporation |
+| https://apps.apple.com/us/app/microsoft-excel/id586683407    | com.microsoft.Office.Excel       | Microsoft Excel              | Microsoft Corporation |
 | https://apps.apple.com/us/app/microsoft-onedrive/id477537958 | com.microsoft.skydrive           | Microsoft OneDrive           | Microsoft Corporation |
 | https://apps.apple.com/au/app/microsoft-onenote/id410395246  | com.microsoft.onenote            | Microsoft OneNote            | Microsoft Corporation |
 | https://apps.apple.com/au/app/microsoft-powerpoint/id586449534 | com.microsoft.Office.Powerpoint  | Microsoft PowerPoint         | Microsoft Corporation |
@@ -798,73 +744,19 @@ Configuration settings:
 | https://apps.apple.com/us/app/microsoft-word/id586447913     | com.microsoft.Office.Word        | Microsoft Word               | Microsoft Corporation |
 | https://apps.apple.com/au/app/power-apps/id1047318566        | com.microsoft.msapps             | PowerApps                    | Microsoft Corporation |
 
-* Show or Hide Apps: 
-  * Type of app list: `Not configured`
-* Wireless
-  * Block data roaming: `Not configured`
-  * Block global background fetch while roaming: `Not configured`
-  * Block voice dialing while device is locked: `Yes`
-  * Block voice roaming: `Not configured`
-  * Block personal Hotspot: `Not configured`
-  * Block use of cellular data: `Not configured`
-  * Block use of cellular data when roaming: `Not configured`
-  * Block changes to app cellular data usage settings: `Not configured`
-  * Block changes to cellular plan settings: `Not configured`
-  * Block modification of Personal Hotspot: `Not configured`
-  * Require joining Wi-Fi networks only using configuration profiles: `Yes`
-  * Require Wi-Fi always turned on: `Not configured`
-* Connected Devices
-  * Force wrist detection for paired Apple Watch: `Yes`
-  * Require AirPlay outgoing requests pairing password: `Yes`
-  * Block AirDrop: `Yes`
-  * Block Apple Watch pairing: `Yes`
-  * Block modifying Bluetooth settings: `Not configured`
-  * Block pairing with non-Configurator hosts: `Yes`
-  * Block AirPrint: `Block`
-  * Block storage of AirPrint credentials in Keychain: `N/A`
-  * Require AirPrint to destinations with trusted certificates: `N/A`
-  * Block iBeacon discovery of AirPrint printers: `N/A`
-  * Block access to USB drive in Files app: `Yes`
-  * Disable near-field communication (NFC): `Yes`
-* Keyboard and Dictionary
-  * Block Word definition lookup: `Not configured`
-  * Block Predictive keyboards: `Not configured`
-  * Block Auto-correction: `Not configured`
-  * Block Keyboard spell-check: `Not configured`
-  * Block Keyboard shortcuts: `Not configured`
-  * Block Dictation: `Not configured`
-  * Block QuickPath: `Not configured`
-* Cloud and Storage
-  * Force Encrypted backup: `Yes`
-  * Block managed apps from storing data in iCloud: `Yes`
-  * Block Enterprise Book Backup: `Yes`
-  * Block notes and highlights sync for enterprise books: `Yes`
-  * Block iCloud Photos sync: `Yes`
-  * Block iCloud Photo Library: `Yes`
-  * Block My photo stream: `Yes`
-  * Block Handoff: `Yes`
-  * Backup to iCloud: `Yes`
-  * Block iCloud document and data sync: `Yes`
-  * Block iCloud Keychain sync: `Yes`
-* Autonomous Single App Mode
-  * App name: `Not configured`
-  * App Bundle ID: `Not configured`
-* Kiosk
-  * App to run in kiosk mode: `Not configured`
-* Domains
-  * Unmarked email domains: `Not configured`
-  * Managed web domains: `Not configured`
-  * Safari password auto fill domains: `Not configured`
 * Shared iPad
   * Block Shared iPad temporary sessions: `Yes`
+* Wireless
+  * Block voice dialing while device is locked: `Yes`
+  * Require joining Wi-Fi networks only using configuration profiles: `Yes`
 
-#### AGENCY - iOS device feature policy
+#### Custom - iOS device feature policy
 
 The following table outlines the profile is created for all implementation types.
 
 | Item               | Configuration                                 |
 | ------------------ | --------------------------------------------- |
-| Profile Name       | AGENCY - iOS device feature policy            |
+| Profile Name       | Custom - iOS device feature policy            |
 | Profile type       | Device Features                               |
 | Platform supported | iOS/iPadOS                                    |
 | Groups excluded    | 0                                             |
@@ -875,19 +767,17 @@ Configuration settings:
 
 * Lock Screen Message	
   * "If Lost, Return to..." Message: `If lost return to the <Agency Name>`
-* Single Sign On
-  * Renewal certificate: `None selected`
 * Wallpaper
   * Wallpaper Display Location: `Lock Screen and Home Screen`
   * Wallpaper Image: `Agency wallpaper`
 
-#### AGENCY - Per App VPN
+#### Custom - Per App VPN
 
 The following table outlines the profile is created for all implementation types.
 
 | Item               | Configuration                                 |
 | ------------------ | --------------------------------------------- |
-| Profile Name       | AGENCY - Per App VPN                          |
+| Profile Name       | Custom - Per App VPN                          |
 | Profile type       | VPN                                           |
 | Platform supported | iOS/iPadOS                                    |
 | Groups excluded    | 0                                             |
@@ -923,7 +813,7 @@ The following table outlines the policy is created for all implementation types.
 | Item               | Configuration                  |
 | ------------------ | ------------------------------ |
 | Policy Name        | ACSC - Defender Antivirus      |
-| Profile            | Antivirus                      |
+| Profile            | Microsoft Defender Antivirus   |
 | Platform supported | Windows 10 and later           |
 | Groups excluded    | 0                              |
 | Assigned           | Yes                            |
@@ -938,44 +828,65 @@ The following table outlines the settings within the policy.
 | Cloud-delivered protection level                             | High                            |
 | Defender Cloud Extended Timeout In Seconds                   | 50                              |
 | **Microsoft Defender Antivirus Exclusions**                  |                                 |
-| Disable local admin merge                                    | Not configured                  |
-| Defender Processes To Exclude                                | Agency to define                |
-| File extensions to exclude from scans and  real-time protection | 0 items                         |
-| Defender Files and Folders to Exclude                        | Agency to define                |
+| Disable local admin merge                                    | Yes                             |
+| Defender Processes To Exclude                                | Agency to define (if required)  |
+| File extensions to exclude from scans and  real-time protection | 0 items                      |
+| Defender Files and Folders to Exclude                        | Agency to define (if required)  |
 | **Real-time protection**                                     |                                 |
 | Turn on real-time protection                                 | Yes                             |
 | Enable on access protection                                  | Yes                             |
 | Monitoring for incoming and outgoing files                   | Monitor all files               |
 | Turn on behavior monitoring                                  | Yes                             |
-| Turn on network protection                                   | Yes                             |
-| Enable network protection                                    | Not configured                  |
+| Turn on intrusion protection                                 | Yes                             |
+| Enable network protection                                    | Enabled                         |
 | Scan all downloaded files and attachments                    | Yes                             |
-| Scan scripts that are used in Microsoft  browsers            | Yes                             |
+| Scan scripts that are used in Microsoft browsers             | Yes                             |
 | Scan network files                                           | Yes                             |
 | Scan emails                                                  | Yes                             |
 | **Remediation**                                              |                                 |
 | Number of days (0-90) to keep quarantined  malware           | 0                               |
-| Submit samples consent                                       | Send safe samples automatically |
+| Submit samples consent                                       | Send all samples automatically  |
 | Action to take on potentially unwanted apps                  | Enable                          |
-| Actions for detected threats                                 | Not configured                  |
 | **Scan**                                                     |                                 |
 | Scan archive files                                           | Yes                             |
 | Use low CPU priority for scheduled scans                     | Yes                             |
-| Disable catch-up full scan                                   | Not configured                  |
-| Disable Catchup Quick Scan                                   | Not configured                  |
+| Disable catch-up full scan                                   | No                              |
+| Disable Catchup Quick Scan                                   | No                              |
 | CPU usage limit per scan                                     | 50                              |
 | Scan mapped network drives during full scan                  | Yes                             |
 | Run daily quick scan at                                      | 2 AM                            |
 | Scan type                                                    | Quick scan                      |
-| Day of week to run a scheduled scan                          | Not configured                  |
-| Time of day to run a scheduled scan                          | Not configured                  |
 | Check for signature updates before running  scan             | Yes                             |
 | **Updates**                                                  |                                 |
-| Enter how often (0-24 hours) to check for  security intelligence updates | 2                               |
+| Enter how often (0-24 hours) to check for  security intelligence updates | 1                   |
 | Define file shares for downloading  definition updates       | 0 items                         |
-| Define the order of sources for downloading  definition updates | 0 items                         |
+| Define the order of sources for downloading  definition updates | 0 items                      |
 | **User experience**                                          |                                 |
 | Allow user access to Microsoft Defender app                  | Yes                             |
+
+#### Windows Security
+
+`Microsoft Endpoint Manager > Endpoint Security > Antivirus`
+
+The following table outlines the policy is created for all implementation types.
+
+| Item               | Configuration                  |
+| ------------------ | ------------------------------ |
+| Policy Name        | ACSC - Windows Security        |
+| Profile            | Windows Security experience    |
+| Platform supported | Windows 10 and later           |
+| Groups excluded    | 0                              |
+| Assigned           | Yes                            |
+| Groups assigned    | `grp-agency-windows10-dynamic` |
+
+The following table outlines the settings within the policy.
+
+| Item                                                         | Configuration                   |
+| ------------------------------------------------------------ | ------------------------------- |
+| **Windows Security**                                         |                                 |
+| Enable tamper protection to prevent Microsoft Defender being disabled | Enable                 |
+| Windows Security app notifications                           | Block non-critical notifications|
+| Disable the Clear TPM option in the Windows Security app     | Yes                             |
 
 #### Disk Encryption
 
@@ -998,7 +909,6 @@ The following table outlines the settings within the policy.
 | ------------------------------------------------------------ | ------------------------------------------ |
 | **BitLocker - Base Settings**                                |                                            |
 | Enable full disk encryption for OS and fixed  data drives    | Yes                                        |
-| Require storage cards to be encrypted  (mobile only)         | Not configured                             |
 | Hide prompt about third-party encryption                     | Yes                                        |
 | Allow standard users to enable encryption during Autopilot   | Yes                                        |
 | Configure client-driven recovery password  rotation          | Enable rotation on Azure AD-joined devices |
@@ -1011,8 +921,7 @@ The following table outlines the settings within the policy.
 | Recovery password creation                                   | Allowed                                    |
 | Hide recovery options during BitLocker setup                 | Yes                                        |
 | Enable BitLocker after recovery information to store         | Yes                                        |
-| Block the use of certificate-based data recovery agent (DRA) | Not configured                             |
-| Block write access to fixed data-drives not protected by BitLocker | Yes                                        |
+| Block write access to fixed data-drives not protected by BitLocker | Yes                                  |
 | Configure encryption method for fixed  data-drives           | AES 256bit XTS                             |
 | **BitLocker - OS Drive Settings**                            |                                            |
 | BitLocker system drive policy                                | Configure                                  |
@@ -1021,23 +930,20 @@ The following table outlines the settings within the policy.
 | Compatible TPM startup PIN                                   | Allowed                                    |
 | Compatible TPM startup key                                   | Allowed                                    |
 | Compatible TPM startup key and PIN                           | Allowed                                    |
-| Disable BitLocker on devices where TPM is incompatible       | Not configured                             |
-| Enable preboot recovery message and url                      | Not configured                             |
 | System drive recovery                                        | Configure                                  |
-| Recovery key file creation                                   | Not configured                             |
+| Recovery key file creation                                   | Allowed                                    |
 | Configure BitLocker recovery package                         | Password and key                           |
 | Require device to back up recovery  information to Azure AD  | Yes                                        |
 | Recovery password creation                                   | Allowed                                    |
 | Hide recovery options during BitLocker setup                 | Yes                                        |
 | Enable BitLocker after recovery information  to store        | Yes                                        |
-| Block the use of certificate-based data  recovery agent (DRA) | Not configured                             |
 | Minimum PIN length                                           | 14                                         |
 | Configure encryption method for fixed  data-drives           | AES 256bit XTS                             |
 | **BitLocker - Removable Drive Settings**                     |                                            |
 | BitLocker removable drive policy                             | Configure                                  |
 | Configure encryption method for removable  data-drives       | AES 256bit XTS                             |
-| Block write access to removable data-drives not protected by BitLocker | Yes                                        |
-| Block write access to devices configured in  another organization | Not configured                             |
+| Block write access to removable data-drives not protected by BitLocker | Yes                              |
+| Block write access to devices configured in  another organization | Yes                                   |
 
 #### Firewall
 
@@ -1059,24 +965,15 @@ The following table outlines the settings within the policy.
 | Item                                                         | Configuration  |
 | ------------------------------------------------------------ | -------------- |
 | **Microsoft Defender Firewall**                              |                |
-| Stateful File Transfer Protocol (FTP)                        | Disabled       |
-| Number of seconds a security association can  be idle before it's deleted | 300            |
+| Stateful File Transfer Protocol (FTP)                        | Allow          |
+| Number of seconds a security association can  be idle before it's deleted | 300 |
 | Preshared key encoding                                       | UTF8           |
-| No exemptions for Firewall IP sec                            | Not configured |
-| Firewall IP sec exemptions allow neighbor  discovery         | Not configured |
-| Firewall IP sec exemptions allow ICMP                        | Not configured |
-| Firewall IP sec exemptions allow router  discovery           | Not configured |
-| Firewall IP sec exemptions allow DHCP                        | Not configured |
-| Certificate revocation list (CRL)  verification              | Not configured |
-| Require keying modules to only ignore the  authentication suites they don’t support | Not configured |
-| Packet queuing                                               | Not configured |
+| Certificate revocation list (CRL)  verification              | Attempt        |
 | Turn on Microsoft Defender Firewall for  domain networks     | Yes            |
 | Block stealth mode                                           | No             |
-| Block IPsec network traffic with stealth  mode rules         | Not configured |
-| Enable shielded mode                                         | Not configured |
 | Block unicast responses to multicast  broadcasts             | No             |
 | Disable inbound notifications                                | Yes            |
-| Block outbound connections                                   | No             |
+| Block outbound connections                                   | Yes            |
 | Block inbound connections                                    | Yes            |
 | Ignore authorized application firewall rules                 | No             |
 | Ignore global port firewall rules                            | No             |
@@ -1084,11 +981,9 @@ The following table outlines the settings within the policy.
 | Ignore connection security rules                             | No             |
 | Turn on Microsoft Defender Firewall for  private networks    | Yes            |
 | Block stealth mode                                           | No             |
-| Block IPsec network traffic with stealth  mode rules         | Not configured |
-| Enable shielded mode                                         | Not configured |
 | Block unicast responses to multicast  broadcasts             | No             |
 | Disable inbound notifications                                | Yes            |
-| Block outbound connections                                   | Not configured |
+| Block outbound connections                                   | Yes            |
 | Block inbound connections                                    | Yes            |
 | Ignore authorized application firewall rules                 | No             |
 | Ignore global port firewall rules                            | No             |
@@ -1096,16 +991,36 @@ The following table outlines the settings within the policy.
 | Ignore connection security rules                             | No             |
 | Turn on Microsoft Defender Firewall for  public network      | Yes            |
 | Block stealth mode                                           | No             |
-| Block IPsec network traffic with stealth  mode rules         | Not configured |
-| Enable shielded mode                                         | Not configured |
-| Block unicast responses to multicast  broadcasts             | Not configured |
+| Block unicast responses to multicast  broadcasts             | No             |
 | Disable inbound notifications                                | Yes            |
-| Block outbound connections                                   | No             |
+| Block outbound connections                                   | Yes            |
 | Block inbound connections                                    | Yes            |
 | Ignore authorized application firewall rules                 | No             |
 | Ignore global port firewall rules                            | No             |
 | Ignore all local firewall rules                              | No             |
 | Ignore connection security rules                             | No             |
+
+`Microsoft Endpoint Manager > Endpoint Security > Firewall`
+
+The following table outlines the policy is created for all implementation types.
+
+| Item               | Configuration                  |
+| ------------------ | ------------------------------ |
+| Policy Name        | ACSC - Defender Firewall Rules |
+| Profile            | Microsoft Defender Firewall Rules|
+| Platform supported | Windows 10 and later           |
+| Groups excluded    | 1                              |
+| Assigned           | Yes                            |
+| Groups assigned    | `grp-agency-windows10-dynamic` |
+
+The following table outlines the settings within the policy.
+
+| Name | Direction | Action | Network type | Application | File path | Local Address | Remote Addresses | Protocol | Local ports | Remote ports |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| WDM Sync client | Outbound | Allow | All types | File path | %SystemRoot%\system32\omadmclient.exe| Any | Any | TCP | All ports | All ports |
+| WDM Cert Installer | Outbound | Allow | All types | File path | %SystemRoot%\system32\dmcertinst.exe | Any | Any | TCP | All ports | All ports |
+| WDM Device Enroller | Outbound | Allow | All types | File path | %SystemRoot%\system32\deviceenroller.exe | Any | Any | TCP | All ports | 80, 443 |
+| DNS | Outbound | Allow | All types | Windows service | dnscache | Any | Any | UDP | All ports | 53 |
 
 #### Endpoint Detection and Response
 
@@ -1126,8 +1041,8 @@ The following table outlines the settings within the policy.
 
 | Item                                                         | Configuration                 |
 | ------------------------------------------------------------ | ----------------------------- |
-| **Endpoint Detection   and Response**                        |                               |
-| Microsoft Defender for Endpoint client  configuration package type | Onboarding blob               |
+| **Endpoint Detection and Response**                        |                               |
+| Microsoft Defender for Endpoint client  configuration package type | Onboarding blob         |
 | Microsoft Defender for Endpoint onboarding  blob             | Value has been set            |
 | Microsoft Defender for Endpoint onboarding  filename         | WindowsDefenderATP.onboarding |
 | Sample sharing for all files                                 | Yes                           |
@@ -1142,7 +1057,7 @@ The following table outlines the policy is created for all implementation types.
 | Item               | Configuration                   |
 | ------------------ | ------------------------------- |
 | Policy Name        | ACSC - Attack Surface Reduction |
-| Profile            | Attack Surface Reduction        |
+| Profile            | Attack surface reduction rules  |
 | Platform supported | Windows 10 and later            |
 | Groups excluded    | 1                               |
 | Assigned           | Yes                             |
@@ -1152,26 +1067,97 @@ The following table outlines the settings within the policy.
 
 | Item                                                         | Configuration    |
 | ------------------------------------------------------------ | ---------------- |
-| Block persistence through   WMI event subscription           | Block            |
-| Block credential stealing from the Windows local security authority subsystem (lsass.exe) | Enable           |
+| Block persistence through WMI event subscription             | Block            |
+| Block credential stealing from the Windows local security authority subsystem (lsass.exe) | Enable |
 | Block Adobe Reader from creating child processes             | Enable           |
-| Block Office applications from injecting code into other processes | Block            |
+| Block Office applications from injecting code into other processes | Block      |
 | Block Office applications from creating executable content   | Block            |
 | Block all Office applications from creating child processes  | Block            |
 | Block Win32 API calls from Office macro                      | Block            |
-| Block Office communication apps from creating child processes | Enable           |
-| Block execution of potentially obfuscated scripts (js/vbs/ps) | Block            |
-| Block JavaScript or VBScript from launching downloaded executable content | Block            |
-| Block process creations originating from PSExec and WMI commands | Block            |
-| Block untrusted and unsigned processes that  run from USB    | Block            |
-| Block executable files from running unless  they meet a prevalence, age, or trusted list criteria | Block            |
-| Block executable content download from email  and webmail clients | Block            |
+| Block Office communication apps from creating child processes | Enable          |
+| Block execution of potentially obfuscated scripts (js/vbs/ps) | Block           |
+| Block JavaScript or VBScript from launching downloaded executable content | Block |
+| Block process creations originating from PSExec and WMI commands | Block        |
+| Block untrusted and unsigned processes that run from USB     | Block            |
+| Block executable files from running unless they meet a prevalence, age, or trusted list criteria | Block |
+| Block executable content download from email and webmail clients | Block        |
 | Use advanced protection against ransomware                   | Enable           |
 | Enable folder protection                                     | Enable           |
 | List of additional folders that need to be  protected        | 0 items          |
 | List of apps that have access to protected  folders          | 0 items          |
-| Exclude files and paths from attack surface  reduction rules | Agency to define |
-| Expedite telemetry reporting frequency                       | Yes              |
+| Exclude files and paths from attack surface reduction rules | Agency to define (if required)|
+
+`Microsoft Endpoint Manager > Endpoint Security > Attack Surface Reduction`
+
+The following table outlines the policy is created for all implementation types.
+
+| Item               | Configuration                   |
+| ------------------ | ------------------------------- |
+| Policy Name        | ACSC - Device Control           |
+| Profile            | Device Control                  |
+| Platform supported | Windows 10 and later            |
+| Groups excluded    | 1                               |
+| Assigned           | Yes                             |
+| Groups assigned    | `grp-agency-windows10-dynamic`  |
+
+The following table outlines the settings within the policy.
+
+| Item                                                         | Configuration    |
+| ------------------------------------------------------------ | ---------------- |
+| Allow hardware device installation by device identifiers     | Yes              |
+| Allow list                                                   | Agency to define |
+| Allow hardware device installation by setup class            | Yes              |
+| Allow list                                                   | Agency to define |
+| Allow hardware device installation by device instance identifiers| Yes          |
+| Allow list                                                   | Agency to define |
+| Scan removable drives during full scan                       | Yes              |
+| Block direct memory access                                   | Enabled          |
+| Enumeration of external devices incompatible with Kernel DMA Protection| Block All|
+| Block bluetooth pre-pairing                                  | Yes              |
+| Block bluetooth advertising                                  | Yes              |
+| Block bluetooth proximal connections                         | Yes              |
+| Bluetooth allowed services                                   |`00000000-deca-fade-deca-deafdecacaff 00001108-0000-1000-8000-00805F9B34FB 00001109-0000-1000-8000-00805F9B34FB 0000110A-0000-1000-8000-00805F9B34FB 0000110B-0000-1000-8000-00805F9B34FB 0000110C-0000-1000-8000-00805F9B34FB 0000110D-0000-1000-8000-00805F9B34FB 0000110E-0000-1000-8000-00805F9B34FB 0000110F-0000-1000-8000-00805F9B34FB 00001110-0000-1000-8000-00805F9B34FB 00001112-0000-1000-8000-00805F9B34FB 0000111E-0000-1000-8000-00805F9B34FB 0000111F-0000-1000-8000-00805F9B34FB 00001124-0000-1000-8000-00805F9B34FB 00001131-0000-1000-8000-00805F9B34FB 00001200-0000-1000-8000-00805F9B34FB 00001203-0000-1000-8000-00805F9B34FB 00001204-0000-1000-8000-00805F9B34FB 00001800-0000-1000-8000-00805F9B34FB 00001801-0000-1000-8000-00805F9B34FB 0000180A-0000-1000-8000-00805F9B34FB 00001812-0000-1000-8000-00805F9B34FB 00001813-0000-1000-8000-00805F9B34FB 82972387-294e-4d62-97b5-2668aa35f618`|
+
+`Microsoft Endpoint Manager > Endpoint Security > Attack Surface Reduction`
+
+The following table outlines the policy is created for all implementation types.
+
+| Item               | Configuration                   |
+| ------------------ | ------------------------------- |
+| Policy Name        | ACSC - Application Guard        |
+| Profile            | App and browser isolation       |
+| Platform supported | Windows 10 and later            |
+| Groups excluded    | 1                               |
+| Assigned           | Yes                             |
+| Groups assigned    | `grp-agency-windows10-dynamic`  |
+
+The following table outlines the settings within the policy.
+
+| Item                                                         | Configuration    |
+| ------------------------------------------------------------ | ---------------- |
+| Turn on Application Guard                                    | Enabled for Edge |
+| Collect logs for events that occur within an Application Guard session | Yes    |
+
+
+`Microsoft Endpoint Manager > Endpoint Security > Attack Surface Reduction`
+
+The following table outlines the policy is created for all implementation types.
+
+| Item               | Configuration                   |
+| ------------------ | ------------------------------- |
+| Policy Name        | ACSC - Exploit Protection       |
+| Profile            | Exploit protection              |
+| Platform supported | Windows 10 and later            |
+| Groups excluded    | 1                               |
+| Assigned           | Yes                             |
+| Groups assigned    | `grp-agency-windows10-dynamic`  |
+
+The following table outlines the settings within the policy.
+
+| Item                                                         | Configuration    |
+| ------------------------------------------------------------ | ---------------- |
+| Upload XML                                                   | Agency to generate XML from from a reference computer. <br>See [create exploit guard policy](https://docs.microsoft.com/en-us/mem/configmgr/protect/deploy-use/create-deploy-exploit-guard-policy) |
+| Block users from editing the Exploit Guard protection interface | Yes           |
 
 #### Account Protection
 
@@ -1182,7 +1168,7 @@ The following table outlines the policy is created for all implementation types.
 | Item               | Configuration                  |
 | ------------------ | ------------------------------ |
 | Policy Name        | ACSC - Account Protection      |
-| Profile            | Account Protection             |
+| Profile            | Account protection (preview)   |
 | Platform supported | Windows 10 and later           |
 | Groups excluded    | 1                              |
 | Assigned           | Yes                            |
@@ -1192,9 +1178,8 @@ The following table outlines the settings within the policy.
 
 | Item                                    | Configuration                                                |
 | --------------------------------------- | ------------------------------------------------------------ |
-| Block Windows Hello for   Business      | Enabled                                                      |
-| Enable to use security keys for sign-in | Not configured                                               |
-| Turn on Credential Guard                | Not configured <br>Note, configured via ACSC - Windows 10 Hardening CSP |
+| Block Windows Hello for Business        | Enabled                                                      |
+| Turn on Credential Guard                | Enable with UEFI lock                                        |
 
 #### Defender for Endpoint
 
@@ -1224,32 +1209,6 @@ The following table outlines the settings within the Microsoft Defender for Endp
 In additional to configuration profiles, native Intune scripts are used to deploy configuration where there is not a supported configuration item natively to configure a setting on a Windows Device.
 
 Scripts can be found within the following console node  `Microsoft Endpoint Manager> Devices > Scripts`
-
-### Intune log folder shortcut
-
-* Profile name: `Intune log folder shortcut`
-* Script settings
-  * PowerShell script: [IntuneLogFolder.ps1](/assets/files/abac/IntuneLogFolder.txt)
-  * Run this script using the logged-on credentials: `No`
-  * Enforce script signature check: `No`
-  * Run script in 64 bit PowerShell Host: `No`
-* Scope tags: `Default`
-* Assignments
-  * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`
-  * Excluded groups: -
-
-### Block OLE Extensions
-
-* Profile name: `Intune Block OLE Extension`
-* Script settings
-  * PowerShell script: [oleblockingscript.ps1](/assets/files/abac/oleblockingscript.txt)
-  * Run this script using the logged-on credentials: `Yes`
-  * Enforce script signature check: `No`
-  * Run script in 64 bit PowerShell Host: `No`
-* Scope tags: `Default`
-* Assignments
-  * Included groups: `rol-Agency-Administrators`, `rol-Agency-Users`
-  * Excluded groups: -
 
 ### Remove built-in apps
 

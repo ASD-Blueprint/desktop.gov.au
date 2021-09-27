@@ -30,19 +30,23 @@ The following lists the Windows 10 update ring profiles, and iOS update profiles
   * Remind user prior to required auto-restart with dismissible reminder (hours): `--`
   * Remind user prior to required auto-restart with permanent reminder (minutes): `--`
   * Change notification update level: `Use the default Windows Update notifications`
-  * Use deadline settings: `Not configured`
+  * Use deadline settings: `Allow`
+  * Deadline for feature updates: `2`
+  * Deadline for quality updates: `2`
+  * Grace period: `0`
+  * Auto reboot before deadline: `Yes`
 * Scope tags: `Default`
 * Assignments
   * Included groups: `All Devices`
   * Excluded groups: -
 
-## iOS update policy
+## Update policies for iOS/iPadOS
 
 `Microsoft Endpoint Manager > Devices > iOS/iPadOS > Update policies for iOS/iPadOS`
 
 * Name: `iOS Update Policy`
 * Description: -
-* Select version to install: `latest update`
+* Select version to install: `Latest update`
 * Schedule type: `Update at next check-in`
 * Assignments
   * Included groups: `All Devices`

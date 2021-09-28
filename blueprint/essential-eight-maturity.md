@@ -18,7 +18,7 @@ The assessments presented in this document includes Windows 10 and the supportin
 
 The ACSC has provided an assessment of iOS devices against the Essential Eight in the [Security Configuration Guide - Apple iOS 14 Devices](https://www.cyber.gov.au/acsc/view-all-content/publications/security-configuration-guide-apple-ios-14-devices). Note, this assessment was performed against the June 2020 Essential Eight maturity model.
 
-Server infrastructure used by agencies to support hybrid deployments of the blueprint are not included in this assessment as they are bespoke to those agencies. It is recommended that agencies operating a hybrid deployment of the blueprint perform their own Essential Eight assessments of supporting server infrastructure. 
+Server infrastructure used by agencies to support hybrid deployments of the blueprint are not included in this assessment as they are bespoke to those agencies. It is recommended that agencies operating a hybrid deployment of the blueprint perform their own Essential Eight assessments of supporting server infrastructure.
 
 {:.auto}
 Mitigation strategy | June 2020 | July 2021
@@ -71,7 +71,7 @@ Microsoft Defender for Endpoint provides an [automated vulnerability management 
 * Windows 10 Enterprise E5
 * Microsoft 365 E5 (M365 E5)
 * Microsoft 365 E5 Security
-* Microsoft Defender for Endpoint 
+* Microsoft Defender for Endpoint
 
 The blueprint does not include any unsupported or legacy applications.
 
@@ -81,7 +81,7 @@ As all required technical controls are implemented by the blueprint, the maturit
 
 ### Recommendations
 
-It is recommended that agencies monitor the success of application patching, via either MEM or Defender for Endpoint, to ensure patches are applied within the target deployment timeframe (e.g., within 48 hours for exploitable vulnerabilities). 
+It is recommended that agencies monitor the success of application patching, via either MEM or Defender for Endpoint, to ensure patches are applied within the target deployment timeframe (e.g., within 48 hours for exploitable vulnerabilities).
 
 If agencies deploy third-party applications to blueprint devices, they are responsible for ensuring patches are deployed within the required timeframes to maintain maturity level 3. Agencies should consider enabling automatic update features for applications or deploy an automated third-party application patching solution.
 
@@ -96,7 +96,7 @@ Microsoft Defender Antivirus and Defender for Endpoint provide antivirus scannin
 
 Microsoft Office macros are blocked from making Win32 API calls using Attack Surface Reduction (ASR) rules as per the ACSC [Windows 10](https://www.cyber.gov.au/acsc/view-all-content/publications/hardening-microsoft-windows-10-version-21h1-workstations) and [Microsoft Office](https://www.cyber.gov.au/acsc/view-all-content/publications/hardening-microsoft-office-365-proplus-office-2019-and-office-2016) hardening guides.
 
-Macro executions are natively logged to the ‘TrustRecords' entry in the Windows 10 registry, including the time and location that the macro is run. Defender for Endpoint also centrally stores Endpoint Detection & Response (EDR) logs for all Windows 10 blueprint devices, which includes the execution of macro-enabled documents and resulting behaviours (such as attempts to make Win32 API calls). 
+Macro executions are natively logged to the ‘TrustRecords' entry in the Windows 10 registry, including the time and location that the macro is run. Defender for Endpoint also centrally stores Endpoint Detection & Response (EDR) logs for all Windows 10 blueprint devices, which includes the execution of macro-enabled documents and resulting behaviours (such as attempts to make Win32 API calls).
 
 As all required technical controls are implemented by the blueprint, the maturity level has been assessed at 3*. Note, this assessment assumes agencies undertake the recommendations presented below.
 
@@ -113,7 +113,7 @@ It is recommended that agencies review their list of trusted publishers at least
 {:.maturity}
 Maturity level: 3
 
-The blueprint does not include the deployment of Java, so cannot process Java from the internet. 
+The blueprint does not include the deployment of Java, so cannot process Java from the internet.
 
 Microsoft Edge provides limited web advertisement blocking from the internet, which is configured by MEM. However, this functionality is very limited and is not considered an effective control. To compensate for this, the blueprint provides guidance on the deployment of third-party web advertisement blocking add-ons for Edge via MEM.
 
@@ -127,8 +127,8 @@ Standard users are not able to change security-related settings in Microsoft Off
 
 .NET Framework 3.5 (and all previous) versions are not included in the Windows 10 blueprint SOE. PowerShell version 2.0 is also removed from the SOE.
 
-WDAC is configured so that PowerShell runs in Constrained Language Mode (CLM). 
- 
+WDAC is configured so that PowerShell runs in Constrained Language Mode (CLM).
+
 PowerShell script block logging is enabled via MEM in accordance with the ACSC [Windows 10](https://www.cyber.gov.au/acsc/view-all-content/publications/hardening-microsoft-windows-10-version-21h1-workstations) hardening guide. Defender for Endpoint also centrally stores EDR logs for all Windows 10 blueprint devices, which includes PowerShell script execution and resultant events.
 
 As all required technical controls are implemented by the blueprint, the maturity level has been assessed at 3*. Note, this assessment assumes agencies undertake the recommendations presented below.
@@ -146,7 +146,7 @@ Maturity level: 3
 
 The blueprint includes two types of users, standard and privileged users. Standard users are assigned mailboxes and can access the internet from Windows 10 devices, but do not have elevated privileges on those devices. Privileged users are not assigned an Office 365 license and therefore do not have mailboxes assigned to their accounts. AppLocker is configured by MEM to prevent privileged users from launching web browsers or mail clients from blueprint devices.
 
-The local administrator account is disabled as per the ACSC Windows 10 hardening guide. The local administrator account is renamed, the password set randomly, and the account disabled. The local administrator group is enabled and contains the Azure Active Directory (Azure AD) Global Admins and Device Admins roles. These roles are configured for Azure AD Privileged Identity Management (PIM), providing Just-in-Time (JIT) administration. 
+The local administrator account is disabled as per the ACSC Windows 10 hardening guide. The local administrator account is renamed, the password set randomly, and the account disabled. The local administrator group is enabled and contains the Azure Active Directory (Azure AD) Global Admins and Device Admins roles. These roles are configured for Azure AD Privileged Identity Management (PIM), providing Just-in-Time (JIT) administration.
 
 Azure AD PIM Access Reviews provide automation to assist in the revalidation of privileged accounts and membership of Azure AD privileged roles. Azure AD does not provide a native capability to disable account after a period of inactivity. The blueprint provides a [technical guide](https://desktop.gov.au/blueprint/abac/admin-disable-inactive-users.html) to implement this capability via the Graph API and Azure AD PowerShell modules. Note, at the time of writing the Graph API to query an account property is still in [beta](https://docs.microsoft.com/en-au/azure/active-directory/reports-monitoring/howto-manage-inactive-user-accounts).
 
@@ -154,7 +154,7 @@ All logins to blueprint devices are recorded and centralised to Defender for Ide
 
 Windows Defender Credential Guard is enabled in the Windows 10 blueprint SOE (on supported devices).
 
-Although not within the specific design scope of the blueprint, it provides general guidance for [secure system administration](https://desktop.gov.au/blueprint/overview.html#secure-system-administration) for agencies leveraging the blueprint. This includes recommendations for the use of separate credentials for privileged and non-privileged users, deployment of hardened Privileged Access Workstations (PAWs) and jump boxes, use of a web filtering system, and the restriction of management traffic flows.  
+Although not within the specific design scope of the blueprint, it provides general guidance for [secure system administration](https://desktop.gov.au/blueprint/overview.html#secure-system-administration) for agencies leveraging the blueprint. This includes recommendations for the use of separate credentials for privileged and non-privileged users, deployment of hardened Privileged Access Workstations (PAWs) and jump boxes, use of a web filtering system, and the restriction of management traffic flows.
 
 As all required technical controls that are in scope of the blueprint are implemented, the maturity level has been assessed at 3*. Note, this assessment assumes agencies have implemented a compliant secure system administration solution and undertake the recommendations presented below.
 
@@ -176,7 +176,7 @@ Microsoft Defender for Endpoint provides an automated [vulnerability management 
 * Windows 10 Enterprise E5
 * Microsoft 365 E5 (M365 E5)
 * Microsoft 365 E5 Security
-* Microsoft Defender for Endpoint 
+* Microsoft Defender for Endpoint
 
 The Windows 10 blueprint SOE is built using the 21H1 Semi-Annual Channel (SAC) release of Windows 10, which at the time of writing is the [latest version](https://docs.microsoft.com/en-au/windows/release-health/release-information).
 
@@ -188,7 +188,7 @@ As all required technical controls are implemented by the blueprint, the maturit
 
 ### Recommendations
 
-It is recommended that agencies monitor the success of operating system patching, via either MEM or Defender for Endpoint, to ensure patches are applied within the target deployment timeframe (e.g., within 48 hours for exploitable vulnerabilities). 
+It is recommended that agencies monitor the success of operating system patching, via either MEM or Defender for Endpoint, to ensure patches are applied within the target deployment timeframe (e.g., within 48 hours for exploitable vulnerabilities).
 
 ## Multi-factor authentication
 
@@ -196,7 +196,7 @@ It is recommended that agencies monitor the success of operating system patching
 Maturity level: 2
 
 M365 products are considered as third-party internet-facing services that process and store both sensitive and non-sensitive data for agencies using the blueprint.
- 
+
 Access to all M365 products for blueprint users requires an Azure Multi-Factor Authentication (Azure MFA) prompt to be completed using the Microsoft Authenticator app (something users have) along with their Azure AD password (something users know). The Azure MFA prompt can be completed by either responding to a push notification within the app, or by entering a six-digit code presented by the app.
 
 Privileged users are also required to complete an Azure MFA prompt when authenticating at either a web portal (e.g. Microsoft 365 admin center or Microsoft Azure) or when connecting to a service via PowerShell.
@@ -205,10 +205,10 @@ The Microsoft Authenticator app authenticating to Azure AD is not considered ver
 
 All authentication attempts to M365 services, including Azure MFA status, are logged within the Azure AD sign-in log. Defender for Identity and Microsoft Cloud App Security (MCAS) provide additional capabilities for agencies using the blueprint to detect unauthorised authentication attempts.
 
-As the blueprint's implementation of MFA is not considered verifier impersonation resistant, the maturity level is 2. 
+As the blueprint's implementation of MFA is not considered verifier impersonation resistant, the maturity level is 2.
 
 ### Recommendations
 
-It is recommended agencies review Azure AD sign-in logs and MCAS alerts to detect potentially malicious authentication attempts. 
+It is recommended agencies review Azure AD sign-in logs and MCAS alerts to detect potentially malicious authentication attempts.
 
 Agencies seeking to reach maturity level 3 should consider alternative authentication methods not currently included in the blueprint.

@@ -23,6 +23,11 @@ $( document ).ready( function() {
 		}
 	});
 
+	$('body.e8 .maturity').each( function() {
+		text = this.innerText.split(': ');
+		$(this).html('<span class="maturity-label">' + text[0].trim() + ':</span> <span class="maturity-rating">' + text[1].trim() + '</span>')
+	});
+
 	function show_search_results(keywords) {
 		$('#search-results ul li').remove();
 		$('#search-results').show();

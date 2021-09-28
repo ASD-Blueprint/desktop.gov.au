@@ -149,6 +149,22 @@ ul.feeling {
     }
 }
 
+.maturity {
+    display: flex;
+    font-size: 1.25em;
+
+    .maturity-label {
+        background: #007099;
+        padding: 1em 2em;
+        color: #fff;
+    }
+
+    .maturity-rating {
+        background: #efefef;
+        padding: 1em 2em;
+    }
+}
+
 blockquote {
     margin: 1em;
     padding: 1em;

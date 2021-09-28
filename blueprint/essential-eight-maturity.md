@@ -1,11 +1,12 @@
 ---
 layout: page
 title: Essential eight maturity
+body_class: e8
 ---
 
 The Essential Eight represents security guidance from the ACSC. It prioritises mitigation strategies to assist organisations in protecting their systems against a range of cyber threats.
 
-This section summarises the blueprint’s maturity level against the Essential Eight. It is important to note that any modifications outside of the blueprint will require a gap analysis to determine the security implications.
+This section summarises the blueprint's maturity level against the Essential Eight. It is important to note that any modifications outside of the blueprint will require a gap analysis to determine the security implications.
 
 The previous Essential Eight assessment for the DTA Protected Utility blueprint was performed in June 2020 against that version of the maturity model. This was documented in the [Solution Overview](https://github.com/govau/desktop.gov.au/blob/187a2f71f36578c2abc92d2072bda3119dafca43/blueprint/overview.md#essential-8-maturity) (June 2020).
 
@@ -13,12 +14,13 @@ Since then, both the blueprint and Essential Eight have been updated by the DTA 
 
 The assessments presented in this document includes Windows 10 and the supporting Microsoft 365 (M365) services as described in the blueprint. These assessments do not include iOS or any server infrastructure used by agencies to support the blueprint (e.g. in a hybrid deployment). The exclusion of iOS from this assessment is due to the following:
 
-> "The Essential Eight are designed to protect Microsoft Windows-based internet-connected networks. While the Essential Eight may be applied to cloud services and enterprise mobility… it was not primarily designed for such … In such cases, organisations should consider alternative guidance provided by the ACSC" – [Essential Eight Maturity Model](https://www.cyber.gov.au/acsc/view-all-content/publications/essential-eight-maturity-model).
+> "The Essential Eight are designed to protect Microsoft Windows-based internet-connected networks. While the Essential Eight may be applied to cloud services and enterprise mobility... it was not primarily designed for such ... In such cases, organisations should consider alternative guidance provided by the ACSC" - [Essential Eight Maturity Model](https://www.cyber.gov.au/acsc/view-all-content/publications/essential-eight-maturity-model).
 
-The ACSC has provided an assessment of iOS devices against the Essential Eight in the [Security Configuration Guide – Apple iOS 14 Devices](https://www.cyber.gov.au/acsc/view-all-content/publications/security-configuration-guide-apple-ios-14-devices). Note, this assessment was performed against the June 2020 Essential Eight maturity model.
+The ACSC has provided an assessment of iOS devices against the Essential Eight in the [Security Configuration Guide - Apple iOS 14 Devices](https://www.cyber.gov.au/acsc/view-all-content/publications/security-configuration-guide-apple-ios-14-devices). Note, this assessment was performed against the June 2020 Essential Eight maturity model.
 
 Server infrastructure used by agencies to support hybrid deployments of the blueprint are not included in this assessment as they are bespoke to those agencies. It is recommended that agencies operating a hybrid deployment of the blueprint perform their own Essential Eight assessments of supporting server infrastructure. 
 
+{:.auto}
 Mitigation strategy | June 2020 | July 2021
 --- | --- | ---
 [Application control](#application-control) | 3 | 3
@@ -36,6 +38,7 @@ Each of the individual assessments against the Essential Eight are described in 
 
 ## Application control
 
+{:.maturity}
 Maturity level: 3
 
 Windows Defender Application Control (WDAC) is used for application control on Windows 10 devices within the blueprint. WDAC restricts the execution of executables, software libraries, scripts, drivers, and applications to an approved set, including code which runs in the system core (kernel). WDAC is managed via Microsoft Endpoint Manager (MEM) or via Group Policies, allowing applications deployed via MEM to also be added to the allowed list automatically.
@@ -58,6 +61,7 @@ To achieve and maintain maturity level 3 it is recommended agencies validate the
 
 ## Patch applications
 
+{:.maturity}
 Maturity level: 3
 
 Microsoft (first party) application updates are automatically deployed and installed on blueprint devices via MEM. This includes the Edge internet browser and Microsoft Office productivity suite. By default, the blueprint does not include any third-party applications. If required, MEM can also be used to deploy third-party application packages, including manually packaged patches.
@@ -83,6 +87,7 @@ If agencies deploy third-party applications to blueprint devices, they are respo
 
 ## Office macro settings
 
+{:.maturity}
 Maturity level: 3
 
 The blueprint restricts macro execution to only those signed by a trusted digital certificate in accordance with the [ACSC Microsoft Office Macro Security](https://www.cyber.gov.au/acsc/view-all-content/publications/microsoft-office-macro-security) guidance. This includes blocking Microsoft Office macros originating from the internet and preventing standard users from modifying macro security settings in all Microsoft Office applications. The blueprint does not provide any recommendations for the use of trusted locations.
@@ -105,6 +110,7 @@ It is recommended that agencies review their list of trusted publishers at least
 
 ## User application hardening
 
+{:.maturity}
 Maturity level: 3
 
 The blueprint does not include the deployment of Java, so cannot process Java from the internet. 
@@ -135,6 +141,7 @@ Agencies should review Defender for Endpoint alerts and logs to detect unauthori
 
 ## Restrict administrative privileges
 
+{:.maturity}
 Maturity level: 3
 
 The blueprint includes two types of users, standard and privileged users. Standard users are assigned mailboxes and can access the internet from Windows 10 devices, but do not have elevated privileges on those devices. Privileged users are not assigned an Office 365 license and therefore do not have mailboxes assigned to their accounts. AppLocker is configured by MEM to prevent privileged users from launching web browsers or mail clients from blueprint devices.
@@ -159,6 +166,7 @@ Agencies should ensure that only the specific privileges required for a role are
 
 ## Patch operating systems
 
+{:.maturity}
 Maturity level: 3
 
 Windows 10 operating system updates are automatically deployed and installed on blueprint devices using Windows Update for Business which is configured via MEM. For hybrid deployments, patches may be deployed to blueprint devices via Microsoft Endpoint Configuration Manager (MECM) or Windows Server Update Services (WSUS) rather than downloaded from the internet directly.
@@ -184,6 +192,7 @@ It is recommended that agencies monitor the success of operating system patching
 
 ## Multi-factor authentication
 
+{:.maturity}
 Maturity level: 2
 
 M365 products are considered as third-party internet-facing services that process and store both sensitive and non-sensitive data for agencies using the blueprint.

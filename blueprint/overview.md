@@ -96,16 +96,18 @@ The following information management tools are available within the blueprint:
 
 Information protection covers the application of labels to documents and emails according to the classification of the content.
 
-Within the blueprint there are 2 options for labelling documents and emails. These are:
+Within the blueprint there are two options for labelling documents and emails. These are:
 
-* Azure Information Protection (AIP) and Microsoft sensitivity labels (Microsoft products that form part of the broader Microsoft Information Protection capabilities available under E5 licensing) 
+* Microsoft Information Protection (including Azure Information Protection (AIP) capabilities that form part of the broader Microsoft Information Protection capabilities)
 * a third-party application.
 
-AIP and Microsoft sensitivity labels can both be used for labelling documents and emails.
+Microsoft sensitivity labels can be used for labelling documents and emails.
 
 Sensitivity labels create a protective marking within the message header. When combined with Exchange mail flow rules, the subject can be modified to prepend text in the subject according to the sensitivity.
 
-AIP labelling does not offer a method to format email headers in a manner consistent with the requirements of the Protective Security Policy Framework (PSPF). This means it needs additional configuration.
+AIP (with the unified labelling client) can offer labelling capabilities outside of the native Microsoft 365 products. The blueprint favours using native M365 labelling capabilities where possible. Labels created in Microsoft Information Protection can be utilised with AIP.
+
+Microsoft Information Protection labelling does not offer a method to format email headers in a manner consistent with the requirements of the Protective Security Policy Framework (PSPF). This means it needs additional configuration.
 
 Email gateway rules are available in the network configuration ABAC artefact. 
 

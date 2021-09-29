@@ -1238,7 +1238,7 @@ Classification labels which is located under the Microsoft 365 Security & Compli
 * Sensitivity Labels – Allow label specific protection policy settings to be enforced.
 * Retention Labels – Allow label specific retention policy settings to be enforced.
 
-Sensitivity labels can be applied in the supported Office applications either in Microsoft 365 Apps for enterprise, Office Online or using the Microsoft Information Protection (MIP) unified labelling client.
+Sensitivity labels can be applied in the supported Office applications either in Microsoft 365 Apps for enterprise, Office Online or using the Microsoft Information Protection unified labelling client.
 
 Classification labels are published to users using Label Policies. Label Policies define the users who can utilise the label and the locations within Office 365 where it can be used. Classification labels can be applied in the following ways:
 

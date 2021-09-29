@@ -21,16 +21,16 @@ The ACSC has provided an assessment of iOS devices against the Essential Eight i
 Server infrastructure used by agencies to support hybrid deployments of the blueprint are not included in this assessment as they are bespoke to those agencies. It is recommended that agencies operating a hybrid deployment of the blueprint perform their own Essential Eight assessments of supporting server infrastructure.
 
 {:.auto}
-Mitigation strategy | June 2020 | July 2021
---- | --- | ---
-[Application control](#application-control) | 3 | 3
-[Patch applications](#patch-applications) | 3 | 3
-[Office macro settings](#office-macro-settings) | 3 | 3
-[User application hardening](#user-application-hardening) | 2 | 3
-[Restrict administrative privileges](#restrict-administrative-privileges) | 3 | 3
-[Patch operating systems](#patch-operating-systems) | 3 | 3
-[Multi-factor authentication](#multi-factor-authentication) | 2 | 2
-[Daily backups](#daily-backups) | 2 | N/A
+Mitigation strategy | Maturity level
+--- | ---
+[Application control](#application-control) | 3
+[Patch applications](#patch-applications) | 3
+[Configure Microsoft Office macro settings](#configure-microsoft-office-macro-settings) | 3
+[User application hardening](#user-application-hardening) | 3
+[Restrict administrative privileges](#restrict-administrative-privileges) | 3
+[Patch operating systems](#patch-operating-systems) | 3
+[Multi-factor authentication](#multi-factor-authentication) | 2
+[Regular backups](#regular-backups) | N/A
 
 Each of the individual assessments against the Essential Eight are described in detail in the following sections. These sections detail the rationale for each maturity level assessment, agency responsibilities, and recommendations to achieving greater maturity levels where applicable.
 
@@ -83,7 +83,7 @@ It is recommended that agencies monitor the success of application patching, via
 
 If agencies deploy third-party applications to blueprint devices, they are responsible for ensuring patches are deployed within the required timeframes to maintain maturity level 3. Agencies should consider enabling automatic update features for applications or deploy an automated third-party application patching solution.
 
-## Office macro settings
+## Configure Microsoft Office macro settings
 
 {:.maturity}
 Maturity level: 3
@@ -211,11 +211,11 @@ It is recommended agencies review Azure AD sign-in logs and MCAS alerts to detec
 
 Agencies seeking to reach maturity level 3 should consider alternative authentication methods not currently included in the blueprint.
 
-## Daily backups
+## Regular backups
 
 {:.maturity}
 Maturity level: N/A
 
-The assessment of daily backups against the blueprint has been descoped and is now reported as Not Assessed. This is a result of the blueprint not including agency backup capabilities, and to reflect the need for agencies to implement their own backup strategy tailored to their unique requirements.
+The assessment of regular backups against the blueprint has been descoped and is now reported as Not Assessed. This is a result of the blueprint not including agency backup capabilities, and to reflect the need for agencies to implement their own backup strategy tailored to their unique business continuity requirements.
 
 Microsoft provide the [Shared Responsibility Model](https://docs.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility) to assist customers understand what responsibilities are held by Microsoft as the provider of cloud services, and which remain the responsibility of the agency using these services. Responsibility for '*Information and data*' is described as '*always retained by the customer*'. Therefore, agencies are responsible for the protection of data including backup and restoration.

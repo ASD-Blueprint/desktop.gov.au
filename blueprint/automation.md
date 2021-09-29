@@ -35,6 +35,7 @@ Conditional Access | Automated
 Group Naming Policy | Automated
 Group Expiration Policy | Automated
 Group Creation | Automated
+Sensitivity labels | Automated 
 User Settings | Manual
 Device Settings | Manual
 External Collaboration | Manual
@@ -69,7 +70,7 @@ The configuration files developed in accordance with the blueprint are available
 
 ##### Configuration data file
 
-The required `configurationdata.psd1` file can be downloaded below:
+The required `configurationdata.psd1` file for the M365DSC methods can be downloaded below:
 
 * [configurationdata.psd1](/assets/files/automation/configurationdata.txt)
 
@@ -77,7 +78,10 @@ The required `configurationdata.psd1` file can be downloaded below:
 
 Blueprint configuration scripts are available below:
 
-* [identity_dsc.ps1](/assets/files/automation/identity_dsc.txt)
+| Script                                                       | Configuration items                                          | Method  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------- |
+| [identity_dsc.ps1](/assets/files/automation/identity_dsc.txt) | Conditional Access<br />Group Naming Policy<br />Group Expiration Policy<br />Group Creation | M365DSC |
+| [sensitivity-labels_dsc.ps1](/assets/files/automation/sensitivity_dsc.txt) | Sensitivity labels                                           | M365DSC |
 
 #### Certificate creation
 
@@ -115,6 +119,10 @@ The process to deploy the configuration is as follows:
 1. Open a PowerShell console as administrator
 2. Install and import the PowerShell module microsoft365dsc using the following command:
 ```Powershell 
+# enable WinRM for DSC node
+Set-WSManQuickConfig
+
+# install modules for M365DSC
 install-module microsoft365dsc -allowclobber -force
 import-module microsoft365dsc
 ```

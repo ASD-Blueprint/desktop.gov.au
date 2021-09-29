@@ -1720,6 +1720,8 @@ Not Configured
 
 The following tables describe the sensitivity label configuration settings for all implementation types.
 
+The Sensitivity labels in this ABAC can be deployed through M365DSC automation. The process can be found within the [automation](https://www.desktop.gov.au/blueprint/automation.html) guide. 
+
 #### Unofficial
 
 The following table lists the sensitivity label policy configuration for Unofficial.

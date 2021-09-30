@@ -5,7 +5,7 @@ title: Automation
 
 Microsoft offers programmatic and manual methods to getting and setting configuration within Microsoft Azure and Microsoft 365. This document focuses on the programmatic configuration utilising [Microsoft 365 Desired State Configuration (M365DSC)](https://microsoft365dsc.com/). M365DSC is an open source tool hosted on GitHub and maintained by Microsoft engineers and the community. It is able to configure settings within all major Microsoft 365 workloads such as Exchange Online, Teams, Power Platforms, SharePoint and Security and Compliance. A list of configurable resources within these workloads is available on the [M365DSC website](https://github.com/Microsoft/Microsoft365DSC/wiki/Resources-List). M365DSC leverages Windows PowerShell Desired State Configuration. 
 
-Currently, M365DSC is not able to fully configure a tenant to the specifications outlined in the blueprint. Configurations that cannot be configured via this method may need to be configured either manually or via another method such as the native M365  configuration PowerShell modules outside of DSC or Azure Command Line Interface.
+Currently, M365DSC is not able to fully configure a tenant to the specifications outlined in the blueprint. Configurations that cannot be configured via this method may need to be configured either manually or via another method such as the native M365 configuration PowerShell modules outside of DSC or Azure Command Line Interface.
 
 ## Windows PowerShell Desired State Configuration
 
@@ -81,10 +81,10 @@ Blueprint configuration scripts are available in the table below.
 
 Note, each DSC script can be ran independently.
 
-| Script                                                       | Configuration items                                          | Method  | Script parameters                                            |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------- | ------------------------------------------------------------ |
-| [identity_dsc.ps1](/assets/files/automation/identity_dsc.txt) | Conditional Access<br />Group Naming Policy<br />Group Expiration Policy<br />Group Creation | M365DSC | -trustedip<br />-agency <br />-agencyprefix<br />-globaladminaccount |
-| [sensitivity-labels_dsc.ps1](/assets/files/automation/sensitivity_dsc.txt) | Sensitivity labels                                           | M365DSC | -globaladminaccount                                          |
+Script | Configuration items | Method | Script parameters
+--- | --- | --- | ---
+[identity_dsc.ps1](/assets/files/automation/identity_dsc.txt) | Conditional Access<br>Group Naming Policy<br>Group Expiration Policy<br>Group Creation | M365DSC | -trustedip<br>-agency <br>-agencyprefix<br>-globaladminaccount
+[sensitivity-labels_dsc.ps1](/assets/files/automation/sensitivity_dsc.txt) | Sensitivity labels | M365DSC | -globaladminaccount
 
 #### Certificate creation
 
@@ -130,7 +130,7 @@ install-module microsoft365dsc -allowclobber -force
 import-module microsoft365dsc
 ```
 3. In PowerShell navigate to the directory containing the blueprint configuration PS1 file and the `configurationdata.psd1` file. This `configurationdata.psd1`  file is the same for all other DSC scripts supplied
-4. In the PowerShell console, initiate the desired blueprint configuration PS1 and supply the required values. If the script requires parameters, the the required values are located in the `param` section of the DSC script to be ran. Some DSC scripts may not require parameters, refer to the `Blueprint configuration scripts`  table for an overview. The following is an example for the identity configuration DSC script `identity_dsc.ps1`. In this example, the required values are: Global Admin credentials; agency name; agency prefix; and trusted IPs (in CIDR format)
+4. In the PowerShell console, initiate the desired blueprint configuration PS1 and supply the required values. If the script requires parameters, the required values are located in the `param` section of the DSC script to be ran. Some DSC scripts may not require parameters, refer to the `Blueprint configuration scripts` table for an overview. The following is an example for the identity configuration DSC script `identity_dsc.ps1`. In this example, the required values are: Global Admin credentials; agency name; agency prefix; and trusted IPs (in CIDR format)
 ```Powershell 
 $pscredential = get-credential
 $agencyname = "Agency Name"

@@ -14,6 +14,9 @@
   subitems:
     - title: Solution overview
       url: /blueprint/overview.html
+    
+    - title: Essential eight maturity
+      url: /blueprint/essential-eight-maturity.html
 
     - title: Platform
       url: /blueprint/platform.html

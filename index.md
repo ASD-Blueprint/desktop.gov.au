@@ -1,5 +1,6 @@
 ---
 layout: home
+excerpt: The Protected Utility Program helps agencies transition to cloud-based capability and adopt the blueprint.
 benefits:
 - |
   ### Operational efficiencies

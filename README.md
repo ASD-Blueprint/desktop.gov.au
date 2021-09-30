@@ -1,6 +1,6 @@
 ## Desktop.gov.au
 
-A website for the Protected Utility Program with all Blueprint documents.
+A website for the Protected Utility Program with all blueprint documents.
 
 All contributions welcome.
 

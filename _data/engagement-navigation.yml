@@ -1,24 +1,33 @@
-- title: Engagement model
-  url: /program/engagement-model.html
+- title: Engagement framework
+  url: /program/engagement-framework.html
 
   subitems:
-    - title: Engagement
-      url: /program/engagement/engagement.html
+    - title: Phase 1 Connect and Align
+      url: /program/engagement/connect-and-align.html
     
-    - title: Discovery
-      url: /program/engagement/discovery.html
+    - title: Phase 2 Prepare and Design
+      url: /program/engagement/prepare-and-design.html
 
-    - title: Deploy
-      url: /program/engagement/deploy.html
+    - title: Phase 3 Deploy and Embed
+      url: /program/engagement/deploy-and-embed.html
 
-    - title: Transition
-      url: /program/engagement/transition.html
+    - title: Phase 4 Adopt and Engage
+      url: /program/engagement/adopt-and-engage.html
+  
+    - title: Phase 5 Assess and Advocate
+      url: /program/engagement/assess-and-advocate.html
 
-    - title: Adoption and evaluation
-      url: /program/engagement/adoption-evaluation.html
-        
-    - title: Case studies
+    - title: Self-assess your agency
+      url: /program/engagement/agency-type.html    
+
+    - title: Key messaging
+      url: /program/engagement/key-messaging.html
+
+    - title: A case study
       url: /program/engagement/case-studies.html
+
+    - title: Operations model
+      url: /program/engagement/operations-model.html
 
     - title: Frequently asked questions
       url: /program/engagement/faq.html

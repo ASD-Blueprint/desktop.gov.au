@@ -7,6 +7,7 @@ $( document ).ready( function() {
 	$('th:not(.au-table__header)').addClass('au-table__header');
 	$('td:not(.au-table__cell)').addClass('au-table__cell');
 	$('table.au-table').wrap( '<div class="responsive-table"></div>');
+	$('#content-area table.sortable').tablesorter();
 
 	$('#back-to-top a').on( 'click', function() {
 		$('html, body').animate({
@@ -20,6 +21,11 @@ $( document ).ready( function() {
 		else {
 			$('#back-to-top').removeClass('visible');
 		}
+	});
+
+	$('body.e8 .maturity').each( function() {
+		text = this.innerText.split(': ');
+		$(this).html('<span class="maturity-label">' + text[0].trim() + ':</span> <span class="maturity-rating">' + text[1].trim() + '</span>')
 	});
 
 	function show_search_results(keywords) {

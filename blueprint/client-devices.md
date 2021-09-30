@@ -17,7 +17,6 @@ For each component within the document there is a brief description of the conte
 
 ## Assumptions
 
-* ACSC Windows 10 hardening guidelines have been broadly implemented as outlined within the SSP and SSP Annex.
 * The Microsoft Endpoint Manager (MEM) Console is the preferred method to manage all settings regardless of a cloud native or hybrid implementation. Although a combination of the Microsoft Endpoint Configuration Manager (MECM) Console and Group Policy Objects (GPOs) would  be able to achieve the same settings in a hybrid environment, this blueprint does not include MECM and GPOs example configurations due to the level of dissimilarities and per agency customisation in existing MECM and GPOs configurations across Commonwealth entities.
 * Minimum version of MECM 1710 is required for co-management, recommended minimum version at is 2002 update version. See [support for Configuration Manager current branch versions.](https://docs.microsoft.com/en-us/mem/configmgr/core/servers/manage/current-branch-versions-supported)
 
@@ -47,7 +46,7 @@ Minimum physical hardware configuration for the Windows 10 SOE applicable to all
 Component | Description | Justification
 --- | --- | ---
 Architecture | x64 | Required to Support more than 4GB RAM. 
-Processor | At least 4 logical processors, VT-x (Intel) or AMD-V CPU extensions, 2 GHz or higher with Second Level Address Translation (SLAT) support | SLAT is required to support Windows Defender Application Guard as required by ACSC hardening guide for Windows 10 1909. 
+Processor | At least 4 logical processors, VT-x (Intel) or AMD-V CPU extensions, 2 GHz or higher with Second Level Address Translation (SLAT) support | SLAT is required to support Windows Defender Application Guard. 
 RAM | 8GB | To meet design specifications.
 Graphics Card | DirectX 9 WDDM 1.0 | To meet design specifications. Integrated or dedicated. 
 Input Device(s) | Keyboard<br>Mouse<br>Multi-touch display screen to enable Windows 10 touch screen features (optional) | Keyboard and mouse may be built into a laptop, but touch screens are optional.
@@ -118,7 +117,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 UEFI version | At least 2.3.1 | This is minimum UEFI version required for Device Guard. 
 Secure Boot | Enabled | Secure Boot is a requirement for the use of Windows Credential Guard and provides greater security protection for users. 
-Secure Boot Configuration Method | Configured via Intune | Meets ACSC Windows 10 1909 hardening guidelines.
+Secure Boot Configuration Method | Configured via MEM or MECM | To align with the ACSC Windows 10 hardening guidance.
 
 ### Trusted platform module
 
@@ -133,7 +132,7 @@ Trusted Platform Module Design Decisions for all agencies and implementation typ
 Decision Point | Design Decision | Justification
 --- | --- | ---
 TPM | Enabled in BIOS/UEFI from hardware vendor or manually configured | Required for Windows 10 and BitLocker. 
-TPM Version | 2.0 | Meets ACSC Windows 10 1909 hardening guidelines. 
+TPM Version | 2.0 | To align with the ACSC Windows 10 hardening guidance. 
 
 ## Windows 10 deployment & management
 
@@ -337,7 +336,7 @@ OfficeHub | Removed | MyOffice.
 OneNote | Provisioned | Microsoft OneNote Application. 
 Paint3D | Provisioned | Microsoft Paint3D Application. 
 People | Removed | The People app in Windows is a modern take on the flat contact lists of the past. It is built for the way people communicate today and is connected to cloud services. 
-Photos | Removed | The best place to enjoy, organise, edit, and share digital memories.
+Photos | Provisioned | The best place to enjoy, organise, edit, and share digital memories.
 Snip and Sketch | Provisioned | Capture a specific area of the screen.
 MS Paint | Provisioned | Creative paint and drawing tool.
 Sticky Notes | Provisioned | Sticky Notes. 
@@ -351,7 +350,7 @@ The Microsoft Store is an online store for applications available for Windows 8 
 
 The Microsoft Public Store is the central location for browsing the library of available Windows UWP Applications that can be installed on Windows 10. The Microsoft Public Store includes both free and paid applications. Applications published by Microsoft and other developers are available.
 
-The Microsoft Store for Business allows organisations to purchase applications in larger volumes and customise which applications are available to users. Applications which are made available can either be distributed directly from the store or through a managed distribution approach. Applications which have been developed within the organisation can also be added and distributed as required.
+The Microsoft Store for Business (private store) allows organisations to purchase applications in larger volumes and customise which applications are available to users. Applications which are made available can either be distributed directly from the store or through a managed distribution approach. Applications which have been developed within the organisation can also be added and distributed as required.
 
 Licensing can also be managed through the Microsoft Store for Business and administrators can reclaim and reuse application licenses.
 
@@ -359,8 +358,8 @@ Microsoft Store Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Microsoft Public Store | Disabled | Meets ACSC Windows 10 1909 hardening guidelines and aligns with security and compliance requirements. 
-Microsoft Store for Business | Disabled | Meets ACSC Windows 10 1909 hardening guidelines and aligns with security and compliance requirements. 
+Microsoft Public Store | Disabled | To align with the ACSC Windows 10 hardening guidance.
+Microsoft Store for Business | Enabled | To allow the delivery of enterprise volume purchased apps including the Intune Company Portal. 
 
 ### Enterprise applications
 
@@ -408,20 +407,20 @@ Decision Point | Design Decision | Justification
 Power Management technology | Intune, MECM or Group Policy | Agency preference of technology to configure power options. <br>If using MECM or GPO, consideration should be made to migrate these to Intune in future.
 Default Power Option Battery | Balanced | Default setting, no requirement to change has been identified. 
 Default Power Option Powered | Better Performance | Default setting, no requirement to change has been identified. 
-Allow standby states when sleeping (on battery)  | Disabled | Meets ACSC Windows 10 1909 hardening guidelines. 
-Allow standby states when sleeping (plugged in) | Disabled | Meets ACSC Windows 10 1909 hardening guidelines. 
-Require a password when a computer wake (on battery) | Enabled | Meets ACSC Windows 10 1909 hardening guidelines. 
-Require a password when a computer wakes (plugged in) | Enabled | Meets ACSC Windows 10 1909 hardening guidelines. 
-Specify system hibernate timeout (on battery) | Enabled<br>System Hibernate Timeout (seconds): 0 | Meets ACSC Windows 10 1909 hardening guidelines. 
-Specify system hibernate timeout (plugged in) | Enabled<br>System Hibernate Timeout (seconds): 0 | Meets ACSC Windows 10 1909 hardening guidelines. 
-Specify system sleep timeout (on battery) | Enabled<br>System Sleep Timeout (seconds): 0 | Meets ACSC Windows 10 1909 hardening guidelines. 
-Specify system sleep timeout (plugged in) | Enabled<br>System Sleep Timeout (seconds): 0 | Meets ACSC Windows 10 1909 hardening guidelines. 
-Specify the unattended sleep timeout (on battery) | Enabled<br>Unattended Sleep Timeout (seconds): 0 | Meets ACSC Windows 10 1909 hardening guidelines. 
-Specify the unattended sleep timeout (plugged in) | Enabled<br>Unattended Sleep Timeout (seconds): 0 | Meets ACSC Windows 10 1909 hardening guidelines. 
-Turned off hybrid sleep (on battery) | Enabled | Meets ACSC Windows 10 1909 hardening guidelines. 
-Turned off hybrid sleep (plugged in) | Enabled | Meets ACSC Windows 10 1909 hardening guidelines. 
-Show hibernate in the power options menu | Disabled | Meets ACSC Windows 10 1909 hardening guidelines. 
-Show sleep in the power options menu | Disabled | Meets ACSC Windows 10 1909 hardening guidelines. 
+Allow standby states when sleeping (on battery)  | Disabled | To align with the ACSC Windows 10 hardening guidance. 
+Allow standby states when sleeping (plugged in) | Disabled | To align with the ACSC Windows 10 hardening guidance. 
+Require a password when a computer wake (on battery) | Enabled | To align with the ACSC Windows 10 hardening guidance. 
+Require a password when a computer wakes (plugged in) | Enabled | To align with the ACSC Windows 10 hardening guidance. 
+Specify system hibernate timeout (on battery) | Enabled<br>System Hibernate Timeout (seconds): 0 | To align with the ACSC Windows 10 hardening guidance. 
+Specify system hibernate timeout (plugged in) | Enabled<br>System Hibernate Timeout (seconds): 0 | To align with the ACSC Windows 10 hardening guidance. 
+Specify system sleep timeout (on battery) | Enabled<br>System Sleep Timeout (seconds): 0 | To align with the ACSC Windows 10 hardening guidance. 
+Specify system sleep timeout (plugged in) | Enabled<br>System Sleep Timeout (seconds): 0 | To align with the ACSC Windows 10 hardening guidance. 
+Specify the unattended sleep timeout (on battery) | Enabled<br>Unattended Sleep Timeout (seconds): 0 | To align with the ACSC Windows 10 hardening guidance. 
+Specify the unattended sleep timeout (plugged in) | Enabled<br>Unattended Sleep Timeout (seconds): 0 | To align with the ACSC Windows 10 hardening guidance. 
+Turned off hybrid sleep (on battery) | Enabled | To align with the ACSC Windows 10 hardening guidance. 
+Turned off hybrid sleep (plugged in) | Enabled | To align with the ACSC Windows 10 hardening guidance. 
+Show hibernate in the power options menu | Disabled | To align with the ACSC Windows 10 hardening guidance. 
+Show sleep in the power options menu | Disabled | To align with the ACSC Windows 10 hardening guidance. 
 
 ### Windows Search and Cortana
 
@@ -563,9 +562,10 @@ Screen Saver Design Decisions for all agencies and implementation types.
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Screen Saver | Disabled | Not required, the device will be configured to sleep after 15 minutes. 
-Machine Inactivity | Configured – 900 seconds | This is defined as per ACSC 1909 Windows 10 Hardening guide. 
+Machine Inactivity | Configured – 900 seconds | To align with the ACSC Windows 10 hardening guidance.
 Users Can Configure the Screen Saver | No | Disable the ability for users to configure the screen saver for all Windows 10 SOE devices. 
-Require Password on Wake | Configured | Users will be required to enter their password on machine wake up. This is defined as per ACSC 1909 Windows 10 Hardening guide. 
+Require Password on Wake | Configured | Users will be required to enter their password on machine wake up to align with the ACSC Windows 10 hardening guidance.
+
 
 ### Profiles, personalization, and folder redirection
 
@@ -657,7 +657,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Intune | Enabled | Intune management functions cannot be disabled when a device is enrolled in Intune and Azure AD.
 WinRM | Enabled | To meet operating support requirements for the Agency. Consideration should be made to harden the use of WinRM in the agency environment to increase the security of Windows 10 endpoints.
-Windows Remote Assistance | Disabled | Aligns with Windows 10 1909 hardening guide and reduces the attack surface.
+Windows Remote Assistance | Disabled | To align with the ACSC Windows 10 hardening guidance and reduces the attack surface.
 Remote Desktop | Enabled | To meet operating support requirements for the Agency. Access is granted via Active Directory Groups. 
 Remote Desktop Client | Enabled | Remote Desktop will be enabled for Windows 10 devices. 
 Remote Control via Teams | Enabled | Users can share the desktop within the Microsoft Teams application. 
@@ -690,11 +690,11 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Patching technology | Agency preference of Intune, MECM or WSUS  | For cloud native deployments, Intune is the only option available.<br><br>For hybrid deployments, all three options are available for implementation. Intune provides a simpler approach to patching whilst MECM and WSUS provide more granular control of patch deployment.
 Patching Testing Method | Pilot and Production  | Allows early deployment and test of Windows updates to selected users prior to the full release of updates to the remaining users.<br><br>The Pilot group will be a select number of users who will actively provide feedback on updates before rollout to all users. 
-Feature Updates | Enabled | Meets ACSC hardening guidance for Windows 10 1909. 
-Quality Updates | Enabled | Meets ACSC hardening guidance for Windows 10 1909. 
-Driver Updates | Enabled | Meets ACSC hardening guidance for Windows 10 1909. 
-Microsoft Product Updates | Enabled | Meets ACSC hardening guidance for Windows 10 1909. 
-Patching Frequency | Existing Agency patch scheduling based on Essential Eight guidance | The Agencies existing patch schedule should reflect:<br><br>Patches, updates or vendor mitigations for security vulnerabilities in operating systems are applied two weeks of release, or within 48 hours if an exploit exists. <br />Meets ACSC Essential Eight guidance for patching Operating Systems. 
+Feature Updates | Enabled | To align with the ACSC Windows 10 hardening guidance. 
+Quality Updates | Enabled | To align with the ACSC Windows 10 hardening guidance. 
+Driver Updates | Enabled | To align with the ACSC Windows 10 hardening guidance. 
+Microsoft Product Updates | Enabled | To align with the ACSC Windows 10 hardening guidance. 
+Patching Frequency | Existing Agency patch scheduling based on Essential Eight guidance | The Agencies existing patch schedule should reflect:<br><br>Patches, updates or vendor mitigations for security vulnerabilities in operating systems are applied two weeks of release, or within 48 hours if an exploit exists. <br>Meets ACSC Essential Eight guidance for patching Operating Systems. 
 
 ### Networking
 
@@ -710,11 +710,12 @@ Networking Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-IPv6 | Disabled | As per ACSC hardening guidance for Windows 10 1909 IPv6 will be disabled.<br>Exceptions to this rule are if IPv6 is wholly deployed within an Agency network with no IPv4.
+IPv6 | Disabled | To align with the ACSC Windows 10 hardening guidance.
+<br>Exceptions to this rule are if IPv6 is wholly deployed within an Agency network with no IPv4.
 Wireless | Enabled | Where applicable, wireless capable devices will have Wi-Fi enabled to allow use case of mobile working.
-Wireless Configuration | Refer to Table below for wireless configuration recommendations. | As per ACSC hardening guidance for Windows 10 1909 and security compliance requirements. 
+Wireless Configuration | Refer to Table below for wireless configuration recommendations. | To align with the ACSC Windows 10 hardening guidance. 
 Broadband | Not Configured | If Agency devices have Subscriber Identity Module (SIM) capability this can be enabled without affecting an agencies cyber security posture.
-Network Bridging | Disabled | As per ACSC hardening guidance for Windows 10 1909 and security and compliance requirements.
+Network Bridging | Disabled | To align with the ACSC Windows 10 hardening guidance.
 Wake on LAN (WoL) | Configured via existing MECM solution if in use | Wake on LAN configured to allow existing MECM management tasks to operate on computers regardless of power status.
 
 Wireless Configuration applicable to all agencies and implementation types.
@@ -722,9 +723,9 @@ Wireless Configuration applicable to all agencies and implementation types.
 Configuration | Value | Description
 --- | --- | ---
 Connect to Wireless Hotspots | Enabled | Allows users to connect to wireless hotspots when working remotely. 
-Automatically Connect to Suggested Open Hotspots | Disabled | Meets ACSC hardening guidance for Windows 10 1909 and aligns with security and compliance requirements. 
-Prohibit installation and configuration of Network Bridge | Enabled | Meets ACSC hardening guidance for Windows 10 1909 and aligns with security and compliance requirements. 
-Single Sign On 802.1x | Enabled | Meets ACSC hardening guidance for Windows 10 1909 and aligns with security and compliance requirements. 
+Automatically Connect to Suggested Open Hotspots | Disabled | To align with the ACSC Windows 10 hardening guidance. 
+Prohibit installation and configuration of Network Bridge | Enabled | To align with the ACSC Windows 10 hardening guidance. 
+Single Sign On 802.1x | Enabled | To align with the ACSC Windows 10 hardening guidance. 
 Wireless Profile Configuration | Configured | Will be configured depending on the Agency requirements. 
 
 ### Delivery optimisation
@@ -773,12 +774,16 @@ Microsoft Office is available in two release cycles and within those release cyc
 
 Microsoft Office has two release cycles:
 
-* Office 365 – Office 365 combines the Microsoft Office desktop suite with cloud-based versions of Microsoft's communications and collaboration services—including Microsoft Exchange Online, Microsoft SharePoint Online, Office Online, and Microsoft Teams. Office 365 is upgraded with new features on a regular basis
-* Traditional Office – Traditional Office is sold as a one-time purchase and provides Office applications for a single computer. There are no upgrade options which means to upgrade to the next major release, another copy of Office will have to be procured. Traditional Office is not upgraded with new features for the life of the release
+* Microsoft 365 Apps for enterprise – Microsoft 365 Apps for enterprise combines the Microsoft Office desktop suite with cloud-based versions of Microsoft's communications and collaboration services—including Microsoft Exchange Online, Microsoft SharePoint Online, Office Online, and Microsoft Teams. Microsoft 365 Apps for enterprise is upgraded with new features on a regular basis via feature update channels.
+* Traditional Microsoft Office – Traditional Microsoft Office is sold as a one-time purchase and provides Office applications for a single computer. There are no upgrade channel options which means to upgrade to the next major release, another copy of MS Office will have to be procured. Traditional Microsoft Office is not upgraded with new features for the life of the release. Microsoft Office 2019 is the latest traditional version available.
 
 Within these release cycles, you can choose the architecture of 32-bit or 64-bit. Microsoft Office provides 32-bit or 64-bit version to be installed on Windows 10 devices. Microsoft 64-bit version of Office will be automatically chosen to be installed, unless 32-bit version is installed. The 64-bit version of Office provides ability working with larger datasets and files. However, 64-bit version of Office does not support legacy macros, and COM Add-In.
 
-Pro Plus is an optional configuration which installed Office 365 locally on a client machine.
+Microsoft 365 Apps for enterprise provides there feature update channels for customers to choose:
+
+* Current Channel - new Office features are available as soon as they are released, not on a set schedule.
+* Monthly Enterprise Channel: new office features are released in a predictable monthly schedule.
+* Semi-annual Enterprise Channel: new Office features are released twice a year. 
 
 Microsoft Project and Visio (365 and 2019) are available as click-to-run editions that can be either licensed through Microsoft 365 or through hybrid licensing. Regardless of the license type, they can be installed through Intune or MECM (for hybrid deployments). The installation media is configured using the [Office Deployment Tool (ODT)](https://www.microsoft.com/download/details.aspx?id=49117) which generates the installer and configuration options for the deployment. Microsoft Office 365 E3/E5 licensing does not include the rights to use these applications. There are some caveats to what combination of Office versions are supported alongside Project and Visio, please see the [supported scenarios](https://docs.microsoft.com/en-us/deployoffice/install-different-office-visio-and-project-versions-on-the-same-computer).
 
@@ -786,7 +791,8 @@ Microsoft Office Edition Design Decisions for all agencies and implementation ty
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Microsoft Office Version | Office 365 Pro Plus 64-bit | Aligns with modernisation vision and provides access to the latest and most updated features.
+Microsoft Office Version | Microsoft 365 Apps for Enterprise 64-bit | Aligns with modernisation vision and provides access to the latest and most updated features.
+Microsoft 365 Apps Update channel | Monthly Enterprise | Provides the latest features for Office apps, such as Excel and Word, on a regular predictable basis. This will ensure new features are available but can be planned within the Agency's change management process. 
 
 ### Office features
 
@@ -905,16 +911,16 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Microsoft Defender | Enabled | Microsoft Defender will be enabled to align with ACSC guidance. 
 Microsoft Defender Capabilities Enabled in the SOE | Components:<br>Microsoft Defender Antivirus<br>Microsoft Defender Exploit Guard<br>Microsoft Defender Application Control<br>Microsoft Defender SmartScreen<br>Microsoft Defender Application Guard<br>Microsoft Defender Credential Guard<br>Microsoft Defender Firewall | Provides required security controls for the SOE. 
-Microsoft Defender Antivirus Exclusions | Enabled and configured | Meets ACSC Windows 10 1909 hardening guidelines and aligns with security and compliance requirements. 
-Microsoft Defender Exploit Guard Configuration | Enabled and configured | Meets ACSC Windows 10 1909 hardening guidelines and aligns with security and compliance requirements. 
-Microsoft Defender Application Control Configuration | Enabled and configured | Meets ACSC Windows 10 1909 hardening guidelines and aligns with security and compliance requirements. 
-Microsoft Defender Smart Screen Configuration | Enabled and configured | Meets ACSC Windows 10 1909 hardening guidelines and aligns with security and compliance requirements. 
+Microsoft Defender Antivirus Exclusions | Enabled and configured | To align with the ACSC Windows 10 hardening guidance. 
+Microsoft Defender Exploit Guard Configuration | Enabled and configured | To align with the ACSC Windows 10 hardening guidance. 
+Microsoft Defender Application Control Configuration | Enabled and configured | To align with the ACSC Windows 10 hardening guidance. 
+Microsoft Defender Smart Screen Configuration | Enabled and configured | To align with the ACSC Windows 10 hardening guidance.
 Microsoft Defender Credential Guard Configuration | Enabled and configured | Aligns with security and compliance requirements. Enabled without lock allows Microsoft Defender Credential Guard to be managed remotely. 
-Microsoft Defender Firewall Configuration | Enabled and configured | Meets ACSC Windows 10 1909 hardening guidelines and aligns with security and compliance requirements. 
+Microsoft Defender Firewall Configuration | Enabled and configured | To align with the ACSC Windows 10 hardening guidance. 
 
 ### Windows 10 hardening
 
-The following design components apply to the hardening of Microsoft Windows 10 1909 and above.
+The following design components apply to the hardening of Microsoft Windows 10 21H1 and above.
 
 The Windows 10 security settings detailed in this section are based on Microsoft best practice and ACSC Hardening Guidance.
 
@@ -955,7 +961,7 @@ Windows 10 Hardening Design Decisions for all agencies and implementation types.
     * Admin Approval Mode for the Built-in Administrator account: Enabled
     * Allow UIAccess applications to prompt for elevation without using the secure desktop: Disabled
     * Behavior of the elevation prompt for administrators in Admin Approval Mode: Prompt for credentials on the secure desktop
-    * Behavior of the elevation prompt for standard users: Prompt for credentials on the secure desktop
+    * Behavior of the elevation prompt for standard users: Automatically deny elevation requests
     * Detect application installations and prompt for elevation: Enabled
     * Only elevate UIAccess applications that are installed in secure locations: Enabled
     * Run all administrators in Admin Approval Mode: Enabled
@@ -1004,7 +1010,7 @@ Windows 10 Hardening Design Decisions for all agencies and implementation types.
   * Justification: To align with the ACSC Windows 10 hardening guidance.
   * Turn off Windows Defender Antivirus: Disabled
   * Configure local setting override for reporting to Microsoft MAPS: Disabled
-  * Configure the ‘Block at First Sight’ feature: Enabled
+  * Configure the 'Block at First Sight' feature: Enabled
   * Join Microsoft MAPS: Enabled (Advanced MAPS)
   * Send file samples when further analysis is required: Enabled (Send safe samples)
   * Configure extended cloud check: Enabled (High blocking level)
@@ -1119,7 +1125,7 @@ Windows 10 Hardening Design Decisions for all agencies and implementation types.
   * Justification: To align with the ACSC Windows 10 hardening guidance.
   * Block all consumer Microsoft account user authentication: Enabled
   * Prevent the usage of OneDrive for file storage: Enabled
-  * Accounts: Block Microsoft accounts: Users can’t add or log on with Microsoft accounts
+  * Accounts: Block Microsoft accounts: Users can't add or log on with Microsoft accounts
 * MSS settings
   * Justification: To align with the ACSC Windows 10 hardening guidance.
   * IP source routing protection level: Enabled
@@ -1251,13 +1257,10 @@ Windows 10 Hardening Design Decisions for all agencies and implementation types.
 * Windows Search and Cortana
   * Justification: To align with the ACSC Windows 10 hardening guidance.
   * Allow Cortana: Disabled
-* Windows To Go
-  * Justification: To align with the ACSC Windows 10 hardening guidance.
-  * Windows To Go Default Startup Options: Disabled
 
 ### Microsoft Edge hardening
 
-The Microsoft Edge security settings support Edge version 80 and later.
+The Microsoft Edge security settings support Edge version 90 and later.
 
 The Microsoft Edge security settings detailed in this section are based on Microsoft best practice and ACSC Hardening Guidance.
 
@@ -1265,17 +1268,33 @@ Microsoft Edge Hardening Design Decisions for all agencies and implementation ty
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Allow Adobe Flash	| Disabled	| To align with the ACSC Windows 10 hardening guidance.
-Allow Developer Tools	| Disable	| To align with the ACSC Windows 10 hardening guidance.
+Allow download restrictions	| Block potentially dangerous or unwanted downloads	| To align with the ACSC Windows 10 hardening guidance.
 Configure Do Not Track	| Enable	| To align with the ACSC Windows 10 hardening guidance.
-Configure Password Manager	| Disable	| To align with the ACSC Windows 10 hardening guidance.
-Configure Pop-up Blocker	| Enabled	| To align with the ACSC Windows 10 hardening guidance.
+Control the mode of DNS-over-HTTPS | Disable DNS-over-HTTPS | To align with the ACSC Windows 10 hardening guidance.
+Control where developer tools can be used | Don't allow using the developer tools | To align with the ACSC Windows 10 hardening guidance.
+DNS interception checks enabled | Disabled | To align with the ACSC Windows 10 hardening guidance.
+Default pop-up window setting | Do not allow any site to show popups | To align with the ACSC Windows 10 hardening guidance.
+Enable saving passwords to the password manager	| Disable	| To align with the ACSC Windows 10 hardening guidance.
 Configure Windows Defender SmartScreen	| Enabled	| To align with the ACSC Windows 10 hardening guidance.
-Prevent access to the about:flags page in Microsoft Edge	| Enabled	| To align with the ACSC Windows 10 hardening guidance.
-Prevent bypassing Windows Defender SmartScreen prompts for files	| Enabled	| To align with the ACSC Windows 10 hardening guidance.
-Prevent bypassing Windows Defender SmartScreen prompts for sites	| Enabled	| To align with the ACSC Windows 10 hardening guidance.
-Prevent users and apps from accessing dangerous websites	| Enabled – Block	| To align with the ACSC Windows 10 hardening guidance.
+Prevent bypassing Microsoft Defender SmartScreen prompts for sites | Enabled	| To align with the ACSC Windows 10 hardening guidance.
+Prevent bypassing of Microsoft Defender SmartScreen warnings about downloads | Enabled	| To align with the ACSC Windows 10 hardening guidance.
+Prevent users and apps from accessing dangerous websites | Enabled (Block) | To align with the ACSC Windows 10 hardening guidance.
 Turn on Windows Defender Application Guard in Managed Mode	| Enabled	| To align with the ACSC Windows 10 hardening guidance.
+
+#### Web advertisement blocking
+
+Web advertisements may be used by threat actors to deliver malicious code or to attempt to phish legitimate users.
+
+The ACSC recommends blocking web advertisements at the browser level. Microsoft Edge's native web advertisement capability is limited and does not provide an effective mitigation against the risk of malicious web advertisement. Edge supports third-party add-ons to provide greater web advertisement blocking with examples including uBlock Origin and Ad Block Plus. However, please note that the DTA does not explicitly recommend either product or other third-party add-ons. Instead, agencies should perform their own risk based assessment prior to using them as part of a blueprint deployment.
+
+If supported by their existing proxy implementations, agencies may also implement web advertisement at the proxy level for additional protection against web advertisement-based threats.
+
+Web Advertisement Blocking Design Decisions for all agencies and implementation types.
+
+Decision Point | Design Decision | Justification
+--- | --- | ---
+Native Edge advertisement blocking | Enabled - BlockAds (default)	| To align with Essential Eight user application hardening guidance.
+Third-party add-on | Deployed via MEM | To align with Essential Eight user application hardening guidance.
 
 ### Windows Defender Application Control
 
@@ -1295,7 +1314,7 @@ Application Control Design Decisions for all agencies and implementation types.
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Application Whitelisting Product | WDAC | Microsoft recommended product for [application control](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control#choose-when-to-use-wdac-or-applocker) and aligns with ACSC Essential Eight guidance. 
-User Mode Code Integrity | Enabled | Restricts both kernel-mode and user-mode binaries. This aligns with the ACSC Windows 10 1909 hardening guidance.
+User Mode Code Integrity | Enabled | Restricts both kernel-mode and user-mode binaries. To align with the ACSC Windows 10 hardening guidance.
 Windows Hardware Quality Labs Signing | Required | Blocks the execution of legacy drivers and ensures drivers have passed [Windows Hardware Certification Testing](https://docs.microsoft.com/en-us/windows-hardware/drivers/install/whql-release-signature). 
 Flight Signing | Disabled  | Restricts the use of non production release binaries. Flightroot-signed binaries will not be trusted.
 Unsigned System Integrity Policy | Agency Decision | The use of signed policies prevent administrative tampering and kernel mode exploit access. However, it does increase the administrative overhead associated with management and updating of policies. There is no current ACSC guidance on the configuration of signed integrity polices. 
@@ -1308,9 +1327,9 @@ Update Policy No Reboot | Enabled | Ensures new policies can be applied without 
 Allow Supplemental Policies | Intune deployed: Enabled; Group Policy deployed: Disabled | Supplemental polices allow for policies to be targeted to users/groups. This is however not supported when policies are deployed by Group Policy.
 Dynamic Code Security | Enabled | Enforces WDAC policies on .NET applications and dynamically-loaded libraries.
 Managed Installer | Enabled | Allow lists applications deployed using a managed installer such as Microsoft Endpoint Configuration Manager.
-Hypervisor-protected code integrity | Enabled | To align with the ACSC Windows 10 1909 hardening guidance.
+Hypervisor-protected code integrity | Enabled | To align with the ACSC Windows 10 hardening guidance.
 Application Control method | A combination of publisher certificate and path rules and will be used. | Controlled via Intune for cloud managed devices and Group policy for hybrid devices.
-Microsoft Block Rules | Configured | To align with the ACSC Windows 10 1909 hardening guidance. The latest Microsoft recommended block rules for [Windows 10](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-block-rules) and [Drivers](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-driver-block-rules) are available online at Microsoft website.
+Microsoft Block Rules | Configured | To align with the ACSC Windows 10 hardening guidance. The latest Microsoft recommended block rules for [Windows 10](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-block-rules) and [Drivers](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-driver-block-rules) are available online at Microsoft.
 Intelligent Security Graph connection | Disabled | The Intelligent Security Graph connection allows applications to be run if they are deemed as good and there is no explicit block rule configured. 
 
 ### Identity providers
@@ -1328,9 +1347,9 @@ Identity Providers Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Guest Account (Local) | Disabled | In line with the ACSC Windows 10 1909 hardening guidelines. 
-Guest Account Name | Renamed | In line with the ACSC Windows 10 1909 hardening guidelines. 
-Microsoft Accounts | Disabled | In line with the ACSC Windows 10 1909 hardening guidelines. 
+Guest Account (Local) | Disabled | To align with the ACSC Windows 10 hardening guidance. 
+Guest Account Name | Renamed | To align with the ACSC Windows 10 hardening guidance.
+Microsoft Accounts | Disabled | To align with the ACSC Windows 10 hardening guidance.
 Windows Hello for Business | Disabled | Does not meet security requirements.
 Windows Hello for Business Configuration Method | Disabled | Does not meet security requirements.
 
@@ -1401,6 +1420,106 @@ Decision Point | Design Decision | Justification
 Allow Telemetry  | Enabled | In line with the ACSC hardening guideline policy recommendations and meets requirements for future Desktop Analytics use.
 Telemetry Level | 2 – Enhanced | Microsoft recommend Enhanced Limited for Desktop Analytics. 
 
+### Microsoft Office hardening
+
+The following design components apply to the hardening of Microsoft Office 365 ProPlus.
+
+The Microsoft Office security settings detailed in this section are based on Microsoft best practice and ACSC Hardening Guidance.
+
+Microsoft Office Hardening Design Decisions for all agencies and implementation types.
+
+* Attack Surface Reduction
+  * Justification: To align with the ACSC Microsoft Office hardening guidance.
+  * Attack Surface Reduction rules: Enabled
+  * Block executable content from email client and webmail
+```
+BE9BA2D9-53EA-4CDC-84E5-9B1EEEE46550
+```
+  * Block all Office applications from creating child processes
+```
+D4F940AB-401B-4EFC-AADC-AD5F3C50688A
+```
+  * Block Office applications from creating executable content
+```
+3B576869-A4EC-4529-8536-B80A7769E899
+```
+  * Block Office applications from injecting code into other processes
+```
+75668C1F-73B5-4CF0-BB93-3ECF5CB7CC84
+```
+  * Block Win32 API calls from Office macro
+```
+92E97FA1-2EDF-4476-BDD6-9DD0B4DDDC7B
+```
+  * Block Office communication application from creating child processes
+```
+26190899-1602-49E8-8B27-EB1D0A1CE869
+```
+* Flash content
+  * Justification: To align with the ACSC Microsoft Office hardening guidance.
+  * Block Flash activation in Office documents: Block all activation
+* Loading external content
+  * Justification: To align with the ACSC Microsoft Office hardening guidance.
+  * Always prevent untrusted Microsoft Query files from opening: Enabled
+  * Don't allow Dynamic Data Exchange (DDE) server lookup in Excel: Enabled
+  * Update automatic links at Open: Disabled
+* Macros
+  * Justification: To align with the ACSC Microsoft Office hardening guidance.
+  * See following section.
+* Object Linking and Embedding packages
+  * Justification: To align with the ACSC Microsoft Office hardening guidance.
+  * See following section.
+* ActiveX
+  * Justification: To align with the ACSC Microsoft Office hardening guidance.
+  * Disable All ActiveX: Enabled
+* Add-ins
+  * Justification: To align with the ACSC Microsoft Office hardening guidance.
+  * Disable Trust Bar Notification for unsigned application add-ins and block them: Enabled
+  * Require that application add-ins are signed by Trusted Publishers: Enabled
+* Extension Hardening
+  * Justification: To align with the ACSC Microsoft Office hardening guidance.
+  * Force file extension to match file type: Enabled - Always match file type
+* File Type Blocking
+  * Justification: To align with the ACSC Microsoft Office hardening guidance.
+  * Set default file block behavior: Enabled -  Blocked files are not opened
+  * Excel: File Block Settings
+  ```(dBase III / IV files, Dif and Sylk files, Excel 2 macrosheets and add-in files, Excel 2 worksheets, Excel 3 macrosheets and add-in files, Excel 3 worksheets, Excel 4 macrosheets and add-in files, Excel 4 workbooks, Excel 4 worksheets, Excel 95 workbooks, Excel 95-97 workbooks and templates, Excel 97-2003 workbooks and templates, Web pages and Excel 2003 XML spreadsheets)```
+  * PowerPoint: File Block Settings
+  ```(PowerPoint 97-2003 presentations, shows, templates and add-in files)```
+  * Visio: File Block Settings
+  ```(Visio 2000-2002 Binary Drawings, Templates and Stencils, Visio 2003-2010 Binary Drawings, Templates and Stencils, Visio 5.0 or earlier Binary Drawings, Templates and Stencils)```
+  * Word: File Block Settings
+  ```(Word 2 and earlier binary documents and templates, Word 2000 binary documents and templates, Word 2003 binary documents and templates, Word 2007 and later binary documents and templates, Word 6.0 binary documents and templates, Word 95 binary documents and templates, Word 97 binary documents and templates, Word XP binary documents and templates)```
+* Office File Validation
+  * Justification: To align with the ACSC Microsoft Office hardening guidance.
+  * Turn off file validation: Disabled (Excel, PowerPoint and Word)
+* Running external programs
+  * Justification: To align with the ACSC Microsoft Office hardening guidance.
+  * Run Programs: Disable (Don't run any programs)
+* Protected View
+  * Justification: To align with the ACSC Microsoft Office hardening guidance.
+  * Always open untrusted database files in Protected View: Enabled
+  * Do not open files from the Internet zone in Protected View: Disabled
+  * Do not open files in unsafe locations in Protected View: Disabled
+  * Set document behaviour if file validation fails: Enabled (Block files)
+  * Turn off Protected View for attachments opened from Outlook: Disabled
+* Trusted documents
+  * Justification: To align with the ACSC Microsoft Office hardening guidance.
+  * Turn off trusted documents: Enabled
+  * Turn off trusted documents on the network: Enabled
+* Hidden markup
+  * Justification: To align with the ACSC Microsoft Office hardening guidance.
+  * Make hidden markup visible: Enabled (PowerPoint and Word)
+* Reporting information
+  * Justification: To align with the ACSC Microsoft Office hardening guidance.
+  * Allow including screenshot with Office Feedback: Disabled
+  * Automatically receive small updates to improve reliability: Disabled
+  * Configure the type of diagnostic data sent by Office to Microsoft: Enabled (Basic)
+  * Disable Opt-in Wizard on first run: Enabled
+  * Enable Customer Experience Improvement Program: Disabled
+  * Send Office Feedback: Disabled
+  * Send personal information: Disabled
+
 ### Office macro hardening
 
 Microsoft Office files can include Visual Basic for Applications (VBA) programming code (macro) embedded into the document.
@@ -1411,9 +1530,7 @@ The ACSC provides guidelines in securing systems against malicious macros and re
 
 * All macros are disabled.
 * Only macros from trusted locations or sandboxed environment are enabled.
-* Only digitally signed macros are enabled.
-
-Email and web content filtering is recommended to be implemented by the ACSC to ensure that macros are not delivered to users via email by malicious actors.
+* Only macros digitally signed by trusted publishers are enabled.
 
 Where trusted locations are used, ACSC recommends that when using trusted locations, only privileged users that are responsible for validating that the macros are free from malicious code can write to and modify contents within the trusted location. 
 
@@ -1421,9 +1538,75 @@ Office Macro Hardening Design Decisions for all agencies and implementation type
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Implementation approach | Only digitally signed macros are enabled | In line with the ACSC Microsoft Office Macro security policy recommendation. 
-Email and Web Content Filtering | Enabled | In line with the ACSC Microsoft Office Macro security policy recommendation. 
-Configuration Method | Agency preference | Macro hardening can be configured via the Agencies existing Group Policies or Intune, as well as Attack Surface Reduction in Windows Defender Exploit Guard. 
+Implementation approach | Only macros digitally signed by a trusted publisher are enabled | To align with the ACSC Microsoft Office Macro Security guidance and enable Agencies to leverage macros securely with the least business impact. 
+Configuration method | Agency preference | Macro hardening can be configured via the Agencies existing Group Policies or Intune, as well as Attack Surface Reduction in Windows Defender Exploit Guard. 
+Specific configuration | See below | To align with the ACSC Microsoft Office Macro Security guidance.
+
+* Microsoft Office 2016 Security Settings
+  * Automation Security: Enabled (Use application macro security level)
+  * Disable all Trust Bar notifications for security issues: Enabled
+  * Disable VBA for Office applications: Disabled
+  * Macro Runtime Scan Scope: Enable for all documents
+  * Allow mix of policy and user locations: Disabled
+* Microsoft Access 2016
+  * Turn off trusted documents: Enabled
+  * Turn off Trusted Documents on the network: Enabled
+  * VBA Macro Notification Settings: Enabled (Disable all except digitally signed macros)
+  * Allow Trusted Locations on the network: Disabled
+  * Disable all trusted locations: Enabled
+  * Disable commands: Enabled (19092)
+* Microsoft Excel 2016
+  * Disable commands: Enabled (19092)
+  * Scan encrypted macros in Excel Open XML workbooks: Scan encrypted macros (default)
+  * Block macros from running in Office files from the Internet: Enabled
+  * Trust access to Visual Basic Project: Disabled
+  * Turn off trusted documents: Enabled
+  * Turn off Trusted Documents on the network: Enabled
+  * VBA Macro Notification Settings: Enabled (Disable all except digitally signed macros)
+  * Allow Trusted Locations on the network: Disabled
+  * Disable all trusted locations: Enabled
+* Microsoft Outlook 2016
+  * Disable commands: Enabled (19092)
+  * Apply macro security settings to macros, add-ins and additional actions: Enabled
+  * Security settings for macros: Enabled (Security Level: Warn for signed, disable unsigned)
+* Microsoft PowerPoint 2016
+  * Disable commands: Enabled (19092)
+  * Scan encrypted macros in PowerPoint Open XML presentations: Scan encrypted macros (default)
+  * Block macros from running in Office files from the Internet: Enabled
+  * Trust access to Visual Basic Project: Disabled
+  * Turn off trusted documents: Enabled
+  * Turn off Trusted Documents on the network: Enabled
+  * VBA Macro Notification Settings: Enabled (Disable all except digitally signed macros)
+  * Allow Trusted Locations on the network: Disabled
+  * Disable all trusted locations: Enabled
+* Microsoft Project 2016
+  * Allow Trusted Locations on the network: Disabled
+  * Disable all trusted locations: Enabled
+  * VBA Macro Notification Settings: Enabled (Disable all except digitally signed macros)
+* Microsoft Publisher 2016
+  * Disable commands: Enabled (19092)
+  * Publisher Automation Security Level: Enabled (By UI (prompted))
+  * VBA Macro Notification Settings: Enabled (Disable all except digitally signed macros)
+* Microsoft Visio 2016
+  * Disable commands: Enabled (19092)
+  * Enable Microsoft Visual Basic for Applications project creation: Disabled
+  * Load Microsoft Visual Basic for Applications projects from text: Disabled
+  * Allow Trusted Locations on the network: Disabled
+  * Block macros from running in Office files from the Internet: Enabled
+  * Disable all trusted locations: Enabled
+  * Turn off trusted documents: Enabled
+  * Turn off Trusted Documents on the network: Enabled
+  * VBA Macro Notification Settings: Enabled (Disable all except digitally signed macros)
+* Microsoft Word 2016
+  * Disable commands: Enabled (19092)
+  * Scan encrypted macros in Word Open XML documents: Scan encrypted macros (default)
+  * Block macros from running in Office files from the Internet: Enabled
+  * Trust access to Visual Basic Project: Disabled
+  * Turn off trusted documents: Enabled
+  * Turn off Trusted Documents on the network: Enabled
+  * VBA Macro Notification Settings: Enabled (Disable all except digitally signed macros)
+  * Allow Trusted Locations on the network: Disabled
+  * Disable all trusted locations: Enabled
 
 ### OLE hardening
 
@@ -1437,7 +1620,7 @@ Office OLE Hardening Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-OLE configuration | Block all | To meet the essential 8 requirements and to align to ACSC guidance
+OLE configuration | Block all | To align with the ACSC Microsoft Office hardening guidance.
 
 ### Local administrator
 
@@ -1455,9 +1638,9 @@ Local Administrator Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Local Administrator Account | Disabled | The local administrator account will be disabled in line with the ACSC Windows 10 1909 hardening guideline policy recommendations. 
+Local Administrator Account | Disabled | The local administrator account will be disabled to align with the ACSC Windows 10 hardening guidance.
 Local Administrator Account Name | Renamed | The local administrator account will be renamed during the image deployment<br>In line with [Microsoft recommendations for securing the local administrator account](https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/accounts-rename-administrator-account). 
-Local Administrator Account Password | Randomised | In line with the ACSC Windows 10 1909 hardening guideline policy recommendations. 
+Local Administrator Account Password | Randomised | To align with the ACSC Windows 10 hardening guidance.
 Additional Local Administrator Accounts | Not Configured | Additional administrator accounts will not be created during the image deployment. 
 LAPS | Not Configured | Not required for the solution. The local Administrator account will be disabled and renamed. 
 
@@ -1498,7 +1681,7 @@ Enrolling iOS Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Enrolment method | Automated device enrollment | Devices will be pre-configured before the device is handed over to the end user. This in line with the ACSC iOS Secure Configuration Hardening guide for PROTECTED devices.
+Enrolment method | Automated device enrollment through Apple Business Manager | Devices will be pre-configured before the device is handed over to the end user. This in line with the ACSC iOS Secure Configuration Hardening guide for PROTECTED devices.
 
 ### Securing iOS devices
 
@@ -1510,13 +1693,17 @@ MDM provides the capability to configure iOS devices. These devices must be conf
 * Branding – The Agencies branding for lock screen, wallpapers, and reporting if the device is lost can be configured.
 * Device features – Configures device features, for example, AirDrop and Bluetooth pairing, within iOS devices.
 
+Using Intune together with Apple Business Manager provides the ability to restrict applications deployed to iOS devices. They improve the user experience during the onboarding process and remove the requirement for an Apple ID and the public Apple App Store. When restricting application deployments, the App Store is blocked and all application management is completed through the Intune Company Portal. All applications must be licensed within Apple Business Manager and use device based licensing. 
+
 Securing iOS devices Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Mobile Device Management | Mobile devices will be managed using Intune | Leveraging the capabilities already available in the licensing agreement. Intune and Apple Business Manager will be adopted to manage mobile devices.
 Security policies and hardening requirements | Security policies will be enforced on all mobile devices managed by the Agency | Security policies will be configured in line with the ACSC Security Configuration Guide – Apple iOS 14 Devices.
-Device Features | Configured | Device features configured in line with ACSC guidance. 
+Apple Business Manager Enrollment Token App Delivery | Agency licensed apps purchased under the Volume Purchase Program (VPP) are installed directly to devices, without needing an Apple ID on the device | Configured inline with ACSC iOS hardening guidance, simplifies management and improves user experience with device onboarding. 
+Public App Store access | Disabled | Configured inline with ACSC iOS hardening guidance. Applications are installed under the VPP.
+Device Features | Configured | Device features configured in line with ACSC hardening guidance. 
 
 Mobile Device Management Configuration applicable to all agencies and implementation types.
 
@@ -1537,7 +1724,7 @@ Allow iCloud backup, document data and Keychain | Disable | The Agencies data on
 Managed Open-In | Enable  | Managed Open-In is enable segregates between corporate managed and personal application in an iOS device. This in line with the ACSC iOS Secure Configuration Hardening guide for PROTECTED devices.
 Allow documents from managed sources in unmanaged destination | Disable | The Agencies data cannot be moved between managed and unmanaged application destination. This is to prevent PROTECTED from being transferred to an unmanaged application or location. 
 Treat AirDrop as unmanaged destination | Disable | AirDrop provides the ability to wirelessly transfer documents between Apple devices. Setting AirDrop as an unmanaged destination prevents users from accidentally transferring Agency data to unsecure applications or locations. 
-Restricted Application List | Configured | Unapproved application installs will be alerted upon. 
+Restricted Application List | Configured | Unapproved application installs will be alerted upon. App Store is also disabled as applications will be delivered through the VPP. 
 
 ### Securing iOS applications
 

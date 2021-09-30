@@ -5,8 +5,8 @@
     - title: User personas
       url: /program/personas.html
     
-    - title: Engagement model
-      url: /program/engagement-model.html
+    - title: Engagement framework
+      url: /program/engagement-framework.html
 
 - title: Blueprint
   url: /blueprint/index.html
@@ -14,6 +14,9 @@
   subitems:
     - title: Solution overview
       url: /blueprint/overview.html
+    
+    - title: Essential eight maturity
+      url: /blueprint/essential-eight-maturity.html
 
     - title: Platform
       url: /blueprint/platform.html
@@ -35,6 +38,9 @@
 
     - title: Abbreviations and Acronyms
       url: /blueprint/abbr-acronyms.html 
+
+- title: Patterns
+  url: /patterns/index.html
 
 - title: Community
   url: https://community.desktop.gov.au/

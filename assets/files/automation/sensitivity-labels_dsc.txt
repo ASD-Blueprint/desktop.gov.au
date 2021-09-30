@@ -1,0 +1,868 @@
+param (
+    [parameter()]
+    [System.Management.Automation.PSCredential]
+    $GlobalAdminAccount
+)
+
+Configuration M365TenantConfig
+{
+    param (
+        [parameter()]
+        [System.Management.Automation.PSCredential]
+        $GlobalAdminAccount
+    )
+
+    if ($null -eq $GlobalAdminAccount)
+    {
+        <# Credentials #>
+        $Credsglobaladmin = Get-Credential -Message "Global Admin credentials"
+
+    }
+    else
+    {
+        $Credsglobaladmin = $GlobalAdminAccount
+    }
+
+    $OrganizationName = $Credsglobaladmin.UserName.Split('@')[1]
+    Import-DscResource -ModuleName 'Microsoft365DSC' -ModuleVersion '1.21.922.1'
+
+    Node localhost
+    {
+        SCSensitivityLabel a607004b-418e-475d-808f-3bd72aa4be56
+        {
+            AdvancedSettings                   = @(
+                MSFT_SCLabelSetting
+                {
+                    Key   = 'contenttype'
+                    Value = 'File  Email'
+                }
+                MSFT_SCLabelSetting
+                {
+                    Key   = 'tooltip'
+                    Value = 'No damage. This information does not form part of official duty.'
+                }
+            );
+            ApplyContentMarkingFooterAlignment = "Center";
+            ApplyContentMarkingFooterEnabled   = $False;
+            ApplyContentMarkingFooterFontColor = "#FF0000";
+            ApplyContentMarkingFooterFontSize  = 10;
+            ApplyContentMarkingFooterMargin    = 5;
+            ApplyContentMarkingFooterText      = "UNOFFICIAL";
+            ApplyContentMarkingHeaderAlignment = "Center";
+            ApplyContentMarkingHeaderEnabled   = $True;
+            ApplyContentMarkingHeaderFontColor = "#FF0000";
+            ApplyContentMarkingHeaderFontSize  = 10;
+            ApplyContentMarkingHeaderMargin    = 5;
+            ApplyContentMarkingHeaderText      = "UNOFFICIAL";
+            Comment                            = "";
+            Disabled                           = $False;
+            DisplayName                        = "UNOFFICIAL";
+            Ensure                             = "Present";
+            GlobalAdminAccount                 = $Credsglobaladmin;
+            LocaleSettings                     = @(
+                MSFT_SCLabelLocaleSettings
+                {
+                    LocaleKey = 'displayName'
+                    Settings  = @(
+                        MSFT_SCLabelSetting
+                        {
+                            Key   = 'default'
+                            Value = 'UNOFFICIAL'
+                        }
+                    )
+                }
+                MSFT_SCLabelLocaleSettings
+                {
+                    LocaleKey = 'tooltip'
+                    Settings  = @(
+                        MSFT_SCLabelSetting
+                        {
+                            Key   = 'default'
+                            Value = 'No damage. This information does not form part of official duty.'
+                        }
+                    )
+                }
+            );
+            Name                               = "UNOFFICIAL";
+            Priority                           = 0;
+            Tooltip                            = "No damage. This information does not form part of official duty.";
+        }
+        SCSensitivityLabel 9ea6d7c3-7dc6-4538-bd1f-811c185be475
+        {
+            AdvancedSettings                   = @(
+                MSFT_SCLabelSetting
+                {
+                    Key   = 'contenttype'
+                    Value = 'File  Email'
+                }
+                MSFT_SCLabelSetting
+                {
+                    Key   = 'tooltip'
+                    Value = 'No or insignificant damage. This is the majority of routine information.'
+                }
+            );
+            ApplyContentMarkingFooterAlignment = "Center";
+            ApplyContentMarkingFooterEnabled   = $False;
+            ApplyContentMarkingFooterFontColor = "#FF0000";
+            ApplyContentMarkingFooterFontSize  = 10;
+            ApplyContentMarkingFooterMargin    = 5;
+            ApplyContentMarkingFooterText      = "OFFICIAL";
+            ApplyContentMarkingHeaderAlignment = "Center";
+            ApplyContentMarkingHeaderEnabled   = $True;
+            ApplyContentMarkingHeaderFontColor = "#FF0000";
+            ApplyContentMarkingHeaderFontSize  = 10;
+            ApplyContentMarkingHeaderMargin    = 5;
+            ApplyContentMarkingHeaderText      = "OFFICIAL";
+            Comment                            = "";
+            Disabled                           = $False;
+            DisplayName                        = "OFFICIAL";
+            Ensure                             = "Present";
+            GlobalAdminAccount                 = $Credsglobaladmin;
+            LocaleSettings                     = @(
+                MSFT_SCLabelLocaleSettings
+                {
+                    LocaleKey = 'displayName'
+                    Settings  = @(
+                        MSFT_SCLabelSetting
+                        {
+                            Key   = 'default'
+                            Value = 'OFFICIAL'
+                        }
+                    )
+                }
+                MSFT_SCLabelLocaleSettings
+                {
+                    LocaleKey = 'tooltip'
+                    Settings  = @(
+                        MSFT_SCLabelSetting
+                        {
+                            Key   = 'default'
+                            Value = 'No or insignificant damage. This is the majority of routine information.'
+                        }
+                    )
+                }
+            );
+            Name                               = "OFFICIAL";
+            Priority                           = 1;
+            Tooltip                            = "No or insignificant damage. This is the majority of routine information.";
+        }
+        SCSensitivityLabel 21dbbe61-0c61-47e4-b2f1-c1bdfbebf1ab
+        {
+            AdvancedSettings                   = @(
+                MSFT_SCLabelSetting
+                {
+                    Key   = 'contenttype'
+                    Value = 'File  Email'
+                }
+                MSFT_SCLabelSetting
+                {
+                    Key   = 'tooltip'
+                    Value = 'Low to medium business impact. Limited damage to an individual  organisation or government generally if compromised'
+                }
+            );
+            ApplyContentMarkingFooterAlignment = "Center";
+            ApplyContentMarkingFooterEnabled   = $False;
+            ApplyContentMarkingFooterFontColor = "#FF0000";
+            ApplyContentMarkingFooterFontSize  = 10;
+            ApplyContentMarkingFooterMargin    = 5;
+            ApplyContentMarkingFooterText      = "OFFICIAL: Sensitive";
+            ApplyContentMarkingHeaderAlignment = "Center";
+            ApplyContentMarkingHeaderEnabled   = $True;
+            ApplyContentMarkingHeaderFontColor = "#FF0000";
+            ApplyContentMarkingHeaderFontSize  = 10;
+            ApplyContentMarkingHeaderMargin    = 5;
+            ApplyContentMarkingHeaderText      = "OFFICIAL: Sensitive";
+            Comment                            = "";
+            Disabled                           = $False;
+            DisplayName                        = "OFFICIAL Sensitive";
+            Ensure                             = "Present";
+            GlobalAdminAccount                 = $Credsglobaladmin;
+            LocaleSettings                     = @(
+                MSFT_SCLabelLocaleSettings
+                {
+                    LocaleKey = 'displayName'
+                    Settings  = @(
+                        MSFT_SCLabelSetting
+                        {
+                            Key   = 'default'
+                            Value = 'OFFICIAL Sensitive'
+                        }
+                    )
+                }
+                MSFT_SCLabelLocaleSettings
+                {
+                    LocaleKey = 'tooltip'
+                    Settings  = @(
+                        MSFT_SCLabelSetting
+                        {
+                            Key   = 'default'
+                            Value = 'Low to medium business impact. Limited damage to an individual, organisation or government generally if compromised'
+                        }
+                    )
+                }
+            );
+            Name                               = "OFFICIAL Sensitive";
+            Priority                           = 2;
+            Tooltip                            = "Low to medium business impact. Limited damage to an individual, organisation or government generally if compromised";
+        }
+        SCSensitivityLabel ca0123f1-87f8-4520-a273-ea9daae522e4
+        {
+            AdvancedSettings                   = @(
+                MSFT_SCLabelSetting
+                {
+                    Key   = 'parentid'
+                    Value = 'd478e0b4-373f-4566-8549-3f17426af78a'
+                }
+                MSFT_SCLabelSetting
+                {
+                    Key   = 'contenttype'
+                    Value = 'File  Email'
+                }
+                MSFT_SCLabelSetting
+                {
+                    Key   = 'tooltip'
+                    Value = 'Low to medium business impact. Limited damage to an individual  organisation or government generally if compromised'
+                }
+            );
+            ApplyContentMarkingFooterAlignment = "Center";
+            ApplyContentMarkingFooterEnabled   = $False;
+            ApplyContentMarkingFooterFontColor = "#FF0000";
+            ApplyContentMarkingFooterFontSize  = 10;
+            ApplyContentMarkingFooterMargin    = 5;
+            ApplyContentMarkingFooterText      = "OFFICIAL: Sensitive ACCESS=Legal-Privilege";
+            ApplyContentMarkingHeaderAlignment = "Center";
+            ApplyContentMarkingHeaderEnabled   = $True;
+            ApplyContentMarkingHeaderFontColor = "#FF0000";
+            ApplyContentMarkingHeaderFontSize  = 10;
+            ApplyContentMarkingHeaderMargin    = 5;
+            ApplyContentMarkingHeaderText      = "OFFICIAL: Sensitive ACCESS=Legal-Privilege";
+            Comment                            = "";
+            Disabled                           = $False;
+            DisplayName                        = "OFFICIAL Sensitive ACCESS=Legal-Privilege";
+            Ensure                             = "Present";
+            GlobalAdminAccount                 = $Credsglobaladmin;
+            LocaleSettings                     = @(
+                MSFT_SCLabelLocaleSettings
+                {
+                    LocaleKey = 'displayName'
+                    Settings  = @(
+                        MSFT_SCLabelSetting
+                        {
+                            Key   = 'default'
+                            Value = 'OFFICIAL Sensitive ACCESS=Legal-Privilege'
+                        }
+                    )
+                }
+                MSFT_SCLabelLocaleSettings
+                {
+                    LocaleKey = 'tooltip'
+                    Settings  = @(
+                        MSFT_SCLabelSetting
+                        {
+                            Key   = 'default'
+                            Value = 'Low to medium business impact. Limited damage to an individual, organisation or government generally if compromised'
+                        }
+                    )
+                }
+            );
+            Name                               = "OFFICIAL Sensitive ACCESS=Legal-Privilege";
+            ParentId                           = "OFFICIAL Sensitive";
+            Priority                           = 3;
+            Tooltip                            = "Low to medium business impact. Limited damage to an individual, organisation or government generally if compromised";
+        }
+        SCSensitivityLabel 5b6c00dd-001b-46a9-8825-dc457c9333e8
+        {
+            AdvancedSettings                   = @(
+                MSFT_SCLabelSetting
+                {
+                    Key   = 'parentid'
+                    Value = 'd478e0b4-373f-4566-8549-3f17426af78a'
+                }
+                MSFT_SCLabelSetting
+                {
+                    Key   = 'contenttype'
+                    Value = 'File  Email'
+                }
+                MSFT_SCLabelSetting
+                {
+                    Key   = 'tooltip'
+                    Value = 'Low to medium business impact. Limited damage to an individual  organisation or government generally if compromised'
+                }
+            );
+            ApplyContentMarkingFooterAlignment = "Center";
+            ApplyContentMarkingFooterEnabled   = $False;
+            ApplyContentMarkingFooterFontColor = "#FF0000";
+            ApplyContentMarkingFooterFontSize  = 10;
+            ApplyContentMarkingFooterMargin    = 5;
+            ApplyContentMarkingFooterText      = "OFFICIAL: Sensitive ACCESS=Legislative-Secrecy";
+            ApplyContentMarkingHeaderAlignment = "Center";
+            ApplyContentMarkingHeaderEnabled   = $True;
+            ApplyContentMarkingHeaderFontColor = "#FF0000";
+            ApplyContentMarkingHeaderFontSize  = 10;
+            ApplyContentMarkingHeaderMargin    = 5;
+            ApplyContentMarkingHeaderText      = "OFFICIAL: Sensitive ACCESS=Legislative-Secrecy";
+            Comment                            = "";
+            Disabled                           = $False;
+            DisplayName                        = "OFFICIAL Sensitive ACCESS=Legislative-Secrecy";
+            Ensure                             = "Present";
+            GlobalAdminAccount                 = $Credsglobaladmin;
+            LocaleSettings                     = @(
+                MSFT_SCLabelLocaleSettings
+                {
+                    LocaleKey = 'displayName'
+                    Settings  = @(
+                        MSFT_SCLabelSetting
+                        {
+                            Key   = 'default'
+                            Value = 'OFFICIAL Sensitive ACCESS=Legislative-Secrecy'
+                        }
+                    )
+                }
+                MSFT_SCLabelLocaleSettings
+                {
+                    LocaleKey = 'tooltip'
+                    Settings  = @(
+                        MSFT_SCLabelSetting
+                        {
+                            Key   = 'default'
+                            Value = 'Low to medium business impact. Limited damage to an individual, organisation or government generally if compromised'
+                        }
+                    )
+                }
+            );
+            Name                               = "OFFICIAL Sensitive ACCESS=Legislative-Secrecy";
+            ParentId                           = "OFFICIAL Sensitive";
+            Priority                           = 4;
+            Tooltip                            = "Low to medium business impact. Limited damage to an individual, organisation or government generally if compromised";
+        }
+        SCSensitivityLabel 0b8c0035-3a8b-4a65-8d1f-a9214770a9f2
+        {
+            AdvancedSettings                   = @(
+                MSFT_SCLabelSetting
+                {
+                    Key   = 'parentid'
+                    Value = 'd478e0b4-373f-4566-8549-3f17426af78a'
+                }
+                MSFT_SCLabelSetting
+                {
+                    Key   = 'contenttype'
+                    Value = 'File  Email'
+                }
+                MSFT_SCLabelSetting
+                {
+                    Key   = 'tooltip'
+                    Value = 'Low to medium business impact. Limited damage to an individual  organisation or government generally if compromised'
+                }
+            );
+            ApplyContentMarkingFooterAlignment = "Center";
+            ApplyContentMarkingFooterEnabled   = $False;
+            ApplyContentMarkingFooterFontColor = "#FF0000";
+            ApplyContentMarkingFooterFontSize  = 10;
+            ApplyContentMarkingFooterMargin    = 5;
+            ApplyContentMarkingFooterText      = "OFFICIAL: Sensitive ACCESS=Personal-Privacy";
+            ApplyContentMarkingHeaderAlignment = "Center";
+            ApplyContentMarkingHeaderEnabled   = $True;
+            ApplyContentMarkingHeaderFontColor = "#FF0000";
+            ApplyContentMarkingHeaderFontSize  = 10;
+            ApplyContentMarkingHeaderMargin    = 5;
+            ApplyContentMarkingHeaderText      = "OFFICIAL: Sensitive ACCESS=Personal-Privacy";
+            Comment                            = "";
+            Disabled                           = $False;
+            DisplayName                        = "OFFICIAL Sensitive ACCESS=Personal-Privacy";
+            Ensure                             = "Present";
+            GlobalAdminAccount                 = $Credsglobaladmin;
+            LocaleSettings                     = @(
+                MSFT_SCLabelLocaleSettings
+                {
+                    LocaleKey = 'displayName'
+                    Settings  = @(
+                        MSFT_SCLabelSetting
+                        {
+                            Key   = 'default'
+                            Value = 'OFFICIAL Sensitive ACCESS=Personal-Privacy'
+                        }
+                    )
+                }
+                MSFT_SCLabelLocaleSettings
+                {
+                    LocaleKey = 'tooltip'
+                    Settings  = @(
+                        MSFT_SCLabelSetting
+                        {
+                            Key   = 'default'
+                            Value = 'Low to medium business impact. Limited damage to an individual, organisation or government generally if compromised'
+                        }
+                    )
+                }
+            );
+            Name                               = "OFFICIAL Sensitive ACCESS=Personal-Privacy";
+            ParentId                           = "OFFICIAL Sensitive";
+            Priority                           = 5;
+            Tooltip                            = "Low to medium business impact. Limited damage to an individual, organisation or government generally if compromised";
+        }
+        SCSensitivityLabel 9f8a3c5b-5526-451e-8293-3c013e7953b4
+        {
+            AdvancedSettings                   = @(
+                MSFT_SCLabelSetting
+                {
+                    Key   = 'contenttype'
+                    Value = 'File  Email'
+                }
+                MSFT_SCLabelSetting
+                {
+                    Key   = 'tooltip'
+                    Value = 'High business impact. Damage to the national interest  organisations or individuals'
+                }
+            );
+            ApplyContentMarkingFooterAlignment = "Center";
+            ApplyContentMarkingFooterFontColor = "#FF0000";
+            ApplyContentMarkingFooterFontSize  = 10;
+            ApplyContentMarkingFooterMargin    = 5;
+            ApplyContentMarkingFooterText      = "PROTECTED";
+            ApplyContentMarkingHeaderAlignment = "Center";
+            ApplyContentMarkingHeaderFontColor = "#FF0000";
+            ApplyContentMarkingHeaderFontSize  = 10;
+            ApplyContentMarkingHeaderMargin    = 5;
+            ApplyContentMarkingHeaderText      = "PROTECTED";
+            Comment                            = "";
+            Disabled                           = $False;
+            DisplayName                        = "PROTECTED";
+            Ensure                             = "Present";
+            GlobalAdminAccount                 = $Credsglobaladmin;
+            LocaleSettings                     = @(
+                MSFT_SCLabelLocaleSettings
+                {
+                    LocaleKey = 'displayName'
+                    Settings  = @(
+                        MSFT_SCLabelSetting
+                        {
+                            Key   = 'default'
+                            Value = 'PROTECTED'
+                        }
+                    )
+                }
+                MSFT_SCLabelLocaleSettings
+                {
+                    LocaleKey = 'tooltip'
+                    Settings  = @(
+                        MSFT_SCLabelSetting
+                        {
+                            Key   = 'default'
+                            Value = 'High business impact. Damage to the national interest, organisations or individuals'
+                        }
+                    )
+                }
+            );
+            Name                               = "PROTECTED";
+            Priority                           = 6;
+            Tooltip                            = "High business impact. Damage to the national interest, organisations or individuals";
+        }
+        SCSensitivityLabel b198c2d7-28ad-45be-bf4f-6db0dd6a6c66
+        {
+            AdvancedSettings                   = @(
+                MSFT_SCLabelSetting
+                {
+                    Key   = 'parentid'
+                    Value = 'e462c225-d8f0-4d1c-b6e6-9c7e249b0b11'
+                }
+                MSFT_SCLabelSetting
+                {
+                    Key   = 'contenttype'
+                    Value = 'File  Email'
+                }
+                MSFT_SCLabelSetting
+                {
+                    Key   = 'tooltip'
+                    Value = 'High business impact. Damage to the national interest  organisations or individuals'
+                }
+            );
+            ApplyContentMarkingHeaderAlignment = "Center";
+            ApplyContentMarkingHeaderFontColor = "#FF0000";
+            ApplyContentMarkingHeaderFontSize  = 10;
+            ApplyContentMarkingHeaderMargin    = 5;
+            ApplyContentMarkingHeaderText      = "PROTECTED ACCESS=Legal-Privilege";
+            Comment                            = "";
+            Disabled                           = $False;
+            DisplayName                        = "PROTECTED ACCESS=Legal-Privilege";
+            Ensure                             = "Present";
+            GlobalAdminAccount                 = $Credsglobaladmin;
+            LocaleSettings                     = @(
+                MSFT_SCLabelLocaleSettings
+                {
+                    LocaleKey = 'displayName'
+                    Settings  = @(
+                        MSFT_SCLabelSetting
+                        {
+                            Key   = 'default'
+                            Value = 'PROTECTED ACCESS=Legal-Privilege'
+                        }
+                    )
+                }
+                MSFT_SCLabelLocaleSettings
+                {
+                    LocaleKey = 'tooltip'
+                    Settings  = @(
+                        MSFT_SCLabelSetting
+                        {
+                            Key   = 'default'
+                            Value = 'High business impact. Damage to the national interest, organisations or individuals'
+                        }
+                    )
+                }
+            );
+            Name                               = "PROTECTED ACCESS=Legal-Privilege";
+            ParentId                           = "PROTECTED";
+            Priority                           = 7;
+            Tooltip                            = "High business impact. Damage to the national interest, organisations or individuals";
+        }
+        SCSensitivityLabel 5c3861a6-9f44-491c-b343-1bf5353a25a1
+        {
+            AdvancedSettings                   = @(
+                MSFT_SCLabelSetting
+                {
+                    Key   = 'parentid'
+                    Value = 'e462c225-d8f0-4d1c-b6e6-9c7e249b0b11'
+                }
+                MSFT_SCLabelSetting
+                {
+                    Key   = 'contenttype'
+                    Value = 'File  Email'
+                }
+                MSFT_SCLabelSetting
+                {
+                    Key   = 'tooltip'
+                    Value = 'High business impact. Damage to the national interest  organisations or individuals'
+                }
+            );
+            ApplyContentMarkingHeaderAlignment = "Center";
+            ApplyContentMarkingHeaderFontColor = "#FF0000";
+            ApplyContentMarkingHeaderFontSize  = 10;
+            ApplyContentMarkingHeaderMargin    = 5;
+            ApplyContentMarkingHeaderText      = "PROTECTED ACCESS=Legislative-Secrecy";
+            Comment                            = "";
+            Disabled                           = $False;
+            DisplayName                        = "PROTECTED ACCESS=Legislative-Secrecy";
+            Ensure                             = "Present";
+            GlobalAdminAccount                 = $Credsglobaladmin;
+            LocaleSettings                     = @(
+                MSFT_SCLabelLocaleSettings
+                {
+                    LocaleKey = 'displayName'
+                    Settings  = @(
+                        MSFT_SCLabelSetting
+                        {
+                            Key   = 'default'
+                            Value = 'PROTECTED ACCESS=Legislative-Secrecy'
+                        }
+                    )
+                }
+                MSFT_SCLabelLocaleSettings
+                {
+                    LocaleKey = 'tooltip'
+                    Settings  = @(
+                        MSFT_SCLabelSetting
+                        {
+                            Key   = 'default'
+                            Value = 'High business impact. Damage to the national interest, organisations or individuals'
+                        }
+                    )
+                }
+            );
+            Name                               = "PROTECTED ACCESS=Legislative-Secrecy";
+            ParentId                           = "PROTECTED";
+            Priority                           = 8;
+            Tooltip                            = "High business impact. Damage to the national interest, organisations or individuals";
+        }
+        SCSensitivityLabel a863e7c5-eee6-451f-b781-39a07d057815
+        {
+            AdvancedSettings                   = @(
+                MSFT_SCLabelSetting
+                {
+                    Key   = 'parentid'
+                    Value = 'e462c225-d8f0-4d1c-b6e6-9c7e249b0b11'
+                }
+                MSFT_SCLabelSetting
+                {
+                    Key   = 'contenttype'
+                    Value = 'File  Email'
+                }
+                MSFT_SCLabelSetting
+                {
+                    Key   = 'tooltip'
+                    Value = 'High business impact. Damage to the national interest  organisations or individuals'
+                }
+            );
+            ApplyContentMarkingHeaderAlignment = "Center";
+            ApplyContentMarkingHeaderFontColor = "#FF0000";
+            ApplyContentMarkingHeaderFontSize  = 10;
+            ApplyContentMarkingHeaderMargin    = 5;
+            ApplyContentMarkingHeaderText      = "PROTECTED ACCESS=Personal-Privacy";
+            Comment                            = "";
+            Disabled                           = $False;
+            DisplayName                        = "PROTECTED ACCESS=Personal-Privacy";
+            Ensure                             = "Present";
+            GlobalAdminAccount                 = $Credsglobaladmin;
+            LocaleSettings                     = @(
+                MSFT_SCLabelLocaleSettings
+                {
+                    LocaleKey = 'displayName'
+                    Settings  = @(
+                        MSFT_SCLabelSetting
+                        {
+                            Key   = 'default'
+                            Value = 'PROTECTED ACCESS=Personal-Privacy'
+                        }
+                    )
+                }
+                MSFT_SCLabelLocaleSettings
+                {
+                    LocaleKey = 'tooltip'
+                    Settings  = @(
+                        MSFT_SCLabelSetting
+                        {
+                            Key   = 'default'
+                            Value = 'High business impact. Damage to the national interest, organisations or individuals'
+                        }
+                    )
+                }
+            );
+            Name                               = "PROTECTED ACCESS=Personal-Privacy";
+            ParentId                           = "PROTECTED";
+            Priority                           = 9;
+            Tooltip                            = "High business impact. Damage to the national interest, organisations or individuals";
+        }
+        SCSensitivityLabel d00a7d7e-4ebf-44b9-af33-95749987a790
+        {
+            AdvancedSettings                   = @(
+                MSFT_SCLabelSetting
+                {
+                    Key   = 'parentid'
+                    Value = 'e462c225-d8f0-4d1c-b6e6-9c7e249b0b11'
+                }
+                MSFT_SCLabelSetting
+                {
+                    Key   = 'contenttype'
+                    Value = 'File  Email'
+                }
+                MSFT_SCLabelSetting
+                {
+                    Key   = 'tooltip'
+                    Value = 'High business impact. Damage to the national interest  organisations or individuals'
+                }
+            );
+            ApplyContentMarkingHeaderAlignment = "Center";
+            ApplyContentMarkingHeaderFontColor = "#FF0000";
+            ApplyContentMarkingHeaderFontSize  = 10;
+            ApplyContentMarkingHeaderMargin    = 5;
+            ApplyContentMarkingHeaderText      = "PROTECTED CAVEAT=SH CABINET";
+            Comment                            = "";
+            Disabled                           = $False;
+            DisplayName                        = "PROTECTED CAVEAT=SH CABINET";
+            Ensure                             = "Present";
+            GlobalAdminAccount                 = $Credsglobaladmin;
+            LocaleSettings                     = @(
+                MSFT_SCLabelLocaleSettings
+                {
+                    LocaleKey = 'displayName'
+                    Settings  = @(
+                        MSFT_SCLabelSetting
+                        {
+                            Key   = 'default'
+                            Value = 'PROTECTED CAVEAT=SH CABINET'
+                        }
+                    )
+                }
+                MSFT_SCLabelLocaleSettings
+                {
+                    LocaleKey = 'tooltip'
+                    Settings  = @(
+                        MSFT_SCLabelSetting
+                        {
+                            Key   = 'default'
+                            Value = 'High business impact. Damage to the national interest, organisations or individuals'
+                        }
+                    )
+                }
+            );
+            Name                               = "PROTECTED CAVEAT=SH CABINET";
+            ParentId                           = "PROTECTED";
+            Priority                           = 10;
+            Tooltip                            = "High business impact. Damage to the national interest, organisations or individuals";
+        }
+        SCSensitivityLabel ce64a7cf-622c-47f5-bee3-df11b53c208b
+        {
+            AdvancedSettings                   = @(
+                MSFT_SCLabelSetting
+                {
+                    Key   = 'parentid'
+                    Value = 'e462c225-d8f0-4d1c-b6e6-9c7e249b0b11'
+                }
+                MSFT_SCLabelSetting
+                {
+                    Key   = 'contenttype'
+                    Value = 'File  Email'
+                }
+                MSFT_SCLabelSetting
+                {
+                    Key   = 'tooltip'
+                    Value = 'High business impact. Damage to the national interest  organisations or individuals.'
+                }
+            );
+            ApplyContentMarkingHeaderAlignment = "Center";
+            ApplyContentMarkingHeaderFontColor = "#FF0000";
+            ApplyContentMarkingHeaderFontSize  = 10;
+            ApplyContentMarkingHeaderMargin    = 5;
+            ApplyContentMarkingHeaderText      = "PROTECTED ACCESS=Legal-Privilege CAVEAT=SH CABINET";
+            Comment                            = "";
+            Disabled                           = $False;
+            DisplayName                        = "PROTECTED ACCESS=Legal-Privilege CAVEAT=SH CABINET";
+            Ensure                             = "Present";
+            GlobalAdminAccount                 = $Credsglobaladmin;
+            LocaleSettings                     = @(
+                MSFT_SCLabelLocaleSettings
+                {
+                    LocaleKey = 'displayName'
+                    Settings  = @(
+                        MSFT_SCLabelSetting
+                        {
+                            Key   = 'default'
+                            Value = 'PROTECTED ACCESS=Legal-Privilege CAVEAT=SH CABINET'
+                        }
+                    )
+                }
+                MSFT_SCLabelLocaleSettings
+                {
+                    LocaleKey = 'tooltip'
+                    Settings  = @(
+                        MSFT_SCLabelSetting
+                        {
+                            Key   = 'default'
+                            Value = 'High business impact. Damage to the national interest, organisations or individuals.'
+                        }
+                    )
+                }
+            );
+            Name                               = "PROTECTED ACCESS=Legal-Privilege CAVEAT=SH CABINET";
+            ParentId                           = "PROTECTED";
+            Priority                           = 11;
+            Tooltip                            = "High business impact. Damage to the national interest, organisations or individuals.";
+        }
+        SCSensitivityLabel b09a841b-e609-4969-afef-c3fbe11d67b5
+        {
+            AdvancedSettings                   = @(
+                MSFT_SCLabelSetting
+                {
+                    Key   = 'parentid'
+                    Value = 'e462c225-d8f0-4d1c-b6e6-9c7e249b0b11'
+                }
+                MSFT_SCLabelSetting
+                {
+                    Key   = 'contenttype'
+                    Value = 'File  Email'
+                }
+                MSFT_SCLabelSetting
+                {
+                    Key   = 'tooltip'
+                    Value = 'High business impact. Damage to the national interest  organisations or individuals.'
+                }
+            );
+            ApplyContentMarkingHeaderAlignment = "Center";
+            ApplyContentMarkingHeaderFontColor = "#FF0000";
+            ApplyContentMarkingHeaderFontSize  = 10;
+            ApplyContentMarkingHeaderMargin    = 5;
+            ApplyContentMarkingHeaderText      = "PROTECTED ACCESS=Legislative-Secrecy CAVEAT=SH CABINET";
+            Comment                            = "";
+            Disabled                           = $False;
+            DisplayName                        = "PROTECTED ACCESS=Legislative-Secrecy CAVEAT=SH CABINET";
+            Ensure                             = "Present";
+            GlobalAdminAccount                 = $Credsglobaladmin;
+            LocaleSettings                     = @(
+                MSFT_SCLabelLocaleSettings
+                {
+                    LocaleKey = 'displayName'
+                    Settings  = @(
+                        MSFT_SCLabelSetting
+                        {
+                            Key   = 'default'
+                            Value = 'PROTECTED ACCESS=Legislative-Secrecy CAVEAT=SH CABINET'
+                        }
+                    )
+                }
+                MSFT_SCLabelLocaleSettings
+                {
+                    LocaleKey = 'tooltip'
+                    Settings  = @(
+                        MSFT_SCLabelSetting
+                        {
+                            Key   = 'default'
+                            Value = 'High business impact. Damage to the national interest, organisations or individuals.'
+                        }
+                    )
+                }
+            );
+            Name                               = "PROTECTED ACCESS=Legislative-Secrecy CAVEAT=SH CABINET";
+            ParentId                           = "PROTECTED";
+            Priority                           = 12;
+            Tooltip                            = "High business impact. Damage to the national interest, organisations or individuals.";
+        }
+        SCSensitivityLabel 8009d029-84ea-4889-b336-b233da3378ac
+        {
+            AdvancedSettings                   = @(
+                MSFT_SCLabelSetting
+                {
+                    Key   = 'parentid'
+                    Value = 'e462c225-d8f0-4d1c-b6e6-9c7e249b0b11'
+                }
+                MSFT_SCLabelSetting
+                {
+                    Key   = 'contenttype'
+                    Value = 'File  Email'
+                }
+                MSFT_SCLabelSetting
+                {
+                    Key   = 'tooltip'
+                    Value = 'High business impact. Damage to the national interest  organisations or individuals.'
+                }
+            );
+            ApplyContentMarkingHeaderAlignment = "Center";
+            ApplyContentMarkingHeaderFontColor = "#FF0000";
+            ApplyContentMarkingHeaderFontSize  = 10;
+            ApplyContentMarkingHeaderMargin    = 5;
+            ApplyContentMarkingHeaderText      = "PROTECTED ACCESS=Personal-Privacy CAVEAT=SH CABINET";
+            Comment                            = "";
+            Disabled                           = $False;
+            DisplayName                        = "PROTECTED ACCESS=Personal-Privacy CAVEAT=SH CABINET";
+            Ensure                             = "Present";
+            GlobalAdminAccount                 = $Credsglobaladmin;
+            LocaleSettings                     = @(
+                MSFT_SCLabelLocaleSettings
+                {
+                    LocaleKey = 'displayName'
+                    Settings  = @(
+                        MSFT_SCLabelSetting
+                        {
+                            Key   = 'default'
+                            Value = 'PROTECTED ACCESS=Personal-Privacy CAVEAT=SH CABINET'
+                        }
+                    )
+                }
+                MSFT_SCLabelLocaleSettings
+                {
+                    LocaleKey = 'tooltip'
+                    Settings  = @(
+                        MSFT_SCLabelSetting
+                        {
+                            Key   = 'default'
+                            Value = 'High business impact. Damage to the national interest, organisations or individuals.'
+                        }
+                    )
+                }
+            );
+            Name                               = "PROTECTED ACCESS=Personal-Privacy CAVEAT=SH CABINET";
+            ParentId                           = "PROTECTED";
+            Priority                           = 13;
+            Tooltip                            = "High business impact. Damage to the national interest, organisations or individuals.";
+        }
+    }
+}
+M365TenantConfig -ConfigurationData .\ConfigurationData.psd1 -GlobalAdminAccount $GlobalAdminAccount

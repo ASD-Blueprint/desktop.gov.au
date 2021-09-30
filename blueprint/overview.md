@@ -107,7 +107,7 @@ Sensitivity labels create a protective marking within the message header. When c
 
 AIP (with the unified labelling client) can offer labelling capabilities outside of the native Microsoft 365 products. The blueprint favours using native M365 labelling capabilities where possible. Labels created in Microsoft Information Protection can be utilised with AIP.
 
-Microsoft Information Protection labelling does not offer a method to format email headers in a manner consistent with the requirements of the Protective Security Policy Framework (PSPF). This means it needs additional configuration.
+Microsoft Information Protection labelling does not offer a method to format email headers in a manner consistent with the requirements of the Protective Security Policy Framework (PSPF) and requires additional configuration.
 
 Email gateway rules are available in the network configuration ABAC artefact. 
 

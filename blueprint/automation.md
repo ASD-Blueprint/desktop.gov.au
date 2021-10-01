@@ -121,11 +121,8 @@ The process to deploy the configuration is as follows:
 
 1. Open a PowerShell console as administrator
 2. Install and import the PowerShell module microsoft365dsc using the following command:
-```Powershell 
-# enable WinRM for DSC node
+```Powershell
 Set-WSManQuickConfig
-
-# install modules for M365DSC
 install-module microsoft365dsc -allowclobber -force
 import-module microsoft365dsc
 ```
@@ -147,7 +144,7 @@ Start-DSCConfiguration M365TenantConfig -wait -verbose -force
 ```Powershell
 Remove-DscConfigurationDocument -stage current
 ```
-8. Repeat the process for other DSC scripts to be ran and have no overlapping configuration
+8. Repeat the process for other DSC scripts, each can be ran without overlapping configuration
 
 ## Microsoft 365 Desired State Configuration auditing procedure
 

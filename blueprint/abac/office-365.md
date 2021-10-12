@@ -9,32 +9,20 @@ The ABAC settings for the Agency organisation for all implementation types can b
 
 Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting.
 
-### Residency
-
-`Azure Active Directory > Properties`
-
-The following table describes the Office 365 Region settings for all implementation types.
-
-| Item              | Configuration         |
-| ----------------- | --------------------- |
-| Name              | Agency Name           |
-| Country or region | Australia             |
-| Location          | Australia datacenters |
-
-`Microsoft 365 Admin center > Settings > Org settings > Organization profile`
+`Microsoft 365 Admin center > Settings > Org settings > Organization profile > Organization information`
 
 The following table describes the Office 365 Organization profile settings for all implementation types.
 
 | Item               | Configuration         |
 | ------------------ | --------------------- |
 | Name               | Agency Name           |
-| Street address     | Agency Street Address |
-| City               | Canberra              |
-| State              | ACT                   |
-| ZIP or postal code | Agency Post Code      |
+| Street address     | Agency defined        |
+| City               | Agency defined        |
+| State              | Agency defined        |
+| ZIP or postal code | Agency defined        |
 | Country or region  | Australia             |
-| Phone              | Agency Phone Number   |
-| Technical Contact  | Agency@Agency.gov.au  |
+| Phone              | Agency defined        |
+| Technical Contact  | Agency defined        |
 | Preferred Language | English               |
 
 ### Licensing
@@ -53,7 +41,7 @@ The following table describes the Microsoft 365 Licensing settings for all imple
 
 ### Licensing manual groups
 
-`Azure Active Directory > Licenses > Microsoft 365 E5 > Licensed groups `
+`Azure Active Directory > Licenses > All products > Microsoft 365 E5 > Licensed groups `
 
 The following table describes the configuration for the manual allocation of Microsoft 365 E5 licenses for all implementation types.
 
@@ -65,27 +53,27 @@ The following table describes the configuration for the manual allocation of Mic
 
 ### Theme
 
-`Microsoft 365 Admin Center > Settings > Org settings > Organisation Profile > Custom themes`
+`Microsoft 365 admin center > Settings > Org settings > Organization profile > Custom themes`
 
 The following table describes the Custom Theme settings for all implementation types.
 
 | Item                                      | Configuration                                                |
 | ----------------------------------------- | ------------------------------------------------------------ |
-| Use a custom logo image                   | Use an image from a URL                                      |
-| Use an image from a URL                   | https://Agency.sharepoint.com/:i:/r/sites/AdminTeamsandLicensing/SiteAssets/UX/Agency Acronym%20Logo%20Inline%20White.png?csf=1&e=VqNfLh |
-| Make the logo clickable                   | https://Agency.sharepoint.com/                               |
-| Select background image                   | --                                                           |
-| Navigation bar colour                     | #005A70                                                      |
-| Text and icon colour                      | #FFFFFF                                                      |
-| Accent colour                             | #B1E4E3                                                      |
+| Use a custom logo image                   | Agency supplied                                              |
+| Use an image from a URL                   | Agency supplied                                              |
+| Make the logo clickable                   | Agency supplied                                              |
+| Select background image                   | Agency supplied                                              |
+| Navigation bar colour                     | Agency supplied                                              |
+| Text and icon colour                      | Agency supplied                                              |
+| Accent colour                             | Agency supplied                                              |
 | Prevent users from overriding their theme | Enabled                                                      |
 | Show the user’s display name              | Enabled                                                      |
 
-`Endpoint Manager Admin Center > Tenant administration > Customization`
+`Endpoint Manager admin center > Tenant administration > Customization`
 
 * Branding
   * Organization name: `<Agency Name>`
-  * Theme color: `#512876`
+  * Theme color: Agency supplied
   * Show in header: `Organization logo only`
   * Upload logo for theme color background: Agency supplied
   * Upload logo for theme color light background: Agency supplied
@@ -109,51 +97,52 @@ The following table describes the Custom Theme settings for all implementation t
 
 ### Add-ins
 
-`Microsoft 365 Admin Center > Settings > Org settings > Services`
+`Microsoft 365 admin center > Settings > Org settings > Services`
 
 The following table describes the Microsoft 365 Services settings for all implementation types.
 
 | Item                                      | Configuration                                                |
 | ----------------------------------------- | ------------------------------------------------------------ |
 | Azure Speech Services                     | Disabled                                                     |
-| Power Automate (Flow)                     | Disabled                                                     |
-| Power Apps                                | Disabled                                                     |
-| Power Bi                                  | Disabled                                                     |
 | Bookings                                  | Disabled                                                     |
+| ‎Briefing‎ email from ‎Microsoft Viva‎        | Enabled                                                      |
 | Calendar                                  | Disabled                                                     |
 | Cortana                                   | Disabled                                                     |
-| Integrated Apps                           | Disabled                                                     |
-| Microsoft Forms                           | Send a link to the form and collect responses (enabled)<br>Share to collaborate on the form layout and structure (enabled)<br>Share the form as a template that can be duplicated (enabled)<br>Share form results summary (disabled)<br>Record names by default (disabled)<br>Include Bing search, YouTube videos (disabled)<br>Add internal phishing protection |
-| Microsoft Graph Data Connect              | Enabled                                                      |
-| Microsoft Planner                         | Enabled                                                      |
-| Microsoft Search in Bing                  | Disabled                                                     |
-| Office What’s New management preview      | Disabled                                                     |
-| Modern Authentication                     | Enabled                                                      |
-| MyAnalytics                               | Insights dashboard (enabled)<br>Weekly digest (enabled)<br>Insights Outlook add-in (enabled)<br>Allow Microsoft to contact me (Disabled) |
-| External Office 365 group content sharing | Let group members outside your organization access content (Enabled)<br><br>Let group owners add people outside your organization (Enabled) |
-| ‎Office‎ software download settings         | Disabled                                                     |
+| ‎Microsoft‎ communication to users          | Disabled                                                     |
+| Microsoft Forms                           | Send a link to the form and collect responses: Unchecked<br>Share to collaborate on the form layout and structure: Unchecked<br>Share the form as a template that can be duplicated: Unchecked<br>Share form results summary: Unchecked<br>Record names by default: Unchecked<br>Include Bing search, YouTube videos: Unchecked<br>Add internal phishing protection: Checked |
+| Microsoft Graph Data Connect              | Disabled                                                     |
+| Planner                                   | ‎iCalendar‎ publishing: Unchecked                              |
+| Microsoft Search in Bing homepage         | Disabled                                                     |
+| Microsoft Teams                           | Advanced management options: Checked<br>Guest access: Checked |
+| Microsoft To Do                           | Disabled                                                     |
+| ‎Viva Insights (formerly MyAnalytics)‎      | Insights dashboard: Checked<br>Weekly digest: Checked<br>Insights Outlook add-in: Checked<br>Allow Microsoft to contact me about my feedback: Unchecked |
+| Microsoft 365 Groups                      | Disabled                                                     |
+| Modern Authentication                     | Turn on modern authentication for Outlook 2013 for Windows and later (recommended): Checked<br>Allow access to basic authentication protocols: Unchecked (All)                                 |
+| News                                      | Disabled                                                     |
+| ‎Office‎ installation options               | Once a month (Monthly Enterprise Channel)<br>Apps for Windows and mobile devices: Office (includes Skype for Business)<br>Apps for Mac: Office                                               |
 | Office on the web                         | Disabled                                                     |
+| Office Scripts                            | Disabled                                                     |
 | Reports                                   | Disabled                                                     |
-| SharePoint                                | New and existing guests – guests must sign in or provide a verification code – Enabled |
-| Skype for Business                        | Disabled                                                     |
+| SharePoint                                | Users can share with: New and existing guests - guests must sign in or provide a verification code |
 | Sway                                      | Disabled                                                     |
+| User consent to apps                      | Disabled                                                     |
 | User owned apps and services              | Disabled                                                     |
-| Whiteboard                                | Turn on Whiteboard for everyone in your org (enabled) <br>Level of diagnostic data to send to Microsoft (Neither)<br>Allow the use of optional connected experiences in Whiteboard (disabled)<br>Enable easy sharing of Whiteboard from Surface Hub (enabled) |
-
+| Whiteboard                                | Turn on Whiteboard for everyone in your org: Checked<br>Level of diagnostic data to send to Microsoft: Neither<br>Allow the use of optional connected experiences in Whiteboard: Unchecked<br>Enable easy sharing of Whiteboard from Surface Hub: Unchecked<br>Enable storing new whiteboards in OneDrive: Unchecked |
 
 ### Security and privacy
 
-`Microsoft 365 admin center > Org Settings > Security & Privacy`
+`Microsoft 365 admin center > Org Settings > Security & privacy`
 
 The following table describes the Microsoft 365 Security and Privacy settings for all implementation types.
 
 | Item                        | Configuration  |
 | --------------------------- | -------------- |
+| ‎Bing‎ data collection        | Disabled       |
 | Customer lockbox            | Enabled        |
-| Password expiration policy  | Not configured |
-| Privacy profile             | Not configured |
-| Self-service password reset | Not configured |
-| Sharing                     | Not configured |
+| Password expiration policy  | Enabled<br>Days before passwords expire: 365<br>Days before a user is notified about expiration: 14|
+| Privacy profile             | Enabled (Agency to define) |
+| Privileged access           | Enabled        |
+| Sharing                     | Disabled       |
 
 ## Exchange Online
 
@@ -271,7 +260,7 @@ The following table describes the DNS record settings for Agency.gov.au (default
 
 ### Accepted domains
 
-`Exchange Online Admin Centre > mail flow > Accepted domains`
+`Exchange Online admin centre > Mail flow > Accepted domains`
 
 The following table describes the Accepted Domains settings for all implementation types.
 
@@ -283,7 +272,7 @@ The following table describes the Accepted Domains settings for all implementati
 
 ### Remote domains
 
-`Exchange Online Admin Centre > mail flow > Remote domains`
+`Exchange Online admin centre > Mail flow > Remote domains`
 
 Note, existing remote domains configuration for hybrid implementations can be transferred to Exchange Online during the hybrid wizard using the [Organization configuration transfer](https://docs.microsoft.com/en-us/exchange/org-config-transfer-attributes/org-config-transfer-attributes) option.
 
@@ -293,26 +282,21 @@ The following table describes the Remote Domains have been configured for all im
 | ------------------------------------------- | ---------------------- |
 | Name                                        | Default                |
 | Remote Domain                               | *                      |
-| Allowed Out Of Office Type                  | External only          |
-| Automatic Reply                             | False                  |
-| Automatic Forward                           | False                  |
-| Delivery Reports                            | True                   |
-| Non-Delivery Reports                        | True                   |
-| Meeting Forward Notifications               | False                  |
-| Display Sender Name                         | True                   |
-| Trusted Mail Outbound Enabled               | False                  |
-| Trusted Mail Inbound Enabled                | False                  |
-| Use Simple Display Name                     | False                  |
-| Non-Delivery Report Diagnostic Info Enabled | True                   |
-| Use rich-text format                        | Follow users’ settings |
-| MIME character set                          | None                   |
-| Non-MIME character set                      | None                   |
+| Allowed Out Of Office Type                  | Allow only external out of office replies |
+| Allow automatic replies                     | False                  |
+| Allow automatic forwarding                  | False                  |
+| Allow delivery reports                      | False                  |
+| Allow non-delivery reports                  | False                  |
+| Allow meeting forward notifications         | False                  |
+| Use rich-text format                        | Follow users settings  |
+| MIME character set                          | Western European (ISO) |
+| Non-MIME character set                      | Western European (ISO) |
 
 ### Organisational add-ins
 
-No organisational add-ins have been configured.
-
 `Exchange Online admin center > Organization > Add-ins`
+
+No organisational add-ins have been configured.
 
 ### CAS mailbox plan
 
@@ -505,20 +489,20 @@ The following table describes the mailbox plans have been configured for all imp
 
 The following describes the Mailbox attribute that have been configured.
 
-`Exchange Admin Center > recipients > mailboxes > <username> > mailbox features`
+`Exchange Admin Center > Recipients > Mailboxes > <username> > mailbox features`
 
 * Litigation hold: `False` (configured as true only when required)
 
-`Exchange Admin Center > recipients > mailboxes > <username> > mailbox usage`
+`Exchange Admin Center > Recipients > Mailboxes > <username> > mailbox usage`
 
 * Exchange Mailbox Size: `100GB per user`
 
-`Exchange Admin Center > recipients > mailboxes > three dots > Set default message size restrictions`
+`Exchange Admin Center > Recipients > Mailboxes > Set default message size restrictions`
 
 * Maximum size for sent messages (KB): `90MB`
 * Maximum size for received messages (KB): `90MB`
 
-`Exchange Admin Center > recipients > mailboxes > <username> > email address`
+`Exchange Admin Center > Recipients > Mailboxes > <username> > email address`
 
 * Custom Primary SMTP Addressing: `FirstName.LastName@<Agency>.gov.au`
 * Language: `English (en-au)`
@@ -531,8 +515,7 @@ The following describes the Mailbox attribute that have been configured.
 Please note, authentication policies can be retrieved (or set) through Exchange Online PowerShell.
 
 ```powershell
-Get-AuthenticationPolicy | Format-Table -Auto Name
-```
+Get-AuthenticationPolicy ```
 
 The following table describes the Authentication Policy configuration settings for all implementation types.
 
@@ -777,28 +760,7 @@ The following table describes the mailbox archive settings for all implementatio
 
 The following mail flow rules have been configured for all implementation types.
 
-`Exchange Online Admin Centre > mail flow > rules`
-
-#### Apply Disclaimer
-
-* Apply this rule if: The recipient is located `Outside the organization`
-* Do the following actions: Append the message with the disclaimer
-  ```
-  '<br>
-  <br>
-  <p style="font-size:8pt; line-height:10pt; font-family: 'Cambria','times roman',serif;">The content of this email is confidential and intended for the recipient specified in message only. It is strictly forbidden to share any part of this message with any third party, without a written consent of the sender. If you received this message by mistake, please reply to this message and follow with its deletion, so that we can ensure such a mistake does not occur in the future.</p>'. 
-  ```
-* If the disclaimer can't be applied, reject the message.
-* ExceptIfSubjectMatchesPatterns: -
-* FromScope: -
-* HeaderContainsMessageHeader: -
-* HeaderContainsWords: -
-* Mode: `Enforce`
-* Name: `Disclaimer`
-* PrependSubject: -
-* Priority: `0`
-* SentToScope: `NotInOrganization`
-* State: `Enabled`
+`Exchange Online Admin Centre > Mail flow > Rules`
 
 #### UNOFFICIAL - prepend subject
 
@@ -809,7 +771,7 @@ To find the `MSIP_Label` "guid" IDs for each sensitivity label use the [Security
 ```powershell
 Connect-IPPSSession -UserPrincipalName <admin>@<agency>.onmicrosoft.com
 
-Get-label | where{$_.Name -eq "PROTECTED"} |select name,guid
+Get-label | where{$_.Name -eq "UNOFFICIAL"} |select name,guid
 ```
 
 * If the message: Is sent to `Inside the organization` **and** `msip_labels` header contains `MSIP_Label_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX_Enabled=true` **and** Is received from `Inside the organization`
@@ -822,7 +784,7 @@ Get-label | where{$_.Name -eq "PROTECTED"} |select name,guid
 * Mode: `Enforce`
 * Name: `UNOFFICIAL`
 * PrependSubject: `[SEC=UNOFFICIAL]`
-* Priority: `1`
+* Priority: `0`
 * SentToScope: `InOrganization`
 * State: `Enabled`
 
@@ -835,7 +797,7 @@ To find the `MSIP_Label` "guid" IDs for each sensitivity label use the [Security
 ```powershell
 Connect-IPPSSession -UserPrincipalName <admin>@<agency>.onmicrosoft.com
 
-Get-label | where{$_.Name -eq "PROTECTED"} |select name,guid
+Get-label | where{$_.Name -eq "OFFICIAL"} |select name,guid
 ```
 
 * If the message: Is sent to `Inside the organization` **and** `msip_labels` header contains `MSIP_Label_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX_Enabled=true` **and** Is received from `Inside the organization`
@@ -848,7 +810,7 @@ Get-label | where{$_.Name -eq "PROTECTED"} |select name,guid
 * Mode: `Enforce`
 * Name: `OFFICIAL`
 * PrependSubject: `[SEC=OFFICIAL]`
-* Priority: `2`
+* Priority: `1`
 * SentToScope: `InOrganization`
 * State: `Enabled`
 
@@ -861,7 +823,7 @@ To find the `MSIP_Label` "guid" IDs for each sensitivity label use the [Security
 ```powershell
 Connect-IPPSSession -UserPrincipalName <admin>@<agency>.onmicrosoft.com
 
-Get-label | where{$_.Name -eq "PROTECTED"} |select name,guid
+Get-label | where{$_.Name -eq "OFFICIAL Sensitive"} |select name,guid
 ```
 
 * If the message: Is sent to `Inside the organization` **and** `msip_labels` header contains `MSIP_Label_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX_Enabled=true` **and** Is received from `Inside the organization`
@@ -874,7 +836,7 @@ Get-label | where{$_.Name -eq "PROTECTED"} |select name,guid
 * Mode: `Enforce`
 * Name: `OFFICIAL:Sensitive`
 * PrependSubject: `[SEC=OFFICIAL:Sensitive]`
-* Priority: `3`
+* Priority: `2`
 * SentToScope: `InOrganization`
 * State: `Enabled`
 
@@ -900,34 +862,57 @@ Get-label | where{$_.Name -eq "PROTECTED"} |select name,guid
 * Mode: `Enforce`
 * Name: `PROTECTED`
 * PrependSubject: `[SEC=PROTECTED]`
-* Priority: `4`
+* Priority: `3`
 * SentToScope: `InOrganization`
 * State: `Enabled`
 
 #### Double classification
 
-* If the message: Includes these patterns in the message subject: `\[SEC\=.*\].*\[SEC\=.*\]` **and** Is received from `Inside the organization`
-* Take the following actions: reject the message and include the explanation `Multiple Security Classifications in Subject Line` with the status code: `5.7.1`
+* If the message: Includes these patterns in the message subject: `\[SEC\=.*\].*\[SEC\=.*\]` **and** The sender is located `Inside the organization`
+* Take the following actions: reject the message and include the explanation `Multiple Security Classifications in Subject Line`
 * ExceptIfSubjectMatchesPatterns: -
 * FromScope: `InOrganization`
 * HeaderContainsMessageHeader: -
 * HeaderContainsWords: -
 * Mode: `Enforce`
-* Name: `Double Classification`
+* Name: `Double classification`
+* PrependSubject: -
+* Priority: `4`
+* SentToScope: -
+* State: `Enabled`
+
+#### Apply Disclaimer
+
+Note, the disclaimer text is provided as an example only.
+
+* Apply this rule if: The recipient is located `Outside the organization`
+* Do the following actions: Append the message with the disclaimer
+  ```
+  '<br>
+  <br>
+  <p style="font-size:8pt; line-height:10pt; font-family: 'Cambria','times roman',serif;">The content of this email is confidential and intended for the recipient specified in message only. It is strictly forbidden to share any part of this message with any third party, without a written consent of the sender. If you received this message by mistake, please reply to this message and follow with its deletion, so that we can ensure such a mistake does not occur in the future.</p>'. 
+  ```
+* If the disclaimer can't be applied, reject the message.
+* ExceptIfSubjectMatchesPatterns: -
+* FromScope: -
+* HeaderContainsMessageHeader: -
+* HeaderContainsWords: -
+* Mode: `Enforce`
+* Name: `Disclaimer`
 * PrependSubject: -
 * Priority: `5`
-* SentToScope: -
+* SentToScope: `NotInOrganization`
 * State: `Enabled`
 
 ### Journaling
 
-`Exchange Online Admin Centre > compliance management > journal rules` is not configured for all implementation types.
+`Exchange Online Admin Centre (Classic) > compliance management > journal rules` is not configured for all implementation types.
 
 ### Mailbox retention
 
 Existing retention configuration for hybrid implementations can be transferred to Exchange Online during the hybrid wizard using the [Organization configuration transfer](https://docs.microsoft.com/en-us/exchange/org-config-transfer-attributes/org-config-transfer-attributes) option.
 
-`Exchange Online Admin Centre > compliance management > retention polices`
+`Exchange Online Admin Centre (Classic)> compliance management > retention polices`
 
 The following table describes the Mailbox Retention settings within the "Default MRM Policy" for all implementation types.
 
@@ -949,11 +934,7 @@ The following table describes the Mailbox Retention settings within the "Default
 
 ### Shared mailboxes and resource mailboxes
 
-`Exchange Online Admin Centre > recipients`
-
-None configured
-
-`Exchange Online Admin Centre > recipients > groups`
+`Exchange Online Admin Centre > Recipients > Groups`
 
 * Display name: `grp-<Agency Acronym>O365-Outlook`
   * Group email address: `grp-<Agency Acronym>0365-outlook@<Agency>.gov.au`
@@ -1017,353 +998,180 @@ The following table describes the Address List configuration settings for all im
 
 The ABAC settings for the Agency Exchange Online Protection instance can be found below. This includes the Connection Filtering, Anti-Malware, Policy Filtering, and Content Filtering configuration. Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting.
 
-### Connection filtering
+### Anti-spam
 
-`Microsoft 365 compliance > Threat Management > Policy > Anti-Spam `
+`Microsoft 365 security > Policies & rules > Threat policies > Anti-spam`
 
-The following table describes the Connection Filter configuration settings for per implementation type.
+The following table describes the Connection filter policy configuration settings for per implementation type.
 
 | Implementation | Name                               | IP Allow List                                          | IP Block List | Enable Safe List | Directory Based Edge Block Mode |
 | -------------- | ---------------------------------- | ------------------------------------------------------ | ------------- | ---------------- | ------------------------------- |
 | Cloud-native   | Connection filter policy (Default) |                                                        |               | True             | Default                         |
 | Hybird         | Connection filter policy (Default) | `<agency smtp gateway IP adddresses for skip listing>` |               | True             | Default                         |
 
+The following tables describe the Anti-spam policies for all implementation types.
+
+| Item                                 | Configuration                                                |
+| ------------------------------------ | ------------------------------------------------------------ |
+| Name                                 | Anti-spam inbound policy (Default)                           |
+| Bulk email spam action               | 6                                                            |
+| Increase spam score                  | Image links to remote websites: On<br>Numeric IP address in URL: On<br>URL redirect to other port: On<br>Links to .biz or .info websites: On |
+| Mark as spam                         | Empty messages: On<br>Embedded tags in HTML: Off<br>JavaScript or VBScript in HTML: On<br>Form tags in HTML: Off<br>Frame or iframe tags in HTML: Off<br>Web bugs in HTML: On<br>Object tags in HTML: On<br>Sensitive words: On<br>SPF record hard fail: On<br>Sender ID filtering hard fail: On<br>Backscatter: On |
+| Spam                                 | Move message to Junk email folder                            |
+| High confidence spam                 | Quarantine message                                           |
+| Phishing                             | Quarantine message                                           |
+| Bulk                                 | Move message to Junk email folder                            |
+| Retain spam in quarantine for this many days | 15                                                   |
+| Enable spam safety tips              | Checked                                                      |
+| Enable zero-hour auto purge (ZAP)    | Checked                                                      |
+| Enable for phishing messages         | Checked                                                      |
+| Enable for spam messages             | Checked                                                      |
+| Enable end-user spam notifications   | Checked                                                      |
+| Send end-user spam notifications every (days) | 3                                                   |
+
+| Item                                 | Configuration                                                |
+| ------------------------------------ | ------------------------------------------------------------ |
+| Name                                 | Anti-spam outbound policy (Default)                          |
+| Set an external message limit        | 0                                                            |
+| Set an internal message limit        | 0                                                            |
+| Set a daily message limit            | 0                                                            |
+| Restriction placed on users who reach the message limit | Restrict the user from sending mail until the following day |
+| Automatic forwarding rules           | Automatic - System-controlled                                |
+| Notifications                        | Unchecked                                                    |
+
 ### Anti-malware
 
-`Microsoft 365 compliance > Threat Management > Policy > Anti-malware `
+`Microsoft 365 security > Policies & rules > Threat policies > Anti-malware`
 
 The following table describes the Malware Filter configuration settings for all implementation types.
 
 | Item                                       | Configuration                       |
 | ------------------------------------------ | ----------------------------------- |
-| Name                                       | Default-Malware-Filter-Policy       |
-| Custom Notifications                       | False                               |
-| Custom notification details                | Not Configured                      |
-| Internal Sender Admin Address              | itsa@agency.gov.au                  |
-| External Sender Admin Address              | itsa@agency.gov.au                  |
-| Action                                     | DeleteMessage                       |
-| Enable Internal Sender Notifications       | False                               |
-| Enable External Sender Notifications       | False                               |
-| Enable Internal Sender Admin Notifications | False                               |
-| Enable External Sender Admin Notifications | False                               |
-| Enable File Filter                         | True                                |
+| Name                                       | Default (Default)                   |
+| Enable the common attachements filter      | Checked                             |
 | Filter file types                          | ace,ani,app,exe,jar,reg,scr,vbe,vbs |
+| Enable zero-hour auto purge for malware    | Checked                             |
+| Admin notifications (internal senders)     | Checked                             |
+| Admin notifications (external senders)     | Checked                             |       
+| Admin email address                        | Agency defined                      |       
 
-### Content filtering
+## Microsoft Teams
 
-Content (spam) filtering policies are best retrieved (or set) through Exchange Online PowerShell as some parameters are not available in the Microsoft 365 Defender portal.
-
-```powershell
-Get-HostedContentFilterPolicy | Format-List
-```
-
-The following table describes the Content (spam) Filter configuration settings for all implementation types.
-
-| Item                                 | Configuration                                                |
-| ------------------------------------ | ------------------------------------------------------------ |
-| Name                                 | Default-HostedContentFilterPolicy                            |
-| Add X Header Value                   | Not Configured                                               |
-| Modify Subject value                 | [SPAM]                                                       |
-| Redirect to recipients               | Not Configured                                               |
-| False positive additional recipients | Not Configured                                               |
-| Quarantine retention period          | 15                                                           |
-| End user spam notification frequency | 3                                                            |
-| Increase Score                       | Increase score with image links: On<br>Increase score with numeric IPs: On<br>Increase score with redirect to other port: On<br>Increase score with Biz or info URLs: On |
-| Mark as spam                         | Mark as spam empty messages: On<br>Mark as spam javascript in html: On<br>Mark as spam frames in HTML: Off<br>Mark as spam object tags in HTML: On<br>Mark as spam embed tags in HTML: Off<br>Mark as spam form tags in HTML: Off<br>Mark as spam web bugs in HTML: On<br>Mark as spam sensitive word list: On<br>Mark as spam SPF record hard fail: On<br>Mark as spam from address auth fail: On<br>Mark as spam bulk mail: On<br>Mark as spam NDR backscatter: On |
-| High confidence spam action          | Quarantine                                                   |
-| Spam action                          | MoveToJmf                                                    |
-| Bulk spam action                     | MoveToJmf                                                    |
-| Phish Spam action                    | Quarantine                                                   |
-| Enable end user spam notifications   | True                                                         |
-| End user spam notification           | Notification custom from address: itsa@agency.gov.au<br>Notification language: Default<br>Notification limit: 0 |
-| Download link                        | False                                                        |
-| Enable region block list             | False                                                        |
-| Region block list                    | Not Configured                                               |
-| Enable language block list           | Not Configured                                               |
-| Language block list                  | Not Configured                                               |
-| Bulk Threshold                       | 6                                                            |
-| Allowed Senders                      | Not Configured                                               |
-| Allowed sender domains               | Not Configured                                               |
-| Blocked Senders                      | Not Configured                                               |
-| Blocked Sender Domains               | Not Configured                                               |
-
-## Teams
-
-The ABAC settings for the Agencies Teams instance can be found below for all implementation types. This includes the Client Configuration, Channels Policy, Calling Policy, Meetings Policy, Messaging Policy, and Guest Meeting/Calling/Messaging configuration.
+The ABAC settings for Microsoft Teams can be found below for all implementation types. This includes the Client Configuration, Channels Policy, Calling Policy, Meetings Policy, Messaging Policy, and Guest Meeting/Calling/Messaging configuration.
 
 Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting.
 
 ### Client configuration
 
-`Microsoft Teams Admin center > Org-wide settings > Teams Settings `
+`Microsoft Teams admin center > Teams > Teams settings`
 
-The following table describes the Teams Client configuration settings for all implementation types.
+The following table describes the Teams configuration settings for all implementation types.
 
 | Item                                                         | Configuration                          |
 | ------------------------------------------------------------ | -------------------------------------- |
-| Suggested feeds can appear in a user's activity feed         | True                                   |
+| Suggested feeds can appear in a user's activity feed         | On                                     |
 | Tags are managed by                                          | Team Owners                            |
-| Let team owners override who can manage tags                 | True                                   |
-| Let custom tags to be created                                | True                                   |
-| Allow Shifts app to apply tags                               | True                                   |
-| Allow users to send emails to a channel email address        | True                                   |
-| Accept channel email from these SMTP domains                 | agency.gov.au                          |
-| Allow Citrix files                                           | False                                  |
-| Allow DropBox                                                | False                                  |
-| Allow Box                                                    | False                                  |
-| Allow Google drive                                           | False                                  |
-| Allow Egnyte                                                 | False                                  |
-| Show Organization tab in chats                               | True                                   |
-| Require a secondary form of authentication to access meeting content | No access                              |
+| Let team owners override who can manage tags                 | On                                     |
+| Let custom tags to be created                                | On                                     |
+| Allow Shifts app to apply tags                               | On                                     |
+| Allow users to send emails to a channel email address        | On                                     |
+| Accept channel email from these SMTP domains                 | Agency defined                         |
+| Citrix files                                                 | Off                                    |
+| DropBox                                                      | Off                                    |
+| Box                                                          | Off                                    |
+| Google Drive                                                 | Off                                    |
+| Egnyte                                                       | Off                                    |
+| Show Organization tab in chats                               | On                                     |
+| Require a secondary form of authentication to access meeting content | No access                      |
 | Set Content PIN                                              | Required for outside scheduled meeting |
-| Surface Hub accounts can send mails                          | True                                   |
-| Scope directory search using an Exchange address book policy | True                                   |
-| Role-base chat permissions                                   | False                                  |
+| Surface Hub accounts can send mails                          | On                                     |
+| Scope directory search using an Exchange address book policy | On                                     |
+| Role-base chat permissions                                   | Off                                    |
 
 ### Teams policy
 
-`Microsoft Teams Admin center > Teams > Teams policies  `
+`Microsoft Teams admin center > Teams > Teams policies`
 
 The following table describes the Teams policy configuration settings for all implementation types.
 
 | Item                    | Configuration             |
 | ----------------------- | ------------------------- |
 | Name                    | Global (Org-wide default) |
-| Description             | Not Configured            |
+| Description             | Not configured            |
 | Create private channels | True                      |
 
 ### Calling policy
 
-`Microsoft Teams Admin center > Voice > Calling policies  `
+`Microsoft Teams admin center > Voice > Calling policies`
 
-The following table describes the Teams Calling policy configuration settings for all implementation types.
+The following tables describes the Teams Calling policy configuration settings for all implementation types.
 
-| Item                           | Configuration                            |
-| ------------------------------ | ---------------------------------------- |
-| Name                           | Global                                   |
-| Description                    | Not Configured                           |
-| Allow private calling          | True                                     |
-| Allow voicemail                | AlwaysEnabled                            |
-| Allow call groups              | True                                     |
-| Allow delegation               | True                                     |
-| Allow call forwarding to user  | True                                     |
-| Allow call forwarding to phone | True                                     |
-| Prevent toll bypass            | False                                    |
-| Busy on busy enabled type      | Enabled                                  |
-| Name                           | Tag:AllowCalling                         |
-| Description                    | Not Configured                           |
-| Allow private calling          | True                                     |
-| Allow voicemail                | UserOverride                             |
-| Allow call groups              | True                                     |
-| Allow delegation               | True                                     |
-| Allow call forwarding to user  | True                                     |
-| Allow call forwarding to phone | True                                     |
-| Prevent toll bypass            | False                                    |
-| Busy on busy enabled type      | Disabled                                 |
-| Name                           | Tag:DisallowCalling                      |
-| Description                    | Not Configured                           |
-| Allow private calling          | False                                    |
-| Allow voicemail                | AlwaysDisabled                           |
-| Allow call groups              | False                                    |
-| Allow delegation               | False                                    |
-| Allow call forwarding to user  | False                                    |
-| Allow call forwarding to phone | False                                    |
-| Prevent toll bypass            | False                                    |
-| Busy on busy enabled type      | Disabled                                 |
-| Name                           | Tag:AllowCallingPreventTollBypass        |
-| Description                    | Not Configured                           |
-| Allow private calling          | True                                     |
-| Allow voicemail                | UserOverride                             |
-| Allow call groups              | True                                     |
-| Allow delegation               | True                                     |
-| Allow call forwarding to user  | True                                     |
-| Allow call forwarding to phone | True                                     |
-| Prevent toll bypass            | True                                     |
-| Busy on busy enabled type      | Disabled                                 |
-| Name                           | Tag:AllowCallingPreventForwardingtoPhone |
-| Description                    | Not Configured                           |
-| Allow private calling          | True                                     |
-| Allow voicemail                | UserOverride                             |
-| Allow call groups              | True                                     |
-| Allow delegation               | True                                     |
-| Allow call forwarding to user  | True                                     |
-| Allow call forwarding to phone | False                                    |
-| Prevent toll bypass            | False                                    |
-| Busy on busy enabled type      | Disabled                                 |
+Note, policies that are not configurable are not included below.
+
+| Item                                           | Configuration                            |
+| ---------------------------------------------- | ---------------------------------------- |
+| Name                                           | Global                                   |
+| Description                                    | Not Configured                           |
+| Make private calls                             | On                                       |
+| Cloud recording for calling                    | Off                                      |
+| Call forwarding and simultaneous ringing to people in your organization | On              |
+| Call forwarding and simultaneous ringing to external phone numbers | Off                  |
+| Voicemail is available for routing inbound calls | Enabled                                |
+| Inbound calls can be routed to call groups     | On                                       |
+| Delegation for inbound and outbound calls      | On                                       |
+| Prevent toll bypass and send calls through the PSTN | Off                                 |
+| Music on hold for PSTN callers                 | Enabled                                  |
+| Busy on busy when in a call                    | Enabled                                  |
+| Web PSTN calling                               | Off                                      |
+| Real-time captions in Teams calls              | On                                       |
+| Automatically answer incoming meeting invites  | Off                                      |
+| SIP devices can be used to perform calling     | Off                                      |
 
 ### Meeting policy
 
-`Microsoft Teams Admin center > Meetings > Meeting policies  `
+`Microsoft Teams Admin center > Meetings > Meeting policies`
 
 The following table describes the Teams Meeting policy configuration settings for all implementation types.
+
+Note, policies that are not configurable are not included below.
 
 | Item                                            | Configuration                                                |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | Name                                            | Global                                                       |
 | Description                                     | Not Configured                                               |
-| Allow Channel Meeting Scheduling                | True                                                         |
-| Allow Meet Now                                  | True                                                         |
-| Allow Private Meet Now                          | True                                                         |
-| Meeting Chat Enabled Type                       | Enabled                                                      |
-| Live Captions Enabled Type                      | DisabledUserOverride                                         |
-| Allow IP Video                                  | True                                                         |
-| Allow Anonymous Users to Dial Out               | False                                                        |
-| Allow Anonymous Users to Start Meeting          | False                                                        |
-| Allow Private Meeting Scheduling                | True                                                         |
-| Auto Admitted Users                             | Everyone                                                     |
-| Allow Cloud Recording                           | True                                                         |
-| Allow Outlook Add-in                            | True                                                         |
-| Allow PowerPoint Sharing                        | True                                                         |
-| Allow Participant Give/Request Control          | True                                                         |
-| Allow External Participant Give/Request Control | False                                                        |
-| Allow Shared Notes                              | True                                                         |
-| Allow Whiteboard                                | True                                                         |
-| Allow Transcription                             | False                                                        |
-| Screen Sharing Mode                             | EntireScreen                                                 |
-| Allow PSTN Users to Bypass Lobby                | True                                                         |
-| Allow Organizers to Override Lobby Settings     | False                                                        |
-| Name                                            | Tag:AllOn                                                    |
-| Description                                     | Do not assign. This policy is same as global defaults and would be deprecated |
-| Allow Channel Meeting Scheduling                | True                                                         |
-| Allow Meet Now                                  | True                                                         |
-| Allow Private Meet Now                          | True                                                         |
-| Meeting Chat Enabled Type                       | Enabled                                                      |
-| Live Captions Enabled Type                      | DisabledUserOverride                                         |
-| Allow IP Video                                  | True                                                         |
-| Allow Anonymous Users to Dial Out               | False                                                        |
-| Allow Anonymous Users to Start Meeting          | False                                                        |
-| Allow Private Meeting Scheduling                | True                                                         |
-| Auto Admitted Users                             | EveryoneInCompany                                            |
-| Allow Cloud Recording                           | True                                                         |
-| Allow Outlook Add-in                            | True                                                         |
-| Allow PowerPoint Sharing                        | True                                                         |
-| Allow Participant Give/Request Control          | True                                                         |
-| Allow External Participant Give/Request Control | False                                                        |
-| Allow Shared Notes                              | True                                                         |
-| Allow Whiteboard                                | True                                                         |
-| Allow Transcription                             | False                                                        |
-| Screen Sharing Mode                             | EntireScreen                                                 |
-| Allow PSTN Users to Bypass Lobby                | True                                                         |
-| Allow Organizers to Override Lobby Settings     | False                                                        |
-| Name                                            | Tag:RestrictedAnonymousAccess                                |
-| Description                                     | Do not assign. This policy is same as global defaults and would be deprecated |
-| Allow Channel Meeting Scheduling                | True                                                         |
-| Allow Meet Now                                  | True                                                         |
-| Allow Private Meet Now                          | True                                                         |
-| Meeting Chat Enabled Type                       | Enabled                                                      |
-| Live Captions Enabled Type                      | Disabled                                                     |
-| Allow IP Video                                  | True                                                         |
-| Allow Anonymous Users to Dial Out               | False                                                        |
-| Allow Anonymous Users to Start Meeting          | False                                                        |
-| Allow Private Meeting Scheduling                | True                                                         |
-| Auto Admitted Users                             | EveryoneInCompany                                            |
-| Allow Cloud Recording                           | True                                                         |
-| Allow Outlook Add-in                            | True                                                         |
-| Allow PowerPoint Sharing                        | True                                                         |
-| Allow Participant Give/Request Control          | True                                                         |
-| Allow External Participant Give/Request Control | False                                                        |
-| Allow Shared Notes                              | True                                                         |
-| Allow Whiteboard                                | True                                                         |
-| Allow Transcription                             | False                                                        |
-| Screen Sharing Mode                             | EntireScreen                                                 |
-| Allow PSTN Users to Bypass Lobby                | True                                                         |
-| Allow Organizers to Override Lobby Settings     | False                                                        |
-| Name                                            | Tag:AllOff                                                   |
-| Description                                     | Not Configured                                               |
-| Allow Channel Meeting Scheduling                | False                                                        |
-| Allow Meet Now                                  | False                                                        |
-| Allow Private Meet Now                          | False                                                        |
-| Meeting Chat Enabled Type                       | Disabled                                                     |
-| Live Captions Enabled Type                      | Disabled                                                     |
-| Allow IP Video                                  | False                                                        |
-| Allow Anonymous Users to Dial Out               | False                                                        |
-| Allow Anonymous Users to Start Meeting          | False                                                        |
-| Allow Private Meeting Scheduling                | False                                                        |
-| Auto Admitted Users                             | EveryoneInCompany                                            |
-| Allow Cloud Recording                           | False                                                        |
-| Allow Outlook Add-in                            | False                                                        |
-| Allow PowerPoint Sharing                        | False                                                        |
-| Allow Participant Give/Request Control          | False                                                        |
-| Allow External Participant Give/Request Control | False                                                        |
-| Allow Shared Notes                              | False                                                        |
-| Allow Whiteboard                                | False                                                        |
-| Allow Transcription                             | False                                                        |
-| Screen Sharing Mode                             | Disabled                                                     |
-| Allow PSTN Users to Bypass Lobby                | True                                                         |
-| Allow Organizers to Override Lobby Settings     | False                                                        |
-| Name                                            | Tag:RestrictedAnonymousNoRecording                           |
-| Description                                     | Do not assign. This policy is similar to global defaults and would be deprecated |
-| Allow Channel Meeting Scheduling                | True                                                         |
-| Allow Meet Now                                  | True                                                         |
-| Allow Private Meet Now                          | True                                                         |
-| Meeting Chat Enabled Type                       | Enabled                                                      |
-| Live Captions Enabled Type                      | Disabled                                                     |
-| Allow IP Video                                  | True                                                         |
-| Allow Anonymous Users to Dial Out               | False                                                        |
-| Allow Anonymous Users to Start Meeting          | False                                                        |
-| Allow Private Meeting Scheduling                | True                                                         |
-| Auto Admitted Users                             | EveryoneInCompany                                            |
-| Allow Cloud Recording                           | False                                                        |
-| Allow Outlook Add-in                            | True                                                         |
-| Allow PowerPoint Sharing                        | True                                                         |
-| Allow Participant Give/Request Control          | True                                                         |
-| Allow External Participant Give/Request Control | False                                                        |
-| Allow Shared Notes                              | True                                                         |
-| Allow Whiteboard                                | True                                                         |
-| Allow Transcription                             | False                                                        |
-| Screen Sharing Mode                             | EntireScreen                                                 |
-| Allow PSTN Users to Bypass Lobby                | True                                                         |
-| Allow Organizers to Override Lobby Settings     | False                                                        |
-| Name                                            | Tag:Default                                                  |
-| Description                                     | Not Configured                                               |
-| Allow Channel Meeting Scheduling                | True                                                         |
-| Allow Meet Now                                  | True                                                         |
-| Allow Private Meet Now                          | True                                                         |
-| Meeting Chat Enabled Type                       | Enabled                                                      |
-| Live Captions Enabled Type                      | DisabledUserOverride                                         |
-| Allow IP Video                                  | True                                                         |
-| Allow Anonymous Users to Dial Out               | False                                                        |
-| Allow Anonymous Users to Start Meeting          | False                                                        |
-| Allow Private Meeting Scheduling                | True                                                         |
-| Auto Admitted Users                             | Everyone                                                     |
-| Allow Cloud Recording                           | True                                                         |
-| Allow Outlook Add-in                            | True                                                         |
-| Allow PowerPoint Sharing                        | True                                                         |
-| Allow Participant Give/Request Control          | True                                                         |
-| Allow External Participant Give/Request Control | False                                                        |
-| Allow Shared Notes                              | True                                                         |
-| Allow Whiteboard                                | True                                                         |
-| Allow Transcription                             | False                                                        |
-| Screen Sharing Mode                             | EntireScreen                                                 |
-| Allow PSTN Users to Bypass Lobby                | True                                                         |
-| Allow Organizers to Override Lobby Settings     | False                                                        |
-| Name                                            | Tag:Kiosk                                                    |
-| Description                                     | Not Configured                                               |
-| Allow Channel Meeting Scheduling                | False                                                        |
-| Allow Meet Now                                  | True                                                         |
-| Allow Private Meet Now                          | True                                                         |
-| Meeting Chat Enabled Type                       | Enabled                                                      |
-| Live Captions Enabled Type                      | Disabled                                                     |
-| Allow IP Video                                  | True                                                         |
-| Allow Anonymous Users to Dial Out               | False                                                        |
-| Allow Anonymous Users to Start Meeting          | False                                                        |
-| Allow Private Meeting Scheduling                | False                                                        |
-| Auto Admitted Users                             | EveryoneInCompany                                            |
-| Allow Cloud Recording                           | False                                                        |
-| Allow Outlook Add-in                            | False                                                        |
-| Allow PowerPoint Sharing                        | True                                                         |
-| Allow Participant Give/Request Control          | True                                                         |
-| Allow External Participant Give/Request Control | False                                                        |
-| Allow Shared Notes                              | True                                                         |
-| Allow Whiteboard                                | True                                                         |
-| Allow Transcription                             | False                                                        |
-| Screen Sharing Mode                             | EntireScreen                                                 |
-| Allow PSTN Users to Bypass Lobby                | True                                                         |
-| Allow Organizers to Override Lobby Settings     | False                                                        |
+| Meet now in channels                            | On                                                           |
+| Outlook add-in                                  | On                                                           |
+| Channel meeting scheduling                      | On                                                           |
+| Private meeting scheduling                      | On                                                           |
+| Engagement report                               | Enabled                                                      |
+| Meeting registration                            | On                                                           |
+| Who can register                                | Everyone                                                     |
+| Mode for IP audio                               | Outgoing and incoming audio enabled                          |
+| Mode for IP video                               | Outgoing and incoming video enabled                          |
+| IP video                                        | On                                                           |
+| Local broadcasting                              | Off                                                          |
+| Media bit rate (Kbs)                            | 50000                                                        |
+| Transcription                                   | Off                                                          |
+| Cloud recording                                 | On                                                           |
+| Store recordings outside of your country or region | Off                                                       |
+| Screen sharing mode                             | Entire screen                                                |
+| Allow a participant to give or request control  | On                                                           |
+| Allow an external participant to give or request control | Off                                                 |
+| PowerPoint sharing                              | On                                                           |
+| Whiteboard                                      | Off                                                          |
+| Shared notes                                    | On                                                           |
+| Select video filters                            | All filters                                                  |
+| Let anonymous people start a meeting            | Off                                                          |
+| Roles that have presenter rights in meetings    | Everyone, but user can override                              |
+| Automatically admit people                      | People in my organization                                    |
+| Allow dial-in users to bypass the lobby         | Off                                                          |
+| Meet now in private meetings                    | On                                                           |
+| Live captions                                   | Not enabled but the user can override                        |
+| Chat in meetings                                | Enabled                                                      |
 
 ### Messaging policy
 
-`Microsoft Teams Admin center > Messaging policies  `
+`Microsoft Teams Admin center > Messaging policies`
 
 The following table describes the Teams Messaging policy configuration settings for all implementation types.
 
@@ -1371,198 +1179,75 @@ The following table describes the Teams Messaging policy configuration settings 
 | ---------------------------------- | ----------------------------- |
 | Name                               | Global                        |
 | Description                        | Global Teams Messaging Policy |
-| Allow URL previews                 | True                          |
-| Allow Owner Delete Message         | True                          |
-| Allow User Edit Message            | True                          |
-| Allow User Delete Message          | True                          |
-| Allow User Chat                    | True                          |
-| Allow Remove User                  | True                          |
-| Allow Giphy                        | True                          |
-| Giphy Rating Type                  | Strict                        |
-| Allow Memes                        | False                         |
-| Allow Immersive Reader             | True                          |
-| Allow Stickers                     | False                         |
-| Allow User Translation             | True                          |
-| Allow User Translation             | True                          |
-| Allow Priority Messages            | True                          |
-| Channels in Chat List Enabled Type | DisabledUserOverride          |
-| Audio Message Enabled Type         | ChatsAndChannels              |
-| Name                               | Tag:Default                   |
-| Description                        | Not Configured                |
-| Allow URL previews                 | True                          |
-| Allow Owner Delete Message         | False                         |
-| Allow User Edit Message            | True                          |
-| Allow User Delete Message          | True                          |
-| Allow User Chat                    | True                          |
-| Allow Remove User                  | True                          |
-| Allow Giphy                        | True                          |
-| Giphy Rating Type                  | Moderate                      |
-| Allow Memes                        | True                          |
-| Allow Immersive Reader             | True                          |
-| Allow Stickers                     | True                          |
-| Allow User Translation             | False                         |
-| Allow User Translation             | False                         |
-| Allow Priority Messages            | True                          |
-| Channels in Chat List Enabled Type | DisabledUserOverride          |
-| Audio Message Enabled Type         | ChatsAndChannels              |
-| Name                               | Tag:EduFaculty                |
-| Description                        | Not Configured                |
-| Allow URL previews                 | True                          |
-| Allow Owner Delete Message         | True                          |
-| Allow User Edit Message            | True                          |
-| Allow User Delete Message          | True                          |
-| Allow User Chat                    | True                          |
-| Allow Remove User                  | True                          |
-| Allow Giphy                        | False                         |
-| Giphy Rating Type                  | Strict                        |
-| Allow Memes                        | True                          |
-| Allow Immersive Reader             | True                          |
-| Allow Stickers                     | True                          |
-| Allow User Translation             | False                         |
-| Allow User Translation             | False                         |
-| Allow Priority Messages            | True                          |
-| Channels in Chat List Enabled Type | DisabledUserOverride          |
-| Audio Message Enabled Type         | ChatsAndChannels              |
-| Name                               | Tag:EduStudent                |
-| Description                        | Not Configured                |
-| Allow URL previews                 | True                          |
-| Allow Owner Delete Message         | False                         |
-| Allow User Edit Message            | True                          |
-| Allow User Delete Message          | True                          |
-| Allow User Chat                    | True                          |
-| Allow Remove User                  | True                          |
-| Allow Giphy                        | False                         |
-| Giphy Rating Type                  | Strict                        |
-| Allow Memes                        | True                          |
-| Allow Immersive Reader             | True                          |
-| Allow Stickers                     | True                          |
-| Allow User Translation             | False                         |
-| Allow User Translation             | False                         |
-| Allow Priority Messages            | True                          |
-| Channels in Chat List Enabled Type | DisabledUserOverride          |
-| Audio Message Enabled Type         | ChatsAndChannels              |
+| Owners can delete sent messages    | On                            |
+| Delete sent messages               | On                            |
+| Edit sent messages                 | On                            |
+| Read receipts                      | User controlled               |
+| Chat                               | On                            |
+| Giphy in conversations             | Off                           |
+| Memes in conversations             | Off                           |
+| Stickers in conversations          | Off                           |
+| URL previews                       | On                            |
+| Translate messages                 | Off                           |
+| Immersive reader for messages      | On                            |
+| Send urgent messages using priority notifications | On             |
+| Create voice messages              | Allowed in chats and channels |
+| On mobile devices, display favorite channels above recent chats | Not enabled |
+| Remove users from group chats      | On                            |
+| Suggested replies                  | Off                           |
+| Chat permission role               | Restricted permissions        |
+| Users with full chat permissions can delete any message | Off      |
 
 ### Live events policies
 
-`Microsoft Teams Admin center > Meetings > Live events policies  `
+`Microsoft Teams admin center > Meetings > Live events policies`
 
 The following table describes the Teams Live events policy configuration settings for all implementation types.
 
-| Item                               | Configuration     |
-| ---------------------------------- | ----------------- |
-| Name                               | Global            |
-| Description                        | Not Configured    |
-| Allow Broadcast Scheduling         | True              |
-| Allow Broadcast Transcription      | False             |
-| Broadcast Attendee Visibility Mode | EveryoneInCompany |
-| Broadcast Record Mode              | AlwaysEnabled     |
-| Name                               | Tag:Default       |
-| Description                        | Not Configured    |
-| Allow Broadcast Scheduling         | True              |
-| Allow Broadcast Transcription      | False             |
-| Broadcast Attendee Visibility Mode | EveryoneInCompany |
-| Broadcast Record Mode              | AlwaysEnabled     |
+| Item                               | Configuration                |
+| ---------------------------------- | ---------------------------- |
+| Name                               | Global (Org-wide default)    |
+| Live events scheduling             | On                           |
+| Transcription for attendees        | Off                          |
+| Who can join scheduled live events | Everyone in the organization |
+| Who can record an event            | Always record                |
 
 ### External access settings
 
-`Microsoft Teams Admin center > Org-wide settings > External access  `
+`Microsoft Teams admin center > Users > External access`
 
 The following table describes the External access configuration settings for all implementation types.
 
 | Item                                                         | Configuration                               |
 | ------------------------------------------------------------ | ------------------------------------------- |
-| Users can communicate with other Skype for Business and Teams users | True                                        |
-| Users can communicate with Skype users                       | True                                        |
-| Add a domain (Allowed or Blocked domains)                    | *Agency allowed or blocked list of domains* |
+| Teams and Skype for Business users in external organizations | Allow only specific external domains        |
+| Add a domain (Allowed domains)                               | *Agency allowed list of domains*            |
+| Allow users in my organization to communicate with Skype users. | On                                       |
 
 ### Guest access settings
 
-`Microsoft Teams Admin center > Org-wide settings > Guest access  `
+`Microsoft Teams Admin center > Org-wide settings > Guest access`
 
 The following table describes the External access configuration settings for all implementation types.
 
 | Item                        | Configuration |
 | --------------------------- | ------------- |
-| Allow guest access in Teams | True          |
+| Allow guest access in Teams | On            |
+| Make private calls          | On            |
+| IP video                    | On            |
+| Screen sharing mode         | Entire screen |
+| Meet Now                    | On            |
+| Edit sent messages          | On            |
+| Delete sent messages        | On            |
+| Chat                        | On            |
+| Giphy in conversations      | Off           |
+| Memes in conversations      | Off           |
+| Stickers in conversations   | Off           |
+| Immersive reader for messages | On          |
 
 ## SharePoint Online & OneDrive
 
-The ABAC settings for the Agency SharePoint Online and OneDrive instances can be found below for all implementation types. This includes the Sharing Configuration, Access Control and SharePoint Settings. Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting.
-
-### Tenant configuration
-
-The SharePoint tenant configuration can be retrieved (and set) using SharePoint Online PowerShell.
-
-```powershell
-#Set SharePoint Online Admin Center URL, replace <agency> with tenant name
-$AdminSiteURL="https://<agency>-admin.sharepoint.com"
-
-#Connect to SharePoint Online Admin Center
-Connect-SPOService -Url $AdminSiteURL
-
-#Get Tenant Settings
-Get-SPOTenant
-```
-
-The following table describes the SharePoint Online Tenant configuration settings for all implementation types. 
-
-| Item                                                | Configuration                                    |
-| --------------------------------------------------- | ------------------------------------------------ |
-| Storage quota                                       | 1025048576                                       |
-| Storage quota allocated                             | 104857600                                        |
-| Resource quota                                      | 20000300                                         |
-| Resource quota allocated                            | 300                                              |
-| External services enabled                           | False                                            |
-| No access redirect URL                              | Not Configured                                   |
-| Sharing Capability                                  | Disabled                                         |
-| Display start a site option                         | False                                            |
-| Start a site form URL                               | Not Configured                                   |
-| Office client ADAL Disabled                         | False                                            |
-| Legacy authentication protocols enabled             | False                                            |
-| Search resolve exact email or UPN                   | False                                            |
-| Require accepting account match invited account     | True                                             |
-| Provision shared with everyone folder               | False                                            |
-| Bcc external sharing invitations                    | False                                            |
-| Bcc external sharing invitation list                |                                                  |
-| User Voice for feedback enabled                     | False                                            |
-| Public CDN enabled                                  | False                                            |
-| Public CDN allowed file types                       | CSS,EOT,GIF,ICO,JPEG,JPG,JS,MAP,PNG,SVG,TTF,WOFF |
-| Public CDN origins                                  | Not Configured                                   |
-| Require anonymous links expiration in days          | 14                                               |
-| Sharing allowed domain list                         | Not Configured                                   |
-| Sharing blocked domain list                         | Not Configured                                   |
-| Sharing domain restriction mode                     | None                                             |
-| IP address enforcement                              | False                                            |
-| IP address allow list                               | Not Configured                                   |
-| IP address WAC token lifetime                       | 15                                               |
-| Use find people in people picker                    | False                                            |
-| Default sharing link type                           | Internal                                         |
-| ODB members can share                               | Off                                              |
-| ODB access requests                                 | Off                                              |
-| Prevent external users from resharing               | True                                             |
-| File anonymous link type                            | Edit                                             |
-| Folder anonymous link type                          | Edit                                             |
-| Notify owners when items are reshared               | True                                             |
-| Notify owners when invitations accepted             | True                                             |
-| Notifications in OneDrive for business enabled      | True                                             |
-| Notifications in SharePoint enabled                 | True                                             |
-| Special characters state in file folder names       | Allowed                                          |
-| Owner anonymous notification                        | True                                             |
-| Comments on site pages disabled                     | False                                            |
-| Comments on files disabled                          | False                                            |
-| Social bar on site pages disabled                   | True                                             |
-| Orphaned personal site retention period             | 365                                              |
-| Disallow infected file download                     | True                                             |
-| Default link permission                             | None                                             |
-| Allow downloading nonweb viewable files             | False                                            |
-| Limited access file type                            | WebPreviewableFiles                              |
-| Apply app enforced restrictions to adhoc recipients | True                                             |
-| File picker external image search enabled           | True                                             |
-| Email attestation required                          | False                                            |
-| Email attestation reauth days                       | 30                                               |
-| Sync privacy profile properties                     | True                                             |
-| Mark new files sensitive by default                 | AllowExternalSharing                             |
-| Enable AIP integration                              | False                                            |
+The ABAC settings for the Agency SharePoint Online and OneDrive instances can be found below for all implementation types. This includes the Sharing configuration, Access Control and SharePoint & OneDrive settings. Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting.
 
 ### Sharing
 
@@ -1575,13 +1260,14 @@ The following table describes the SharePoint Online Tenant configuration setting
   ```
 * Limit external sharing by domain:
   ```
-  Agency.gov.au
+  <Agency>.gov.au
   <other trusted Agencies>
   ```
 * Allow only users in specific security groups to share externally: `False`
 * Guests must sign in using the same account to which sharing invitations are sent: `True`
 * Allow guests to share items they don’t own: `False`
-* People who use a verification code must reauthenticate after this many days : `Not configured`
+* Guest access to a site or OneDrive will expire automatically after this many minutes: `Not configured`
+* People who use a verification code must reauthenticate after this many days: `Not configured`
 
 `SharePoint admin center > Policies > Sharing > File and Folder links`
 
@@ -1598,7 +1284,9 @@ The following table describes the SharePoint Online Tenant configuration setting
 
 `SharePoint admin center > Policies > Access control > Unmanaged devices`
 
-* Allow access from unmanaged devices: `Block access`
+* Allow access from unmanaged devices: `Allow full access from desktop apps, mobile apps, and the web`
+
+Note, restrictions for unmnaged devices are defined by Conditional Access policies as described in the Platform ABAC.
 
 `SharePoint admin center > Policies > Access control > Idle session sign-out`
 
@@ -1616,29 +1304,48 @@ The following table describes the SharePoint Online Tenant configuration setting
 
 ### SharePoint settings
 
-`SharePoint admin center > Settings > Default admin center`
+`SharePoint admin center > Settings > SharePoint > Default admin center`
 
-* New SharePoint admin center: `True`
+* Default admin center: `New SharePoint admin center`
 
-`SharePoint admin center > Settings > Pages`
+`SharePoint admin center > Settings > SharePoint > Notifications`
 
-* Allow users to create new modern pages on sites that don’t already have site pages: `True`
+* Allow notifications: `True`
+
+`SharePoint admin center > Settings > SharePoint > Pages`
+
+* Allow users to create new modern pages: `True`
 * Allow commenting on modern pages : `True`
 
-`SharePoint admin center > Settings > SharePoint notifications`
-
-* Allow notifications: `True `
-
-`SharePoint admin center > Settings > Site creation`
+`SharePoint admin center > Settings > SharePoint > Site creation`
 
 * Let users create sites from the SharePoint start page and OneDrive: `False`
-* Create team sites under: `https://<Agency>.sharepoint.com/sites/`
+* Create team sites under: `/sites/`
 * Default time zone : `(UTC+10:00) Canberra, Melbourne, Sydney`
-* Default storage limit for new sites: `200 GB`
 
-`SharePoint admin center > Settings > Site storage limits`
+`SharePoint admin center > Settings > SharePoint > Site storage limits`
 
-Share storage among all sites or control storage limits: `Manual`
+* Site storage limits: `Automatic`
+
+### OneDrive settings
+
+`SharePoint admin center > Settings > OneDrive > Notifications`
+
+* Allow notifications: `True`
+
+`SharePoint admin center > Settings > OneDrive > Retention`
+
+* Days to retain a deleted user's OneDrive: `365`
+
+`SharePoint admin center > Settings > OneDrive > Default storage limit`
+
+* Default storage limit : `1024 GB`
+
+`SharePoint admin center > Settings > OneDrive > Sync`
+
+* Show the Sync button on the OneDrive website: `True`
+* Allow syncing only on computers joined to specific domains: `False`
+* Block upload of specific file types: `False`
 
 ## Security and compliance
 
@@ -1646,7 +1353,7 @@ The ABAC settings for the Agency Office 365 Security and Compliance instance can
 
 ### Audit logging
 
-`Microsoft 365 compliance > Audit > Audit Retention Policies`
+`Microsoft 365 compliance > Audit > Audit retention policies`
 
 * Enabled: `True`
 * Policy name: `10 year audit log`
@@ -1710,165 +1417,238 @@ The following table describes the Retention labels configuration settings for al
 
 ### Retention labels
 
-`Office 365 Security & compliance > Information governance > Labels`
+`Microsoft 365 compliance > Information governance > Labels`
 
-Not Configured
+Not configured.
 
 ### Sensitivity labels
 
-`Microsoft 365 compliance > Information Protection > Labels`
+`Microsoft 365 compliance > Information protection > Labels`
 
 The following tables describe the sensitivity label configuration settings for all implementation types.
 
-#### Unofficial
+#### UNOFFICIAL
 
-The following table lists the sensitivity label policy configuration for Unofficial.
+The following table lists the sensitivity label configuration for UNOFFICIAL.
 
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
 | Name                  | UNOFFICIAL                                                   |
-| Description for Users | No damage. This information does not form part of official duty. |
+| Description for users | No damage. This information does not form part of official duty. |
 | Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content: Checked<br>Encrypt files and emails: Unchecked<br>Apply a header: Checked<br>Customize text: UNOFFICIAL<br>Apply a footer: Checked<br>Font site: 10<br>Font color: Red<br>Align text: Center |
+| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: UNOFFICIAL<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: UNOFFICIAL<br>Font site: 12<br>Font color: Red<br>Align text: Center |
 
-#### Official
+#### OFFICIAL
 
-The following table lists the sensitivity label policy configuration for Official.
+The following table lists the sensitivity label configuration for OFFICIAL.
 
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
 | Name                  | OFFICIAL                                                     |
-| Description for Users | 1 No or insignificant damage. This is the majority of routine information. |
+| Description for users | No or insignificant damage. This is the majority of routine information. |
 | Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content: Checked<br>Encrypt files and emails: Unchecked<br>Apply a header: Checked<br>Customize text: OFFICIAL<br>Apply a footer: Checked<br>Font site: 10<br>Font color: Red<br>Align text: Center |
+| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: OFFICIAL<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: OFFICIAL<br>Font site: 12<br>Font color: Red<br>Align text: Center |
 
-#### Official Sensitive
+#### OFFICIAL: Sensitive
 
-The following table lists the sensitivity label policy configuration for Official Sensitive.
+The following table lists the sensitivity label configuration for OFFICIAL Sensitive.
 
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
 | Name                  | OFFICIAL Sensitive                                           |
-| Description for Users | 2 Low to medium business impact. Limited damage <br>to an individual, organisation or government generally if compromised |
+| Description for users | Low to medium business impact. Limited damage <br>to an individual, organisation or government generally if compromised |
 | Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content: Checked<br>Encrypt files and emails: Unchecked<br>Apply a header: Checked<br>Customize text: OFFICIAL: Sensitive<br>Apply a footer: Checked<br>Font site: 10<br>Font color: Red<br>Align text: Center |
+| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: OFFICIAL: Sensitive<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: OFFICIAL: Sensitive<br>Font site: 12<br>Font color: Red<br>Align text: Center |
 
-The following table lists the sensitivity label policy configuration for Official Sensitive (ACCESS=Legal-Privilege).
+The following table lists the sensitivity sub label configuration for OFFICIAL Sensitive (ACCESS=Legal-Privilege).
 
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
 | Name                  | OFFICIAL Sensitive ACCESS=Legal-Privilege                    |
-| Description for Users | 2 Low to medium business impact. Limited damage <br>to an individual, organisation or government generally if compromised |
+| Description for users | Low to medium business impact. Limited damage <br>to an individual, organisation or government generally if compromised |
 | Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content: Checked<br>Encrypt files and emails: Unchecked<br>Apply a header: Checked<br>Customize text: OFFICIAL: Sensitive ACCESS=Legal-Privilege<br>Apply a footer: Checked<br>Font site: 10<br>Font color: Red<br>Align text: Center |
+| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: OFFICIAL: Sensitive // Legal-Privilege<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: OFFICIAL: Sensitive // Legal-Privilege<br>Font site: 12<br>Font color: Red<br>Align text: Center |
 
-The following table lists the sensitivity label policy configuration for Official Sensitive (ACCESS=Legislative-Secrecy).
+The following table lists the sensitivity sub label configuration for OFFICIAL Sensitive (ACCESS=Legislative-Secrecy).
 
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
 | Name                  | OFFICIAL Sensitive ACCESS=Legislative-Secrecy                |
-| Description for Users | 2 Low to medium business impact. Limited damage <br>to an individual, organisation or government generally if compromised |
+| Description for users | Low to medium business impact. Limited damage <br>to an individual, organisation or government generally if compromised |
 | Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content: Checked<br>Encrypt files and emails: Unchecked<br>Apply a header: Checked<br>Customize text: OFFICIAL: Sensitive ACCESS=Legislative-Secrecy<br>Apply a footer: Checked<br>Font site: 10<br>Font color: Red<br>Align text: Center |
+| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: OFFICIAL: Sensitive // Legislative-Secrecy<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: OFFICIAL: Sensitive // Legislative-Secrecy<br>Font site: 12<br>Font color: Red<br>Align text: Center |
 
-The following table lists the sensitivity label policy configuration for Official Sensitive (ACCESS=Personal-Privacy).
+The following table lists the sensitivity sub label configuration for OFFICIAL Sensitive (ACCESS=Personal-Privacy).
 
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
 | Name                  | OFFICIAL Sensitive ACCESS=Personal-Privacy                   |
-| Description for Users | 2 Low to medium business impact. Limited damage <br>to an individual, organisation or government generally if compromised |
+| Description for users | Low to medium business impact. Limited damage <br>to an individual, organisation or government generally if compromised |
 | Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content: Checked<br>Encrypt files and emails: Unchecked<br>Apply a header: Checked<br>Customize text: OFFICIAL: Sensitive ACCESS=Personal-Privacy<br>Apply a footer: Checked<br>Font site: 10<br>Font color: Red<br>Align text: Center |
+| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: OFFICIAL: Sensitive // Personal-Privacy<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: OFFICIAL: Sensitive // Personal-Privacy<br>Font site: 12<br>Font color: Red<br>Align text: Center |
 
-#### Protected
+The following table lists the sensitivity sub label configuration for Official Sensitive (CAVEAT=SH NATIONAL-CABINET).
 
-The following table lists the sensitivity label policy configuration for Protected.
+| Item                  | Configuration                                                |
+| --------------------- | ------------------------------------------------------------ |
+| Name                  | OFFICIAL Sensitive CAVEAT=SH NATIONAL CABINET                |
+| Description for users | Low to medium business impact. Limited damage <br>to an individual, organisation or government generally if compromised |
+| Scope                 | Files & Emails                                               |
+| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: OFFICIAL: Sensitive // CAVEAT=SH NATIONAL-CABINET<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: OFFICIAL: Sensitive // CAVEAT=SH NATIONAL-CABINET<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+
+The following table lists the sensitivity sub label configuration for OFFICIAL Sensitive (ACCESS=Legal-Privilege CAVEAT=SH NATIONAL-CABINET).
+
+| Item                  | Configuration                                                |
+| --------------------- | ------------------------------------------------------------ |
+| Name                  | OFFICIAL Sensitive ACCESS=Legal-Privilege CAVEAT=SH NATIONAL-CABINET |
+| Description for users | Low to medium business impact. Limited damage <br>to an individual, organisation or government generally if compromised |
+| Scope                 | Files & Emails                                               |
+| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: OFFICIAL: Sensitive // CAVEAT=SH NATIONAL-CABINET // Legal-Privilege<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: OFFICIAL: Sensitive // CAVEAT=SH NATIONAL-CABINET // Legal-Privilege<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+
+The following table lists the sensitivity sub label configuration for OFFICIAL Sensitive (ACCESS=Legislative-Secrecy CAVEAT=SH NATIONAL-CABINET).
+
+| Item                  | Configuration                                                |
+| --------------------- | ------------------------------------------------------------ |
+| Name                  | OFFICIAL Sensitive ACCESS=Legislative-Secrecy CAVEAT=SH NATIONAL-CABINET |
+| Description for users | Low to medium business impact. Limited damage <br>to an individual, organisation or government generally if compromised |
+| Scope                 | Files & Emails                                               |
+| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: OFFICIAL: Sensitive // CAVEAT=SH NATIONAL-CABINET // Legislative-Secrecy<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: OFFICIAL: Sensitive // CAVEAT=SH NATIONAL-CABINET // Legislative-Secrecy<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+
+The following table lists the sensitivity sub label configuration for OFFICIAL Sensitive (ACCESS=Personal-Privacy CAVEAT=SH NATIONAL-CABINET).
+
+| Item                  | Configuration                                                |
+| --------------------- | ------------------------------------------------------------ |
+| Name                  | OFFICIAL Sensitive ACCESS=Personal-Privacy CAVEAT=SH NATIONAL-CABINET |
+| Description for users | Low to medium business impact. Limited damage <br>to an individual, organisation or government generally if compromised |
+| Scope                 | Files & Emails                                               |
+| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: OFFICIAL: Sensitive // CAVEAT=SH NATIONAL-CABINET // Personal-Privacy<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: OFFICIAL: Sensitive // CAVEAT=SH NATIONAL-CABINET // Personal-Privacy<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+
+#### PROTECTED
+
+The following table lists the sensitivity label configuration for PROTECTED.
 
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
 | Name                  | PROTECTED                                                    |
-| Description for Users | 3 High business impact. Damage to the national<br> interest, organisations or individuals. |
+| Description for users | High business impact. Damage to the national<br> interest, organisations or individuals. |
 | Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content: Checked<br>Encrypt files and emails: Unchecked<br>Apply a header: Checked<br>Customize text: PROTECTED<br>Apply a footer: Unchecked<br>Font site: 10<br>Font color: Red<br>Align text: Center |
+| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: PROTECTED<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: PROTECTED<br>Font site: 12<br>Font color: Red<br>Align text: Center |
 
-The following table lists the sensitivity label policy configuration for Protected (ACCESS=Legal-Privilege).
+The following table lists the sensitivity sub label configuration for PROTECTED (ACCESS=Legal-Privilege).
 
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
 | Name                  | PROTECTED ACCESS=Legal-Privilege                             |
-| Description for Users | 3 High business impact. Damage to the national<br> interest, organisations or individuals. |
+| Description for users | High business impact. Damage to the national<br> interest, organisations or individuals. |
 | Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content: Checked<br>Encrypt files and emails: Unchecked<br>Apply a header: Checked<br>Customize text: PROTECTED ACCESS=Legal-Privilege<br>Apply a footer: Unchecked<br>Font site: 10<br>Font color: Red<br>Align text: Center |
+| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: PROTECTED // Legal-Privilege  <br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: PROTECTED // Legal-Privilege  <br>Font site: 12<br>Font color: Red<br>Align text: Center |
 
-The following table lists the sensitivity label policy configuration for Protected (ACCESS=Legislative-Secrecy).
+The following table lists the sensitivity sub label configuration for PROTECTED (ACCESS=Legislative-Secrecy).
 
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
 | Name                  | PROTECTED ACCESS=Legislative-Secrecy                         |
-| Description for Users | 3 High business impact. Damage to the national<br> interest, organisations or individuals. |
+| Description for users | High business impact. Damage to the national<br> interest, organisations or individuals. |
 | Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content: Checked<br>Encrypt files and emails: Unchecked<br>Apply a header: Checked<br>Customize text: PROTECTED ACCESS=Legislative-Secrecy<br>Apply a footer: Unchecked<br>Font site: 10<br>Font color: Red<br>Align text: Center |
+| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: PROTECTED // Legislative-Secrecy <br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: PROTECTED // Legislative-Secrecy <br>Font site: 12<br>Font color: Red<br>Align text: Center |
 
-The following table lists the sensitivity label policy configuration for Protected (ACCESS=Personal-Privacy).
+The following table lists the sensitivity sub label configuration for PROTECTED (ACCESS=Personal-Privacy).
 
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
 | Name                  | PROTECTED ACCESS=Personal-Privacy                            |
-| Description for Users | 3 High business impact. Damage to the national<br> interest, organisations or individuals. |
+| Description for users | High business impact. Damage to the national<br> interest, organisations or individuals. |
 | Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content: Checked<br>Encrypt files and emails: Unchecked<br>Apply a header: Checked<br>Customize text: PROTECTED ACCESS=Personal-Privacy<br>Apply a footer: Unchecked<br>Font site: 10<br>Font color: Red<br>Align text: Center |
+| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: PROTECTED // Personal-Privacy<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: PROTECTED // Personal-Privacy<br>Font site: 12<br>Font color: Red<br>Align text: Center |
 
-The following table lists the sensitivity label policy configuration for Protected (CAVEAT=SH CABINET).
+The following table lists the sensitivity sub label configuration for PROTECTED (CAVEAT=SH NATIONAL-CABINET).
+
+| Item                  | Configuration                                                |
+| --------------------- | ------------------------------------------------------------ |
+| Name                  | PROTECTED CAVEAT=SH NATIONAL CABINET                         |
+| Description for users | High business impact. Damage to the national<br> interest, organisations or individuals. |
+| Scope                 | Files & Emails                                               |
+| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: PROTECTED // CAVEAT=SH NATIONAL-CABINET<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: PROTECTED // CAVEAT=SH NATIONAL-CABINET<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+
+The following table lists the sensitivity sub label configuration for PROTECTED (ACCESS=Legal-Privilege CAVEAT=SH NATIONAL CABINET).
+
+| Item                  | Configuration                                                |
+| --------------------- | ------------------------------------------------------------ |
+| Name                  | PROTECTED ACCESS=Legal-Privilege CAVEAT=SH NATIONAL CABINET           |
+| Description for users | High business impact. Damage to the national<br> interest, organisations or individuals. |
+| Scope                 | Files & Emails                                               |
+| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: PROTECTED // CAVEAT=SH NATIONAL-CABINET // Legal-Privilege<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: PROTECTED // CAVEAT=SH NATIONAL-CABINET // Legal-Privilege<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+
+The following table lists the sensitivity sub label configuration for PROTECTED (ACCESS=Legislative-Secrecy CAVEAT=SH NATIONAL CABINET).
+
+| Item                  | Configuration                                                |
+| --------------------- | ------------------------------------------------------------ |
+| Name                  | PROTECTED ACCESS=Legislative-Secrecy CAVEAT=SH NATIONAL CABINET       |
+| Description for users | High business impact. Damage to the national<br> interest, organisations or individuals. |
+| Scope                 | Files & Emails                                               |
+| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: PROTECTED // CAVEAT=SH NATIONAL-CABINET // Legislative-Secrecy<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: PROTECTED // CAVEAT=SH NATIONAL-CABINET // Legislative-Secrecy<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+
+The following table lists the sensitivity sub label configuration for PROTECTED (ACCESS=Personal-Privacy CAVEAT=SH NATIONAL CABINET).
+
+| Item                  | Configuration                                                |
+| --------------------- | ------------------------------------------------------------ |
+| Name                  | PROTECTED ACCESS=Personal-Privacy CAVEAT=SH NATIONAL CABINET          |
+| Description for users | High business impact. Damage to the national<br> interest, organisations or individuals. |
+| Scope                 | Files & Emails                                               |
+| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: PROTECTED // CAVEAT=SH NATIONAL-CABINET // Personal-Privacy<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: PROTECTED // CAVEAT=SH NATIONAL-CABINET // Personal-Privacy<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+
+The following table lists the sensitivity sub label configuration for PROTECTED (CAVEAT=SH CABINET).
 
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
 | Name                  | PROTECTED CAVEAT=SH CABINET                                  |
-| Description for Users | 3 High business impact. Damage to the national<br> interest, organisations or individuals. |
+| Description for users | High business impact. Damage to the national<br> interest, organisations or individuals. |
 | Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content: Checked<br>Encrypt files and emails: Unchecked<br>Apply a header: Checked<br>Customize text: PROTECTED CAVEAT=SH CABINET<br>Apply a footer: Unchecked<br>Font site: 10<br>Font color: Red<br>Align text: Center |
+| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: PROTECTED // CAVEAT=SH CABINET<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: PROTECTED // CAVEAT=SH CABINET<br>Font site: 12<br>Font color: Red<br>Align text: Center |
 
-The following table lists the sensitivity label policy configuration for Protected (ACCESS=Legal-Privilege CAVEAT=SH CABINET).
+The following table lists the sensitivity sub label configuration for PROTECTED (ACCESS=Legal-Privilege CAVEAT=SH CABINET).
 
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
 | Name                  | PROTECTED ACCESS=Legal-Privilege CAVEAT=SH CABINET           |
-| Description for Users | 3 High business impact. Damage to the national<br> interest, organisations or individuals. |
+| Description for users | High business impact. Damage to the national<br> interest, organisations or individuals. |
 | Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content: Checked<br>Encrypt files and emails: Unchecked<br>Apply a header: Checked<br>Customize text: PROTECTED ACCESS=Legal-Privilege <br>CAVEAT=SH CABINET<br>Apply a footer: Unchecked<br>Font site: 10<br>Font color: Red<br>Align text: Center |
+| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: PROTECTED // CAVEAT=SH CABINET // Legal-Privilege<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: PROTECTED // CAVEAT=SH CABINET // Legal-Privilege<br>Font site: 12<br>Font color: Red<br>Align text: Center |
 
-The following table lists the sensitivity label policy configuration for Protected (ACCESS=Legislative-Secrecy CAVEAT=SH CABINET).
+The following table lists the sensitivity sub label configuration for PROTECTED (ACCESS=Legislative-Secrecy CAVEAT=SH CABINET).
 
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
 | Name                  | PROTECTED ACCESS=Legislative-Secrecy CAVEAT=SH CABINET       |
-| Description for Users | 3 High business impact. Damage to the national<br> interest, organisations or individuals. |
+| Description for users | High business impact. Damage to the national<br> interest, organisations or individuals. |
 | Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content: Checked<br>Encrypt files and emails: Unchecked<br>Apply a header: Checked<br>Customize text: PROTECTED ACCESS=Legislative-Secrecy <br>CAVEAT=SH CABINET<br>Apply a footer: Unchecked<br>Font site: 10<br>Font color: Red<br>Align text: Center |
+| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: PROTECTED // CAVEAT=SH CABINET // Legal-Privilege<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: PROTECTED // CAVEAT=SH CABINET // Legal-Privilege<br>Font site: 12<br>Font color: Red<br>Align text: Center |
 
-The following table lists the sensitivity label policy configuration for Protected (ACCESS=Personal-Privacy CAVEAT=SH CABINET).
+The following table lists the sensitivity sub label configuration for PROTECTED (ACCESS=Personal-Privacy CAVEAT=SH CABINET).
 
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
 | Name                  | PROTECTED ACCESS=Personal-Privacy CAVEAT=SH CABINET          |
-| Description for Users | 3 High business impact. Damage to the national<br> interest, organisations or individuals. |
+| Description for users | High business impact. Damage to the national<br> interest, organisations or individuals. |
 | Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content: Checked<br>Encrypt files and emails: Unchecked<br>Apply a header: Checked<br>Customize text: PROTECTED ACCESS=Personal-Privacy <br>CAVEAT=SH CABINET<br>Apply a footer: Unchecked<br>Font site: 10<br>Font color: Red<br>Align text: Center |
+| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: PROTECTED // CAVEAT=SH CABINET // Personal-Privacy<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: PROTECTED // CAVEAT=SH CABINET // Personal-Privacy<br>Font site: 12<br>Font color: Red<br>Align text: Center |
 
 ### Sensitivity label policy
 
 Please note, the user may only need to publish the sensitivity labels (sensitivity, security classification, information management markers and caveats) that are required for the organisation or agency.
 
-`Microsoft 365 Security Center > Classification > Sensitivity labels > Label policies> agency acronym sensitivity labels`
+`Microsoft 365 compliance > Information protection > Label policies`
 
 The following table lists the Sensitivity label policy configuration for all implementation types.
 
 | Item             | Configuration                                                |
 | ---------------- | ------------------------------------------------------------ |
-| Name             | agency acronym sensitivity labels                            |
-| Description      | Default sensitivity labels based on [PSPF infosec document](https://www.protectivesecurity.gov.au/sites/default/files/2019-12/pspf-infosec-08-sensitive-classified-information.pdf) |
-| Published Labels | UNOFFICIAL<br>OFFICIAL<br>OFFICIAL Sensitive<br>OFFICIAL Sensitive ACCESS=Legal-Privilege<br>OFFICIAL Sensitive ACCESS=Legislative-Secrecy<br>OFFICIAL Sensitive ACCESS=Personal-Privacy<br>PROTECTED<br>PROTECTED ACCESS=Legal-Privilege<br>PROTECTED ACCESS=Legislative-Secrecy<br>PROTECTED ACCESS=Personal-Privacy<br>PROTECTED CAVEAT=SH CABINET<br>PROTECTED ACCESS=Legal-Privilege CAVEAT=SH CABINET<br>PROTECTED ACCESS=Legislative-Secrecy CAVEAT=SH CABINET<br>PROTECTED ACCESS=Personal-Privacy CAVEAT=SH CABINET |
+| Name             | Sensitivity labels policy                                    |
+| Description      | Default sensitivity labels based on [PSPF infosec document](https://www.protectivesecurity.gov.au/system/files/2021-06/pspf-policy-8-sensitive-and-classified-information_1.pdf)       |
+| Published Labels | UNOFFICIAL<br>OFFICIAL<br>OFFICIAL Sensitive<br>OFFICIAL Sensitive ACCESS=Legal-Privilege<br>OFFICIAL Sensitive ACCESS=Legislative-Secrecy<br>OFFICIAL Sensitive ACCESS=Personal-Privacy<br>OFFICIAL Sensitive CAVEAT=SH NATIONAL CABINET<br>OFFICIAL Sensitive ACCESS=Legal-Privilege CAVEAT=SH NATIONAL CABINET<br>OFFICIAL Sensitive ACCESS=Legislative-Secrecy CAVEAT=SH NATIONAL CABINET<br>OFFICIAL Sensitive ACCESS=Personal-Privacy CAVEAT=SH NATIONAL CABINET<br>PROTECTED<br>PROTECTED ACCESS=Legal-Privilege<br>PROTECTED ACCESS=Legislative-Secrecy<br>PROTECTED ACCESS=Personal-Privacy<br>PROTECTED CAVEAT=SH NATIONAL CABINET<br>PROTECTED ACCESS=Legal-Privilege CAVEAT=SH NATIONAL CABINET<br>PROTECTED ACCESS=Legislative-Secrecy CAVEAT=SH NATIONAL CABINET<br>PROTECTED ACCESS=Personal-Privacy CAVEAT=SH NATIONAL CABINET<br>PROTECTED CAVEAT=SH CABINET<br>PROTECTED ACCESS=Legal-Privilege CAVEAT=SH CABINET<br>PROTECTED ACCESS=Legislative-Secrecy CAVEAT=SH CABINET<br>PROTECTED ACCESS=Personal-Privacy CAVEAT=SH CABINET           |
 | Published to     | All                                                          |
-| Policy settings  | Label is mandatory<br>Users must provide justification to remove a label or lower its classification |
+| Policy settings  | Users must provide a justification to remove a label or lower its classification: Checked<br>Require users to apply a label to their emails and documents: Checked                              |
+| Default label    | Apply this default label to documents: None<br>Apply this default label to emails: None<br>Require users to apply a label to their emails: Checked<br>Apply this default label to Power BI content: None |
 
 ### Data Loss Prevention (DLP) compliance policy
 
@@ -1877,209 +1657,61 @@ The ABAC settings for the initial Data Loss Prevention configuration for all imp
 `Microsoft 365 compliance > Data loss prevention > Policies`
 
 * Name: `Australia Privacy Act`
-  * Enabled: `True`
-  * Locations: `Exchange, SharePoint, OneDriveForBusiness, Teams`
-  * Mode: `Enable`
-  * Type: `DLP`
+  * Status: `On`
+  * Description: `Helps detect the presence of information commonly considered to be subject to the privacy act in Australia, like driver's license and passport number.`
   * Content Types: `Australian Driver's License number, Australian Passport Number`
-  * Exchange Location:
-    * DisplayName: `All`
-    * Name: `All`
-    * ImmutableIdentity: `All`
-    * Type: `Tenant`
-    * Workload: `Exchange`
-    * SchemaVersion: `2`
-  * SharePoint Location:
-    * DisplayName: `All`
-    * Name: `All`
-    * ImmutableIdentity: `All`
-    * Type: `Tenant`
-    * Workload: `SharePoint`
-    * SchemaVersion: `2`
-  * SharePoint Location Exception: `Not Configured`
-  * OneDrive Location:
-    * DisplayName: `All`
-    * Name: `All`
-    * ImmutableIdentity: `All`
-    * Type: `Tenant`
-    * Workload: `OneDriveForBusiness`
-    * SchemaVersion: `2`
-  * OneDrive Location Exception: `Not Configured`
-  * Exchange On-Premises Location: `Not Configured`
-  * SharePoint On-Premises Location: `Not Configured`
-  * SharePoint On-Premises Location Exception: `Not Configured`
-  * Teams Location: 
-    * DisplayName: `All`
-    * Name: `All`
-    * ImmutableIdentity: `All`
-    * Type: `Tenant`
-    * Workload: `Teams`
-    * SchemaVersion: `2`
-  * Teams Location Exception: `Not Configured`
-  * Exchange Sender: `Not Configured`
-  * Exchange Sender Member Of: `Not Configured`
-  * Exchange Sender Exception: `Not Configured`
-  * Exchange Sender Member Of Exception: `Not Configured`
+  * Locations to apply the policy:
+    * Exchange email: `All, no exclusions`
+    * SharePoint site: `All, no exclusions`
+    * OneDrive accounts: `All, no exclusions`
+    * Teams chat and channel messages: `All, no exclusions`
+  * Policy settings:
+    * Low volume: `Low volume of content detected Australia Privacy Act (default template)`
+    * High voume: `High volume of content detected Australia Privacy Act (default template)`
 * Name: `Australia Personally Identifiable Information (PII) Data`
-  * Enabled: `True`
-  * Workload: `Exchange, SharePoint, OneDriveForBusiness, Teams`
-  * Mode: `Enable`
-  * Type: `DLP`
+  * Status: `On`
+  * Description: `Helps detect the presence of information commonly considered to be personally identifiable information (PII) in Australia, like tax file number and driver's license.`
   * Content Types: `Australian Driver's License number, Australian Tax File Number`
-  * Exchange Location:
-    * DisplayName: `All`
-    * Name: `All`
-    * ImmutableIdentity: `All`
-    * Type: `Tenant`
-    * Workload: `Exchange`
-    * SchemaVersion: `2`
-  * SharePoint Location:
-    * DisplayName: `All`
-    * Name: `All`
-    * ImmutableIdentity: `All`
-    * Type: `Tenant`
-    * Workload: `SharePoint`
-    * SchemaVersion: `2`
-  * SharePoint Location Exception: `Not Configured`
-  * OneDrive Location:
-    * DisplayName: `All`
-    * Name: `All`
-    * ImmutableIdentity: `All`
-    * Type: `Tenant`
-    * Workload: `OneDriveForBusiness`
-    * SchemaVersion: `2`
-  * OneDrive Location Exception: `Not Configured`
-  * Exchange On-Premises Location: `Not Configured`
-  * SharePoint On-Premises Location: `Not Configured`
-  * SharePoint On-Premises Location Exception: `Not Configured`
-  * Teams Location: 
-    * DisplayName: `All`
-    * Name: `All`
-    * ImmutableIdentity: `All`
-    * Type: `Tenant`
-    * Workload: `Teams`
-    * SchemaVersion: `2`
-  * Teams Location Exception: `Not Configured`
-  * Exchange Sender: `Not Configured`
-  * Exchange Sender Member Of: `Not Configured`
-  * Exchange Sender Exception: `Not Configured`
-  * Exchange Sender Member Of Exception: `Not Configured`
+  * Locations to apply the policy:
+    * Exchange email: `All, no exclusions`
+    * SharePoint site: `All, no exclusions`
+    * OneDrive accounts: `All, no exclusions`
+    * Teams chat and channel messages: `All, no exclusions`
+  * Policy settings:
+    * Low volume: `Low volume of content detected Australia Personally Identifiabl (default template)`
+    * High voume: `High volume of content detected Australia Personally Identifiab (default template)`
 * Name: `Australia Health Records Act (HRIP Act)`
-  * Enabled: `True`
-  * Workload: `Exchange, SharePoint, OneDriveForBusiness, Teams`
-  * Mode: `Enable`
-  * Type: `DLP`
+  * Status: `On`
+  * Description: `Helps detect the presence of information commonly considered to be subject to the Health Records and Information Privacy (HRIP) act in Australia, like medical account number and tax file number.`
   * Content Types: `Australian Tax File Number, Australian Medical Account Number`
-  * Exchange Location:
-    * DisplayName: `All`
-    * Name: `All`
-    * ImmutableIdentity: `All`
-    * Type: `Tenant`
-    * Workload: `Exchange`
-    * SchemaVersion: `2`
-  * SharePoint Location:
-    * DisplayName: `All`
-    * Name: `All`
-    * ImmutableIdentity: `All`
-    * Type: `Tenant`
-    * Workload: `SharePoint`
-    * SchemaVersion: `2`
-  * SharePoint Location Exception: `Not Configured`
-  * OneDrive Location:
-    * DisplayName: `All`
-    * Name: `All`
-    * ImmutableIdentity: `All`
-    * Type: `Tenant`
-    * Workload: `OneDriveForBusiness`
-    * SchemaVersion: `2`
-  * OneDrive Location Exception: `Not Configured`
-  * Exchange On-Premises Location: `Not Configured`
-  * SharePoint On-Premises Location: `Not Configured`
-  * SharePoint On-Premises Location Exception: `Not Configured`
-  * Teams Location: 
-    * DisplayName: `All`
-    * Name: `All`
-    * ImmutableIdentity: `All`
-    * Type: `Tenant`
-    * Workload: `Teams`
-    * SchemaVersion: `2`
-  * Teams Location Exception: `Not Configured`
-  * Exchange Sender: `Not Configured`
-  * Exchange Sender Member Of: `Not Configured`
-  * Exchange Sender Exception: `Not Configured`
-  * Exchange Sender Member Of Exception: `Not Configured`
+  * Locations to apply the policy:
+    * Exchange email: `All, no exclusions`
+    * SharePoint site: `All, no exclusions`
+    * OneDrive accounts: `All, no exclusions`
+    * Teams chat and channel messages: `All, no exclusions`
+  * Policy settings:
+    * Low volume: `Low volume of content detected Australia Health Records Act (HR (default template)`
+    * High voume: `High volume of content detected Australia Health Records Act (H (default template)`
 * Name: `Australian Financial Data`
-  * Enabled: `True`
-  * Workload: `Exchange, SharePoint, OneDriveForBusiness, Teams`
-  * Mode: `Enable`
-  * Type: `DLP`
+  * Status: `On`
+  * Workload: `Helps detect the presence of information commonly considered to be financial data in Australia, including credit cards, and SWIFT codes.`
   * Content Types: `SWIFT Code, Australian Tax File Number, Australian Bank Account Number, Credit Card Number`
-  * Exchange Location:
-    * DisplayName: `All`
-    * Name: `All`
-    * ImmutableIdentity: `All`
-    * Type: `Tenant`
-    * Workload: `Exchange`
-    * SchemaVersion: `2`
-  * SharePoint Location:
-    * DisplayName: `All`
-    * Name: `All`
-    * ImmutableIdentity: `All`
-    * Type: `Tenant`
-    * Workload: `SharePoint`
-    * SchemaVersion: `2`
-  * SharePoint Location Exception: `Not Configured`
-  * OneDrive Location:
-    * DisplayName: `All`
-    * Name: `All`
-    * ImmutableIdentity: `All`
-    * Type: `Tenant`
-    * Workload: `OneDriveForBusiness`
-    * SchemaVersion: `2`
-  * OneDrive Location Exception: `Not Configured`
-  * Exchange On-Premises Location: `Not Configured`
-  * SharePoint On-Premises Location: `Not Configured`
-  * SharePoint On-Premises Location Exception: `Not Configured`
-  * Teams Location: 
-    * DisplayName: `All`
-    * Name: `All`
-    * ImmutableIdentity: `All`
-    * Type: `Tenant`
-    * Workload: `Teams`
-    * SchemaVersion: `2`
-  * Teams Location Exception: `Not Configured`
-  * Exchange Sender: `Not Configured`
-  * Exchange Sender Member Of: `Not Configured`
-  * Exchange Sender Exception: `Not Configured`
-  * Exchange Sender Member Of Exception: `Not Configured`
+  * Locations to apply the policy:
+    * Exchange email: `All, no exclusions`
+    * SharePoint site: `All, no exclusions`
+    * OneDrive accounts: `All, no exclusions`
+    * Teams chat and channel messages: `All, no exclusions`
+  * Policy settings:
+    * Low volume: `Low volume of content detected Australia Financial Data (default template)`
+    * High voume: `High volume of content detected Australia Financial Data (default template)`
 * Name: `PROTECTED Data`
-  * Enabled: `True`
-  * Workload: `SharePoint, OneDriveForBusiness`
-  * Mode: `Enable`
-  * Type: `DLP`
-  * Content Types: `PROTECTED (Senstive info types)`
-  * SharePoint Location:
-    * DisplayName: `All`
-    * Name: `All`
-    * ImmutableIdentity: `All`
-    * Type: `Tenant`
-    * Workload: `SharePoint`
-    * SchemaVersion: `2`
-  * SharePoint Location Exception: `Not Configured`
-  * OneDrive Location:
-    * DisplayName: `All`
-    * Name: `All`
-    * ImmutableIdentity: `All`
-    * Type: `Tenant`
-    * Workload: `OneDriveForBusiness`
-    * SchemaVersion: `2`
-  * OneDrive Location Exception: `Not Configured`
-  * SharePoint On-Premises Location: `Not Configured`
-  * SharePoint On-Premises Location Exception: `Not Configured`
-  * Exchange Sender: `Not Configured`
-  * Exchange Sender Member Of: `Not Configured`
-  * Exchange Sender Exception: `Not Configured`
-  * Exchange Sender Member Of Exception: `Not Configured`
+  * Status: `On`
+  * Description: `Custom DLP policy to detect the sharing of data with PROTECTED sensitivity labels applied.`
+  * Content Types: `PROTECTED (Sensitivity labels)`
+  * Locations to apply the policy:
+    * SharePoint site: `All, no exclusions`
+    * OneDrive accounts: `All, no exclusions`
+  * Policy settings: `PROTECTED Data Shared (custom rule)`
 
 ## Microsoft 365 Defender
 
@@ -2089,7 +1721,15 @@ Please note, if a setting is not mentioned below, it should be assumed to have b
 
 ### Safe Links
 
-`Office365 Security & Compliance > Threat management > Policy > Safe links`
+`Microsoft 365 Defender > Policy & rules > Threat policies > Safe links`
+
+#### Global Settings
+
+* Use Safe Links in Office 365 apps: `Enabled`
+* Do not track wehn users click protected links in Office 365 apps: `Enabled`
+* Do not let users click through to the original URL in Office 365 app: `Enabled`
+
+#### Policy
 
 * Name: `Default Safe Links Policy`
 * Description: `This policy is the default Safe Links policy for the environment`
@@ -2112,7 +1752,7 @@ Please note, if a setting is not mentioned below, it should be assumed to have b
 
 ### Safe Attachments
 
-`Office365 Security & Compliance > Threat management > Policy > Safe Attachments`
+`Microsoft 365 Defender > Policy & rules > Threat policies > Safe Attachments`
 
 #### Global Settings
 
@@ -2120,7 +1760,7 @@ Please note, if a setting is not mentioned below, it should be assumed to have b
 * Turn on Safe Documents for Office Clients: `Enabled`
   * Allow people to click through Protected View even if Safe Documents has identified the file as malicious: `Disabled`
 
-### Policy
+#### Policy
 
 * Name: `Default Safe Attachments Policy`
 * Description: `This policy is the default Safe Attachments policy for the environment`
@@ -2130,17 +1770,17 @@ Please note, if a setting is not mentioned below, it should be assumed to have b
   * Domains: `All Agency domains`
 * Settings:
   * Safe Attachments unknown malware response: `Block - Block current and future messages and attachments with detected malware`
-  * Enable Redirect: `Enabled`
-    * Send messages that contain blocked, monitored, or replaced attachments to the specified email address: `quarantine@agency.gov.au`
+  * Enable Redirect: `Disabled`
+    * Send messages that contain blocked, monitored, or replaced attachments to the specified email address: `Agency defined`
   * Apply the Safe Attachments detection response if scanning can't complete (timeout or errors): `Enabled`
 
 ### Anti-phishing
 
-`Office365 Security & Compliance > Threat management > Policy > Anti-phishing`
+`Microsoft 365 Defender > Policy & rules > Threat policies > Anti-phishing`
 
 * Name: `Office365 AntiPhish Default (Default)`
 * Phishing email threshold: `2 - Aggressive`
-* Enable users to protect: `Configured - agency executives added`
+* Enable users to protect: `Configured - Agency executives added`
 * Enabled domains to protect: `Enabled`
   * Include domains I own: `Enabled`
   * Include custom domains: `Disabled`
@@ -2150,13 +1790,15 @@ Please note, if a setting is not mentioned below, it should be assumed to have b
 * Spoof
   * Enable spoof intelligence: `Enabled`
 * Actions
-* Message actions
-  * If message is detected as an impersonated user:`Quarantine the message`
-  * If message is detected as an impersonated domain: `Quarantine the message`
-  * If Mailbox Intelligence detects an impersonated user: `Quarantine the message`
-  * If message is detected as spoof: `Quarantine the message`
+  * Message actions
+    * If message is detected as an impersonated user:`Quarantine the message`
+    * If message is detected as an impersonated domain: `Quarantine the message`
+    * If Mailbox Intelligence detects an impersonated user: `Quarantine the message`
+    * If message is detected as spoof: `Quarantine the message`
 * Safety tips & indicators
+  * Show first contact safety tip (Recommneded): `Enabled`
   * Show user impersonation safety tip: `Enabled`
   * Show domain impersonation safety tip: `Enabled`
   * Show user impersonation unusual characters safety tip: `Enabled`
   * Show (?) for unauthenticated senders for spoof: `Enabled`
+  * Show "via" tag: `Enabled`

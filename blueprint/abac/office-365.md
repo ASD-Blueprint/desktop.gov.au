@@ -289,8 +289,8 @@ The following table describes the Remote Domains have been configured for all im
 | Allow non-delivery reports                  | False                  |
 | Allow meeting forward notifications         | False                  |
 | Use rich-text format                        | Follow users settings  |
-| MIME character set                          | Western European (ISO) |
-| Non-MIME character set                      | Western European (ISO) |
+| MIME character set                          | None                   |
+| Non-MIME character set                      | None                   |
 
 ### Organisational add-ins
 

@@ -6,7 +6,7 @@ menu: abac
 
 ## Reference table
 
-Table 2 lists the reference table for products requiring whitelisting and firewall configuration.
+The following table lists the reference table for products requiring whitelisting and firewall configuration.
 
 Reference Number | Reference URL
 --- | ---
@@ -24,7 +24,7 @@ R09 | [https://docs.microsoft.com/en-us/azure/active-directory/hybrid/reference-
 
 ### Proxy whitelist
 
-Table 3 describes the Microsoft Advanced Threat Protection Proxy Whitelist settings.
+The following describes the Microsoft Advanced Threat Protection Proxy Whitelist settings.
 
 Reference | Purpose | Source | Destination | Port
 ---| --- | --- | --- | --- 
@@ -41,7 +41,7 @@ No firewall exclusions required.
 
 ### Proxy whitelist
 
-Table 4 describes the Microsoft Cloud App Security Proxy Whitelist settings.
+The following table describes the Microsoft Cloud App Security Proxy Whitelist settings.
 
 Reference | Purpose | Source | Destination | Port
 ---| --- | --- | --- | --- 
@@ -50,7 +50,7 @@ R05 | MCAS SIEM Agent Connection | Splunk Servers | ocsp.digicert.com<br>ocsp.ms
 
 ### Direct firewall exclusion
 
-Table 5 describes the Microsoft Cloud App Security direct firewall exclusion settings.
+The following table describes the Microsoft Cloud App Security direct firewall exclusion settings.
 
 Reference | Purpose | Source | Destination | Port
 ---| --- | --- | --- | --- 
@@ -70,7 +70,7 @@ R05 | Mail Relay SPAM Exception | Agency Mail Relays | 65.55.234.192/26<br>207.4
 
 ### Proxy whitelist
 
-Table 7 describes the Office 365 Common and Office Online Proxy Whitelist settings.
+The following table describes the Office 365 Common and Office Online Proxy Whitelist settings.
 
 Reference | Purpose | Source | Destination | Port
 ---| --- | --- | --- | --- 
@@ -79,7 +79,7 @@ R06 | Microsoft 365 Common and Office Online | | ccs.login.microsoftonline.com<b
 
 ### Direct firewall exclusion
 
-Table 8 describes the Office 365 Common and Office Online Direct Firewall Exclusion settings.
+The following table describes the Office 365 Common and Office Online Direct Firewall Exclusion settings.
 
 Reference | Purpose | Source | Destination | Port
 ---| --- | --- | --- | --- 
@@ -90,7 +90,7 @@ R06 | Microsoft 365 Common and Office Online | | 13.107.6.171/32<br>13.107.140.6
 
 ### Proxy whitelist
 
-Table 9 describes the Office 365 Exchange Online Proxy Whitelist settings.
+The following table describes the Office 365 Exchange Online Proxy Whitelist settings.
 
 Reference | Purpose | Source | Destination | Port
 ---| --- | --- | --- | --- 
@@ -99,7 +99,7 @@ R07 | Exchange Online | Exchange Servers | *.store.core.windows.net<br>asl.confi
 
 ### Direct firewall exclusion
 
-Table 10 describes the Office 365 Exchange Online Direct Firewall Exclusion settings.
+The following table describes the Office 365 Exchange Online Direct Firewall Exclusion settings.
 
 Reference | Purpose | Source | Destination | Port
 ---| --- | --- | --- | --- 
@@ -112,7 +112,7 @@ R06 | Exchange Online | Exchange Servers | 13.107.6.152/31<br>13.107.18.10/31<br
 
 ### Proxy whitelist
 
-Table 11 describes the Office 365 Skype for Business and Microsoft Teams Proxy Whitelist settings.
+The following table describes the Office 365 Skype for Business and Microsoft Teams Proxy Whitelist settings.
 
 Reference| Purpose | Source | Destination | Port
 ---| --- | --- | --- | --- 
@@ -121,7 +121,7 @@ R06 | Skype for Business Online and Microsoft Teams | | quicktips.skypeforbusine
 
 ### Direct firewall exclusion
 
-Table 12 describes the Office 365 Skype for Business and Teams Direct Firewall Exclusion settings.
+The following table describes the Office 365 Skype for Business and Teams Direct Firewall Exclusion settings.
 
 Reference | Purpose | Source | Destination | Port
 ---| --- | --- | --- | --- 
@@ -133,7 +133,7 @@ R06 | Skype for Business Online and Microsoft Teams | | 13.107.64.0/18<br>52.112
 
 ### Proxy whitelist
 
-Table 13 describes the Office 365 SharePoint Online and OneDrive for Business Proxy Whitelist settings.
+The following table describes the Office 365 SharePoint Online and OneDrive for Business Proxy Whitelist settings.
 
 Reference | Purpose | Source | Destination | Port
 ---| --- | --- | --- | --- 
@@ -141,15 +141,15 @@ R06 | SharePoint Online and OneDrive for Business | | *.wns.windows.com<br>admin
 
 ### Direct firewall exclusion
 
-Table 14 describes the Office 365 SharePoint Online and OneDrive for Business Direct Firewall Exclusion settings.
+The following table describes the Office 365 SharePoint Online and OneDrive for Business Direct Firewall Exclusion settings.
 
 Reference | Purpose | Source | Destination | Port
 ---| --- | --- | --- | --- 
 R06 | SharePoint Online and OneDrive for Business | | 13.107.136.0/22<br>40.108.128.0/17<br>52.104.0.0/14<br>104.146.128.0/17<br>150.171.40.0/22 | TCP 80, 443
 
-## Office 365 – email protective markings with AIP technology
+## Office 365 – email protective markings with MIP technology
 
-For organisations that send PROTECTED emails through a GovLink mail gateway, the labelling product, as well as the gateway itself, must support the inspection of the email headers. At the time of writing, Microsoft AIP labelling does not natively offer a method to format email headers in a manner consistent with the requirements of the PSPF and as such, additional configuration is needed. This section provides a method of modifying the email headers in a mail gateway to ensure compliance with the PSPF.
+For organisations that send PROTECTED emails through a GovLink mail gateway, the labelling product, as well as the gateway itself, must support the inspection of the email headers. At the time of writing, Microsoft Information Protection labelling does not natively offer a method to format email headers in a manner consistent with the requirements of the PSPF and as such, additional configuration is needed. This section provides a method of modifying the email headers in a mail gateway to ensure compliance with the PSPF.
 
 ### Outbound protective marking
 
@@ -231,7 +231,7 @@ if (rcpt-to == '@<Agency Acronym>\\.gov\\.au$') {
 
 ## Azure Advanced Threat Protection (Azure ATP)
 
-Below describes the Azure Advanced Threat Protection service URLs Whitelist settings.
+The following tables below describe the Azure Advanced Threat Protection service URLs Whitelist settings.
 
 Direct and correct service location access to the agency Azure ATP instance name (Option 1)
 
@@ -280,7 +280,7 @@ R08 | Internal ports | Domain Controllers | RADIUS | UDP 1813 / Inbound directio
 
 ## Azure Active Directory Connect
 
-Table 20 describes the AAD Connect ports and protocols required for communication between the AAD Connect server and on-premises Active Directory.
+The following table describes the AAD Connect ports and protocols required for communication between the AAD Connect server and on-premises Active Directory.
 
 Reference | Purpose | Source | Destination | Port
 ---| --- | --- | --- | --- 
@@ -292,7 +292,7 @@ R09 | SMB (used by Seamless SSO to create computer account in AD forest) | AAD C
 R08 | LDAP/SSL (used for data import from AD. The data transfer is signed and encrypted. Only used if you are using TLS) | AAD Connect server | Domain Controllers | 636 (TCP/UDP)
 R08 | RPC (Used during the initial configuration of the Azure AD Connect wizard when it binds to the AD forest, and also during password synchronisation) | AAD Connect server | Domain Controllers | 49152 – 65535 (Random high RPC port) (TCP)
 
-Table 21 describes the AAD Connect ports and protocols required for communication between the AAD Connect server and Azure AD.
+The following table describes the AAD Connect ports and protocols required for communication between the AAD Connect server and Azure AD.
 
 Reference | Purpose | Source | Destination | Port
 ---| --- | --- | --- | --- 

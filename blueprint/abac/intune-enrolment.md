@@ -84,52 +84,50 @@ Use security keys for sign-in | Not configured
 
 `Intune > Devices > Enroll devices > Apple enrollment > Enrollment program tokens`
 
-* Name: `<Agency Acronym> iOS DEP enrolment`
-* Description: -
-* Platform: `iOS`
-* Token
-  * Token name: `Agency defined`
-  * Program type: `Device Enrollment Program`
-  * Apple ID: `<Agency apple ID>@<Agency>.gov.au`
-  * Default iOS Enrollment Profile: `<Agency Acronym> iOS DEP enrolment`
-* Management Settings
-  * User affinity: `Enroll with User Affinity`
+* Name: `Apple Business Manager Enrollment `
+* Description: `Automatic Configuration and Enrollment for corporately owned iOS devices`
+* Platform: `iOS/iPadOS`
+* User Affinity & Authentication Method
+  * User affinity: `Yes`
   * Select where users must authenticate: `Company Portal`
-  * Install Company Portal with VPP: `Yes`
+  * Install Company Portal with VPP: `Use Token`  
+  * Run Company Portal in Single App Mode until authentication: `No`  
 * Management Options
+  * Supervised: `Yes`
   * Locked enrollment: `Yes`
+  * Shared iPad: `No`
   * Sync with computers: `Deny All`
 * Device Name
   * Apply device name template (supervised only): `Yes`
-  * Device Name Template: `<Agency Acronym>-{SERIAL}-{DEVICETYPE}`
+  * Device Name Template: `{SERIAL}-{DEVICETYPE}`
 * Setup Assistant
   * Department: `<Agency Name>`
   * Department Phone: `<Agency Support Telephone Number>`
 * Setup Assistant Screens
-  * Passcode: `Show`
-  * Location Services: `Show`
+  * Passcode: `Hide`
+  * Location Services: `Hide`
   * Restore: `Hide`
-  * Apple ID: `Show`
-  * Terms and Conditions: `Hide`
-  * Touch ID: `Show`
-  * Apple Pay: `Show`
-  * Zoom: `Show`
-  * Siri: `Hide`
-  * Diagnostic Data: `Hide`
-  * Display Tone: `Show`
-  * Privacy: `Hide`
   * Android Migration: `Hide`
-  * Home Button: `Show`
-  * iMessage & FaceTime: `Show`
+  * Apple ID: `Hide`
+  * Terms and Conditions: `Hide`
+  * Touch ID: `Hide`
+  * Apple Pay: `Hide`
+  * Zoom: `Hide`
+  * Siri: `Hide`
+  * Diagnostics Data: `Hide`
+  * Display Tone: `Hide`
+  * Home Button: `Hide`
+  * Privacy: `Hide`
+  * iMessage & FaceTime: `Hide`
   * Onboarding: `Hide`
   * Screen Time: `Hide`
-  * SIM Setup: `Show`
-  * Software Update: `Show`
+  * SIM Setup: `Hide`
+  * Software Update: `Hide`
   * Watch Migration: `Hide`
-  * Appearance: `Show`
-  * Express Language: `Show`
-  * Preferred Language Order: `Show`
+  * Appearance: `Hide`
   * Device to Device Migration: `Hide`
+  * Restore Completed: `Hide`
+  * Software Update Completed: `Hide`
 
 ## Enrolment types (preview)
 

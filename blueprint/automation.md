@@ -5,7 +5,7 @@ title: Automation
 
 Microsoft offers programmatic and manual methods to getting and setting configuration within Microsoft Azure and Microsoft 365. This document focuses on the programmatic configuration utilising [Microsoft 365 Desired State Configuration (M365DSC)](https://microsoft365dsc.com/). M365DSC is an open source tool hosted on GitHub and maintained by Microsoft engineers and the community. It is able to configure settings within all major Microsoft 365 workloads such as Exchange Online, Teams, Power Platforms, SharePoint and Security and Compliance. A list of configurable resources within these workloads is available on the [M365DSC website](https://github.com/Microsoft/Microsoft365DSC/wiki/Resources-List). M365DSC leverages Windows PowerShell Desired State Configuration. 
 
-Currently, M365DSC is not able to fully configure a tenant to the specifications outlined in the blueprint. Configurations that cannot be configured via this method may need to be configured either manually or via another method such as non-desired state configuration PowerShell modules or Azure Command Line Interface. Configuration via other scripted methods are not be covered.
+Currently, M365DSC is not able to fully configure a tenant to the specifications outlined in the blueprint. Configurations that cannot be configured via this method may need to be configured either manually or via another method such as the native M365 configuration PowerShell modules outside of DSC or Azure Command Line Interface.
 
 ## Windows PowerShell Desired State Configuration
 
@@ -15,7 +15,7 @@ The Configuration Script is a declarative PowerShell script which defines and co
 
 Windows PowerShell Desired State Configuration can be leveraged to implement and ensure configurations are maintained in their preferred state. The Local Configuration Manager can be configured to poll the configuration on a set time interval and alert or re-enforce if configuration drift has occurred. For details regarding the Local Configuration Manager on a computer, run the following command in a PowerShell console:
 
-```Powershell
+```powershell
 Get-DscLocalConfigurationManager
 ```
 
@@ -35,6 +35,7 @@ Conditional Access | Automated
 Group Naming Policy | Automated
 Group Expiration Policy | Automated
 Group Creation | Automated
+Sensitivity labels | Automated 
 User Settings | Manual
 Device Settings | Manual
 External Collaboration | Manual
@@ -52,6 +53,7 @@ The following procedure is to **implement** a configuration using Microsoft 365 
 * An account with Global Administrator privileges
 * An account with a PowerShell execution policy of unrestricted
 * A device with PowerShell Remoting enabled, internet access, and PowerShell 4.0 or greater installed
+* WinRM configured
 
 ### Procedure
 
@@ -69,15 +71,20 @@ The configuration files developed in accordance with the blueprint are available
 
 ##### Configuration data file
 
-The required `configurationdata.psd1` file can be downloaded below:
+The required `configurationdata.psd1` file for the M365DSC methods can be downloaded below:
 
 * [configurationdata.psd1](/assets/files/automation/configurationdata.txt)
 
 ##### Blueprint configuration scripts
 
-Blueprint configuration scripts are available below:
+Blueprint configuration scripts are available in the table below.
 
-* [identity_dsc.ps1](/assets/files/automation/identity_dsc.txt)
+Note, each DSC script can be ran independently.
+
+Script | Configuration items | Method | Script parameters
+--- | --- | --- | ---
+[identity_dsc.ps1](/assets/files/automation/identity_dsc.txt) | Conditional Access<br>Group Naming Policy<br>Group Expiration Policy<br>Group Creation | M365DSC | -trustedip<br>-agency <br>-agencyprefix<br>-globaladminaccount
+[sensitivity-labels_dsc.ps1](/assets/files/automation/sensitivity-labels_dsc.txt) | Sensitivity labels | M365DSC | -globaladminaccount
 
 #### Certificate creation
 
@@ -85,21 +92,21 @@ The process to create a certificate is as follows:
 
 1. Open a PowerShell console as administrator
 2. Install and import the PowerShell module `microsoft365dsc` using the following command:
-```Powershell 
+```powershell 
 install-module microsoft365dsc -allowclobber -force
 import-module microsoft365dsc
 ```
 3. In PowerShell navigate to the directory containing the blueprint configuration PS1 file and the `configurationdata.psd1` file
 4. Create a Desired State Configuration local configuration manager certificate:
-```Powershell 
+```powershell 
 Set-M365DSCAgentCertificateConfiguration
 ```
 5. Validate that a certificate was created and assigned to the local configuration manager by matching the output of step 4 with `CertificateID` from the following:
-```Powershell 
+```powershell 
 Get-DscLocalConfigurationManager
 ```
 6. Export the certificate into the folder containing the blueprint configuration PS1 file and the `configurationdata.psd1` file
-```Powershell
+```powershell
 $certificatethumbprint = Get-DscLocalConfigurationManager | select CertificateID
 $certpath =  "cert:\localmachine\My\" + $certificatethumbprint.CertificateID
 $cert = Get-ChildItem -path $certpath
@@ -114,13 +121,14 @@ The process to deploy the configuration is as follows:
 
 1. Open a PowerShell console as administrator
 2. Install and import the PowerShell module microsoft365dsc using the following command:
-```Powershell 
+```powershell
+Set-WSManQuickConfig
 install-module microsoft365dsc -allowclobber -force
 import-module microsoft365dsc
 ```
-3. In PowerShell navigate to the directory containing the blueprint configuration PS1 file and the `configurationdata.psd1` file
-4. In the PowerShell console, initiate the blueprint configuration PS1 and supply the required values. The required values are located in the parameters section of the `Blueprint Configuration Script file` (i.e. identity_dsc.ps1). The following is an example for the identity configuration. The required values are: Global Admin credentials; agency name; agency prefix; and trusted IPs (in CIDR format).
-```Powershell 
+3. In PowerShell navigate to the directory containing the blueprint configuration PS1 file and the `configurationdata.psd1` file. This `configurationdata.psd1`  file is the same for all other DSC scripts supplied
+4. In the PowerShell console, initiate the desired blueprint configuration PS1 and supply the required values. If the script requires parameters, the required values are located in the `param` section of the DSC script to be ran. Some DSC scripts may not require parameters, refer to the `Blueprint configuration scripts` table for an overview. The following is an example for the identity configuration DSC script `identity_dsc.ps1`. In this example, the required values are: Global Admin credentials; agency name; agency prefix; and trusted IPs (in CIDR format)
+```powershell 
 $pscredential = get-credential
 $agencyname = "Agency Name"
 $agencyprefix = "Agency Acronym"
@@ -128,14 +136,15 @@ $trustedIPs = @("X.X.X.X/X","X.X.X.X/X") # note - for one CIDR range use @("X.X.
 .\identity_dsc.ps1 -globaladminaccount $pscredential -trustedip $trustedIPs -agency $agencyname -agencyprefix $agencyprefix
 ```
 5. **This step will enforce the DSC configuration**. Run the following command within the PowerShell console:
-```Powershell 
+```powershell 
 Start-DSCConfiguration M365TenantConfig -wait -verbose -force
 ```
-6. Validate the successful deployment by viewing changes in Azure Active Directory
+6. Validate the successful deployment by viewing changes in the appropriate Admin console (e.g Azure Active Directory or M365 compliance)
 7. In the PowerShell console, run the following command to ensure the configuration is no longer enforced via the Desired State Configuration Local Configuration Manager
-```Powershell
+```powershell
 Remove-DscConfigurationDocument -stage current
 ```
+8. Repeat the process for other DSC scripts, each can be ran without overlapping configuration
 
 ## Microsoft 365 Desired State Configuration auditing procedure
 
@@ -155,7 +164,7 @@ The process to audit a tenant based on the blueprints Microsoft 365 Desired Stat
 2. Within `baseline.ps1`, update any agency specific items (e.g. all areas where agency name is specified)
 3. Open a PowerShell console as administrator and navigate to the directory containing the `baseline.ps1` file
 4. Run the following command in the PowerShell console:
-```Powershell
+```powershell
 $outputlocation = "\Blueprint_Comparison $($(Get-Date).ToString(`"yyyy-MM-dd hhmmss`")).html"
 Assert-M365DSCBlueprint -BluePrintUrl .\baseline.ps1 -OutputReportPath $outputlocation
 ```

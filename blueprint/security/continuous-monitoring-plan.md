@@ -128,11 +128,11 @@ Domain | M365 Tools | Agency Tools and Sources
 Vulnerability & Patch Management | Windows Server Update Service <br> Microsoft Endpoint Configuration Manager<br> Microsoft Intune <br> Microsoft Defender for Endpoint | Vulnerability scanner <br> Vulnerability database <br> Patch Management database <br> Software registry
 Event & Incident Management | MECM Endpoint Detection and Response <br> Microsoft Defender for Identity (Azure Advanced Threat Protection) <br> Microsoft Defender for Office 365 | Incident database <br> SIEM
 Malware Detection | Microsoft Defender for Identity (Azure Advanced Threat Protection) <br> Microsoft Defender Antivirus <br> Microsoft Defender for Office 365 <br> Microsoft Defender for Endpoint | Incident database
-Asset Management | Microsoft Cloud App Security (MCAS) <br> Microsoft Intune <br> Microsoft Endpoint Configuration Manager|Asset management registry | 
+Asset Management | Microsoft Cloud App Security (MCAS) <br> Microsoft Intune <br> Microsoft Endpoint Configuration Manager|Asset management registry 
 Configuration Management | Microsoft Secure Score <br> Security Center <br>  Compliance Center <br> Microsoft Attack Surface Reduction <br> Azure Active Directory Identity Protection <br> Azure Conditional Access <br> Azure Active Directory | Agency configuration database <br> Certification and authorisation registry
 Network Management | Microsoft Cloud App Security (MCAS) <br> Windows Defender Application Control <br> Conditional Access <br> Windows Firewall <br> Microsoft Intune <br> Microsoft Endpoint Configuration Manager | Network perimeter firewall
 License Management | Microsoft 365 Admin Center | Software asset registry
-Information Management | Azure Information Protection <br> Windows Information Protection <br> Information Protection (Office 365) <br> Retention Labels & Policies <br> Microsoft Cloud App Security (MCAS) | Data classification and categorization policies
+Information Management | Microsoft Information Protection <br> Windows Information Protection <br> Information Protection (Office 365) <br> Retention Labels & Policies <br> Microsoft Cloud App Security (MCAS) | Data classification and categorization policies
 
 #### Reference data sources
 
@@ -449,7 +449,7 @@ Target | (Target total defined in accordance with agency risk tolerance)
 Implementation Evidence | Policy exceptions granted during monitoring period
 Frequency | Collection frequency: (e.g. monthly) <br> Reporting frequency: (e.g. monthly)
 Responsible Parties | Applicable roles and responsibilities, e.g. collector, owner, stakeholders
-Data Source | MCAS, Microsoft Defender for Endpoint, AIP
+Data Source | MCAS, Microsoft Defender for Endpoint, MIP 
 Reporting Format | (Agency's preferred reporting method i.e. bar graph in Monthly Health Check report)
 
 ### Attachment B: Data collection example

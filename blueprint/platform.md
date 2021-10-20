@@ -744,7 +744,7 @@ Defender for Identity integration | Enabled | To enable integration between secu
 
 ### MCAS - Information Protection
 
-The MCAS Information Protection design decisions can be found below. Information Protection components include Admin Quarantine, Azure Information Protection, Azure Security and Files.
+The MCAS Information Protection design decisions can be found below. Information Protection components include Admin Quarantine, Microsoft Information Protection, Azure Security and Files.
 
 ### MCAS - Admin Quarantine
 
@@ -761,18 +761,18 @@ Decision Point | Design Decision | Justification
 Admin quarantine folder location | Configured | Folder location is agency-specific and will be determined via an agency's internal decision processes.
 User notification | Default text – `This file was quarantined because it might conflict with your Agency's security and compliance policies. Contact your IT administrator for more information.` | Notify user that file has been quarantined using default text. Agency to determine whether default text meets IT security requirements.
 
-### MCAS - Azure Information Protection
+### MCAS - Microsoft Information Protection
 
-Azure Information Protection (AIP) provides document and email classification labelling, and protections based on those labels, across hybrid environments. MCAS can be configured to scan for AIP classification labels and content inspection warning when new files are detected in connected apps. Additionally, MCAS can be configured to only scan labels and warning originating from its tenant, therefore ignoring labels from external tenants.
+Microsoft Information Protection (MIP) provides document and email classification labelling, and protections based on those labels, across hybrid environments. MCAS can be configured to scan for MIP classification labels and content inspection warning when new files are detected in connected apps. Additionally, MCAS can be configured to only scan labels and warning originating from its tenant, therefore ignoring labels from external tenants.
 
-To enable MCAS to inspect the content of files that have been protected by AIP it must be granted that permission in Azure AD. This is done via a guided activity initiated from the MCAS portal.
+To enable MCAS to inspect the content of files that have been protected by MIP it must be granted that permission in Azure AD. This is done via a guided activity initiated from the MCAS portal.
 
-Azure Information Protection Design Decisions for all agencies and implementation types.
+Microsoft Information Protection Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Automatically scan new files for AIP classification labels and content inspection warnings | Enabled | MCAS is enabled to scan new files for AIP classifications as the blueprint will leverage Information Protection classification.
-Only scan files for AIP classification labels and content inspection warnings from this tenant | Enabled | MCAS is enabled to scan files for AIP classification from the tenant as the blueprint will leverage Information Protection classification.
+Automatically scan new files for MIP classification labels and content inspection warnings | Enabled | MCAS is enabled to scan new files for MIP classifications as the blueprint will leverage Information Protection classification.
+Only scan files for MIP classification labels and content inspection warnings from this tenant | Enabled | MCAS is enabled to scan files for MIP classification from the tenant as the blueprint will leverage Information Protection classification.
 Inspect protected files | Enabled | MCAS is enabled to inspect protected files as the blueprint will leverage Information Protection classification.
 
 ### MCAS - Azure security
@@ -808,8 +808,8 @@ The Conditional Access App Control capability of MCAS leverages Azure AD Conditi
 Examples of the Conditional Access App Control policies that can be configured to monitor and control user app access and sessions in real time are listed below:
 
 * Prevent data exfiltration – block copy and cut clipboard actions, printing and downloading of sensitive information and documents.
-* Protect on download – allows sensitive documents to be downloaded by leveraging AIP applies a classification label and protection to it.
-* Prevent upload of unlabelled files – blocks documents from being uploaded until a user applies an AIP label to them based on the sensitivity of the information they contain.
+* Protect on download – allows sensitive documents to be downloaded by leveraging MIP applies a classification label and protection to it.
+* Prevent upload of unlabelled files – blocks documents from being uploaded until a user applies an MIP label to them based on the sensitivity of the information they contain.
 * Monitor user sessions for compliance – identify risky users based on their behaviour during a session.
 * Block access – based on specific risk factors can prevent users and/or devices from accessing specific resources across one or all connected apps.
 * Block custom activities – application-specific events can be blocked if they increase the risk of data leakage or exfiltration.
@@ -1199,7 +1199,7 @@ When devices are enrolled into Intune, authorised administrators are able to vie
 
 Additionally, Intune can present a customised Company Portal to end users which can be used to install and launch applications or websites via single sign-on (SSO) authentication.
 
-Intune is a component of EMS and integrates with other EMS components such as Azure AD and Azure Information Protection (AIP) natively. This allows for total granular visibility of all endpoints within the Enterprise Mobility Management sphere and simplifies the approach for management.
+Intune is a component of EMS and integrates with other EMS components such as Azure AD and Microsoft Information Protection (MIP) natively. This allows for total granular visibility of all endpoints within the Enterprise Mobility Management sphere and simplifies the approach for management.
 
 To complement this visibility, an Intune Data Warehouse can be deployed to capture and create custom reports from Intune data using a reporting service. This can assist in gaining insight into which users are using Intune, what licences are being used, operating system and device breakdowns, and compliance trends. The Data Warehouse also has the capability to export directly to Power BI and create interactive & dynamic reports.
 
@@ -1251,14 +1251,14 @@ Mobile Application Management Design Decisions for cloud native implementations.
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Mobile Application Management Method | Windows 10 – Intune<br>iOS - Intune | Mobile applications (Windows 10 and iOS) will be deployed via Intune.
-Applications Managed | Microsoft Azure Information Protection<br>Microsoft Corporate Portal<br>Adobe Reader<br>Microsoft Suite - <br>Outlook<br>Word<br>Excel<br>Teams<br>PowerPoint<br>OneNote<br>OneDrive | These core Microsoft business applications will be managed via Intune as they will be deployed to all Windows 10 and iOS users.
+Applications Managed | Microsoft Information Protection<br>Microsoft Corporate Portal<br>Adobe Reader<br>Microsoft Suite - <br>Outlook<br>Word<br>Excel<br>Teams<br>PowerPoint<br>OneNote<br>OneDrive | These core Microsoft business applications will be managed via Intune as they will be deployed to all Windows 10 and iOS users.
 
 Mobile Application Management Design Decisions for hybrid implementations.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Mobile Application Management Method | Windows 10 – Not Configured<br>iOS - Intune | Agencies operating in hybrid environments can elect to have Windows 10 applications managed by an existing management solution such as MECM and Group Policy, or to manage Windows 10 applications via Intune. This blueprint offers an example of using MECM as the Windows10 Management tool for illustrative purposes however agencies can elect to have Intune as the primary MAM method for both platforms without affecting cyber security postures.<br>Mobile applications (iOS) will be deployed via Intune.
-Applications Managed | Microsoft Azure Information Protection<br>Microsoft Corporate Portal<br>Adobe Reader<br>Microsoft Suite - <br>Outlook<br>Word<br>Excel<br>Teams<br>PowerPoint<br>OneNote<br>OneDrive | Agencies operating in hybrid environments can elect to have Windows 10 applications managed by an existing management solution such as MECM and Group Policy, or to manage Windows 10 applications via Intune. This blueprint offers an example of using MECM as the Windows10 Management tool for illustrative purposes however agencies can elect to have Intune as the primary MAM method for both platforms without affecting cyber security postures.<br>Mobile applications (iOS) will be deployed via Intune.
+Applications Managed | Microsoft Information Protection<br>Microsoft Corporate Portal<br>Adobe Reader<br>Microsoft Suite - <br>Outlook<br>Word<br>Excel<br>Teams<br>PowerPoint<br>OneNote<br>OneDrive | Agencies operating in hybrid environments can elect to have Windows 10 applications managed by an existing management solution such as MECM and Group Policy, or to manage Windows 10 applications via Intune. This blueprint offers an example of using MECM as the Windows10 Management tool for illustrative purposes however agencies can elect to have Intune as the primary MAM method for both platforms without affecting cyber security postures.<br>Mobile applications (iOS) will be deployed via Intune.
 
 ### Intune - Enrolment
 
@@ -1334,7 +1334,7 @@ Intune Windows AutoPilot Design Decisions for cloud native implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Automatically Join Devices | Azure Active Directory (Azure AD) | Devices will automatically joint the Azure Active Directory.
+Automatically Join Devices | Azure Active Directory (Azure AD) | Devices will automatically join the Azure Active Directory. 
 Auto-enrol devices | Configured | Enrolled automatically into Intune MDM.
 Restrict the Local Administrator Account | Configured | Aligns with the ACSC Hardening guide for Windows 10.
 Create and auto-assign devices | Configured | For ease of management and enrolment for devices within Agency.
@@ -1673,6 +1673,8 @@ Each PIM role assignment can have the following attributes:
 * Notification – the Notification attribute specifies that a pending request is awaiting approval via email.
 * Incident Request Ticket – the Incident Request Ticket attribute specifies that the approver add an incident ticket number to the approval request.
 * Multi-factor Authentication – the Multi-factor Authentication attribute specifies whether MFA is required for activation.
+
+Note: the product name for Microsoft Information Protection is still referred to as Azure Information Protection within the defined Azure AD Roles.
 
 RBAC Design Decisions for all agencies and implementation types.
 

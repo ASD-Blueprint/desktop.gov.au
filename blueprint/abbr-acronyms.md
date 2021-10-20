@@ -86,6 +86,7 @@ MECM | Microsoft Endpoint Configuration Manager
 MEM | Microsoft Endpoint Manager
 MFA | Multi-Factor Authentication
 MIM | Microsoft Identity Manager
+MIP | Microsoft Information Protection 
 NNR | Network Name Resolution
 NTLM | New Technology LAN Manager
 OAB | Offline Address Book

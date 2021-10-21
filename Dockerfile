@@ -1,4 +1,4 @@
-FROM circleci/ruby:2.6.6-stretch
+FROM circleci/ruby:2.7.4-buster
 
 RUN sudo gem update --system
 

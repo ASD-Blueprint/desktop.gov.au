@@ -44,7 +44,7 @@ references:
         JEKYLL_ENV=production bundle exec jekyll build
   docker_image: &docker_image
     docker:
-      - image: circleci/ruby:2.6.6-stretch
+      - image: circleci/ruby:2.7.4-buster
 
 jobs:
   build_attachments:

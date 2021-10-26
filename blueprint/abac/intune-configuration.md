@@ -94,7 +94,6 @@ The following table outlines the configuration settings within the profile.
 | Scan  incoming mail messages                                 | Enable                                                       |
 | Scan  removable drives during a full scan                    | Enable                                                       |
 | Scan  files opened from network folders                      | Enable                                                       |
-| Prompt  users before sample submission                       | Send  safe samples automatically                             |
 | **Power Settings**                                           |                                                              |
 | Hybrid  sleep                                                | Disable                                                      |
 
@@ -195,13 +194,13 @@ The following table outlines the configuration settings within the profile.
 | Xbox  Live Game Save Service                                 | Disabled                                                     |
 | Xbox  Live Networking Service                                | Disabled                                                     |
 
-#### ACSC - Macro and Add-In Security
+#### ACSC - Microsoft Office Hardening
 
 The following table outlines the profile is created for all implementation types. The configuration includes the recommended ACSC Windows 10 hardening guide settings as well as additional settings for the blueprint.
 
 | Item               | Configuration                                 |
 | ------------------ | --------------------------------------------- |
-| Profile Name       | ACSC – Macro and Add-In Security              |
+| Profile Name       | ACSC – Microsoft Office Hardening             |
 | Profile type       | Administrative templates                      |
 | Platform supported | Windows 10 and later                          |
 | Groups excluded    | 0                                             |
@@ -212,6 +211,7 @@ The following table outlines the settings within the profile.
 
 | Item                                                         | Type | ADMX Path                                                    | Value                                                        |
 | ------------------------------------------------------------ | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Allow including screenshot with Office Feedback              | User | \Microsoft Office 2016\Privacy\Trust Center | Disabled |
 | Allow mix of policy and   user locations                     | User | \Microsoft Office   2016\Security Settings\Trust Center      | Disabled                                                     |
 | Allow Trusted Locations on the network                       | User | \Microsoft PowerPoint 2016\PowerPoint  Options\Security\Trust Center\Trusted Locations | Disabled                                                     |
 | Allow Trusted Locations on the network                       | User | \Microsoft Access 2016\Application  Settings\Security\Trust Center\Trusted Locations | Disabled                                                     |
@@ -219,12 +219,31 @@ The following table outlines the settings within the profile.
 | Allow Trusted Locations on the network                       | User | \Microsoft Visio 2016\Visio Options\Security\Trust  Center   | Disabled                                                     |
 | Allow Trusted Locations on the network                       | User | \Microsoft Word 2016\Word Options\Security\Trust  Center\Trusted Locations | Disabled                                                      |
 | Allow Trusted Locations on the network                       | User | \Microsoft Excel 2016\Excel Options\Security\Trust  Center\Trusted Locations | Disabled                                                      |
+| Automatically receive small updates to improve reliability   | User | \Microsoft Office 2016\Privacy\Trust Center | Disabled |
 | Disable VBA for Office applications                          | User | \Microsoft Office 2016\Security Settings                     | Disabled                                                     |
-| Enable Microsoft Visual Basic for Applications project  creation | User | \Microsoft Visio 2016\Visio Options\Security\Macro  Security | Disabled                                                     |
-| Load Microsoft Visual Basic for Applications projects  from text | User | \Microsoft Visio 2016\Visio Options\Security\Macro  Security | Disabled                                                     |
+| Do not open files from the Internet zone in Protected View   | User | \Microsoft Excel 2016\Excel Options\Security\Trust Center\Protected View | Disabled |
+| Do not open files from the Internet zone in Protected View   | user | \Microsoft Word 2016\Word Options\Security\Trust Center\Protected View | Disabled |
+| Do not open files from the Internet zone in Protected View   | User | \Microsoft PowerPoint 2016\PowerPoint Options\Security\Trust Center\Protected View | Disabled |
+| Do not open files in unsafe locations in Protected View      | User | \Microsoft Excel 2016\Excel Options\Security\Trust Center\Protected View | Disabled |
+| Do not open files in unsafe locations in Protected View      | User | \Microsoft Word 2016\Word Options\Security\Trust Center\Protected View | Disabled |
+| Do not open files in unsafe locations in Protected View      | User | \Microsoft PowerPoint 2016\PowerPoint Options\Security\Trust Center\Protected View | Disabled |
+| Enable Customer Experience Improvement Program               | User | \Microsoft Office 2016\Privacy\Trust Center | Disabled |
+| Enable Microsoft Visual Basic for Applications project creation | User | \Microsoft Visio 2016\Visio Options\Security\Macro  Security | Disabled                                                     |
+| Load Microsoft Visual Basic for Applications projects from text | User | \Microsoft Visio 2016\Visio Options\Security\Macro  Security | Disabled                                                     |
+| Send Office Feedback                                         | User | \Microsoft Office 2016\Privacy\Trust Center | Disabled |
+| Send personal information                                    | User | \Microsoft Office 2016\Privacy\Trust Center | Disabled |
 | Trust access to Visual Basic Project                         | User | \Microsoft Word 2016\Word Options\Security\Trust Center      | Disabled                                                     |
 | Trust access to Visual Basic Project                         | User | \Microsoft PowerPoint 2016\PowerPoint Options\Security\Trust  Center | Disabled                                                     |
 | Trust access to Visual Basic Project                         | User | \Microsoft Excel 2016\Excel Options\Security\Trust  Center   | Disabled                                                     |
+| Turn off file validation                                     | User | \Microsoft Word 2016\Word Options\Security | Disabled |
+| Turn off file validation                                     | User | \Microsoft PowerPoint 2016\PowerPoint Options\Security | Disabled |
+| Turn off file validation                                     | User | \Microsoft Excel 2016\Excel Options\Security | Disabled |
+| Turn off Protected View for attachments opened from Outlook  | User | \Microsoft Excel 2016\Excel Options\Security\Trust Center\Protected View | Disabled |
+| Turn off Protected View for attachments opened from Outlook  | User | \Microsoft Word 2016\Word Options\Security\Trust Center\Protected View | Disabled |
+| Turn off Protected View for attachments opened from Outlook  | User | \Microsoft PowerPoint 2016\PowerPoint Options\Security\Trust Center\Protected View | Disabled |
+| Update automatic links at Open                               | User | \Microsoft Word 2016\Word Options\Advanced | Disabled |
+| Always open untrusted database files in Protected View       | User | \Microsoft Excel 2016\Excel Options\Security\Trust Center\Protected View | Enabled |
+| Always prevent untrusted Microsoft Query files from opening  | User | \Microsoft Excel 2016\Excel Options\Security\Trust Center\External Content | Enabled |
 | Apply macro security settings to macros, add-ins and  additional actions | User | \Microsoft Outlook 2016\Security\Trust Center                | Enabled                                                      |
 | Automation Security                                          | User | \Microsoft Office 2016\Security Settings                     | Enabled – Use application macro security level               |
 | Block additional file extensions for OLE embedding           | User | \Microsoft Office 2016\Security Settings                     | Enabled                                                      |
@@ -235,6 +254,9 @@ The following table outlines the settings within the profile.
 | Block macros from running in Office files from the  Internet | User | \Microsoft Access 2016\Application  Settings\Security\Trust Center | Enabled                                                      |
 | Block macros from running in Office files from the  Internet | User | \Microsoft Visio 2016\Visio Options\Security\Trust  Center   | Enabled                                                      |
 | Configure trusted add-ins                                    | User | \Microsoft Outlook 2016\Security\Security Form  Settings\Programmatic Security\Trusted Add-ins | Enabled – Agency defined list                                |
+| dBase III / IV files                                         | User | \Microsoft Excel 2016\Excel Options\Security\Trust Center\File Block Settings | Enabled (Open/Save blocked, use open policy) |
+| Dif and Sylk files                                           | User | \Microsoft Excel 2016\Excel Options\Security\Trust Center\File Block Settings | Enabled (Open/Save blocked, use open policy) |
+| Disable All ActiveX                                          | User | \Microsoft Office 2016\Security Settings | Enabled |
 | Disable all Trust Bar notifications for security issues      | User | \Microsoft Office 2016\Security Settings                     | Enabled                                                      |
 | Disable all trusted locations                                | User | \Microsoft PowerPoint 2016\PowerPoint  Options\Security\Trust Center\Trusted Locations | Enabled                                                      |
 | Disable all trusted locations                                | User | \Microsoft Word 2016\Word Options\Security\Trust  Center\Trusted Locations | Enabled                                                      |
@@ -248,13 +270,47 @@ The following table outlines the settings within the profile.
 | Disable commands                                             | User | \Microsoft Access 2016\Disable Items in User  Interface\Predefined | Enabled - <br>Database tools \| Macro \| Visual Basic<br>Database tools \| Macro \| Run Macro <br>Database tools \| Macro \| Convert Macros to Visual Basic <br>Database tools \| Macro \| Create Shortcut Menu from Macro |
 | Disable commands                                             | User | \Microsoft Word 2016\Disable Items in User  Interface\Predefined | Enabled -  <br>Developer tab \| Code \| Macros <br>Developer tab \| Code \| Record Macros <br>Developer tab \| Code \| Macro Security <br>Developer tab \| Code \| Visual Basic |
 | Disable commands                                             | User | \Microsoft Publisher 2016\Disable Items in User  Interface\Predefined | Enabled - <br>Developer tab <br>Developer tab \| Code \| Macros <br>Developer tab \| Code \| Macro Security <br>Developer tab \| Code \| Visual Basic <br> Developer tab \| Add-Ins \| COM Add-Ins |
+| Disable Opt-in Wizard on first run | User | \Microsoft Office 2016\Privacy\Trust Center | Enabled |
+| Disable Trust Bar Notification for unsigned application add-ins and block them | User | \Microsoft Word 2016\Word Options\Security\Trust Center | Enabled |
+| Disable Trust Bar Notification for unsigned application add-ins and block them | User | \Microsoft PowerPoint 2016\PowerPoint Options\Security\Trust Center | Enabled |
+| Disable Trust Bar Notification for unsigned application add-ins and block them | User | \Microsoft Excel 2016\Excel Options\Security\Trust Center | Enabled |
+| Disable Trust Bar Notification for unsigned application add-ins and block them | User | \Microsoft Project 2016\Project Options\Security\Trust Center | Enabled |
+| Disable Trust Bar Notification for unsigned application add-ins and block them | User | \Microsoft Visio 2016\Visio Options\Security\Trust Center | Enabled |
+| Don’t allow Dynamic Data Exchange (DDE) server launch in Excel | User | \Microsoft Excel 2016\Excel Options\Security\Trust Center\External Content | Enabled |
+| Don’t allow Dynamic Data Exchange (DDE) server lookup in Excel | User | \Microsoft Excel 2016\Excel Options\Security\Trust Center\External Content | Enabled |
+| Excel 2 macrosheets and add-in files | User | \Microsoft Excel 2016\Excel Options\Security\Trust Center\File Block Settings | Enabled (Open/Save blocked, use open policy) |
+| Excel 2 worksheets | User | \Microsoft Excel 2016\Excel Options\Security\Trust Center\File Block Settings | Enabled (Open/Save blocked, use open policy) |
+| Excel 3 macrosheets and add-in files | User | \Microsoft Excel 2016\Excel Options\Security\Trust Center\File Block Settings | Enabled (Open/Save blocked, use open policy) |
+| Excel 3 worksheets | User | \Microsoft Excel 2016\Excel Options\Security\Trust Center\File Block Settings | Enabled (Open/Save blocked, use open policy) |
+| Excel 4 macrosheets and add-in files | User | \Microsoft Excel 2016\Excel Options\Security\Trust Center\File Block Settings | Enabled (Open/Save blocked, use open policy) |
+| Excel 4 workbooks | User | \Microsoft Excel 2016\Excel Options\Security\Trust Center\File Block Settings | Enabled (Open/Save blocked, use open policy) |
+| Excel 4 worksheets | User | \Microsoft Excel 2016\Excel Options\Security\Trust Center\File Block Settings | Enabled (Open/Save blocked, use open policy) |
+| Excel 95 workbooks | User | \Microsoft Excel 2016\Excel Options\Security\Trust Center\File Block Settings | Enabled (Open/Save blocked, use open policy) |
+| Excel 95-97 workbooks and templates | User | \Microsoft Excel 2016\Excel Options\Security\Trust Center\File Block Settings | Enabled (Open/Save blocked, use open policy) |
+| Excel 97-2003 workbooks and templates | User | \Microsoft Excel 2016\Excel Options\Security\Trust Center\File Block Settings | Enabled (Open/Save blocked, use open policy) |
+| Force file extension to match file type | User | \Microsoft Excel 2016\Excel Options\Security | Enabled (Always match file type) |
 | List of managed add-ins                                      | User | \Microsoft Outlook 2016\Miscellaneous                        | Agency defined                                               |
-| Macro Runtime Scan Scope                                     | User | \Microsoft Office 2016\Security Settings                     | Enabled – Enable for all documents                           |
+| Macro Runtime Scan Scope                                     | User | \Microsoft Office 2016\Security Settings                     | Enabled (Enable for all documents)                     |
+| Make hidden markup visible | User | \Microsoft Word 2016\Word Options\Security | Enabled |
+| Make hidden markup visible | User | \Microsoft PowerPoint 2016\PowerPoint Options\Security | Enabled |
+| PowerPoint 97-2003 presentations, shows, templates and add-in files | User | \Microsoft PowerPoint 2016\PowerPoint Options\Security\Trust Center\File Block Settings | Enabled (Always match file type) |
 | Publisher Automation Security Level                          | User | \Microsoft Publisher 2016\Security                           | Enabled – High (disabled)                                    |
+| Require that application add-ins are signed by Trusted Publisher | User | \Microsoft Word 2016\Word Options\Security\Trust Center | Enabled |
+| Require that application add-ins are signed by Trusted Publisher | User | \Microsoft PowerPoint 2016\PowerPoint Options\Security\Trust Center | Enabled |
+| Require that application add-ins are signed by Trusted Publisher | User | \Microsoft Excel 2016\Excel Options\Security\Trust Center | Enabled |
+| Require that application add-ins are signed by Trusted Publisher | User | \Microsoft Project 2016\Project Options\Security\Trust Center | Enabled |
+| Require that application add-ins are signed by Trusted Publisher | User | \Microsoft Visio 2016\Visio Options\Security\Trust Center | Enabled |
+| Run Programs | User | \Microsoft PowerPoint 2016\PowerPoint Options\Security | Enabled (disable (don't run any programs)) |
 | Scan encrypted macros in Excel Open XML workbooks            | User | \Microsoft Excel 2016\Excel Options\Security                 | Enabled – Scan encrypted macros (default)                    |
 | Scan encrypted macros in PowerPoint Open XML  presentations  | User | \Microsoft PowerPoint 2016\PowerPoint Options\Security       | Enabled – Scan encrypted macros (default)                    |
 | Scan encrypted macros in Word Open XML documents             | User | \Microsoft Word 2016\Word Options\Security\Trust Center      | Enabled – Scan encrypted macros (default)                    |
 | Security setting for macros                                  | User | \Microsoft Outlook 2016\Security\Trust Center                | Enabled – Warn for signed, disable unsigned                  |
+| Set default file block behavior | User | \Microsoft PowerPoint 2016\PowerPoint Options\Security\Trust Center\File Block Settings | Enabled (Blocked files are not opened) |
+| Set default file block behavior | User | \Microsoft Word 2016\Word Options\Security\Trust Center\File Block Settings | Enabled (Blocked files are not opened) |
+| Set default file block behavior | User | \Microsoft Excel 2016\Excel Options\Security\Trust Center\File Block Settings | Enabled (Blocked files are not opened) |
+| Set document behavior if file validation fails | User | \Microsoft Excel 2016\Excel Options\Security\Trust Center\Protected View | Enabled (Block files) |
+| Set document behavior if file validation fails | User | \Microsoft Word 2016\Word Options\Security\Trust Center\Protected View | Enabled (Block files) |
+| Set document behavior if file validation fails | User | \Microsoft PowerPoint 2016\PowerPoint Options\Security\Trust Center\Protected View | Enabled (Block files) |
 | Turn off trusted documents                                   | User | \Microsoft Word 2016\Word Options\Security\Trust Center      | Enabled                                                      |
 | Turn off trusted documents                                   | User | \Microsoft PowerPoint 2016\PowerPoint  Options\Security\Trust Center | Enabled                                                      |
 | Turn off trusted documents                                   | User | \Microsoft Excel 2016\Excel Options\Security\Trust  Center   | Enabled                                                      |
@@ -272,6 +328,18 @@ The following table outlines the settings within the profile.
 | VBA Macro Notification Settings                              | User | \Microsoft Project 2016\Project Options\Security\Trust  Center | Enabled -Disable all except digitally signed macros          |
 | VBA Macro Notification Settings                              | User | \Microsoft Visio 2016\Visio Options\Security\Trust  Center   | Enabled -Disable all except digitally signed macros          |
 | VBA Macro Notification Settings                              | User | \Microsoft Publisher 2016\Security\Trust Center              | Enabled -Disable all except digitally signed macros          |
+| Visio 2000-2002 Binary Drawings, Templates and Stencils | User | \Microsoft Visio 2016\Visio Options\Security\Trust Center\File Block Settings | Enabled (Open/Save blocked) |
+| Visio 2003-2010 Binary Drawings, Templates and Stencils | User | \Microsoft Visio 2016\Visio Options\Security\Trust Center\File Block Settings | Enabled (Open/Save blocked) |
+| Visio 5.0 or earlier Binary Drawings, Templates and Stencils | User | \Microsoft Visio 2016\Visio Options\Security\Trust Center\File Block Settings | Enabled (Open/Save blocked) |
+| Web pages and Excel 2003 XML spreadsheets | User | \Microsoft Excel 2016\Excel Options\Security\Trust Center\File Block Settings | Enabled (Open/Save blocked, use open policy) |
+| Word 2 and earlier binary documents and templates | User | \Microsoft Word 2016\Word Options\Security\Trust Center\File Block Settings | Enabled (Open/Save blocked, use open policy) |
+| Word 2000 binary documents and templates | User | \Microsoft Word 2016\Word Options\Security\Trust Center\File Block Settings | Enabled (Open/Save blocked, use open policy) |
+| Word 2003 binary documents and templates | User | \Microsoft Word 2016\Word Options\Security\Trust Center\File Block Settings | Enabled (Open/Save blocked, use open policy) |
+| Word 2007 and later binary documents and templates | User | \Microsoft Word 2016\Word Options\Security\Trust Center\File Block Settings | Enabled (Open/Save blocked, use open policy) |
+| Word 6.0 binary documents and templates | User | \Microsoft Word 2016\Word Options\Security\Trust Center\File Block Settings | Enabled (Open/Save blocked, use open policy) |
+| Word 95 binary documents and templates | User | \Microsoft Word 2016\Word Options\Security\Trust Center\File Block Settings | Enabled (Open/Save blocked, use open policy) |
+| Word 97 binary documents and templates | User | \Microsoft Word 2016\Word Options\Security\Trust Center\File Block Settings | Enabled (Open/Save blocked, use open policy) |
+| Word XP binary documents and templates | User | \Microsoft Word 2016\Word Options\Security\Trust Center\File Block Settings | Enabled (Open/Save blocked, use open policy) |
 
 #### ACSC - Windows 10 Hardening
 
@@ -371,10 +439,7 @@ The following table outlines the OMA-URI settings within the profile.
 | Configure System Guard                                       | This policy allows the IT admin to configure  the launch of System Guard. | `./Vendor/MSFT/Policy/Config/DeviceGuard/`<br>`ConfigureSystemGuardLaunch` | Integer: 1     |
 | Turn On Virtualization Based Security                        | Added in Windows 10, version 1709. Turns on  virtualization based security(VBS) at the next reboot. virtualization based  security uses the Windows Hypervisor to provide support for security  services. Value type is integer. | `./Vendor/MSFT/Policy/Config/DeviceGuard/`<br>`EnableVirtualizationBasedSecurity` | Integer: 1     |
 | Required Platform Security Features                          | Added in Windows 10, version 1709. Specifies  the platform security level at the next reboot. Value type is integer. | `./Vendor/MSFT/Policy/Config/DeviceGuard/`<br>`RequirePlatformSecurityFeatures` | Integer: 1     |
-| Enumeration policy for external devices  incompatible with Kernel DMA Protection | Not configured                                               | `./Vendor/MSFT/Policy/Config/`<br>`DmaGuard/DeviceEnumerationPolicy` | Integer: 0     |
-| Allow Windows to automatically connect to  suggested open hotspots, to networks shared by contacts, and to hotspots  offering paid services | This policy is intended to provide  additional security against external DMA capable devices. It allows for more  control over the enumeration of external DMA capable devices incompatible  with DMA Remapping/device memory isolation and sandboxing. Device memory sandboxing allows the OS to  leverage the I/O Memory Management Unit (IOMMU) of a device to block  unallowed I/O, or memory access, by the peripheral. In other words, the OS  assigns a certain memory range to the peripheral. If the peripheral attempts  to read/write to memory outside of the assigned range, the OS blocks it. This policy only takes effect when Kernel  DMA Protection is supported and enabled by the system firmware. Kernel DMA  Protection is a platform feature that cannot be controlled via policy or by  end user. It has to be supported by the system at the time of manufacturing.  To check if the system supports Kernel DMA Protection, please check the  Kernel DMA Protection field in the Summary page of MSINFO32.exe. | `./Vendor/MSFT/Policy/Config/Wifi/`<br>`AllowAutoConnectToWiFiSenseHotspots` | Integer: 0     |
 | Allow Windows to automatically connect to  suggested open hotspots, to networks shared by contacts, and to hotspots  offering paid services | Allow or disallow the device to  automatically connect to Wi-Fi hotspots. | `./Vendor/MSFT/Policy/Config/Wifi/`<br>`AllowAutoConnectToWiFiSenseHotspots` | Integer: 0     |
-| Prohibit use of Internet Connection Sharing  on your DNS domain network | Not configured                                               | `./Vendor/MSFT/Policy/Config/Wifi/AllowInternetSharing`        | Integer: 0     |
 | Audit Credential Validation                                  | Added in Windows 10, version 1903. Also  available in Windows 10, versions 1809 and 1803 through servicing. This  policy setting allows you to audit events generated by validation tests on  user account logon credentials. Events  in this subcategory occur only on the computer that is authoritative for  those credentials. For domain accounts, the domain controller is  authoritative. For local accounts, the local computer is authoritative. Volume: High on domain controllers. | `./Vendor/MSFT/Policy/Config/Audit/`<br>`AccountLogon_AuditCredentialValidation` | Integer: 3     |
 | Audit Account Lockout                                        | Added in Windows 10, version 1903. Also  available in Windows 10, versions 1809 and 1803 through servicing. This  policy setting allows you to audit events generated by a failed attempt to  log on to an account that is locked out.   If you configure this policy setting, an audit event is generated when  an account cannot log on to a computer because the account is locked out.  Success audits record successful attempts and Failure audits record  unsuccessful attempts. Logon events  are essential for understanding user activity and to detect potential  attacks. Volume: Low. | `./Vendor/MSFT/Policy/Config/Audit/`<br>`AccountLogonLogoff_AuditAccountLockout` | Integer: 2     |
 | Audit Group Membership                                       | Added in Windows 10, version 1903. Also  available in Windows 10, versions 1809 and 1803 through servicing. This  policy allows you to audit the group membership information in the user's  logon token. Events in this subcategory are generated on the computer on  which a logon session is created. For an interactive logon, the security  audit event is generated on the computer that the user logged on to. For a  network logon, such as accessing a shared folder on the network, the security  audit event is generated on the computer hosting the resource. When this setting is configured, one or  more security audit events are generated for each successful logon. You must  also enable the Audit Logon setting under Advanced Audit Policy  Configuration\System Audit Policies\Logon/Logoff. Multiple events are  generated if the group membership information cannot fit in a single security  audit event. Volume: Low on a client  computer. Medium on a domain controller or a network server. | `./Vendor/MSFT/Policy/Config/Audit/`<br>`AccountLogonLogoff_AuditGroupMembership` | Integer: 1     |

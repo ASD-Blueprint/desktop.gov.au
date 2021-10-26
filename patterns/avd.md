@@ -4,9 +4,9 @@ title: Azure Virtual Desktop
 excerpt: Azure Virtual Desktop (AVD) is a PaaS offering that allows administrators to configure, deploy, and manage, scalable flexible solutions. AVD enables administrators to publish full desktops or remote apps. Corporations and departments are able to reduce the number of virtual machines and OS overhead while providing the same resources to users.
 ---
 
-Azure Virtual Desktop (AVD) is a PaaS offering managed by Microsoft that allows administrators to configure, deploy, and manage, scalable flexible solutions. AVD enables administrators to publish full desktops or remote apps from a single host pool or create individual app groupings for different sets of users.
+Azure Virtual Desktop (AVD) is a PaaS offering managed by Microsoft that allows administrators to configure, deploy, and manage, a scalable and flexible virtual desktop solution. AVD enables administrators to publish full virtual desktops or remote applications from a single host pool or create individual applications groupings for different sets of users.
 
-Using the Windows 10 Enterprise multi-session capability exclusively available to Azure Virtual Desktop on Azure services, corporations and departments are able to reduce the number of virtual machines and OS overhead while providing the same resources to users.
+Using the Windows 10 Enterprise multi-session capability exclusively available to Azure Virtual Desktop on Azure services, agencies are able to reduce the number of virtual machines and OS overhead while providing the same resources to users.
 
 AVD provides the following benefits over a traditional Desktop-as-a-Service platform:
 
@@ -15,6 +15,7 @@ AVD provides the following benefits over a traditional Desktop-as-a-Service plat
 * Bring Your Own Device (BYOD) options to allow for ease of transition.  
 * An easy path to modernisation and reduction in data centre expenditure.
 * Provide extended support for legacy desktop operating systems or hosting of legacy applications.
+* Provide a rich work from home or alternate office solution, that is simple to use.
 
 The following sections of this document outline design defaults and guidance when deploying an AVD platform and is to be treated as an addendum to the [client devices](/blueprint/client-devices.html) design.  
 
@@ -22,7 +23,7 @@ The following sections of this document outline design defaults and guidance whe
 
 This diagram shows a typical architectural overview for AVD.
 
-* The user endpoints reside either within an agency’s on-premises network (hybrid) or on the public internet (cloud native). For hybrid deployments, ExpressRoute or a site-to-site VPN extends the on-premises network into Azure. Azure AD Connect integrates the agency’s hybrid identity (Active Directory Domain Services (AD DS)) with Azure Active Directory (Azure AD). Cloud native deployments that do not have a hybrid identity (AD DS) can leverage cloud-native Azure AD Domain Services.
+* The user endpoints reside either within an agency’s on-premises network (hybrid) or on the public internet (cloud native). For hybrid deployments, ExpressRoute or a site-to-site VPN extends the on-premises network into Azure. Azure AD Connect integrates the agency’s hybrid identity (Active Directory Domain Services (AD DS)) with Azure Active Directory (Azure AD). Cloud native deployments that do not have a hybrid identity (AD DS) can leverage cloud-native Azure AD Domain Services or use native Azure AD join with Intune management.
 * The AVD control plane handles Web Access, Gateway, Broker, Diagnostics, and extensibility components like REST APIs.
 * The agency manages AD DS and Azure AD, Azure subscriptions, virtual networks, Azure Storage, and the AVD host pools and workspaces.
 * The agency uses multiple Azure subscriptions in an [enterprise-scale landing zone architecture](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/enterprise-scale/architecture) as per [Microsoft’s Cloud Adoption Framework](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/overview) for Azure.
@@ -36,18 +37,19 @@ The following represent the assumptions when considering to deploy Azure Virtual
   * Microsoft 365 E3, E5
   * Windows E3, E5
 * Adequate storage is provisioned for the expected number of users. Recommendation of a minimum of 30GB per-user for the Windows profile hosted with the FSLogix solution.
-* The agency has read the [client devices](https://desktop.gov.au/blueprint/client-devices.html) blueprint and ensures the [ACSC Windows 10 hardening guidelines](https://www.cyber.gov.au/acsc/view-all-content/publications/hardening-microsoft-windows-10-version-21h1-workstations) are being adhered to in relation to the AVD Windows 10 session hosts. 
+* The agency has read the [client devices](https://desktop.gov.au/blueprint/client-devices.html) blueprint and ensures the [ACSC Windows 10 hardening guidelines](https://www.cyber.gov.au/acsc/view-all-content/publications/hardening-microsoft-windows-10-version-21h1-workstations) are being adhered to in relation to the AVD Windows 10 session hosts.
 
 ## Prerequisites
 
 The following represent the prerequisites before deploying Azure Virtual Desktop.
 
-* Infrastructure with a configured Azure AD tenant and an Active Directory Domain Services (AD DS) that can sync with Azure AD.  Currently, AVD requires session host virtual machines to be domain-joined to an AD DS domain to manage the machines computer object and provide policy and authentication. Depending on the Active Directory architecture chosen – hybrid or cloud native, AVD can be configured to domain-join an existing on-premises AD DS domain (over VPN or ExpressRoute), or a cloud-only Azure AD Domain Services (PaaS) hosted in Azure.
+* **Optional but recommended for this pattern -** Infrastructure with a configured Azure AD tenant and an Active Directory Domain Services (AD DS) that can sync with Azure AD.  AVD previously required session host virtual machines to be domain-joined to an AD DS domain to manage the machines computer object and provide policy and authentication. Depending on the Active Directory architecture chosen – hybrid or cloud native, AVD can be configured to domain-join an existing on-premises AD DS domain (over VPN or ExpressRoute), or a cloud-only Azure AD Domain Services (PaaS) hosted in Azure.
 
 Cloud native:
 
 * Azure AD Connect synced to a cloud-only AD DS IaaS (Infrastructure as a Service) within the Azure deployment, or
-* Azure AD DS PaaS configured within the Azure deployment (automatically synchronised to Azure AD)
+* Azure AD DS PaaS configured within the Azure deployment (automatically synchronised to Azure AD), or
+* Agencies can choose to opt out of a AD DS infrastructure and use native Azure AD join with Intune management, but there are caveats that need to be assessed (see Active Directory below).
 
 Hybrid:
 
@@ -60,7 +62,9 @@ Hybrid:
 
 Microsoft Windows Server Active Directory Domain Services (AD DS) and Azure Active Directory (AAD) maintain records of information required to identify services, users and other resources on the network. A domain is a security boundary that exists within AD, and all user accounts are based on domain membership.  
 
-Currently, AVD requires session host virtual machines to be domain-joined to an AD DS domain to manage the machines computer object and provide policy and authentication. Depending on the Active Directory architecture chosen – hybrid or cloud native, AVD can be configured to domain-join an existing on-premises AD DS domain (over VPN or ExpressRoute), or a cloud-only Azure AD Domain Services (PaaS) hosted in Azure.
+Previously, AVD required session host virtual machines (the virtual desktops) to be domain-joined to an AD DS domain to manage the machines computer object and provide policy and authentication. AVD session hosts can now be joined to Azure Active Directory natively (without AD DS hybrid join) and can be managed by Intune, this includes delivery of security policy. Note that with this option, Intune policy support is limited to policies targeted to the O/S scope and not the user scope with multi-session AVD session hosts, and only local profiles are available. Due to current limitations, the pattern currently recommends deploying AVD with Active Directory Domain services to ensure there is full security policy scope for users and the operating system itself, and the user experience is not impacted. See [Using Azure Virtual Desktop multi-session with Microsoft Endpoint Manager](https://docs.microsoft.com/en-us/mem/intune/fundamentals/azure-virtual-desktop-multi-session).
+
+Depending on the Active Directory architecture chosen – hybrid or cloud native, AVD can be configured to domain-join an existing on-premises AD DS domain (over VPN or ExpressRoute), or a cloud-only Azure AD Domain Services (PaaS) that is hosted in Azure.
 
 The following table outlines the environment specific infrastructure configurations and considerations for Active Directory services for the solution. 
 
@@ -68,7 +72,7 @@ Active Directory Design Decisions for the solution
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Active Directory Domain Type | **Hybrid**: AD Connect synced to AD DS domain<br><br>**Cloud Native**: AD Connect synced to cloud-only AD DS IaaS hosted on Azure OR Azure AD DS PaaS configured on the Azure Platform (automatically synced to Azure AD) | AVD requires session host virtual machines to be joined to an AD DS domain.<br><br>This is to support AVD domain join and to manage the machines computer object and provide policy and authentication. Depending on the Active Directory architecture – hybrid or cloud native AVD can be configured to sync with an existing on-premises AD DS domain, or a cloud-only AD DS IaaS or Azure AD DS PaaS service hosted in Azure.<br><br>Currently, Virtual machines cannot be natively Azure AD-joined only.
+Active Directory Domain Type | **Hybrid**: AD Connect synced to AD DS domain<br><br>**Cloud Native**: AD Connect synced to cloud-only AD DS IaaS hosted on Azure OR Azure AD DS PaaS configured on the Azure Platform (automatically synced to Azure AD) | This pattern requires session host virtual machines to be joined to an AD DS domain to support user policy delivery as well as roaming profile support with FSLogix.<br><br>Depending on the Active Directory architecture – hybrid or cloud native AVD can be configured to sync with an existing on-premises AD DS domain, or a cloud-only AD DS IaaS or Azure AD DS PaaS service hosted in Azure. 
 Active Directory Domain | [Domain Name] | A new or current AD DS domain will be leveraged for the AVD solution.
 Active Directory Domain Functional Level (Hybrid Only) | Windows Server 2016 functional level | Latest support AD Functional level and supported by the AVD service.
 Single Sign On | Optional – AD FS is required and supported with Web Client and Windows Client only. | Active Directory Federation Services (AD FS) is required to [support Single Sign On](https://docs.microsoft.com/en-us/azure/virtual-desktop/configure-adfs-sso) (SSO) from the RD Gateway logon point through to the AVD desktop.
@@ -82,13 +86,13 @@ The following figure outlines a suggested AD DS OU Structure with proposed OUs t
 
 ### Group policies
 
-Group policies provide a user experience tailored to the needs and security requirements of an organisation. Policies are created and managed using the Group Policy Management Console (GPMC). Group policy is still required for session hosts when using pooled-random session hosts, which is currently not supported with Intune.
+Group policies provide a user experience tailored to the needs and security requirements of an organisation. Policies are created and managed using the Group Policy Management Console (GPMC). Group policy is still required for session hosts when using pooled-random multi-session hosts, which is currently not supported with Intune.
 
 The following tables describe the Group Policy design decisions for the solution.   
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Group Policy template versions (ADMX) | **Windows**: Windows 10 Enterprise (1909 / 20H2 / 21H1)<br>**Microsoft Office**: Microsoft 365 Apps for enterprise / Office 2016 / 2019 / June 2020<br><br>Design Decisions for OS and Office versions, refer to [client devices design](https://desktop.gov.au/blueprint/client-devices.html). | ADMXs required to support the current SAC release of Windows 10, Microsoft 365 and Microsoft Defender for Endpoint.
+Group Policy template versions (ADMX) | **Windows**: Windows 10 Enterprise ( 21H1)<br>**Microsoft Office**: Microsoft 365 Apps for enterprise / Office 2016 / 2019<br><br>Design Decisions for OS and Office versions, refer to [client devices design](https://desktop.gov.au/blueprint/client-devices.html). | ADMXs required to support the current SAC release of Windows 10, Microsoft 365 and Microsoft Defender for Endpoint.
 Group Policy Inheritance | Enabled | The session host desktop policies will be linked to a new OU structure. No existing policies will be used.
 Group Policy Loopback Mode | Replace Mode | Loopback processing in Replace Mode will be configured to allow finer grained user policies to be linked at the computers OU level.
 ACSC Hardening Guidelines – [Hardening Windows 10](https://www.cyber.gov.au/acsc/view-all-content/publications/hardening-microsoft-windows-10-version-21h1-workstations), [Microsoft Office Macro Security](https://www.cyber.gov.au/sites/default/files/2019-03/Microsoft_Office_Macro_Security.pdf) and [MS Office](https://www.cyber.gov.au/acsc/view-all-content/publications/hardening-microsoft-office-365-proplus-office-2019-and-office-2016). | Deployed | Ensures the ACSC Windows 10 and Office Macro Security hardening recommendations have been assessed and appropriately applied to devices via custom group policies.<br><br>The Client Devices Design Blueprint advice will be followed to harden the AVD VM’s except where it does not apply (I.e., Any recommendations that only apply to physical desktop machines and not VM’s).  For example, the following outlined hardening recommendations from the guide will not be applied:<br><br>* Early Launch Antimalware<br>* Measured Boot<br>* Secure Boot<br>* BIOS and UEFI passwords<br>* Boot devices<br>* CD burner access<br><br>Exact configurations per the ACSC guidelines will be included in the ‘As-Built As-Configured’ documentation. 
@@ -125,7 +129,7 @@ The following table describes Personalisation and Profile Management design deci
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Profile Management Version | FSLogix Apps 2.9.7654.46150 | The latest version at the time of writing. The latest version should be assessed and utilised where appropriate.
+Profile Management Version | FSLogix Apps 2.9.7838.44263 | The latest version at the time of writing. The latest version should be assessed and utilised where appropriate.
 Profile Container | Enabled | FSLogix will be used to manage profiles for the solution.
 Profile Container Logging | Enabled (All logs enabled) | Logging is to be enabled for FSLogix.
 Profile Type | Read write with fallback to read only | Required for multi-session concurrent deployment type.
@@ -133,9 +137,9 @@ Enable Search Roaming |  Enabled: Multi-User Search | Required to support Office
 Search Database Configuration | Multi-User Search | Required to support Office 365 Search Database roaming.
 Outlook Cached Mode | Enabled | FSLogix Outlook Cached mode will be configured to provide the best user experience.
 Dynamic VHD(X) Allocation | Enabled | Dynamic VHD(X) will be configured to provide storage cost savings where possible.
-Profile Virtual Disk Location | Agency Decision Point: Azure Files or Azure NetApp Files for Storage Account.<br><br>Storage Account Name/s: TBD - Share that will be used for profiles | Each user will have a FSLogix virtual disk stored to an Azure location in Australia with data geo-replicated to a secondary location for DR purposes. <br><br>Depending on required usage, performance and disaster recovery requirements, the agency must decide between Azure Files and Azure NetApp files depending on their requirements. <br><br>For further information, see [Azure Files and Azure NetApp Files comparison](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-netapp-comparison).
+Profile Virtual Disk Location | Agency decision point: Azure Files or Azure NetApp Files for Storage Account.<br><br>Storage Account Name/s: TBD - Share that will be used for profiles | Each user will have a FSLogix virtual disk stored to an Azure location in Australia with data geo-replicated to a secondary location for DR purposes. <br><br>Depending on required usage, performance and disaster recovery requirements, the agency must decide between Azure Files and Azure NetApp files depending on their requirements. <br><br>For further information, see [Azure Files and Azure NetApp Files comparison](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-netapp-comparison).
 Virtual Disk Type | VHDX | VHDX is the latest available disk type and suitable for this solution.
-Concurrent Users Sessions | Allowed | Concurrent user sessions must be enabled to allow Citrix hosted shared desktop scenarios.
+Concurrent Users Sessions | Allowed | Concurrent user sessions must be enabled to allow hosted shared desktop scenarios. 
 Local Cache Persistence | Enabled | Local cache folders will be kept on user logout providing a faster experience for re-logons.
 Redirections File Path | Azure Storage account | The redirections configuration XML will be hosted on a common share, to be determined by the agency. 
 Redirection Exclusions | `[TBD-DOMAIN]\NETLOGON\FsLogix\Redirections.xml`<br><br>See section [Appendix 1 – FSLogix Profile Redirections](#appendix-1--fslogix-profile-redirections) | Base configurations recommended initially. This configuration will be updated as required during the build and test of the solution.
@@ -155,7 +159,7 @@ Office 365 Activation Data | Enabled | Office 365 activation data will be stored
 Office Cache Data | Enabled | Office 365 cache data will be stored in the O365 container.
 OneDrive Data | Enabled | OneDrive data will be stored in the O365 container.
 OneNote Data | Enabled | OneNote data will be stored in the O365 container.
-Outlook Data | Enabled Outlook data will be stored in the O365 container.
+Outlook Data | Enabled Outlook data will be stored in the O365 container.|Outlook data will be stored in the O365 container.
 Outlook Personalisation Data | Enabled | Outlook personalisation data will be stored in the O365 container.
 SharePoint Data | Enabled | SharePoint data will be stored in the O365 container.
 Teams Data | Enabled | Teams data will be stored in the O365 container.
@@ -198,8 +202,8 @@ Azure License Entitlement | Microsoft 365 E3/E5 <br>Windows 10 Enterprise E3/E5 
 Windows 10 Enterprise and Windows 10 Enterprise Multi Session License Entitlements | Microsoft 365 E3/E5 <br>Windows E3/E5 | Any of these licensing entitlements will provide access to Windows 10 and Windows 10 Multisession on Azure.
 Encryption | TLS 1.2 | [TLS 1.2 is used for all connections](https://docs.microsoft.com/en-us/azure/virtual-desktop/network-connectivity) initiated from the clients and session hosts to the Azure Virtual Desktop infrastructure components.
 Identity and Access Configuration | Refer to AVD Control Plane Configuration table | To meet the requirements of this design
-Connectivity | Optimised through SIG public internet | AVD does not currently support [ExpressRoute](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-faqs) optimisation, it is recommended that outgoing connections from within the agency to AVD desktops are optimised by bypassing the agency web proxy, but still egressing the agency’s SIG (direct route). Connections outside of the environment will connect using the public internet. <br><br>Note: at time of writing, [Azure RDP Shortpath](https://docs.microsoft.com/en-us/azure/virtual-desktop/shortpath) is a preview feature which supports direct connection to session hosts in with hybrid connectivity configurations.
-    
+Connectivity | Agency decision point: <br />Optimised through SIG public internet or RDP Shortpath | AVD does not currently support [ExpressRoute](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-faqs) optimisation with Microsoft peering. It is recommended that outgoing connections from within the agency to AVD desktops are optimised by either bypassing the agency web proxy, but still egressing the agency’s SIG (direct route) or utilising [Azure RDP Shortpath](https://docs.microsoft.com/en-us/azure/virtual-desktop/shortpath) if there is direct line of sight to the Azure Landing zone inside the organisation.<br><br />RDP Shortpath is the recommended approach where it is available the agency. 
+
 AVD Control Plane Configuration table:
 
 Decision Point | Design Decision | Justification
@@ -355,7 +359,7 @@ Published Applications | As required | List published applications required to b
 Host Pool | Aligned to the host pool | Each App Group will be aligned to a host pool.
 Workspace | Aligned to the host pool | Each Workspace will be aligned to a host pool.
 
---- 
+---
 
 ### Workspaces
 
@@ -461,17 +465,17 @@ The following client access methods are available to clients:
 * **Android Remote Desktop Client** – Allows users to access Azure Virtual Desktop resources directly from an Android device or a Chromebook that supports the Google Play Store.
 * **MacOS Remote Desktop Client** –Allows users to access Azure Virtual Desktop resources from an Apple computer.
 * **iOS Remote Desktop Client** – Allows users to access Azure Virtual Desktop resources directly from an iOS device (iPhones and iPads).
-* **RDP Shortpath** – Is an Azure Virtual Desktop optimisation feature that allows the client device to establish a direct UDP-based connection between the Remote Desktop Client and the Session host. The feature requires that the client has routing capability into the Azure VNet where the Session hosts reside.
+* **RDP Shortpath** – Is an Azure Virtual Desktop optimisation feature that allows the client device to establish a direct UDP-based connection between the Remote Desktop Client and the Session host. The feature requires that the client has routing capability into the Azure VNet where the Session hosts reside. This connection method offers a secure reliable and low latency connection directly to Azure for agencies that meet the requirements.
 
 The table below describes the Client Access design decisions for the solution. 
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Primary Client Access | Web Client (HTML5)<br>Windows Desktop Client | User will primarily access AVD resources using the [Web Client](https://docs.microsoft.com/en-us/azure/virtual-desktop/user-documentation/connect-web) (HTML5) and the Windows Desktop Client. 
+Primary Client Access | Web Client (HTML5)<br>Windows Desktop Client | User will primarily access AVD resources using the [Web Client](https://docs.microsoft.com/en-us/azure/virtual-desktop/user-documentation/connect-web) (HTML5) and the Windows Desktop Client.<br /><br />The Windows Desktop client installed on a Windows Desktop client is the recommend client access method as it provides support for RDP Shortpath. 
 Browser Support | Microsoft Edge<br>Apple Safari<br>Mozilla Firefox<br>Google Chrome | All current browsers advised by Microsoft which have HTML5 compatibility will be supported.
 Conditional Access App Exclusions | Exclude from blocking policies:<br>Windows Virtual Desktop<br>Windows Virtual Desktop Client<br>Include in MFA grant policy:<br>Windows Virtual Desktop<br>Windows Virtual Desktop Client | Exclusion of any “All Cloud Apps” policies that prevent the use of Azure Virtual Desktop should be implemented to allow connectivity from non-agency endpoints.
 Conditional Access Session Control | Set to 14 hours (when KMSI enabled) | Session Control policy should be implemented to enforce MFA after long periods when KMSI (Keep me Signed In) is implemented.
-RDP Shortpath | Not configured | At time of writing, this feature is in Public Preview.
+RDP Shortpath | Configured | RDP Shortpath should be enabled if there is line of sight to the Azure Landing Zone, as it offers better reliability and consistent latency when compared to an Internet connection. 
 
 ## Users and devices
 
@@ -527,15 +531,15 @@ The table below describes the Client Devices design decisions for the solution.
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Device Ownership | Corporate Devices (Intune Managed)<br>BYOD Device (External AVD Access) | Both corporate and BYOD devices may access the AVD solution.  
-Device Types | Corporate Devices (Windows)<br>BYOD Devices (Any Supported AVD Platform) | Government agencies primarily utilise PCs to access the environments and BYOD will need to access via a support platform or a HTML5 capable browser.  
-Supported Client Devices and Web Clients | See Supported [Client Devices](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients) and [Web Clients](https://docs.microsoft.com/en-us/azure/virtual-desktop/user-documentation/connect-web) | Any of the supported client devices or web clients can be used to access the AVD platform.
+Device Types | Corporate Devices (Windows)<br>BYOD Devices (Any Supported AVD Platform) | Government agencies primarily utilise PCs to access the environments and BYOD will need to access via a support platform or a HTML5 capable browser.<br />A Windows Client desktop is the preferred method for supportability. 
+Supported Client Devices and Web Clients | See Supported [Client Devices](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients) and [Web Clients](https://docs.microsoft.com/en-us/azure/virtual-desktop/user-documentation/connect-web) | Any of the supported client devices or web clients can be used to access the AVD platform. 
 Client Device Configuration | Refer to Client Device Considerations table | To meet the requirements of this solution.
 
 Client Device Considerations table:
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Windows Desktop Client Version | Latest version | To ensure all security enhancements and feature availability.  Corporate devices will be managed centrally.<br><br>For BYOD, users will be expected to install the client manually or use HTML5 client.
+Windows Desktop Client Version | Latest version | To ensure all security enhancements and feature availability.  Corporate devices will be managed centrally.<br><br>For BYOD, users will be expected to install the client manually or use HTML5 client. The full desktop client is recommended. 
 Base Installation Switches, if required | `RemoteDesktop.msi /qn` | Silent install for Remote Desktop client when using Device Management / AD Software Deployment.
 Auto Discovery | Corporate Email | Set up DNS TXT Record for [Email Address Discovery](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-email-discovery).
 User Restrictions | **Corporate Devices - Intune Managed**<br>Not Applicable<br><br>**BYOD Device – User Managed**<br>Drive redirection or mapping prohibited<br>Local printing prohibited<br>Clipboard prohibited<br>USB redirection prohibited | To enforce security requirements for data loss prevention.<br><br>To copy data to environment it is recommend using USB file transfer from Intune PROTECTED devices using approved USB devices. 

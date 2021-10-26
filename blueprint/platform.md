@@ -1334,7 +1334,7 @@ Intune Windows AutoPilot Design Decisions for cloud native implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Automatically Join Devices | Azure Active Directory (Azure AD) | Devices will automatically joint the Azure Active Directory.
+Automatically Join Devices | Azure Active Directory (Azure AD) | Devices will automatically join the Azure Active Directory. 
 Auto-enrol devices | Configured | Enrolled automatically into Intune MDM.
 Restrict the Local Administrator Account | Configured | Aligns with the ACSC Hardening guide for Windows 10.
 Create and auto-assign devices | Configured | For ease of management and enrolment for devices within Agency.

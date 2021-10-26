@@ -16,7 +16,7 @@ The assessments presented in this document includes Windows 10 and the supportin
 
 > "The Essential Eight are designed to protect Microsoft Windows-based internet-connected networks. While the Essential Eight may be applied to cloud services and enterprise mobility... it was not primarily designed for such ... In such cases, organisations should consider alternative guidance provided by the ACSC" - [Essential Eight Maturity Model (Oct-2021)](https://www.cyber.gov.au/acsc/view-all-content/publications/essential-eight-maturity-model).
 
-The ACSC has provided an assessment of iOS devices against the Essential Eight in the [Security Configuration Guide - Apple iOS 14 Devices (Oct-2021)](https://www.cyber.gov.au/acsc/view-all-content/publications/security-configuration-guide-apple-ios-14-devices). Note, this assessment was performed against the June 2020 Essential Eight maturity model.
+The ACSC has provided an assessment of iOS devices against the Essential Eight in the [Security Configuration Guide - Apple iOS 14 Devices (Oct-2021)](https://www.cyber.gov.au/acsc/view-all-content/publications/security-configuration-guide-apple-ios-14-devices). 
 
 Server infrastructure used by agencies to support hybrid deployments of the blueprint are not included in this assessment as they are bespoke to those agencies. It is recommended that agencies operating a hybrid deployment of the blueprint perform their own Essential Eight assessments of supporting server infrastructure.
 

@@ -710,8 +710,7 @@ Networking Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-IPv6 | Disabled | To align with the ACSC Windows 10 hardening guidance.
-<br>Exceptions to this rule are if IPv6 is wholly deployed within an Agency network with no IPv4.
+IPv6 | Disabled | To align with the ACSC Windows 10 hardening guidance.<br>Exceptions to this rule are if IPv6 is wholly deployed within an Agency network with no IPv4.
 Wireless | Enabled | Where applicable, wireless capable devices will have Wi-Fi enabled to allow use case of mobile working.
 Wireless Configuration | Refer to Table below for wireless configuration recommendations. | To align with the ACSC Windows 10 hardening guidance. 
 Broadband | Not Configured | If Agency devices have Subscriber Identity Module (SIM) capability this can be enabled without affecting an agencies cyber security posture.
@@ -922,20 +921,22 @@ Microsoft Defender Firewall Configuration | Enabled and configured | To align wi
 
 The following design components apply to the hardening of Microsoft Windows 10 21H1 and above.
 
-The Windows 10 security settings detailed in this section are based on Microsoft best practice and ACSC Hardening Guidance.
+The Windows 10 security settings detailed in this section are based on Microsoft best practice and the ACSC [Hardening Microsoft Windows 10 version 21H1 Workstations (Oct-2021)](https://www.cyber.gov.au/acsc/view-all-content/publications/hardening-microsoft-windows-10-version-21h1-workstations) guidance.
 
 Windows 10 Hardening Design Decisions for all agencies and implementation types.
 
 * Attack Surface Reduction
   * Justification: To align with the ACSC Windows 10 hardening guidance.
   * Attack Surface Reduction rules – Enabled
-  ```(BE9BA2D9-53EA-4CDC-84E5-9B1EEEE46550,D4F940AB-401B-4EFC-AADC-AD5F3C50688A,3B576869-A4EC-4529-8536-B80A7769E899,5668C1F-73B5-4CF0-BB93-3ECF5CB7CC84,3E037E1-3EB8-44C8-A917-57927947596D,5BEB7EFE-FD9A-4556-801D-275E5FFC04CC,92E97FA1-2EDF-4476-BDD6-9DD0B4DDDC7B,01443614-CD74-433A-B99E-2ECDC07BFC25E,C1DB55AB-C21A-4637-BB3F-A12568109D35,9E6C4E1F-7D60-472F-BA1A-A39EF669E4B2,D1E49AAC-8F56-4280-B9BA-993A6D77406C,B2B3F03D-6A65-4F7B-A9C7-1C7EF74A9BA4,26190899-1602-49E8-8B27-EB1D0A1CE869,7674BA52-37EB-4A4F-A9A1-F0F9A1619A2C,E6DB77E5-3DF2-4CF1-B95A-636979351E5B)```
+  ```(BE9BA2D9-53EA-4CDC-84E5-9B1EEEE46550,D4F940AB-401B-4EFC-AADC-AD5F3C50688A,3B576869-A4EC-4529-8536-B80A7769E899,75668C1F-73B5-4CF0-BB93-3ECF5CB7CC84,D3E037E1-3EB8-44C8-A917-57927947596D,5BEB7EFE-FD9A-4556-801D-275E5FFC04CC,92E97FA1-2EDF-4476-BDD6-9DD0B4DDDC7B,01443614-CD74-433A-B99E-2ECDC07BFC25E,C1DB55AB-C21A-4637-BB3F-A12568109D35,9E6C4E1F-7D60-472F-BA1A-A39EF669E4B2,D1E49AAC-8F56-4280-B9BA-993A6D77406C,B2B3F03D-6A65-4F7B-A9C7-1C7EF74A9BA4,26190899-1602-49E8-8B27-EB1D0A1CE869,7674BA52-37EB-4A4F-A9A1-F0F9A1619A2C,E6DB77E5-3DF2-4CF1-B95A-636979351E5B)```
 * Credential caching
   * Justification: To align with the ACSC Windows 10 hardening guidance.
   * Interactive logon: Number of previous logons to cache: 1 logon
   * Network access: Do not allow storage of passwords and credentials for network authentication: Enabled
   * WDigest Authentication: Disabled
   * Turn On Virtualization Based Security: Enabled
+  * Select Platform Security Level: Secure Boot and DMA Protection
+  * Credential Guard Configuration: Enabled with UEFI lock
 * Controlled Folder Access
   * Justification: To align with the ACSC Windows 10 hardening guidance.
   * Configure allowed applications: Enabled
@@ -955,6 +956,7 @@ Windows 10 Hardening Design Decisions for all agencies and implementation types.
 * Early Launch Antimalware
   * Justification: To align with the ACSC Windows 10 hardening guidance.
   * Boot-Start Driver Initialization Policy: Enabled
+  * Choose the boot-start drivers that can be initialized: Good and unknown
 * Elevating privileges
   * Justification: To align with the ACSC Windows 10 hardening guidance.
   * User Account Control
@@ -1065,9 +1067,41 @@ Windows 10 Hardening Design Decisions for all agencies and implementation types.
   * Prevent installation of devices using drivers that match these device setup classes: Enabled
     * Prevent installation of devices using drivers for these device setup classes: `{d48179be-ec20-11d1-b6b8-00c04fa372a7}`
     * Also apply to matching devices that are already installed.
+* Drive encryption
+  * Justification: To align with the ACSC Windows 10 hardening guidance. Note, the encryption key strength exceeds the requirements of the ACSC guidance.
+  * BitLocker Drive Encryption:
+    * Choose drive encryption method and cipher strength: Enabled (XTS-AES 256-bit)   
+    * Disable new DMA devices when this computer is locked: Enabled
+    * Prevent memory overwrite on restart: Disabled
+  * Fixed Data Drives:
+    * Choose how BitLocker-protected fixed drives can be recovered: Enabled (Allow data recovery agent)
+    * Configure use of passwords for fixed data drives: Enabled (Require password for fixed data drive)
+    * Deny write access to fixed drives not protected by BitLocker: Enabled
+    * Enforce drive encryption type on fixed data drives: Enabled (Full encryption)
+  * Operating System Drives
+    * Allow devices compliant with InstantGo or HSTI to opt out of pre-boot PIN: Disabled
+    * Allow enhanced PINs for startup: Enabled
+    * Allow network unlocked at startup: Enabled
+    * Allow Secure Boot for integrity validation: Enabled
+    * Choose how BitLocker-protected operating system drives can be recovered: Enabled (Allow data recovery agent)
+    * Configure minimum PIN length for startup: Enabled
+    * Configure use of passwords for operating system drives: Enabled
+    * Disallow standard users from changing the PIN or password: Disabled
+    * Enforce drive encryption type on operating system drives: Enabled (Fully encryption)
+    * Require additional authentication at startup: Enabled (Allow BitLocker without a compatible TPM)
+    * Reset platform validation data after BitLocker recovery: Enabled
+  * Removable Data Drives
+    * Choose how BitLocker-protected removable drives can recovered: Enabled (Allow data recovery agent)
+    * Configure use of passwords for removable data drives: Enabled
+    * Control use of BitLocker on removable drives: Enabled
+    * Deny write access to removable drives not protected by BitLocker: Enabled
+    * Enforce drive encryption type on removable data drives: Enabled (Fully encryption)
+  * Account Lockout Policy
+    * Interactive logon Machine account lockout threshold: 10
 * Endpoint device control
   * Justification: To align with the ACSC Windows 10 hardening guidance.
-  * All Removable Storage classes: Deny all access: Enabled
+  * All Removable Storage classes: 
+    * Deny all access: Enabled
   * CD and DVD:
     * Deny execute access: Enabled
     * Deny read access: Disabled
@@ -1094,21 +1128,6 @@ Windows 10 Hardening Design Decisions for all agencies and implementation types.
   * Justification: To align with the ACSC Windows 10 hardening guidance.
   * Prevent the computer from joining a homegroup: Enabled
   * Prevent users from sharing files within their profile: Enabled
-* Hard drive encryption
-  * Justification: To align with the ACSC Windows 10 hardening guidance.
-  * BitLocker Drive Encryption: Enabled
-  * Disable new DMA devices when this computer is locked: Enabled
-  * Prevent memory overwrite on restart: Disabled
-  * Fixed Data Drives: Enabled
-  * Allow network unlocked at startup: Enabled
-  * Allow Secure Boot for integrity validation: Enabled
-  * Enforce drive encryption type on operating system drives: Enabled (Full encryption)
-  * Reset platform validation data after BitLocker recovery: Enabled
-  * Removable Data Drives: Enabled
-  * Control use of BitLocker on removable drives: Enabled (Allow users to apply BitLocker protection on removable data drives)
-  * Deny write access to removable drives not protected by BitLocker: Enabled
-  * Enforce drive encryption type on removable data drives: Enabled (Full encryption)
-  * Pre-boot PIN: Enabled
 * Installing applications and drivers
   * Justification: To align with the ACSC Windows 10 hardening guidance.
   * Configure Windows Defender SmartScreen: Enabled (Warn and prevent bypass)
@@ -1185,7 +1204,7 @@ Windows 10 Hardening Design Decisions for all agencies and implementation types.
   * Turn off shell protocol protected mode: Disabled
   * Prevent downloading of enclosures: Enabled
   * Allow indexing of encrypted files: Disabled
-  * Enables or disables Windows Game Recording and Broadcasting: disabled
+  * Enables or disables Windows Game Recording and Broadcasting: Disabled
   * Disable machine account password changes: Disabled
   * Maximum machine account password age: 30 days
   * Allow PKU2U authentication requests to this computer to use online identities: Disabled
@@ -1262,7 +1281,7 @@ Windows 10 Hardening Design Decisions for all agencies and implementation types.
 
 The Microsoft Edge security settings support Edge version 90 and later.
 
-The Microsoft Edge security settings detailed in this section are based on Microsoft best practice and ACSC Hardening Guidance.
+The Microsoft Edge security settings detailed in this section are based on Microsoft best practice and the ACSC [Hardening Microsoft Windows 10 version 21H1 Workstations (Oct-2021)](https://www.cyber.gov.au/acsc/view-all-content/publications/hardening-microsoft-windows-10-version-21h1-workstations) guidance.
 
 Microsoft Edge Hardening Design Decisions for all agencies and implementation types.
 
@@ -1424,7 +1443,7 @@ Telemetry Level | 2 – Enhanced | Microsoft recommend Enhanced Limited for Desk
 
 The following design components apply to the hardening of Microsoft Office 365 ProPlus.
 
-The Microsoft Office security settings detailed in this section are based on Microsoft best practice and ACSC Hardening Guidance.
+The Microsoft Office security settings detailed in this section are based on Microsoft best practice and the ACSC [Hardening Microsoft 365, Office 2021, Office 2019 and Office 2016 (Oct-2021)](https://www.cyber.gov.au/acsc/view-all-content/publications/hardening-microsoft-365-office-2021-office-2019-and-office-2016) guidance.
 
 Microsoft Office Hardening Design Decisions for all agencies and implementation types.
 
@@ -1461,6 +1480,7 @@ D4F940AB-401B-4EFC-AADC-AD5F3C50688A
 * Loading external content
   * Justification: To align with the ACSC Microsoft Office hardening guidance.
   * Always prevent untrusted Microsoft Query files from opening: Enabled
+  * Don't allow Dynamic Data Exchange (DDE) server launch in Excel: Enabled
   * Don't allow Dynamic Data Exchange (DDE) server lookup in Excel: Enabled
   * Update automatic links at Open: Disabled
 * Macros
@@ -1646,7 +1666,7 @@ LAPS | Not Configured | Not required for the solution. The local Administrator a
 
 ## iOS
 
-ACSC guidance for mobile devices currently only covers iOS devices. Due to this, the recommendation is to utilise iOS for Agency devices to ensure that the environment is following security guidelines.
+The blueprint's recommendation is to utilise iOS for Agency devices following the design decisions based on the ACSC [Security Configuration Guide – Apple iOS 14 Devices (Oct-2021)](https://www.cyber.gov.au/acsc/view-all-content/publications/security-configuration-guide-apple-ios-14-devices) guidance.
 
 ### iOS devices
 

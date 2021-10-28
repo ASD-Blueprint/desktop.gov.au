@@ -561,7 +561,7 @@ Exchange Online PowerShell | Disabled for standard users | Standard users have n
 
 Authentication policies control the authentication methods which can be used to access Exchange Mailboxes.
 
-Authentication polices can be leveraged to protect the organisation from brute force and password spray attacks. To protect against this, Basic Authentication can be blocked. Basic authentication is where a username and a password are leveraged for client access requests.
+Authentication policies can be leveraged to protect the organisation from brute force and password spray attacks. To protect against this, Basic Authentication can be blocked. Basic authentication is where a username and a password are leveraged for client access requests.
 
 Blocking Basic Authentication forces clients to use Modern Authentication. Blocking Basic Authentication can cause issues when clients within the environment do not support Modern Authentication. If this occurs, it is recommended to investigate whether the client can be upgraded to support Modern Authentication. If it can, then it is recommended that the client be upgraded. If it cannot then a separate authentication policy can be leveraged enabling Basic Authentication for that client only.
 
@@ -1472,7 +1472,7 @@ Safe list | Disabled | This is the default setting configured when Exchange Onli
 
 Anti-malware within Exchange Online Protection refers to the default anti-malware scanning which is completed on all emails routing through the service.
 
-In addition to the default scanning, anti-malware policies can be configured. These polices allow for the customisation of a response if malware is detected and the restriction of attachment file types.
+In addition to the default scanning, anti-malware policies can be configured. These policies allow for the customisation of a response if malware is detected and the restriction of attachment file types.
 
 Anti-malware Design Decisions for all agencies and implementation types.
 
@@ -1518,7 +1518,7 @@ Mail flow rules | Configured | Mail flow rules within the environment are requir
 
 Content Filtering within Exchange Online Protection refers to SPAM management and SPAM policies.
 
-Content Filtering polices allow for:
+Content Filtering policies allow for:
 
 * The customisation of response on SPAM detection.
 * Marking emails as SPAM based on language detected.
@@ -1586,7 +1586,7 @@ Safe Links Configuration applicable to all agencies and implementation types.
 
 Configuration | Value | Description
 --- | --- | ---
-Action for unknown potentially malicious URLs in messages | URLs will be rewritten and checked against a list of known malicious links when user clicks on the link | Configured to align with ACSC - PROTECT - Malicious Email Mitigation Strategies (June 2020) and Microsoft guidance.
+Action for unknown potentially malicious URLs in messages | URLs will be rewritten and checked against a list of known malicious links when a user clicks on the link | Configured to align with ACSC - PROTECT - Malicious Email Mitigation Strategies (June 2020) and Microsoft guidance.
 Action for unknown or potentially malicious URLs within Microsoft Teams | Microsoft Teams will check against a list of known malicious links when user clicks on the link; URLs will not be rewritten | Configured to align with ACSC - PROTECT - Malicious Email Mitigation Strategies (June 2020) and Microsoft guidance.
 Do not track when users click safe links | Unchecked | Information about when end-users click safe links in the Office 365 documents will be tracked.
 Do not let users click through safe links to original URL  | Checked | If end-users click on safe links in Office 365 documents, then they will be directed to a warning page and will not be presented with an option to continue to the original link.
@@ -1617,7 +1617,7 @@ Applied to | Configured | All Agency domains (e.g., dta.gov.au).
 
 Anti-phishing protects users by checking incoming messages for indicators that the message may be spoofed by impersonator or part of a phishing campaign. Most phishing emails involves a malicious actor disguising oneself (spoofing) as an individual who is known to the recipient. The messaged is crafted in a such a way which can trick the user into clicking a link, downloading malware, or stealing user credentials.
 
-Anti-phishing uses mailbox intelligence to build a profile of communication habits between each user and maps out these relationship patterns. In an event of a phishing campaign will analyse the message behaviour against the user profiles to determine if the sender is legitimate or an impersonator.
+Anti-phishing uses mailbox intelligence to build a profile of communication habits between each user and maps out these relationship patterns. In an event of a phishing campaign it will analyse the message behaviour against the user profiles to determine if the sender is legitimate or an impersonator.
 
 Anti-spoof specifically analyses the senders address to determine if it is legitimate or forged. Administrators can allow our block specific users from spoofing an internal domain. i.e. An external organisation to send out advertising or products on behalf of the agency.
 

@@ -99,7 +99,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Cloud Based Service Accounts | Configured | Break glass accounts are required to be cloud based to ensure access to the tenant if there are issues with authentication.
 Allow the registration of applications by users | Disabled | Only administrators can register applications.
-Allow self-service sign-up form email verified users | Disabled | Only administrators can create user accounts. 
+Allow self-service sign-up for email verified users | Disabled | Only administrators can create user accounts. 
 Restrict access to the Azure AD administrative portal | Enabled | Only administrators have access to the portal.
 Allow LinkedIn connections | Disabled | To meet the Agency's requirements not to share information with third party Agencies without approval.
 External Collaboration | Configured | As required by the Agency, provided the external Agencies are at the same classification.
@@ -243,7 +243,7 @@ Azure MFA provides multiple verification methods, such as:
 * Text message to phone – Sends a text message that contains a verification code that is used as the authentication token. The user is prompted to enter the verification code into the sign-in interface. This process is called one-way SMS.
 * OAuth hardware token verification code – OATH is an open standard that specifies how one-time password (OTP) codes are generated. Various vendor tokens are supported.
 
-Azure MFA integrates with Azure AD Conditional Access polices, or the Trusted IP ranges feature to determine under what circumstances and user's physical location a challenge for additional authentication is required . Conditional Access polices are the recommended method to determine MFA conditions.
+Azure MFA integrates with Azure AD Conditional Access policies, or the Trusted IP ranges feature to determine under what circumstances and user's physical location a challenge for additional authentication is required . Conditional Access policies are the recommended method to determine MFA conditions.
 
 Azure AD Multifactor Authentication Design Decisions for all agencies and implementation types.
 
@@ -967,7 +967,7 @@ The Defender for Identity architecture is composed of a Defender for Identity cl
 
 * Defender for Identity cloud service – Is hosted on Azure infrastructure and at time of writing Defender for Identity cloud service is deployed in the US, Europe, and Asia data centres.
 * Defender for Identity portal – Management interface where the Defender for Identity instance can be created, displays data collected by Defender for Identity sensors and is the central console for monitoring, managing and investigating threats.
-* Defender for Identity sensor – Sensors are installed on all domain controllers which monitor and collect domain controller traffic that is feed back to the Defender for Identity portal for analysis.
+* Defender for Identity sensor – Sensors are installed on all domain controllers which monitor and collect domain controller traffic that is fed back to the Defender for Identity portal for analysis.
 
 A high-level illustration of Defender for Identity architecture is shown below in Figure 7. Figure reproduced from [https://docs.microsoft.com/en-au/defender-for-identity/prerequisites](https://docs.microsoft.com/en-au/defender-for-identity/prerequisites)
 
@@ -1203,7 +1203,7 @@ Intune is a component of EMS and integrates with other EMS components such as Az
 
 To complement this visibility, an Intune Data Warehouse can be deployed to capture and create custom reports from Intune data using a reporting service. This can assist in gaining insight into which users are using Intune, what licences are being used, operating system and device breakdowns, and compliance trends. The Data Warehouse also has the capability to export directly to Power BI and create interactive & dynamic reports.
 
-Intune can also configure Windows Information Protection (WIP) polices. WIP can be deployed to:
+Intune can also configure Windows Information Protection (WIP) policies. WIP can be deployed to:
 
 * Protect against potential data leakage – WIP protects against potential data leakage without any impact to user functionality.
 * Protect enterprise applications and data - WIP protects against accidental data leakage on enterprise-owned and personal devices. This can occur without changes to the corporate environment or applications.
@@ -1395,7 +1395,7 @@ Additional Device Configuration Design Decisions for cloud native implementation
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Windows 10 and later polices | Configured | Intune policies are applied easing management.
+Windows 10 and later policies | Configured | Intune policies are applied easing management.
 
 Additional Device Configuration Design Decisions for hybrid implementations
 

@@ -1248,9 +1248,8 @@ Classification labels are published to users using Label Policies. Label Policie
 
 At the time of writing, sensitivity labels cannot be configured to satisfy all of the requirements listed in the Protective Security Policy Framework (PSPF). Some of these limitations are:
 
-* Sensitivity labels do not set the `X-Protective-Marking` header (internet message header extension).
+* Sensitivity labels do not set the `X-Protective-Marking` header (internet message header extension). Exchange transport rules can be used to set this label but the *Origin* parameter prescribed in the PSPF cannot be set natively.**
 * Messages received from outside of the agency that have the appropriate `X-Protective-Marking` header set are not interpreted by native labelling in the Outlook client.
-* Sensitivity labels are not available within a shared or delegated mailbox in the iOS Outlook client.
 * The MIP labelling clients cannot append the protective marking to the subject field (subject field marking) to an email.
 * When downgrading a sensitivity label, the downgrade cannot be prevented, only forcing the user to justify the downgrade. 
 * Sensitivity labels are not available within calendar invites.

@@ -138,7 +138,7 @@ Microsoft To Do      | Disabled        | To reduce the risk of user entering sen
 Microsoft 365 Group  | Enabled | External collaboration will be conducted in Microsoft Teams and SharePoint Online, which relies on Microsoft 365 groups. Agencies should only select agencies that they trust to collaborate with after completing a risk assessment. 
 Modern Authentication | Enabled | Modern authentication is a group of technologies that combines authentication, authorisation and conditional access policies to secure an Office 365 tenant. Enabling of Modern Authentication provides ability to use Multi Factor Authentication.
 News                 | Disabled        | To prevent the display of Office 365 content and external news articles together in Edge.
-‎Office‎ installation options | Enabled  | To manage the update an deployment of Office updates and components.
+‎Office‎ installation options | Enabled  | To manage the update and deployment of Office updates and components.
 Office on the web    | Disabled        | Do not allow users to open files in third party storage services in Office on the web as this may introduce risk of information disclosure or malicious content. 
 Office Scripts       | Disabled        | To prevent the execution of unapproved code.
 Reports              | Disabled        | Disable data reporting to Microsoft on Office 365 usage.

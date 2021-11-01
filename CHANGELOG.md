@@ -50,12 +50,13 @@ You can find published releases at [https://github.com/govau/desktop.gov.au/rele
 * Consolidated duplicate As-Built-As-Configured content for a better user experience [#109]
 * Add ability to disable inactive user accounts as per Essential Eight July update [#111]
 * Updated detail for PSPF labelling limitations [#114]
-* Provide an automation for deploying sensitivity labels using M365DSC [#117]
+* Updated sensitivity labels [#130] and provide an automated method for deploying sensitivity labels using M365DSC [#117]
+* Incorporated updated ACSC references: Apple iOS 14 Devices (Oct 2021), Essential Eight (Oct 2021), Microsoft Office Hardening (Oct 2021) and Windows Hardening (Oct 2021) [#125]
 
 Other general website changes:
 
 * Expanded the engagement model into a larger comprehensive framework [#96]
-* Added a new "Patterns" section with a remote access pattern using Azure Virtual Desktop [#107] 
+* Added a new "Patterns" section with a remote access pattern using Azure Virtual Desktop [#107] [#128]
 
 ## June 2021
 

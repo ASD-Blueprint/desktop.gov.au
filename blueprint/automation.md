@@ -32,16 +32,18 @@ The following table outlines the subsections of the blueprint and their automati
 Component | Automated / Manual
 --- | ---
 Conditional Access | Automated
-Group Naming Policy | Automated
-Group Expiration Policy | Automated
+Group Naming Policy | Automated 
+Groups Settings | Automated 
+Group Lifecycle Policy | Automated
 Group Creation | Automated
 Sensitivity labels | Automated 
+Directory Contact Details | Automated 
 User Settings | Manual
 Device Settings | Manual
 External Collaboration | Manual
 Custom Domains | Manual
 Company Branding | Manual
-Group Creation Restrictions | Manual
+Group Creation Restrictions | [Platform ABAC - delegate 365 group creation script](https://www.desktop.gov.au/blueprint/abac/platform.html#delegate-office-365-group-creation) 
 Azure Active Directory Connect (if applicable) | Manual
 
 ## Microsoft 365 Desired State Configuration implementation procedure
@@ -83,7 +85,7 @@ Note, each DSC script can be ran independently.
 
 Script | Configuration items | Method | Script parameters
 --- | --- | --- | ---
-[identity_dsc.ps1](/assets/files/automation/identity_dsc.txt) | Conditional Access<br>Group Naming Policy<br>Group Expiration Policy<br>Group Creation | M365DSC | -trustedip<br>-agency <br>-agencyprefix<br>-globaladminaccount
+[identity_dsc.ps1](/assets/files/automation/identity_dsc.txt) | Conditional Access<br>Group Naming Policy<br>Named Locations<br>Group Lifecycle Policy<br>Group Creation<br>Groups Settings<br>Directory Contact Details | M365DSC | -trustedip<br>-agency <br>-agencyprefix<br>-globaladminaccount<br>-technicalcontactemail<br>-technicalcontactphone<br> 
 [sensitivity-labels_dsc.ps1](/assets/files/automation/sensitivity-labels_dsc.txt) | Sensitivity labels | M365DSC | -globaladminaccount
 
 #### Certificate creation
@@ -132,8 +134,10 @@ import-module microsoft365dsc
 $pscredential = get-credential
 $agencyname = "Agency Name"
 $agencyprefix = "Agency Acronym"
+$technicalcontactemail = "Agency.Helpdesk"
+$technicalcontactphone ="+612111222"
 $trustedIPs = @("X.X.X.X/X","X.X.X.X/X") # note - for one CIDR range use @("X.X.X.X/X")
-.\identity_dsc.ps1 -globaladminaccount $pscredential -trustedip $trustedIPs -agency $agencyname -agencyprefix $agencyprefix
+.\identity_dsc.ps1 -globaladminaccount $pscredential -trustedip $trustedIPs -agency $agencyname -agencyprefix $agencyprefix -technicalcontactemail $technicalcontactemail -technicalcontactphone $technicalcontactphone 
 ```
 5. **This step will enforce the DSC configuration**. Run the following command within the PowerShell console:
 ```powershell 

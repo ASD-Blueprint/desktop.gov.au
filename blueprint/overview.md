@@ -3,7 +3,7 @@ layout: page
 title: Solution overview
 ---
 
-This overview covers the blueprint's purpose, its components, and design considerations and decisions. It also maps the blueprint solutions to the Essential Eight maturity model.
+This overview covers the blueprint's purpose, its components, and design considerations and decisions.
 
 ## Purpose of the blueprint
 

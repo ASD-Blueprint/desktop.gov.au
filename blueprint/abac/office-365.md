@@ -762,6 +762,8 @@ The following mail flow rules have been configured for all implementation types.
 
 `Exchange Online Admin Centre > Mail flow > Rules`
 
+Note, the subject prepend rules listed here are not exhaustive. Adjust for each classification combination in use within the agency.
+
 #### UNOFFICIAL - prepend subject
 
 Note, the PSPF recommends the append of the subject text rather than the prepend, at time of writing there is no transport rule for 'append'. If the Agency has the ability to transform mail messages using a gateway appliance then this is the recommended approach.
@@ -771,7 +773,7 @@ To find the `MSIP_Label` "guid" IDs for each sensitivity label use the [Security
 ```powershell
 Connect-IPPSSession -UserPrincipalName <admin>@<agency>.onmicrosoft.com
 
-Get-label | where{$_.Name -eq "UNOFFICIAL"} |select name,guid
+Get-label | where{$_.Name -eq "U"} |select name,guid
 ```
 
 * If the message: Is sent to `Inside the organization` **and** `msip_labels` header contains `MSIP_Label_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX_Enabled=true` **and** Is received from `Inside the organization`
@@ -797,7 +799,7 @@ To find the `MSIP_Label` "guid" IDs for each sensitivity label use the [Security
 ```powershell
 Connect-IPPSSession -UserPrincipalName <admin>@<agency>.onmicrosoft.com
 
-Get-label | where{$_.Name -eq "OFFICIAL"} |select name,guid
+Get-label | where{$_.Name -eq "O"} |select name,guid
 ```
 
 * If the message: Is sent to `Inside the organization` **and** `msip_labels` header contains `MSIP_Label_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX_Enabled=true` **and** Is received from `Inside the organization`
@@ -814,7 +816,7 @@ Get-label | where{$_.Name -eq "OFFICIAL"} |select name,guid
 * SentToScope: `InOrganization`
 * State: `Enabled`
 
-#### OFFICIAL:Sensitive - prepend subject
+#### OFFICIAL: Sensitive - prepend subject
 
 Note, the PSPF recommends the append of the subject text rather than the prepend, at time of writing there is no transport rule for 'append'. If the Agency has the ability to transform mail messages using a gateway appliance then this is the recommended approach.
 
@@ -823,19 +825,19 @@ To find the `MSIP_Label` "guid" IDs for each sensitivity label use the [Security
 ```powershell
 Connect-IPPSSession -UserPrincipalName <admin>@<agency>.onmicrosoft.com
 
-Get-label | where{$_.Name -eq "OFFICIAL Sensitive"} |select name,guid
+Get-label | where{$_.Name -eq "OS"} |select name,guid
 ```
 
 * If the message: Is sent to `Inside the organization` **and** `msip_labels` header contains `MSIP_Label_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX_Enabled=true` **and** Is received from `Inside the organization`
-* Take the following actions: Prepend the subject with `[SEC=OFFICIAL:Sensitive]`
-* Except if the message: Includes these patterns in the message subject: `(SEC=OFFICIAL:Sensitive)`
-* ExceptIfSubjectMatchesPatterns: `(SEC=OFFICIAL:Sensitive)`
+* Take the following actions: Prepend the subject with `[SEC=OFFICIAL: Sensitive]`
+* Except if the message: Includes these patterns in the message subject: `(SEC=OFFICIAL: Sensitive)`
+* ExceptIfSubjectMatchesPatterns: `(SEC=OFFICIAL: Sensitive)`
 * FromScope: `InOrganization`
 * HeaderContainsMessageHeader: `msip_labels`
 * HeaderContainsWords: `MSIP_Label_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX_Enabled=true`
 * Mode: `Enforce`
-* Name: `OFFICIAL:Sensitive`
-* PrependSubject: `[SEC=OFFICIAL:Sensitive]`
+* Name: `OFFICIAL: Sensitive`
+* PrependSubject: `[SEC=OFFICIAL: Sensitive]`
 * Priority: `2`
 * SentToScope: `InOrganization`
 * State: `Enabled`
@@ -849,7 +851,7 @@ To find the `MSIP_Label` "guid" IDs for each sensitivity label use the [Security
 ```powershell
 Connect-IPPSSession -UserPrincipalName <admin>@<agency>.onmicrosoft.com
 
-Get-label | where{$_.Name -eq "PROTECTED"} |select name,guid
+Get-label | where{$_.Name -eq "P"} |select name,guid
 ```
 
 * If the message: Is sent to `Inside the organization` **and** `msip_labels` header contains `MSIP_Label_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX_Enabled=true` **and** Is received from `Inside the organization`
@@ -1425,9 +1427,13 @@ Not configured.
 
 `Microsoft 365 compliance > Information protection > Labels`
 
-The following tables describe the sensitivity label configuration settings for all implementation types.
+The following tables describe the sensitivity label configuration settings for all implementation types. Only create and publish labels that are required for the agency.
 
 The sensitivity labels in this ABAC can be deployed through M365DSC automation. The process can be found within the [automation](/blueprint/automation.html) guide. 
+
+Note, labels **OFFICIAL Sensitive** and **PROTECTED** have a number of sub-labels to cater for DLMs in the PSPF. Both main labels will be presented as a group object but are not selectable as a user at the top level. They will also appear as a sub-label that is selectable under the group. This ensures that the sensitivity label selection is easier when dealing with a large number of DLM combinations. The following figure is an example of the configuration panel in the Microsoft 365 compliance portal.
+
+![M365 compliance labels](/assets/images/abac/sensitivity-labels.png)
 
 #### UNOFFICIAL
 
@@ -1435,10 +1441,12 @@ The following table lists the sensitivity label configuration for UNOFFICIAL.
 
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
-| Name                  | UNOFFICIAL                                                   |
+| Name                  | U                                                            |
+| Display Name          | UNOFFICIAL                                                   |
 | Description for users | No damage. This information does not form part of official duty. |
 | Scope                 | Files & Emails                                               |
 | Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: UNOFFICIAL<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: UNOFFICIAL<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+| Sub Label of          | N/A                                                          |
 
 #### OFFICIAL
 
@@ -1447,9 +1455,24 @@ The following table lists the sensitivity label configuration for OFFICIAL.
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
 | Name                  | OFFICIAL                                                     |
+| Display Name          | OFFICIAL                                                     |
 | Description for users | No or insignificant damage. This is the majority of routine information. |
 | Scope                 | Files & Emails                                               |
 | Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: OFFICIAL<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: OFFICIAL<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+| Sub Label of          | N/A                                                          |
+
+#### OFFICIAL: Sensitive (Group)
+
+The following table lists the sensitivity label configuration for OFFICIAL Sensitive. This top-level object forms the grouping that all OFFICIAL Sensitive labels are a sub label for.
+
+| Item                  | Configuration                                                |
+| --------------------- | ------------------------------------------------------------ |
+| Name                  | OS group                                                     |
+| Display Name          | OFFICIAL Sensitive                                           |
+| Description for users | Low to medium business impact. Limited damage <br>to an individual, organisation or government generally if compromised |
+| Scope                 | Files & Emails                                               |
+| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: OFFICIAL: Sensitive<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: OFFICIAL: Sensitive<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+| Sub Label of          | N/A                                                          |
 
 #### OFFICIAL: Sensitive
 
@@ -1457,183 +1480,232 @@ The following table lists the sensitivity label configuration for OFFICIAL Sensi
 
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
-| Name                  | OFFICIAL Sensitive                                           |
+| Name                  | OS                                                           |
+| Display Name          | OFFICIAL Sensitive                                           |
 | Description for users | Low to medium business impact. Limited damage <br>to an individual, organisation or government generally if compromised |
 | Scope                 | Files & Emails                                               |
 | Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: OFFICIAL: Sensitive<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: OFFICIAL: Sensitive<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+| Sub Label of          | OS group                                                     |
 
-The following table lists the sensitivity sub label configuration for OFFICIAL Sensitive (ACCESS=Legal-Privilege).
-
-| Item                  | Configuration                                                |
-| --------------------- | ------------------------------------------------------------ |
-| Name                  | OFFICIAL Sensitive ACCESS=Legal-Privilege                    |
-| Description for users | Low to medium business impact. Limited damage <br>to an individual, organisation or government generally if compromised |
-| Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: OFFICIAL: Sensitive // Legal-Privilege<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: OFFICIAL: Sensitive // Legal-Privilege<br>Font site: 12<br>Font color: Red<br>Align text: Center |
-
-The following table lists the sensitivity sub label configuration for OFFICIAL Sensitive (ACCESS=Legislative-Secrecy).
+The following table lists the sensitivity sub label configuration for OFFICIAL: Sensitive//Legal-Privilege.
 
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
-| Name                  | OFFICIAL Sensitive ACCESS=Legislative-Secrecy                |
+| Name                  | OS LP                                                        |
+| Display Name          | Legal-Privilege                                              |
 | Description for users | Low to medium business impact. Limited damage <br>to an individual, organisation or government generally if compromised |
 | Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: OFFICIAL: Sensitive // Legislative-Secrecy<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: OFFICIAL: Sensitive // Legislative-Secrecy<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: OFFICIAL: Sensitive//Legal-Privilege<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: OFFICIAL: Sensitive // Legal-Privilege<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+| Sub Label of          | OS group                                                     |
 
-The following table lists the sensitivity sub label configuration for OFFICIAL Sensitive (ACCESS=Personal-Privacy).
+The following table lists the sensitivity sub label configuration for OFFICIAL: Sensitive//Legislative-Secrecy
 
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
-| Name                  | OFFICIAL Sensitive ACCESS=Personal-Privacy                   |
+| Name                  | OS LS                                                        |
+| Display Name          | Legislative Secrecy                                          |
 | Description for users | Low to medium business impact. Limited damage <br>to an individual, organisation or government generally if compromised |
 | Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: OFFICIAL: Sensitive // Personal-Privacy<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: OFFICIAL: Sensitive // Personal-Privacy<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: OFFICIAL: Sensitive//Legislative-Secrecy<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: OFFICIAL: Sensitive//Legislative-Secrecy<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+| Sub Label of          | OS group                                                     |
 
-The following table lists the sensitivity sub label configuration for Official Sensitive (CAVEAT=SH NATIONAL-CABINET).
+The following table lists the sensitivity sub label configuration for OFFICIAL: Sensitive//Personal-Privacy.
 
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
-| Name                  | OFFICIAL Sensitive CAVEAT=SH NATIONAL CABINET                |
+| Name                  | OS PP                                                        |
+| Display Name          | Personal-Privacy                                             |
 | Description for users | Low to medium business impact. Limited damage <br>to an individual, organisation or government generally if compromised |
 | Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: OFFICIAL: Sensitive // CAVEAT=SH NATIONAL-CABINET<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: OFFICIAL: Sensitive // CAVEAT=SH NATIONAL-CABINET<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: OFFICIAL: Sensitive//Personal-Privacy<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: OFFICIAL: Sensitive //Personal-Privacy<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+| Sub Label of          | OS group                                                     |
 
-The following table lists the sensitivity sub label configuration for OFFICIAL Sensitive (ACCESS=Legal-Privilege CAVEAT=SH NATIONAL-CABINET).
+The following table lists the sensitivity sub label configuration for OFFICIAL: Sensitive//NATIONAL CABINET.
 
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
-| Name                  | OFFICIAL Sensitive ACCESS=Legal-Privilege CAVEAT=SH NATIONAL-CABINET |
+| Name                  | OS NC                                                        |
+| Display Name          | NATIONAL CABINET                                             |
 | Description for users | Low to medium business impact. Limited damage <br>to an individual, organisation or government generally if compromised |
 | Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: OFFICIAL: Sensitive // CAVEAT=SH NATIONAL-CABINET // Legal-Privilege<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: OFFICIAL: Sensitive // CAVEAT=SH NATIONAL-CABINET // Legal-Privilege<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: OFFICIAL: Sensitive//NATIONAL CABINET<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: OFFICIAL: Sensitive//NATIONAL CABINET<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+| Sub Label of          | OS group                                                     |
 
-The following table lists the sensitivity sub label configuration for OFFICIAL Sensitive (ACCESS=Legislative-Secrecy CAVEAT=SH NATIONAL-CABINET).
+The following table lists the sensitivity sub label configuration for OFFICIAL: Sensitive//NATIONAL CABINET//Legal-Privilege.
 
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
-| Name                  | OFFICIAL Sensitive ACCESS=Legislative-Secrecy CAVEAT=SH NATIONAL-CABINET |
+| Name                  | OS NC LP                                                     |
+| Display Name          | NATIONAL CABINET - Legal-Privilege                           |
 | Description for users | Low to medium business impact. Limited damage <br>to an individual, organisation or government generally if compromised |
 | Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: OFFICIAL: Sensitive // CAVEAT=SH NATIONAL-CABINET // Legislative-Secrecy<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: OFFICIAL: Sensitive // CAVEAT=SH NATIONAL-CABINET // Legislative-Secrecy<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: OFFICIAL: Sensitive//NATIONAL CABINET//Legal-Privilege<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: OFFICIAL: Sensitive//NATIONAL CABINET//Legal-Privilege<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+| Sub Label of          | OS group                                                     |
 
-The following table lists the sensitivity sub label configuration for OFFICIAL Sensitive (ACCESS=Personal-Privacy CAVEAT=SH NATIONAL-CABINET).
+The following table lists the sensitivity sub label configuration for OFFICIAL: Sensitive//NATIONAL CABINET//Legislative-Secrecy.
 
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
-| Name                  | OFFICIAL Sensitive ACCESS=Personal-Privacy CAVEAT=SH NATIONAL-CABINET |
+| Name                  | OS NC LS                                                     |
+| Display Name          | NATIONAL CABINET - Legislative-Secrecy                       |
 | Description for users | Low to medium business impact. Limited damage <br>to an individual, organisation or government generally if compromised |
 | Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: OFFICIAL: Sensitive // CAVEAT=SH NATIONAL-CABINET // Personal-Privacy<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: OFFICIAL: Sensitive // CAVEAT=SH NATIONAL-CABINET // Personal-Privacy<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: OFFICIAL: Sensitive//NATIONAL CABINET//Legislative-Secrecy<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: OFFICIAL: Sensitive//NATIONAL CABINET//Legislative-Secrecy<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+| Sub Label of          | OS group                                                     |
 
-#### PROTECTED
+The following table lists the sensitivity sub label configuration for OFFICIAL: Sensitive//NATIONAL CABINET//Personal-Privacy.
+
+| Item                  | Configuration                                                |
+| --------------------- | ------------------------------------------------------------ |
+| Name                  | NATIONAL CABINET - Personal-Privacy                          |
+| Description for users | Low to medium business impact. Limited damage <br>to an individual, organisation or government generally if compromised |
+| Scope                 | Files & Emails                                               |
+| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: OFFICIAL: Sensitive//NATIONAL CABINET//Personal-Privacy<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: OFFICIAL: Sensitive//NATIONAL CABINET//Personal-Privacy<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+| Sub Label of          | OS group                                                     |
+
+#### PROTECTED (Group)
+
+The following table lists the sensitivity label configuration for PROTECTED. This top-level object forms the grouping that all PROTECTED labels are a sub label for.
+
+| Item                  | Configuration                                                |
+| --------------------- | ------------------------------------------------------------ |
+| Name                  | P group                                                      |
+| Display Name          | PROTECTED                                                    |
+| Description for users | High business impact. Damage to the national<br> interest, organisations or individuals. |
+| Scope                 | Files & Emails                                               |
+| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: PROTECTED<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: PROTECTED<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+| Sub Label of          | N/A                                                          |
 
 The following table lists the sensitivity label configuration for PROTECTED.
 
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
-| Name                  | PROTECTED                                                    |
+| Name                  | P                                                            |
+| Display Name          | PROTECTED                                                    |
 | Description for users | High business impact. Damage to the national<br> interest, organisations or individuals. |
 | Scope                 | Files & Emails                                               |
 | Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: PROTECTED<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: PROTECTED<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+| Sub Label of          | P group                                                      |
 
-The following table lists the sensitivity sub label configuration for PROTECTED (ACCESS=Legal-Privilege).
-
-| Item                  | Configuration                                                |
-| --------------------- | ------------------------------------------------------------ |
-| Name                  | PROTECTED ACCESS=Legal-Privilege                             |
-| Description for users | High business impact. Damage to the national<br> interest, organisations or individuals. |
-| Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: PROTECTED // Legal-Privilege  <br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: PROTECTED // Legal-Privilege  <br>Font site: 12<br>Font color: Red<br>Align text: Center |
-
-The following table lists the sensitivity sub label configuration for PROTECTED (ACCESS=Legislative-Secrecy).
+The following table lists the sensitivity sub label configuration for PROTECTED//Legal-Privilege.
 
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
-| Name                  | PROTECTED ACCESS=Legislative-Secrecy                         |
+| Name                  | P LP                                                         |
+| Display Name          | Legal-Privilege                                              |
 | Description for users | High business impact. Damage to the national<br> interest, organisations or individuals. |
 | Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: PROTECTED // Legislative-Secrecy <br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: PROTECTED // Legislative-Secrecy <br>Font site: 12<br>Font color: Red<br>Align text: Center |
+| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: PROTECTED//Legal-Privilege <br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: PROTECTED//Legal-Privilege<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+| Sub Label of          | P group                                                      |
 
-The following table lists the sensitivity sub label configuration for PROTECTED (ACCESS=Personal-Privacy).
+The following table lists the sensitivity sub label configuration for PROTECTED//Legislative-Secrecy.
 
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
-| Name                  | PROTECTED ACCESS=Personal-Privacy                            |
+| Name                  | P LS                                                         |
+| Display Name          | Legislative-Secrecy                                          |
 | Description for users | High business impact. Damage to the national<br> interest, organisations or individuals. |
 | Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: PROTECTED // Personal-Privacy<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: PROTECTED // Personal-Privacy<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: PROTECTED//Legislative-Secrecy<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: PROTECTED//Legislative-Secrecy<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+| Sub Label of          | P group                                                      |
 
-The following table lists the sensitivity sub label configuration for PROTECTED (CAVEAT=SH NATIONAL-CABINET).
+The following table lists the sensitivity sub label configuration for PROTECTED//Personal-Privacy.
 
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
-| Name                  | PROTECTED CAVEAT=SH NATIONAL CABINET                         |
+| Name                  | P PP                                                         |
+| Display Name          | Personal-Privacy                                             |
 | Description for users | High business impact. Damage to the national<br> interest, organisations or individuals. |
 | Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: PROTECTED // CAVEAT=SH NATIONAL-CABINET<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: PROTECTED // CAVEAT=SH NATIONAL-CABINET<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: PROTECTED//Personal-Privacy<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: PROTECTED//Personal-Privacy<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+| Sub Label of          | P group                                                      |
 
-The following table lists the sensitivity sub label configuration for PROTECTED (ACCESS=Legal-Privilege CAVEAT=SH NATIONAL CABINET).
+The following table lists the sensitivity sub label configuration for PROTECTED//NATIONAL CABINET.
 
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
-| Name                  | PROTECTED ACCESS=Legal-Privilege CAVEAT=SH NATIONAL CABINET           |
+| Name                  | NATIONAL CABINET                                             |
 | Description for users | High business impact. Damage to the national<br> interest, organisations or individuals. |
 | Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: PROTECTED // CAVEAT=SH NATIONAL-CABINET // Legal-Privilege<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: PROTECTED // CAVEAT=SH NATIONAL-CABINET // Legal-Privilege<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: PROTECTED//NATIONAL CABINET<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: PROTECTED//NATIONAL CABINET<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+| Sub Label of          | P group                                                      |
 
-The following table lists the sensitivity sub label configuration for PROTECTED (ACCESS=Legislative-Secrecy CAVEAT=SH NATIONAL CABINET).
+The following table lists the sensitivity sub label configuration for PROTECTED//NATIONAL CABINET//Legal-Privilege.
 
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
-| Name                  | PROTECTED ACCESS=Legislative-Secrecy CAVEAT=SH NATIONAL CABINET       |
+| Name                  | P NC LP                                                      |
+| Display Name          | NATIONAL CABINET - Legal-Privilege                           |
 | Description for users | High business impact. Damage to the national<br> interest, organisations or individuals. |
 | Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: PROTECTED // CAVEAT=SH NATIONAL-CABINET // Legislative-Secrecy<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: PROTECTED // CAVEAT=SH NATIONAL-CABINET // Legislative-Secrecy<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: PROTECTED//NATIONAL CABINET//Legal-Privilege<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: PROTECTED//NATIONAL CABINET//Legal-Privilege<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+| Sub Label of          | P group                                                      |
 
-The following table lists the sensitivity sub label configuration for PROTECTED (ACCESS=Personal-Privacy CAVEAT=SH NATIONAL CABINET).
+The following table lists the sensitivity sub label configuration for PROTECTED//NATIONAL CABINET//Legislative-Secrecy.
 
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
-| Name                  | PROTECTED ACCESS=Personal-Privacy CAVEAT=SH NATIONAL CABINET          |
+| Name                  | P NC LS                                                      |
+| Display Name          | NATIONAL CABINET - Legislative-Secrecy                       |
 | Description for users | High business impact. Damage to the national<br> interest, organisations or individuals. |
 | Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: PROTECTED // CAVEAT=SH NATIONAL-CABINET // Personal-Privacy<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: PROTECTED // CAVEAT=SH NATIONAL-CABINET // Personal-Privacy<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: PROTECTED//NATIONAL CABINET//Legislative-Secrecy<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: PROTECTED//NATIONAL CABINET//Legislative-Secrecy<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+| Sub Label of          | P group                                                      |
 
-The following table lists the sensitivity sub label configuration for PROTECTED (CAVEAT=SH CABINET).
+The following table lists the sensitivity sub label configuration for PROTECTED//NATIONAL CABINET//Personal-Privacy.
 
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
-| Name                  | PROTECTED CAVEAT=SH CABINET                                  |
+| Name                  | P NC PP                                                      |
+| Display Name          | NATIONAL CABINET - Personal-Privacy                          |
 | Description for users | High business impact. Damage to the national<br> interest, organisations or individuals. |
 | Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: PROTECTED // CAVEAT=SH CABINET<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: PROTECTED // CAVEAT=SH CABINET<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: PROTECTED//NATIONAL CABINET//Personal-Privacy<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: PROTECTED//NATIONAL CABINET//Personal-Privacy<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+| Sub Label of          | P group                                                      |
 
-The following table lists the sensitivity sub label configuration for PROTECTED (ACCESS=Legal-Privilege CAVEAT=SH CABINET).
+The following table lists the sensitivity sub label configuration for PROTECTED//CABINET.
 
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
-| Name                  | PROTECTED ACCESS=Legal-Privilege CAVEAT=SH CABINET           |
+| Name                  | P C                                                          |
+| Display Name          | CABINET                                                      |
 | Description for users | High business impact. Damage to the national<br> interest, organisations or individuals. |
 | Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: PROTECTED // CAVEAT=SH CABINET // Legal-Privilege<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: PROTECTED // CAVEAT=SH CABINET // Legal-Privilege<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: PROTECTED//CABINET<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: PROTECTED//CABINET<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+| Sub Label of          | P group                                                      |
 
-The following table lists the sensitivity sub label configuration for PROTECTED (ACCESS=Legislative-Secrecy CAVEAT=SH CABINET).
+The following table lists the sensitivity sub label configuration for PROTECTED//CABINET//Legal-Privilege.
 
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
-| Name                  | PROTECTED ACCESS=Legislative-Secrecy CAVEAT=SH CABINET       |
+| Name                  | P C LP                                                       |
+| Display Name          | CABINET - Legal-Privilege                                    |
 | Description for users | High business impact. Damage to the national<br> interest, organisations or individuals. |
 | Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: PROTECTED // CAVEAT=SH CABINET // Legal-Privilege<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: PROTECTED // CAVEAT=SH CABINET // Legal-Privilege<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: PROTECTED//CABINET//Legal-Privilege<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: PROTECTED//CABINET//Legal-Privilege<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+| Sub Label of          | P group                                                      |
 
-The following table lists the sensitivity sub label configuration for PROTECTED (ACCESS=Personal-Privacy CAVEAT=SH CABINET).
+The following table lists the sensitivity sub label configuration for PROTECTED//CABINET//Legislative-Secrecy.
 
 | Item                  | Configuration                                                |
 | --------------------- | ------------------------------------------------------------ |
-| Name                  | PROTECTED ACCESS=Personal-Privacy CAVEAT=SH CABINET          |
+| Name                  | P C LS                                                       |
+| Display Name          | PROTECTED//CABINET//Legislative-Secrecy                      |
 | Description for users | High business impact. Damage to the national<br> interest, organisations or individuals. |
 | Scope                 | Files & Emails                                               |
-| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: PROTECTED // CAVEAT=SH CABINET // Personal-Privacy<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: PROTECTED // CAVEAT=SH CABINET // Personal-Privacy<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: PROTECTED//CABINET//Legislative-Secrecy<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: PROTECTED//CABINET//Legislative-Secrecy<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+| Sub Label of          | P group                                                      |
+
+The following table lists the sensitivity sub label configuration for PROTECTED//CABINET//Personal-Privacy.
+
+| Item                  | Configuration                                                |
+| --------------------- | ------------------------------------------------------------ |
+| Name                  | P C PP                                                       |
+| Display Name          | CABINET - Personal-Privacy                                   |
+| Description for users | High business impact. Damage to the national<br> interest, organisations or individuals. |
+| Scope                 | Files & Emails                                               |
+| Protection Settings   | Mark the content of files: Checked<br>Content marking: Checked<br>Apply a header: Checked<br>Customize text: PROTECTED//CABINET//Personal-Privacy<br>Font site: 12<br>Font color: Red<br>Align text: Center<br>Apply a footer: Checked<br>Customize text: PROTECTED//CABINET//Personal-Privacy<br>Font site: 12<br>Font color: Red<br>Align text: Center |
+| Sub Label of          | P group                                                      |
 
 ### Sensitivity label policy
 
@@ -1646,10 +1718,10 @@ The following table lists the Sensitivity label policy configuration for all imp
 | Item             | Configuration                                                |
 | ---------------- | ------------------------------------------------------------ |
 | Name             | Sensitivity labels policy                                    |
-| Description      | Default sensitivity labels based on [PSPF infosec document](https://www.protectivesecurity.gov.au/system/files/2021-06/pspf-policy-8-sensitive-and-classified-information_1.pdf)       |
-| Published Labels | UNOFFICIAL<br>OFFICIAL<br>OFFICIAL Sensitive<br>OFFICIAL Sensitive ACCESS=Legal-Privilege<br>OFFICIAL Sensitive ACCESS=Legislative-Secrecy<br>OFFICIAL Sensitive ACCESS=Personal-Privacy<br>OFFICIAL Sensitive CAVEAT=SH NATIONAL CABINET<br>OFFICIAL Sensitive ACCESS=Legal-Privilege CAVEAT=SH NATIONAL CABINET<br>OFFICIAL Sensitive ACCESS=Legislative-Secrecy CAVEAT=SH NATIONAL CABINET<br>OFFICIAL Sensitive ACCESS=Personal-Privacy CAVEAT=SH NATIONAL CABINET<br>PROTECTED<br>PROTECTED ACCESS=Legal-Privilege<br>PROTECTED ACCESS=Legislative-Secrecy<br>PROTECTED ACCESS=Personal-Privacy<br>PROTECTED CAVEAT=SH NATIONAL CABINET<br>PROTECTED ACCESS=Legal-Privilege CAVEAT=SH NATIONAL CABINET<br>PROTECTED ACCESS=Legislative-Secrecy CAVEAT=SH NATIONAL CABINET<br>PROTECTED ACCESS=Personal-Privacy CAVEAT=SH NATIONAL CABINET<br>PROTECTED CAVEAT=SH CABINET<br>PROTECTED ACCESS=Legal-Privilege CAVEAT=SH CABINET<br>PROTECTED ACCESS=Legislative-Secrecy CAVEAT=SH CABINET<br>PROTECTED ACCESS=Personal-Privacy CAVEAT=SH CABINET           |
+| Description      | Default sensitivity labels based on [PSPF infosec document](https://www.protectivesecurity.gov.au/system/files/2021-06/pspf-policy-8-sensitive-and-classified-information_1.pdf) |
+| Published Labels | UNOFFICIAL<br/>OFFICIAL<br/>OFFICIAL Sensitive<br/>OFFICIAL Sensitive/OFFICIAL Sensitive<br/>OFFICIAL Sensitive/Legal-Privilege<br/>OFFICIAL Sensitive/Legislative-Secrecy<br/>OFFICIAL Sensitive/Personal-Privacy<br/>OFFICIAL Sensitive/NATIONAL CABINET<br/>OFFICIAL Sensitive/NATIONAL CABINET - Legal-Privilege<br/>OFFICIAL Sensitive/NATIONAL CABINET - Legislative-Secrecy<br/>OFFICIAL Sensitive/NATIONAL CABINET - Personal-Privacy<br/>PROTECTED<br/>PROTECTED/PROTECTED<br/>PROTECTED/Legal-Privilege<br/>PROTECTED/Legislative-Secrecy<br/>PROTECTED/Personal-Privacy<br/>PROTECTED/NATIONAL CABINET<br/>PROTECTED/NATIONAL CABINET - Legal-Privilege<br/>PROTECTED/NATIONAL CABINET - Legislative-Secrecy<br/>PROTECTED/NATIONAL CABINET - Personal-Privacy<br/>PROTECTED/CABINET<br/>PROTECTED/CABINET - Legal-Privilege<br/>PROTECTED/CABINET - Legislative-Secrecy<br/>PROTECTED/CABINET - Personal-Privacy |
 | Published to     | All                                                          |
-| Policy settings  | Users must provide a justification to remove a label or lower its classification: Checked<br>Require users to apply a label to their emails and documents: Checked                              |
+| Policy settings  | Users must provide a justification to remove a label or lower its classification: Checked<br>Require users to apply a label to their emails and documents: Checked |
 | Default label    | Apply this default label to documents: None<br>Apply this default label to emails: None<br>Require users to apply a label to their emails: Checked<br>Apply this default label to Power BI content: None |
 
 ### Data Loss Prevention (DLP) compliance policy

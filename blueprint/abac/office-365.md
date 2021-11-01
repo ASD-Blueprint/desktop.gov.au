@@ -511,7 +511,7 @@ The following describes the Mailbox attribute that have been configured.
 
 ### Authentication policy
 
-Please note, authentication policies can be retrieved (or set) through Exchange Online PowerShell. If the setting for block legacy authentication is in the Microsoft Admin portal, a policy named **BlockBasic** is created but it does not turn off `AllowBasicAuthOutlookService` and `AllowBasicAuthReportingWebServices`. 
+Please note, authentication policies can be retrieved (or set) through Exchange Online PowerShell. If the setting for block legacy authentication is in the Microsoft Admin portal, a policy named **BlockBasic** is created but it does not turn off all the basic authentication parameters.
 
 ```powershell
 Get-AuthenticationPolicy

@@ -144,7 +144,7 @@ Office Scripts       | Disabled        | To prevent the execution of unapproved 
 Reports              | Disabled        | Disable data reporting to Microsoft on Office 365 usage.
 SharePoint           | Enabled         | New and Existing guests must sign in or provide a verification code when accessing SharePoint data.
 Sway                 | Disabled        | External collaboration will be conducted in Teams or SharePoint online. 
-User consent to apps | Disabled        | Require administrators to provide conscent.
+User consent to apps | Disabled        | Require administrators to provide consent.
 User owned apps and services | Disabled | Applications will be delivered via the Business Store, there is no need to have the Official Store enabled.
 
 ### Role based access control

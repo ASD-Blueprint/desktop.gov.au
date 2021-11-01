@@ -300,7 +300,7 @@ No organisational add-ins have been configured.
 
 ### CAS mailbox plan
 
-Please note, CAS mailbox plan can be retrieved (or set) through Exchange Online PowerShell.
+Please note, CAS mailbox plan can be retrieved (or set) through Exchange Online PowerShell. The policy objects are Exchange Online out of box policies, that require minimal edit.
 
 ```powershell
 Get-CASMailboxPlan | Format-Table -Auto DisplayName,ActiveSyncEnabled,ImapEnabled,PopEnabled,OwaMailboxPolicy
@@ -313,7 +313,7 @@ The following table describes the mailbox plans have been configured for all imp
 | Name                                    | ExchangeOnlineEnterprise |
 | ActiveSyncMailboxPolicy                 | --                       |
 | ActiveSyncDebugLogging                  | False                    |
-| ActiveSyncEnabled                       | True                     |
+| ActiveSyncEnabled                       | False                    |
 | ActiveSyncSuppressReadReceipt           | False                    |
 | DisplayName                             | ExchangeOnlineEnterprise |
 | ECPEnabled                              | True                     |
@@ -353,10 +353,10 @@ The following table describes the mailbox plans have been configured for all imp
 | EwsApplicationAccessPolicy              | --                       |
 | EwsAllowList                            | --                       |
 | EwsBlockList                            | --                       |
-| IsValid                                 | True                     |
+| **Item**                                | **Configuration**        |
 | Name                                    | ExchangeOnlineDeskless   |
 | ActiveSyncDebugLogging                  | False                    |
-| ActiveSyncEnabled                       | True                     |
+| ActiveSyncEnabled                       | False                    |
 | ActiveSyncMailboxPolicy                 | --                       |
 | ActiveSyncSuppressReadReceipt           | False                    |
 | DisplayName                             | ExchangeOnlineDeskless   |
@@ -375,7 +375,6 @@ The following table describes the mailbox plans have been configured for all imp
 | ImapProtocolLoggingEnabled              | False                    |
 | ImapSuppressReadReceipt                 | False                    |
 | ImapUseProtocolDefaults                 | True                     |
-| IsValid                                 | True                     |
 | MacOutlookEnabled                       | True                     |
 | MAPIBlockOutlookExternalConnectivity    | False                    |
 | MAPIBlockOutlookNonCachedMode           | False                    |
@@ -398,10 +397,11 @@ The following table describes the mailbox plans have been configured for all imp
 | PublicFolderClientAccess                | False                    |
 | RemotePowerShellEnabled                 | True                     |
 | UniversalOutlookEnabled                 | True                     |
+| **Item**                                | **Configuration**        |
 | Name                                    | ExchangeOnlineEssentials |
 | ActiveSyncMailboxPolicy                 | --                       |
 | ActiveSyncDebugLogging                  | False                    |
-| ActiveSyncEnabled                       | True                     |
+| ActiveSyncEnabled                       | False                    |
 | ActiveSyncSuppressReadReceipt           | False                    |
 | ECPEnabled                              | True                     |
 | ImapEnabled                             | False                    |
@@ -440,11 +440,11 @@ The following table describes the mailbox plans have been configured for all imp
 | EwsApplicationAccessPolicy              | --                       |
 | EwsAllowList                            | --                       |
 | EwsBlockList                            | --                       |
-| IsValid                                 | True                     |
+| **Item**                                | **Configuration**        |
 | Name                                    | ExchangeOnline           |
 | ActiveSyncMailboxPolicy                 | --                       |
 | ActiveSyncDebugLogging                  | False                    |
-| ActiveSyncEnabled                       | True                     |
+| ActiveSyncEnabled                       | False                    |
 | ActiveSyncSuppressReadReceipt           | False                    |
 | ECPEnabled                              | True                     |
 | ImapEnabled                             | False                    |
@@ -483,7 +483,6 @@ The following table describes the mailbox plans have been configured for all imp
 | EwsApplicationAccessPolicy              | --                       |
 | EwsAllowList                            | --                       |
 | EwsBlockList                            | --                       |
-| IsValid                                 | True                     |
 
 ### Mailbox attributes
 
@@ -512,200 +511,134 @@ The following describes the Mailbox attribute that have been configured.
 
 ### Authentication policy
 
-Please note, authentication policies can be retrieved (or set) through Exchange Online PowerShell.
+Please note, authentication policies can be retrieved (or set) through Exchange Online PowerShell. If the setting for block legacy authentication is in the Microsoft Admin portal, a policy named **BlockBasic** is created but it does not turn off `AllowBasicAuthOutlookService` and `AllowBasicAuthReportingWebServices`. 
 
 ```powershell
-Get-AuthenticationPolicy ```
+Get-AuthenticationPolicy
+```
+
+To update the default `BlockBasic` policy, run the following PowerShell command.
+
+```powershell
+Set-AuthenticationPolicy -Identity "BlockBasic<number>" -AllowBasicAuthOutlookService:$false -AllowBasicAuthReportingWebServices:$false
+```
+
+If a new custom policy is created that blocks the specific parameters, then it can be set as a default for the whole organisation using the following PowerShell command.
+
+```powershell
+Set-OrganizationConfig -DefaultAuthenticationPolicy "Agency Authentication Policy"
+```
 
 The following table describes the Authentication Policy configuration settings for all implementation types.
 
-| Item                                              | Configuration    |
-| ------------------------------------------------- | ---------------- |
-| Name                                              | Block Basic Auth |
-| Allow Basic Authentication ActiveSync             | False            |
-| Allow Basic Authentication Autodiscover           | False            |
-| Allow Basic Authentication IMAP                   | False            |
-| Allow Basic Authentication MAPI                   | False            |
-| Allow Basic Authentication Offline AddressBook    | False            |
-| Allow Basic Authentication Outlook Service        | False            |
-| Allow Basic Authentication POP                    | False            |
-| Allow Basic Authentication Reporting Web Services | False            |
-| Allow Basic Authentication Rest                   | False            |
-| Allow Basic Authentication RPC                    | False            |
-| Allow Basic Authentication SMTP                   | False            |
-| Allow Basic Authentication Web Services           | False            |
-| Allow Basic Authentication PowerShell             | False            |
-| Admin Display Name                                | --               |
-| Is Valid                                          | True             |
+| Item                                              | Configuration                |
+| ------------------------------------------------- | ---------------------------- |
+| Name                                              | Agency Authentication Policy |
+| Allow Basic Authentication ActiveSync             | False                        |
+| Allow Basic Authentication Autodiscover           | False                        |
+| Allow Basic Authentication IMAP                   | False                        |
+| Allow Basic Authentication MAPI                   | False                        |
+| Allow Basic Authentication Offline AddressBook    | False                        |
+| Allow Basic Authentication Outlook Service        | False                        |
+| Allow Basic Authentication POP                    | False                        |
+| Allow Basic Authentication Reporting Web Services | False                        |
+| Allow Basic Authentication Rest                   | False                        |
+| Allow Basic Authentication RPC                    | False                        |
+| Allow Basic Authentication SMTP                   | False                        |
+| Allow Basic Authentication Web Services           | False                        |
+| Allow Basic Authentication PowerShell             | False                        |
 
 ### Outlook Web Access policy
 
-Please note, Outlook web access policies can be retrieved (or set) through Exchange Online PowerShell.
+Please note, Outlook web access policies can be retrieved (or set) through Exchange Online PowerShell. The policy object is Exchange Online out of box policy, that requires minimal edit.
 
 ```powershell
-Get-OwaMailboxPolicy -identity PolicyName
+Get-OwaMailboxPolicy -identity OwaMailboxPolicy-Default
 ```
 
 The following table describes the Outlook Web Access Policy configuration settings for all implementation types.
 
-| Item                                                        | Configuration              |
-| ----------------------------------------------------------- | -------------------------- |
-| Name                                                        | Default-OWA-Mailbox-Policy |
-| Wac Editing Enabled                                         | True                       |
-| Print Without Download Enabled                              | True                       |
-| OneDrive Attachments Enabled                                | True                       |
-| Third Party File Providers Enabled                          | False                      |
-| Classic Attachments Enabled                                 | True                       |
-| Reference Attachments Enabled                               | True                       |
-| Save Attachments to Cloud Enabled                           | True                       |
-| Message Previews Disabled                                   | False                      |
-| Direct File Access On Public Computers Enabled              | False                      |
-| Direct File Access On Private Computers Enabled             | True                       |
-| Web Ready Document Viewing On Public Computers Enabled      | True                       |
-| Web Ready Document Viewing On Private Computers Enabled     | True                       |
-| Force Web Ready Document Viewing First On Public Computers  | False                      |
-| Force Web Ready Document Viewing First On Private Computers | False                      |
-| Wac Viewing On Public Computers Enabled                     | True                       |
-| Wac Viewing On Private Computers Enabled                    | True                       |
-| Force Wac Viewing First On Public Computers                 | False                      |
-| Force Wac Viewing First On Private Computers                | False                      |
-| Action For Unknown File And MIME Types                      | True                       |
-| Phonetic Support Enabled                                    | True                       |
-| Default Client Language                                     | 0                          |
-| Use GB18030                                                 | True                       |
-| Use ISO885915                                               | True                       |
-| Outbound Charset                                            | AutoDetect                 |
-| Global Address List Enabled                                 | True                       |
-| Organization Enabled                                        | False                      |
-| Explicit Logon Enabled                                      | True                       |
-| OWA Light Enabled                                           | False                      |
-| Delegate Access Enabled                                     | True                       |
-| IRM Enabled                                                 | True                       |
-| Calendar Enabled                                            | True                       |
-| Contacts Enabled                                            | True                       |
-| Tasks Enabled                                               | True                       |
-| Journal Enabled                                             | False                      |
-| Notes Enabled                                               | False                      |
-| On Send Addins Enabled                                      | True                       |
-| Reminders And Notifications Enabled                         | True                       |
-| Premium Client Enabled                                      | True                       |
-| Spell Checker Enabled                                       | False                      |
-| Classic Attachments Enabled                                 | True                       |
-| Search Folders Enabled                                      | True                       |
-| Signatures Enabled                                          | True                       |
-| Theme Selection Enabled                                     | True                       |
-| Junk Email Enabled                                          | True                       |
-| UM Integration Enabled                                      | True                       |
-| WSS Access On Public Computers Enabled                      | True                       |
-| WSS Access On Private Computers Enabled                     | True                       |
-| Change Password Enabled                                     | True                       |
-| ActiveSync Integration Enabled                              | True                       |
-| All Address Lists Enabled                                   | True                       |
-| Rules Enabled                                               | True                       |
-| Public Folders Enabled                                      | False                      |
-| Recover Deleted Items Enabled                               | True                       |
-| Instant Messaging Enabled                                   | False                      |
-| Text Messaging Enabled                                      | True                       |
-| Force Save Attachment Filtering Enabled                     | False                      |
-| Silverlight Enabled                                         | True                       |
-| Instant Messaging Type                                      | Ocs                        |
-| Display Photos Enabled                                      | True                       |
-| Set Photo Enabled                                           | False                      |
-| Set Photo URL                                               |                            |
-| Places Enabled                                              | False                      |
-| Weather Enabled                                             | True                       |
-| Local Events Enabled                                        | False                      |
-| Interesting Calendars Enabled                               | False                      |
-| Allow Copy Contacts To Device Address Book                  | True                       |
-| Predicted Actions Enabled                                   | False                      |
-| User Diagnostic Enabled                                     | False                      |
-| LinkedIn Enabled                                            | False                      |
-| Wac External Services Enabled                               | True                       |
-| Wac OMEX Enabled                                            | False                      |
-| Report Junk Email Enabled                                   | True                       |
-| Group Creation Enabled                                      | False                      |
-| Skip Create Unified Group Custom SharePoint Classification  | True                       |
-| User Voice Enabled                                          | False                      |
-| Satisfaction Enabled                                        | False                      |
-| Outlook Beta Toggle Enabled                                 | False                      |
-| Name                                                        | OwaMailboxPolicy-Default   |
-| Wac Editing Enabled                                         | True                       |
-| Print Without Download Enabled                              | True                       |
-| OneDrive Attachments Enabled                                | True                       |
-| Third Party File Providers Enabled                          | False                      |
-| Classic Attachments Enabled                                 | True                       |
-| Reference Attachments Enabled                               | True                       |
-| Save Attachments To Cloud Enabled                           | True                       |
-| Message Previews Disabled                                   | False                      |
-| Direct File Access On Public Computers Enabled              | False                      |
-| Direct File Access On Private Computers Enabled             | True                       |
-| Web Ready Document Viewing On Public Computers Enabled      | True                       |
-| Web Ready Document Viewing On Private Computers Enabled     | True                       |
-| Force Web Ready Document Viewing First On Public Computers  | False                      |
-| Force Web Ready Document Viewing First On Private Computers | False                      |
-| Wac Viewing On Public Computers Enabled                     | True                       |
-| Wac Viewing On Private Computers Enabled                    | True                       |
-| Force Wac Viewing First On Public Computers                 | False                      |
-| Force Wac Viewing First On Private Computers                | False                      |
-| Action For Unknown File And MIME Types                      | True                       |
-| Phonetic Support Enabled                                    | False                      |
-| Default Client Language                                     | 0                          |
-| Use GB18030                                                 | False                      |
-| Use ISO885915                                               | False                      |
-| Outbound Charset                                            | AutoDetect                 |
-| Global Address List Enabled                                 | True                       |
-| Organization Enabled                                        | True                       |
-| Explicit Logon Enabled                                      | True                       |
-| OWA Light Enabled                                           | True                       |
-| Delegate Access Enabled                                     | True                       |
-| IRM Enabled                                                 | True                       |
-| Calendar Enabled                                            | True                       |
-| Contacts Enabled                                            | True                       |
-| Tasks Enabled                                               | True                       |
-| Journal Enabled                                             | True                       |
-| Notes Enabled                                               | True                       |
-| On Send Addins Enabled                                      | False                      |
-| Reminders And Notifications Enabled                         | True                       |
-| Premium Client Enabled                                      | True                       |
-| Spell Checker Enabled                                       | False                      |
-| Classic Attachments Enabled                                 | True                       |
-| Search Folders Enabled                                      | True                       |
-| Signatures Enabled                                          | True                       |
-| Theme Selection Enabled                                     | True                       |
-| Junk Email Enabled                                          | True                       |
-| UM Integration Enabled                                      | True                       |
-| WSS Access On Public Computers Enabled                      | True                       |
-| WSS Access On Private Computers Enabled                     | True                       |
-| Change Password Enabled                                     | True                       |
-| ActiveSync Integration Enabled                              | True                       |
-| All Address Lists Enabled                                   | True                       |
-| Rules Enabled                                               | True                       |
-| Public Folders Enabled                                      | True                       |
-| Recover Deleted Items Enabled                               | True                       |
-| Instant Messaging Enabled                                   | True                       |
-| Text Messaging Enabled                                      | True                       |
-| Force Save Attachment Filtering Enabled                     | False                      |
-| Silverlight Enabled                                         | True                       |
-| Instant Messaging Type                                      | Ocs                        |
-| Display Photos Enabled                                      | True                       |
-| Set Photo Enabled                                           | True                       |
-| Set Photo URL                                               |                            |
-| Places Enabled                                              | True                       |
-| Weather Enabled                                             | True                       |
-| Local Events Enabled                                        | False                      |
-| Interesting Calendars Enabled                               | True                       |
-| Allow Copy Contacts To Device Address Book                  | True                       |
-| Predicted Actions Enabled                                   | False                      |
-| User Diagnostic Enabled                                     | False                      |
-| LinkedIn Enabled                                            | False                      |
-| Wac External Services Enabled                               | True                       |
-| Wac OMEX Enabled                                            | False                      |
-| Report Junk Email Enabled                                   | True                       |
-| Group Creation Enabled                                      | True                       |
-| Skip Create Unified Group Custom SharePoint Classification  | True                       |
-| User Voice Enabled                                          | True                       |
-| Satisfaction Enabled                                        | True                       |
-| Outlook Beta Toggle Enabled                                 | True                       |
+| Item                                                       | Configuration            |
+| ---------------------------------------------------------- | ------------------------ |
+| Name                                                       | OwaMailboxPolicy-Default |
+| Wac Editing Enabled                                        | True                     |
+| Print Without Download Enabled                             | True                     |
+| OneDrive Attachments Enabled                               | True                     |
+| Additional Storage Providers Available                     | False                    |
+| Classic Attachments Enabled                                | True                     |
+| Reference Attachments Enabled                              | True                     |
+| Save Attachments to Cloud Enabled                          | True                     |
+| External Image Proxy Enabled                               | False                    |
+| Nps Surveys Enabled                                        | False                    |
+| Message Previews Disabled                                  | False                    |
+| Personal Account Calendars Enabled                         | False                    |
+| Teamsnap Calendars Enabled                                 | False                    |
+| Bookings Mailbox Creation Enabled                          | True                     |
+| Project Moca Enabled                                       | False                    |
+| Direct File Access On Public Computers Enabled             | False                    |
+| Direct File Access On Private Computers Enabled            | True                     |
+| Wac Viewing On Public Computers Enabled                    | True                     |
+| Wac Viewing On Private Computers Enabled                   | True                     |
+| Force Wac Viewing First On Public Computers                | False                    |
+| Force Wac Viewing First On Private Computers               | False                    |
+| Action For Unknown File And MIME Types                     | Allow                    |
+| Feedback Enabled                                           | False                    |
+| Phonetic Support Enabled                                   | False                    |
+| Default Client Language                                    | 0                        |
+| Use GB18030                                                | False                    |
+| Use ISO885915                                              | False                    |
+| Outbound Charset                                           | AutoDetect               |
+| Global Address List Enabled                                | True                     |
+| Organization Enabled                                       | True                     |
+| Explicit Logon Enabled                                     | True                     |
+| OWA Light Enabled                                          | True                     |
+| Delegate Access Enabled                                    | True                     |
+| IRM Enabled                                                | True                     |
+| Calendar Enabled                                           | True                     |
+| Contacts Enabled                                           | True                     |
+| Tasks Enabled                                              | True                     |
+| Journal Enabled                                            | False                    |
+| Notes Enabled                                              | True                     |
+| On Send Addins Enabled                                     | True                     |
+| Reminders And Notifications Enabled                        | True                     |
+| Premium Client Enabled                                     | True                     |
+| Spell Checker Enabled                                      | True                     |
+| Classic Attachments Enabled                                | True                     |
+| Search Folders Enabled                                     | True                     |
+| Signatures Enabled                                         | True                     |
+| Theme Selection Enabled                                    | True                     |
+| UM Integration Enabled                                     | True                     |
+| WSS Access On Public Computers Enabled                     | True                     |
+| WSS Access On Private Computers Enabled                    | True                     |
+| Change Password Enabled                                    | True                     |
+| ActiveSync Integration Enabled                             | False                    |
+| All Address Lists Enabled                                  | True                     |
+| Rules Enabled                                              | True                     |
+| Public Folders Enabled                                     | False                    |
+| Recover Deleted Items Enabled                              | True                     |
+| Instant Messaging Enabled                                  | True                     |
+| Text Messaging Enabled                                     | True                     |
+| Force Save Attachment Filtering Enabled                    | False                    |
+| Silverlight Enabled                                        | True                     |
+| Instant Messaging Type                                     | None                     |
+| Display Photos Enabled                                     | True                     |
+| Set Photo Enabled                                          | True                     |
+| Places Enabled                                             | False                    |
+| Weather Enabled                                            | True                     |
+| Local Events Enabled                                       | False                    |
+| Interesting Calendars Enabled                              | False                    |
+| Allow Copy Contacts To Device Address Book                 | True                     |
+| Predicted Actions Enabled                                  | False                    |
+| User Diagnostic Enabled                                    | False                    |
+| LinkedIn Enabled                                           | False                    |
+| Wac External Services Enabled                              | True                     |
+| Wac OMEX Enabled                                           | False                    |
+| Report Junk Email Enabled                                  | True                     |
+| Group Creation Enabled                                     | False                    |
+| Skip Create Unified Group Custom SharePoint Classification | True                     |
+| User Voice Enabled                                         | False                    |
+| Satisfaction Enabled                                       | False                    |
+| Outlook Beta Toggle Enabled                                | False                    |
 
 ### Mailbox archive
 

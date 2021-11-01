@@ -116,7 +116,7 @@ The following table describes the Microsoft 365 Services settings for all implem
 | Microsoft Teams                           | Advanced management options: Checked<br>Guest access: Checked |
 | Microsoft To Do                           | Disabled                                                     |
 | ‎Viva Insights (formerly MyAnalytics)‎      | Insights dashboard: Checked<br>Weekly digest: Checked<br>Insights Outlook add-in: Checked<br>Allow Microsoft to contact me about my feedback: Unchecked |
-| Microsoft 365 Groups                      | Disabled                                                     |
+| Microsoft 365 Groups                      | Enabled                                                      |
 | Modern Authentication                     | Turn on modern authentication for Outlook 2013 for Windows and later (recommended): Checked<br>Allow access to basic authentication protocols: Unchecked (All)                                 |
 | News                                      | Disabled                                                     |
 | ‎Office‎ installation options               | Once a month (Monthly Enterprise Channel)<br>Apps for Windows and mobile devices: Office (includes Skype for Business)<br>Apps for Mac: Office                                               |
@@ -1158,7 +1158,7 @@ Note, policies that are not configurable are not included below.
 | Allow a participant to give or request control  | On                                                           |
 | Allow an external participant to give or request control | Off                                                 |
 | PowerPoint sharing                              | On                                                           |
-| Whiteboard                                      | Off                                                          |
+| Whiteboard                                      | On                                                           |
 | Shared notes                                    | On                                                           |
 | Select video filters                            | All filters                                                  |
 | Let anonymous people start a meeting            | Off                                                          |

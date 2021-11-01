@@ -283,7 +283,7 @@ Conditional Access Policy Design Decisions for all agencies and implementation t
 Configuration | Description
 --- | ---
 BLOCK - Countries not Allowed | This global policy blocks all connections from countries not in the Allowed countries list.
-BLOCK - Guess Access | Deny all guest and external users by default.
+BLOCK - Guest Access | Deny all guest and external users by default.
 BLOCK - High-Risk Sign-Ins | This global policy blocks all high-risk authentications (requires Azure AD Premium P2).
 BLOCK - Legacy Authentication | This global policy blocks all connections from insecure legacy protocols like ActiveSync, IMAP, POP3, etc.
 BLOCK - Unapproved Devices | Prevents access from device types not included in the blueprint (Android, Windows Phone and macOS)

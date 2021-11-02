@@ -94,7 +94,7 @@ Microsoft Defender Antivirus and Defender for Endpoint provide antivirus scannin
 
 Microsoft Office macros are blocked from making Win32 API calls using Attack Surface Reduction (ASR) rules as per the ACSC [Windows 10](https://www.cyber.gov.au/acsc/view-all-content/publications/hardening-microsoft-windows-10-version-21h1-workstations) and [Microsoft Office](https://www.cyber.gov.au/acsc/view-all-content/publications/hardening-microsoft-office-365-proplus-office-2019-and-office-2016) hardening guides.
 
-Macro executions are natively logged to the ‘TrustRecords' entry in the Windows 10 registry, including the time and location that the macro is run. Defender for Endpoint also centrally stores Endpoint Detection & Response (EDR) logs for all Windows 10 blueprint devices, which includes the execution of macro-enabled documents and resulting behaviours (such as attempts to make Win32 API calls).
+Defender for Endpoint centrally stores Endpoint Detection & Response (EDR) logs for all Windows 10 blueprint devices, which includes the execution of macro-enabled documents and resulting behaviours (such as attempts to make Win32 API calls).
 
 As all required technical controls are implemented by the blueprint, the maturity level has been assessed at 3*. Note, this assessment assumes agencies undertake the recommendations presented below.
 

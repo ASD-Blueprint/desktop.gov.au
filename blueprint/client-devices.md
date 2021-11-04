@@ -881,9 +881,9 @@ Ease of Access Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Vision accessibility features	| Default setting are enabled:<br>DisplayMouse pointerText cursorMagnifierColor filtersHigh contrastNarrator | To aid in accessibility and does not conflict with ACSC hardening recommendations.
-Hearing accessibility features	| Default setting are enabled:<br>AudioClosed captions | To aid in accessibility and does not conflict with ACSC hardening recommendations.
-Interaction accessibility features	| Default setting are enabled:<br>SpeechKeyboardMouseEye control | To aid in accessibility and does not conflict with ACSC hardening recommendations.
+Vision accessibility features	| Default setting are enabled:<br>Display<br>Mouse pointer<br>Text cursor<br>Magnifier<br>Color filters<br>High contrast<br>Narrator | To aid in accessibility and does not conflict with ACSC hardening recommendations.
+Hearing accessibility features	| Default setting are enabled:<br>Audio<br>Closed captions | To aid in accessibility and does not conflict with ACSC hardening recommendations.
+Interaction accessibility features	| Default setting are enabled:<br>Speech<br>Keyboard<br>Mouse<br>Eye control | To aid in accessibility and does not conflict with ACSC hardening recommendations.
 
 ## Windows 10 security
 

@@ -8,11 +8,10 @@ param (
     [string]$agency,
     [parameter()]
     [string]$agencyprefix,
-    [parameter()],
-    [string]$technicalcontactemail,
-    [parameter()],
-    [string]$technicalcontactphone,
     [parameter()]
+    [string]$technicalcontactemail,
+    [parameter()]
+    [array]$technicalcontactphone
 )
 
 Configuration M365TenantConfig
@@ -30,7 +29,7 @@ Configuration M365TenantConfig
 	[parameter()]
         [string]$technicalcontactemail,
 	[parameter()]
-        [string]$technicalcontactphone
+        [array]$technicalcontactphone
     )
     if ($null -eq $GlobalAdminAccount)
     {
@@ -46,7 +45,7 @@ Configuration M365TenantConfig
     $OrganizationName = $Credsglobaladmin.UserName.Split('@')[1]
     $alternatecontact = "Office365_Group_Expiration@"+$agency+".gov.au"
     $namingpolicy = $agencyprefix+"_[GroupName]"
-    Import-DscResource -ModuleName 'Microsoft365DSC' -ModuleVersion '1.21.1013.1'
+    Import-DscResource -ModuleName 'Microsoft365DSC' -Moduleversion "1.21.1027.1"
 
     Node localhost
     {
@@ -352,7 +351,6 @@ Configuration M365TenantConfig
             ExcludeRoles                             = @();
             ExcludeUsers                             = @();
             GrantControlOperator                     = "OR";
-            Credential	         		     = $credsGlobalAdmin;
             IncludeApplications                      = @("All");
             IncludeDevices                           = @();
             IncludeGroups                            = @();
@@ -378,7 +376,7 @@ Configuration M365TenantConfig
             CloudAppSecurityIsEnabled                = $False;
             CloudAppSecurityType                     = "";
             Credential	         		     = $credsGlobalAdmin;
-            DisplayName                              = "BLOCK – Countries Not Allowed";
+            DisplayName                              = "BLOCK - Countries Not Allowed";
             Ensure                                   = "Present";
             ExcludeApplications                      = @();
             ExcludeDevices                           = @();
@@ -537,7 +535,7 @@ Configuration M365TenantConfig
         AADGroupsNamingPolicy GroupsNamingPolicy
         {
             CustomBlockedWordsList        = @();
-            GlobalAdminAccount            = $credsGlobalAdmin;
+            Credential            = $credsGlobalAdmin;
             IsSingleInstance              = "Yes";
             PrefixSuffixNamingRequirement = $namingpolicy;
             Ensure                        = "Present";
@@ -545,12 +543,12 @@ Configuration M365TenantConfig
 	
 	AADTenantDetails TenantDetails
         {
-            TechnicalNotificationMails             = $technicalcontactemail+"@"+$agency+".gov.au"
-            SecurityComplianceNotificationPhones   = $technicalcontactphone
-            SecurityComplianceNotificationMails    = $technicalcontactemail+"@"+$agency+".gov.au"
-            MarketingNotificationEmails            = $technicalcontactemail+"@"+$agency+".gov.au"
-            Credential			           = $Credscredential
-            IsSingleInstance                       = 'Yes'
+            TechnicalNotificationMails             = $technicalcontactemail+"@"+$agency+".gov.au";
+            SecurityComplianceNotificationPhones   = $technicalcontactphone;
+            SecurityComplianceNotificationMails    = $technicalcontactemail+"@"+$agency+".gov.au";
+            MarketingNotificationEmails            = $technicalcontactemail+"@"+$agency+".gov.au";
+            Credential			           = $credsGlobalAdmin;
+            IsSingleInstance                       = 'Yes';
         }
     }
 }

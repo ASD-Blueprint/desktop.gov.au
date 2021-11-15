@@ -875,7 +875,7 @@ Sync Conflict Policy | Let me choose to merge changes or keep copies | The OneDr
 
 ### Ease of Access
 
-Accessibility features by necessity, need to be configured according to specific user requirements. The general principles applied in the configuration of accessibility in the blueprints is to do no harm and allow IT support staff to configure a device that suits a specific users needs. In practice this means that no lockdowns are applied that limit the configuration of accessibility features and the configuration is left at default unless an individual user requires a configuration change.
+Where required, accessibility features can be configured to accommodate user needs by IT support staff.
 
 Ease of Access Design Decisions for all agencies and implementation types.
 

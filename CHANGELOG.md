@@ -54,6 +54,7 @@ You can find published releases at [https://github.com/govau/desktop.gov.au/rele
 * Updated detail for PSPF labelling limitations [#114] [#138]
 * Updated sensitivity labels [#130] and provide an automated method for deploying sensitivity labels using M365DSC [#117]
 * Updated and expanded Identity and Access Management DSC script to include group settings and tenant contacts [#137]
+* Added Exchange Online to DSC coverage [#143]
 * Incorporated updated ACSC references: Apple iOS 14 Devices (Oct 2021), Essential Eight (Oct 2021), Microsoft Office Hardening (Oct 2021) and Windows Hardening (Oct 2021) [#125] [#139]
 
 Other general website changes:

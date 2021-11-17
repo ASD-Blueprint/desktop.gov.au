@@ -49,7 +49,7 @@ Azure Active Directory Connect (if applicable) | Manual
 
 ## Exchange Online
 
-The following table outlines the subsections of the blueprint and their automation status for Exchange Online. Configuration of Exchange Online is configured after identity and access management.
+The following table outlines the subsections of the blueprint and their automation status for Exchange Online. Configuration of Exchange Online is completed after identity and access management.
 
 | Component                       | Automated / Manual                                           |
 | ------------------------------- | ------------------------------------------------------------ |
@@ -67,7 +67,7 @@ The following table outlines the subsections of the blueprint and their automati
 | Anti-spam connection filter     | Automated                                                    |
 | Anti-spam policies              | Automated                                                    |
 | Anti-malware policies           | Automated                                                    |
-| Anti-phising polices            | Automated                                                    |
+| Anti-phishing policies          | Automated                                                    |
 | Safe-links and Safe attachments | Automated                                                    |
 | Hybrid configuration            | Manual                                                       |
 
@@ -114,7 +114,7 @@ Script | Configuration items | Method | Script parameters
 --- | --- | --- | ---
 [identity_dsc.ps1](/assets/files/automation/identity_dsc.txt) | Conditional Access<br>Group Naming Policy<br>Named Locations<br>Group Lifecycle Policy<br>Group Creation<br>Groups Settings<br>Directory Contact Details | M365DSC | -trustedip<br>-agency <br>-agencyprefix<br>-globaladminaccount<br>-technicalcontactemail<br>-technicalcontactphone<br> 
 [sensitivity-labels_dsc.ps1](/assets/files/automation/sensitivity-labels_dsc.txt) | Sensitivity labels | M365DSC | -globaladminaccount
-[exo_dsc.ps1](/assets/files/automation/exo_dsc.txt) | Anti-spam policies<br/>Anti-malware policies<br/>Anti-phising polices<br/>Safe-links and Safe attachments<br/>Outlook Web Access policy<br/>CAS mailbox plan | M365DSC | -gatewayip<br/>-agency <br/>-globaladminaccount<br/>-technicalcontactemail 
+[exo_dsc.ps1](/assets/files/automation/exo_dsc.txt) | Anti-spam policies<br/>Anti-malware policies<br/>Anti-phishing policies<br/>Safe-links and Safe attachments<br/>Outlook Web Access policy<br/>CAS mailbox plan | M365DSC | -gatewayip<br/>-agency <br/>-globaladminaccount<br/>-technicalcontactemail 
 
 #### Certificate creation
 
@@ -188,43 +188,38 @@ Additional guidance and troubleshooting information can be found in the M365DSC 
 
 **Issue 1 - remedy:** Ensure that  the emergency access admin account (break glass) identities exist prior to running the DSC script
 
-- Check or create each emergency access admin account manually as per the the [Platform - ABAC ](https://www.desktop.gov.au/blueprint/abac/platform.html#emergency-access-admin-accounts)
+* Check or create each emergency access admin account manually as per the the [Platform - ABAC ](https://www.desktop.gov.au/blueprint/abac/platform.html#emergency-access-admin-accounts)
 
 **Issue 2 - error:** *Undefined DSC resource 'M365DSCResource'. Use Import-DSCResource to import the resource.*
 
 **Issue 2 - remedy:** Confirm the M365DSC module versioning installed on the system and load the desired module
 
-- The module version defined in the DSC script does not match the version installed on the system. Either remove the `-version` parameter on the `Import-DscResource` command or change the version to match the version installed. 
+* The module version defined in the DSC script does not match the version installed on the system. Either remove the `-version` parameter on the `Import-DscResource` command or change the version to match the version installed. 
+* If there are multiple versions of the M365DSC, import the required version
+  ```powershell
+  Get-Module -Name Microsoft365DSC -ListAvailable |Select Version #list available versions
+  Import-Module -FullyQualifiedName @{ModuleName = "Microsoft365DSC"; ModuleVersion = "version"} #import desired version
+  ```
 
-- If there are multiple versions of the M365DSC, import load the specific version required
+**Issue 3 - error:** *Running the Get-Command command in a remote session reported the following error: Processing data for a remote command failed with the following error message: The SSL connection cannot be established*
 
-  - ```powershell
-    Get-Module -Name Microsoft365DSC -ListAvailable |Select Version #list available versions
-    Import-Module -FullyQualifiedName @{ModuleName = "Microsoft365DSC"; ModuleVersion = "version"} #import desired version
-    ```
+**Issue 3 - remedy:** Ensure the local WinRM agent is configured and listening on HTTPS
 
-**Issue 3 - error:** *Message Running the Get-Command command in a remote session reported the following error: Processing data for a remote command failed with the following error message: The SSL connection cannot be established*
-
-**Issue 3 - remedy:** Ensure the the local WinRM agent is configured and listening on HTTPS
-
-- Confirm WinRM is setup for HTTPS. For furter information, see [How to configure WINRM for HTTPS - Microsoft Docs](https://docs.microsoft.com/en-us/troubleshoot/windows-client/system-management-components/configure-winrm-for-https)
-
-- Confirm inbound Firewall port is open on 5586
-
-  - ```powershell
-    $port=5986
-    netsh advfirewall firewall add rule name="Windows Remote Management (HTTPS-In)" dir=in action=allow protocol=TCP localport=$port
-    ```
+* Confirm WinRM is setup for HTTPS. For further information, see [How to configure WINRM for HTTPS - Microsoft Docs](https://docs.microsoft.com/en-us/troubleshoot/windows-client/system-management-components/configure-winrm-for-https)
+* Confirm inbound Firewall port is open on 5586
+  ```powershell
+  $port=5986
+  netsh advfirewall firewall add rule name="Windows Remote Management (HTTPS-In)" dir=in action=allow protocol=TCP localport=$port
+  ```
 
 **Issue 4 - error:** *You cannot perform the requested operation, required scopes are missing in the token*
 
-**Issue 4 - remedy:** Ensure that the required API permissions for the Microsoft Graph for PowerShell are granted are available and granted admin consent
+**Issue 4 - remedy:** Ensure that the required API permissions for the Microsoft Graph for PowerShell are granted admin consent
 
-- Connect with the Microsoft Graph API and grant admin consent when prompted
-
-  - ```powershell
-    Connect-MgGraph -TenantId "Azure AD tenant id guid" -Scopes "Application.Read.All,Group.Read.All,Directory.Read.All,Policy.Read.All,Policy.Read.ConditionalAccess,Policy.ReadWrite.ConditionalAccess,RoleManagement.Read.All,RoleManagement.Read.Directory,User.Read.All"
-    ```
+* Connect with the Microsoft Graph API and grant admin consent when prompted
+  ```powershell
+  Connect-MgGraph -TenantId "Azure AD tenant id guid" -Scopes "Application.Read.All,Group.Read.All,Directory.Read.All,Policy.Read.All,Policy.Read.ConditionalAccess,Policy.ReadWrite.ConditionalAccess,RoleManagement.Read.All,RoleManagement.Read.Directory,User.Read.All"
+  ```
 
 ## Microsoft 365 Desired State Configuration auditing procedure
 
@@ -257,4 +252,3 @@ Blueprint audit baselines are available below:
 * [baseline.ps1](/assets/files/automation/baseline.txt)
 
 The above baseline requires updating to include agency specific details prior to use.
-

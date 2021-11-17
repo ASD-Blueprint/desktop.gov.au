@@ -50,7 +50,7 @@ jobs:
   build_attachments:
     working_directory: ~/workspace
     docker:
-      - image: pandoc/latex
+      - image: "pandoc/latex:2.14.2"
     steps:
       - run:
           name: Install git-cli

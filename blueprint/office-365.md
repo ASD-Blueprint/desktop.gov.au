@@ -122,24 +122,29 @@ The design will take into consideration the services and add-ins that are part o
 
 Services and Add-ins Design Decisions for all agencies and implementation types.
 
-Decision Point | Design Decision | Justification
---- | --- | ---
-Azure Speech Services | Disabled | Enabling the organization-wide language model allows Azure speech service to gather data from emails and other locations to improve M365 applications that use Azure Speech Services. There is no requirement for text to speech in the blueprint and should be evaluated further if there is an agency requirement. 
-Bookings | Disabled | Exposes a public web page that provides access to user calendars for 3rd parties. There is no requirement to enable the feature as other methods of collaboration are in use. 
-Calendar | Disabled | External sharing is disabled to prevent potential data spills.
-Cortana | Disabled | To align with ACSC Windows 10 1909 hardening recommendations to disable Windows web results and Cortana, to limit the risk of accidental disclosure of sensitive information. 
-Microsoft Graph Data Connect | Enabled | API connectivity is required for solution management. 
+Decision Point        | Design Decision | Justification
+---                   | ---             | ---
+Azure Speech Services | Disabled        | Enabling the organization-wide language model allows Azure speech service to gather data from emails and other locations to improve M365 applications that use Azure Speech Services. There is no requirement for text to speech in the blueprint and should be evaluated further if there is an agency requirement. 
+Bookings              | Disabled        | Exposes a public web page that provides access to user calendars for 3rd parties. There is no requirement to enable the feature as other methods of collaboration are in use. 
+‎Briefing‎ email from ‎Microsoft Viva‎	| Enabled | Enabled by default to improve productivitiy, individual users can unsubscribe if desired.
+Calendar              | Disabled        | External sharing is disabled to prevent potential data spills.
+Cortana               | Disabled        | To align with ACSC Windows 10 hardening guidance to disable Windows web results and Cortana, to limit the risk of accidental disclosure of sensitive information. 
+‎Microsoft‎ communication to users	| Disabled | To prevent communication from Microsoft directly rather than via the Agency's IT team.
+Microsoft Graph Data Connect | Disabled | API connectivity with Azure Data Factory is not currently in scope of the blueprint. 
 Microsoft Search in Bing | Disabled | Microsoft Search integrates with bing.com for Search. Office 365 data is indexed to provide bing.com search functionality and is therefore not desirable for this design.
-Microsoft communication to users | Disabled | System administrators will be responsible for gathering the relevant information for communication to users. 
+Microsoft Teams      | Enabled         | To enable both internal and external collaboration.
+Microsoft To Do      | Disabled        | To reduce the risk of user entering sensitive data into external lists.
+‎Microsoft Viva Insights (formerly MyAnalytics)‎ | Enabled | Provides users with details about their usage of Office 365. 
+Microsoft 365 Group  | Enabled | External collaboration will be conducted in Microsoft Teams and SharePoint Online, which relies on Microsoft 365 groups. Agencies should only select agencies that they trust to collaborate with after completing a risk assessment. 
 Modern Authentication | Enabled | Modern authentication is a group of technologies that combines authentication, authorisation and conditional access policies to secure an Office 365 tenant. Enabling of Modern Authentication provides ability to use Multi Factor Authentication.
-MyAnalytics | Enabled | Provides users with details about their usage of Office 365. 
-External Office 365 group content sharing | Enabled | External collaboration will be conducted in Microsoft Teams and SharePoint online, which relies on Microsoft 365 groups. Agencies should only select agencies that they trust to collaborate with after completing a risk assessment. 
-‎Office‎ software download settings | Disabled | Only one instance of the Office Suite is to be installed per user on their Government issued device. Office applications will be deployed to users endpoint devices via Intune or MECM (Microsoft Endpoint Configuration Manager). 
-Office What's New management preview | Disabled | System administrators will be responsible for gathering the relevant information for communication to users. 
-Office on the web | Disabled | Do not allow users to open files in third party storage services in Office on the web as this may introduce risk of information disclosure or malicious content. 
-Reports | Disabled | Disable data reporting to Microsoft on Office 365 usage.
-SharePoint | Enabled | New and Existing guests must sign in or provide a verification code when accessing SharePoint data.
-External Sway sharing | Disabled | External collaboration will be conducted in Teams or SharePoint online. 
+News                 | Disabled        | To prevent the display of Office 365 content and external news articles together in Edge.
+‎Office‎ installation options | Enabled  | To manage the update and deployment of Office updates and components.
+Office on the web    | Disabled        | Do not allow users to open files in third party storage services in Office on the web as this may introduce risk of information disclosure or malicious content. 
+Office Scripts       | Disabled        | To prevent the execution of unapproved code.
+Reports              | Disabled        | Disable data reporting to Microsoft on Office 365 usage.
+SharePoint           | Enabled         | New and Existing guests must sign in or provide a verification code when accessing SharePoint data.
+Sway                 | Disabled        | External collaboration will be conducted in Teams or SharePoint online. 
+User consent to apps | Disabled        | Require administrators to provide consent.
 User owned apps and services | Disabled | Applications will be delivered via the Business Store, there is no need to have the Official Store enabled.
 
 ### Role based access control
@@ -169,7 +174,7 @@ The following Office 365 roles can be assigned via PIM:
 * Security administrator.
 * Security reader.
 
-Note, using PIM for the SharePoint administrator role, the Device administrator role, and roles trying to access the Microsoft Security and Compliance Center might experience delays of up to a few hours after activating the role, see [https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-roles](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-roles) for further information.
+Note, using PIM for the SharePoint administrator role, the Device administrator role, and roles trying to access the Microsoft Security and Compliance Center might experience delays of up to a few hours after activating the role, see [PIM Roles](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-roles) for further information.
 
 Role Based and Access Control Design Decisions for all agencies and implementation types.
 
@@ -194,7 +199,7 @@ Customer Lockbox | Enable | This is to ensure that Microsoft support engineers c
 
 ## Office 365 connectivity
 
-Office 365 is a publicly facing SaaS offering and firewall ports are required to be opened to allow communication between infrastructure and desktops and Office 365. These ports configurations are updated frequently and are available online from (Microsoft)[https://docs.microsoft.com/en-au/office365/enterprise/urls-and-ip-address-ranges].
+Office 365 is a publicly facing SaaS offering and firewall ports are required to be opened to allow communication between infrastructure and desktops and Office 365. These ports configurations are updated frequently and are available online from [Microsoft](https://docs.microsoft.com/en-au/office365/enterprise/urls-and-ip-address-ranges).
 
 It is important to note the traffic between the clients and the Office 365 offering is TLS 1.2 encrypted.
 
@@ -388,7 +393,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Autodiscover | CNAME autodiscover autodiscover.outlook.com | Autodiscover will improve the user experience and is required to configure a user's Outlook profile and inbox.
 
-Autodiscover Design Decisions for the HYBRID solution.
+Autodiscover Design Decisions for the hybird solution.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -604,7 +609,6 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Mailbox Archive | Enabled | The archive mailbox is required to control primary mailbox cache sizes.
 Mailbox Archive Policy  | Enabled | The use of automated archive mailbox policies improves the user experience and ensures that primary mailbox sizes are controlled.
-Archive configuration | Configured | 
 
 ### Mailbox auditing
 
@@ -1110,7 +1114,7 @@ Policies and Settings Design Decisions for all agencies and implementation types
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Team Policy | Configured<br>Disable private channels | Team policy will be left as default settings.<br>Discovered private teams.<br>Create private channels. 
-Meeting Policies | Configured<br>Global policy:<br>Disable Whiteboard<br>Automatically admit people – Everyone in your organisation | Meeting policy dictates how audio, videos and applications that are used in a team meeting.<br>Whiteboard will be disable as the application does not meet application residency requirements. 
+Meeting Policies | Configured<br>Global policy:<br>Automatically admit people – Everyone in your organisation | Meeting policy dictates how audio, videos and applications that are used in a team meeting.<br>Require external participants to be admitted to a meeting to prevent unauthorised entrance.
 Live events Policies | Configured<br>Who can join live events:<br>Everyone in Organisation | Live events is configured to prevent users outside of the organisation (guest and external users) cannot attend these meeting.
 Messaging Policy | Configured | Messaging policy dictates how messaging is used in Teams. These includes usage of Giphy, Memes and stickers in messages.
 Teams app | Configured<br>Global Policy:<br>Block specific app from Microsoft Apps<br>* Forms<br>* Yammer<br>Block all Third-Party Apps<br>Block all Tenant Apps | Microsoft Forms and Yammer are hosted in United States. This will cause data sovereignty issue for the Agency. <br>All Third-Party Apps are blocked. These Third-Party apps needs to be evaluated individually.<br>Tenant Apps are custom developed applications created by the Agency. This should be enabled if it is required. 
@@ -1248,9 +1252,8 @@ Classification labels are published to users using Label Policies. Label Policie
 
 At the time of writing, sensitivity labels cannot be configured to satisfy all of the requirements listed in the Protective Security Policy Framework (PSPF). Some of these limitations are:
 
-* Sensitivity labels do not set the `X-Protective-Marking` header (internet message header extension).
+* Sensitivity labels do not set the `X-Protective-Marking` header (internet message header extension). Exchange transport rules can be used to set this label but the *Origin* parameter prescribed in the PSPF cannot be set natively.**
 * Messages received from outside of the agency that have the appropriate `X-Protective-Marking` header set are not interpreted by native labelling in the Outlook client.
-* Sensitivity labels are not available within a shared or delegated mailbox in the iOS Outlook client.
 * The MIP labelling clients cannot append the protective marking to the subject field (subject field marking) to an email.
 * When downgrading a sensitivity label, the downgrade cannot be prevented, only forcing the user to justify the downgrade. 
 * Sensitivity labels are not available within calendar invites.
@@ -1580,14 +1583,14 @@ Safe Links Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Microsoft Defender for Office 365 Safe Links | Configured | Configured to align with ACSC - PROTECT - Malicious Email Mitigation Strategies (June 2020) and Microsoft guidance.
+Microsoft Defender for Office 365 Safe Links | Configured | Configured to align with ACSC's Malicious Email Mitigation Strategies and Microsoft guidance.
 
 Safe Links Configuration applicable to all agencies and implementation types.
 
 Configuration | Value | Description
 --- | --- | ---
-Action for unknown potentially malicious URLs in messages | URLs will be rewritten and checked against a list of known malicious links when a user clicks on the link | Configured to align with ACSC - PROTECT - Malicious Email Mitigation Strategies (June 2020) and Microsoft guidance.
-Action for unknown or potentially malicious URLs within Microsoft Teams | Microsoft Teams will check against a list of known malicious links when user clicks on the link; URLs will not be rewritten | Configured to align with ACSC - PROTECT - Malicious Email Mitigation Strategies (June 2020) and Microsoft guidance.
+Action for unknown potentially malicious URLs in messages | URLs will be rewritten and checked against a list of known malicious links when user clicks on the link | Configured to align with ACSC's Malicious Email Mitigation Strategies and Microsoft guidance.
+Action for unknown or potentially malicious URLs within Microsoft Teams | Microsoft Teams will check against a list of known malicious links when user clicks on the link; URLs will not be rewritten | Configured to align with ACSC's Malicious Email Mitigation Strategies and Microsoft guidance.
 Do not track when users click safe links | Unchecked | Information about when end-users click safe links in the Office 365 documents will be tracked.
 Do not let users click through safe links to original URL  | Checked | If end-users click on safe links in Office 365 documents, then they will be directed to a warning page and will not be presented with an option to continue to the original link.
 
@@ -1601,7 +1604,7 @@ Safe Attachments Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Microsoft Defender for Office 365 Safe Attachments | Configured | Configured in accordance with PROTECT - Malicious Email Mitigation Strategies (June 2020). 
+Microsoft Defender for Office 365 Safe Attachments | Configured | Configured to align with ACSC's Malicious Email Mitigation Strategies and Microsoft guidance.
 
 Safe Attachments Configuration applicable to all agencies and implementation types
 
@@ -1625,7 +1628,7 @@ Anti-phishing Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Microsoft Defender for Office 365 Anti-Phishing | Configured | Configured to meet ACSC - PROTECT - Malicious Email Mitigation Strategies (June 2020). 
+Microsoft Defender for Office 365 Anti-Phishing | Configured | Configured to align with ACSC's Malicious Email Mitigation Strategies and Microsoft guidance.
 
 Anti-Phishing Configuration applicable to all agencies and implementation types
 
@@ -1696,4 +1699,4 @@ Microsoft Planner Configuration applicable to all agencies and implementation ty
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Publishing through iCalendar feed | Enabled | Internet calendars will be enabled, it is up to the Agency which calendars they wish to publish.
+Publishing through iCalendar feed | Disabled | To prevent users from sharing sensitive information via iCalendar feeds.

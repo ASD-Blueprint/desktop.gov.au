@@ -141,8 +141,8 @@ Profile Virtual Disk Location | Agency decision point: Azure Files or Azure NetA
 Virtual Disk Type | VHDX | VHDX is the latest available disk type and suitable for this solution.
 Concurrent Users Sessions | Allowed | Concurrent user sessions must be enabled to allow hosted shared desktop scenarios. 
 Local Cache Persistence | Enabled | Local cache folders will be kept on user logout providing a faster experience for re-logons.
-Redirections File Path | Azure Storage account | The redirections configuration XML will be hosted on a common share, to be determined by the agency. 
-Redirection Exclusions | `[TBD-DOMAIN]\NETLOGON\FsLogix\Redirections.xml`<br><br>See section [Appendix 1 – FSLogix Profile Redirections](#appendix-1--fslogix-profile-redirections) | Base configurations recommended initially. This configuration will be updated as required during the build and test of the solution.
+Redirections File Path | Azure Storage account or other domain share | The redirections configuration XML will be hosted on a common share, to be determined by the agency. 
+Redirection Exclusions | Copy `Redirections.xml` file to `[TBD-DOMAIN]\NETLOGON\FsLogix\`<br><br>See section [Appendix 1 – FSLogix Profile Redirections](#appendix-1--fslogix-profile-redirections) | Base configuration recommended initially. This configuration will be updated as required during the build and test of the solution.<br><br>Note, the folder path to the redirections.xml path is set through Group Policy and points to the folder where the file exists, not the full path of the file itself. 
 Directory Naming Configuration | Swapped: Username_SIDs | This configuration allows for easier navigation of the user VHDX when troubleshooting and during maintenance.
 
 

@@ -873,6 +873,18 @@ Network settings – Download | Do not limit | Allow dynamic network configurati
 File Collaboration Policy | Enabled | File collaboration will be enabled to allow users to work collaboratively and increase productivity. 
 Sync Conflict Policy | Let me choose to merge changes or keep copies | The OneDrive sync conflict policy will be configured to allow the user to choose. 
 
+### Ease of Access
+
+Where required, accessibility features can be configured to accommodate user needs by IT support staff.
+
+Ease of Access Design Decisions for all agencies and implementation types.
+
+Decision Point | Design Decision | Justification
+--- | --- | ---
+Vision accessibility features	| Default setting are enabled:<br>Display<br>Mouse pointer<br>Text cursor<br>Magnifier<br>Color filters<br>High contrast<br>Narrator | To aid in accessibility and does not conflict with ACSC hardening recommendations.
+Hearing accessibility features	| Default setting are enabled:<br>Audio<br>Closed captions | To aid in accessibility and does not conflict with ACSC hardening recommendations.
+Interaction accessibility features	| Default setting are enabled:<br>Speech<br>Keyboard<br>Mouse<br>Eye control | To aid in accessibility and does not conflict with ACSC hardening recommendations.
+
 ## Windows 10 security
 
 Security settings are applied to the SOE largely to slow down and prevent malicious adversaries and payloads from causing harm to an Agency. The security settings should not prevent legitimate users from conducting work and should provide them with the correct amount of access to the environment to allow them to operate without impeding the work.

@@ -508,7 +508,7 @@ MCAS is part of Microsoft's Enterprise Mobility + Security (EM+S) suite of capab
 
 The architecture of MCAS includes several integrated components to address each of the cloud app security framework requirements. The components include log collection and analysis capabilities to detect cloud apps, Application Programming Interface (API) connectors to interface with and control cloud app activity, and reserve proxy capability to enforce conditional access app control policies for authentication to cloud apps.
 
-An overview of these components and how they combine in MCAS is illustrated below in Figure 5. Figure reproduced from [https://docs.microsoft.com/en-us/cloud-app-security/what-is-cloud-app-security#architecture](https://docs.microsoft.com/en-us/cloud-app-security/what-is-cloud-app-security#architecture)
+An overview of these components and how they combine in MCAS is illustrated below in Figure 5. Figure reproduced from [Microsoft Cloud App Security overview](https://docs.microsoft.com/en-us/cloud-app-security/what-is-cloud-app-security#architecture).
 
 ![Figure 5 - MCAS Architecture](/assets/images/platform-product-architecture.png)
 
@@ -516,7 +516,7 @@ Further details including configuration of each of these components is presented
 
 #### Data location
 
-At the time of writing MCAS is hosted from Azure data centres in the United States (US) and Europe ([https://docs.microsoft.com/en-us/cloud-app-security/cas-compliance-trust#data-location](https://docs.microsoft.com/en-us/cloud-app-security/cas-compliance-trust#data-location)). An MCAS tenant account is automatically created in the closest 'Geo'. For Azure tenants located in Australia, MCAS will use the US Geo.
+At the time of writing MCAS is hosted from Azure data centres in the [United States (US), United Kingdom (UK) and Europe](https://docs.microsoft.com/en-us/cloud-app-security/cas-compliance-trust#data-location). An MCAS tenant account is automatically created in the closest 'Geo'. For Azure tenants located in Australia, MCAS will use the US Geo.
 
 #### Data retention
 
@@ -533,9 +533,9 @@ Note, all user activity and security alert information can be exported from MCAS
 
 MCAS leverages Azure Active Directory (Azure AD) to provide Role-Based Access Control (RBAC) for administration via the web portal. By default, only the Global Administrator and Security Administrator roles have full access to MCAS. Other standard Azure AD roles that have at least read-only access to the portal include Compliance Administrator, Compliance Data Administrator, Security Operator, Security Reader, and Global Reader. 
 
-In addition to the standard Azure AD roles, MCAS also has its own service-specific roles that provide finer grained RBAC [https://docs.microsoft.com/en-us/cloud-app-security/manage-admins](https://docs.microsoft.com/en-us/cloud-app-security/manage-admins). If required, Global and Security Administrators can also grant access to specific users within the MCAS portal.
+In addition to the standard Azure AD roles, MCAS also has its own service-specific roles that provide finer grained [RBAC](https://docs.microsoft.com/en-us/cloud-app-security/manage-admins). If required, Global and Security Administrators can also grant access to specific users within the MCAS portal.
 
-### MCAS - Cloud discovery
+### MCAS - Cloud Discovery
 
 The MCAS Cloud Discovery design decisions can be found below. MCAS Cloud Discovery components are made up of Log Collectors, Microsoft Defender for Endpoint Integration, Cloud Discovery Enrichment, User Data Anonymisation, Custom Apps and App Filters & Queries.
 
@@ -565,20 +565,17 @@ Microsoft Defender for Endpoint integration | Enabled | To provide additional vi
 Enforce app access | Enabled | To block access to apps marked as Unsanctioned.
 List of sanctioned and unsanctioned cloud apps | To be developed during build with the Agency's Cyber Intelligence team. | Provides visibility within the Agency as to what cloud applications are in use and by which department within the Agency.
 
-### MCAS - Log collector
+#### Automatic log upload & Log collectors
 
-A log collector receives logs from supported firewall and proxy devices, providing processing and compression before uploading to MCAS. The compression typically results in outbound traffic from the log collectors being 10% the size of received traffic. Configure automatic log upload for continuous reports at [https://docs.microsoft.com/en-us/cloud-app-security/discovery-docker](https://docs.microsoft.com/en-us/cloud-app-security/discovery-docker)
+A log collector receives logs from supported firewall and proxy devices, providing processing and compression before uploading to MCAS. The compression typically results in outbound traffic from the log collectors being 10% the size of received traffic. The steps to configure automatic log upload for continuous reports is available at [Configure automatic log upload for continuous reports](https://docs.microsoft.com/en-us/cloud-app-security/discovery-docker).
 
 A log collector can receive logs via FTP - including FTP over Transport Layer Security (TLS) - and Syslog.
 
-There are two supported deployment modes for log collectors:
-
-* Docker container – a Microsoft-provided Docker image for both Windows and Linux operating systems.
-* Virtual appliance – a Microsoft-provided Virtual Machine (VM) image for Hyper-V and VMware hypervisors. Note, the virtual appliance deployment mode is now deprecated.
+Log collectors are deployed as a Docker container using a Microsoft-provided Docker image for both Windows and Linux operating systems.
 
 The Docker container is supported on Windows 10 and Windows Server version 1709 and later, Ubuntu versions 14.04, 16.04 and 18.04, and Red Hat Enterprise Linux (RHEL) and CentOS 7.2 or later. The image can be deployed on VMs either hosted on-premises or within Azure, provided suitable network connectivity from the proxy/firewall devices is available.
 
-Log Collector Design Decisions for all agencies and implementation types.
+Log Collector Design Decisions for agencies that use a centralised internet gateway.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -587,11 +584,22 @@ Log collector deployment mode | Docker container | Maximise support life as virt
 Log collector location | Within the Agency Gateway zone | Minimise number of firewall ports to be opened between the existing proxies and the log collector.
 Log collector operating system | Agency's discretion of supported operating system for MCAS Log Collector. | MCAS supports Windows and Linux (Ubuntu, RHEL, CentOS) operating systems for the Log Collector.
 
-### MCAS - Microsoft Defender for Endpoint integration
+#### App tags 
+
+MCAS supports the creation and assignment of custom app tags from within the portal. Security analysts can create and apply custom tags to allow them to filter and query results specific to an area of interest. For example, a custom tag may be created for a business unit and that tag applied to only the applications that are approved for their use (i.e. Procurement). An analyst can then quickly filter based on this tag to review the use of these applications.
+
+App tags Design Decisions for all agencies and implementation types.
+
+Decision Point | Design Decision | Justification
+--- | --- | ---
+Custom tags | Configured on demand | Custom tags will be added to Cloud Discovery as they are identified by the Agency.
+
+#### Microsoft Defender for Endpoint integration
 
 Defender for Endpoint integration enables cloud app and service traffic to be sent from supported Windows 10 devices (1709 or later) to MCAS to provide additional data for continuous reporting.
 
-This capability is enabled from within the Endpoints > Advanced Features settings within the Microsoft 365 Defender portal, as shown below in Figure 6. Figure reproduced from [https://docs.microsoft.com/en-au/cloud-app-security/mde-integration](https://docs.microsoft.com/en-au/cloud-app-security/mde-integration)
+This capability is enabled from within the Endpoints > Advanced Features settings within the Microsoft 365 Defender portal, as shown below in Figure 6. Figure reproduced from [Microsoft Defender for Endpoint integration with Microsoft Cloud App Security
+](https://docs.microsoft.com/en-au/cloud-app-security/mde-integration).
 
 ![Figure 6 - Defender for Endpoint and MCAS Integration](/assets/images/platform-defender-mcas.png)
 
@@ -603,7 +611,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Microsoft Defender for Endpoint portal configuration | Microsoft Cloud App Security enabled | To enable Defender for Endpoint integration with MCAS.
 
-### MCAS - Cloud discovery enrichment
+#### User enrichment
 
 To further enrich cloud discovery data MCAS can integrate with Azure AD to replace users identified with Azure AD usernames.
 
@@ -615,13 +623,13 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 User enrichment | Enabled | To identify users by Azure AD username.
 
-### MCAS - User data anonymisation
+#### Anonymization
 
 To protect the privacy of users MCAS supports anonymisation of usernames when logs are uploaded. This is done by encrypting the usernames included in logs using Advanced Encryption Standard (AES) with a 128-bit key which is unique to each tenant.
 
 Security analysts can resolve encrypted usernames on demand to assist in investigations, and each username conversion is recorded in the Governance log. In addition to usernames, MCAS can also anonymise Windows 10 machine names.
 
-User Data Anonymisation Design Decisions for all agencies and implementation types.
+User Data Anonymization Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -640,19 +648,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Custom Apps | Configured on demand | Custom apps will be added to Cloud Discovery as they are identified by the Agency.
 
-### MCAS - App filters and queries 
-
-MCAS supports the creation and assignment of custom app tags from within the portal. Security analysts can create and apply custom tags to allow them to filter and query results specific to an area of interest. For example, a custom tag may be created for a business unit and that tag applied to only the applications that are approved for their use (i.e. Procurement). An analyst can then quickly filter based on this tag to review the use of these applications.
-
-App Filters and Queries Design Decisions for all agencies and implementation types.
-
-Decision Point | Design Decision | Justification
---- | --- | ---
-Custom tags | Configured on demand | Custom tags will be added to Cloud Discovery as they are identified by the Agency.
-
 ### MCAS - App connectors
-
-The MCAS App Connector design decisions can be found below. MCAS App Connector components are made up of MCAS -Azure and MCAS – Office 365.
 
 App connectors enable MCAS to see and reach inside connected cloud apps, providing both visibility into, and control of, the information stored by them. App connectors use APIs provided by the cloud app vendors, with capabilities varying between third-party cloud app vendors.
 
@@ -660,18 +656,23 @@ To support multiple instances of a single cloud app, for example different teams
 
 At the time of writing, the following API app connectors are [available in MCAS](https://docs.microsoft.com/en-us/cloud-app-security/enable-instant-visibility-protection-and-governance-actions-for-your-apps):
 
-* Azure
 * Amazon Web Services (AWS)
+* Azure
 * Box
 * Dropbox
-* G Suite
+* GitHub
 * Google Cloud Platform (GCP)
+* Google Workspace
 * Office 365
 * Okta
+* OneLogin
+* Service Now
 * Salesforce
-* ServiceNow
+* Slack
+* Smartsheet
 * WebEx
-* Workday.
+* Workday
+* ZenDesk (Preview)
 
 To connect to each cloud app via API MCAS requires an account within that app that has administrative privileges with full access to all objects stored within it. The name of this specific privilege level is specific to each cloud app, e.g. Global Admin for Office 365 and Super Admin for G Suite. It is recommended that a dedicated account is used for integration with MCAS for each connected app.
 
@@ -682,26 +683,9 @@ Decision Point | Design Decision | Justification
 Use of app connectors | Preferred for all supported cloud apps. | Provides the greatest available level of visibility and connect of the connected apps. 
 API administrator accounts | Dedicated account for MCAS for each connected app that requires one. | Microsoft best practice to manage connected apps. 
 List of connected apps | Azure<br>Office 365 | All approved cloud apps that are supported will be connected to MCAS via API. 
+Office 365 Connector Configuration | Selected Components:<br>Azure AD Users and Groups<br>Azure AD Management events<br>Azure AD Sign-in events<br>Azure AD Apps<br>Office 365 activities<br>Office 365 files | All components of Office 365 on which Cloud App Security can obtain information. 
 
-### MCAS - Office 365
-
-At the time of writing, the Office 365 app connector supports the following [Office 365 apps](https://docs.microsoft.com/en-us/cloud-app-security/connect-office-365-to-microsoft-cloud-app-security):
-
-* Office 365
-* Dynamics 365 CRM
-* Exchange
-* OneDrive
-* Power BI
-* SharePoint
-* Teams.
-
-Note, that Exchange and Power BI require that auditing has been enabled in the Office Security and Compliance Centre.
-
-Office 365 App Connectors Design Decisions for all agencies and implementation types.
-
-Decision Point | Design Decision | Justification
---- | --- | ---
-Microsoft Office 365 Connector Configuration | Selected Components:<br>Azure AD Users and Groups<br>Azure AD Management events<br>Azure AD Sign-in events<br>Azure AD Apps<br>Office 365 activities<br>Office 365 files | All components of Office 365 on which Cloud App Security can obtain information. 
+Note, the Azure connector does not have any configurable settings.
 
 ### MCAS - Policies
 
@@ -725,29 +709,53 @@ Policies Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Use of policies | Use of policies is agency-specific and would require further development with internal Cyber Security Teams. However it is recommended that a policy be enabled to monitor and detect access from anonymous IP addresses. | Provides visibility within the Agency of suspicious behaviour and application use. 
+Use of policies | Enable all in-built policies.<br>Agencies should also consider developing custom policies to match their specific use-cases. | Provides visibility within the Agency of suspicious behaviour and application use. 
 
 ### MCAS - Threat Protection
 
 The MCAS Threat Protection design decisions can be found below. Threat Protection components include Microsoft Defender for Identity.
 
-### MCAS - Microsoft Defender for Identity integration
+#### Microsoft Defender for Identity integration
 
 Microsoft Defender for Identity provides User Entity Behavioural Analytics (UEBA) by monitoring authentication requests to on-premises Active Directory (AD) Domain Controllers (DCs).
 
 Integrating Defender for Identity with MCAS extends this capability to hybrid environments and presents all Defender for Identity Suspicious Activity (SA) alerts to the MCAS dashboard, reducing the need for security analysts to monitor multiple consoles. To connect Defender for Identity to MCAS the user enabling the setting must be an Azure AD Global Admin. Integration is enabled in the MCAS console and does not require configuration from the Defender for Identity console.
 
-Defender for Identity integration Design Decisions for all agencies and implementation types.
+Defender for Identity integration Design Decisions for hybrid implementations.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Defender for Identity integration | Enabled | To enable integration between security tools deployed within the Agency's environment.
 
+#### Azure AD Identity Protection integration
+
+Azure AD Identity Protection enables configuration of automated responses to suspicious activities and actions related to user identities.
+
+Integrating Azure AD Identity Protection with MCAS provides a uniformed alerts view within MCAS, and enables an enhanced investigation experience for identity alerts.
+
+Azure AD Identity Protection integration Design Decisions for all agencies and implementation types.
+
+Decision Point | Design Decision | Justification
+--- | --- | ---
+Azure AD Identity Protection integration | Enabled | To enable integration between security tools deployed within the Agency's environment.
+
+#### App Governance
+
+App Governance is an add-on capability for MCAS that provides a security and policy management capability for OAuth-enabled apps that access Microsoft 365 data via Microsoft's Graph APIs.
+
+At the time of writing App Governance is in [Public Preview](https://techcommunity.microsoft.com/t5/security-compliance-and-identity/announcing-public-preview-of-app-governance/ba-p/2543768).
+
+App Governance Design Decisions for all agencies and implementation types.
+
+Decision Point | Design Decision | Justification
+--- | --- | ---
+App Governance | Not configured | The blueprint does not include an third-party OAuth-enabled apps that access Microsoft 365 data.
+
 ### MCAS - Information Protection
 
 The MCAS Information Protection design decisions can be found below. Information Protection components include Admin Quarantine, Microsoft Information Protection, Azure Security and Files.
 
-### MCAS - Admin Quarantine
+#### Admin Quarantine
 
 The admin quarantine is used to store files for administrative review that have been matched against an MCAS file policy. Examples include identifying and removing files from cloud apps that include sensitive content, such as financial and Personally Identifiable Information (PII) that should only be stored on-premises and not shared to external collaborators. 
 
@@ -762,7 +770,7 @@ Decision Point | Design Decision | Justification
 Admin quarantine folder location | Configured | Folder location is agency-specific and will be determined via an agency's internal decision processes.
 User notification | Default text – `This file was quarantined because it might conflict with your Agency's security and compliance policies. Contact your IT administrator for more information.` | Notify user that file has been quarantined using default text. Agency to determine whether default text meets IT security requirements.
 
-### MCAS - Microsoft Information Protection
+#### Microsoft Information Protection
 
 Microsoft Information Protection (MIP) provides document and email classification labelling, and protections based on those labels, across hybrid environments. MCAS can be configured to scan for MIP classification labels and content inspection warning when new files are detected in connected apps. Additionally, MCAS can be configured to only scan labels and warning originating from its tenant, therefore ignoring labels from external tenants.
 
@@ -776,19 +784,7 @@ Automatically scan new files for MIP classification labels and content inspectio
 Only scan files for MIP classification labels and content inspection warnings from this tenant | Enabled | MCAS is enabled to scan files for MIP classification from the tenant as the blueprint will leverage Information Protection classification.
 Inspect protected files | Enabled | MCAS is enabled to inspect protected files as the blueprint will leverage Information Protection classification.
 
-### MCAS - Azure security
-
-MCAS can be configured to monitor all activities generated within those subscriptions.
-
-Similar to Defender for Identity integration, this centralises alerts into the MCAS dashboard, reducing the need for security analysts to monitor multiple consoles. The Azure Security Centre standard tier license must be acquired and enabled for one or more subscriptions within the tenant.
-
-Azure Security Design Decisions for all agencies and implementation types.
-
-Decision Point | Design Decision | Justification
---- | --- | ---
-Azure Security Centre integration | Enabled | Provides Azure Security alerts and activities to the MCAS dashboard simplifying security operations. 
-
-### MCAS - Files
+#### Files
 
 As previously described, file policies can be used to manage documents stored in cloud apps. To enable this capability MCAS must be allowed to monitor files stored in these apps.
 
@@ -821,10 +817,10 @@ Conditional Access App Control Protection Design Decisions for all agencies and 
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Access control policies | Use of policies is agency-specific and would need further development with internal Cyber Security Teams. | Provides a greater security posture for the Agency applications.
-Session control policies | Use of policies is agency-specific and would need further development with internal Cyber Security Teams. | Provides a greater security posture for users within the Agency.
+Access control policies | Use of policies is agency-specific and would need further development with internal cyber security team. | Provides a greater security posture for the Agency applications.
+Session control policies | Use of policies is agency-specific and would need further development with internal cyber security team. | Provides a greater security posture for users within the Agency.
 
-### MCAS - Default behaviour
+#### Default behaviour
 
 In the event of a system outage or downtime MCAS can be configured with a Default Behaviour.
 
@@ -836,7 +832,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Default behaviour configuration | Allow access | To prevent interruption to business functions in the event of an outage or downtime.
 
-### MCAS - User monitoring
+#### User monitoring
 
 When using Conditional Access App Control to manage access and sessions, MCAS provides the option to notify users that their activities are being monitored.
 
@@ -848,7 +844,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 User monitoring notifications | Not enabled | There is no default requirement to notify users. Agencies can enable User Monitoring as appropriate to meet operational requirements without impacting the cyber security posture of the environment.
 
-### MCAS - Device identification
+#### Device identification
 
 MCAS and Conditional Access App Control can be utilised to identify managed devices within the organisation.
 
@@ -866,7 +862,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Use of client certificates for device identification | Not configured | No requirement to use client certificates has been identified as the Agency will leverage Intune for compliant and Hybrid Azure AD devices.
 
-### MCAS - App onboarding/maintenance
+#### App onboarding/maintenance
 
 Specific users can be identified that can enable currently unsupported cloud apps to be onboarded to Conditional Access App Control for development and testing purposes.
 
@@ -889,7 +885,7 @@ To integrate with other security solutions, for example Security Information and
 
 Each of these security extension capabilities is described in the following sections.
 
-### MCAS - API tokens
+#### API tokens
 
 By creating API tokens within the MCAS portal external applications can connect to the REST API endpoints and perform a range of read and update operations.
 
@@ -901,7 +897,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 API tokens | Not configured | An agency can determine and identify whether use cases exist for the creation of API tokens in their specific environments however for a base implementation of the blueprint, API tokens are not required.
 
-### MCAS - SIEM agents
+#### SIEM agents
 
 To enable MCAS alerts and activities to be integrated into existing security analyst workflows that have been developed in SIEM products MCAS provides SIEM agents.
 
@@ -928,7 +924,7 @@ Use of SIEM agent | Yes | To support integration between MCAS and the Agency's e
 SIEM agent install location | Agency's discretion of supported operating system for MCAS SIEM agents. | MCAS supports Windows and Linux operating systems for the SIEM agents.
 Microsoft Security Graph API integration | Not configured | Agency to determine whether requirement exists based on existing SIEM solution.
 
-### MCAS - External Data Loss Prevention (DLP)
+#### External Data Loss Prevention (DLP)
 
 In addition to integration with third-party SIEMs, MCAS also supports integration with third-party DLP providers, enabling existing investments in on-premises solutions to be extended into the cloud.
 
@@ -940,7 +936,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 External DLP | Not configured | Not configured by default however an Agency can determine whether a DLP solution will be leveraged and if there is a requirement to be integrated with MCAS.
 
-### MCAS - Playbooks
+#### Playbooks
 
 MCAS supports playbook-based automation by integrating with Microsoft Flow (also known as Power Automate).
 
@@ -951,14 +947,6 @@ Playbooks Design Decisions for all agencies and implementation types.
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Playbooks | Not configured | Not configured by default however an Agency can determine whether Playbooks will be leveraged to assist in automating pre-approved and consistent responses reducing analyst intervention. Use of Playbooks is subject to licensing.
-
-### MCAS - Firewall
-
-Microsoft Cloud App Security is a cloud-based service that helps keep the organisation secure from threats by collecting data from a Cloud based tenant and Hybrid on-premises infrastructure and analysing this data. To achieve this firewall rules and proxy allow lists needs to be in place to allow communication between all the components.
-
-Firewall rules and proxy allow lists will be implemented as part of the Microsoft Cloud App Security solution. 
-
-Further details on firewall configuration and proxy allow lists for the solution can be found in the Network Configuration ABAC.
 
 ### Microsoft Defender for Identity
 

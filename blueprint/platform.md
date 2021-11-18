@@ -571,14 +571,11 @@ A log collector receives logs from supported firewall and proxy devices, providi
 
 A log collector can receive logs via FTP - including FTP over Transport Layer Security (TLS) - and Syslog.
 
-There are two supported deployment modes for log collectors:
-
-* Docker container – a Microsoft-provided Docker image for both Windows and Linux operating systems.
-* Virtual appliance – a Microsoft-provided Virtual Machine (VM) image for Hyper-V and VMware hypervisors. Note, the virtual appliance deployment mode is now deprecated.
+Log collectors are deployed as a Docker container using a Microsoft-provided Docker image for both Windows and Linux operating systems.
 
 The Docker container is supported on Windows 10 and Windows Server version 1709 and later, Ubuntu versions 14.04, 16.04 and 18.04, and Red Hat Enterprise Linux (RHEL) and CentOS 7.2 or later. The image can be deployed on VMs either hosted on-premises or within Azure, provided suitable network connectivity from the proxy/firewall devices is available.
 
-Log Collector Design Decisions for all agencies and implementation types.
+Log Collector Design Decisions for agencies that use a centralised internet gateway.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---

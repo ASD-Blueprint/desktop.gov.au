@@ -1,0 +1,41 @@
+---
+layout: page
+title: Windows Firewall rules import
+menu: abac
+---
+
+The following guide provides instructions to automate the import of Windows Firewall rules from  a reference computer and import those rules directly into Intune Windows Firewall rule policies.
+
+The following is guidance from the Australian Cyber Security Centre (ACSC) for software firewalls:
+
+* A software firewall is implemented on workstations and servers to limit both inbound and outbound network connections (**ISM** security control 1416)
+
+Simply enabling and enforcing the Windows Firewall through policy does not cover the full intent of the ISM control. It is recommended that a reference computer is used to capture the required rules to allow normal Windows desktop function, and also include any additional Windows Firewall rules (inbound and outbound) that may be required for agency specific applications and services.
+
+This process uses the [Endpoint security firewall rule migration tool for Microsoft Intune](https://docs.microsoft.com/en-us/mem/intune/protect/endpoint-security-firewall-rule-tool) which is a PowerShell script that is made available by Microsoft.
+
+## Rule import
+
+The rule import process requires a clean Windows desktop which will be used as reference computer to source and export of the firewall rules. The Windows build version used should be the same as the target operating system. This reference machines is ideally a virtual machine, if it is a is hardware device it is clear of any OEM or third-party applications. The reference machine should not be Intune enrolled or Azure AD joined.
+
+1. Login to the device with local administrator privileges
+
+2. Download the [migration tool](https://docs.microsoft.com/en-us/mem/intune/protect/endpoint-security-firewall-rule-tool) script zip and extract the contents to a local directory
+
+3. Open a PowerShell console as an administrator, navigate to the directory where the migration tool was extracted to and execute the following
+
+   ```powershell
+   .\Export-FirewallRules.ps1 -includeLocalRules
+   ```
+   
+   - Note, if the ruleset is being migrated from an existing group policy applied to a hybrid device, omit the `-includeLocalRules` parameter on the script which will only import rules found that are applied by group policy. 
+   
+4. The script will prompt for a profile name. Provide a profile name, this will be the name of the Windows Firewall policy. 
+
+   - Note, as the total limit of individual rules allowed per policy is 150, the rules will be spread out over a number of policies (e.g. policy-0, policy-1)
+
+5. The script will prompt for Azure AD credentials. Provide the appropriate credentials and grant permission when prompted
+
+6. Navigate to `Microsoft Endpoint Manager > Firewall` and review the polices created. Review the rules and remove any unwanted or duplicates.
+
+7. Assign the policy to a test group of machines prior to assigning to all devices.

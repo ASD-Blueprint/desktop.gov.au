@@ -33,6 +33,7 @@ You can find published releases at [https://github.com/govau/desktop.gov.au/rele
   * Expanded privileged identity management roles
   * Update to product names (eg Azure ATP -> Defender for Identity, Microsoft Defender ATP -> Microsoft Defender for Endpoint) [#110]
   * Update to MCAS section [#144]
+  * Update to iOS App Protection Policy [#148]
 * Client devices ABAC [#115]
   * General clean up, readability enhancements and removal of items no longer required 
   * Migration of settings from Configuration Profiles to Endpoint Security

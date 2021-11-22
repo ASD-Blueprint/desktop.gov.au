@@ -2060,20 +2060,25 @@ The following ABAC settings outlines the application protection policy configura
 `Microsoft Endpoint Manager > Client apps > App protection policies > iOS App Protection Policy > Properties`
 
 * Name: `iOS App Protection Policy`
-* Description: -
+* Description: `App management for Apple`
 * Platform: `iOS/iPadOS`
 * Apps
   * Target to apps on all device types: `Yes`
   * Device types: -
   * Public apps:
   ```
+  Adobe Acrobat Reader
+  Microsoft Dynamics 365
+  Microsoft Dynamics 365 for phones
   Skype for Business
   Microsoft Excel
+  Microsoft Edge
   Microsoft Outlook
   Microsoft PowerPoint
   Microsoft Word
   Microsoft OneNote
   Microsoft Planner
+  Microsoft Power BI
   Azure Information Protection
   Microsoft SharePoint
   Microsoft OneDrive
@@ -2081,6 +2086,11 @@ The following ABAC settings outlines the application protection policy configura
   Microsoft Stream
   Microsoft To-Do
   Microsoft Visio Viewer
+  ```
+  * Custom apps:
+  ```
+  com.adobe.acrobatdc.intune
+  com.microsoft.rdc.ios  Microsoft Dynamics 365
   ```
 * Data protection
   * Data Transfer
@@ -2096,7 +2106,7 @@ The following ABAC settings outlines the application protection policy configura
     * Save copies of org data: `Block`
     * Allow user to save copies to selected services: `OneDrive for Business`, `SharePoint`
     * Receive data from other apps: `Policy managed apps`
-    * Restrict cut, copy, and paste between other apps: `Policy managed apps`
+    * Restrict cut, copy, and paste between other apps: `Policy managed apps with paste in`
     * Cut and copy character limit for any app: `0`
     * Third party keyboards: `Block`
   * Encryption
@@ -2105,15 +2115,13 @@ The following ABAC settings outlines the application protection policy configura
     * Sync app with native contacts app: `Block`
     * Printing org data: `Block`
     * Restrict web content transfer with other apps: `Microsoft Edge`
-    * Org data notifications: `Allow`
+    * Org data notifications: `Block org Data`
 * Access requirements
-  * PIN for access: `Not required`
+  * PIN for access: `Require`
   * PIN type: `Numeric`
+  * Simple PIN: `Block`
   * Select minimum PIN length: `4`
   * Touch ID instead of PIN for access (iOS 8+/iPadOS): `Block`
-  * Override biometrics with PIN after timeout: `Require`
-  * Timeout (minutes of inactivity): `30`
-  * Face ID instead of PIN for access (iOS 11+/iPadOS): `Block`
   * PIN reset after number of days: `Yes`
   * Number of days: `365`
   * App PIN when device PIN is set: `Require`
@@ -2123,6 +2131,7 @@ The following ABAC settings outlines the application protection policy configura
 
 | Setting                   | Value | Action                 |
 | ------------------------- | ----- | ---------------------- |
+| Max PIN attempts          | 5     | Reset PIN              |
 | Offline grace period      | 720   | Block access (minutes) |
 | Offline grace period      | 90    | Wipe data (days)       |
 | Jailbroken/rooted devices |       | Block access           |

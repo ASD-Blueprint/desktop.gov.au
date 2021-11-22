@@ -2951,14 +2951,14 @@ The ABAC settings for MECM managed installer are applicable to hybrid implementa
 
 It is recommended for all implementation types to deploy WDAC configuration through Intune configuration profiles:
 
-- ABAC configuration for this item can be found within the [Intune Configuration ABAC](https://www.desktop.gov.au/blueprint/abac/intune-configuration.html#agency-wdacbasepolicy).
-- Instructions on generating base policy that is used to generate the binary format policy file can be found within the [Client Devices ABAC](https://desktop.gov.au/blueprint/abac/client-devices.html).
+* ABAC configuration for this item can be found within the [Intune Configuration ABAC](/blueprint/abac/intune-configuration.html#agency-wdacbasepolicy).
+* Instructions on generating base policy that is used to generate the binary format policy file can be found within the [Client Devices ABAC](/blueprint/abac/wdac-policy-creation.html#wdac-policy---baseline).
 
 Configuration Profiles using Custom OMA-URI policy can be found:
 
-- **OMA-URI**: ./Vendor/MSFT/ApplicationControl/Policies/*Policy GUID*/Policy
-- **Data type**: Base64
-- **Certificate file**: upload the binary format policy file. You do not need to upload a Base64 file, as Intune will convert the uploaded .bin file to Base64.
+* **OMA-URI**: ./Vendor/MSFT/ApplicationControl/Policies/*Policy GUID*/Policy
+* **Data type**: Base64
+* **Certificate file**: upload the binary format policy file. You do not need to upload a Base64 file, as Intune will convert the uploaded .bin file to Base64.
 
 Note, the *Policy GUID* can be found within the policy file's `<policyID>` xml block which can be viewed prior to converting to .bin format using `ConvertFromCIPolicy`. Additional policies as supplementals can be deployed using this method rather than maintaining a larger base policy.
 

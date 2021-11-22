@@ -59,7 +59,7 @@ The following table outlines the subsections of the blueprint and their automati
 | Remote domains (Default)        | Automated                                                    |
 | CAS mailbox plan                | Automated                                                    |
 | Per mailbox attributes          | Manual                                                       |
-| Authentication policy           | [Office 365 ABAC - authentication policy]([Office 365 (desktop.gov.au)](https://www.desktop.gov.au/blueprint/abac/office-365.html#authentication-policy)) |
+| Authentication policy           | [Office 365 ABAC - authentication policy](/blueprint/abac/office-365.html#authentication-policy) |
 | Outlook Web Access policy       | Automated                                                    |
 | Mailbox archive                 | Manual                                                       |
 | Mailbox auditing                | Manual                                                       |

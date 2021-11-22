@@ -16,7 +16,8 @@ references:
       command: |
         sudo gem update --system
         gem install bundler
-        bundle install --path=vendor/bundle
+        bundle config --local path vendor/bundle
+        bundle install
   integrate_search: &integrate_search
     run:
       name: Integrate with Algolia Search

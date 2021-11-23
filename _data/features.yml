@@ -6,11 +6,11 @@
   url: /blueprint/index.html
   desc: |
     The blueprint is a design for a secure, modern desktop based on Microsoft 365.
+- name: How you can implement the blueprint
+  url: /about/engagement-framework.html
+  desc: |
+    We have published a guide based on agencies who have implemented the blueprint. You can use this to support your business change program.
 - name: Help us improve the blueprint
   url: https://github.com/govau/desktop.gov.au
   desc: |
     Collaborate and help us improve the blueprint.
-- name: How you can implement the blueprint
-  url:
-  desc: |
-    The blueprint is as much of a business change as it is a technical one. We have put together a guide and case studies from agencies who have implemented the blueprint. You can use these to support your own business change program.

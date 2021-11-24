@@ -122,7 +122,7 @@ workflows:
               only:
                 - /feature-.*/
                 - develop
-                - master
+                - main
       - deploy_feature_branch:
           requires:
             - build_attachments
@@ -143,4 +143,4 @@ workflows:
           filters:
             branches:
               only:
-                - master
+                - main

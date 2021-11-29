@@ -677,8 +677,8 @@ The following table outlines the OMA-URI settings within the profile.
 
 | Name            | Description                                                  | OMA-URI                                                      | Value                                                        |
 | --------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| WDACBasePolicy  | The ApplicationControl CSP enforces that the "ID" segment of a given policy URI is the same GUID as the policy ID in the policy blob. Each Policy GUID node contains a Policy node and a corresponding PolicyInfo node. | `./Vendor/MSFT/ApplicationControl/Policies/(policy GUID)/Policy` | Base64 (file) (see [Client devices technical instruction](https://www.desktop.gov.au/blueprint/abac/client-devices.html) |
-| WDACSuppPolicy1 | Additional supplemental policy from generated from a base WDAC policy. | `./Vendor/MSFT/ApplicationControl/Policies/(policy GUID)/Policy` | Base64 (file) (see [Client devices technical instruction](https://www.desktop.gov.au/blueprint/abac/client-devices.html) |
+| WDACBasePolicy  | The ApplicationControl CSP enforces that the "ID" segment of a given policy URI is the same GUID as the policy ID in the policy blob. Each Policy GUID node contains a Policy node and a corresponding PolicyInfo node. | `./Vendor/MSFT/ApplicationControl/Policies/(policy GUID)/Policy` | Base64 (file) (see [Client devices technical instruction](/blueprint/abac/client-devices.html) |
+| WDACSuppPolicy1 | Additional supplemental policy from generated from a base WDAC policy. | `./Vendor/MSFT/ApplicationControl/Policies/(policy GUID)/Policy` | Base64 (file) (see [Client devices technical instruction](/blueprint/abac/client-devices.html) |
 
 ### iOS Devices
 
@@ -1069,7 +1069,7 @@ The following table outlines the settings within the policy.
 
 The following table outlines the policy is created for all implementation types. 
 
-Each firewall rule policy can contain up to individual 150 rules. Guidance on creating this policy can be found within [Blueprint technical guide - Windows Firewall rules import](https://www.desktop.gov.au/blueprint/abac/wfw-rules-import.html).
+Each firewall rule policy can contain up to 150 individual rules. Guidance on creating this policy can be found within [Windows Firewall rules import technical guide](/blueprint/abac/wfw-rules-import.html).
 
 | Item               | Configuration                  |
 | ------------------ | ------------------------------ |

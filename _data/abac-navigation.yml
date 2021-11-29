@@ -37,3 +37,6 @@
 
     - title: WDAC policy creation
       url: /blueprint/abac/wdac-policy-creation.html
+
+    - title: Windows Firewall rules import
+      url: /blueprint/abac/wfw-rules-import.html

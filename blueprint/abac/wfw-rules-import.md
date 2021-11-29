@@ -17,7 +17,9 @@ This process uses the [Endpoint security firewall rule migration tool for Micros
 {:.no_toc}
 ## Rule import
 
-The import process requires a clean Windows desktop which will be used as reference computer to export the firewall rules. The Windows build version should be the same as the target operating system. This reference machine is ideally a virtual machine, however if it is physical please ensure it is clear of any OEM or third-party software. The reference machine should not be Intune enrolled or Azure AD joined.
+The import process requires a clean Windows desktop which will be used as reference computer to export the firewall rules. The Windows build version should be the same as the target operating system. This reference machine is ideally a virtual machine, however if it is physical please ensure it is clear of any OEM or third-party software. The reference machine should not be Intune enrolled or Azure AD joined. 
+
+The administrator performing this technical instrcution requires the `Intune Administrator` Azure AD role.
 
 1. Login to the device with local administrator privileges.
 2. Download the [migration tool](https://docs.microsoft.com/en-us/mem/intune/protect/endpoint-security-firewall-rule-tool) and extract the contents to a local directory.

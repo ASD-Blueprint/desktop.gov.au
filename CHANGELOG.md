@@ -64,6 +64,7 @@ Other general website changes:
 
 * Expanded the engagement model into a larger comprehensive framework [#96]
 * Added a new "Patterns" section with a remote access pattern using Azure Virtual Desktop [#107] [#128]
+* Program transition to BAU [#147]
 
 ## June 2021
 

@@ -43,12 +43,14 @@
                 </div>
             </div>
         </div>
+        {% if site.posts.size > 0 %}
         <div class="container mt-2 mb-3">
             <div class="row">
                 <div class="col-sm-12"><h2>News</h2></div>
             </div>
             <div class="row">
                 <ul class="au-card-list au-card-list--matchheight">
+                
                 {% for post in site.posts limit:3 %}
                 <li class="col-sm-6 col-md-4 col-xs-12">
                     <div class="au-card au-card--shadow au-card--clickable">
@@ -63,6 +65,7 @@
                 </ul>
             </div>
         </div>
+        {% endif %}
     </section>
 </main>
 

@@ -79,7 +79,7 @@ The following ABAC settings outlines the Azure Active Directory configuration fo
 
 * Group lifetime (in days): `365`
 * Email contact for groups with no owners: `Office365_Group_Expiration@<Agency>.gov.au`
-* Enable expiration for these Microsoft 365 groups: `None`
+* Enable expiration for these Microsoft 365 groups: `All`
 
 `Azure Active Directory > Groups > Naming policy`
 
@@ -151,7 +151,7 @@ Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions
 
 The following ABAC settings outlines the Microsoft 365 groups configuration for all implementation types.
 
-`Search > Azure Active Directory > Groups > General`
+`Azure Active Directory > Groups > General`
 
 * Self Service Group Management
   * Owners can manage group membership requests in the Access Panel: `No`
@@ -163,17 +163,17 @@ The following ABAC settings outlines the Microsoft 365 groups configuration for 
   * Users can create Microsoft 365 groups in Azure portal: `No`
   * Owners who can assign members as group owners in Azure portal: `All`
 
-`Search > Azure Active Directory > Groups > Naming policy`
+`Azure Active Directory > Groups > Naming policy`
 
 * Group naming policy: `Agency to define`
 
-`Search > Azure Active Directory > Groups > Expiration`
+`Azure Active Directory > Groups > Expiration`
 
 * Group lifetime (in days): `365`
 * Email contact for groups with no owners: `Office365_Group_Expiration@<Agency>.gov.au`
 * Enable expiration for these Microsoft 365 groups: `All`
 
-`Search > Azure Active Directory > Groups`
+`Azure Active Directory > Groups`
 
 * Group Name: `grp-<Agency Acronym>O365-Outlook`
   * Implementation types: `all`
@@ -211,7 +211,7 @@ The following ABAC settings outlines the Microsoft 365 groups configuration for 
   * Licenses: `Microsoft 365 E5`
   * Azure role assignment: `None`
 * Group Name: `rol-Agency-users`
-* Implementation types: `Hybrid`
+  * Implementation types: `Hybrid`
   * Membership type: `Assigned`
   * Source: `Windows server AD` 
   * Type: `Security`
@@ -415,7 +415,7 @@ The following ABAC settings outlines the Identity Protection configuration for a
 
 The following ABAC settings outlines the multifactor authentication configuration for all implementation types.
 
-`Azure Active Directory > Security > Multi-Factor Authentication > Getting started > Configure additional cloud-based MFA settings`
+`Azure Active Directory > Users > Per-user MFA`
 
 * App passwords: `Do not allow users to create app passwords to sign in to non-browser apps`
 * Trusted IPs: `Not configured`
@@ -2060,20 +2060,25 @@ The following ABAC settings outlines the application protection policy configura
 `Microsoft Endpoint Manager > Client apps > App protection policies > iOS App Protection Policy > Properties`
 
 * Name: `iOS App Protection Policy`
-* Description: -
+* Description: `App management for Apple`
 * Platform: `iOS/iPadOS`
 * Apps
   * Target to apps on all device types: `Yes`
   * Device types: -
   * Public apps:
   ```
+  Adobe Acrobat Reader
+  Microsoft Dynamics 365
+  Microsoft Dynamics 365 for phones
   Skype for Business
   Microsoft Excel
+  Microsoft Edge
   Microsoft Outlook
   Microsoft PowerPoint
   Microsoft Word
   Microsoft OneNote
   Microsoft Planner
+  Microsoft Power BI
   Azure Information Protection
   Microsoft SharePoint
   Microsoft OneDrive
@@ -2081,6 +2086,11 @@ The following ABAC settings outlines the application protection policy configura
   Microsoft Stream
   Microsoft To-Do
   Microsoft Visio Viewer
+  ```
+  * Custom apps:
+  ```
+  com.adobe.acrobatdc.intune
+  com.microsoft.rdc.ios  Microsoft Dynamics 365
   ```
 * Data protection
   * Data Transfer
@@ -2096,7 +2106,7 @@ The following ABAC settings outlines the application protection policy configura
     * Save copies of org data: `Block`
     * Allow user to save copies to selected services: `OneDrive for Business`, `SharePoint`
     * Receive data from other apps: `Policy managed apps`
-    * Restrict cut, copy, and paste between other apps: `Policy managed apps`
+    * Restrict cut, copy, and paste between other apps: `Policy managed apps with paste in`
     * Cut and copy character limit for any app: `0`
     * Third party keyboards: `Block`
   * Encryption
@@ -2105,15 +2115,13 @@ The following ABAC settings outlines the application protection policy configura
     * Sync app with native contacts app: `Block`
     * Printing org data: `Block`
     * Restrict web content transfer with other apps: `Microsoft Edge`
-    * Org data notifications: `Allow`
+    * Org data notifications: `Block org Data`
 * Access requirements
-  * PIN for access: `Not required`
+  * PIN for access: `Require`
   * PIN type: `Numeric`
+  * Simple PIN: `Block`
   * Select minimum PIN length: `4`
   * Touch ID instead of PIN for access (iOS 8+/iPadOS): `Block`
-  * Override biometrics with PIN after timeout: `Require`
-  * Timeout (minutes of inactivity): `30`
-  * Face ID instead of PIN for access (iOS 11+/iPadOS): `Block`
   * PIN reset after number of days: `Yes`
   * Number of days: `365`
   * App PIN when device PIN is set: `Require`
@@ -2123,6 +2131,7 @@ The following ABAC settings outlines the application protection policy configura
 
 | Setting                   | Value | Action                 |
 | ------------------------- | ----- | ---------------------- |
+| Max PIN attempts          | 5     | Reset PIN              |
 | Offline grace period      | 720   | Block access (minutes) |
 | Offline grace period      | 90    | Wipe data (days)       |
 | Jailbroken/rooted devices |       | Block access           |
@@ -2135,46 +2144,38 @@ The following ABAC settings outlines the application protection policy configura
 
 ## Threat protection
 
-### Microsoft Defender Advanced Threat Protection
+### Microsoft Defender for Endpoint
 
-The following ABAC settings outlines the Microsoft Defender Advanced Threat Protection policy configuration for all implementation types.
+The following ABAC settings outlines the Microsoft Defender for Endpoint policy configuration for all implementation types.
 
-`Microsoft Defender Security Center > Settings`
+`Microsoft 365 Defender > Settings > Endpoints`
 
 #### General
 
 * Data retention
   * Data Storage: `US`
   * Data Retention: `180 days`
-* Alert notifications
-
-| Notification rule     | Device groups                 | Alert severity | Recipients                   |
-| --------------------- | ----------------------------- | -------------- | ---------------------------- |
-| High severity alert   | Any device in my organization | High           | DefenderAlerts@agency.gov.au |
-| Medium severity alert | Any device in my organization | Medium         | DefenderAlerts@agency.gov.au |
-| Low severity alert    | Any device in my organization | Low            | DefenderAlerts@agency.gov.au |
-
-* Power BI reports: `Not Configured`
+* Email notifications: `Not Configured`
 * Advanced features
   * Automated Investigation: `On`
-  * Live Response: `Off`
-  * Live Response for Servers: `Off`
+  * Live Response: `On`
+  * Live Response for Servers: `On`
   * Live Response unsigned script execution: `Off`
   * Restrict correlation to within scoped device groups: `Off`
   * Enable EDR in block mode: `On`
   * Automatically Resolve Alerts: `On`
   * Allow or block file: `On`
-  * Custom network indicators: `Off`
+  * Custom network indicators: `On`
   * Tamper protection: `On`
   * Show user details: `On`
   * Skype for Business integration: `On`
   * Microsoft Defender for Identity integration: `On`
   * Office 365 Threat Intelligence connection: `On`
-  * Microsoft Cloud App Security: `On`
-  * Microsoft Secure Score: `Off`
+  * Microsoft Defender for Cloud Apps: `On`
+  * Microsoft Secure Score: `On`
   * Web content filtering: `On`
-  * Download quarantined files: `Off`
-  * Share endpoint alerts with Microsoft Compliance Center: `Off`
+  * Download quarantined files: `On`
+  * Share endpoint alerts with Microsoft Compliance Center: `On`
   * Microsoft Intune connection: `On`
   * Device discovery: `On`
   * Preview features: `On`
@@ -2191,13 +2192,13 @@ The following ABAC settings outlines the Microsoft Defender Advanced Threat Prot
 * Roles
   * Microsoft Defender for Endpoint administrator (default)
     * Assigned user groups: `rol-Agency-security-defenderatp-admins`
-  * Microsoft Defender ATP Viewer
+  * Microsoft Defender for Endpoint Viewer
     * Description: `Viewer privileges`
     * View Data
       * Security operations
       * Threat and vulnerability management
     * Assigned user groups: `rol-Agency-security-defenderatp-viewer`
-  * Microsoft Defender ATP Remediation
+  * Microsoft Defender for Endpoint Remediation
     * Description: `Investigate and remediate alerts`
     * View Data
       * Security operations
@@ -2207,6 +2208,8 @@ The following ABAC settings outlines the Microsoft Defender Advanced Threat Prot
       * Threat and vulnerability management - Exception handling
       * Threat and vulnerability management - Remediation handling
     * Alerts investigation
+    * Live response capabilities
+      * Advanced
     * Assigned user groups: `rol-Agency-security-defenderatp-remediation`
 * Device groups
   * Device group name: `Windows 10`
@@ -2219,11 +2222,11 @@ The following ABAC settings outlines the Microsoft Defender Advanced Threat Prot
     And Tag: Starts with <Not configured>
     And OS In <Not configured>
     ```
-* User access
-  * Azure AD user groups with access to this machine group: `rol-Agency-security-defenderatp-admins`, `rol-Agency-security-defenderatp-viewer`, `rol-Agency-security-defenderatp-remediation`
+    * User access
+      * Azure AD user groups with access to this machine group: `rol-Agency-security-defenderatp-admins`, `rol-Agency-security-defenderatp-viewer`, `rol-Agency-security-defenderatp-remediation`
   * Device group name: `Ungrouped devices (default)`
     * Rank: `Last`
-    * Automation level: `Semi - require approval for all folders`
+    * Automation level: `Full - Remediate threats automatically`
     * User access
       * Azure AD user groups with access to this machine group: `rol-Agency-security-defenderatp-admins`, `rol-Agency-security-defenderatp-viewer`, `rol-Agency-security-defenderatp-remediation`  
 
@@ -2256,7 +2259,7 @@ The following ABAC settings outlines the Microsoft Defender Advanced Threat Prot
     Tasteless
     Violence
     ```
-* Scope: `All devices`
+    * Scope: `All devices`
   * Policy name: `High Traffic Sites`
     * Blocked categories:
     ```
@@ -2265,7 +2268,21 @@ The following ABAC settings outlines the Microsoft Defender Advanced Threat Prot
     Peer-to-peer
     Streaming media & downloads
     ```
-* Scope: `All devices`
+    * Scope: `All devices`
+  * Policy name: `Legal Liability`
+    * Blocked categories:
+    ```
+    Child abuse images
+    Criminal activitiy
+    Hacking
+    Hate & intolerance
+    Illegal drug
+    Illegal software
+    School cheating
+    Self-harm
+    Weapons
+    ```
+    * Scope: `All devices`
 * Automation uploads
   * Content analysis: `On`
   * File extension names: `wsf,tcl,sys,scr,'',job,ws,ko.gz,vbe,bat,ps1,vb,com,air,cpl,exe,rb,cmd,msi,url,reg,gadget,dll,ko,js,pl,sh,rgs,inf,vbs,elf,py`
@@ -2330,7 +2347,6 @@ The following ABAC settings outlines the Microsoft Cloud App Security configurat
     Microsoft Skype for Business
     Microsoft SharePoint Online
     Office 365
-    Microsoft Flow
     Microsoft Exchange Online
     Microsoft Teams
     Microsoft Power BI
@@ -2342,19 +2358,21 @@ The following ABAC settings outlines the Microsoft Cloud App Security configurat
     * Monitored: `Not configured`
     * Restricted: `Not configured`
   * Exclude entities: `Not configured`
-  * Microsoft Defender ATP
+  * Microsoft Defender for Endpoint
     * Block unsanctioned apps: `Checked`
   * User enrichment
     * Enrich discovered user identifiers with Azure Active Directory usernames: `Checked`
   * Anonymization: `Not configured`
 * Threat Protection
-  * Azure ATP integration: `Not configured`
+  * Microsoft Defender for Identity integration: `Checked`
+  * Azure AD Identity Protection: `Checked`
+  * App Governance: `Not configured`
 * Information Protection
   * Admin quarantine folder location: `https://<Agency>.sharepoint.com/sites/mcas`
   * User notification: `Not configured`
-  * Azure Information Protection
-    * Automatically scan new files for Azure Information Protection classification labels and content inspection warnings: `Not configured`
-    * Only scan files for Azure Information Protection classification labels and content inspection warnings from this tenant: `Not configured`
+  * Microsoft Information Protection
+    * Automatically scan new files for Microsoft Information Protection classification labels and content inspection warnings: `Checked`
+    * Only scan files for Microsoft Information Protection classification labels and content inspection warnings from this tenant: `Checked`
   * Files
     * Enable file monitoring: `Enabled`
 * Conditional Access App Control
@@ -2827,7 +2845,7 @@ The following table describes the additional Intune Configuration Documents requ
 | Device enrollment    | Automatic Enrolment, Enrolment Status page, Deployment Profiles | [DTA – ABAC - Intune Enrolment](https://desktop.gov.au/blueprint/abac/intune-enrolment.html) |
 | Device compliance    | Device compliance policies                                   | [DTA – ABAC - Intune Compliance](https://desktop.gov.au/blueprint/abac/intune-compliance.html) |
 | Device configuration | Configuration Profiles, PowerShell scripts                   | [DTA – ABAC - Intune Configuration](https://desktop.gov.au/blueprint/abac/intune-configuration.html) |
-| Device security      | Windows 10 Security Hardening (ACSC), Microsoft Defender ATP Configuration, Microsoft Edge Configuration | [DTA – ABAC - Intune Configuration](https://desktop.gov.au/blueprint/abac/intune-configuration.html) |
+| Device security      | Windows 10 Security Hardening (ACSC), Microsoft Defender Configuration, Microsoft Edge Configuration | [DTA – ABAC - Intune Configuration](https://desktop.gov.au/blueprint/abac/intune-configuration.html) |
 | Client apps          | Win32 Apps, Web links, Windows MSI Line of Business apps, Office 365 installation, Windows Information Protection | [DTA – ABAC - Intune Applications](https://desktop.gov.au/blueprint/abac/intune-applications.html) |
 | Conditional Access   | Conditional Access policies                                  | [DTA – ABAC - Conditional Access Policies](https://desktop.gov.au/blueprint/abac/conditional-access-policies.html) |
 | Software Updates     | Windows 10 update rings and updates configuration            | [DTA – ABAC – Intune Software Updates](https://desktop.gov.au/blueprint/abac/intune-software-updates.html) |
@@ -2951,14 +2969,14 @@ The ABAC settings for MECM managed installer are applicable to hybrid implementa
 
 It is recommended for all implementation types to deploy WDAC configuration through Intune configuration profiles:
 
-- ABAC configuration for this item can be found within the [Intune Configuration ABAC](https://www.desktop.gov.au/blueprint/abac/intune-configuration.html#agency-wdacbasepolicy).
-- Instructions on generating base policy that is used to generate the binary format policy file can be found within the [Client Devices ABAC](https://desktop.gov.au/blueprint/abac/client-devices.html).
+* ABAC configuration for this item can be found within the [Intune Configuration ABAC](/blueprint/abac/intune-configuration.html#agency-wdacbasepolicy).
+* Instructions on generating base policy that is used to generate the binary format policy file can be found within the [Client Devices ABAC](/blueprint/abac/wdac-policy-creation.html#wdac-policy---baseline).
 
 Configuration Profiles using Custom OMA-URI policy can be found:
 
-- **OMA-URI**: ./Vendor/MSFT/ApplicationControl/Policies/*Policy GUID*/Policy
-- **Data type**: Base64
-- **Certificate file**: upload the binary format policy file. You do not need to upload a Base64 file, as Intune will convert the uploaded .bin file to Base64.
+* **OMA-URI**: ./Vendor/MSFT/ApplicationControl/Policies/*Policy GUID*/Policy
+* **Data type**: Base64
+* **Certificate file**: upload the binary format policy file. You do not need to upload a Base64 file, as Intune will convert the uploaded .bin file to Base64.
 
 Note, the *Policy GUID* can be found within the policy file's `<policyID>` xml block which can be viewed prior to converting to .bin format using `ConvertFromCIPolicy`. Additional policies as supplementals can be deployed using this method rather than maintaining a larger base policy.
 

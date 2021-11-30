@@ -21,15 +21,15 @@
                             <ul class="au-link-list">
                                 <li{% if page.url == "/" %} class="active"{% endif %}><a href="/">Home</a></li>
                                 {% for item in site.data.main-navigation %}
-                                    {% assign css_class = "" %}
-                                    {% if page.dir == "/" and item.url == page.url %}
+                                    {%- assign css_class = "" -%}
+                                    {%- if page.dir == "/" and item.url == page.url %}
                                         {% assign css_class = "active" | append: css_class %}
                                     {% elsif page.dir != "/" and item.url contains page.dir %}
                                         {% assign css_class = "active" | append: css_class %}
-                                    {% endif %}
+                                    {% endif -%}
                                     {% if item.right %}
                                         {% assign css_class = "right-aligned " | append: css_class %}
-                                    {% endif %}
+                                    {% endif -%}
                                 <li class="{{ css_class }}"><a href="{{ item.url }}">{{ item.title }}</a></li>
                                 {% endfor %}
                             </ul>

@@ -6,24 +6,24 @@ timeline:
   body: | 
     This is where you start your blueprint adoption experience. The Connect and Align phase is about setting you up with a clear understanding of the path ahead; for how to use [the blueprint](/blueprint/index.html) and how to align it to your business needs.
     
-    A large part of this phase is about being able to [self-identify your agency type](/program/engagement/agency-type.html). We can also put you in touch with other agencies who have implemented technology based on the blueprint, which you can read about in our [case studies](/program/engagement/case-studies.html). You may also register an account on the Community Portal to share ideas and ask questions. 
+    A large part of this phase is about being able to [self-identify your agency type](/about/engagement/agency-type.html). We can also put you in touch with other agencies who have implemented technology based on the blueprint, which you can read about in our [case studies](/about/engagement/case-studies.html). You may also register an account on the Community Portal to share ideas and ask questions. 
 - title: 2. Prepare and Design
   body: | 
-    In the [Prepare and Design phase](/program/engagement/prepare-and-design.html), it's time to start planning your transition to the blueprint. To arm yourself with the right information to develop an effective plan, this phase will take you through the relevant assessments you'll need to carry out to understand your starting point in terms of your business (systems and processes); your people (who will be impacted and how); and your technology. For example, you may like to assess your [technology maturity](/assets/files/pdf/dta-technology-maturity-assessment-toolkit.pdf) or business strategy.
+    In the [Prepare and Design phase](/about/engagement/prepare-and-design.html), it's time to start planning your transition to the blueprint. To arm yourself with the right information to develop an effective plan, this phase will take you through the relevant assessments you'll need to carry out to understand your starting point in terms of your business (systems and processes); your people (who will be impacted and how); and your technology. For example, you may like to assess your [technology maturity](/assets/files/pdf/dta-technology-maturity-assessment-toolkit.pdf) or business strategy.
 - title: 3. Deploy and Embed
   body: | 
-   This is where the rubber hits the road and we begin the blueprint implementation. The [Deploy and Embed](/program/engagement/deploy-and-embed.html) phase is designed to support you to adopt a Modern Workplace on the blueprint design, which is available to use in your agency's ICT environment and plan for business change.
+   This is where the rubber hits the road and we begin the blueprint implementation. The [Deploy and Embed](/about/engagement/deploy-and-embed.html) phase is designed to support you to adopt a Modern Workplace on the blueprint design, which is available to use in your agency's ICT environment and plan for business change.
    
    Often, a vendor (a technology partner or systems integrator) is required to assist the customer through the technology aspects of this process, while an organisational change management partner could assist you roll out and plan the change. 
    
-   Additionally, you may like to use some of the [communications material](/program/engagement/key-messaging.html) we have provided to develop messaging to sell the implementation to your various stakeholder groups.  
+   Additionally, you may like to use some of the [communications material](/about/engagement/key-messaging.html) we have provided to develop messaging to sell the implementation to your various stakeholder groups.  
 - title: 4. Adopt and Engage
   body: | 
     Even the best systems in the world will fail if people don't engage with them. That's why intentional steps are recommended to engage, upskill and motivate your teams as they transition to new ways of working. The Adopt and Engage phase is designed to empower leaders with a clear vision for business change as your agency moves to a Modern Workplace. Before you do this however, you may like to assess your [business readiness](/assets/files/pdf/dta-business-readiness-assessment-toolkit.pdf) to adopt the change. 
 - title: 5. Assess and Advocate
   body: | 
-    Technology is always changing and improving. At this final stage of the engagement, we would appreciate your participation in helping us continually improve the blueprint adoption experience. By actively engaging with the Whole of Government community, sharing your learnings on the [Community Portal](https://community.desktop.gov.au/), and participating in evaluation of the blueprint, you will make the experience better for future adaptations and new agency adopters. 
-    We have also developed an [operations model](/program/engagement/operations-model.html) which outlines and cost estimates the key roles and skills required to adopt the blueprint in agencies. 
+    Technology is always changing and improving. At this final stage of the engagement, we would appreciate your participation in helping us continually improve the blueprint adoption experience. By actively engaging with the Whole of Government community, sharing your learnings on the Community Portal, and participating in evaluation of the blueprint, you will make the experience better for future adaptations and new agency adopters. 
+    We have also developed an [operations model](/about/engagement/operations-model.html) which outlines and cost estimates the key roles and skills required to adopt the blueprint in agencies. 
 ---
 
 The [Protected Utility blueprint](/blueprint/index.html) provides a validated and secure design for government agencies to standardise the way you work as well as communicate and collaborate securely. 
@@ -32,11 +32,11 @@ As we appreciate this is a large and complex process to undertake, we have creat
 
 The engagement framework has five approximate stages. These stages are fluid and may happen concurrently or in cycles:
 
-1. [Connect and Align](/program/engagement/connect-and-align.html) 
-2. [Prepare and Design](/program/engagement/prepare-and-design.html)
-3. [Deploy and Embed](/program/engagement/deploy-and-embed.html)
-4. [Adopt and Engage](/program/engagement/adopt-and-engage.html)
-5. [Assess and Advocate](/program/engagement/assess-and-advocate.html)
+1. [Connect and Align](/about/engagement/connect-and-align.html) 
+2. [Prepare and Design](/about/engagement/prepare-and-design.html)
+3. [Deploy and Embed](/about/engagement/deploy-and-embed.html)
+4. [Adopt and Engage](/about/engagement/adopt-and-engage.html)
+5. [Assess and Advocate](/about/engagement/assess-and-advocate.html)
 
 The framework contains suggestions, tools, templates, and guidance for successfully adopting the blueprint. It is not intended to be a prescriptive, ‘tick the box', or one-size-fits all model. Instead, it is intended for agencies to use as required and adapt to their business needs and modernisation journey.
 
@@ -44,12 +44,12 @@ The framework contains suggestions, tools, templates, and guidance for successfu
 
 We have selected the following important resources to assist you in your change journey to adopt the blueprint. These resources are equivalent to the information contained on this webpage, but in downloadable and shareable format.
 
-* [Engagement framework](/program/engagement-framework.html) ([PowerPoint version](/assets/files/ppt/dta-engagement-framework.pptx)).
+* [Engagement framework](/about/engagement-framework.html) ([PowerPoint version](/assets/files/ppt/dta-engagement-framework.pptx)).
 * One page engagement framework overview ([PDF version](/assets/files/pdf/dta-engagement-framework.pdf)).
-* [Agency self-assessment](/program/engagement/agency-type.html) ([PDF version](/assets/files/pdf/dta-technology-maturity-assessment-toolkit.pdf)) to help you understand your agency needs and type. Based on this assessment, you will be able to understand risks, benefits and needs which are most relevant to you when adopting the blueprint.
-* [Key messaging](/program/engagement/key-messaging.html) ([PDF version](/assets/files/pdf/dta-blueprint-key-messaging.pdf)) to help agencies communicate the value of the modern workplace to key user groups. It can be re-used for your own purposes before and while adopting a modern workplace based on the blueprint.
-* [Operations model](/program/engagement/operations-model.html) ([PDF version](/assets/files/pdf/dta-op-model-guide.pdf)) estimates the key roles and skills required to adopt the blueprint.
-* [Case study from the Office of Commonwealth Ombudsman](/program/engagement/case-studies.html) ([PDF version](/assets/files/pdf/dta-oco-case-study.pdf)) which has transitioned to the modern workplace based the blueprint.
+* [Agency self-assessment](/about/engagement/agency-type.html) ([PDF version](/assets/files/pdf/dta-technology-maturity-assessment-toolkit.pdf)) to help you understand your agency needs and type. Based on this assessment, you will be able to understand risks, benefits and needs which are most relevant to you when adopting the blueprint.
+* [Key messaging](/about/engagement/key-messaging.html) ([PDF version](/assets/files/pdf/dta-blueprint-key-messaging.pdf)) to help agencies communicate the value of the modern workplace to key user groups. It can be re-used for your own purposes before and while adopting a modern workplace based on the blueprint.
+* [Operations model](/about/engagement/operations-model.html) ([PDF version](/assets/files/pdf/dta-op-model-guide.pdf)) estimates the key roles and skills required to adopt the blueprint.
+* [Case study from the Office of Commonwealth Ombudsman](/about/engagement/case-studies.html) ([PDF version](/assets/files/pdf/dta-oco-case-study.pdf)) which has transitioned to the modern workplace based the blueprint.
 
 ## Design principles
 
@@ -66,7 +66,7 @@ The engagement framework is designed in accordance with the following principles
 
 DTA will support you via access to:
 
-* The [community portal](https://community.desktop.gov.au/) for asking questions, FAQ and understanding which agencies are using the blueprint
+* The community portal for asking questions, FAQ and understanding which agencies are using the blueprint
 * The [desktop.gov.au](https://desktop.gov.au/) website for information, the latest version of the blueprint, and knowledge articles
 * The [protectedutility@dta.gov.au](mailto:protectedutility@dta.gov.au) mailbox for initial enquiries
 

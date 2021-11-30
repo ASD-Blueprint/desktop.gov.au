@@ -20,7 +20,7 @@ The DTA is assisting agencies to adopt the blueprint, helping them uplift their 
 * Employees can work remotely on Protected documents and information, from anywhere in the world.
 * Employees can collaborate together on documents in real time, use video conferencing, instant messaging, and create document repositories to store and share information.
 * Organisations can move away from using unsecure, aging, and bespoke legacy systems, and move to modern, secure, and configurable systems that are well-supported by enterprise vendors such as Microsoft.
-* Organisations can share lessons learnt and best practice in deploying and configuring these enterprise systems and using the blueprint on a [Community Portal](https://community.desktop.gov.au/). They can also share lessons learnt about the business change required to enable using the technology.
+* Organisations can share lessons learnt and best practice in deploying and configuring these enterprise systems and using the blueprint on a Community Portal. They can also share lessons learnt about the business change required to enable using the technology.
 * Organisations can [procure modern technology](https://marketplace.service.gov.au/) through Whole of Government panels, achieving greater value for money.
 * In future updates the blueprint, employees will be able to video conference, send emails, and collaborate on documents with employees from other organisations that use the blueprint.
 
@@ -75,7 +75,7 @@ The blueprint helps agencies manage information up to the PROTECTED level. T
 
 The blueprint enables contemporary office productivity tools to be adopted consistently. For example, common and interoperable document collaboration, email, and video conferencing.  
 
-### A community collaboration forum – community.desktop.gov.au 
+### A community collaboration forum
 
 In October 2020 the DTA established the blueprint community portal to increase Whole of Government community collaboration to improve and continue the use of the blueprint. Through the forum there have been newsletters, a survey and knowledge articles published.
 
@@ -87,6 +87,6 @@ The DTA has supported more than 10 agencies to date by delivering change rea
 
 ### Skills uplift through M365 training – APS Digital Profession  
 
-The DTA identified the digital skills and capability training needed through discovery with multiple agencies and is delivering the training in partnership with Microsoft. We have developed an [operations model](/program/engagement/operations-model.html) which outlines and cost estimates these skills in agencies. 
+The DTA identified the digital skills and capability training needed through discovery with multiple agencies and is delivering the training in partnership with Microsoft. We have developed an [operations model](/about/engagement/operations-model.html) which outlines and cost estimates these skills in agencies. 
 
-From November 2020, the DTA delivered digital skills and capability training for IT administrators and end-users in M365 and Azure. These course offerings have now ended.  
+From November 2020, the DTA delivered digital skills and capability training for IT administrators and end-users in M365 and Azure. These course offerings have now ended.

@@ -1,14 +1,16 @@
-- name: Program
-  url: /program/index.html
+- name: About
+  url: /about/index.html
   desc: |
-    An overview of the modern workplace and the Protected Utility Program.
-
-- name: Blueprint
+    An overview of the Protected Utility.
+- name: Access the blueprint
   url: /blueprint/index.html
   desc: |
     The blueprint is a design for a secure, modern desktop based on Microsoft 365.
-   
-- name: Community
-  url: https://community.desktop.gov.au/
+- name: How you can implement the blueprint
+  url: /about/engagement-framework.html
   desc: |
-    Work with peers and access the full documentation set in our community. 
+    We have published a guide based on agencies who have implemented the blueprint. You can use this to support your business change program.
+- name: Help us improve the blueprint
+  url: https://github.com/govau/desktop.gov.au
+  desc: |
+    Collaborate and help us improve the blueprint.

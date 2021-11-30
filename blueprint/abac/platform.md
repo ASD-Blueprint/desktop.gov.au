@@ -2933,7 +2933,7 @@ The following table outlines the client internet access configuration scenarios 
 | All            | Office 365 Endpoint connectivity  | As per agency pattern for internet browser connectivity. Optimisation of traffic is required and recommended, see [Office 365 URLs and IP address ranges](https://docs.microsoft.com/en-us/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide) for which categories are recommended for optimisation, and those that are compatible with ExpressRoute (if applicable). |
 | Cloud-native   | Office 365 Authentication Traffic | Configured to traverse the web proxy (if part of Agency pattern). Cloud-native implementation types without a proxy that supports SSL inspection will not be able to implement tenancy whitelisting feature. |
 | Hybrid         | Office 365 Authentication Traffic | Existing on-premises proxy will be utilised for Hybrid implementation types. |
-| Cloud          | Windows Updates                   | Client Devices will retrieve updates direct from Microsoft. Windows Update for Business Update Rings are configured in Intune as per the [Software Updates ABAC](https://desktop.gov.au/blueprint/abac/intune-software-updates.html). |
+| Cloud          | Windows Updates                   | Client Devices will retrieve updates direct from Microsoft. Windows Update for Business Update Rings are configured in Intune as per the [Software Updates ABAC](/blueprint/abac/intune-software-updates.html). |
 | Hybrid         | Windows Updates                   | Existing MECM/WSUS solution will be utilised for update retrieval.<br>Hybrid Agencies may wish to transition over to Windows Update Rings in Intune (Windows Update for Business) by moving the Windows Update Policy slider to Intune. For more information on this configuration pattern see [Windows Update for Business with management solutions](https://docs.microsoft.com/en-us/windows/deployment/update/waas-integrate-wufb). |
 
 ## Application control
@@ -2967,16 +2967,16 @@ The ABAC settings for MECM managed installer are applicable to hybrid implementa
 
 #### Intune WDAC Base Policy
 
-It is recommended for all implementation types to deploy WDAC configuration through Intune configuration profiles:
+For all implementation types, it is recommended to deploy WDAC configuration through Intune configuration profiles:
 
-* ABAC configuration for this item can be found within the [Intune Configuration ABAC](/blueprint/abac/intune-configuration.html#agency-wdacbasepolicy).
+
+* ABAC configuration for this item can be found within the [Intune Configuration ABAC](/blueprint/abac/intune-configuration.html#custom---windows-defender-application-control-csp).
 * Instructions on generating base policy that is used to generate the binary format policy file can be found within the [Client Devices ABAC](/blueprint/abac/wdac-policy-creation.html#wdac-policy---baseline).
 
-Configuration Profiles using Custom OMA-URI policy can be found:
+Configuration Profiles using Custom OMA-URI policy:
 
-* **OMA-URI**: ./Vendor/MSFT/ApplicationControl/Policies/*Policy GUID*/Policy
-* **Data type**: Base64
+* **OMA-URI**: `./Vendor/MSFT/ApplicationControl/Policies/*Policy GUID*/Policy`
+* **Data type**: `Base64`
 * **Certificate file**: upload the binary format policy file. You do not need to upload a Base64 file, as Intune will convert the uploaded .bin file to Base64.
 
 Note, the *Policy GUID* can be found within the policy file's `<policyID>` xml block which can be viewed prior to converting to .bin format using `ConvertFromCIPolicy`. Additional policies as supplementals can be deployed using this method rather than maintaining a larger base policy.
-

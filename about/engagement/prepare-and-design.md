@@ -28,7 +28,7 @@ timeline:
 
 - title: Step 7 - Read key messaging related to where you're at  
   body: | 
-     Review [key messaging](/program/engagement/key-messaging.html) that we have provided which can help you sell the change to various stakeholders in your organisation.  
+     Review [key messaging](/about/engagement/key-messaging.html) that we have provided which can help you sell the change to various stakeholders in your organisation.  
 --- 
 
 In the Prepare and Design phase, it's time to start planning your transition to the blueprint. To arm yourself with the right information to develop an effective plan, this phase will take you through the relevant assessments you'll need to carry out to understand your starting point in terms of your business (systems and processes); your people (who will be impacted and how); and your technology.
@@ -72,7 +72,7 @@ The Prepare and Design phase helps you to mitigate risks such as:
 * Statement of Work and Section 23
 * Business needs or user stories
 * Strategy analysis ([Toolkit](/assets/files/pdf/dta-strategy-analysis-toolkit.pdf), [Template](/assets/files/xls/dta-strategy-analysis.xlsx))
-* [Operations Model](/program/engagement/operations-model.html), which can enable you to consider the roles and costs involved in supporting your blueprint implementation. 
+* [Operations Model](/about/engagement/operations-model.html), which can enable you to consider the roles and costs involved in supporting your blueprint implementation. 
 * Risk assessment ([Toolkit](/assets/files/pdf/dta-risk-assessment-toolkit.pdf), [Template](/assets/files/pdf/dta-risk-assessment.xlsx)) or change impact assessment ([Toolkit](/assets/files/pdf/dta-change-impact-assessment-toolkit.pdf), [Template](/assets/files/pdf/dta-change-impact-assessment.xlsx))
 
 ## Your checklist

@@ -22,7 +22,7 @@ timeline:
     A security assessment will provide relevant architectural and security accreditation for the deployment. This will support you to understand if the Modern Workplace services, applications and data are secure and compliant with the [Information Security Manual](https://www.cyber.gov.au/acsc/view-all-content/ism) (ISM) and other cyber security policies.  
 - title: Step 7 – Read key messaging related to where you're at
   body: | 
-    Review [key messaging](/program/engagement/key-messaging.html) that we have provided which can help you sell the change to various stakeholders in your organisation. 
+    Review [key messaging](/about/engagement/key-messaging.html) that we have provided which can help you sell the change to various stakeholders in your organisation. 
 --- 
 
 This is where the rubber hits the road and we begin the blueprint implementation. The Deploy and Embed phase is designed to support you to adopt a Modern Workplace on the blueprint design, which is available to use in your agency's ICT environment and plan for business change.

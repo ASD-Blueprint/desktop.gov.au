@@ -1,6 +1,6 @@
 ---
 layout: home
-excerpt: The Protected Utility Program helps agencies transition to cloud-based capability and adopt the blueprint.
+excerpt: Protected Utility helps agencies transition to cloud-based capability and adopt the blueprint.
 benefits:
 - |
   ### Operational efficiencies
@@ -16,15 +16,13 @@ benefits:
   Increase your staff mobility, workplace flexibility and empower your people with modern ways of working.
 ---
 
-## Protected Utility Program
+## Protected Utility
 
-Welcome to the website for the Protected Utility Program. This program is designed to:
+Welcome to the website for the Digital Transformation Agency's Protected Utility blueprint. The blueprint is a design for a secure, modern, desktop based on Microsoft 365. You can use the blueprint as a pattern for implementing a secure desktop operating system in your agency.
 
-*	standardise how government agencies operate their desktops
-*	improve collaboration within and across agencies
-*	help achieve a cyber security uplift across government
-*	help agencies transition to cloud-based capability and adopt the blueprint.
+*	Standardise how government agencies operate their desktops.
+*	Improve collaboration within and across agencies.
+*	Help achieve a cyber security uplift across government.
+*	Help agencies transition to cloud-based capability and adopt the blueprint.
 
-This website helps you understand why your agency should adopt the blueprint, how you can implement it and how we can help you.
-
-We also encourage you to join our [online community](https://community.desktop.gov.au/) for the Protected Utility Program.
+This website helps you understand what the blueprint is, why your agency should adopt the blueprint and how you can implement it.

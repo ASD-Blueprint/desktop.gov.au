@@ -22,7 +22,7 @@ timeline:
     Even the best systems in the world will fail if people don't engage with them. That's why intentional steps are recommended to engage, upskill and motivate your teams as they transition to new ways of working. The Adopt and Engage phase is designed to empower leaders with a clear vision for business change as your agency moves to a Modern Workplace. Before you do this however, you may like to assess your [business readiness](/assets/files/pdf/dta-business-readiness-assessment-toolkit.pdf) to adopt the change. 
 - title: 5. Assess and Advocate
   body: | 
-    Technology is always changing and improving. At this final stage of the engagement, we would appreciate your participation in helping us continually improve the blueprint adoption experience. By actively engaging with the Whole of Government community, sharing your learnings on the [Community Portal](https://community.desktop.gov.au/), and participating in evaluation of the blueprint, you will make the experience better for future adaptations and new agency adopters. 
+    Technology is always changing and improving. At this final stage of the engagement, we would appreciate your participation in helping us continually improve the blueprint adoption experience. By actively engaging with the Whole of Government community, sharing your learnings on the Community Portal, and participating in evaluation of the blueprint, you will make the experience better for future adaptations and new agency adopters. 
     We have also developed an [operations model](/about/engagement/operations-model.html) which outlines and cost estimates the key roles and skills required to adopt the blueprint in agencies. 
 ---
 
@@ -66,7 +66,7 @@ The engagement framework is designed in accordance with the following principles
 
 DTA will support you via access to:
 
-* The [community portal](https://community.desktop.gov.au/) for asking questions, FAQ and understanding which agencies are using the blueprint
+* The community portal for asking questions, FAQ and understanding which agencies are using the blueprint
 * The [desktop.gov.au](https://desktop.gov.au/) website for information, the latest version of the blueprint, and knowledge articles
 * The [protectedutility@dta.gov.au](mailto:protectedutility@dta.gov.au) mailbox for initial enquiries
 

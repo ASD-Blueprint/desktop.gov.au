@@ -58,6 +58,7 @@ You can find published releases at [https://github.com/govau/desktop.gov.au/rele
 * Updated and expanded Identity and Access Management DSC script to include group settings and tenant contacts [#137]
 * Added Exchange Online to DSC coverage [#143]
 * Incorporated updated ACSC references: Apple iOS 14 Devices (Oct 2021), Essential Eight (Oct 2021), Microsoft Office Hardening (Oct 2021) and Windows Hardening (Oct 2021) [#125] [#139]
+* Expanded on the use of Windows Firewall with a [technical guide](https://desktop.gov.au/blueprint/abac/wfw-rules-import.html) for creating a baseline ruleset [#150]
 
 Other general website changes:
 

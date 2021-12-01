@@ -17,7 +17,7 @@ This document explains how the three key phases of Cloud Assessment and Authoris
 
 The [Protective Security Policy Framework (PSPF)](https://www.protectivesecurity.gov.au/information/robust-ict-systems/Pages/default.aspx) requires applicable Federal and State Government agencies to secure their ICT systems by applying the controls within the Information Security Manual (ISM). It also requires that a formal risk assessment and authorisation (process occur when an ICT system is being introduced into service.
 
-This authorisation process is articulated in the Anatomy of a Cloud Assessment and Authorisation document issued by the [ACSC](https://www.cyber.gov.au/acsc/view-all-content/publications/anatomy-cloud-assessment-and-authorisation), which describes the three (3) phases Cloud Consumers (i.e., the organisation or agency who will be deploying the blueprint), should take to assess and accept a cloud service and solution into service. In the context of the blueprint, Microsoft is the Cloud Service Provider (CSP), with Cloud Services being Microsoft products such as Microsoft 365 and Azure.
+This authorisation process is articulated in the Anatomy of a [Cloud Assessment and Authorisation](https://www.cyber.gov.au/acsc/view-all-content/publications/anatomy-cloud-assessment-and-authorisation) document issued by the ACSC, which describes the three (3) phases Cloud Consumers (i.e., the organisation or agency who will be deploying the blueprint), should take to assess and accept a cloud service and solution into service. In the context of the blueprint, Microsoft is the Cloud Service Provider (CSP), with Cloud Services being Microsoft products such as Microsoft 365 and Azure.
 
 Whilst the DTA has designed the blueprint to meet the ISM requirements for the classification level of PROTECTED, agencies must still assess for themselves whether the blueprint design meets their own particular security needs and requirements.
 
@@ -27,9 +27,9 @@ Whilst the DTA has designed the blueprint to meet the ISM requirements for the c
 
 The purpose of Phase 1 is to ensure that security of the CSP and their cloud services are appropriately assessed, and that Cloud Consumers review these assessments to determine if the CSP is appropriate for their security needs and risk tolerances. 
 
-The Microsoft and its services used within the blueprint has undergone assessment by an ASD endorsed IRAP assessor. The findings of this assessment are captured within the [Cloud Security Assessment and IRAP Reports](https://servicetrust.microsoft.com/ViewPage/Australia) for Microsoft 365 and Azure available from Microsoft.
+Microsoft and its services used within the blueprint has undergone assessment by an ASD endorsed IRAP assessor. The findings of this assessment are captured within the [Cloud Security Assessment and IRAP Reports](https://servicetrust.microsoft.com/ViewPage/Australia) for Microsoft 365 and Azure available from Microsoft.
 
-Organisations intending to deploy the blueprint are responsible for reviewing these reports to confirm that Microsoft's products and services provide the required level of security. An organisations Authorising Officer (i.e., the individual with the authority to decide if a system can be used within the agency) should formally document this review and eventual decision.
+Organisations intending to deploy the blueprint are responsible for reviewing these reports to confirm that Microsoft's products and services provide the required level of security. An organisations Authorising Officer (i.e. the individual with the authority to decide if a system can be used within the agency) should formally document this review and eventual decision.
 
 ![Figure 3: Phase 1 - Overview of CSP Security Fundamentals and Cloud Service Assessment](/assets/images/security/cca-phase1.png)
 
@@ -43,7 +43,7 @@ Organisations are free to develop their own policy on how assessment and authori
 
 * The Microsoft cloud security assessment reports;
 * Any supplementary, new or updated cloud services report (if required); and
-* Cloud systems assessments and other documentation developed for the Agency's implementation of the blueprint.
+* Cloud systems assessments and other documentation developed for the agency's implementation of the blueprint.
 
 The conclusion of Phase 2 is formal approval by the Authorising Officer or their delegate, to operate the system that has been built using the blueprint. 
 
@@ -53,27 +53,14 @@ The conclusion of Phase 2 is formal approval by the Authorising Officer or their
 
 Continuous monitoring provides ongoing situational awareness of evolving information security risks, vulnerabilities, threats, security controls and incidents to provide assessment and assurance of the Cloud Consumer's cloud security posture. This is a responsibility shared between the CSP and cloud consumer.
 
-The blueprint assumes that organisation using it will take on the following responsibilities, including:
+The blueprint assumes that organisations using it will take on the following responsibilities, including:
 
 * Performing assurance over any changes that could impact the cloud consumer's systems and data to evaluate any additional or changed risks;
 * Processing of Microsoft security advisories and how they relate to the ongoing authorisation processes;
 * Monitoring of organisation systems and data for indicators of compromise; and
-* Re-evaluating and accepting the cloud service when needed
+* Re-evaluating and accepting the cloud service when needed.
 
-The blueprint provides an example Continuous Monitoring Plan, which contains guidance on how organisations can approach conducting continuous monitoring in partnership with Microsoft. It details a number of technology options embedded within the blueprint design that may help facilitate ongoing monitoring.
+The blueprint provides an example [Continuous Monitoring Plan](/blueprint/security/continuous-monitoring-plan.html), which contains guidance on how organisations can approach conducting continuous monitoring in partnership with Microsoft. It details a number of technology options embedded within the blueprint design that may help facilitate ongoing monitoring.
 
 ![Figure 5: Phase 3 - Overview of Continuous Monitoring and Assurance](/assets/images/security/cca-phase3.png)
 
-## About the Protected Utility Program
-
-The DTA's Protected Utility Program (the Program) is designed to supplement ACSC's guidance on the construction and operation of secure computer systems. The Program aims to provide agencies with clear and simple advice to enable transition to cloud-based capabilities, and, to deliver a consistent approach for collaboration and business operations.
-
-As part of the Program, the DTA has developed the blueprint. The blueprint provides a toolkit which can be used by agencies who require modern and secure cloud-based capabilities up to the PROTECTED level.
-
-The blueprint ultimately assists Government agencies to achieve the following key objectives:
-
-* Standardise how Government agencies operate their desktop environments;
-* Improve collaboration within and across agencies; and
-* Help achieve a cyber security uplift across government.
-
-The blueprint should be considered in combination with the ACSC's Cloud Security Guidance. The blueprint is specific to Microsoft 365 and Azure products and includes proposed design and configuration instruction for these services. The blueprint also includes supplementary documentation which can be leveraged to support design and acceptance into service activities. 

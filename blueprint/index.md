@@ -29,5 +29,3 @@ There are 2 deployment types covered in this blueprint:
 * **hybrid** – where an agency adopts the Microsoft 365 offerings, while continuing to leverage some new or existing on-premises infrastructure in a 'hybrid' configuration. 
 
 In many cases, design decisions are common across both deployment methods. Where specific elements differ for cloud and hybrid deployments, the blueprint provides the common components applicable to all deployments. It then offers further guidance for each deployment type.
-
-For adopters, practitioners, and other interested parties, DTA manages a [Protected Utility Program community of practice](https://community.desktop.gov.au/). The community provides a direct channel to DTA and encourages discussion between community members.

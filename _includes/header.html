@@ -1,7 +1,7 @@
-{% assign excerpt = page.content | markdownify | strip_html | normalize_whitespace | truncatewords: 40 | escape %}
+{%- assign excerpt = page.content | markdownify | strip_html | normalize_whitespace | truncatewords: 40 | escape -%}
 {% if page.excerpt %}
 {% assign excerpt = page.excerpt %}
-{% endif %}
+{% endif -%}
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: page.lang | default: 'en' }}" class="no-js">
 <head>
@@ -13,7 +13,7 @@
   gtag('js', new Date());
   gtag('config', '{{ site.google_analytics }}');
 </script>
-{% endif %}
+{% endif -%}
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
@@ -31,12 +31,12 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="628">
 </head>
-{% assign extra_body_class = "" %}
+{%- assign extra_body_class = "" %}
 {% if page.layout == 'home' %}
     {% assign extra_body_class = " home" | append: extra_body_class %}
 {% elsif page.body_class %}
     {% assign extra_body_class = " " | append: page.body_class | append: extra_body_class %}
-{% endif %}
+{% endif -%}
 <body class="au-grid{{ extra_body_class }}" data-spy="scroll" data-target="#toc-container">
 <nav class="au-skip-link">
     <a class="au-skip-link__link" href="#content">Skip to main content</a>

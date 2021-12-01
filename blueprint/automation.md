@@ -44,7 +44,7 @@ Device Settings | Manual
 External Collaboration | Manual
 Custom Domains | Manual
 Company Branding | Manual
-Group Creation Restrictions | [Platform ABAC - delegate 365 group creation script](https://www.desktop.gov.au/blueprint/abac/platform.html#delegate-office-365-group-creation) 
+Group Creation Restrictions | [Platform ABAC - delegate 365 group creation script](/blueprint/abac/platform.html#delegate-office-365-group-creation) 
 Azure Active Directory Connect (if applicable) | Manual
 
 ## Exchange Online
@@ -59,7 +59,7 @@ The following table outlines the subsections of the blueprint and their automati
 | Remote domains (Default)        | Automated                                                    |
 | CAS mailbox plan                | Automated                                                    |
 | Per mailbox attributes          | Manual                                                       |
-| Authentication policy           | [Office 365 ABAC - authentication policy]([Office 365 (desktop.gov.au)](https://www.desktop.gov.au/blueprint/abac/office-365.html#authentication-policy)) |
+| Authentication policy           | [Office 365 ABAC - authentication policy](/blueprint/abac/office-365.html#authentication-policy) |
 | Outlook Web Access policy       | Automated                                                    |
 | Mailbox archive                 | Manual                                                       |
 | Mailbox auditing                | Manual                                                       |
@@ -188,7 +188,7 @@ Additional guidance and troubleshooting information can be found in the M365DSC 
 
 **Issue 1 - remedy:** Ensure that  the emergency access admin account (break glass) identities exist prior to running the DSC script
 
-* Check or create each emergency access admin account manually as per the the [Platform - ABAC ](https://www.desktop.gov.au/blueprint/abac/platform.html#emergency-access-admin-accounts)
+* Check or create each emergency access admin account manually as per the the [Platform - ABAC ](/blueprint/abac/platform.html#emergency-access-admin-accounts)
 
 **Issue 2 - error:** *Undefined DSC resource 'M365DSCResource'. Use Import-DSCResource to import the resource.*
 

@@ -1,23 +1,23 @@
 ## Desktop.gov.au
 
-A website for the Protected Utility Program with all blueprint documents.
+A website for Protected Utility with all blueprint documents.
 
 All contributions welcome.
 
 **Table of contents**
 
-- [Desktop.gov.au](#desktopgovau)
-- [Style sheet for content](#style-sheet-for-content)
-  - [Terms in body text](#terms-in-body-text)
-  - [Capitalisation](#capitalisation)
-  - [Links](#links)
-  - [Numbers](#numbers)
-  - [Words list](#words-list)
-- [How to develop locally](#how-to-develop-locally)
-  - [Site search](#site-search)
-  - [Frequently asked questions](#frequently-asked-questions)
-    - [What is this website built on?](#what-is-this-website-built-on)
-    - [Can I contribute without a local development environment?](#can-i-contribute-without-a-local-development-environment)
+* [Desktop.gov.au](#desktopgovau)
+* [Style sheet for content](#style-sheet-for-content)
+  * [Terms in body text](#terms-in-body-text)
+  * [Capitalisation](#capitalisation)
+  * [Links](#links)
+  * [Numbers](#numbers)
+  * [Words list](#words-list)
+* [How to develop locally](#how-to-develop-locally)
+  * [Site search](#site-search)
+  * [Frequently asked questions](#frequently-asked-questions)
+    * [What is this website built on?](#what-is-this-website-built-on)
+    * [Can I contribute without a local development environment?](#can-i-contribute-without-a-local-development-environment)
 
 ## Style sheet for content
 

@@ -13,7 +13,7 @@ timeline:
     Active engagement with the Whole of Government community can create major opportunities for you, your agency and the Whole of Government at large. Engagement with the community and attendance at Whole of Government Modern Workplace training will be enable you to share and apply learnings to continually improve the ways of working for your agency's staff.
 - title: Step 4 – Share knowledge with the Whole of Government
   body: | 
-    By sharing knowledge with the Whole of Government and posting threads on the [Community Portal](https://community.desktop.gov.au), your feedback will be used to iteratively improve the blueprint design, desktop services and community consultation across government. You are encouraged to share your lessons learnt with the Whole of Government and you are invited to participate in evaluation workshops. 
+    By sharing knowledge with the Whole of Government and posting threads on the Community Portal, your feedback will be used to iteratively improve the blueprint design, desktop services and community consultation across government. You are encouraged to share your lessons learnt with the Whole of Government and you are invited to participate in evaluation workshops. 
 - title: Step 5 – Realise the benefits of ongoing maintenance and improvement based on blueprint updates
   body: | 
    The blueprint will support your agency with ongoing updates and improvements to your Modern Workplace tools. This will support your agency to maintain compliance with ISM controls, latest technology and policy. It will also support your agency to continually improve your ways of working.
@@ -56,7 +56,7 @@ The Assess and Advocate phase helps you to mitigate risks such as:
 
 ## DTA tools, templates and guidance
 
-* The [blueprint document](https://desktop.gov.au/blueprint/)
+* The [blueprint document](/blueprint/)
 * Community survey
 * Newsletter
 * Whole of Government training calendar

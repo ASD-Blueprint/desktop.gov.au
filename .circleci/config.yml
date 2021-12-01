@@ -16,7 +16,8 @@ references:
       command: |
         sudo gem update --system
         gem install bundler
-        bundle install --path=vendor/bundle
+        bundle config --local path vendor/bundle
+        bundle install
   integrate_search: &integrate_search
     run:
       name: Integrate with Algolia Search
@@ -121,7 +122,7 @@ workflows:
               only:
                 - /feature-.*/
                 - develop
-                - master
+                - main
       - deploy_feature_branch:
           requires:
             - build_attachments
@@ -142,4 +143,4 @@ workflows:
           filters:
             branches:
               only:
-                - master
+                - main

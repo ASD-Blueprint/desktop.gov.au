@@ -33,6 +33,7 @@ You can find published releases at [https://github.com/govau/desktop.gov.au/rele
   * Expanded privileged identity management roles
   * Update to product names (eg Azure ATP -> Defender for Identity, Microsoft Defender ATP -> Microsoft Defender for Endpoint) [#110]
   * Update to MCAS section [#144]
+  * Update to iOS App Protection Policy [#148]
 * Client devices ABAC [#115]
   * General clean up, readability enhancements and removal of items no longer required 
   * Migration of settings from Configuration Profiles to Endpoint Security
@@ -57,11 +58,13 @@ You can find published releases at [https://github.com/govau/desktop.gov.au/rele
 * Updated and expanded Identity and Access Management DSC script to include group settings and tenant contacts [#137]
 * Added Exchange Online to DSC coverage [#143]
 * Incorporated updated ACSC references: Apple iOS 14 Devices (Oct 2021), Essential Eight (Oct 2021), Microsoft Office Hardening (Oct 2021) and Windows Hardening (Oct 2021) [#125] [#139]
+* Expanded on the use of Windows Firewall with a [technical guide](https://desktop.gov.au/blueprint/abac/wfw-rules-import.html) for creating a baseline ruleset [#150]
 
 Other general website changes:
 
 * Expanded the engagement model into a larger comprehensive framework [#96]
 * Added a new "Patterns" section with a remote access pattern using Azure Virtual Desktop [#107] [#128]
+* Program transition to BAU [#147]
 
 ## June 2021
 

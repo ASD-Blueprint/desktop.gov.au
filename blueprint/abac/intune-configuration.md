@@ -677,8 +677,8 @@ The following table outlines the OMA-URI settings within the profile.
 
 | Name            | Description                                                  | OMA-URI                                                      | Value                                                        |
 | --------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| WDACBasePolicy  | The ApplicationControl CSP enforces that the "ID" segment of a given policy URI is the same GUID as the policy ID in the policy blob. Each Policy GUID node contains a Policy node and a corresponding PolicyInfo node. | `./Vendor/MSFT/ApplicationControl/Policies/(policy GUID)/Policy` | Base64 (file) (see [Client devices technical instruction](https://www.desktop.gov.au/blueprint/abac/client-devices.html) |
-| WDACSuppPolicy1 | Additional supplemental policy from generated from a base WDAC policy. | `./Vendor/MSFT/ApplicationControl/Policies/(policy GUID)/Policy` | Base64 (file) (see [Client devices technical instruction](https://www.desktop.gov.au/blueprint/abac/client-devices.html) |
+| WDACBasePolicy  | The ApplicationControl CSP enforces that the "ID" segment of a given policy URI is the same GUID as the policy ID in the policy blob. Each Policy GUID node contains a Policy node and a corresponding PolicyInfo node. | `./Vendor/MSFT/ApplicationControl/Policies/(policy GUID)/Policy` | Base64 (file) (see [Client devices technical instruction](/blueprint/abac/wdac-policy-creation.html#wdac-policy---baseline) |
+| WDACSuppPolicy1 | Additional supplemental policy from generated from a base WDAC policy. | `./Vendor/MSFT/ApplicationControl/Policies/(policy GUID)/Policy` | Base64 (file) (see [Client devices technical instruction](/blueprint/abac/wdac-policy-creation.html#wdac-policy---supplementary-policy) |
 
 ### iOS Devices
 
@@ -1067,25 +1067,20 @@ The following table outlines the settings within the policy.
 
 `Microsoft Endpoint Manager > Endpoint Security > Firewall`
 
-The following table outlines the policy is created for all implementation types.
+The following table outlines the policy is created for all implementation types. 
+
+Each firewall rule policy can contain up to 150 individual rules. Guidance on creating this policy can be found within [Windows Firewall rules import technical guide](/blueprint/abac/wfw-rules-import.html).
 
 | Item               | Configuration                  |
 | ------------------ | ------------------------------ |
-| Policy Name        | ACSC - Defender Firewall Rules |
+| Policy Name        | ACSC - Defender Firewall Rules  #(number) |
 | Profile            | Microsoft Defender Firewall Rules|
 | Platform supported | Windows 10 and later           |
 | Groups excluded    | 1                              |
 | Assigned           | Yes                            |
 | Groups assigned    | `grp-agency-windows10-dynamic` |
 
-The following table outlines the settings within the policy.
-
-| Name | Direction | Action | Network type | Application | File path | Local Address | Remote Addresses | Protocol | Local ports | Remote ports |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| WDM Sync client | Outbound | Allow | All types | File path | %SystemRoot%\system32\omadmclient.exe| Any | Any | TCP | All ports | All ports |
-| WDM Cert Installer | Outbound | Allow | All types | File path | %SystemRoot%\system32\dmcertinst.exe | Any | Any | TCP | All ports | All ports |
-| WDM Device Enroller | Outbound | Allow | All types | File path | %SystemRoot%\system32\deviceenroller.exe | Any | Any | TCP | All ports | 80, 443 |
-| DNS | Outbound | Allow | All types | Windows service | dnscache | Any | Any | UDP | All ports | 53 |
+The exact firewall rules imported are specific to the agency reference computer and will vary depending on Windows version and build.
 
 #### Endpoint Detection and Response
 

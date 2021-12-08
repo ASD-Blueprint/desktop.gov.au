@@ -117,7 +117,8 @@ The following ABAC settings outlines the Azure Active Directory configuration fo
 
 `Azure Active Directory > Password reset > Properties`
 
-* Self-service password reset enabled: `All`
+* Self-service password reset enabled: `Selected`
+* Select group: `rol-Agency-Users`
 
 `Azure Active Directory > Password reset > Authentication methods`
 

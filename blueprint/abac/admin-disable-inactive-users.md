@@ -8,7 +8,7 @@ The following guide provides instructions to automate disabling and suspending i
 
 The following is guidance from the Australian Cyber Security Centre (ACSC) for inactive accounts:
 
-* Access to systems, applications and data repositories is removed or suspended after one month of inactivity (**ISM** security control 1404).
+* Access to systems, applications and data repositories is removed or suspended after 45 days of inactivity (**ISM** security controls 1404 and 1648).
 * Privileged access to systems and applications is automatically disabled after 45 days of inactivity (**Essential Eight**).
 
 Azure Active Directory (Azure AD) does not include the ability to disable inactive accounts automatically, however, automation can be implemented to provide this administrative function.

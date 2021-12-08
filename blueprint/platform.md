@@ -200,6 +200,17 @@ Conditional Access | At least one of the accounts is to be completely excluded f
 Physical access to account details | Account details will be stored on paper in an appropriate location. | It is strongly recommended that the accounts are stored on paper, in two or three separate parts, in secure, fireproof safes that are in disparate locations.
 Monitoring of accounts | Account usage will be monitored via MCAS. | Use of these accounts is monitored and only used in genuine emergencies.
 
+### Azure AD Smart Lockout
+
+Azure AD Smart Lockout protects Azure AD accounts from brute force attacks such as password guessing by recognising legitimate sign-in attempts from authentications from unknown sources. Smart Lockout is always-on for Azure AD but allows customisation of the number of incorrect attempts and the lockout duration.
+
+Azure AD Smart Lockout Design Decisions for all agencies and implementation types.
+
+Decision Point | Design Decision | Justification
+--- | --- | ---
+Lockout threshold | 5 | To reduce the effectiveness of attempted password guessing attacks.
+Lockout duration in seconds | 30 | To minimise impact to users if accidently locked out.<br>Note, duration automatically increases with subsequent lockouts.
+
 ### Azure AD Identity Protection
 
 Azure AD Identity Protection is the function of provisioning access rights to a resource. Azure AD Identity Protection can take the form of an access policy. An access policy defines the business rules on whether authenticated user is granted or denied access to a resource. Azure AD utilises Conditional Access to define the access policies for Office 365 data. Azure AD using Identity Protection utilises analytics to further minimise the risk that access is provisioned to a compromised authenticated user.
@@ -1071,6 +1082,13 @@ Integration with MCAS | Enabled | To integrate data feeds and alerts from both p
 
 Microsoft Defender for Endpoint (formally Defender Advanced Threat Protection) extends the standard Microsoft Defender capabilities to provide additional reporting, pre-breach protection, post-breach detection, automation, and response. Microsoft Defender for Endpoint does not require an agent on the endpoint or any on-premises infrastructure, instead it leverages Microsoft's cloud platform. A single dashboard allows administrators to monitor the compliance and security of all Defender-enabled devices, as well as providing ISO27001 certified Endpoint Detection and Response (EDR) functionality.
 
+Defender for Endpoint also provides the following capabilities:
+
+* Threat and vulnerability management - discovery of vulnerabilities resulting from missing patches and misconfigurations.
+* Attack surface reduction - enforcement of exploit mitigation techniques.
+* Network protection - expanding on SmartScreen to block HTTP(S) with low reputation scores.
+* Web protection - including web threat protection and content filtering using web categories.
+
 Microsoft Defender for Endpoint can be configured with the following options:
 
 * Data Retention Period - Data Retention Period defines how long gathered telemetry data is stored and available for use in online reporting.
@@ -1092,6 +1110,8 @@ Administration Roles | Full Administrator:<br>Admin_{agency}-securityadmin | Adm
 Machine Groups | All Clients | Machines will be segregated into groups with automated remediation levels assigned the administrators that monitor these groups. Groups will be developed with the Agency and documented in the As-Built-As-Configured documentation.
 Machine onboarding and Configuration | Configured | Onboarding and configuration will be performed by Intune.
 SIEM Integration | Configured | To meet the security logging requirements of this solution.
+Live Response | Enabled | To enable remote investigation of devices.
+Web Content Filtering | Configured. Categories blocked:<br>Legal Liability<br>High Traffic Sites<br>Adult Sites | To block malicious and inappropriate traffic.
 
 ### Log Analytics
 
@@ -1579,11 +1599,14 @@ RPO, RTO and Retention Periods Design Decisions for all agencies and implementat
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Online Exchange Mailboxes | RPO – 24 hours from backup or better<br>RTO - < 48 hours or better | RPO and RTO in relation to cloud backups is for guidance only. Agencies are required to measure these against the business, application, regulatory and security requirements.
-Online Exchange Mail Items | RPO – 24 hours from backup or better<br>RTO - < 48 hours or better | RPO and RTO in relation to cloud backups is for guidance only. Agencies are required to measure these against the business, application, regulatory and security requirements.
-Online SharePoint | RPO – 24 hours from backup or better<br>RTO - < 48 hours or better | RPO and RTO in relation to cloud backups is for guidance only. Agencies are required to measure these against the business, application, regulatory and security requirements.
-Teams | RPO – 24 hours from backup or better<br>RTO - < 48 hours or better | RPO and RTO in relation to cloud backups is for guidance only. Agencies are required to measure these against the business, application, regulatory and security requirements.
-OneDrive for Business | RPO – 24 hours from backup or better<br>RTO - < 48 hours or better | RPO and RTO in relation to cloud backups is for guidance only. Agencies are required to measure these against the business, application, regulatory and security requirements.
+Exchange Online mailboxes | RPO – 24 hours from backup or better<br>RTO - < 48 hours or better | RPO and RTO in relation to cloud backups is for guidance only. Agencies are required to measure these against the business, application, regulatory and security requirements.
+Exchange Online mail items | RPO – 24 hours from backup or better<br>RTO - < 48 hours or better | RPO and RTO in relation to cloud backups is for guidance only. Agencies are required to measure these against the business, application, regulatory and security requirements.
+SharePoint Online Sites | RPO – 24 hours from backup or better<br>RTO - < 48 hours or better | RPO and RTO in relation to cloud backups is for guidance only. Agencies are required to measure these against the business, application, regulatory and security requirements.
+OneDrive for Business accounts | RPO – 24 hours from backup or better<br>RTO - < 48 hours or better | RPO and RTO in relation to cloud backups is for guidance only. Agencies are required to measure these against the business, application, regulatory and security requirements.
+Microsoft 365 Groups | RPO – 24 hours from backup or better<br>RTO - < 48 hours or better | RPO and RTO in relation to cloud backups is for guidance only. Agencies are required to measure these against the business, application, regulatory and security requirements.
+Teams chat messages | RPO – 24 hours from backup or better<br>RTO - < 48 hours or better | RPO and RTO in relation to cloud backups is for guidance only. Agencies are required to measure these against the business, application, regulatory and security requirements.
+Teams channel messages | RPO – 24 hours from backup or better<br>RTO - < 48 hours or better | RPO and RTO in relation to cloud backups is for guidance only. Agencies are required to measure these against the business, application, regulatory and security requirements.
+Teams private channel messages | RPO – 24 hours from backup or better<br>RTO - < 48 hours or better | RPO and RTO in relation to cloud backups is for guidance only. Agencies are required to measure these against the business, application, regulatory and security requirements.
 
 Additional RPO, RTO and Retention Periods Design Decisions for cloud native implementations
 

@@ -197,7 +197,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Customer Lockbox | Enable | This is to ensure that Microsoft support engineers cannot access the agency's content to perform a service operation without the agency's explicit approval. 
 
-## Office 365 connectivity
+## Office 365 Connectivity
 
 Office 365 is a publicly facing SaaS offering and firewall ports are required to be opened to allow communication between infrastructure and desktops and Office 365. These ports configurations are updated frequently and are available online from [Microsoft](https://docs.microsoft.com/en-au/office365/enterprise/urls-and-ip-address-ranges).
 
@@ -764,6 +764,19 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Custom Address Lists | Configured | Custom address lists can be configured by Agency administrators, however one initial custom list, `AgencyName-All`, should be manually created.
 GAL and OAB | Generated | These will be generated so that users can send emails within the organisation in accordance with Microsoft best practice.
+
+### Email Transport Security
+
+Message Transfer Agent - Strict Transport Security (MTA-STS) enables the configuration of domain policies that define whether the receiving domain supports TLS. If the domain doesn't support TLS then the policy can be configured to prevent transmission. Outbound mail flow in Exchange Online supports MTA-STS. Configuration of MTA-STS requires a DNS TXT record and the hosting a of the policy file.
+
+Opportunistic TLS enables email traffic to be encrypted when both the sender and receiver domains support TLS without the need for an additional port for encrypted traffic. By default, Exchange Online always attempts to encrypt mail traffic using opportunistic TLS. Microsoft always uses TLS 1.2 when transferring mail between [Exchange Online customers](https://docs.microsoft.com/en-au/microsoft-365/compliance/exchange-online-uses-tls-to-secure-email-connections?view=o365-worldwide#how-exchange-online-uses-tls-between-exchange-online-customers). 
+
+Email Transport Security Design Decisions for all agencies and implementation types.
+
+Decision Point | Design Decision | Justification
+--- | --- | ---
+Configuration of MTA-STS | Recommended | Agencies should configure the required DNS record and policy to require TLS support.
+Opportunistic TLS | Enabled (default) | To encrypt email traffic where supported by the external email domain.
 
 ## SharePoint Online
 
@@ -1445,7 +1458,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Unified Audit Logging | Enabled<br>10-year retention | To provide visibility into the actions being undertaken within the Microsoft 365 environment.
 
-## Exchange Online protection
+## Exchange Online Protection
 
 Exchange Online Protection (EOP) is a series of filtering services within Exchange Online that protects the Agency against spam, malware, and other email threats.
 

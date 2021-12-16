@@ -1,6 +1,6 @@
 {%- assign excerpt = page.content | markdownify | strip_html | normalize_whitespace | truncatewords: 40 | escape -%}
 {% if page.excerpt %}
-{% assign excerpt = page.excerpt %}
+{% assign excerpt = page.excerpt | strip_html | normalize_whitespace | escape %}
 {% endif -%}
 <!DOCTYPE html>
 <html lang="{{ site.lang | default: page.lang | default: 'en' }}" class="no-js">

@@ -1362,6 +1362,7 @@ Hypervisor-protected code integrity | Enabled | To align with the ACSC Windows 1
 Application Control method | A combination of publisher certificate and path rules and will be used. | Controlled via Intune for cloud managed devices and Group policy for hybrid devices.
 Microsoft Block Rules | Configured | To align with the ACSC Windows 10 hardening guidance. The latest Microsoft recommended block rules for [Windows 10](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-block-rules) and [Drivers](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-driver-block-rules) are available online at Microsoft.
 Intelligent Security Graph connection | Disabled | The Intelligent Security Graph connection allows applications to be run if they are deemed as good and there is no explicit block rule configured. 
+Blocking of browsers and email clients for administrators | Configured via AppLocker blocklist | To provide technical controls to prevent administrators from accessing internet content or emails.
 
 ### Identity providers
 

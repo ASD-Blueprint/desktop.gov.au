@@ -5,6 +5,7 @@ You can find published releases at [https://github.com/govau/desktop.gov.au/rele
 ## Next version
 
 * Incorporate Essential Eight July 2021 updates and expanded detail [#116]
+* Incorporate ISM September 2021 updates (from April 2021) [#154]
 * Updated the Windows Defender Application Control guidance [#78]
 * Updated and consolidated the Continuous Monitoring Plan to be more blueprint specific [#73]
 * Updated minimum Windows Server version requirement for Azure AD Connect [#86]

@@ -4,7 +4,7 @@ title: Business Change Guide
 timeline:
 - title: 1. Connect and Align
   body: | 
-   This is where you start your blueprint adoption experience. The Connect and Align phase is about setting you up with a clear understanding of the [the blueprint](/blueprint/index.html) and how to align it to your business needs.
+    This is where you start your blueprint adoption experience. The Connect and Align phase is about setting you up with a clear understanding of the [the blueprint](/blueprint/index.html) and how to align it to your business needs.
     
     A large part of this phase is about being able to [self-identify your agency type](/about/engagement/#). We can also put you in touch with other agencies who have implemented technology based on the blueprint, which you can read about in our [case studies](/about/engagement/case-studies.html). 
 
@@ -56,7 +56,6 @@ In Adopt and Engage:
 •	Keep ongoing maintenance and improvement based on blueprint updates. We update the blueprint regularly to align with the ISM and new Microsoft product features. 
 •	Provide feedback about the blueprint back to the DTA, if possible
 • Share lessons learnt with other agencies.  
-
 ---
 
 The [Protected Utility blueprint](/blueprint/index.html) provides a secure design for government agencies to standardise the way you work as well as communicate and collaborate securely. Adopting the blueprint is as much of a business transformation as it is a security and system process. 

@@ -7,6 +7,12 @@ timeline:
     This is where you start your blueprint adoption experience. The Connect and Align phase is about setting you up with a clear understanding of the [the blueprint](/blueprint/index.html) and how to align it to your business needs.
     
     A large part of this phase is about being able to [self-identify your agency type](/about/engagement/#). We can also put you in touch with other agencies who have implemented technology based on the blueprint, which you can read about in our [case studies](/about/engagement/case-studies.html). 
+    
+    In Prepare and Design: 
+    Define mission and strategy ([Toolkit](/assets/files/pdf/dta-strategy-analysis-toolkit.pdf), [Template](/assets/files/xls/dta-strategy-analysis.xlsx))
+    Assess your business needs or user stories. Consider your Procurement Plan and what resources you will need for the transition. Based on this, prepare your Statement of Work and Section 23. 
+    Consider the Operations Model, which can enable you to consider the roles and costs involved in supporting your blueprint implementation. 
+    Identify your risks ([Toolkit](/assets/files/pdf/dta-risk-assessment-toolkit.pdf), [Template](/assets/files/pdf/dta-risk-assessment.xlsx)) or change impact ([Toolkit](/assets/files/pdf/dta-change-impact-assessment-toolkit.pdf), [Template](/assets/files/pdf/dta-change-impact-assessment.xlsx))
 - title: 2. Prepare and Design
   body: | 
     In the [Prepare and Design phase](/about/engagement/prepare-and-design.html), it's time to start planning your transition to the blueprint. To arm yourself with the right information to develop an effective plan, this phase will take you through the relevant assessments you'll need to carry out to understand your starting point in terms of your business (systems and processes); your people (who will be impacted and how); and your technology. For example, you may like to assess your [technology maturity](/assets/files/pdf/dta-technology-maturity-assessment-toolkit.pdf) or business strategy.

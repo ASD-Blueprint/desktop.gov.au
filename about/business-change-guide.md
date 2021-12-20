@@ -4,9 +4,15 @@ title: Protected Utility engagement framework
 timeline:
 - title: 1. Connect and Align
   body: | 
-    This is where you start your blueprint adoption experience. The Connect and Align phase is about setting you up with a clear understanding of the path ahead; for how to use [the blueprint](/blueprint/index.html) and how to align it to your business needs.
+    This is where you start your blueprint adoption experience. The Connect and Align phase is about setting you up with a clear understanding of the [the blueprint](/blueprint/index.html) and how to align it to your business needs.
     
-    A large part of this phase is about being able to [self-identify your agency type](/about/engagement/agency-type.html). We can also put you in touch with other agencies who have implemented technology based on the blueprint, which you can read about in our [case studies](/about/engagement/case-studies.html). You may also register an account on the Community Portal to share ideas and ask questions. 
+    A large part of this phase is about being able to [self-identify your agency type](/about/engagement/#). We can also put you in touch with other agencies who have implemented technology based on the blueprint, which you can read about in our [case studies](/about/engagement/case-studies.html). 
+
+In Connect and Align: 
+•	Review the blueprint
+•	Self-identify your agency type
+•	Define initial needs, identify and enlist key stakeholders. Consider using our [personas](/about/engagement/personas.html) to understand potential needs and benefits. 
+•	Read the [case studies](/about/engagement/case-studies.html) or connect with another agency who has undergone a prior implementation.
 - title: 2. Prepare and Design
   body: | 
     In the [Prepare and Design phase](/about/engagement/prepare-and-design.html), it's time to start planning your transition to the blueprint. To arm yourself with the right information to develop an effective plan, this phase will take you through the relevant assessments you'll need to carry out to understand your starting point in terms of your business (systems and processes); your people (who will be impacted and how); and your technology. For example, you may like to assess your [technology maturity](/assets/files/pdf/dta-technology-maturity-assessment-toolkit.pdf) or business strategy.

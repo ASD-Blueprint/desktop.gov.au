@@ -1,5 +1,33 @@
 ---
 layout: engagement
+title: Protected Utility engagement framework
+timeline:
+- title: 1. Connect and Align
+  body: | 
+    This is where you start your blueprint adoption experience. The Connect and Align phase is about setting you up with a clear understanding of the path ahead; for how to use [the blueprint](/blueprint/index.html) and how to align it to your business needs.
+    
+    A large part of this phase is about being able to [self-identify your agency type](/about/engagement/agency-type.html). We can also put you in touch with other agencies who have implemented technology based on the blueprint, which you can read about in our [case studies](/about/engagement/case-studies.html). You may also register an account on the Community Portal to share ideas and ask questions. 
+- title: 2. Prepare and Design
+  body: | 
+    In the [Prepare and Design phase](/about/engagement/prepare-and-design.html), it's time to start planning your transition to the blueprint. To arm yourself with the right information to develop an effective plan, this phase will take you through the relevant assessments you'll need to carry out to understand your starting point in terms of your business (systems and processes); your people (who will be impacted and how); and your technology. For example, you may like to assess your [technology maturity](/assets/files/pdf/dta-technology-maturity-assessment-toolkit.pdf) or business strategy.
+- title: 3. Deploy and Embed
+  body: | 
+   This is where the rubber hits the road and we begin the blueprint implementation. The [Deploy and Embed](/about/engagement/deploy-and-embed.html) phase is designed to support you to adopt a Modern Workplace on the blueprint design, which is available to use in your agency's ICT environment and plan for business change.
+   
+   Often, a vendor (a technology partner or systems integrator) is required to assist the customer through the technology aspects of this process, while an organisational change management partner could assist you roll out and plan the change. 
+   
+   Additionally, you may like to use some of the [communications material](/about/engagement/key-messaging.html) we have provided to develop messaging to sell the implementation to your various stakeholder groups.  
+- title: 4. Adopt and Engage
+  body: | 
+    Even the best systems in the world will fail if people don't engage with them. That's why intentional steps are recommended to engage, upskill and motivate your teams as they transition to new ways of working. The Adopt and Engage phase is designed to empower leaders with a clear vision for business change as your agency moves to a Modern Workplace. Before you do this however, you may like to assess your [business readiness](/assets/files/pdf/dta-business-readiness-assessment-toolkit.pdf) to adopt the change. 
+- title: 5. Assess and Advocate
+  body: | 
+    Technology is always changing and improving. At this final stage of the engagement, we would appreciate your participation in helping us continually improve the blueprint adoption experience. By actively engaging with the Whole of Government community, sharing your learnings on the Community Portal, and participating in evaluation of the blueprint, you will make the experience better for future adaptations and new agency adopters. 
+    We have also developed an [operations model](/about/engagement/operations-model.html) which outlines and cost estimates the key roles and skills required to adopt the blueprint in agencies. 
+---
+
+---
+layout: engagement
 title: Business Change Guide
 timeline:
 - title: 1. Connect and Align

@@ -67,9 +67,7 @@ The guide contains suggestions, tools, templates, and guidance for successfully 
 
 ## Change guide phases
 
-The guide has five phases: 
-
-The change guide and its phases is described by the following visual.
+The change guide and its phases is described by the following visual. The guide has five phases: 
 
 1. Connect and Align
 2. Prepare and Design

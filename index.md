@@ -16,8 +16,6 @@ benefits:
   Increase your staff mobility, workplace flexibility and empower your people with modern ways of working.
 ---
 
-## Protected Utility
-
 Welcome to the website for the Digital Transformation Agency's Protected Utility blueprint. The blueprint is a design for a secure, modern, desktop based on Microsoft 365. You can use the blueprint as a pattern for implementing a secure desktop operating system in your agency.
 
 *	Standardise how government agencies operate their desktops.

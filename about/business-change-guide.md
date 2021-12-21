@@ -75,5 +75,5 @@ The change guide and its phases is described by the following visual. The guide 
 4. Adopt and Engage
 5. Assess and Advocate
 
-[![Engagement framework](/assets/images/business-change-guide.png)](/assets/images/business-change-guide.png)
+[![Business change guide visual overview](/assets/images/business-change-guide.png)](/assets/images/business-change-guide.png)
 

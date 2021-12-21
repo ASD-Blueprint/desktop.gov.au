@@ -6,14 +6,14 @@ timeline:
   body: | 
     This is where you start your blueprint adoption experience. The Connect and Align phase is about setting you up with a clear understanding of the [the blueprint](/blueprint/index.html) and how to align it to your business needs.
     
-    A large part of this phase is about being able to [self-identify your agency type](/assets/files/pdf/business-change-guide.pdf#page=8). We can also put you in touch with other agencies who have implemented technology based on the blueprint, which you can read about in our [case studies](case-studies.html).
+    A large part of this phase is about being able to [self-identify your agency type](/assets/files/pdf/business-change-guide.pdf#page=8). We can also put you in touch with other agencies who have implemented technology based on the blueprint, which you can read about in our [case study](case-study.html).
     
     In Connect and Align:
     
     * Review the blueprint
     * Self-identify your agency type
     * Define initial needs, identify and enlist key stakeholders. Consider using our [personas](personas.html) to understand potential needs and benefits. 
-    * Read the [case studies](case-studies.html) or connect with another agency who has undergone a prior implementation.
+    * Read the [case study](case-study.html) or connect with another agency who has undergone a prior implementation.
 - title: 2. Prepare and Design
   body: | 
     In the Prepare and Design phase, it's time to start planning your transition to the blueprint. To arm yourself with the right information to develop an effective plan, this phase will take you through the relevant assessments you'll need to carry out to understand your starting point in terms of your business (systems and processes); your people (who will be impacted and how); and your technology. For example, you may like to assess your [technology maturity](/assets/files/pdf/dta-technology-maturity-assessment-toolkit.pdf).
@@ -73,9 +73,9 @@ The guide contains suggestions, tools, templates, and guidance for successfully 
 
 ## Downloads
 
-1.	Business Change Guide ([PDF version](/assets/files/pdf/business-change-guide.pdf)). The webpage you are reading is a condensed version of this downloadable guide, which includes a best practice model for adopting the blueprint, key communications messages, and checklists.
-2.	[Operations model](/about/engagement/operations-model.html) ([PDF version](/assets/files/pdf/dta-op-model-guide.pdf)) estimates the key roles and skills required to adopt the blueprint.
-3. [Case study from the Office of Commonwealth Ombudsman](/about/engagement/case-studies.html) ([PDF version](/assets/files/pdf/business-change-guide.pdf#page=11)) which has transitioned to the modern workplace based the blueprint.
+1. Business Change Guide ([PDF version](/assets/files/pdf/business-change-guide.pdf)). The webpage you are reading is a condensed version of this downloadable guide, which includes a best practice model for adopting the blueprint, key communications messages, and checklists.
+2. [Operations model](/about/operations-model.html) ([PDF version](/assets/files/pdf/dta-op-model-guide.pdf)) estimates the key roles and skills required to adopt the blueprint.
+3. [Case study from the Office of Commonwealth Ombudsman](case-study.html) ([PDF version](/assets/files/pdf/business-change-guide.pdf#page=11)) which has transitioned to the modern workplace based the blueprint.
 
 ## Change guide phases
 
@@ -87,5 +87,4 @@ The change guide and its phases is described by the following visual. The guide 
 4. Adopt and Engage
 5. Assess and Advocate
 
-[![Business change guide visual overview](/assets/images/business-change-guide.png)](/assets/images/business-change-guide.png)
-
+[![Business change guide visual overview](/assets/images/business-change-guide-large.png)](/assets/images/business-change-guide-large.png)

@@ -12,6 +12,8 @@ markdown: kramdown
 sass:
   style: compressed
 
+timezone: Australia/Sydney
+
 # Build settings
 exclude:
   - Dockerfile

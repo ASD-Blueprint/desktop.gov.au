@@ -1,5 +1,5 @@
 ---
-layout: engagement
+layout: page
 title: Business change guide
 timeline:
 - title: 1. Connect and Align

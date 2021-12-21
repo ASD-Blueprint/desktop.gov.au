@@ -61,7 +61,7 @@ The guide contains suggestions, tools, templates, and guidance for successfully 
 
 ## Downloads
 
-1.	Business Change Guide ([PowerPoint version](/assets/files/pdf/business-change-guide.pdf)). The webpage you are reading is a condensed version of this downloadable guide, which includes a best practice model for adopting the blueprint, key communications messages, and checklists.
+1.	Business Change Guide ([PDF version](/assets/files/pdf/business-change-guide.pdf)). The webpage you are reading is a condensed version of this downloadable guide, which includes a best practice model for adopting the blueprint, key communications messages, and checklists.
 2.	[Operations model](/about/engagement/operations-model.html) ([PDF version](/assets/files/pdf/dta-op-model-guide.pdf)) estimates the key roles and skills required to adopt the blueprint.
 3. [Case study from the Office of Commonwealth Ombudsman](/about/engagement/case-studies.html) ([PDF version](/assets/files/pdf/business-change-guide.pdf#page=11)) which has transitioned to the modern workplace based the blueprint.
 

@@ -63,7 +63,7 @@ You can find published releases at [https://github.com/govau/desktop.gov.au/rele
 
 Other general website changes:
 
-* Expanded the engagement model into a larger comprehensive framework [#96]
+* Converted the engagement framework into the business change guide [#162]
 * Added a new "Patterns" section with a remote access pattern using Azure Virtual Desktop [#107] [#128]
 * Program transition to BAU [#147]
 

@@ -2,12 +2,21 @@
   url: /about/index.html
 
   subitems:
+    - title: Business change guide
+      url: /about/business-change-guide.html
+    
+    - title: Case study
+      url: /about/case-study.html
+
+    - title: Operations model
+      url: /about/operations-model.html
+
     - title: User personas
       url: /about/personas.html
-    
-    - title: Engagement framework
-      url: /about/engagement-framework.html
 
+    - title: FAQs
+      url: /about/faqs.html
+    
 - title: Blueprint
   url: /blueprint/index.html
   

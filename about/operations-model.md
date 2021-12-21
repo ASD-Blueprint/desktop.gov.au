@@ -1,5 +1,5 @@
 --- 
-layout: engagement 
+layout: page 
 title: Operations model
 ---
 

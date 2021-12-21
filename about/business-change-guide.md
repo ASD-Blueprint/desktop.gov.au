@@ -6,11 +6,11 @@ timeline:
   body: | 
     This is where you start your blueprint adoption experience. The Connect and Align phase is about setting you up with a clear understanding of the [the blueprint](/blueprint/index.html) and how to align it to your business needs.
     
-    A large part of this phase is about being able to [self-identify your agency type](/about/engagement/#). We can also put you in touch with other agencies who have implemented technology based on the blueprint, which you can read about in our [case studies](/about/engagement/case-studies.html).
+    A large part of this phase is about being able to [self-identify your agency type](/assets/files/pdf/business-change-guide.pdf#page=8). We can also put you in touch with other agencies who have implemented technology based on the blueprint, which you can read about in our [case studies](/about/engagement/case-studies.html).
     In Connect and Align: 
     Review the blueprint
     Self-identify your agency type
-    Define initial needs, identify and enlist key stakeholders. Consider using our [personas](/about/engagement/personas.html) to understand potential needs and benefits. 
+    Define initial needs, identify and enlist key stakeholders. Consider using our [personas](/about/personas.html) to understand potential needs and benefits. 
     Read the [case studies](/about/engagement/case-studies.html) or connect with another agency who has undergone a prior implementation.
 - title: 2. Prepare and Design
   body: | 
@@ -26,7 +26,7 @@ timeline:
    
    Often, a vendor (a technology partner or systems integrator) is required to assist the customer through the technology aspects of this process, while an organisational change management partner could assist you roll out and plan the change. 
    
-   Additionally, you may like to use some of the ([communications material](/assets/files/ppt/dta-engagement-framework.pptx)) we have provided to develop messaging to sell the implementation to your various stakeholder groups.
+   Additionally, you may like to use some of the ([communications material](/assets/files//pdf/business-change-guide.pdf#page=14)) we have provided to develop messaging to sell the implementation to your various stakeholder groups.
    In Deploy and Embed:
    Set up the relevant technical environment.
    Seek relevant architectural, change management, and security accreditation for the deployment.
@@ -49,7 +49,7 @@ timeline:
     We have also developed an [operations model](/about/engagement/operations-model.html) which outlines and cost estimates the key roles and skills required to adopt the blueprint in agencies. 
     In Assess and Advocate: 
     Keep ongoing maintenance and improvement based on blueprint updates. We update the blueprint regularly to align with the ISM and new Microsoft product features. 
-    Provide feedback about the blueprint back to the DTA, if possible
+    Provide feedback about the blueprint back to the DTA, if possible.
     Share lessons learnt with other agencies.  
 ---
 
@@ -57,24 +57,25 @@ The [Protected Utility blueprint](/blueprint/index.html) provides a secure desig
 
 As we appreciate this is a complex process to undertake, we have created this business change guide. This guide will support you to understand how the Protected Utility blueprint can be implemented in your agency. 
 
-The guide has five phases: 
-
-1. [Connect and Align](/about/engagement/#) 
-2. [Prepare and Design](/about/engagement/#)
-3. [Deploy and Embed](/about/engagement/#)
-4. [Adopt and Engage](/about/engagement/#)
-5. [Assess and Advocate](/about/engagement/#)
-
 The guide contains suggestions, tools, templates, and guidance for successfully adopting the blueprint. It is intended for agencies to adapt as required to their business needs and modernisation journey.
 
 ## Downloads
 
-1.	Business Change Guide ([PowerPoint version](/assets/files/ppt/dta-engagement-framework.pptx)). The webpage you are reading is a condensed version of this downloadable guide, which includes a best practice model for adopting the blueprint, key communications messages, and checklists.
+1.	Business Change Guide ([PowerPoint version](/assets/files/pdf/business-change-guide.pdf)). The webpage you are reading is a condensed version of this downloadable guide, which includes a best practice model for adopting the blueprint, key communications messages, and checklists.
 2.	[Operations model](/about/engagement/operations-model.html) ([PDF version](/assets/files/pdf/dta-op-model-guide.pdf)) estimates the key roles and skills required to adopt the blueprint.
-3. [Case study from the Office of Commonwealth Ombudsman](/about/engagement/case-studies.html) ([PDF version](/assets/files/pdf/dta-oco-case-study.pdf)) which has transitioned to the modern workplace based the blueprint.
+3. [Case study from the Office of Commonwealth Ombudsman](/about/engagement/case-studies.html) ([PDF version](/assets/files/pdf/business-change-guide.pdf#page=11)) which has transitioned to the modern workplace based the blueprint.
 
 ## Change guide phases
 
+The guide has five phases: 
+
 The change guide and its phases is described by the following visual.
 
+1. Connect and Align
+2. Prepare and Design
+3. Deploy and Embed
+4. Adopt and Engage
+5. Assess and Advocate
+
 [![Engagement framework](/assets/images/engagement-framework-overview.png)](/assets/images/engagement-framework-overview.png)
+

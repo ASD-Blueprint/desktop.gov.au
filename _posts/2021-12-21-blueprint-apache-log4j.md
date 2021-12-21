@@ -3,7 +3,7 @@ title: The blueprint and Apache Log4j
 layout: post
 ---
 
-The following is an advisory for the recent Apache Log4j vulnerabilities ([CVE-2021-44228](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228)) identified in December 2021.
+The following is an advisory for the recent Apache Log4j vulnerabilities ([CVE-2021-44228](https://logging.apache.org/log4j/2.x/security.html)) identified in December 2021.
 
 ## Is the Protected Utility blueprint affected?
 

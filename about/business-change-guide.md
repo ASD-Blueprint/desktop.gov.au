@@ -14,7 +14,7 @@ timeline:
     Read the [case studies](/about/engagement/case-studies.html) or connect with another agency who has undergone a prior implementation.
 - title: 2. Prepare and Design
   body: | 
-    In the [Prepare and Design phase](/about/engagement/prepare-and-design.html), it's time to start planning your transition to the blueprint. To arm yourself with the right information to develop an effective plan, this phase will take you through the relevant assessments you'll need to carry out to understand your starting point in terms of your business (systems and processes); your people (who will be impacted and how); and your technology. For example, you may like to assess your [technology maturity](/assets/files/pdf/dta-technology-maturity-assessment-toolkit.pdf).
+    In the Prepare and Design phase, it's time to start planning your transition to the blueprint. To arm yourself with the right information to develop an effective plan, this phase will take you through the relevant assessments you'll need to carry out to understand your starting point in terms of your business (systems and processes); your people (who will be impacted and how); and your technology. For example, you may like to assess your [technology maturity](/assets/files/pdf/dta-technology-maturity-assessment-toolkit.pdf).
      In Prepare and Design: 
     Define mission and strategy ([Toolkit](/assets/files/pdf/dta-strategy-analysis-toolkit.pdf), [Template](/assets/files/xls/dta-strategy-analysis.xlsx))
     Assess your business needs or user stories. Consider your Procurement Plan and what resources you will need for the transition. Based on this, prepare your Statement of Work and Section 23. 

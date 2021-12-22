@@ -10,6 +10,7 @@ references:
         echo "deb https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list
         sudo apt-get update
         sudo apt-get install cf-cli
+        cf --version
   app_prereqs: &app_prereqs
     run:
       name: Application pre-requisites

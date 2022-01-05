@@ -29,6 +29,7 @@ exclude:
   - Staticfile
   - .jekyll-cache
   - .git
+  - .circleci
 
 # Plugin settings
 plugins:

@@ -11,6 +11,11 @@ references:
         sudo apt-get update
         sudo apt-get install cf-cli
         cf --version
+  netlify_install: &netlify_install
+    run:
+      name: Netlify pre-requisites
+      command: |
+        npm install netlify-cli
   app_prereqs: &app_prereqs
     run:
       name: Application pre-requisites
@@ -46,7 +51,7 @@ references:
         JEKYLL_ENV=production bundle exec jekyll build
   docker_image: &docker_image
     docker:
-      - image: circleci/ruby:2.7.4-buster
+      - image: circleci/ruby:2.7.5-node
 
 jobs:
   build_attachments:
@@ -66,35 +71,19 @@ jobs:
           paths:
             - .
 
-  deploy_feature_branch:
-    <<: *docker_image
-    steps:
-      - attach_workspace:
-          at: .
-      - *cf_install
-      - *app_prereqs
-      - *integrate_search
-      - *build_site
-      - run:
-          name: Deploy feature branch
-          command: |
-            cf login -a ${CF_API_STAGING} -o ${CF_ORG} -s ${CF_SPACE} -u ${CF_USERNAME} -p ${CF_PASSWORD_STAGING}
-            cf push desktop-${CIRCLE_BRANCH} -f manifest-staging.yml
-
   deploy_to_staging:
     <<: *docker_image
     steps:
       - attach_workspace:
           at: .
-      - *cf_install
+      - *netlify_install
       - *app_prereqs
       - *integrate_search
       - *build_site
       - run:
-          name: Deploy to staging
+          name: Deploy to Netlify
           command: |
-            cf login -a ${CF_API_STAGING} -o ${CF_ORG} -s ${CF_SPACE} -u ${CF_USERNAME} -p ${CF_PASSWORD_STAGING}
-            cf push -f manifest-staging.yml
+            npx netlify deploy --dir=_site
 
   deploy_to_production:
     <<: *docker_image
@@ -124,19 +113,13 @@ workflows:
                 - /feature-.*/
                 - develop
                 - main
-      - deploy_feature_branch:
-          requires:
-            - build_attachments
-          filters:
-            branches:
-              only:
-                - /feature-.*/
       - deploy_to_staging:
           requires:
             - build_attachments
           filters:
             branches:
               only:
+                - /feature-.*/
                 - develop
       - deploy_to_production:
           requires:

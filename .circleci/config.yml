@@ -121,6 +121,8 @@ jobs:
   netlify:
     <<: *docker_image
     steps:
+      - attach_workspace:
+          at: .
       - *netlify_install
       - *app_prereqs
       - *integrate_search
@@ -163,6 +165,8 @@ workflows:
               only:
                 - main
       - netlify:
+          requires:
+            - build_attachments
           filters:
             branches:
               only:

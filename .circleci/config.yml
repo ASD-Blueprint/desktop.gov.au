@@ -71,35 +71,19 @@ jobs:
           paths:
             - .
 
-  deploy_feature_branch:
-    <<: *docker_image
-    steps:
-      - attach_workspace:
-          at: .
-      - *cf_install
-      - *app_prereqs
-      - *integrate_search
-      - *build_site
-      - run:
-          name: Deploy feature branch
-          command: |
-            cf login -a ${CF_API_STAGING} -o ${CF_ORG} -s ${CF_SPACE} -u ${CF_USERNAME} -p ${CF_PASSWORD_STAGING}
-            cf push desktop-${CIRCLE_BRANCH} -f manifest-staging.yml
-
   deploy_to_staging:
     <<: *docker_image
     steps:
       - attach_workspace:
           at: .
-      - *cf_install
+      - *netlify_install
       - *app_prereqs
       - *integrate_search
       - *build_site
       - run:
-          name: Deploy to staging
+          name: Deploy to Netlify
           command: |
-            cf login -a ${CF_API_STAGING} -o ${CF_ORG} -s ${CF_SPACE} -u ${CF_USERNAME} -p ${CF_PASSWORD_STAGING}
-            cf push -f manifest-staging.yml
+            npx netlify deploy --dir=_site
 
   deploy_to_production:
     <<: *docker_image
@@ -118,20 +102,6 @@ jobs:
             cf login -a ${CF_API_PRODUCTION} -o ${CF_ORG} -s ${CF_SPACE} -u ${CF_USERNAME} -p ${CF_PASSWORD_PRODUCTION}
             cf push -f manifest-production.yml
 
-  netlify:
-    <<: *docker_image
-    steps:
-      - attach_workspace:
-          at: .
-      - *netlify_install
-      - *app_prereqs
-      - *integrate_search
-      - *build_site
-      - run:
-          name: Deploy to Netlify
-          command: |
-            npx netlify deploy --dir=_site
-
 workflows:
   version: 2
   build_and_deploy:
@@ -144,19 +114,13 @@ workflows:
                 - develop
                 - main
                 - netlify
-      - deploy_feature_branch:
-          requires:
-            - build_attachments
-          filters:
-            branches:
-              only:
-                - /feature-.*/
       - deploy_to_staging:
           requires:
             - build_attachments
           filters:
             branches:
               only:
+                - /feature-.*/
                 - develop
       - deploy_to_production:
           requires:
@@ -165,10 +129,3 @@ workflows:
             branches:
               only:
                 - main
-      - netlify:
-          requires:
-            - build_attachments
-          filters:
-            branches:
-              only:
-                - netlify

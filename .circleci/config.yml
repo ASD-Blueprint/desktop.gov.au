@@ -113,7 +113,6 @@ workflows:
                 - /feature-.*/
                 - develop
                 - main
-                - netlify
       - deploy_to_staging:
           requires:
             - build_attachments

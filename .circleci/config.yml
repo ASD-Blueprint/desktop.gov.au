@@ -1,16 +1,6 @@
 version: 2
 
 references:
-  cf_install: &cf_install
-    run:
-      name: Install cf-cli
-      command: |
-        sudo apt-get install apt-transport-https
-        wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo apt-key add -
-        echo "deb https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list
-        sudo apt-get update
-        sudo apt-get install cf-cli
-        cf --version
   netlify_install: &netlify_install
     run:
       name: Netlify pre-requisites
@@ -90,17 +80,16 @@ jobs:
     steps:
       - attach_workspace:
           at: .
-      - *cf_install
+      - *netlify_install
       - *app_prereqs
       - *integrate_web_analytics
       - *integrate_search
       - *index_site
       - *build_site
       - run:
-          name: Deploy to production
+          name: Deploy to Netlify (production)
           command: |
-            cf login -a ${CF_API_PRODUCTION} -o ${CF_ORG} -s ${CF_SPACE} -u ${CF_USERNAME} -p ${CF_PASSWORD_PRODUCTION}
-            cf push -f manifest-production.yml
+            npx netlify deploy --dir=_site --prod
 
 workflows:
   version: 2

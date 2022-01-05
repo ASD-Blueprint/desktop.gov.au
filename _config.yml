@@ -25,7 +25,6 @@ exclude:
   - LICENSE.md
   - assets/sass
   - vendor
-  - manifest-*.yml
   - Staticfile
   - .jekyll-cache
   - .git

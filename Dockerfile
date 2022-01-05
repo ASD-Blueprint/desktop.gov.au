@@ -1,4 +1,4 @@
-FROM circleci/ruby:2.7.4-buster
+FROM circleci/ruby:2.7.5-node
 
 RUN sudo gem update --system
 

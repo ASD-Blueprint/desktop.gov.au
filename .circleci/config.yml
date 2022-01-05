@@ -15,7 +15,7 @@ references:
     run:
       name: Netlify pre-requisites
       command: |
-        npm install netlify-cli --save-dev
+        npm install netlify-cli
   app_prereqs: &app_prereqs
     run:
       name: Application pre-requisites
@@ -130,7 +130,7 @@ jobs:
       - run:
           name: Deploy to Netlify
           command: |
-            netlify deploy --dir=_site
+            npx netlify deploy --dir=_site
 
 workflows:
   version: 2

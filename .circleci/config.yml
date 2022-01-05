@@ -143,6 +143,7 @@ workflows:
                 - /feature-.*/
                 - develop
                 - main
+                - netlify
       - deploy_feature_branch:
           requires:
             - build_attachments

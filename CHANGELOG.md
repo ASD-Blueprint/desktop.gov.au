@@ -4,6 +4,8 @@ You can find published releases at [https://github.com/govau/desktop.gov.au/rele
 
 ## Next version
 
+## December 2021
+
 * Incorporate Essential Eight July 2021 updates and expanded detail [#116]
 * Incorporate ISM September 2021 updates (from April 2021) [#154]
 * Updated the Windows Defender Application Control guidance [#78]

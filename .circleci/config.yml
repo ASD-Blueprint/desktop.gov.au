@@ -1,16 +1,11 @@
 version: 2
 
 references:
-  cf_install: &cf_install
+  netlify_install: &netlify_install
     run:
-      name: Install cf-cli
+      name: Netlify pre-requisites
       command: |
-        sudo apt-get install apt-transport-https
-        wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo apt-key add -
-        echo "deb https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list
-        sudo apt-get update
-        sudo apt-get install cf-cli
-        cf --version
+        npm install netlify-cli
   app_prereqs: &app_prereqs
     run:
       name: Application pre-requisites
@@ -46,7 +41,7 @@ references:
         JEKYLL_ENV=production bundle exec jekyll build
   docker_image: &docker_image
     docker:
-      - image: circleci/ruby:2.7.4-buster
+      - image: circleci/ruby:2.7.5-node
 
 jobs:
   build_attachments:
@@ -66,52 +61,35 @@ jobs:
           paths:
             - .
 
-  deploy_feature_branch:
-    <<: *docker_image
-    steps:
-      - attach_workspace:
-          at: .
-      - *cf_install
-      - *app_prereqs
-      - *integrate_search
-      - *build_site
-      - run:
-          name: Deploy feature branch
-          command: |
-            cf login -a ${CF_API_STAGING} -o ${CF_ORG} -s ${CF_SPACE} -u ${CF_USERNAME} -p ${CF_PASSWORD_STAGING}
-            cf push desktop-${CIRCLE_BRANCH} -f manifest-staging.yml
-
   deploy_to_staging:
     <<: *docker_image
     steps:
       - attach_workspace:
           at: .
-      - *cf_install
+      - *netlify_install
       - *app_prereqs
       - *integrate_search
       - *build_site
       - run:
-          name: Deploy to staging
+          name: Deploy to Netlify
           command: |
-            cf login -a ${CF_API_STAGING} -o ${CF_ORG} -s ${CF_SPACE} -u ${CF_USERNAME} -p ${CF_PASSWORD_STAGING}
-            cf push -f manifest-staging.yml
+            npx netlify deploy --dir=_site
 
   deploy_to_production:
     <<: *docker_image
     steps:
       - attach_workspace:
           at: .
-      - *cf_install
+      - *netlify_install
       - *app_prereqs
       - *integrate_web_analytics
       - *integrate_search
       - *index_site
       - *build_site
       - run:
-          name: Deploy to production
+          name: Deploy to Netlify (production)
           command: |
-            cf login -a ${CF_API_PRODUCTION} -o ${CF_ORG} -s ${CF_SPACE} -u ${CF_USERNAME} -p ${CF_PASSWORD_PRODUCTION}
-            cf push -f manifest-production.yml
+            npx netlify deploy --dir=_site --prod
 
 workflows:
   version: 2
@@ -124,19 +102,13 @@ workflows:
                 - /feature-.*/
                 - develop
                 - main
-      - deploy_feature_branch:
-          requires:
-            - build_attachments
-          filters:
-            branches:
-              only:
-                - /feature-.*/
       - deploy_to_staging:
           requires:
             - build_attachments
           filters:
             branches:
               only:
+                - /feature-.*/
                 - develop
       - deploy_to_production:
           requires:

@@ -11,6 +11,11 @@ references:
         sudo apt-get update
         sudo apt-get install cf-cli
         cf --version
+  netlify_install: &netlify_install
+    run:
+      name: Netlify pre-requisites
+      command: |
+        npm install netlify-cli --save-dev
   app_prereqs: &app_prereqs
     run:
       name: Application pre-requisites
@@ -113,6 +118,18 @@ jobs:
             cf login -a ${CF_API_PRODUCTION} -o ${CF_ORG} -s ${CF_SPACE} -u ${CF_USERNAME} -p ${CF_PASSWORD_PRODUCTION}
             cf push -f manifest-production.yml
 
+  netlify:
+    <<: *docker_image
+    steps:
+      - *netlify_install
+      - *app_prereqs
+      - *integrate_search
+      - *build_site
+      - run:
+          name: Deploy to Netlify
+          command: |
+            netlify deploy --dir=_site
+
 workflows:
   version: 2
   build_and_deploy:
@@ -145,3 +162,8 @@ workflows:
             branches:
               only:
                 - main
+      - netlify:
+          filters:
+            branches:
+              only:
+                - netlify

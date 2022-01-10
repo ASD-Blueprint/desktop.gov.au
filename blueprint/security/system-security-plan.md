@@ -86,8 +86,6 @@ The suite of documentation produced to support ACSC’s certification of Azure a
 
 * 2020 Microsoft Azure IRAP - Azure Security Fundamentals and Cloud Services Assessment
 * Office 365 Security Fundamentals and Cloud Services IRAP Assessment Report 2020
-* 2019 Microsoft Azure IRAP Assessment Report
-* 2019 Microsoft Office 365 IRAP Assessment Report
 
 These documents are available from the [Microsoft Service Trust Portal](https://servicetrust.microsoft.com/ViewPage/Australia).
 
@@ -444,7 +442,7 @@ The CloudSystem provides a role-based access control implementation and associat
 * The CloudSystem includes automation to disable inactive accounts after 45 days.
 * The CloudSystem leverages Azure AD Privileged Identity Management (PIM) to provide Just-in-time administration.
 * Changes to privileged accounts and groups are logged in the Azure AD Audit Log.
-* Intune configures an AppLocker blacklist to prevent administrators from launching web browsers and email clients.
+* Intune configures an AppLocker blocklist to prevent administrators from launching web browsers and email clients.
 * Azure AD logs are forwarded to a Log Analytics workspace for long-term secure retention.
 * The CloudSystem provides emergency access or ‘break-glass’ accounts to be used in emergency situations to restore access to an environment or tenant.
 * The CloudSystem provides Microsoft Cloud App Security (MCAS) policy monitoring to monitor the activity of the break-glass accounts.
@@ -547,21 +545,21 @@ This section is applicable as the CloudSystem includes mobile devices.
 
 #### CloudSystem compliance approach
 
-The CloudSystem leverages Microsoft Endpoint Manager - Intune (Intune) to provide both Mobile Device Management (MDM) Mobile Application Management (MAM) controls to protect mobile devices and data stored on them. Both Windows laptops and iOS devices will be enrolled within Intune and tagged as Corporate devices, allowing policies to be centrally managed and deployed. This includes configuring storage encryption, disabling unneeded features and controlling application behaviour.
+The CloudSystem leverages Microsoft Endpoint Manager - Intune (Intune) to provide both Mobile Device Management (MDM) and Mobile Application Management (MAM) controls to protect mobile devices and data stored on them. Both Windows laptops and iOS devices will be enrolled within Intune and tagged as Corporate devices, allowing policies to be centrally managed and deployed. This includes configuring storage encryption, disabling unneeded features and controlling application behaviour.
 
 The CloudSystem does not include the use of privately-owned mobile devices. Only Agency-owned devices are enrolled and allowed to access data.
 
-iOS devices are lightly managed and partially comply with the ACSC ‘[Security Configuration Guide - Apple iOS 14 Devices](https://www.cyber.gov.au/acsc/view-all-content/publications/security-configuration-guide-apple-ios-14-devices)’ and Information Security Manual (ISM) to maximise usability for the target users. Note: Agencies should do a risk assessment before deciding to change settings relating to mobile devices.
+iOS devices are hardened in accordance with the ACSC ‘[Security Configuration Guide - Apple iOS 14 Devices](https://www.cyber.gov.au/acsc/view-all-content/publications/security-configuration-guide-apple-ios-14-devices)’ and Information Security Manual (ISM) with specific deviations to maximise usability for the target users as described below. Note: Agencies should do a risk assessment before deciding to change settings relating to mobile devices.
 
-Bluetooth is enabled as it allows users to pair devices they may required to perform their duties (e.g. conference calls or online meetings).
+Bluetooth is enabled as it allows users to pair devices they may require to perform their duties (e.g. conference calls or online meetings).
 
-Users can reset certain security settings in Personal Hotspot and Passcode for situations where the passcode/password may have been compromised.
+Users can reset certain security settings in Personal Hotspot and Passcode for situations where the passcode/password may have been compromised. 
 
-The CloudSystem does not use a VPN on mobile devices, and therefore a direct connection to the internet is used. The Agency may choose to implement a VPN for mobile devices if available from their existing SIG.
+The CloudSystem does not include the use of a full VPN on mobile devices, and therefore a direct connection to the internet is used. It is recommended Agencies consider implementing a VPN for mobile devices in accordance with the ACSC's recommendation for iOS devices. The blueprint includes suggested [per app VPN configuration](https://desktop.gov.au/blueprint/abac/intune-configuration.html#ios-per-app-vpn), however the selection and configuration of a VPN server is the responsibility of the Agency.
 
-To provide ease of use and maintain productivity users can download apps from the App Store. The Agency can track and monitor apps found on managed devices that have been enrolled in Intune. Details on how to view and report on discovered apps can be found in the ‘DTA - Cloud-Native Blueprint - Security Standard Operating Procedures’.
+Applications are installed from the App Store using the Volume Purchasing Program (VPP) tokens through Apple Business Manager Enrollment. This provides application control for iOS mobile devices, and removes the need for users having to install applications from the App Store through an Apple ID.
 
-The risk of lightly managed iOS devices is addressed in the ‘[DTA - Cloud-Native Blueprint - Security Risk Management Plan](security-risk-management-plan.html\)’ at [R17](security-risk-management-plan.html#r17-mobile-device-compromised).
+The risk of non-compliance with controls relating to iOS devices is addressed in the ‘[DTA - Cloud-Native Blueprint - Security Risk Management Plan](security-risk-management-plan.html\)’ at [R17](security-risk-management-plan.html#r17-mobile-device-compromised).
 
 #### Security controls provided by the CloudSystem
 
@@ -569,7 +567,7 @@ The risk of lightly managed iOS devices is addressed in the ‘[DTA - Cloud-Nati
 * The CloudSystem provides Windows 10 for laptops which is hardened in accordance with ACSC guidance. The CloudSystem also provides MDM for iOS but does not fully implement ACSC's guidance for PROTECTED.
 * Microsoft BitLocker provides full disk encryption of CloudSystem mobile devices, implementing Advanced Encryption Standard (AES)-256. Additionally, iOS devices implement AES-256 encryption by default.
 * All information transmitted to and from mobile devices and Office 365 is encrypted.
-* Bluetooth device type whitelisting is configured on Windows 10 devices. Bluetooth is not managed for iOS devices.
+* Bluetooth device type allow lists are configured on Windows 10 devices. Bluetooth is not managed for iOS devices.
 * CloudSystem standard users do not have sufficient permissions to install or uninstall applications on Windows 10 devices. Standard users can install and uninstall applications on iOS devices via the App Store.
 * Intune will monitor and report installed iOS applications on any company-owned device.
 * CloudSystem standard users do not have sufficient permissions to modify security functions on Windows 10 devices. Standard users can modify security functions on iOS devices.
@@ -1020,7 +1018,7 @@ Local event logs on Windows 10 devices will be lost when endpoints are rebuilt a
   * user or group management
   * use of special privileges.
 * Logs include the date and time of the event, the relevant user or process, the event description, and the ICT equipment involved are recorded.
-* Logs stored in Log Analytics are protected from unauthorised access, modification and deletion by the Azure AD RBAC model. Standard Windows 10 users to do have access to modify the local event logs.
+* Logs stored in Log Analytics are protected from unauthorised access, modification and deletion by the Azure AD RBAC model. Standard Windows 10 users do not have access to modify the local event logs.
 
 #### Residual controls to be addressed by the Agency
 

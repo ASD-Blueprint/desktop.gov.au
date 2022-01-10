@@ -132,7 +132,7 @@ ISM Chapter | Applicability | Rationale
 --- | --- | ---
 Guidelines for Cyber Security Roles | Not Applicable | Fulfilling these roles is an Agency responsibility.
 Guidelines for Cyber Security Incidents | Not Applicable | The Agency is responsible for identifying, managing and reporting cyber security incidents.
-Guidelines for Outsourcing | Applicable  | Shared responsibility between the CloudSystem and the Agency consuming it.
+Guidelines for Outsourcing | Applicable | Shared responsibility between the CloudSystem and the Agency consuming it.
 Guidelines for Security Documentation | Applicable | The CloudSystem provides system-specific documentation to be read in conjunction with the Agency’s cyber security strategy.
 Guidelines for Physical Security | Not Applicable | The CloudSystem inherits the physical security controls which are implemented by Microsoft for Azure and Office 365 components.
 Guidelines for Personnel Security | Not Applicable | The Agency is responsible for the personnel security as it relates to users of the CloudSystem.
@@ -327,7 +327,7 @@ SECURITY | AZURE ADVANCED THREAT PROTECTION | MICROSOFT | MICROSOFT | MICROSOFT 
 SECURITY | MICROSOFT DEFENDER ADVANCED THREAT PROTECTION | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | MICROSOFT | MICROSOFT | MICROSOFT
 SECURITY | LOG ANALYTICS | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | MICROSOFT | MICROSOFT | MICROSOFT
 SECURITY | SECURITY INFORMATION & EVENT MANAGEMENT | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY
-CLIENT CONFIGURATION | MICROSOFT ENDPOINT MANAGER - INTUNE | AGENCY  | AGENCY | MICROSOFT | MICROSOFT | AGENCY | MICROSOFT | MICROSOFT | MICROSOFT
+CLIENT CONFIGURATION | MICROSOFT ENDPOINT MANAGER - INTUNE | AGENCY | AGENCY | MICROSOFT | MICROSOFT | AGENCY | MICROSOFT | MICROSOFT | MICROSOFT
 CLIENT CONFIGURATION | PRINTING | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY
 BACKUP & OPERATIONAL MANAGEMENT | OFFICE 365 BACKUP | MICROSOFT | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | MICROSOFT | MICROSOFT | MICROSOFT
 SYSTEM ADMINISTRATION | ADMINISTRATIVE CONSOLES | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | AGENCY | MICROSOFT | MICROSOFT | MICROSOFT
@@ -371,7 +371,7 @@ The CloudSystem provides security documentation that an Agency can review, appro
 #### Security controls provided by the CloudSystem
 
 * All security documentation produced by DTA for the CloudSystem has been updated within the last year and include the 'last updated' date.
-* DTA releases updated documentation to their stakeholders via the Protected Utility Community website. 
+* DTA provide updates to documentation via the Protected Utility website at [desktop.gov.au](https://desktop.gov.au/). Release logs and change sets between versions can be obtained at [Github](https://github.com/govau/desktop.gov.au).
 
 #### Residual controls to be addressed by the Agency
 
@@ -842,7 +842,7 @@ To minimise potential user impact, Windows 10 laptops are not rebooted daily. In
 
 * Azure AD is configured to require all users to be authenticated before granting access.
 * Azure MFA is enforced for all standard and privileged users accessing M365 services.
-* MFA requires Azure AD password and Microsoft Authenticator app (either acceptance of push notification or entry of OTP.
+* MFA requires Azure AD password and Microsoft Authenticator app (either acceptance of push notification or entry of OTP).
 * Azure AD password complexity enforces a minimum character length of 8 characters.
 * None of the authentication factors on their own can be used for single-factor authentication to another system.
 * All authentication attempts are logged in Azure AD Sign-ins.
@@ -944,7 +944,7 @@ The blueprint does not include third-party applications or any unsupported softw
 #### Residual controls to be addressed by the Agency
 
 * The Agency is responsible for maintaining and auditing a software register.
-* The Agency is responsible for patching any third-party applications  deployed to Windows 10 devices.
+* The Agency is responsible for patching any third-party applications deployed to Windows 10 devices.
 
 ### Change management
 

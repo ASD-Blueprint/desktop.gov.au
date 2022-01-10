@@ -134,7 +134,7 @@ ISM Chapter | Applicability | Rationale
 --- | --- | ---
 Guidelines for Cyber Security Roles | Not Applicable | Fulfilling these roles is an Agency responsibility.
 Guidelines for Cyber Security Incidents | Not Applicable | The Agency is responsible for identifying, managing and reporting cyber security incidents.
-Guidelines for Outsourcing | Applicable  | Shared responsibility between the HybridSystem and the Agency consuming it.
+Guidelines for Outsourcing | Applicable | Shared responsibility between the HybridSystem and the Agency consuming it.
 Guidelines for Security Documentation | Applicable | The HybridSystem provides system-specific documentation to be read in conjunction with the Agency’s cyber security strategy.
 Guidelines for Physical Security | Not Applicable | The HybridSystem inherits the physical security controls which are implemented by Microsoft for Azure and Office 365 components.
 Guidelines for Personnel Security | Not Applicable | The Agency is responsible for the personnel security as it relates to users of the HybridSystem.
@@ -339,7 +339,7 @@ SECURITY | SECURITY INFORMATION & EVENT MANAGEMENT | AGENCY | AGENCY | AGENCY | 
 CLIENT CONFIGURATION | MICROSOFT ENDPOINT MANAGER - INTUNE | AGENCY | AGENCY | MICROSOFT | AGENCY | AGENCY | AGENCY | AGENCY | MICROSOFT
 CLIENT CONFIGURATION | MICROSOFT ENDPOINT CONFIGURATION MANAGER | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | MICROSOFT
 CLIENT CONFIGURATION | PRINTING | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY
-BACKUP & OPERATIONAL MANAGEMENT | BACKUP PLATFORM | AGENCY  | AGENCY  | AGENCY  | AGENCY  | AGENCY  | AGENCY  | AGENCY  | AGENCY 
+BACKUP & OPERATIONAL MANAGEMENT | BACKUP PLATFORM | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY | AGENCY 
 SYSTEM ADMINISTRATION | ADMINISTRATIVE CONSOLES | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | AGENCY | MICROSOFT | MICROSOFT | MICROSOFT
 SYSTEM ADMINISTRATION | PRIVILEGED IDENTITY MANAGEMENT | MICROSOFT | MICROSOFT | MICROSOFT | AGENCY | AGENCY | MICROSOFT | MICROSOFT | MICROSOFT
 
@@ -382,7 +382,7 @@ The HybridSystem provides security documentation that an Agency can review, appr
 #### Security controls provided by the HybridSystem
 
 * All security documentation produced by DTA for the HybridSystem has been updated within the last year and include the 'last updated' date.
-* DTA releases updated documentation to their stakeholders via the Protected Utility Community website. 
+* DTA provide updates to documentation via the Protected Utility website at [desktop.gov.au](https://desktop.gov.au/). Release logs and change sets between versions can be obtained at [Github](https://github.com/govau/desktop.gov.au).
 
 #### Residual controls to be addressed by the Agency
 
@@ -622,7 +622,7 @@ A Protection Profile (PP) evaluation has been performed on Windows 10 and Micros
 
 * The HybridSystem includes Windows 10 which has been evaluated against the relevant Protection Profile.
 * Windows 10 installation media is sourced directly from Microsoft in accordance with the evaluated delivery procedures.
-* Windows 10 is managed by  Microsoft Endpoint Manager (Intune) in accordance with the published guidance from Microsoft as well the ACSC's hardening guide for Windows 10.
+* Windows 10 is managed by Microsoft Endpoint Manager (Intune) in accordance with the published guidance from Microsoft as well the ACSC's hardening guide for Windows 10.
 
 ### Residual controls to be addressed by the Agency
 
@@ -843,7 +843,7 @@ The HybridSystem provides security controls and an identity management framework
 
 The Microsoft Authenticator app cannot be centrally managed to require the enforcement of a PIN or biometric unlock, and is not considered verifier impersonation resistant.
 
-The Protected User security group is not available in Azure AD and is therefore not used by the HybridSystem.
+The Protected User security group is not available in Azure AD and is the Agency's responsibility to populate for on-premises AD used by the HybridSystem.
 
 The HybridSystem utilises Azure AD to store groups utilised for RBAC and provides process and administration documentation for managing access to Azure resources.
 
@@ -853,7 +853,7 @@ To minimise potential user impact, Windows 10 laptops are not rebooted daily. In
 
 * Azure AD is configured to require all users to be authenticated before granting access.
 * Azure MFA is enforced for all standard and privileged users accessing M365 services.
-* MFA requires Azure AD password and Microsoft Authenticator app (either acceptance of push notification or entry of OTP.
+* MFA requires Azure AD password and Microsoft Authenticator app (either acceptance of push notification or entry of OTP).
 * Azure AD password complexity enforces a minimum character length of 8 characters.
 * All authentication attempts are logged in Azure AD Sign-ins.
 * Azure AD logs are forwarded to a Log Analytics workspace for long-term secure retention.
@@ -869,7 +869,8 @@ To minimise potential user impact, Windows 10 laptops are not rebooted daily. In
 * The Agency is responsible for investigating repeated account lockouts.
 * The Agency is responsible for managing passwords/passphrases.
 * The Agency is responsible for procedures involving provisioning user passwords.
-* The Agency is responsible for configuring  Credential Guard and Remote Credential Guard on servers.
+* The Agency is responsible for populating the Protected Users security group for on-premises AD.
+* The Agency is responsible for configuring Credential Guard and Remote Credential Guard on servers.
 * The Agency is responsible for terminating user sessions and rebooting workstations outside of business hours.
 * The Agency is responsible for the wording of the logon banner.
 
@@ -963,7 +964,7 @@ The blueprint does not include third-party applications or any unsupported softw
 #### Residual controls to be addressed by the Agency
 
 * The Agency is responsible for maintaining and auditing a software register.
-* The Agency is responsible for patching any third-party applications  deployed to Windows 10 devices.
+* The Agency is responsible for patching any third-party applications deployed to Windows 10 devices.
 
 ### Change management
 
@@ -1469,7 +1470,7 @@ The controls relating to web proxies are applicable to the HybridSystem as the s
 
 #### HybridSystem compliance approach
 
-The HybridSystem does not include a web proxy service.  
+The HybridSystem does not include a web proxy service.
 
 Web proxies, content filters, SIG and VPN connections between mobile devices and Agency networks are not currently included within the Protected Utility design.
 

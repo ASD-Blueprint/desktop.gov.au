@@ -4,6 +4,8 @@ You can find published releases at [https://github.com/govau/desktop.gov.au/rele
 
 ## Next version
 
+* Update both cloud-native and hybrid System Security Plans to incorporate all changes to December 2021 [#168]
+
 ## December 2021
 
 * Incorporate Essential Eight July 2021 updates and expanded detail [#116]

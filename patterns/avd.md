@@ -113,37 +113,50 @@ Microsoft provide the following profile management solutions:
 * Mandatory Profiles – A profile that does not save profile changes.
 * Roaming Profiles – A network-based profile that allows user settings to be saved.
 * Microsoft UE-V – Provides personalisation that operates at the application layer delivering a user’s personal Windows experience across many devices, regardless of Windows or the applications are deployed physically or virtually. UE-V templates are created to specify which application settings and files are captured and roamed between sessions.
-* FSLogix – Provides a full profile solution in addition to addressing issues when deploying Office 365 in a non-persistent VDI/RDS environment. Using the Profile Container and/or Office 365 Container data is cached locally helping avoid disruptions or application instability during brief storage interruptions like network switch resets or storage controller failovers. This cache sits between the user’s desktop and the remote container storage and is configured either to persist between logons or start fresh each time the user logs in.
+* FSLogix – Provides a full profile solution in addition to addressing issues when deploying Office 365 in a non-persistent VDI/RDS environment. Using the Profile Container and/or Office 365 Container data is cached locally helping avoid disruptions or application instability during brief storage interruptions like network switch resets or storage controller failovers. This cache sits between the user’s desktop and the remote container storage (SMB file share or cloud cache functionality) and is configured either to persist between logons or start fresh each time the user logs in.
 * Folder Redirection – Enables certain folders, such as Documents and AppData, to be redirected. This enables user data such as documents and email configuration, to not be loaded at login, which can improve performance when loading profiles. However, some applications communicate with the AppData frequently, making the application appear slow when this folder is redirected.
+
+#### FSLogix considerations
+
+FSLogix provides various functionality and advanced profile configurations that can further optimise the virtual desktop experience:
+
+- Simplification of gold image versioning via the use of application masking. This feature allows the base image to include most optional applications to be installed inside the gold image, while only presenting these applications to authorised users. This simplifies gold image management and application delivery and is relatively simple to setup. For further guidance on this this configuration see [Implement Application Masking Tutorial](https://docs.microsoft.com/en-us/fslogix/implement-application-masking-tutorial).
+
+- Management of Java versioning used for various URLs and applications, for those agencies running multiple java runtimes within the desktop.
+- Use of the **redirections.xml** with profile management provides the ability to control what portions of the profile (in the C: drive) are redirected out in the remote profile and kept in sync. Exclusions can optimise the desktop environment and are sometimes used to make an application work within a virtual environment. Microsoft recommend to use this feature with caution and only include exclusions where the exclusion is fully understood.  This pattern recommends to utilise the crowd sourced **redirections.xml** as a base, and will not maintain specific application recommendations in this pattern. The crowd sourced **redirections.xml** is maintained by the virtual desktop user community and can be found at [crowd sourced Redirections.xml  - github](https://github.com/aaronparker/fslogix/blob/main/Redirections/Redirections.csv).
+
+- Cloud Cache is a configuration option provides greater resiliency for the user profile outside of the standard *VHDLocations* configuration which only provides a mounted remote location for the users profile, this can be susceptible to availability issues. The use of Cloud Cache in previous versions of FSLogix introduced a 'logon tax' meaning logon times were slower that using *VHDLocations*, at the expense of resilience and availability. Cloud Cache performance has not yet been validated within this pattern, Agencies are encouraged to assess this feature - which can greatly improve resilience if resilience and availability is a concern. For more information on this architecture, see [Cloud Cache for resiliency and availability.](https://docs.microsoft.com/en-us/fslogix/cloud-cache-resiliency-availability-cncpt)
 
 The following table describes the Profile Management design decisions for the solution.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Personalisation and Profile Management | FSLogix | FSLogix provides the best performance for AVD and supports file shares within Azure.
+Personalisation and Profile Management | FSLogix | FSLogix provides the best performance for AVD compared to alternative methods, and supports file shares within Azure. 
 FSLogix License Entitlement | Microsoft 365 E3/E5<br>Windows 10 Enterprise E3/E5<br>Remote Desktop Services (RDS) Client Access License (CAL)<br>Remote Desktop Services (RDS) Subscriber Access License (SAL) | Any of these licensing entitlements will provide access to FSLogix Profile Container, Office 365 Container, Application Masking, and Java Redirection tools.
-Folder Redirection | Not required | OneDrive redirection of known folders will be used in preference to Folder Redirection
-Profile Management Configuration | Refer to Personalisation and Profile Management Configuration and FSLogix Office 365 Container Configuration tables below | 
+Folder Redirection | Not required | OneDrive redirection of known folders will be used in preference to Folder Redirection, with folders remaining local to the profile. 
+Profile Management Configuration | Refer to Personalisation and Profile Management Configuration and FSLogix Office 365 Container Configuration tables below |
 
-The following table describes Personalisation and Profile Management design decisions for the solution. These settings will be configured via ADMX Group Policy.
+The following table describes Personalisation and Profile Management design decisions for the solution. These settings will be configured via ADMX Group Policy. 
+
+Note, settings not specifically called out assume the default configuration.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Profile Management Version | FSLogix Apps 2.9.7838.44263 | The latest version at the time of writing. The latest version should be assessed and utilised where appropriate.
+Profile Management Version | FSLogix Apps 2.9.7838.44263 | The latest version at the time of writing. The latest version should be assessed and utilised where appropriate. This agent is installed within the Azure marketplace image. The latest version available at time of deployment should be utilised. 
 Profile Container | Enabled | FSLogix will be used to manage profiles for the solution.
+Cloud Cache | Not configured | VHDLocations will be used in preference of Cloud Cache (CCDLocations) in this pattern due to the resilience and performance using NetApp Files or Azure files seen when appropriately configured for the size of the user base. <br />Agencies are encouraged to test CCDLocations if resilience and availability is a problem. 
 Profile Container Logging | Enabled (All logs enabled) | Logging is to be enabled for FSLogix.
-Profile Type | Read write with fallback to read only | Required for multi-session concurrent deployment type.
-Enable Search Roaming |  Enabled: Multi-User Search | Required to support Office 365 Search Database roaming.
-Search Database Configuration | Multi-User Search | Required to support Office 365 Search Database roaming.
+Enable Search Roaming | Disabled | FSLogix search functionality is not compatible with Server 2019, Windows 10 multi-session and should be disabled, and subsequent multi-session operating systems with enhanced native search capabilities. 
+Search Database Configuration | Not applicable | FSLogix search functionality is not compatible with Server 2019, Windows 10 multi-session. 
 Outlook Cached Mode | Enabled | FSLogix Outlook Cached mode will be configured to provide the best user experience.
 Dynamic VHD(X) Allocation | Enabled | Dynamic VHD(X) will be configured to provide storage cost savings where possible.
-Profile Virtual Disk Location | Agency decision point: Azure Files or Azure NetApp Files for Storage Account.<br><br>Storage Account Name/s: TBD - Share that will be used for profiles | Each user will have a FSLogix virtual disk stored to an Azure location in Australia with data geo-replicated to a secondary location for DR purposes. <br><br>Depending on required usage, performance and disaster recovery requirements, the agency must decide between Azure Files and Azure NetApp files depending on their requirements. <br><br>For further information, see [Azure Files and Azure NetApp Files comparison](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-netapp-comparison).
+Profile Virtual Disk Location | Agency decision point: Azure Files or Azure NetApp Files for Storage Account.<br><br>Storage Account Name/s: TBD - Share that will be used for profiles | Each user will have a FSLogix virtual disk stored to an Azure location in Australia with data geo-replicated to a secondary location for DR purposes. <br><br>Depending on required usage, performance and disaster recovery requirements, the agency must decide between Azure Files and Azure NetApp files depending on their requirements or consider a the Cloud Cache option (out of scope for this blueprint). <br><br>For further information, see [Azure Files and Azure NetApp Files comparison](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-netapp-comparison). 
 Virtual Disk Type | VHDX | VHDX is the latest available disk type and suitable for this solution.
-Concurrent Users Sessions | Allowed | Concurrent user sessions must be enabled to allow hosted shared desktop scenarios. 
-Local Cache Persistence | Enabled | Local cache folders will be kept on user logout providing a faster experience for re-logons.
-Redirections File Path | Azure Storage account or other domain share | The redirections configuration XML will be hosted on a common share, to be determined by the agency. 
-Redirection Exclusions | Copy `Redirections.xml` file to `[TBD-DOMAIN]\NETLOGON\FsLogix\`<br><br>See section [Appendix 1 – FSLogix Profile Redirections](#appendix-1--fslogix-profile-redirections) | Base configuration recommended initially. This configuration will be updated as required during the build and test of the solution.<br><br>Note, the folder path to the redirections.xml path is set through Group Policy and points to the folder where the file exists, not the full path of the file itself. 
-Directory Naming Configuration | Swapped: Username_SIDs | This configuration allows for easier navigation of the user VHDX when troubleshooting and during maintenance.
+Allow concurrent users sessions | Enabled | Concurrent user sessions must be enabled to allow multi-session desktop scenarios. 
+Delete local profile when FSLogix Profile should apply | Enabled | To provide the use a clean desktop session on each desktop launch, it is recommended to enable this setting. 
+Redirections File Path | Azure Storage account or other domain share | The redirections configuration XML will be hosted on a common share, to be determined by the agency.<br /> 
+Redirection Exclusions | Copy `Redirections.xml` file to `[TBD-DOMAIN]\NETLOGON\FsLogix\`<br><br>See recommended [crowd sourced redirections.xml](https://github.com/aaronparker/fslogix/blob/main/Redirections/Redirections.csv) for base inclusions.<br />For structure and creation of the file see [Structure of redirections.xml file](https://docs.microsoft.com/en-us/fslogix/manage-profile-content-cncpt#structure-of-redirectionsxml-file). | It is recommended to use the redirections file with caution. Base configuration recommended initially.<br>Note, the folder path to the redirections.xml path is set through Group Policy and points to the folder where the file exists, not the full path of the file itself. 
+Swap directory name components | Enabled: Swap directory name components | This configuration allows for easier navigation of the user VHDX folders when troubleshooting and during maintenance. 
 
 
 The following table includes FSLogix Office 365 Container Configuration.
@@ -151,26 +164,24 @@ The following table includes FSLogix Office 365 Container Configuration.
 Decision Point | Design Decision | Justification
 --- | --- | ---
 O365 Virtual Disk Location | Network Share: [TBD - Network Share to be used for Virtual Disks] | Each user will have a FSLogix virtual disk stored to an Azure location in Australia with data geo-replicated to a secondary location for DR purposes. 
-Virtual Disk Access | Unique disk per session | Required for this deployment type.
+Virtual Disk Access type | Unique disk per session | Required for this deployment type and provides support for OST and OneDrive. 
 Virtual Disk Type | VHDX | VHDX is the latest available disk type and suitable for this solution.
 O365 Container Logging | Enabled | Logging is to be enabled for FSLogix.
-Concurrent Users Sessions | Allowed | Concurrent user sessions must be enabled to allow hosted shared desktop scenarios.
+Concurrent Users Sessions | Allowed | Concurrent user sessions must be enabled to allow multi-session desktop scenarios. 
 Office 365 Activation Data | Enabled | Office 365 activation data will be stored in the O365 container.
 Office Cache Data | Enabled | Office 365 cache data will be stored in the O365 container.
 OneDrive Data | Enabled | OneDrive data will be stored in the O365 container.
 OneNote Data | Enabled | OneNote data will be stored in the O365 container.
 Outlook Data | Enabled Outlook data will be stored in the O365 container.|Outlook data will be stored in the O365 container.
 Outlook Personalisation Data | Enabled | Outlook personalisation data will be stored in the O365 container.
-SharePoint Data | Enabled | SharePoint data will be stored in the O365 container.
+SharePoint Data | Not configured | Not configured 
 Teams Data | Enabled | Teams data will be stored in the O365 container.
-Outlook Folder Path | Configured | `%userprofile%\AppData\Local\Microsoft\Outlook`
 Outlook Container Mode | Cached | Outlook cached mode will be enabled on successfully container attach.
 Dynamic VHD(x) | Enabled | Dynamic VHD(x) will be utilised to save on required space. Disks will grow only as space is required.
-Search Roaming | Enabled | Search roaming will be enabled to support the solution and provide a consistent user experience.
-Search Database | Stored in O365 Container | The Search Database will be stored in the O365 container.
-Sync OST to VHD | Enabled: Move OST to VHD | OST’s will be stored in the O365 container.
-Clear Cloud Cache on Logoff | Enabled | Users locally stored Cloud Cache will be persisted on logoff.
-Directory Naming Configuration | Swapped: Username_SID | This configuration allows for easier navigation of the user VHDX when troubleshooting and during maintenance.
+Search Roaming | Disabled | FSLogix search functionality is not compatible with Server 2019, Windows 10 multi-session and should be disabled, and subsequent multi-session operating systems with enhanced native search capabilities. 
+Search Database | Not applicable                                               | FSLogix search functionality is not compatible with Server 2019, Windows 10 multi-session. 
+Sync OST to VHD | Enabled: Move OST to VHD | Existing OST’s are syncd to VHD/X when new VHD/X is created. 
+ Swap directory name components | Enabled: Swap directory name components                      | This configuration allows for easier navigation of the user VHDX folders when troubleshooting and during maintenance. 
 
 ### Resource tags
 
@@ -544,100 +555,4 @@ Base Installation Switches, if required | `RemoteDesktop.msi /qn` | Silent insta
 Auto Discovery | Corporate Email | Set up DNS TXT Record for [Email Address Discovery](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-email-discovery).
 User Restrictions | **Corporate Devices - Intune Managed**<br>Not Applicable<br><br>**BYOD Device – User Managed**<br>Drive redirection or mapping prohibited<br>Local printing prohibited<br>Clipboard prohibited<br>USB redirection prohibited | To enforce security requirements for data loss prevention.<br><br>To copy data to environment it is recommend using USB file transfer from Intune PROTECTED devices using approved USB devices. 
 
-## Appendices
 
-### Appendix 1 – FSLogix profile redirections
-
-The `redirections.xml` file is used to control what folders are redirected out of the profile container to the C: drive. It can also, optionally, sync the contents of these folders to and from the profile container at user sign-out and sign in respectively.
-
-The location of the `redirections.xml` file resides in the profile container in the `<ProfileRoot>\AppData\Local\FSLogix` folder. The `redirections.xml` file is not pre-created in this directory path. You must create the file if it does not exist.
-
-The admin can use the built-in distribution capabilities of the FSLogix agent, or any other mechanism, to place the file into the profile container. To use the built-in copy mechanism, use the `RedirXMLSourceFolder` setting. At user sign-in, the FSLogix agent will copy the `redirections.xml` file from the specified location (if it exists) and process it immediately. The user must have `Read` permissions to the file.
-
-#### Redirections.xml 
-
-The below outlines the recommended base configuration for the FSLogix `redirections.xml` file for the solution.  It provides base recommendations on what to include and exclude as part of the FXLogix profile redirection.
-
-```xml
-<FrxProfileFolderRedirection ExcludeCommonFolders="0">
-    <Excludes>
-        <Exclude Copy="0">Citrix</Exclude>
-        <Exclude Copy="0">Videos</Exclude>
-        <Exclude Copy="0">Saved Games</Exclude>
-        <Exclude Copy="0">Contacts</Exclude>
-        <Exclude Copy="0">Tracing</Exclude>
-        <Exclude Copy="0">Music</Exclude>
-        <Exclude Copy="0">Downloads</Exclude>
-        <Exclude Copy="0">$Recycle.Bin</Exclude>
-        <Exclude Copy="0">AppData\Local\assembly</Exclude>
-        <Exclude Copy="0">AppData\Local\Sun</Exclude>
-        <Exclude Copy="0">AppData\Local\VirtualStore</Exclude>
-        <Exclude Copy="0">AppData\Local\CrashDumps</Exclude>
-        <Exclude Copy="0">AppData\Local\Package Cache</Exclude>
-        <Exclude Copy="0">AppData\Local\D3DSCache</Exclude>
-        <Exclude Copy="0">AppData\Local\Google\Chrome\Software Reporter Tool</Exclude>
-        <Exclude Copy="0">AppData\Local\Google\Chrome\User Data\BrowserMetrics</Exclude>
-        <Exclude Copy="0">AppData\Local\Google\Chrome\User Data\CertificateRevocation</Exclude>
-        <Exclude Copy="0">AppData\Local\Google\Chrome\User Data\CertificateTransparency</Exclude>
-        <Exclude Copy="0">AppData\Local\Google\Chrome\User Data\Crashpad</Exclude>
-        <Exclude Copy="0">AppData\Local\Google\Chrome\User Data\FileTypePolicies</Exclude>
-        <Exclude Copy="0">AppData\Local\Google\Chrome\User Data\InterventionPolicyDatabase</Exclude>
-        <Exclude Copy="0">AppData\Local\Google\Chrome\User Data\MEIPreload</Exclude>
-        <Exclude Copy="0">AppData\Local\Google\Chrome\User Data\PepperFlash</Exclude>
-        <Exclude Copy="0">AppData\Local\Google\Chrome\User Data\pnacl</Exclude>     
-        <Exclude Copy="0">AppData\Local\Google\Chrome\User Data\Safe Browsing</Exclude>
-        <Exclude Copy="0">AppData\Local\Google\Chrome\User Data\ShaderCache</Exclude>
-        <Exclude Copy="0">AppData\Local\Google\Chrome\User Data\SSLErrorAssistant</Exclude>
-        <Exclude Copy="0">AppData\Local\Google\Chrome\User Data\Subresource Filter</Exclude>
-        <Exclude Copy="0">AppData\Local\Google\Chrome\User Data\SwReporter</Exclude>
-        <Exclude Copy="0">AppData\Local\Google\Chrome\User Data\Default\Cached Theme Images</Exclude>
-        <Exclude Copy="0">AppData\Local\Google\Chrome\User Data\Default\Cache</Exclude>
-        <Exclude Copy="0">AppData\Local\Google\Chrome\User Data\Default\Code Cache\js</Exclude>
-        <Exclude Copy="0">AppData\Local\Google\Chrome\User Data\Default\JumpListIcons</Exclude>
-        <Exclude Copy="0">AppData\Local\Google\Chrome\User Data\Default\JumpListIconsOld</Exclude>
-        <Exclude Copy="0">AppData\Local\Google\Chrome\User Data\Default\Media Cache</Exclude>
-        <Exclude Copy="0">AppData\Local\Google\Chrome\User Data\Default\Service Worker\CacheStorage</Exclude>
-        <Exclude Copy="0">AppData\Local\Microsoft\Internet Explorer\DOMStore</Exclude>
-        <Exclude Copy="0">AppData\Local\Microsoft\Internet Explorer\Recovery</Exclude>
-        <Exclude Copy="0">AppData\Local\Microsoft\Messenger</Exclude>
-        <Exclude Copy="0">AppData\Local\Microsoft\MSOIdentityCRL\Tracing</Exclude>
-        <Exclude Copy="0">AppData\Local\Microsoft\Notifications</Exclude>
-        <Exclude Copy="0">AppData\Local\Microsoft\Office\16.0\Lync\Tracing</Exclude>
-        <Exclude Copy="0">AppData\Local\Microsoft\Terminal Server Client</Exclude>
-        <Exclude Copy="0">AppData\Local\Microsoft\UEV</Exclude>
-        <Exclude Copy="0">AppData\Local\Microsoft\OneNote\16.0\cache</Exclude>
-        <Exclude Copy="0">AppData\Local\Microsoft\Teams\Packages\SquirrelTemp</Exclude>
-        <Exclude Copy="0">AppData\Local\Microsoft\Windows\Application Shortcuts</Exclude>
-        <Exclude Copy="0">AppData\Local\Microsoft\Windows\AppCache</Exclude>
-        <Exclude Copy="0">AppData\Local\Microsoft\Windows\DNTException</Exclude>
-        <Exclude Copy="0">AppData\Local\Microsoft\Windows\GameExplorer</Exclude>
-        <Exclude Copy="0">AppData\Local\Microsoft\Windows\IECompatCache</Exclude>
-        <Exclude Copy="0">AppData\Local\Microsoft\Windows\iecompatuaCache</Exclude>
-        <Exclude Copy="0">AppData\Local\Microsoft\Windows\Mail</Exclude>
-        <Exclude Copy="0">AppData\Local\Microsoft\Windows\Notifications</Exclude>
-        <Exclude Copy="0">AppData\Local\Microsoft\Windows\PRICache</Exclude>
-        <Exclude Copy="0">AppData\Local\Microsoft\Windows\PrivacIE</Exclude>
-        <Exclude Copy="0">AppData\Local\Microsoft\Windows\SchCache</Exclude>
-        <Exclude Copy="0">AppData\Local\Microsoft\Windows\Temporary Internet Files</Exclude>
-        <Exclude Copy="0">AppData\Local\Microsoft\Windows\WebCache</Exclude>
-        <Exclude Copy="0">AppData\Local\Microsoft\Windows\WebCache.old</Exclude>
-        <Exclude Copy="0">AppData\Local\Microsoft\Windows\WER</Exclude>
-        <Exclude Copy="0">AppData\Local\Microsoft\Windows\1031</Exclude>
-        <Exclude Copy="0">AppData\Local\OneDrive\cache</Exclude>
-        <Exclude Copy="0">AppData\Local\Microsoft\Teams\Packages\SquirrelTemp</Exclude>
-        <Exclude Copy="0">AppData\Roaming\Microsoft\Teams\Service Worker\CacheStorage</Exclude>
-        <Exclude Copy="0">AppData\Roaming\Microsoft\Teams\Application Cache</Exclude>
-        <Exclude Copy="0">AppData\Roaming\Microsoft\Teams\Cache</Exclude>  
-        <Exclude Copy="0">AppData\Roaming\Microsoft Teams\Logs</Exclude>
-        <Exclude Copy="0">AppData\Roaming\Microsoft\Teams\media-stack</Exclude>
-        <Exclude Copy="0">AppData\Roaming\Sun\Java\Deployment\cache</Exclude>
-        <Exclude Copy="0">AppData\Roaming\Sun\Java\Deployment\log</Exclude>
-        <Exclude Copy="0">AppData\Roaming\Sun\Java\Deployment\tmp</Exclude>
-        <Exclude Copy="0">AppData\Roaming\Macromedia\Flash Player\macromedia.com\support\flashplayer\sys</Exclude>
-        <Exclude Copy="0">AppData\Roaming\Macromedia\Flash Player\macromedia.com\support\flashplayer\flashplayer\#SharedObjects</Exclude>
-    </Excludes>
-    <Includes>
-        <Include Copy="3">AppData\LocalLow\Sun\Java\Deployment\security</Include>	
-    </Includes>
-</FrxProfileFolderRedirection>
-```

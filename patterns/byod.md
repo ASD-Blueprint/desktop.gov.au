@@ -4,17 +4,17 @@ title: Bring Your Own Device (BYOD)
 excerpt: BYOD allows users to utilise their own consumer devices and access corporate data and applications securely. Polices can assist with protection of corporate . This pattern provides guidance on how to implement various options within the blueprint but outlines some risks involved on the security posture to PROTECTED while doing this.
 ---
 
-*(to do) Intro - talk about what BYOD is in M365, what it has to offer, benefits and overaching M365 options with some form of diagram, include some considerations regarding PROTECTED, ISM, Essential 8*
+*Executive level intro - talk about what BYOD is in M365, what it has to offer, benefits and overaching M365 options with some form of diagram, include some considerations regarding PROTECTED, ISM, Essential 8*
 
 ![BYO landscape](/assets/images/patterns/SOMEVISIO.png)
 
-*Introduce some limited options (e.g. MAM wihtout enrollment, BYO with enrollment and Virtual Desktop, to scope the document, this will allow a patten to be slected and As-Built guide to be followed.)*  
+*Introduce some limited options (e.g. MAM without enrollment, Virtual Desktop for protected BYO, to scope the document, this will allow a patten to be selected and As-Built guide to be followed.* 
 
 *Explain BYOD company policy would need to be implemented to compliment this.*
 
 ## Assumptions
 
-The following represent the assumptions when considering to deploy BYOD options into an exsisting blueprint deployment.
+The following represent the assumptions when considering to deploy BYOD options into an existing blueprint deployment.
 
 * Licensing is available for Windows 10 Enterprise multi-session, Windows 10 Enterprise and FSLogix.
   * Microsoft 365 E3, E5
@@ -43,9 +43,13 @@ Hybrid:
 
 Options | Use-Cases | Effort to implement | Security Risk / E8 Maturity Level considerations 
 --- | --- | ---| ---
- Option 1   | E.g. what apps , what level of access, what level of enrollment |                     |                                                  
- Option 2   |                                                              |                     |                                                  
+ Option 1   | E.g. what apps , what level of access, what level of enrollment | Easiest             | Residual risk ratings to PROTECTED, etc          
+ Option 2   |                                                              | Difficult           | Meet PROTECTED level controls etc. <br />        
  *Option 3* |                                                              |                     |                                                  
+
+*Include a flow chart to determine how to make a decision between Options as a blueprint user....*
+
+![BYO Flow Chart](/assets/images/patterns/SOMEVISIO2.png)
 
 ### Option 1
 
@@ -110,6 +114,14 @@ Decision Point | Design Decision | Justification
 
 *Link to additional guides, or include them here..*
 
-### BYOD Security Risk Assessment Items
+### Security Considerations
 
 Include area on the SSP/ISM controls and map back to risk assessment.
+
+#### System Security Plan
+
+*ISM controls, updates to SSP required for each option*
+
+#### Security Risk Management Plan
+
+*Risks for each option and assessment based on SRMP* 

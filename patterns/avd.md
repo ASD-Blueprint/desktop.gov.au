@@ -121,10 +121,9 @@ Microsoft provide the following profile management solutions:
 FSLogix provides various functionality and advanced profile configurations that can further optimise the virtual desktop experience:
 
 - Simplification of gold image versioning via the use of application masking. This feature allows the base image to include most optional applications to be installed inside the gold image, while only presenting these applications to authorised users. This simplifies gold image management and application delivery and is relatively simple to setup. For further guidance on this this configuration see [Implement Application Masking Tutorial](https://docs.microsoft.com/en-us/fslogix/implement-application-masking-tutorial).
-
 - Management of Java versioning used for various URLs and applications, for those agencies running multiple java runtimes within the desktop.
-- Use of the **redirections.xml** with profile management provides the ability to control what portions of the profile (in the C: drive) are redirected out in the remote profile and kept in sync. Exclusions can optimise the desktop environment and are sometimes used to make an application work within a virtual environment. Microsoft recommend to use this feature with caution and only include exclusions where the exclusion is fully understood.  This pattern recommends to utilise the crowd sourced **redirections.xml** as a base, and will not maintain specific application recommendations in this pattern. The crowd sourced **redirections.xml** is maintained by the virtual desktop user community and can be found at [crowd sourced Redirections.xml  - github](https://github.com/aaronparker/fslogix/blob/main/Redirections/Redirections.csv).
-
+- Use of the **redirections.xml** with profile management provides the ability to control what portions of the profile (in the C: drive) are redirected out in the remote profile and kept in sync. Exclusions can optimise the desktop environment and are sometimes used to make an application work within a virtual environment. Microsoft recommend to use this feature with caution and only include exclusions where the exclusion is fully understood.  
+  - This pattern recommends to utilise the crowd sourced **redirections.xml** as a base, **redirections.xml** is maintained by the virtual desktop user community and can be found at [crowd sourced Redirections.xml  - github](https://github.com/aaronparker/fslogix/blob/main/Redirections/Redirections.csv). At minimum, Microsoft recommend excluding certain Microsoft Teams data, this guidance can be found in the [FSLogix Azure Architecture Guide](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix#teams-exclusions).
 - Cloud Cache is a configuration option provides greater resiliency for the user profile outside of the standard *VHDLocations* configuration which only provides a mounted remote location for the users profile, this can be susceptible to availability issues. The use of Cloud Cache in previous versions of FSLogix introduced a 'logon tax' meaning logon times were slower that using *VHDLocations*, at the expense of resilience and availability. Cloud Cache performance has not yet been validated within this pattern, Agencies are encouraged to assess this feature - which can greatly improve resilience if resilience and availability is a concern. For more information on this architecture, see [Cloud Cache for resiliency and availability.](https://docs.microsoft.com/en-us/fslogix/cloud-cache-resiliency-availability-cncpt)
 
 The following table describes the Profile Management design decisions for the solution.
@@ -144,6 +143,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Profile Management Version | FSLogix Apps 2.9.7838.44263 | The latest version at the time of writing. The latest version should be assessed and utilised where appropriate. This agent is installed within the Azure marketplace image. The latest version available at time of deployment should be utilised. 
 Profile Container | Enabled | FSLogix will be used to manage profiles for the solution.
+Office Container | Enabled (optional) | The Office container stores just the Microsoft Office portion of the profile and is utilised to spread storage load over various storage locations.<br />Note, Microsoft Office data is stored in the profile container when the Office container is not utilised, this can simplify the deployment. See [Profile Container vs. Office Container](https://docs.microsoft.com/en-us/fslogix/manage-profile-content-cncpt). 
 Cloud Cache | Not configured | VHDLocations will be used in preference of Cloud Cache (CCDLocations) in this pattern due to the resilience and performance using NetApp Files or Azure files seen when appropriately configured for the size of the user base. <br />Agencies are encouraged to test CCDLocations if resilience and availability is a problem. 
 Profile Container Logging | Enabled (All logs enabled) | Logging is to be enabled for FSLogix.
 Enable Search Roaming | Disabled | FSLogix search functionality is not compatible with Server 2019, Windows 10 multi-session and should be disabled, and subsequent multi-session operating systems with enhanced native search capabilities. 
@@ -157,7 +157,6 @@ Delete local profile when FSLogix Profile should apply | Enabled | To provide th
 Redirections File Path | Azure Storage account or other domain share | The redirections configuration XML will be hosted on a common share, to be determined by the agency.<br /> 
 Redirection Exclusions | Copy `Redirections.xml` file to `[TBD-DOMAIN]\NETLOGON\FsLogix\`<br><br>See recommended [crowd sourced redirections.xml](https://github.com/aaronparker/fslogix/blob/main/Redirections/Redirections.csv) for base inclusions.<br />For structure and creation of the file see [Structure of redirections.xml file](https://docs.microsoft.com/en-us/fslogix/manage-profile-content-cncpt#structure-of-redirectionsxml-file). | It is recommended to use the redirections file with caution. Base configuration recommended initially.<br>Note, the folder path to the redirections.xml path is set through Group Policy and points to the folder where the file exists, not the full path of the file itself. 
 Swap directory name components | Enabled: Swap directory name components | This configuration allows for easier navigation of the user VHDX folders when troubleshooting and during maintenance. 
-
 
 The following table includes FSLogix Office 365 Container Configuration.
 
@@ -175,7 +174,7 @@ OneNote Data | Enabled | OneNote data will be stored in the O365 container.
 Outlook Data | Enabled Outlook data will be stored in the O365 container.|Outlook data will be stored in the O365 container.
 Outlook Personalisation Data | Enabled | Outlook personalisation data will be stored in the O365 container.
 SharePoint Data | Not configured | Not configured 
-Teams Data | Enabled | Teams data will be stored in the O365 container.
+Teams Data | Disabled | Teams data will not stored in the O365 container. This allows optimisation of the profile size in the Profile container to avoid profile bloat. 
 Outlook Container Mode | Cached | Outlook cached mode will be enabled on successfully container attach.
 Dynamic VHD(x) | Enabled | Dynamic VHD(x) will be utilised to save on required space. Disks will grow only as space is required.
 Search Roaming | Disabled | FSLogix search functionality is not compatible with Server 2019, Windows 10 multi-session and should be disabled, and subsequent multi-session operating systems with enhanced native search capabilities. 
@@ -554,5 +553,4 @@ Windows Desktop Client Version | Latest version | To ensure all security enhance
 Base Installation Switches, if required | `RemoteDesktop.msi /qn` | Silent install for Remote Desktop client when using Device Management / AD Software Deployment.
 Auto Discovery | Corporate Email | Set up DNS TXT Record for [Email Address Discovery](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-email-discovery).
 User Restrictions | **Corporate Devices - Intune Managed**<br>Not Applicable<br><br>**BYOD Device – User Managed**<br>Drive redirection or mapping prohibited<br>Local printing prohibited<br>Clipboard prohibited<br>USB redirection prohibited | To enforce security requirements for data loss prevention.<br><br>To copy data to environment it is recommend using USB file transfer from Intune PROTECTED devices using approved USB devices. 
-
 

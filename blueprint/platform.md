@@ -17,7 +17,7 @@ Identity and Access Management | The Identity and Access Management section incl
 Security | The Security section details several cloud-based security components available within the Microsoft 365 suite to detect and monitor suspicious behaviour for Cloud and Hybrid solutions.
 Client Configuration | The Client Configuration section details the Microsoft Endpoint Manager - Intune (Intune) management methods and design decisions for the client configuration.
 Backup and Operational Management | The Backup and Operation Management section details the backup design decisions including RPO (recovery point objective), RTO (recovery time objective) and Data Availability. 
-System Administration | The System Administration section details how the solution will be managed, the administrative consoles that will be used to administrator the various components, and how Role Based Access Control (RBAC) is implemented to control access.
+System Administration | The System Administration section details how the solution will be managed, the administrative consoles that will be used to administrator the various components, and how Role-Based Access Control (RBAC) is implemented to control access.
 
 For each component within the document there is a brief description of the contents of the section, a commentary on the things that have been considered in determining the decisions and the design decisions themselves.
 
@@ -542,7 +542,7 @@ Note, all user activity and security alert information can be exported from MCAS
 
 #### Administration
 
-MCAS leverages Azure Active Directory (Azure AD) to provide Role-Based Access Control (RBAC) for administration via the web portal. By default, only the Global Administrator and Security Administrator roles have full access to MCAS. Other standard Azure AD roles that have at least read-only access to the portal include Compliance Administrator, Compliance Data Administrator, Security Operator, Security Reader, and Global Reader. 
+MCAS leverages Azure Active Directory (Azure AD) to provide RBAC for administration via the web portal. By default, only the Global Administrator and Security Administrator roles have full access to MCAS. Other standard Azure AD roles that have at least read-only access to the portal include Compliance Administrator, Compliance Data Administrator, Security Operator, Security Reader, and Global Reader. 
 
 In addition to the standard Azure AD roles, MCAS also has its own service-specific roles that provide finer grained [RBAC](https://docs.microsoft.com/en-us/cloud-app-security/manage-admins). If required, Global and Security Administrators can also grant access to specific users within the MCAS portal.
 
@@ -1000,7 +1000,7 @@ Deleted Objects container permissions | Read-only | Microsoft recommends users s
 
 ### Defender for Identity – Role groups
 
-Defender for Identity provides security groups to allow the implementation of a Role-Based Access Control (RBAC) model.
+Defender for Identity provides security groups to allow the implementation of a RBAC model.
 
 Azure AD provides the basis for the Defender for Identity role groups. When Defender for Identity is enabled for the first time it automatically creates the three security groups in Azure AD, using the product's previous name - Azure ATP. The three Defender for Identity security groups are:
 
@@ -1645,7 +1645,7 @@ Data Availability | Configured | Microsoft have in-built data availability into 
 
 ## System administration
 
-System Administration is the process of managing, troubleshooting, and maintaining the solution. To complete this, system administrators are granted permissions over the solution. The allocation of permissions to administrators should align with the administrator's role within the organisation and the principle of least privileged access. The allocation of permission to the administrator's role is captured within the Role Based Access Control (RBAC) policy.
+System Administration is the process of managing, troubleshooting, and maintaining the solution. To complete this, system administrators are granted permissions over the solution. The allocation of permissions to administrators should align with the administrator's role within the organisation and the principle of least privileged access. The allocation of permission to the administrator's role is captured within the RBAC policy.
 
 ### Administrative consoles
 
@@ -1665,26 +1665,26 @@ Microsoft 365 Compliance Center | Available from web console | The console is av
 Microsoft Endpoint Manager Admin Center | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://endpoint.microsoft.com/](https://endpoint.microsoft.com/). 
 Defender for Identity Portal | Available from web console | The console is available from any managed device using a standard Web browser with internet access. The FQDN used for access will be [https://portal.atp.azure.com/](https://portal.atp.azure.com/). 
 
-### Role Based Access Control
+### Role-Based Access Control
 
-Role Based Access Control (RBAC) defines what an end user or administrator can do. In relation to system administration, RBAC provides various roles each of which can only perform certain tasks. For example, help desk staff may be able to only view certain resources, whereas system administrators could view, create, and delete those resources.
+RBAC defines what an end user or administrator can do. In relation to system administration, RBAC provides various roles each of which can only perform certain tasks. For example, help desk staff may be able to only view certain resources, whereas system administrators could view, create, and delete those resources.
 
-When deploying the RBAC model in Azure, there are two scopes where access can be granted. The use of the scopes can be used separately or together depending on the services activated. The scopes include:
-
-* Tenant Scope - Roles within the Tenant Scope allow access to perform tasks at the Tenant and Office 365 administration level. By default, there are 51 built-in RBAC roles that can be assigned at this level to ensure least privilege access is implemented.
-* Subscription Scope – Roles within the Subscription Scope allow access to perform tasks within a subscription. Subscription roles do not have permissions at the Tenant Scope level.
-
-Azure AD roles can be assigned to groups which can simplify the management of role assignments in Azure AD. 
-
-Privileged Identity Management (PIM) can be leveraged to enhance the Azure RBAC model. PIM is an implementation of Just-in-time (JIT) access. JIT access ensures that an administrative account only has privileges when required to complete a function. JIT aligns to the principal of Zero Standing Privilege. Group assignment of Azure AD roles is also supported with PIM.
+Privileged Identity Management (PIM) can be leveraged to enhance the RBAC model available in Azure AD. PIM is an implementation of Just-in-time (JIT) access. JIT access ensures that an administrative account only has privileges when required to complete a function. JIT aligns to the principal of Zero Standing Privilege. Group assignment of Azure AD roles is also supported with PIM.
 
 Each PIM role assignment can have the following attributes:
 
 * Activation Duration - the Activation Duration attribute specifies the duration to allow the access request, the maximum is 72 hours.
-* Approver – the Approver attribute specifies the person or people who can approve role activation requests.
-* Notification – the Notification attribute specifies that a pending request is awaiting approval via email.
-* Incident Request Ticket – the Incident Request Ticket attribute specifies that the approver add an incident ticket number to the approval request.
-* Multi-factor Authentication – the Multi-factor Authentication attribute specifies whether MFA is required for activation.
+* Approver - the Approver attribute specifies the person or people who can approve role activation requests.
+* Notification - the Notification attribute specifies that a pending request is awaiting approval via email.
+* Incident Request Ticket - the Incident Request Ticket attribute specifies that the approver add an incident ticket number to the approval request.
+* Multi-factor Authentication - the Multi-factor Authentication attribute specifies whether MFA is required for activation.
+
+Azure AD roles can be assigned via PIM to various scope types, depending on the specific role being assigned. The scope types include:
+
+* Directory - Roles that apply permissions across the entire Azure AD tenant.
+* Administrative unit - Configurable by administrators to segregate permissions within organisation into specific business units or locations.  Note only [specific Azure AD roles](https://docs.microsoft.com/en-au/azure/active-directory/roles/admin-units-assign-roles#roles-that-can-be-assigned-with-administrative-unit-scope) can be assigned with administrative unit scope.
+* Application - A specific application registered to Azure AD. These are listed under [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) in the Azure portal.
+* Service principal - Including registered applications, managed identities and legacy apps.
 
 Note: the product name for Microsoft Information Protection is still referred to as Azure Information Protection within the defined Azure AD Roles.
 

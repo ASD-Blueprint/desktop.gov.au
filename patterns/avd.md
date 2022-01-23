@@ -23,10 +23,10 @@ The following sections of this document outline design defaults and guidance whe
 
 This diagram shows a typical architectural overview for AVD.
 
-* The user endpoints reside either within an agency’s on-premises network (hybrid) or on the public internet (cloud native). For hybrid deployments, ExpressRoute or a site-to-site VPN extends the on-premises network into Azure. Azure AD Connect integrates the agency’s hybrid identity (Active Directory Domain Services (AD DS)) with Azure Active Directory (Azure AD). Cloud native deployments that do not have a hybrid identity (AD DS) can leverage cloud-native Azure AD Domain Services or use native Azure AD join with Intune management.
+* The user endpoints reside either within an agency's on-premises network (hybrid) or on the public internet (cloud native). For hybrid deployments, ExpressRoute or a site-to-site VPN extends the on-premises network into Azure. Azure AD Connect integrates the agency's hybrid identity (Active Directory Domain Services (AD DS)) with Azure Active Directory (Azure AD). Cloud native deployments that do not have a hybrid identity (AD DS) can leverage cloud-native Azure AD Domain Services or use native Azure AD join with Intune management.
 * The AVD control plane handles Web Access, Gateway, Broker, Diagnostics, and extensibility components like REST APIs.
 * The agency manages AD DS and Azure AD, Azure subscriptions, virtual networks, Azure Storage, and the AVD host pools and workspaces.
-* The agency uses multiple Azure subscriptions in an [enterprise-scale landing zone architecture](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/enterprise-scale/architecture) as per [Microsoft’s Cloud Adoption Framework](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/overview) for Azure.
+* The agency uses multiple Azure subscriptions in an [enterprise-scale landing zone architecture](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/enterprise-scale/architecture) as per [Microsoft's Cloud Adoption Framework](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/overview) for Azure.
 
 ## Assumptions
 
@@ -95,7 +95,7 @@ Decision Point | Design Decision | Justification
 Group Policy template versions (ADMX) | **Windows**: Windows 10 Enterprise ( 21H1)<br>**Microsoft Office**: Microsoft 365 Apps for enterprise / Office 2016 / 2019<br><br>Design Decisions for OS and Office versions, refer to [client devices design](https://desktop.gov.au/blueprint/client-devices.html). | ADMXs required to support the current SAC release of Windows 10, Microsoft 365 and Microsoft Defender for Endpoint.
 Group Policy Inheritance | Enabled | The session host desktop policies will be linked to a new OU structure. No existing policies will be used.
 Group Policy Loopback Mode | Replace Mode | Loopback processing in Replace Mode will be configured to allow finer grained user policies to be linked at the computers OU level.
-ACSC Hardening Guidelines – [Hardening Windows 10](https://www.cyber.gov.au/acsc/view-all-content/publications/hardening-microsoft-windows-10-version-21h1-workstations), [Microsoft Office Macro Security](https://www.cyber.gov.au/acsc/view-all-content/publications/microsoft-office-macro-security) and [MS Office](https://www.cyber.gov.au/acsc/view-all-content/publications/hardening-microsoft-office-365-proplus-office-2019-and-office-2016). | Deployed | Ensures the ACSC Windows 10 and Office Macro Security hardening recommendations have been assessed and appropriately applied to devices via custom group policies.<br><br>The Client Devices Design Blueprint advice will be followed to harden the AVD VM’s except where it does not apply (I.e., Any recommendations that only apply to physical desktop machines and not VM’s).  For example, the following outlined hardening recommendations from the guide will not be applied:<br><br>* Early Launch Antimalware<br>* Measured Boot<br>* Secure Boot<br>* BIOS and UEFI passwords<br>* Boot devices<br>* CD burner access<br><br>Exact configurations per the ACSC guidelines will be included in the ‘As-Built As-Configured’ documentation. 
+ACSC Hardening Guidelines – [Hardening Windows 10](https://www.cyber.gov.au/acsc/view-all-content/publications/hardening-microsoft-windows-10-version-21h1-workstations), [Microsoft Office Macro Security](https://www.cyber.gov.au/acsc/view-all-content/publications/microsoft-office-macro-security) and [MS Office](https://www.cyber.gov.au/acsc/view-all-content/publications/hardening-microsoft-office-365-proplus-office-2019-and-office-2016). | Deployed | Ensures the ACSC Windows 10 and Office Macro Security hardening recommendations have been assessed and appropriately applied to devices via custom group policies.<br><br>The Client Devices Design Blueprint advice will be followed to harden the AVD VM's except where it does not apply (I.e., Any recommendations that only apply to physical desktop machines and not VM's).  For example, the following outlined hardening recommendations from the guide will not be applied:<br><br>* Early Launch Antimalware<br>* Measured Boot<br>* Secure Boot<br>* BIOS and UEFI passwords<br>* Boot devices<br>* CD burner access<br><br>Exact configurations per the ACSC guidelines will be included in the ‘As-Built As-Configured' documentation. 
 ACSC Group Policy – Override | As required | A set of custom group policy settings to override the ACSC group policies can be applied as needed to meet the agencies requirements (i.e., legacy applications configurations, custom organisational settings, etc).
 Group Policies Configuration | To be outlined in As Built Configuration | As required to allow system to function correctly and as per the agencies requirements.
 
@@ -103,7 +103,7 @@ Group Policies Configuration | To be outlined in As Built Configuration | As req
 
 User profiles and personalisation enable users to configure an application or desktop setting and have that setting retained the next time they login or roam to another computer. This is extremely important when using a virtual desktop, as the local Windows profile is generally always not present for each new virtual desktop login, this can impede the user performance as it can increase user login times and cause issues with applications missing configuration on virtual desktop sessions. 
 
-Each user group, regardless of the required level of personalisation, should have a profile that determines how the user’s settings will or will not persist across sessions. Part of the profile configuration includes folder redirection to better optimise the profile.
+Each user group, regardless of the required level of personalisation, should have a profile that determines how the user's settings will or will not persist across sessions. Part of the profile configuration includes folder redirection to better optimise the profile.
 
 Microsoft includes several standard options for user profiles, or personalisation. Alternatively, technologies such as Microsoft UE-V and FSLogix, can be used to address user profile and personalisation requirements. If no user profile is configured, a desktop local profile is used, which is seldom optimal.
 
@@ -112,19 +112,19 @@ Microsoft provide the following profile management solutions:
 * Local Profiles – Are created and stored on each workstation the user logs on to.
 * Mandatory Profiles – A profile that does not save profile changes.
 * Roaming Profiles – A network-based profile that allows user settings to be saved.
-* Microsoft UE-V – Provides personalisation that operates at the application layer delivering a user’s personal Windows experience across many devices, regardless of Windows or the applications are deployed physically or virtually. UE-V templates are created to specify which application settings and files are captured and roamed between sessions.
-* FSLogix – Provides a full profile solution in addition to addressing issues when deploying Office 365 in a non-persistent VDI/RDS environment. Using the Profile Container and/or Office 365 Container data is cached locally helping avoid disruptions or application instability during brief storage interruptions like network switch resets or storage controller failovers. This cache sits between the user’s desktop and the remote container storage (SMB file share or cloud cache functionality) and is configured either to persist between logons or start fresh each time the user logs in.
+* Microsoft UE-V – Provides personalisation that operates at the application layer delivering a user's personal Windows experience across many devices, regardless of Windows or the applications are deployed physically or virtually. UE-V templates are created to specify which application settings and files are captured and roamed between sessions.
+* FSLogix – Provides a full profile solution in addition to addressing issues when deploying Office 365 in a non-persistent VDI/RDS environment. Using the Profile Container and/or Office 365 Container data is cached locally helping avoid disruptions or application instability during brief storage interruptions like network switch resets or storage controller failovers. This cache sits between the user's desktop and the remote container storage (SMB file share or cloud cache functionality) and is configured either to persist between logons or start fresh each time the user logs in.
 * Folder Redirection – Enables certain folders, such as Documents and AppData, to be redirected. This enables user data such as documents and email configuration, to not be loaded at login, which can improve performance when loading profiles. However, some applications communicate with the AppData frequently, making the application appear slow when this folder is redirected.
 
 #### FSLogix considerations
 
 FSLogix provides various functionality and advanced profile configurations that can further optimise the virtual desktop experience:
 
-- Simplification of gold image versioning via the use of application masking. This feature allows the base image to include most optional applications to be installed inside the gold image, while only presenting these applications to authorised users. This simplifies gold image management and application delivery and is relatively simple to setup. For further guidance on this this configuration see [Implement Application Masking Tutorial](https://docs.microsoft.com/en-us/fslogix/implement-application-masking-tutorial).
-- Management of Java versioning used for various URLs and applications, for those agencies running multiple java runtimes within the desktop.
-- Use of the **redirections.xml** with profile management provides the ability to control what portions of the profile (in the C: drive) are redirected out in the remote profile and kept in sync. Exclusions can optimise the desktop environment and are sometimes used to make an application work within a virtual environment. Microsoft recommend to use this feature with caution and only include exclusions where the exclusion is fully understood.  
-  - This pattern recommends to utilise the crowd sourced **redirections.xml** as a base, **redirections.xml** is maintained by the virtual desktop user community and can be found at [crowd sourced Redirections.xml  - github](https://github.com/aaronparker/fslogix/blob/main/Redirections/Redirections.csv). At minimum, Microsoft recommend excluding certain Microsoft Teams data, this guidance can be found in the [FSLogix Azure Architecture Guide](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix#teams-exclusions).
-- Cloud Cache is a configuration option provides greater resiliency for the user profile outside of the standard *VHDLocations* configuration which only provides a mounted remote location for the users profile, this can be susceptible to availability issues. The use of Cloud Cache in previous versions of FSLogix introduced a 'logon tax' meaning logon times were slower that using *VHDLocations*, at the expense of resilience and availability. Cloud Cache performance has not yet been validated within this pattern, Agencies are encouraged to assess this feature - which can greatly improve resilience if resilience and availability is a concern. For more information on this architecture, see [Cloud Cache for resiliency and availability.](https://docs.microsoft.com/en-us/fslogix/cloud-cache-resiliency-availability-cncpt)
+* Simplification of gold image versioning via the use of application masking. This feature allows the base image to include most optional applications to be installed inside the gold image, while only presenting these applications to authorised users. This simplifies gold image management and application delivery and is relatively simple to setup. For further guidance on this this configuration see [Implement Application Masking Tutorial](https://docs.microsoft.com/en-us/fslogix/implement-application-masking-tutorial).
+* Management of Java versioning used for various URLs and applications, for those agencies running multiple java runtimes within the desktop.
+* Use of **redirections.xml** with profile management provides the ability to control which portions of the profile (in the C: drive) are redirected out to the remote profile and kept in sync. Exclusions can optimise the desktop environment and are sometimes used to make an application work within a virtual environment. Microsoft recommend using this feature with caution and to only include exclusions where they are fully understood.  
+  * This pattern recommends to utilise the crowdsourced **redirections.xml** as a base. **redirections.xml** is maintained by the virtual desktop user community and can be found at [crowdsourced redirections.xml - github](https://github.com/aaronparker/fslogix/blob/main/Redirections/Redirections.csv). At minimum, Microsoft recommend excluding certain Microsoft Teams data, this guidance can be found in the [FSLogix Azure Architecture Guide](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/wvd/windows-virtual-desktop-fslogix#teams-exclusions).
+* Cloud Cache is a configuration option that provides greater resilience for the user profile outside of the standard *VHDLocations* configuration which only provides a mounted remote location for the users profile, this can be subject to availability constraints. The use of Cloud Cache in previous versions of FSLogix introduced a 'logon tax' meaning logon times were slower than using *VHDLocations*, at the expense of resilience and availability. Cloud Cache performance has not yet been validated within this pattern. Agencies are encouraged to assess this feature - which can greatly improve resilience if resilience and availability is a concern. For more information on this architecture, see [Cloud Cache for resiliency and availability.](https://docs.microsoft.com/en-us/fslogix/cloud-cache-resiliency-availability-cncpt)
 
 The following table describes the Profile Management design decisions for the solution.
 
@@ -150,7 +150,7 @@ Enable Search Roaming | Disabled | FSLogix search functionality is not compatibl
 Search Database Configuration | Not applicable | FSLogix search functionality is not compatible with Server 2019, Windows 10 multi-session. 
 Outlook Cached Mode | Enabled | FSLogix Outlook Cached mode will be configured to provide the best user experience.
 Dynamic VHD(X) Allocation | Enabled | Dynamic VHD(X) will be configured to provide storage cost savings where possible.
-Profile Virtual Disk Location | Agency decision point: Azure Files or Azure NetApp Files for Storage Account.<br><br>Storage Account Name/s: TBD - Share that will be used for profiles | Each user will have a FSLogix virtual disk stored to an Azure location in Australia with data geo-replicated to a secondary location for DR purposes. <br><br>Depending on required usage, performance and disaster recovery requirements, the agency must decide between Azure Files and Azure NetApp files depending on their requirements or consider a the Cloud Cache option (out of scope for this blueprint). <br><br>For further information, see [Azure Files and Azure NetApp Files comparison](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-netapp-comparison). 
+Profile Virtual Disk Location | Agency decision point: Azure Files or Azure NetApp Files for Storage Account.<br><br>Storage Account Name/s: TBD - Share that will be used for profiles | Each user will have a FSLogix virtual disk stored to an Azure location in Australia with data geo-replicated to a secondary location for DR purposes. <br><br>Depending on required usage, performance and disaster recovery requirements, the agency must decide between Azure Files and Azure NetApp files depending on their requirements or consider the Cloud Cache option (out of scope for this blueprint). <br><br>For further information, see [Azure Files and Azure NetApp Files comparison](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-netapp-comparison).
 Virtual Disk Type | VHDX | VHDX is the latest available disk type and suitable for this solution.
 Allow concurrent users sessions | Enabled | Concurrent user sessions must be enabled to allow multi-session desktop scenarios. 
 Delete local profile when FSLogix Profile should apply | Enabled | To provide the use a clean desktop session on each desktop launch, it is recommended to enable this setting. 
@@ -178,9 +178,9 @@ Teams Data | Disabled | Teams data will not stored in the O365 container. This a
 Outlook Container Mode | Cached | Outlook cached mode will be enabled on successfully container attach.
 Dynamic VHD(x) | Enabled | Dynamic VHD(x) will be utilised to save on required space. Disks will grow only as space is required.
 Search Roaming | Disabled | FSLogix search functionality is not compatible with Server 2019, Windows 10 multi-session and should be disabled, and subsequent multi-session operating systems with enhanced native search capabilities. 
-Search Database | Not applicable                                               | FSLogix search functionality is not compatible with Server 2019, Windows 10 multi-session. 
-Sync OST to VHD | Enabled: Move OST to VHD | Existing OST’s are syncd to VHD/X when new VHD/X is created. 
- Swap directory name components | Enabled: Swap directory name components                      | This configuration allows for easier navigation of the user VHDX folders when troubleshooting and during maintenance. 
+Search Database | Not applicable | FSLogix search functionality is not compatible with Server 2019, Windows 10 multi-session. 
+Sync OST to VHD | Enabled: Move OST to VHD | Existing OST's are syncd to VHD/X when new VHD/X is created. 
+ Swap directory name components | Enabled: Swap directory name components | This configuration allows for easier navigation of the user VHDX folders when troubleshooting and during maintenance. 
 
 ### Resource tags
 
@@ -212,7 +212,7 @@ Azure License Entitlement | Microsoft 365 E3/E5 <br>Windows 10 Enterprise E3/E5 
 Windows 10 Enterprise and Windows 10 Enterprise Multi Session License Entitlements | Microsoft 365 E3/E5 <br>Windows E3/E5 | Any of these licensing entitlements will provide access to Windows 10 and Windows 10 Multisession on Azure.
 Encryption | TLS 1.2 | [TLS 1.2 is used for all connections](https://docs.microsoft.com/en-us/azure/virtual-desktop/network-connectivity) initiated from the clients and session hosts to the Azure Virtual Desktop infrastructure components.
 Identity and Access Configuration | Refer to AVD Control Plane Configuration table | To meet the requirements of this design
-Connectivity | Agency decision point: <br />Optimised through SIG public internet or RDP Shortpath | AVD does not currently support [ExpressRoute](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-faqs) optimisation with Microsoft peering. It is recommended that outgoing connections from within the agency to AVD desktops are optimised by either bypassing the agency web proxy, but still egressing the agency’s SIG (direct route) or utilising [Azure RDP Shortpath](https://docs.microsoft.com/en-us/azure/virtual-desktop/shortpath) if there is direct line of sight to the Azure Landing zone inside the organisation.<br><br />RDP Shortpath is the recommended approach where it is available the agency. 
+Connectivity | Agency decision point: <br />Optimised through SIG public internet or RDP Shortpath | AVD does not currently support [ExpressRoute](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-faqs) optimisation with Microsoft peering. It is recommended that outgoing connections from within the agency to AVD desktops are optimised by either bypassing the agency web proxy, but still egressing the agency's SIG (direct route) or utilising [Azure RDP Shortpath](https://docs.microsoft.com/en-us/azure/virtual-desktop/shortpath) if there is direct line of sight to the Azure Landing zone inside the organisation.<br><br />RDP Shortpath is the recommended approach where it is available the agency. 
 
 AVD Control Plane Configuration table:
 
@@ -232,7 +232,7 @@ A host pool can be one of two types:
 
 Host Pool configuration allows the setting of properties to change load-balancing behaviour, how many sessions each session host can take, and what a user can do to session hosts in the host pool while signed into an AVD session.
 
-Azure Virtual Desktop supports two load-balancing methods. Each method determines which session host will host a user’s session when connected to a resource in a host pool.
+Azure Virtual Desktop supports two load-balancing methods. Each method determines which session host will host a user's session when connected to a resource in a host pool.
 
 The following load-balancing methods are available:
 
@@ -259,7 +259,7 @@ Access | Aligned to user groups | The AVD Session Hosts will accept any user con
 Azure Resource Group | `<rg>-<agn>-<avd>` | Host Pool naming will be configured as follows:<br><br>`<rg>` = Resource Group <br>`<agn>` = Agency Name<br>`<avd>` = Azure Virtual Desktop
 App Groups | `<agn>-<hp>-<os>-<pooltype>-<appgroup>` | Host Pool naming will be configured as follows:<br><br>`<agn>` = Agency Name<br>`<hp>` = Host Pool<br>`<os>` = Windows Version<br>`<pooltype>` = Pool Name<br>`<appgroup>` = Application Group<br><br>e.g. agency-hp-win10-fin-accapps
 Max Session Limit | Dependant on user-types | To ensure no more than a defined number of users can connect to a single Windows 10 session. Can restrict number of users to a maximum limit per session host.  For best performance and density estimates, see section Session Host Sizing in the next section for further information.
-Session Host Members | View Client Devices guidelines | As per the Client device’s blueprint guidelines.
+Session Host Members | View Client Devices guidelines | As per the Client device's blueprint guidelines.
 Validation Environment | Enabled | Allows to monitor service updates before rolling them out to the Production host pool.
 Assignment Method | Automatic | Users will be automatically assigned to a session host.
 RDP Properties | The following to be configured via ADMX Group Policies:<br><br>Multi-monitor mode: Enabled<br>Drive redirections: Disabled<br>Remote audio mode: Play Locally<br>RDP Properties Configuration: `audiocapturemode:i:1;drivestoredirect:s:;redirectcomports:i:0;camerastoredirect:s:*;devicestoredirect:s:*;redirectclipboard:i:0;redirectprinters:i:0;redirectsmartcards:i:0` | To restrict data leaving the environment and to optimise performance and workability.
@@ -297,7 +297,7 @@ Supported Language Packs | EN-AU | The default language is English.
 Time Zone | Australian Eastern Standard Time (AEST) | The default time zone AEST.
 Image Source | Azure Marketplace | The Windows 10 Enterprise Multi-Session with Microsoft 365 Apps SOE available from the Azure Marketplace will be utilised for the AVD image deployment.
 Image Deployment Method | Azure Resource Manager | AVD using Azure Resource Manager will be used to deploy pooled random virtual machines.
-Deployed Image Update Process | Azure Resource Manager (ARM) Redeploy and auto updates | ARM Redeploy capability with auto updates will be leveraged to provide ‘Security and Feature’ updates to the AVD images.
+Deployed Image Update Process | Azure Resource Manager (ARM) Redeploy and auto updates | ARM Redeploy capability with auto updates will be leveraged to provide ‘Security and Feature' updates to the AVD images.
 Encryption | Azure Disk Encryption | Session host disks to be encrypted at rest using Azure Disk encryption. Using the Bitlocker feature of Windows, volume encryption for the OS and data disks of Azure virtual machines (VMs) will be configured. Will also be integrated with Azure Key Vault to help control and manage disk encryption keys and secrets.
 Graphical Application Support | [GPU Capable VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/sizes-gpu) available in selected Australian Regions | Windows 10 VMs with higher GPU capability are available from Azure if there is a need to run graphical applications.
 Session Host Power Management | [Azure Automation](https://docs.microsoft.com/en-us/azure/virtual-desktop/set-up-scaling-script) | Azure Automation will be utilised to scale session host power management. This will enable shutting down and deallocating session host VMs during off-peak usage hours, and powering on and reallocating as required (during peak hours).
@@ -380,14 +380,14 @@ The table below describes the Workspace design decisions for the solution.
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Number of Workspaces | Aligned to logical grouping of App Groups | Workspaces will be created for each logical grouping of App Groups.
-Workspace Name | I.e. ‘Accounting Workspace’ | The workspace name will be descriptive for the App Group collection.
+Workspace Name | I.e. ‘Accounting Workspace' | The workspace name will be descriptive for the App Group collection.
 Workspace Configuration | Refer to Workspace Configuration table | Refer to Workspace Configuration table.
 
 Workspace Configuration table:
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Workspace Name | I.e. ‘Accounting Workspace’ | The workspace name will be descriptive for the App Group collection.
+Workspace Name | I.e. ‘Accounting Workspace' | The workspace name will be descriptive for the App Group collection.
 Friendly Name | Aligned to Workspace Name | Descriptive text that aligns to the Workspace name.<br><br>e.g. Agency Windows 10 Desktop Workspace
 Azure Resource Group | `<rg>-<agn>-<avd>` | Host Pool naming will be configured as follows:<br><br>`<rg>` = Resource Group <br>`<agn>` = Agency Name<br>`<avd>` = Azure Virtual Desktop
 Description | Aligned to Workspace Name | Descriptive text that aligns to the workspace name. 
@@ -470,7 +470,7 @@ Gateway Firewall | Azure Firewall | Azure Firewall is the recommended firewall s
 
 The following client access methods are available to clients:
 
-* **Windows Remote Desktop Client** – Installed on user devices and provides users with secure, self-service access to company resources including, applications, and desktops from any of the user’s Windows devices.
+* **Windows Remote Desktop Client** – Installed on user devices and provides users with secure, self-service access to company resources including, applications, and desktops from any of the user's Windows devices.
 * **Web Client (HTML5)** – Allows access to Azure Virtual Desktop resources from any HTML5 compatible web browser, without the lengthy installation process on the Windows Desktop client.
 * **Android Remote Desktop Client** – Allows users to access Azure Virtual Desktop resources directly from an Android device or a Chromebook that supports the Google Play Store.
 * **MacOS Remote Desktop Client** –Allows users to access Azure Virtual Desktop resources from an Apple computer.

@@ -1682,7 +1682,7 @@ Each PIM role assignment can have the following attributes:
 Azure AD roles can be assigned via PIM to various scope types, depending on the specific role being assigned. The scope types include:
 
 * Directory - Roles that apply permissions across the entire Azure AD tenant.
-* Administrative unit - Configurable by administrators to segregate permissions within organisation into specific business units or locations.  Note only [specific Azure AD roles](https://docs.microsoft.com/en-au/azure/active-directory/roles/admin-units-assign-roles#roles-that-can-be-assigned-with-administrative-unit-scope) support can be assigned with administrative unit scope.
+* Administrative unit - Configurable by administrators to segregate permissions within organisation into specific business units or locations.  Note only [specific Azure AD roles](https://docs.microsoft.com/en-au/azure/active-directory/roles/admin-units-assign-roles#roles-that-can-be-assigned-with-administrative-unit-scope) can be assigned with administrative unit scope.
 * Application - A specific application registered to Azure AD. These are listed under [App registerations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) in the Azure portal.
 * Service principal - Including registered applications, managed identities and legacy apps.
 

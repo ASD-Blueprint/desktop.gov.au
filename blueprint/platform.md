@@ -34,7 +34,7 @@ Active Directory | On premises for Hybrid solutions only
 Security | Microsoft Cloud App Security<br>Azure Advance Threat Protection<br>Microsoft Defender Advanced Threat Protection<br>Security Information and Event Management<br>Monitoring
 Client Configuration | Intune<br>Microsoft Co-Management<br>Group Policy<br>Printing
 Backup | Microsoft 365 Backup
-System Administration | Administrative Consoles<br>Role bases Access Control
+System Administration | Administrative Consoles<br>Role-based Access Control
 
 ### Office 365 design
 

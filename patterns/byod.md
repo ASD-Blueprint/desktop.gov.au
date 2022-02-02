@@ -510,7 +510,7 @@ Further implementation advice is provided in the PROTECTED utility [Azure Virtua
 
 ### Security Considerations
 
-Include area on the SSP/ISM controls and map back to risk assessment.
+*Include area on the SSP/ISM controls and map back to risk assessment.*
 
 #### System Security Plan
 

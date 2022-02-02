@@ -144,45 +144,27 @@ The outcome will allow the end user to:
 * Access SharePoint Online on their personal Mobile Device 
 * Use of Word, Excel, PowerPoint
 
-**Mobile devices** in the context of this BYOD option are consumer desktop devices using MacOS or Windows, or devices provided by another government agency (cross agency working use-cases). They access the solution with a HTML5 browser, or through the provided Microsoft application (Azure Virtual Desktop Client)
+**Mobile devices** in the context of this BYOD option are consumer desktop devices using MacOS or Windows, or devices provided by another government agency (cross agency working use-cases). They access the solution with a HTML5 browser, or through the provided Microsoft application (Azure Virtual Desktop Client).
 
+This option allows users to access to Office 365 applications that are hosted on a 
+Windows Virtual Desktop, including any hybrid applications provided these are configured appropriatly within the Azure environment.
 
+The mobile device used to access the virtual desktop is not limited to a particular platform, but a Windows base device is recommended. Users can choose from using a HTML5 web browser (e.g. Edge or Chrome), or the Azure Virtual Desktop client, to access the virtual desktop. 
 
+The Virtual Desktops provides a greater level of security accessing Agency data over a MAM solution (option 1) as all the data remains within the Azure secure boundary (Azure enterprise landing zone).
 
+The Azure Virtual Desktop Blueprint pattern provides a recommendation on how to deploy this and some considerations to follow. The solution requires some architecural decisions to be made that are outside the scope of this pattern, or the AVD pattern. It is more difficult to implement than the MAM BYOD option, but offers a less complex implementation than other virtual desktop solutions.
 
+The pattern recommends the following:
 
+* A suitably configured Azure subscription is available, which may include connectivity to the Agencies IT premises (e.g. data centre) where connectivity to hybrid Active Directory or corporate apps is required
+* Windows multi-session operation system is used to offer greater supportability and cost savings than that of a single instance virtual machines
+* Conditional Access policies are configured to allow access to the AVD application without enrollment or restriction, and to allow access to Microsoft 365 applications inside the virtual desktop. This will allow personal devices to connect to the service without restriction but only the virtual desktop to access the data.
+* Copy and paste actions are prevented within RDP client properties and group policy to prevent virtual channels being used to copy data in and out of the PROTECTED boundary (the virtual desktop).
+* Multifactor authentication is enforced with session controls to prevent multiple day use of the MFA token.
+* Identity Protection is configured to allow detection of risky sign-ins.
 
-
-
-will allow users to have access to Office 365 applications that are hosted on a 
-Windows Virtual Desktop instance using either a Web Browser or the Virtual Desktop client app 
-from their personal PC or Mac devices. 
-Virtual desktops provide greater security to organisations as company data can be safely 
-accessed when employees are working remotely. This also means employee productivity is 
-increased as workers are empowered to access data and apps as if they were on their end user 
-device from anywhere, at any time. 
-Despite the benefits of VDI, previous virtualisation host options left organisations with two 
-choices over the type of virtual machines that they can deploy to deliver desktops. 
-
-1. Deploying a Windows Server Desktop experience to achieve the cost savings of multisession. 
-2. Deploying single session in Windows 10. 
-Windows Virtual Desktop utilises Windows 10 multi-session, with optimisations specifically for 
-Office 365 Apps for enterprise, allowing support for either pooled multi-session or personal 
-(persistent) desktops or individual published remote apps, and simplified virtual desktop 
-management. 
-Windows Virtual Desktop allows organisations to provide a secure remote working capability 
-where employees are no longer constrained to physical hardware or their location. Once they 
-request access to a pooled multi-session virtual desktop or request that a personal desktop is 
-provisioned, it can be quickly delivered and administered based on their profile and specific use 
-case. Access to individual pooled apps provides a simple mechanism to provide access to only 
-the applications that a user needs rather than a complete desktop. 
-Windows Virtual Desktop leverages Azure Active Directory (Azure AD) as the identity provider, 
-allowing additional security controls like conditional access to require multi-factor 
-authentication (MFA) to access the Windows Virtual Desktop service or that the Windows Virtual 
-Desktop is Hybrid Azure AD joined when accessing the Office 365 services from the desktop 
-device.
-
-*The following tables describe the xxxxx*
+The following tables describe the high level implementation decisions
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -195,28 +177,7 @@ Decision Point | Design Decision | Justification
 
 #### Option 2 As-Built guides
 
-*Link to additional guides, or include here..*
-
-### Option 3
-
-*Talk about what option 3 is and how to implement, what the use cases are, what the benefits to business and any pitfalls.*
-
-*Include any thoughts around if this option could be combined with other options*
-
-*The following tables describe the xxxxx*
-
-| Decision Point | Design Decision | Justification |
-| -------------- | --------------- | ------------- |
-|                |                 |               |
-|                |                 |               |
-|                |                 |               |
-|                |                 |               |
-|                |                 |               |
-|                |                 |               |
-
-#### Option 3 As-Built guides
-
-*Link to additional guides, or include them here..*
+Further implementation advice is provided in the PROTECTED utility [Azure Virtual Desktop pattern](https://desktop.gov.au/patterns/avd.html).
 
 ### Security Considerations
 

@@ -277,7 +277,7 @@ An unauthorised user attempts to access data hosted within Microsoft’s Office 
   * Sender Policy Framework (SPF), Domain based Message Authentication, Reporting and Conformance (DMARC), and DomainKeys Identified Mail (DKIM) records are configured to mitigate spoofing of emails being sent into the organisation 
   * Office 365 services are only utilised within Australian regions
   * Credential Guard is enabled and credential theft is blocked through Microsoft Defender Exploit Guard
-  * Pass-through Authentication (PTA) is used with Azure AD Connect for synchronisation and authentication
+  * Pass-through Authentication (PTA) is used with Azure AD Connect for authentication
   * Data transfer logs are retained
 
 #### Residual likelihood
@@ -580,7 +580,7 @@ An unauthorised user attempts to access email within mailboxes hosted in Exchang
   * Service provider networks are segregated from Agency networks through the use of a Secure Internet Gateway (SIG)
   * Legacy authentication blocked via Conditional Access policies
   * Credential Guard is enabled and credential theft is blocked through Microsoft Defender Exploit Guard
-  * PTA is used with Azure AD Connect for synchronisation and authentication
+  * PTA is used with Azure AD Connect for authentication
   * Data transfer logs are retained
 
 #### Residual likelihood
@@ -1038,7 +1038,7 @@ An attacker attempts to bypass the application controls enforced on endpoints.
 #### Ongoing and completed treatments
 
 * HybridSystem treatments
-  * * WDAC provides application control functionality to block unauthorised executables from running
+  * WDAC provides application control functionality to block unauthorised executables from running
   * [Microsoft recommended block rules](https://docs.microsoft.com/en-au/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-block-rules) and [Microsoft recommended driver block rules](https://docs.microsoft.com/en-au/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-driver-block-rules) implemented to prevent known WDAC bypasses
   * Windows Application Defender Control (WDAC) policies configured centrally from Intune or MECM
   * WDEG ‘exploit protection’ feature is enabled
@@ -1119,7 +1119,7 @@ An attacker attempts to gain access by attempting to logon using a number of dif
   * Azure AD Smart Lockout configured to lock out accounts for a period of time after a number of invalid attempts
   * Azure AD Identity Protection enabled to alert on detected User and Sign-in risks
   * Defender for Identity monitors Active Directory authentications and performs UEBA
-  * PTA is used with Azure AD Connect for synchronisation and authentication
+  * PTA is used with Azure AD Connect for authentication
 
 #### Residual likelihood
 
@@ -1264,7 +1264,7 @@ Administration of the system is undertaken by authorised privileged users by con
   * Conditional Access enforces MFA for all privileged users
   * Azure AD Identity Protection enabled to alert on detected User and Sign-in risks
   * Credential Guard is enabled and credential theft is blocked through Microsoft Defender Exploit Guard
-  * PTA is used with Azure AD Connect for synchronisation and authentication
+  * PTA is used with Azure AD Connect for authentication
 
 #### Residual likelihood
 

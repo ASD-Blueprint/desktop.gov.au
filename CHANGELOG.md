@@ -8,6 +8,7 @@ You can find published releases at [https://github.com/govau/desktop.gov.au/rele
 * Update redirections.xml guidance in the AVD pattern [#172]
 * Update RBAC/PIM guidance in the platform design [#173]
 * Typos corrected [#176]
+* SRMP documents updated with Sept 2021 ISM [#177]
 
 ## December 2021
 

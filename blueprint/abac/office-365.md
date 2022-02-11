@@ -1086,8 +1086,11 @@ Note, policies that are not configurable are not included below.
 | IP video                                        | On                                                           |
 | Local broadcasting                              | Off                                                          |
 | Media bit rate (Kbs)                            | 50000                                                        |
+| Network configuration lookup                    | Off                                                          |
 | Transcription                                   | Off                                                          |
 | Cloud recording                                 | On                                                           |
+| Meetings automatically expire                   | On                                                           |
+| Default expiration time                         | 60                                                           |
 | Store recordings outside of your country or region | Off                                                       |
 | Screen sharing mode                             | Entire screen                                                |
 | Allow a participant to give or request control  | On                                                           |

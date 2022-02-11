@@ -27,6 +27,7 @@ This IRP is based on the four step National Institute of Standards and Technolog
 * Post-Incident Activity.
 
 ![Figure 1 Incident Response Process](/assets/images/security/cloud-incident-response-process.png)
+Figure 1 Incident Response Process
 
 Each of the four incident response phases are detailed in the following sections of this document.
 
@@ -37,10 +38,10 @@ The preparation phase of the incident response life cycle is a shared responsibi
 * DTA – Blueprint – Platform Design which describes the technologies used that make up the ‘platform’ portion of the solution and how they are implemented.
 * DTA – Blueprint – Client Devices Design which describes the technologies used that make up the Windows 10 portion of the solution and how it is implemented.
 * DTA – Blueprint – Office 365 Design which describes the technologies used that make up the Office 365 portion of the solution and how it is implemented.
-* DTA – Cloud-Only Blueprint – Security Risk Management Plan (April 2021) (SRMP) which includes the details of the risk assessment performed and the recommended treatments.
-* DTA – Cloud-Only Blueprint – System Security Plan (April 2021) (SSP) which describes how controls identified in the SSP Annex are implemented by the system.
-* DTA – Cloud-Only Blueprint – System Security Plan Annex (April 2021) which states the compliance of the solution with the April 2021 version of the ISM.
-* DTA – Cloud-Only Blueprint – Security Standard Operating Procedures (April 2021) which describe the steps required to perform multiple operational tasks within the environment.
+* DTA – Cloud-Only Blueprint – Security Risk Management Plan (SRMP) which includes the details of the risk assessment performed and the recommended treatments.
+* DTA – Cloud-Only Blueprint – System Security Plan (SSP) which describes how controls identified in the SSP Annex are implemented by the system.
+* DTA – Cloud-Only Blueprint – System Security Plan Annex (September 2021) which states the compliance of the solution with the September 2021 version of the ISM.
+* DTA – Cloud-Only Blueprint – Security Standard Operating Procedures which describe the steps required to perform multiple operational tasks within the environment.
 
 In addition to having ongoing access to the above documentation it is assumed that Agency cyber security personnel have access to tools and resources as described in the Agency IRP.
 
@@ -53,12 +54,11 @@ Table 1 Microsoft Management Portals
 
 Portal | URL
 --- | ---
-Microsoft Defender ATP portal | [https://securitycenter.windows.com](https://securitycenter.windows.com)
+Microsoft 365 Defender portal | [https://security.microsoft.com](https://security.microsoft.com)
 Cloud App Security portal | [https://portal.cloudappsecurity.com](https://portal.cloudappsecurity.com)
 Azure portal (including Azure AD) | [https://portal.azure.com](https://portal.azure.com)
-Microsoft 365 Compliance Center | [https://compliance.microsoft.com](https://compliance.microsoft.com)
-Microsoft 365 Security Center | [https://security.microsoft.com](https://security.microsoft.com)
-Office 365 homepage | [https://portal.office.com](https://portal.office.com)
+Microsoft 365 compliance portal | [https://compliance.microsoft.com](https://compliance.microsoft.com)
+Microsoft 365 admin center | [https://admin.microsoft.com/](https://admin.microsoft.com/)
 
 ### Detection and analysis
 
@@ -66,24 +66,24 @@ Multiple detection methods are available to the Agency’s cyber security person
 
 * Alerts from Azure AD (including Azure AD Identity Protection) including risky sign-ins and users flagged for risk.
 * Azure AD logs stored in Azure and available via the portal, including the audit log for all administrative activities relating to Azure AD.
-* Office 365 ATP alerts and reports for each of the ATP capabilities including Safe Attachments, Safe Links, ATP for SharePoint, OneDrive and Microsoft Teams, and ATP anti-phishing protection.
-* Microsoft Defender ATP including the Security Operations, Incidents, and Alerts Queue dashboards which provide tailored information and actions for cyber security personnel.
+* Defender for Office 365 alerts and reports for each of the configured capabilities including Safe Attachments, Safe Links, Safe Attachments for SharePoint, OneDrive and Microsoft Teams, and Anti-phishing in Defender for Office 365 protection.
+* Microsoft Defender for Endpoint including the Security Operations, Incidents, and Alerts Queue dashboards which provide tailored information and actions for cyber security personnel.
 * Microsoft Cloud App Security (MCAS) Threat Detection, Privileged Accounts, and Access Control dashboards spanning the whole Microsoft 365 deployment, along with configurable email alerts and automatic response capabilities.
 * Local Windows 10 events logs written to each Windows 10 endpoint including authentication attempts, firewall activities, and Windows Defender Application Control (WDAC) events.
 
-Due to its containment, eradication and recovery capabilities in addition to its detection and analysis functionality, Microsoft Defender ATP is the primarily incident response tool for the CloudSystem and is described in further detail in the section below.
+Due to its containment, eradication and recovery capabilities in addition to its detection and analysis functionality, Microsoft Defender for Endpoint is the primarily incident response tool for the CloudSystem and is described in further detail in the section below.
 
-### Microsoft Defender ATP
+### Microsoft Defender for Endpoint
 
-The CloudSystem leverages Microsoft Defender ATP to monitor, detect, investigate, and respond to threats targeting Windows 10 endpoints. When an alert is triggered of sufficient severity, an email is automatically sent to a specified recipient email address (typically the Agency cyber security team mailbox or similar). Additional email recipients can be configured as required.
+The CloudSystem leverages Microsoft Defender for Endpoint to monitor, detect, investigate, and respond to threats targeting Windows 10 endpoints. When an alert is triggered of sufficient severity, an email is automatically sent to a specified recipient email address (typically the Agency cyber security team mailbox or similar). Additional email recipients can be configured as required.
 
 #### Recommendation
 
 Agency should ensure a recipient email address (typically the Agency cyber security team mailbox or similar) shared with multiple users is created and monitored.
 
-A majority of alerts generated within the Microsoft Defender Security Center – the Microsoft Defender ATP portal – relate to automatically detected issues and are informational in nature. This means that they are not necessarily harmful to the system but must be reviewed and accounted for. Alerts are organised by severity as they enter the ‘Alerts queue’, the severity of which is detailed below in Table 2.
+The majority of alerts generated within the Microsoft 365 Defender portal – which include Microsoft Defender for Endpoint alerts – relate to automatically detected issues and are informational in nature. This means that they are not necessarily harmful to the system but must be reviewed and accounted for. Alerts are organised by severity as they enter the ‘Alerts queue’, the severity of which is detailed below in Table 2.
 
-Table 2 Microsoft Defender Security Center Alert Severities
+Table 2 Microsoft 365 Defender Alert Severities
 
 Severity | Description
 --- | ---
@@ -92,21 +92,22 @@ Medium | Threats marked as 'Medium' must be treated with some importance but typ
 Low | 'Low' urgency threats will typically be identified as commercial/known malware or hacking tools, their function is generally well understood and the ability to stop it is high.
 Informational | 'Informational' alerts are those that might not be considered harmful to the network but are good to track.
 
-Figure 2 shows an example of an alert from Defender ATP which detected a suspicious sequence of activities and automatically generated an incident detailing the severity, timestamps, devices affected, applications called, and more.
+Figure 2 shows an example of an alert from Defender for Endpoint which detected a suspicious sequence of activities and automatically generated an incident detailing the severity, timestamps, devices affected, applications called, and more.
 
 ![Figure 2 Suspicious sequence of activities](/assets/images/security/suspicious-sequence-activities.png)
+Figure 2 Suspicious sequence of activities
 
-When the Agency’s cyber security personnel receive an alert, they should perform analysis to determine the cause and any potential impact, including recommended actions within the Microsoft Defender Security Center portal. If an alert occurs during an approved change window and relates directly to the contents of the change, for example an unapproved/not allowed executable runs during an application deployment, then it is unlikely that a security incident has occurred. However, if an alert is triggered outside of a change window and without an obvious cause then the probability of the event being a security incident probable.
+When the Agency’s cyber security personnel receive an alert, they should perform analysis to determine the cause and any potential impact, including recommended actions within the Microsoft 365 Defender portal. If an alert occurs during an approved change window and relates directly to the contents of the change, for example an unapproved/not allowed executable runs during an application deployment, then it is unlikely that a security incident has occurred. However, if an alert is triggered outside of a change window and without an obvious cause then the probability of the event being a security incident probable.
 
 Note, Microsoft assign a criticality to each alert based on an internal rating system. It is up to the Agency’s cyber security team to make their own assessment of the criticality of all potential security incidents in accordance with the Agency’s overarching IRP.
 
 The assignment of criticality to an incident is an important step and due care must be applied to avoid the risks associated with both under and over classifying an incident. If there is ever any doubt, cyber security personnel should always investigate further.
 
-The alerts captured in the Defender Security Center should be leveraged by Agency cyber security personnel to detect and analyse potential security incidents. The Windows Defender ATP portal provides far deeper detail than is available from the email alerts, these emails should only serve as a cursory notification, not an in-depth analysis of the incident.
+The alerts captured in the Microsoft 365 Defender portal should be leveraged by Agency cyber security personnel to detect and analyse potential security incidents. The Microsoft 365 Defender portal provides far deeper detail than is available from the email alerts, these emails should only serve as a cursory notification, not an in-depth analysis of the incident.
 
-Within the Defender Security Center there are two capabilities that should be utilised by Agency cyber security personnel for the purpose of detection and analysis of incidents on a day-to-day basis.
+Within the Microsoft 365 Defender portal there are two capabilities that should be utilised by Agency cyber security personnel for the purpose of detection and analysis of incidents on a day-to-day basis.
 
-* Incidents lists all automatically generated incidents detected by Defender ATP, including the severity of the incident, the machines and users involved, last activity, assignment of the incident, et cetera. All incidents should be assigned as they are generated and managed based on the Agency’s operating procedures by cyber security personnel.
+* Incidents lists all automatically generated incidents detected by Defender for Endpoint - along with Defender for Office 365 and MCAS, including the severity of the incident, the machines and users involved, last activity, assignment of the incident, et cetera. All incidents should be assigned as they are generated and managed based on the Agency’s operating procedures by cyber security personnel.
 * Alerts queue lists all alerts based on the alert type not the incident case that is generated, this can be supremely helpful when attempting to identify patterns of behaviour. This alerts queue will also sort by severity, which incident it is related to, status, and investigation state.
 
 For both the Incidents and Alerts queue Agency cyber security personnel can select individual records to access detailed information on the specific activity.
@@ -135,6 +136,7 @@ An additional data source that can be leveraged by Agency cyber security personn
 The Azure status dashboard is available at [https://status.azure.com/](https://status.azure.com/) and does not require the user to be logged into Azure to view the current status.
 
 ![Figure 3 Azure Status Dashboard](/assets/images/security/azure-status-dashboard.png)
+Figure 3 Azure Status Dashboard
 
 Agency cyber security personnel can use the dashboard to determine if a potential incident is local to the Agency’s system or is a widespread issue affecting the underlying Azure service(s).
 
@@ -151,13 +153,15 @@ Agency cyber security personnel should review the Microsoft 365 service status (
 
 In the first instance the Microsoft 365 Service health status page should be consulted, followed by the Microsoft 365 Status Twitter account. If no issues are identified by either of these resources, then Agency-specific scenarios should be explored such as loss of Internet connect, Local Area Network (LAN) outage, etc.
 
-As an example on how to navigate the Microsoft 365 Service health status page, please refer to Figure 4 below.
+As an example of how to navigate the Microsoft 365 Service health status page, please refer to Figure 4 below.
 
 ![Figure 4 Office 365 Service Outages](/assets/images/security/o365-service-outages.png)
+Figure 4 Office 365 Service Outages
 
 Agency cyber security personnel can use the dashboard to determine if a service is down, whether the issue is widespread and affecting the underlying services, or whether there is no identified outage. This page can also be used to review ongoing service advisories such as those identified below in Figure 5.
 
 ![Figure 5 Office 365 Service Health Advisories](/assets/images/security/o365-service-health-advisories.png)
+Figure 5 Office 365 Service Health Advisories
 
 ##### Recommendation
 
@@ -189,9 +193,9 @@ Loss of availability of Agency data stored in Office 365<br>(For example, the Mi
 
 Note, the activities listed above are designed to aid Agency cyber security personnel in responding to the specific incident types defined. However, this is not an exhaustive list of all possible responses. Agency cyber security personnel should use their judgement to determine if they are appropriate to a specific incident or if other actions should be taken.
 
-#### Defender ATP threat remediation
+#### Defender for Endpoint threat remediation
 
-Defender ATP provides the ability to automate responses to detected threats, reducing the total response time for an incident and eliminating the need for manual actions to be taken by the Agency’s cyber security team. Five levels of automation are available as listed below:
+Defender for Endpoint provides the ability to automate responses to detected threats, reducing the total response time for an incident and eliminating the need for manual actions to be taken by the Agency’s cyber security team. Five levels of automation are available as listed below:
 
 * No automated response – automated investigations are not run, and all activities must be performed by the Agency’s cyber security team.
 * Semi (any folder) – approval is required from the cyber security team for all remediation activities suggested as part of an automated investigation.
@@ -199,13 +203,16 @@ Defender ATP provides the ability to automate responses to detected threats, red
 * Semi (core folders) – remediation occurs automatically for all folders other than operating system directories (e.g. Program Files and Window).
 * Full – all remediation activities are performed automatically.
 
-The CloudSystem uses the default Defender ATP configuration for automated investigations, namely semi (any folder). Therefore, Agency cyber security personnel will be prompted to approve all remediation activities that are recommended as part of Defender ATP automated investigations. The automation level can be adjusted if required based on the specific requirements of the Agency’s cyber security personnel.
+The CloudSystem uses the default Defender for Endpoint configuration for automated investigations, namely Full automation. Therefore, Agency cyber security personnel will not be prompted to approve remediation activities that are recommended as part of Defender for Endpoint automated investigations. The automation level can be adjusted if required based on the specific requirements of the Agency’s cyber security personnel.
+
+Note, prior to early 2021, the default configuration was Semi (any folder).
 
 #### Automated remediation notification
 
-Depending on the nature of the initial alert, if Microsoft Defender ATP detects a threat and it is resolved automatically it will notify administrators by sending a follow up email. An example of an alert resolution email is shown below in Figure 6.
+Depending on the nature of the initial alert, if Microsoft Defender for Endpoint detects a threat and it is resolved automatically it will notify administrators by sending a follow up email. An example of an alert resolution email is shown below in Figure 6.
 
 ![Figure 6 Alert Resolution Email](/assets/images/security/alert-resolution-email.png)
+Figure 6 Alert Resolution Email
 
 Agency cyber security personnel should be aware of these notifications but should not rely on them as a trigger to cease investigation and/or recovery activities. 
 
@@ -224,6 +231,7 @@ Note, new capabilities and services – including all Preview features – shoul
 Figure 7 illustrates how a preview feature is presented in the Azure portal using the “… (Preview)” suffix to the feature/service name.
 
 ![Figure 7 Azure AD Preview Feature](/assets/images/security/azure-ad-preview.png)
+Figure 7 Azure AD Preview Feature
 
 Note, as of the time of writing the Azure AD Identity Secure Score feature is no longer in preview and is generally available for all tenants.
 
@@ -246,12 +254,14 @@ The New support request wizard provides a three-step process to detail and submi
 * Contact information – which includes contact details for a Microsoft engineer to use to assist with the support request. Depending on the reported severity of the issue the Preferred contact method and Response may be auto-filled (for example, high severity requests default to phone and 24x7 respectively).
 
 ![Figure 8 New Support Request](/assets/images/security/new-support-request.png)
+Figure 8 New Support Request
 
 The progress of support requests can also be tracked from within the Azure Portal under the Help + support page. This is illustrated below in Figure 9.
 
 ![Figure 9 All Support Requests](/assets/images/security/all-support-requests.png)
+Figure 9 All Support Requests
 
-For more information on creating Azure support requests, including any updates to the process, refer to [https://docs.microsoft.com/en-us/azure/azure-supportability/how-to-create-azure-support-request](https://docs.microsoft.com/en-us/azure/azure-supportability/how-to-create-azure-support-request)
+For more information on creating Azure support requests, including any updates to the process, refer to [Create an Azure support request](https://docs.microsoft.com/en-au/azure/azure-supportability/how-to-create-azure-support-request).
 
 ### Australian Cyber Security Centre
 

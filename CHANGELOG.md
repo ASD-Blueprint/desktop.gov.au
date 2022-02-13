@@ -9,6 +9,7 @@ You can find published releases at [https://github.com/govau/desktop.gov.au/rele
 * Update RBAC/PIM guidance in the platform design [#173]
 * Typos corrected [#176]
 * SRMP documents updated with Sept 2021 ISM [#177]
+* Updates to Cloud Storage settings in Teams Meeting Policy [#180]
 
 ## December 2021
 

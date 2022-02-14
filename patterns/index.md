@@ -9,5 +9,5 @@ Although these patterns have been implemented by other agencies, they are not bu
 
 Name | Category | Description
 -- | -- | --
-[Azure Virtual Desktop](avd.html) | Remote access | Azure Virtual Desktop (AVD) is a PaaS offering that allows administrators to configure, deploy, and manage, scalable flexible solutions. AVD enables administrators to publish full desktops or remote apps. Corporations and departments are able to reduce the number of virtual machines and OS overhead while providing the same resources to users.
+[Azure Virtual Desktop](avd.html) | Remote access | Azure Virtual Desktop (AVD) is a PaaS offering that allows administrators to configure, deploy, and manage, scalable virtual desktop solutions. AVD provides a remotely accessible Windows Desktop working environment that closely matches the corporate working environment. AVD enables administrators to publish full desktops or remote applications in BYOD or managed desktop environments. 
 [Bring Your Own Device (BYOD)](byod.html) | Device and data | BYOD allows users to utilise their own consumer devices and access corporate data and applications securely. Polices can assist with protection of corporate . This pattern provides guidance on how to implement various options within the blueprint but outlines some risks involved on the security posture to PROTECTED while doing this. 

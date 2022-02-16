@@ -16,7 +16,7 @@ BYOD allows users to perform their work in a flexible manner within specific use
 
 The pattern works through various use cases and configuration required on top of the PROTECTED utility Blueprint, taking into account some best practice configuration advice on this area from [Microsoft's BYOD blueprint](https://news.microsoft.com/wp-content/uploads/prod/sites/133/2021/03/MEA-Blueprint-for-BYOD-Use-v1.0-Final-Version.pdf).
 
-It is recommened to read the ACSC risk management publication for enterprise mobility. See [Risk Management of Enterprise Mobility Including Bring Your Own Device](https://www.cyber.gov.au/acsc/view-all-content/publications/risk-management-enterprise-mobility-including-bring-your-own-device).
+It is recommended to read the ACSC risk management publication for enterprise mobility. See [Risk Management of Enterprise Mobility Including Bring Your Own Device](https://www.cyber.gov.au/acsc/view-all-content/publications/risk-management-enterprise-mobility-including-bring-your-own-device).
 
 The pattern suggests **two BYOD access options** dependent on the risk appetite of the Agency and provides some known risk and ISM control guidance. 
 
@@ -140,7 +140,7 @@ The following tables describe the high level implementation decisions
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Mobile device use cases | Authorised applications on iOS and Android devices without MDM enrollment (MAM) | Allowing MAM on these device platforms offers great flexiblity but less risk than a full browser and application access on Windows Devices. Less risk can be provided by the Windows device use case via the Virtual desktop BYOD option. 
+Mobile device use cases | Authorised applications on iOS and Android devices without MDM enrollment (MAM) | Allowing MAM on these device platforms offers great flexibility but less risk than a full browser and application access on Windows Devices. Less risk can be provided by the Windows device use case via the Virtual desktop BYOD option. 
 Conditional Access | Conditional Access will be configured with exception group for those trusted for MAM | Provides a Zero Trust method to restrict access to this use case only and allows PROTECTED utility baseline configuration for remainder of Agency that don't require BYOD for their persona. 
 Defender for Cloud Apps | Cloud App security Session policies will restrict access to data within browser sessions | Provides a Zero Trust method to restrict access to leaking of data. 
 Intune app protection policies | App protection polices will be deployed to the MAM identity groups without enrollment required (MAM-WE) | Provides some protection against Agency data within a managed app. Protection will require a passcode within the app, control sharing of data between apps and prevent copy of data to personal locations. This allows separation between corporate and personal data to address the intent of ISM security control 1400. 
@@ -359,7 +359,7 @@ The following is a new Conditional Access Policy to allow block unapproved apps 
 
 ##### Defender for Cloud App Policies
 
-The following polcies provide protection while connected over a browser session.
+The following policies provide protection while connected over a browser session.
 
 `portal.cloudappsecurity.com > Control > Create Session policies`
 

@@ -8,10 +8,10 @@ This pattern provides guidance to allow blueprint users the ability to allow acc
 
 BYOD allows users to perform their work in a flexible manner within specific use-cases allowing access to corporate systems from personally owned devices across multiple business personas. BYOD provides a range of benefits including more flexible work and life balance for employees and greater business agility for the agency, catering for use cases such as:
 
-* working remotely from within another government agency premises,
-* travel or work from home,
-* ad-hoc access to calendar and mail,
-* Teams collaboration and chat,
+* working remotely from within another government agency premises
+* travel or work from home
+* ad-hoc access to calendar and mail
+* Teams collaboration and chat
 * accessing multiple tenancies or classifications from a single device.
 
 The pattern works through various use cases and configuration required on top of the PROTECTED utility Blueprint, taking into account some best practice configuration advice on this area from [Microsoft's BYOD blueprint](https://news.microsoft.com/wp-content/uploads/prod/sites/133/2021/03/MEA-Blueprint-for-BYOD-Use-v1.0-Final-Version.pdf).
@@ -110,19 +110,26 @@ The outcome will allow the end user to:
 
 **Mobile devices** in the context of this BYOD option are smart phones or tablets running Apple iOS or Android.
 
-All access will be from within approved applications published by Microsoft to the respective app store (Apple AppStore or Google Play Store). 
+Access via MAM (Mobile Application Management) is provided through approved applications published by Microsoft to the respective app store (Apple AppStore or Google Play Store). 
 
-This BYOD option will enforce a policy on the applications to secure corporate data, and prevent download updload, copy and paste actions, and enforce a PIN/appropriate passcode. 
+Intune app protection policies provide a container policy to the applications to secure corporate data, and prevent download upload, copy and paste actions, and enforce a PIN/appropriate passcode. 
 
-The device will not be managed by the Agency (MDM) or enrolled. Only the approved applications will be managed by the agency (through the Conditional Access policy). 
+A MAM model does not require the device to be managed (MDM) or enrolled so will carry additional risk. Intune app protection MAM policies can be applied without enrolment requirement, this is referred to as MAM without enrolment (MAM-WE). Approved applications can be defined through the Conditional Access policies. 
 
-iOS devices do not require Apple Business Manager or Apple Push Notification Service certificate configuration or for MAM only, this configuration in the Blueprint for MDM can be ignored if this pattern is the only method for Mobile Devices for the Agency.
+With MAM, iOS devices do not require Apple Business Manager or Apple Push Notification Service certificate configuration or for MAM only, this configuration in the Blueprint for MDM can be ignored if this pattern is the only method for Mobile Devices for the Agency. Without MDM policies and enrolment, various functions can not be prevented such as the ability to restrict screenshot for example.
 
-As the devices are not managed, Agencies should provide some guidance or user guides to their users on how to install the Office applications on their devices and authenticate to avoid confusion. 
+Agencies should provide some guidance or user guides to their users on how to install the Office applications on their devices and authenticate to avoid confusion, these actions and out of box setup are generally automated within a supervised, managed deployment. 
 
 To protect the data in the event that a device is lost or stolen or if the employee leaves the Agency, Selective Wipe capability can be used to wipe the corporate data in managed apps from the device. Intune app protection policies can help prevent data contamination between non managed apps on a client device.
 
-Defender for Cloud Apps (formerly MCAS) provides capabilities that ca restrict access to only authorised platforms and device types and can minimise the risk of data loss and spills within a supported app or browser. Defender for Cloud App Session Control is enabled through Conditional Access policies (App Control), which enables Defender for Cloud App to act as a CASB (Cloud Access Security Broker) for the connection from the browser to the data source. Further control through the CASB can:
+Azure ID Identity Protection is an Azure AD feature that protects the identity through:
+
+* automation of detection and remediation of identity-based risks
+
+* includes additional challenge to user based on risk detection in real time
+* Provides a portal for identify based investigation
+
+Defender for Cloud Apps (formerly MCAS) provides capabilities that can restrict access to only authorised platforms and device types and can minimise the risk of data loss and spills within a supported app or browser. Defender for Cloud App Session Control is enabled through Conditional Access policies (App Control), which enables Defender for Cloud App to act as a CASB (Cloud Access Security Broker) for the connection from the browser to the data source. Further control through the CASB can:
 
 * Block data upload/download
 * Check device characteristics
@@ -133,12 +140,12 @@ The following tables describe the high level implementation decisions
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Mobile device use cases | Authorised applications on iOS and Android devices without MDM enrollment (MAM) | Allowing MAM on these device platforms offers great flexiblity but less risk that full browser and application access on Windows Devices. Less risk can be provided for Widows device use case via the Virtual desktop BYOD option. 
-Conditional Access | Conditional Access will be configured with exception group for those trusted for MAM | Provides a Zero Trust method to restrict access to this use case only and allows PROTECTED utility baseline configuration for remainder of Agency that don't require BYOD for their job roles. 
+Mobile device use cases | Authorised applications on iOS and Android devices without MDM enrollment (MAM) | Allowing MAM on these device platforms offers great flexiblity but less risk than a full browser and application access on Windows Devices. Less risk can be provided by the Windows device use case via the Virtual desktop BYOD option. 
+Conditional Access | Conditional Access will be configured with exception group for those trusted for MAM | Provides a Zero Trust method to restrict access to this use case only and allows PROTECTED utility baseline configuration for remainder of Agency that don't require BYOD for their persona. 
 Defender for Cloud Apps | Cloud App security Session policies will restrict access to data within browser sessions | Provides a Zero Trust method to restrict access to leaking of data. 
 Intune app protection policies | App protection polices will be deployed to the MAM identity groups without enrollment required (MAM-WE) | Provides some protection against Agency data within a managed app. Protection will require a passcode within the app, control sharing of data between apps and prevent copy of data to personal locations. This allows separation between corporate and personal data to address the intent of ISM security control 1400. 
-Azure AD Identity Protection | Blueprint configuration will remain in place enabling Enable the sign-in risk policy and user risk policy within the Azure AD tenant | Provide reporting of detected suspicious sign-in activity based on defined MFA, sign-in risk and user risk policies for increased security. 
-Multi Factor Authentication | Multi Factor authentication for this use-case will be enforced. | As per the Blueprint baselines defined within the [platform design](https://desktop.gov.au/blueprint/platform.html). 
+Azure AD Identity Protection | Blueprint configuration will remain in place enabling Enable the sign-in risk policy and user risk policy within the Azure AD tenant | Provide reporting of detected suspicious sign-in activity based on defined MFA, sign-in risk and user risk policies for increased security and automated remediation steps such as requiring a password change or MFA challenge when authentication is suspicious. 
+Multi Factor Authentication | Multi Factor authentication for this use-case will be always be enforced. | As per the Blueprint baselines defined within the [platform design](https://desktop.gov.au/blueprint/platform.html). 
 
 ### Security Considerations
 

@@ -40,7 +40,7 @@ The technical controls that are described in this document have been grouped int
 * Conditional Access enforced approved apps for Mobile Devices
 * Higher risk than enrolled device in PROTECTED utility 
 
-* Suits PROTECTED utility personas for ad-hoc access to Teams, SharePoint and Outlook (view only).
+* Suits PROTECTED utility personas for ad-hoc access to Teams, SharePoint and Outlook.
 
 **Virtual Desktop (AVD)**
 

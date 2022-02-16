@@ -4,7 +4,7 @@ title: Bring Your Own Device (BYOD)
 excerpt: BYOD allows users to utilise their own consumer devices and access corporate data and applications securely. Polices can assist with protection of corporate . This pattern provides guidance on how to implement various options within the blueprint but outlines some risks involved on the security posture to PROTECTED while doing this.
 ---
 
-This pattern provides guidance to allow blueprint users the ability to allow access to Microsoft 365 services from various personally owned devices, without the need to enroll those devices. This is refereed to as "bring your own device", or BYOD, within an enterprise mobility strategy.
+This pattern provides guidance for blueprint users to allow access to Microsoft 365 services from various personally owned devices, without the need to enroll those devices. This is refereed to as "bring your own device", or BYOD, within an enterprise mobility strategy.
 
 BYOD allows users to perform their work in a flexible manner within specific use-cases allowing access to corporate systems from personally owned devices across multiple business personas. BYOD provides a range of benefits including more flexible work and life balance for employees and greater business agility for the agency, catering for use cases such as:
 
@@ -18,11 +18,11 @@ The pattern works through various use cases and configuration required on top of
 
 It is recommended to read the ACSC risk management publication for enterprise mobility. See [Risk Management of Enterprise Mobility Including Bring Your Own Device](https://www.cyber.gov.au/acsc/view-all-content/publications/risk-management-enterprise-mobility-including-bring-your-own-device).
 
-The pattern suggests **two BYOD access options** dependent on the risk appetite of the Agency and provides some known risk and ISM control guidance. 
+This pattern suggests **two BYOD access options** dependent on the risk appetite of the Agency and provides some known risk and ISM control guidance. 
 
 Agencies adopting BYOD should perform their own risk assessments and follow ACSC guidance in regards to the requirements surrounding the platform and adequate separation between private and corporate data. The ACSC recommend that BYOD should not be used to access SECRET or TOP SECRET systems.
 
-The pattern does not discuss agency policy surrounding the use of personally owed devices. The following guidance from the ACSC is:
+This pattern does not discuss agency policy surrounding the use of personally owed devices. The following guidance from the ACSC is:
 
 * Legal advice is sought prior to allowing privately-owned mobile devices to access systems or data (**ISM** security control 1297)
 * Personnel accessing OFFICIAL and PROTECTED systems or data using a privately-owned mobile device use an ACSC approved platform, a security configuration in accordance with ACSC guidance and have enforced separation of work data from any personal data (**ISM** security control 1400) 
@@ -37,9 +37,9 @@ The technical controls that are described in this document have been grouped int
 * Allows access to some Microsoft 365 applications from personal mobile devices
 * Granular control of user policies, session controls using Microsoft 
   Defender for Cloud Apps (requires E5)
+* Intune Application Protection policies to enforce secure containerisation for company data 
 * Conditional Access enforced approved apps for Mobile Devices
 * Higher risk than enrolled device in PROTECTED utility 
-
 * Suits PROTECTED utility personas for ad-hoc access to Teams, SharePoint and Outlook.
 
 **Virtual Desktop (AVD)**
@@ -84,8 +84,8 @@ Hybrid:
 
 Options | Use-Cases | Effort to implement | Risk considerations 
 --- | --- | ---| ---
- Mobile device access | Provides ad-hoc access on the road and in the office to email, teams and SharePoint from personally owned mobile devices such as iOS and Android devices. <br />Use-case provides some offline access if connectivity is limited. | Easiest             | Enforcing separation of work data from any personal data.<br /><br />Limited options for zero trust.<br /><br />Lost phone, remote data wipe risks. 
- Virtual desktop | Provided through the Azure Virtual Desktop service, this provides a full Windows working environment similar to the corporate desktop. User use their own personal Windows or Mac devices to access the virtual desktop.<br />Remote working within another government agency or partner environment.<br /><br />Legacy or non-cloud corporate applications (hybrid) can operate with this use-case.<br /><br />Use case requires always-on Internet connection. | More difficult | Meets the intent of PROTECTED level controls and essential 8.<br /><br />Some risks around screen scraping and physical security. 
+ Mobile device access | Provides ad-hoc access on the road and in the office to email, teams and SharePoint from personally owned mobile devices such as iOS and Android devices. <br />Use-case provides some offline access if connectivity is limited. | Easiest             | Enforcing device security controls<br /><br />Limited options for zero trust<br /><br />Lost phone, remote data wipe risks 
+ Virtual desktop | Provided through the Azure Virtual Desktop service, this provides a full Windows working environment similar to the corporate desktop. User use their own personal Windows or Mac devices to access the virtual desktop.<br />Remote working within another government agency or partner environment.<br /><br />Legacy or non-cloud corporate applications (hybrid) can operate with this use-case.<br /><br />Use case requires always-on Internet connection. | More difficult | Meets the intent of PROTECTED level controls and essential 8<br /><br />Some risks around screen scraping and physical security 
 
 The following process can be followed to determine which pattern option to follow.
 

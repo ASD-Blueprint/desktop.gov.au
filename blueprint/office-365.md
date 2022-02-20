@@ -1715,7 +1715,9 @@ Decision Point | Design Decision | Justification
 Publishing through iCalendar feed | Disabled | To prevent users from sharing sensitive information via iCalendar feeds.
 
 ## Viva Learning
-Viva Learning is a Microsoft Teams app which aims to assist users to find and access training from multiple content providers. Viva Learning content can be enabled from LinkedIn Learning, Microsoft Learn, and Microsoft 365 Training. Administrators can also configure a SharePoint site to host addition content.
+Viva Learning is a Microsoft Teams app which aims to assist users to find and access training from multiple content providers. Viva Learning content can be enabled from LinkedIn Learning, Microsoft Learn, and Microsoft 365 Training. Administrators can also configure a SharePoint site to host addition content, which can be done without enabling content from other providers.
+
+Note, Viva Learning content is subject to terms other than the Microsoft Product Terms, including third-party content provider’s terms, which have not been reviewed as part of the Office 365 IRAP assessment. It is recommended that Agencies review these terms as part of any risk assessment relating to the use of this content.
 
 Viva Learning Design Decisions for all agencies and implementation types.
 

@@ -10,6 +10,7 @@ You can find published releases at [https://github.com/govau/desktop.gov.au/rele
 * Typos corrected [#176]
 * SRMP documents updated with Sept 2021 ISM [#177]
 * Updates to Cloud Storage settings in Teams Meeting Policy [#180]
+* Added Viva Learning [#179]
 
 ## December 2021
 

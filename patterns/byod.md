@@ -4,9 +4,9 @@ title: Bring Your Own Device (BYOD)
 excerpt: BYOD allows users to utilise their own consumer devices and access corporate data and applications securely. Polices can assist with protection of corporate . This pattern provides guidance on how to implement various options within the blueprint but outlines some risks involved on the security posture to PROTECTED while doing this.
 ---
 
-This pattern provides guidance for blueprint users to allow access to Microsoft 365 services from various personally owned devices, without the need to enroll those devices. This is refereed to as "bring your own device", or BYOD, within an enterprise mobility strategy.
+This pattern provides guidance for blueprint users to allow access to Microsoft 365 services from various personally owned devices, without the need to enroll those devices. This is referred to as "bring your own device" (BYOD), within an enterprise mobility strategy.
 
-BYOD allows users to perform their work in a flexible manner within specific use-cases allowing access to corporate systems from personally owned devices across multiple business personas. BYOD provides a range of benefits including more flexible work and life balance for employees and greater business agility for the agency, catering for use cases such as:
+BYOD allows users to perform their work in a flexible manner within specific use-cases allowing access to corporate systems from personally owned devices across multiple business personas. BYOD provides a range of benefits including more flexible working arrangements for employees creating greater business agility for the agency, catering for use cases such as:
 
 * working remotely from within another government agency premises
 * travel or work from home
@@ -14,7 +14,7 @@ BYOD allows users to perform their work in a flexible manner within specific use
 * Teams collaboration and chat
 * accessing multiple tenancies or classifications from a single device.
 
-The pattern works through various use cases and configuration required on top of the PROTECTED utility Blueprint, taking into account some best practice configuration advice on this area from [Microsoft's BYOD blueprint](https://news.microsoft.com/wp-content/uploads/prod/sites/133/2021/03/MEA-Blueprint-for-BYOD-Use-v1.0-Final-Version.pdf).
+The pattern works through various use cases and configuration required on top of the PROTECTED utility Blueprint, taking into account vendor best practice configuration advice on this area from [Microsoft's BYOD blueprint](https://news.microsoft.com/wp-content/uploads/prod/sites/133/2021/03/MEA-Blueprint-for-BYOD-Use-v1.0-Final-Version.pdf).
 
 It is recommended to read the ACSC risk management publication for enterprise mobility. See [Risk Management of Enterprise Mobility Including Bring Your Own Device](https://www.cyber.gov.au/acsc/view-all-content/publications/risk-management-enterprise-mobility-including-bring-your-own-device).
 
@@ -28,7 +28,7 @@ This pattern does not discuss agency policy surrounding the use of personally ow
 * Personnel accessing OFFICIAL and PROTECTED systems or data using a privately-owned mobile device use an ACSC approved platform, a security configuration in accordance with ACSC guidance and have enforced separation of work data from any personal data (**ISM** security control 1400) 
 * Privately-owned mobile devices do not access SECRET and TOP SECRET systems or data (**ISM** security control 0694)
 
-The Protected Utility Blueprint does not define a BYOD method as standard, or provide guidance on how to achieve this outside of this pattern. 
+The Protected Utility Blueprint does not define a BYOD use case, or provide guidance on how to achieve this outside of this pattern. 
 
 The technical controls that are described in this document have been grouped into two options that can be implemented together or by themselves, to provide various BYOD use cases:
 
@@ -36,19 +36,21 @@ The technical controls that are described in this document have been grouped int
 
 * Allows access to some Microsoft 365 applications from personal mobile devices
 * Granular control of user policies, session controls using Microsoft 
-  Defender for Cloud Apps (requires E5)
-* Intune Application Protection policies to enforce secure containerisation for company data 
-* Conditional Access enforced approved apps for Mobile Devices
-* Higher risk than enrolled device in PROTECTED utility 
-* Suits PROTECTED utility personas for ad-hoc access to Teams, SharePoint and Outlook.
+  Defender for Cloud Apps when protecting browser apps (requires E5 license level)
+* Intune Application Protection policies to enforce secure containerisation for company data  (available at E3 license level)
+* Conditional Access enforced agency approved apps for Mobile Devices
+* Suits personas for ad-hoc access to Teams, SharePoint and Outlook on Android and iOS phone or tablet devices
+* Agencies to risk assess for their environment and data classifications.
 
 **Virtual Desktop (AVD)**
 
-* Available for use with Microsoft 365 E3 or E5 
-* Utilises Azure Virtual Desktop (AVD) to provide a desktop experience that closely matches the corporate desktop, including legacy application access on any device
+* Available for use with Microsoft 365 E3 or E5 licensing levels (requires Azure subscription)
+* Utilises Azure Virtual Desktop (AVD) to provide a desktop experience that closely matches the corporate desktop, including legacy application access
+* Supports any client device able to access AVD
 * Lowest security risk approach compared to mobile device, but offers greater use cases
 * More complexity and cost involved to operate and setup
-* Suits all PROTECTED utility personas for enterprise mobility, including cross agency working.
+* Suits personas for enterprise mobility, including cross agency working
+* Agencies to risk assess for their environment and data classifications.
 
 ![BYOD options](/assets/images/patterns/byodoptions.png)
 
@@ -58,13 +60,14 @@ The following represent the assumptions when considering to deploy either BYOD o
 
 * PROTECTED utility deployed in a cloud only or hybrid deployment pattern.
 * For enhanced security, the Mobile device option requires Defender for Cloud Apps, which requires Microsoft 365 E5.
-* Licensing is available for Windows 10 Enterprise multi-session, Windows 10 Enterprise and FSLogix.
+* Licensing is available for Windows 10 Enterprise multi-session, Windows 10 Enterprise and FSLogix profile management.
   * Microsoft 365 E3, E5
   * Windows E3, E5
+  * Azure subscription
 
 ## Prerequisites
 
-The following represent the prerequisites before deploying the selection BYOD option .
+The following represent the prerequisites before deploying the selection BYOD option.
 
 All deployment types:
 
@@ -85,7 +88,7 @@ Hybrid:
 Options | Use-Cases | Effort to implement | Risk considerations 
 --- | --- | ---| ---
  Mobile device access (Option 1) | Provides ad-hoc access on the road and in the office to email, teams and SharePoint from personally owned mobile devices such as iOS and Android devices. <br />Use-case provides some offline access if connectivity is limited. | Easiest             | Enforcing device security controls<br /><br />Limited options for zero trust<br /><br />Lost phone, remote data wipe risks 
- Virtual desktop (Option2) | Provided through the Azure Virtual Desktop service, this provides a full Windows working environment similar to the corporate desktop. User use their own personal Windows or Mac devices to access the virtual desktop.<br />Remote working within another government agency or partner environment.<br /><br />Legacy or non-cloud corporate applications (hybrid) can operate with this use-case.<br /><br />Use case requires always-on Internet connection. | More difficult | Meets the intent of PROTECTED level controls and essential 8<br /><br />Some risks around screen scraping and physical security 
+ Virtual desktop (Option2) | Provided through the Azure Virtual Desktop service, this provides a full Windows working environment similar to the corporate desktop. Access is available from a users personal Windows or Mac device to access the virtual desktop.<br /><br />Remote working within another government agency or partner environment.<br /><br />Legacy or non-cloud corporate applications (hybrid) can operate with this use-case.<br /><br />Use case requires always-on Internet connection. | More difficult | Meets the intent of PROTECTED level controls and essential 8<br /><br />Some risks around screen scraping and physical security 
 
 The following process can be followed to determine which pattern option to follow.
 
@@ -104,10 +107,9 @@ Note, refer to the [System security plan](https://desktop.gov.au/blueprint/secur
 | Control | Description                                                  | Option 1                                                     | Option 2                                                     |
 | ------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | 1533    | A mobile device management policy is developed and implemented. | Agency to address                                            | Agency to address                                            |
-| 1195    | A Mobile Device Management solution is used to ensure mobile device management policy is applied to all mobile devices. | Not implemented                                              | Not applicable                                               |
-| 1400    | Personnel accessing official or classified systems or data using a privately-owned mobile device use an ACSC approved platform, a security configuration in accordance with ACSC guidance, and have enforced separation of official and classified data from any personal data. | Agency to address                                            | Agency to address                                            |
+| 1195    | A Mobile Device Management solution is used to ensure mobile device management policy is applied to all mobile devices. | Not implemented                                              | Not implemented                                              |
+| 1400    | Personnel accessing official or classified systems or data using a privately-owned mobile device use an ACSC approved platform, a security configuration in accordance with ACSC guidance, and have enforced separation of official and classified data from any personal data. | Partially implemented                                        | Agency to address                                            |
 | 1297    | Legal advice is sought prior to allowing privately-owned mobile devices to access official or classified systems or data. | Agency to address                                            | Agency to address                                            |
-| 1482    | Personnel accessing official or classified systems or data using an organisation-owned mobile device use an ACSC approved platform with a security configuration in accordance with ACSC guidance. | Implemented                                                  | Implemented                                                  |
 | 0869    | All data on mobile devices is encrypted using at least an Australian Signals Directorate Approved Cryptographic Algorithm. | Implemented                                                  | Not applicable                                               |
 | 1085    | Mobile devices used to communicate sensitive or classified data over public network infrastructure use encryption approved for communicating such data over public network infrastructure. | Implemented                                                  | Implemented                                                  |
 | 1202    | The range of Bluetooth communications between mobile devices and other Bluetooth devices is restricted to less than 10 metres by using class 2 or class 3 Bluetooth devices. | Not Implemented                                              | Not applicable                                               |
@@ -117,13 +119,13 @@ Note, refer to the [System security plan](https://desktop.gov.au/blueprint/secur
 | 1199    | Bluetooth pairings are removed from mobile devices when there is no longer a requirement for their use. | Not implemented                                              | Not applicable                                               |
 | 0863    | Mobile devices prevent personnel from installing or uninstalling applications once provisioned. | Not implemented                                              | Not applicable                                               |
 | 0864    | Mobile devices prevent personnel from disabling or modifying security functions once provisioned. | Not implemented                                              | Not applicable                                               |
-| 1365    | Mobile carriers that are able to provide timely security updates for mobile devices are used. | Partially implemented through O/S version control            | Not applicable                                               |
+| 1365    | Mobile carriers that are able to provide timely security updates for mobile devices are used. | Partially implemented through O/S version control (App Protection policy) | Not applicable                                               |
 | 1366    | Mobile devices are able to accept security updates from mobile carriers as soon as they become available. | Partially implemented through O/S version control            | Not applicable                                               |
-| 0874    | Web browsing from mobile devices is conducted through an organisation’s internet gateway rather than via a direct connection to the internet. | Not implemented                                              | Not applicable                                               |
-| 0705    | When accessing an organisation system via a VPN connection, split tunnelling is disabled. | Not implemented                                              | Not applicable                                               |
+| 0874    | Web browsing from mobile devices is conducted through an organisation’s internet gateway rather than via a direct connection to the internet. | Not applicable                                               | Not applicable                                               |
+| 0705    | When accessing an organisation system via a VPN connection, split tunnelling is disabled. | Not applicable                                               | Not applicable                                               |
 | 1082    | A mobile device usage policy is developed and implemented.   | Agency to address                                            | Agency to address                                            |
 | 1083    | Personnel are advised of the sensitivity or classification permitted for voice and data communications when using mobile devices. | Agency to address                                            | Agency to address                                            |
-| 0240    | Paging, Multimedia Message Service, Short Message Service or instant messaging apps are not used to communicate sensitive or classified data. | Agency to address                                            | Agency to address                                            |
+| 0240    | Paging, Multimedia Message Service, Short Message Service or instant messaging apps are not used to communicate sensitive or classified data. | Implemented                                                  | Not applicable                                               |
 | 0866    | Sensitive or classified data is not viewed or communicated in public locations unless care is taken to reduce the chance of the screen of a mobile device being observed. | Agency to address                                            | Agency to address                                            |
 | 1644    | Sensitive or classified phone calls are not conducted in public locations unless care is taken to reduce the chance of conversations being overheard. | Agency to address                                            | Agency to address                                            |
 | 0871    | Mobile devices are kept under continual direct supervision when being actively used. | Agency to address                                            | Agency to address                                            |
@@ -146,28 +148,32 @@ The Mobile device access option will leverage:
 
 * Defender for Cloud Apps to prevent data leakage and spills
 
-* Intune - Application Protection Policies 
+* Intune - Application Protection Policies.
 
 
 The outcome will allow the end user to: 
 * Access email using Outlook on their personal Mobile Device. 
 * Access Teams on their personal Mobile Device 
 * Access SharePoint Online on their personal Mobile Device 
-* Use of Word, Excel, PowerPoint
+* Use of Word, Excel, PowerPoint approved mobile apps.
 
 **Mobile devices** in the context of this BYOD option are smart phones or tablets running Apple iOS or Android.
 
+#### Mobile Application Management
+
 Access via MAM (Mobile Application Management) is provided through approved applications published by Microsoft to the respective app store (Apple AppStore or Google Play Store). 
 
-Intune app protection policies provide a container policy to the applications to secure corporate data, and prevent download upload, copy and paste actions, and enforce a PIN/appropriate passcode. 
+* Intune app protection policies provide a container policy to the applications to secure corporate data, and prevent download upload, copy and paste actions, and enforce a PIN/appropriate passcode. 
 
-A MAM model does not require the device to be managed (MDM) or enrolled so will carry additional risk. Intune app protection MAM policies can be applied without enrolment requirement, this is referred to as MAM without enrolment (MAM-WE). Approved applications can be defined through the Conditional Access policies.  Conditional Access policies can be applied based on various attributes such as device state, user group or location.
 
-With MAM, iOS devices do not require Apple Business Manager or Apple Push Notification Service certificate configuration or for MAM only, this configuration in the Blueprint for MDM can be ignored if this pattern is the only method for Mobile Devices for the Agency. Without MDM policies and enrolment, various functions can not be prevented such as the ability to restrict screenshot for example.
+* A MAM model does not require the device to be managed (MDM) or enrolled so will carry additional risk. Intune app protection MAM policies can be applied without enrolment requirement, this is referred to as MAM without enrolment (MAM-WE). Approved applications can be defined through the Conditional Access policies.  Conditional Access policies can be applied based on various attributes such as device state, user group or location.
 
-Agencies should provide some guidance or user guides to their users on how to install the Office applications on their devices and authenticate to avoid confusion, these actions and out of box setup are generally automated within a supervised, managed deployment. 
 
-To protect the data in the event that a device is lost or stolen or if the employee leaves the Agency, Selective Wipe capability can be used to wipe the corporate data in managed apps from the device. Intune app protection policies can help prevent data contamination between non managed apps on a client device.
+* With MAM, iOS devices do not require Apple Business Manager or Apple Push Notification Service certificate configuration or for MAM only, this configuration in the Blueprint for MDM can be ignored if this pattern is the only method for Mobile Devices for the Agency. Without MDM policies and enrolment, various functions can not be prevented such as the ability to restrict screenshot for example.
+* To protect the data in the event that a device is lost or stolen or if the employee leaves the Agency, Selective Wipe capability can be used to wipe the corporate data in managed apps from the device. Intune app protection policies can help prevent data contamination between non managed apps on a client device.
+* Agencies should provide some guidance or user guides to their users on how to install the Office applications on their devices and authenticate to avoid confusion, these actions and out of box setup are generally automated within a supervised, managed deployment. 
+
+#### Azure AD Identity Protection
 
 Azure ID Identity Protection is an Azure AD feature that protects the identity through:
 
@@ -176,6 +182,8 @@ Azure ID Identity Protection is an Azure AD feature that protects the identity t
 * includes additional challenge to user based on risk detection in real time
 * Provides a portal for identify based investigation
 
+#### Defender for Cloud Apps
+
 Defender for Cloud Apps (formerly MCAS) provides capabilities that can restrict access to only authorised platforms and device types and can minimise the risk of data loss and spills within a supported app or browser. Defender for Cloud App Session Control is enabled through Conditional Access policies (App Control), which enables Defender for Cloud App to act as a CASB (Cloud Access Security Broker) for the connection from the browser to the data source. Further control through the CASB can:
 
 * Block data upload/download
@@ -183,11 +191,13 @@ Defender for Cloud Apps (formerly MCAS) provides capabilities that can restrict 
 * Block printing
 * Block copy/paste actions
 
+#### Implementation Decisions
+
 The following tables describe the high level implementation decisions
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Mobile device use cases | Authorised applications on iOS and Android devices without MDM enrollment (MAM) | Allowing MAM on these device platforms offers great flexibility but less risk than a full browser and application access on Windows Devices. Less risk can be provided by the Windows device use case via the Virtual desktop BYOD option. 
+Mobile device use cases | Authorised applications on iOS and Android devices without MDM enrollment (MAM) | Allowing MAM on these device platforms offers great flexibility but less risk than a full  application access on Windows Devices. Less risk can be provided by the Windows device use case via the Virtual desktop BYOD option. 
 Conditional Access | Conditional Access will be configured with exception group for those trusted for MAM | Provides a Zero Trust method to restrict access to this use case only and allows PROTECTED utility baseline configuration for remainder of Agency that don't require BYOD for their persona. 
 Defender for Cloud Apps | Cloud App security Session policies will restrict access to data within browser sessions | Provides a Zero Trust method to restrict access to leaking of data. 
 Intune app protection policies | App protection polices will be deployed to the MAM identity groups without enrollment required (MAM-WE) | Provides some protection against Agency data within a managed app. Protection will require a passcode within the app, control sharing of data between apps and prevent copy of data to personal locations. This allows separation between corporate and personal data to address the intent of ISM security control 1400. 
@@ -198,13 +208,15 @@ Multi Factor Authentication | Multi Factor authentication for this use-case will
 
 #### BYOD Option 1 configuration guide
 
+The configuration options provided here assume that the PROTECTED utility has been implemented.
+
 ##### Azure AD Groups
 
 The following updates are required within Azure AD.
 
 `Azure Active Directory > Groups`
 
-| Azure AD Group                 | Membership                                          |
+| Item                           | Value                                               |
 | ------------------------------ | --------------------------------------------------- |
 | New Group: rol-Agency-MAMUsers | Type: Security<br />Membership: Statically assigned |
 
@@ -214,9 +226,9 @@ The following updates are required to existing app protection policies.
 
 `Microsoft Endpoint Manager > Apps > App protection policies > iOS App Protection Policy`
 
-| App Protection Policy     | Membership                                      |
-| ------------------------- | ----------------------------------------------- |
-| iOS App Protection Policy | Assignment: Exclude Group - rol-Agency-MAMUsers |
+| Item                                            | Value                                           |
+| ----------------------------------------------- | ----------------------------------------------- |
+| Existing policy name: iOS App Protection Policy | Assignment: Exclude Group - rol-Agency-MAMUsers |
 
 ##### Conditional Access Polices
 
@@ -224,15 +236,15 @@ The following updates are required to the following Conditional Access Policies 
 
 `Azure AD Conditional Access > Policies`
 
-| Existing Conditional Access Policy | Update                                                       |
-| ---------------------------------- | ------------------------------------------------------------ |
-| GRANT - iOS Device access          | This policy requires iOS device state to be compliant which requires enrollment. The update required to this policy is the exclude the MAM users group.<br /><br />Assignments > Exclude > rol-Agency-MAMUsers |
+| Item                                            | Value                                                        |
+| ----------------------------------------------- | ------------------------------------------------------------ |
+| Existing policy name: GRANT - iOS Device access | This policy requires iOS device state to be compliant which requires enrollment. The update required to this policy is the exclude the MAM users group.<br /><br />Assignments > Exclude > rol-Agency-MAMUsers |
 
 The following is a new Conditional Access Policy to allow MAM access for BYOD option 2.
 
-| New Conditional Access Policy name | Policy Summary                                               |
-| ---------------------------------- | ------------------------------------------------------------ |
-| GRANT - MAM BYOD access            | Authorised applications on iOS and Android devices  without MDM enrollment (MAM). |
+| Item                                     | Value                                                        |
+| ---------------------------------------- | ------------------------------------------------------------ |
+| New policy name: GRANT - MAM BYOD access | Authorised applications on iOS and Android devices  without MDM enrollment (MAM).<br /> |
 
 * Name: `GRANT – MAM BYOD access`
 * Assignments
@@ -295,9 +307,9 @@ The following is a new Conditional Access Policy to allow MAM access for BYOD op
 
 The following is a new Conditional Access Policy to allow block unapproved apps for MAM users on iOS and Android.
 
-| New Conditional Access Policy name | Policy Summary                                               |
-| ---------------------------------- | ------------------------------------------------------------ |
-| BLOCK - MAM BYOD unapproved apps   | Block all applications that are not Office 365 on iOS and Android devices. |
+| Item                                              | Value                                                        |
+| ------------------------------------------------- | ------------------------------------------------------------ |
+| New policy name: BLOCK - MAM BYOD unapproved apps | Block all applications that are not Office 365 on iOS and Android devices. |
 
 * Name: `BLOCK – MAM BYOD unapproved cloud apps`
 * Assignments
@@ -435,7 +447,7 @@ The following updates are required for managed application on iOS and Android.
 | **Apps**                                                 |                                                              |
 | Target Apps on all device types                          | No (Unmanaged)                                               |
 | Target policy to                                         | Selected Apps                                                |
-| Public Apps                                              | Microsoft Edge<br/>Microsoft Excel<br/>Microsoft Outlook<br/>Microsoft PowerPoint<br/>Microsoft Word<br/>Microsoft Office<br/>Microsoft OneNote<br/>Microsoft Planner<br/>Microsoft Power BI<br/>Microsoft SharePoint<br/>Microsoft Teams<br/>Microsoft Visio Viewer<br/>Microsoft Power Apps<br/>Microsoft OneDrive |
+| Public Apps                                              | Microsoft Edge<br/>Microsoft Excel<br/>Microsoft Outlook<br/>Microsoft PowerPoint<br/>Microsoft Word<br/>Microsoft SharePoint<br/>Microsoft Teams<br/>Microsoft OneDrive |
 | **Data Protection**                                      |                                                              |
 | Backup or data to iTunes and iCloud                      | Block                                                        |
 | Send org data to other apps                              | Policy managed apps with Open-In/Share filtering             |
@@ -483,7 +495,7 @@ The following updates are required for managed application on iOS and Android.
 | **Apps**                                                 |                                                              |
 | Target Apps on all device types                          | No (Unmanaged)                                               |
 | Target policy to                                         | Selected Apps                                                |
-| Public Apps                                              | Microsoft Edge<br/>Microsoft Excel<br/>Microsoft Outlook<br/>Microsoft PowerPoint<br/>Microsoft Word<br/>Microsoft Office<br/>Microsoft OneNote<br/>Microsoft Planner<br/>Microsoft Power BI<br/>Microsoft SharePoint<br/>Microsoft Teams<br/>Microsoft Visio Viewer<br/>Microsoft Power Apps<br/>Microsoft OneDrive |
+| Public Apps                                              | Microsoft Edge<br/>Microsoft Excel<br/>Microsoft Outlook<br/>Microsoft PowerPoint<br/>Microsoft Word<br/>Microsoft SharePoint<br/>Microsoft Teams<br/>Microsoft OneDrive |
 | **Data Protection**                                      |                                                              |
 | Backup or data to Android backup services                | Block                                                        |
 | Send org data to other apps                              | Policy managed apps with Open-In/Share filtering             |
@@ -534,21 +546,11 @@ The Virtual desktop (Azure Virtual Desktop) device access option will leverage:
 
 The outcome will allow the end user to: 
 
-* Access email using Outlook on their personal Mobile Device, from within the virtual desktop only
-* Access Teams on their personal Mobile Device, from within the virtual desktop only 
-* Access SharePoint Online on their personal Mobile Device, from the virtual desktop only
+* Access all M365 applications, from within the virtual desktop only
+* Access all other corporate applications, from within the virtual desktop only
 * Prevent copy, paste, saving of files and printing on the Mobile Device.
 
-**Mobile devices** or **personal devices** in the context of this BYOD option are consumer desktop devices using MacOS or Windows, or devices provided by another government agency (cross agency working use-cases). They access the solution with a HTML5 browser, or through the provided Microsoft application (Azure Virtual Desktop Client).
-
-This option allows users to access to Office 365 applications that are hosted on a 
-Windows Virtual Desktop, including any hybrid applications provided these are configured appropriately within the Azure environment.
-
-The mobile device used to access the virtual desktop is not limited to a particular platform, but a Windows base device is recommended. Users can choose from using a HTML5 web browser (e.g. Edge or Chrome), or the Azure Virtual Desktop client, to access the virtual desktop. 
-
-The Virtual Desktops provides a greater level of security accessing Agency data over a MAM solution (option 1) as all the data remains within the Azure secure boundary (Azure enterprise landing zone).
-
-The Azure Virtual Desktop Blueprint pattern provides a recommendation on how to deploy this and some considerations to follow. The solution requires some architectural decisions to be made that are outside the scope of this pattern, or the AVD pattern. It is more difficult to implement than the MAM BYOD option, but offers a less complex implementation than other virtual desktop solutions.
+The recommendation to implement this option is to utilise the [Azure Virtual Desktop Blueprint](https://desktop.gov.au/patterns/avd.html) pattern. The solution requires architectural decisions to be made that are outside the scope of this pattern. This BYOD option is more difficult to implement than the MAM BYOD option 1, but offers a less complex implementation than other virtual desktop solutions.
 
 The pattern recommends the following:
 
@@ -559,12 +561,26 @@ The pattern recommends the following:
 * Multifactor authentication is enforced with session controls to prevent multiple day use of the MFA token.
 * Identity Protection is configured to allow detection of risky sign-ins.
 
+**Mobile devices** or **personal devices** in the context of this BYOD option are consumer desktop devices using MacOS or Windows, or devices provided by another government agency (cross agency working use-cases).
+
+#### Data segregation
+
+AVD allows users to access to Office 365 applications that are hosted on a Windows Virtual Desktop, including any hybrid applications provided these are configured appropriately within the Azure environment. These applications are running within a virtual desktop so the user operating the client device can only interact with the application inside the virtual machine, but cannot extract or upload data to and from the local endpoint when configured appropriately. 
+
+Virtual Desktops provides a greater level of security accessing Agency data over a MAM solution (option 1) as all the data remains within the Azure secure boundary (the Azure enterprise landing zone).
+
+#### Client device access
+
+The mobile device used to access the virtual desktop is not limited to a particular platform, but a Windows client device is recommended. Users can choose from using a HTML5 web browser (e.g. Edge or Chrome), or the official Azure Virtual Desktop client, to access the virtual desktop. 
+
+#### Implementation Decisions
+
 The following tables describe the high level implementation decisions
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
- Mobile device use cases |Personal device access to a corporate Windows virtual desktop.|Offers more greater level of access to applications and data and less risk exposure than MAM data separation.
- Conditional Access |Conditional Access will be configured with exception group for those trusted for MAM|Provides a Zero Trust method to restrict access to this use case only and allows PROTECTED utility baseline configuration for remainder of Agency that don't require Virtual Desktops for their job role.
+ Mobile device use cases |Personal device access to a corporate Windows virtual desktop.|Offers greater level of access to applications and data and less risk exposure than MAM data separation.
+ Conditional Access |Conditional Access will be configured with exception group for those trusted for AVD|Provides a Zero Trust method to restrict access to this use case only and allows PROTECTED utility baseline configuration for remainder of Agency that don't require Virtual Desktops for their job role.
  Azure Virtual Desktop design |PROTECTED utility Azure Virtual Desktop pattern|The PROTECTED utility Azure Virtual Desktop pattern provides advice to deploy a secure enterprise virtual desktop solution on Azure with suitable controls to operate at PROTECTED.<br /><br />Note: Agencies should risk assess their own design or deployment of this pattern to determine suitability to operate in their environment.
 
 #### BYOD Option 2 configuration guide

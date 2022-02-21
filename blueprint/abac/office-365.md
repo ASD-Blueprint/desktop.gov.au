@@ -127,6 +127,7 @@ The following table describes the Microsoft 365 Services settings for all implem
 | Sway                                      | Disabled                                                     |
 | User consent to apps                      | Disabled                                                     |
 | User owned apps and services              | Disabled                                                     |
+| Viva Learning                             | Diagnostic data: Unchecked<br>LinkedIn Learning: Unchecked<br>Microsoft Learn: Unchecked<br>Microsoft 365 Training: Unchecked<br>SharePoint: Unchecked |
 | Whiteboard                                | Turn on Whiteboard for everyone in your org: Checked<br>Level of diagnostic data to send to Microsoft: Neither<br>Allow the use of optional connected experiences in Whiteboard: Unchecked<br>Enable easy sharing of Whiteboard from Surface Hub: Unchecked<br>Enable storing new whiteboards in OneDrive: Unchecked |
 
 ### Security and privacy

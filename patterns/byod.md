@@ -12,7 +12,7 @@ BYOD allows users to perform their work in a flexible manner within specific use
 * travel or work from home
 * ad-hoc access to calendar and mail
 * Teams collaboration and chat
-* accessing multiple tenancies or classifications from a single device.
+* accessing multiple tenants from a single device.
 
 The pattern works through various use cases and configuration required on top of the PROTECTED utility Blueprint, taking into account vendor best practice configuration advice on this area from [Microsoft's BYOD blueprint](https://news.microsoft.com/wp-content/uploads/prod/sites/133/2021/03/MEA-Blueprint-for-BYOD-Use-v1.0-Final-Version.pdf).
 
@@ -20,13 +20,12 @@ It is recommended to read the ACSC risk management publication for enterprise mo
 
 This pattern suggests **two BYOD access options** dependent on the risk appetite of the Agency and provides some known risk and ISM control guidance. 
 
-Agencies adopting BYOD should perform their own risk assessments and follow ACSC guidance in regards to the requirements surrounding the platform and adequate separation between private and corporate data. The ACSC recommend that BYOD should not be used to access SECRET or TOP SECRET systems.
+Agencies adopting BYOD should perform their own risk assessments and follow ACSC guidance in regards to the requirements surrounding the platform and adequate separation between private and corporate data.
 
-This pattern does not discuss agency policy surrounding the use of personally owed devices. The following guidance from the ACSC is:
+This pattern does not discuss Agency policy surrounding the use of personally owed devices. The following guidance from the ACSC for OFFICIAL and PROTECTED BYOD implementation is:
 
-* Legal advice is sought prior to allowing privately-owned mobile devices to access systems or data (**ISM** security control 1297)
-* Personnel accessing OFFICIAL and PROTECTED systems or data using a privately-owned mobile device use an ACSC approved platform, a security configuration in accordance with ACSC guidance and have enforced separation of work data from any personal data (**ISM** security control 1400) 
-* Privately-owned mobile devices do not access SECRET and TOP SECRET systems or data (**ISM** security control 0694)
+* Legal advice is sought prior to allowing privately-owned mobile devices to access systems or data (**ISM** control 1297)
+* Personnel accessing OFFICIAL and PROTECTED systems or data using a privately-owned mobile device use an ACSC approved platform, a security configuration in accordance with ACSC guidance and have enforced separation of work data from any personal data (**ISM** control 1400) 
 
 The Protected Utility Blueprint does not define a BYOD use case, or provide guidance on how to achieve this outside of this pattern. 
 
@@ -35,8 +34,7 @@ The technical controls that are described in this document have been grouped int
 **Mobile device access**
 
 * Allows access to some Microsoft 365 applications from personal mobile devices
-* Granular control of user policies, session controls using Microsoft 
-  Defender for Cloud Apps when protecting browser apps (requires E5 license level)
+* Granular control of user policies, session controls using Microsoft Defender for Cloud Apps when protecting browser apps (requires E5 license level)
 * Intune Application Protection policies to enforce secure containerisation for company data  (available at E3 license level)
 * Conditional Access enforced agency approved apps for Mobile Devices
 * Suits personas for ad-hoc access to Teams, SharePoint and Outlook on Android and iOS phone or tablet devices
@@ -58,7 +56,7 @@ The technical controls that are described in this document have been grouped int
 
 The following represent the assumptions when considering to deploy either BYOD options into an existing blueprint deployment:
 
-* PROTECTED utility deployed in a cloud only or hybrid deployment pattern.
+* PROTECTED utility deployed in a cloud-only or hybrid deployment pattern.
 * For enhanced security, the Mobile device option requires Defender for Cloud Apps, which requires Microsoft 365 E5.
 * Licensing is available for Windows 10 Enterprise multi-session, Windows 10 Enterprise and FSLogix profile management.
   * Microsoft 365 E3, E5

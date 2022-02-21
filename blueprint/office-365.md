@@ -1127,7 +1127,7 @@ Policies and Settings Design Decisions for all agencies and implementation types
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Team Policy | Configured<br>Disable private channels | Team policy will be left as default settings.<br>Discovered private teams.<br>Create private channels. 
-Meeting Policies | Configured<br>Global policy:<br>Automatically admit people – Everyone in your organisation | Meeting policy dictates how audio, videos and applications that are used in a team meeting.<br>Require external participants to be admitted to a meeting to prevent unauthorised entrance.
+Meeting Policies | Configured<br>Global policy:<br>Automatically admit people – Everyone in your organisation<br>Cloud Recording – Enabled with automatic deletion | Meeting policy dictates how audio, videos and applications that are used in a team meeting.<br>Require external participants to be admitted to a meeting to prevent unauthorised entrance.<br>Enables meetings to be recorded while reducing storage consumption.
 Live events Policies | Configured<br>Who can join live events:<br>Everyone in Organisation | Live events is configured to prevent users outside of the organisation (guest and external users) cannot attend these meeting.
 Messaging Policy | Configured | Messaging policy dictates how messaging is used in Teams. These includes usage of Giphy, Memes and stickers in messages.
 Teams app | Configured<br>Global Policy:<br>Block specific app from Microsoft Apps<br>* Forms<br>* Yammer<br>Block all Third-Party Apps<br>Block all Tenant Apps | Microsoft Forms and Yammer are hosted in United States. This will cause data sovereignty issue for the Agency. <br>All Third-Party Apps are blocked. These Third-Party apps needs to be evaluated individually.<br>Tenant Apps are custom developed applications created by the Agency. This should be enabled if it is required. 
@@ -1670,7 +1670,7 @@ The Whiteboard tool also offers optional connected experiences. These experience
 
 The Whiteboard tool can be used with the Microsoft Surface hub appliance. When using the tool easy sharing can be configured. Easy sharing allows sharing of Whiteboard sessions without logging into the Surface Hub appliance. 
 
-Microsoft Whiteboard Configuration applicable to all agencies and implementation types.
+Microsoft Whiteboard Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1693,7 +1693,7 @@ Surveys and forms can be leveraged for potentially malicious purposes. Phishing 
 
 At time of writing, Microsoft Forms processes and stores data for Australian tenants within the [United States](https://docs.microsoft.com/en-us/microsoft-365/enterprise/o365-data-locations?view=o365-worldwide), it is recommended to not process sensitive information using Microsoft Forms.
 
-Microsoft Forms Configuration applicable to all agencies and implementation types.
+Microsoft Forms Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -1708,8 +1708,23 @@ Phishing protection | Enabled | Blocks forms from being shared or distributed if
 ## Microsoft Planner
 Microsoft Planner is a task planning and assignment tool which can integrate with other Microsoft 365 services such as Microsoft Teams. Planner leverages iCalendar publishing to allow planner users to add tasks into their calendar. When tasks are published via iCalendar, they are available to all users with the iCalendar URL. The users can be both internal and external to the organisation.
 
-Microsoft Planner Configuration applicable to all agencies and implementation types.
+Microsoft Planner Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Publishing through iCalendar feed | Disabled | To prevent users from sharing sensitive information via iCalendar feeds.
+
+## Viva Learning
+Viva Learning is a Microsoft Teams app which aims to assist users to find and access training from multiple content providers. Viva Learning content can be enabled from LinkedIn Learning, Microsoft Learn, and Microsoft 365 Training. Administrators can also configure a SharePoint site to host addition content, which can be done without enabling content from other providers.
+
+Note, Viva Learning content is subject to terms other than the Microsoft Product Terms, including third-party content provider’s terms, which have not been reviewed as part of the Office 365 IRAP assessment. It is recommended that Agencies review these terms as part of any risk assessment relating to the use of this content.
+
+Viva Learning Design Decisions for all agencies and implementation types.
+
+Decision Point | Design Decision | Justification
+--- | --- | ---
+Diagnostic data | Disabled | Prevent data from being provided to Microsoft for diagnostic and product improvements.
+LinkedIn Learning | Disabled | LinkedIn Learning content is subject to third-party content provider’s terms that have not been reviewed as part of the Office 365 IRAP assessment.
+Microsoft Learn | Disabled | Microsoft Learn content is subject to terms other than the Microsoft Product Terms and have not been reviewed as part of the Office 365 IRAP assessment.
+Microsoft 365 Training | Disabled | Microsoft 365 Training content is subject to terms other than the Microsoft Product Terms and have not been reviewed as part of the Office 365 IRAP assessment.
+SharePoint | Disabled | The blueprint does not provide training content. Agencies with existing content may enable a SharePoint site to host Viva Learning content, subject to internal assessment.

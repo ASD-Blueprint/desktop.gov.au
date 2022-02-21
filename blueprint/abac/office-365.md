@@ -127,6 +127,7 @@ The following table describes the Microsoft 365 Services settings for all implem
 | Sway                                      | Disabled                                                     |
 | User consent to apps                      | Disabled                                                     |
 | User owned apps and services              | Disabled                                                     |
+| Viva Learning                             | Diagnostic data: Unchecked<br>LinkedIn Learning: Unchecked<br>Microsoft Learn: Unchecked<br>Microsoft 365 Training: Unchecked<br>SharePoint: Unchecked |
 | Whiteboard                                | Turn on Whiteboard for everyone in your org: Checked<br>Level of diagnostic data to send to Microsoft: Neither<br>Allow the use of optional connected experiences in Whiteboard: Unchecked<br>Enable easy sharing of Whiteboard from Surface Hub: Unchecked<br>Enable storing new whiteboards in OneDrive: Unchecked |
 
 ### Security and privacy
@@ -166,7 +167,7 @@ The following table describes the Exchange Online inbound mail connectors for a 
 | -------------- | ------------- |
 | Not configured | N/A           |
 
-The following table describes the Exchange Online outbound mail connectors  for a Cloud-native implementation type.
+The following table describes the Exchange Online outbound mail connectors for a Cloud-native implementation type.
 
 | Item           | Configuration |
 | -------------- | ------------- |
@@ -1086,8 +1087,11 @@ Note, policies that are not configurable are not included below.
 | IP video                                        | On                                                           |
 | Local broadcasting                              | Off                                                          |
 | Media bit rate (Kbs)                            | 50000                                                        |
+| Network configuration lookup                    | Off                                                          |
 | Transcription                                   | Off                                                          |
 | Cloud recording                                 | On                                                           |
+| Meetings automatically expire                   | On                                                           |
+| Default expiration time                         | 60                                                           |
 | Store recordings outside of your country or region | Off                                                       |
 | Screen sharing mode                             | Entire screen                                                |
 | Allow a participant to give or request control  | On                                                           |
@@ -1221,7 +1225,7 @@ The ABAC settings for the Agency SharePoint Online and OneDrive instances can be
 
 * Allow access from unmanaged devices: `Allow full access from desktop apps, mobile apps, and the web`
 
-Note, restrictions for unmnaged devices are defined by Conditional Access policies as described in the Platform ABAC.
+Note, restrictions for unmanaged devices are defined by Conditional Access policies as described in the Platform ABAC.
 
 `SharePoint admin center > Policies > Access control > Idle session sign-out`
 
@@ -1674,7 +1678,7 @@ The ABAC settings for the initial Data Loss Prevention configuration for all imp
     * Teams chat and channel messages: `All, no exclusions`
   * Policy settings:
     * Low volume: `Low volume of content detected Australia Privacy Act (default template)`
-    * High voume: `High volume of content detected Australia Privacy Act (default template)`
+    * High volume: `High volume of content detected Australia Privacy Act (default template)`
 * Name: `Australia Personally Identifiable Information (PII) Data`
   * Status: `On`
   * Description: `Helps detect the presence of information commonly considered to be personally identifiable information (PII) in Australia, like tax file number and driver's license.`
@@ -1686,7 +1690,7 @@ The ABAC settings for the initial Data Loss Prevention configuration for all imp
     * Teams chat and channel messages: `All, no exclusions`
   * Policy settings:
     * Low volume: `Low volume of content detected Australia Personally Identifiabl (default template)`
-    * High voume: `High volume of content detected Australia Personally Identifiab (default template)`
+    * High volume: `High volume of content detected Australia Personally Identifiab (default template)`
 * Name: `Australia Health Records Act (HRIP Act)`
   * Status: `On`
   * Description: `Helps detect the presence of information commonly considered to be subject to the Health Records and Information Privacy (HRIP) act in Australia, like medical account number and tax file number.`
@@ -1698,7 +1702,7 @@ The ABAC settings for the initial Data Loss Prevention configuration for all imp
     * Teams chat and channel messages: `All, no exclusions`
   * Policy settings:
     * Low volume: `Low volume of content detected Australia Health Records Act (HR (default template)`
-    * High voume: `High volume of content detected Australia Health Records Act (H (default template)`
+    * High volume: `High volume of content detected Australia Health Records Act (H (default template)`
 * Name: `Australian Financial Data`
   * Status: `On`
   * Workload: `Helps detect the presence of information commonly considered to be financial data in Australia, including credit cards, and SWIFT codes.`
@@ -1710,7 +1714,7 @@ The ABAC settings for the initial Data Loss Prevention configuration for all imp
     * Teams chat and channel messages: `All, no exclusions`
   * Policy settings:
     * Low volume: `Low volume of content detected Australia Financial Data (default template)`
-    * High voume: `High volume of content detected Australia Financial Data (default template)`
+    * High volume: `High volume of content detected Australia Financial Data (default template)`
 * Name: `PROTECTED Data`
   * Status: `On`
   * Description: `Custom DLP policy to detect the sharing of data with PROTECTED sensitivity labels applied.`
@@ -1733,7 +1737,7 @@ Please note, if a setting is not mentioned below, it should be assumed to have b
 #### Global Settings
 
 * Use Safe Links in Office 365 apps: `Enabled`
-* Do not track wehn users click protected links in Office 365 apps: `Enabled`
+* Do not track when users click protected links in Office 365 apps: `Enabled`
 * Do not let users click through to the original URL in Office 365 app: `Enabled`
 
 #### Policy
@@ -1803,7 +1807,7 @@ Please note, if a setting is not mentioned below, it should be assumed to have b
     * If Mailbox Intelligence detects an impersonated user: `Quarantine the message`
     * If message is detected as spoof: `Quarantine the message`
 * Safety tips & indicators
-  * Show first contact safety tip (Recommneded): `Enabled`
+  * Show first contact safety tip (Recommended): `Enabled`
   * Show user impersonation safety tip: `Enabled`
   * Show domain impersonation safety tip: `Enabled`
   * Show user impersonation unusual characters safety tip: `Enabled`

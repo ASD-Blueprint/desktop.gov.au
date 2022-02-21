@@ -7,6 +7,11 @@ You can find published releases at [https://github.com/govau/desktop.gov.au/rele
 * Update both cloud-native and hybrid System Security Plans to incorporate all changes to December 2021 [#168]
 * Update redirections.xml guidance in the AVD pattern [#172]
 * Update RBAC/PIM guidance in the platform design [#173]
+* Typos corrected [#176]
+* SRMP documents updated with Sept 2021 ISM [#177]
+* Updates to Cloud Storage settings in Teams Meeting Policy [#180]
+* Added Viva Learning [#179]
+* Review and update Incident Response Plans [#181]
 
 ## December 2021
 

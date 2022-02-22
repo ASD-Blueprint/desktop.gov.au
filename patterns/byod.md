@@ -22,6 +22,8 @@ This pattern suggests **two BYOD access options** dependent on the risk appetite
 
 Agencies adopting BYOD should perform their own risk assessments and follow ACSC guidance in regards to the requirements surrounding the platform and adequate separation between private and corporate data.
 
+It is not recommended to process or store sensitive data on non-corporately managed devices. 
+
 This pattern does not discuss Agency policy surrounding the use of personally/privately-owed devices. The following guidance from the ACSC for OFFICIAL and PROTECTED BYOD implementation is:
 
 * Legal advice is sought prior to allowing privately-owned mobile devices to access systems or data (**ISM** control 1297)
@@ -38,7 +40,8 @@ The technical controls that are described in this document have been grouped int
 * Intune Application Protection policies to enforce secure containerisation for company data  (available at E3 license level)
 * Conditional Access enforced Agency approved apps for Mobile Devices
 * Suits personas for ad-hoc access to Teams, SharePoint and Outlook on Android and iOS phone or tablet devices
-* Agencies to risk assess for their environment and data classification.
+* Agencies to risk assess for their environment and data classification
+* This BYOD option is not recommended for use cases involving access to sensitive information.
 
 **Virtual desktop**
 

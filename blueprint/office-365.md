@@ -44,7 +44,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Office 365 Region | Australia | Aligns with ACSC guidance of utilising cloud services located in Australia.
 
-### Licence
+### License
 
 Microsoft licenses access to Office 365 and its security offerings through user-based licensing.
 
@@ -57,19 +57,19 @@ These licencing options are summarised below:
 
 To grant access to the services a license is assigned to an individual user account. A license can be assigned by an administrator at the time of the user account is created or through Azure AD group-based licensing. Azure AD group-based licensing allows an Administrator to associate a license to a group. Any members within the group will be assigned that license automatically. When a user is removed from the group the license is removed.
 
-Licencing Design Decisions for all agencies and implementation types.
+Licensing Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Products Licenced | Microsoft 365 E5 | Microsoft 365 E5 licences combines Office 365 E5, EMS E5, and Windows 10 E5 are required to ensure that Office 365 tenant can be rated up to Protected. 
-Licence Allocation Method | Automated | Dynamic Security Groups in Azure AD will be used to automatically assign licences and reduce the management overhead associated with licensing.
+Products Licensed | Microsoft 365 E5 | Microsoft 365 E5 licences combines Office 365 E5, EMS E5, and Windows 10 E5 are required to ensure that Office 365 tenant can be rated up to Protected. 
+License Allocation Method | Automated | Dynamic Security Groups in Azure AD will be used to automatically assign licences and reduce the management overhead associated with licensing.
 
-Licencing Configuration for all agencies and implementation types.
+Licensing Configuration for all agencies and implementation types.
 
 Configuration | Value | Description
 --- | --- | ---
-Admin Licence Group | `rol-AgencyName-Administrator` | This is the group that the Agency administrators belong to.
-User Licence Groups | `rol-AgencyName-Users` | This is the group that the Agency non-administrator users belong to.
+Admin License Group | `rol-AgencyName-Administrator` | This is the group that the Agency administrators belong to.
+User License Groups | `rol-AgencyName-Users` | This is the group that the Agency non-administrator users belong to.
 
 ### Self service purchase
 
@@ -1265,19 +1265,20 @@ Classification labels are published to users using Label Policies. Label Policie
 
 At the time of writing, sensitivity labels cannot be configured to satisfy all of the requirements listed in the Protective Security Policy Framework (PSPF). Some of these limitations are:
 
-* Sensitivity labels do not set the `X-Protective-Marking` header (internet message header extension). Exchange transport rules can be used to set this label but the *Origin* parameter prescribed in the PSPF cannot be set natively.**
-* Messages received from outside of the agency that have the appropriate `X-Protective-Marking` header set are not interpreted by native labelling in the Outlook client.
-* The MIP labelling clients cannot append the protective marking to the subject field (subject field marking) to an email.
+* Sensitivity labels, Exchange Transport rules or DLP, cannot set the `X-Protective-Marking` header *Origin* parameter prescribed in the PSPF.
+* When using DLP or Auto Labeling policies to set a  `X-Protective-Marking` header:
+  * certain characters prescribed in the PSPF are not supported (such as `:` and `,`) 
+  * a character limit of 64 characters is the maximum
+  * Exchange Transport rules do not have these character limitations
 * When downgrading a sensitivity label, the downgrade cannot be prevented, only forcing the user to justify the downgrade. 
 * Sensitivity labels are not available within calendar invites.
 
 The following MIP methods can be used to assist with PSPF compliance:
 
-* Prepend the protective marking to the subject field using Exchange Online transport rules and MIP header checks.
-* For calendar invites, advise users to add the classification to the body, and use transport rules to add the required subject and header values.
-* Add the `X-Protective-Marking` header associated with the MIP label at the email gateway, as transport rules cannot populate the user's email address in the `ORIGIN=user@agency.gov.au` property inside the `X-Protective-Marking` header.
+* For calendar invites, advise users to add the classification to the body, and use transport rules or DLP to add the required subject and header values.
+* Update the `X-Protective-Marking` header associated with the MIP label at the email gateway with the `ORIGIN=user@agency.gov.au` property. Note, internal emails inside the Agency wouldn't be tagged using this method.
 
-Email gateway rules are available in the [Network Configuration ABAC document](/blueprint/abac/hybrid-network-configuration.html#office-365--email-protective-markings-with-aip-technology). These rules are based on regular expressions and are easily adaptable to vendor specific email gateways.
+Example email gateway rules that work with MIP are available in the [Network Configuration ABAC document](/blueprint/abac/hybrid-network-configuration.html#office-365--email-protective-markings-with-aip-technology). These rules are based on regular expressions and are easily adaptable to vendor specific email gateways.
 
 Classification Label Design Decisions for all agencies and implementation types.
 
@@ -1285,8 +1286,10 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Sensitivity Labels | Enabled | Labels will be applied in accordance with the latest guidance from the PSPF.
 Retention Labels | Enabled | Labels are recommended to be applied to automate retention configuration and compliance, but the development of specific retention labels is out of scope for this project. 
-Labelling Policy | Enabled | Users will apply labels manually initially. Automatic labelling will be developed in a future project stage after considering potential impacts on backups and productivity changes. 
-Subject line modification | Configured | Exchange mail flow rules are configured to modify the subject line in accordance with PSPF guidance. 
+Labelling Policy | Enabled | Users will apply labels manually initially. 
+Subject line modification | Configured | DLP policies are available to modify the subject line in accordance with PSPF guidance based on matching sensitivity labels. 
+Auto-labeling | Configured | Automatic Label (auto-labeling) polices will be configured to add the correct sensitivity label to inbound emails when an email is configured with a classification outside of the Agency's tenant or through a 3rd party marking tool. 
+Protected Marking Header | Agency Decision | Agencies can best determine the method to set the `x-protective-marking` header based on their requirements. At time of writing, the most effective method natively is using Exchange Transport rules in conjunction with the gateway rules (for hybrid or PROTECTED deployments) due to character limitations. 
 
 ### Retention policies
 
@@ -1363,6 +1366,7 @@ A DLP policy can be configured to:
 * Identify sensitive information (Sensitive information types), documents in a specific site (for SharePoint only) or specific labels (sensitivity labels) contained in Exchange Online, SharePoint Online, locally on devices (endpoint DLP) and OneDrive for Business.
 * Prevent end-users from accidentally sharing sensitive information.
 * Prevent end-users from accidentally deleting a document.
+* Update documents or emails based on sensitivity labels or data matching, used in conjunction with auto-labling feature can assist with PSPF compliance
 * Educate end-users by presenting messages them on how to stay compliant when relevant. This is done without interrupting their workflow.
 
 At the time of writing Office 365 has over 200 prebuilt sensitive information types (Australian Passport Numbers etc.). In addition to the prebuilt sensitive information types custom types can be created. These custom types look for strings, patterns, or key words.
@@ -1373,13 +1377,13 @@ Data Loss Prevention Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Data Lost Prevention Policies | Configured  | To provide insights into the movement of potentially sensitive information. 
+Data Lost Prevention Policies | Configured  | To provide insights into the movement of potentially sensitive information, and for PSPF compliance (x-protected header and subject field marking). 
 
 Data Loss Prevention Configuration applicable to all agencies and implementation types.
 
 Configuration | Value | Description
 --- | --- | ---
-**Name: Australian Privacy Act** | | 
+**Name: Australian Privacy Act** | |
 Locations | Protect content in Exchange email, Teams chats, channel messages, OneDrive and SharePoint documents.  | The locations where the policy will apply.
 Content type | Australian Driver's Licence number<br>Australian Passport number | The types of sensitive information being detected. 
 Sharing detection | With people outside my organisation | When the policy is applied.
@@ -1387,7 +1391,7 @@ Notify users | Enabled | Users are notified when the policy is triggered. They a
 Amount of instances | 5 | The amount of sensitive information required to trigger the policy (10 is the default).
 Send incident reports | Enabled  | User and nominated administrator are notified when the policy is triggered.
 Restrict access or encrypt the content | Disabled | Access to the content that triggers the policy can be encrypted or and access limited. 
-**Name: Australian Personally Identifiable Information (PII) data** | | 
+**Name: Australian Personally Identifiable Information (PII) data** | |
 Locations | Protect content in Exchange email, Teams chats, channel messages, OneDrive and SharePoint documents.  | The locations where the policy will apply.
 Content type | Australia Tax File Number <br>Australia Driver's Licence Number | The types of sensitive information being detected. 
 Sharing detection | With people outside my organisation | When the policy is applied.
@@ -1395,7 +1399,7 @@ Notify users | Enabled | Users are notified when the policy is triggered. They a
 Amount of instances | 5 | The amount of sensitive information required to trigger the policy (10 is the default).
 Send incident reports | Enabled  | User and nominated administrator are notified when the policy is triggered.
 Restrict access or encrypt the content | Disabled | Access to the content that triggers the policy can be encrypted or and access limited. 
-**Name: Australian Health Records Act (HRIP Act)** | | 
+**Name: Australian Health Records Act (HRIP Act)** | |
 Locations | Protect content in Exchange email, Teams chats, channel messages, OneDrive and SharePoint documents.  | The locations where the policy will apply.
 Content type | Australia Tax File Number <br>Australia Medical Account Number | The types of sensitive information being detected. 
 Sharing detection | With people outside my organisation | When the policy is applied.
@@ -1403,7 +1407,7 @@ Notify users | Enabled | Users are notified when the policy is triggered. They a
 Amount of instances | 5 | The amount of sensitive information required to trigger the policy (10 is the default).
 Send incident reports | Enabled  | User and nominated administrator are notified when the policy is triggered.
 Restrict access or encrypt the content | Disabled | Access to the content that triggers the policy can be encrypted or and access limited. 
-**Name: Australian Financial Data** | | 
+**Name: Australian Financial Data** | |
 Locations | Protect content in Exchange email, Teams chats, channel messages, OneDrive and SharePoint documents.  | The locations where the policy will apply.
 Content type | SWIFT Code <br>Australia Tax File Number <br>Australia Bank Account Number <br>Credit Card Number | The types of sensitive information being detected. 
 Sharing detection | With people outside my organisation | When the policy is applied.
@@ -1411,7 +1415,7 @@ Notify users | Enabled | Users are notified when the policy is triggered. They a
 Number of instances | 10 | The amount of sensitive information required to trigger the policy (10 is the default).
 Send incident reports | Enabled  | User and nominated administrator are notified when the policy is triggered.
 Restrict access or encrypt the content | Disabled | Access to the content that triggers the policy can be encrypted or and access limited. 
-**Name: PROTECTED Data*** |  |  
+**Name: PROTECTED Data*** |  |
 Locations | Protect content in OneDrive and SharePoint documents. | The locations where the policy will apply. 
 Content type | All published PROTECTED sensitivity labels (Any of these) | The types of sensitive information being detected. 
 Sharing detection | With people outside my organisation | When the policy is applied. 
@@ -1419,8 +1423,10 @@ Notify users | Enabled | Users are notified when the policy is triggered. They a
 Amount of instances | 1 | The amount of sensitive information required to trigger the policy (10 is the default). 
 Send incident reports | Enabled | User and nominated administrator are notified when the policy is triggered. 
 Restrict access or encrypt the content | Disabled | Access to the content that triggers the policy can be encrypted or and access limited. 
-
-### Audit and logging
+**Name: *Classification* Append Subject** | Note: each sensitivity label published requires a separate  'Append Subject' policy |
+Content type | *Classification* sensitivity labels (Any of these) | The types of sensitive information being detected. 
+ Advanced DLP Rules                                           | Content Contains: Sensitivity labels (select classification for policy)<br />Action: Modify subject<br />Remove text that matches this patten `\[SEC=.*?\]`<br />Insert this replacement text: `[SEC=Classification and DLM]` | Classification the policy is target for Subject line modification, e.g. `[SEC=OFFICIAL:Sensitive]` 
+ Notify users                                                 | Disabled                                                     | Users are not notified when the policy is triggered.         
 
 The Microsoft 365 Compliance Center provides the ability to monitor and review user and administrator activities across the Microsoft 365 applications from the past 90 days.
 

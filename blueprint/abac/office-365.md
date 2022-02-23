@@ -696,11 +696,11 @@ The following mail flow rules have been configured for all implementation types.
 
 `Exchange Online Admin Centre > Mail flow > Rules`
 
-Note, the subject prepend rules listed here are not exhaustive. Adjust for each classification combination in use within the agency.
+#### Outgoing X-Protective-Marker (multiple rules)
 
-#### UNOFFICIAL - prepend subject
+Note 1, the `x-protective-marking` rules listed here are not exhaustive and are an example that can be used for each classification used within the Agency.
 
-Note, the PSPF recommends the append of the subject text rather than the prepend, at time of writing there is no transport rule for 'append'. If the Agency has the ability to transform mail messages using a gateway appliance then this is the recommended approach.
+Note 2, at time of writing the ability to add the `ORIGIN=user@agency.gov.au` parameter is not possible using a transport rule. If the Agency has the ability to transform mail messages using a gateway appliance then this is the current recommended approach for updating header values.
 
 To find the `MSIP_Label` "guid" IDs for each sensitivity label use the [Security & Compliance Center PowerShell Modules](https://docs.microsoft.com/en-us/powershell/exchange/scc-powershell?view=exchange-ps).
 
@@ -710,116 +710,18 @@ Connect-IPPSSession -UserPrincipalName <admin>@<agency>.onmicrosoft.com
 Get-label | where{$_.Name -eq "U"} |select name,guid
 ```
 
-* If the message: Is sent to `Inside the organization` **and** `msip_labels` header contains `MSIP_Label_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX_Enabled=true` **and** Is received from `Inside the organization`
-* Take the following actions: Prepend the subject with `[SEC=UNOFFICIAL]`
-* Except if the message: Includes these patterns in the message subject: `(SEC=UNOFFICIAL)`
-* ExceptIfSubjectMatchesPatterns: `(SEC=UNOFFICIAL)`
-* FromScope: `InOrganization`
+* If the message header includes:  `msip_labels` header contains `MSIP_Label_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX_Enabled=true`
+* Take the following actions: Set the message header with this value: `X-Protective-Marking` to the value `VER=2018.4, NS=gov.au, SEC=<CLASSIFICATION>, CAVEAT=<CAVEAT>, ACCESS=<IMM>`
 * HeaderContainsMessageHeader: `msip_labels`
 * HeaderContainsWords: `MSIP_Label_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX_Enabled=true`
 * Mode: `Enforce`
-* Name: `UNOFFICIAL`
-* PrependSubject: `[SEC=UNOFFICIAL]`
+* Name: `Outgoing X-Protective-Marker <Classification>`
 * Priority: `0`
-* SentToScope: `InOrganization`
-* State: `Enabled`
-
-#### OFFICIAL - prepend subject
-
-Note, the PSPF recommends the append of the subject text rather than the prepend, at time of writing there is no transport rule for 'append'. If the Agency has the ability to transform mail messages using a gateway appliance then this is the recommended approach.
-
-To find the `MSIP_Label` "guid" IDs for each sensitivity label use the [Security & Compliance Center PowerShell Modules](https://docs.microsoft.com/en-us/powershell/exchange/scc-powershell?view=exchange-ps).
-
-```powershell
-Connect-IPPSSession -UserPrincipalName <admin>@<agency>.onmicrosoft.com
-
-Get-label | where{$_.Name -eq "O"} |select name,guid
-```
-
-* If the message: Is sent to `Inside the organization` **and** `msip_labels` header contains `MSIP_Label_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX_Enabled=true` **and** Is received from `Inside the organization`
-* Take the following actions: Prepend the subject with `[SEC=OFFICIAL]`
-* Except if the message: Includes these patterns in the message subject: `(SEC=OFFICIAL)`
-* ExceptIfSubjectMatchesPatterns: `(SEC=OFFICIAL)`
-* FromScope: `InOrganization`
-* HeaderContainsMessageHeader: `msip_labels`
-* HeaderContainsWords: `MSIP_Label_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX_Enabled=true`
-* Mode: `Enforce`
-* Name: `OFFICIAL`
-* PrependSubject: `[SEC=OFFICIAL]`
-* Priority: `1`
-* SentToScope: `InOrganization`
-* State: `Enabled`
-
-#### OFFICIAL: Sensitive - prepend subject
-
-Note, the PSPF recommends the append of the subject text rather than the prepend, at time of writing there is no transport rule for 'append'. If the Agency has the ability to transform mail messages using a gateway appliance then this is the recommended approach.
-
-To find the `MSIP_Label` "guid" IDs for each sensitivity label use the [Security & Compliance Center PowerShell Modules](https://docs.microsoft.com/en-us/powershell/exchange/scc-powershell?view=exchange-ps).
-
-```powershell
-Connect-IPPSSession -UserPrincipalName <admin>@<agency>.onmicrosoft.com
-
-Get-label | where{$_.Name -eq "OS"} |select name,guid
-```
-
-* If the message: Is sent to `Inside the organization` **and** `msip_labels` header contains `MSIP_Label_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX_Enabled=true` **and** Is received from `Inside the organization`
-* Take the following actions: Prepend the subject with `[SEC=OFFICIAL: Sensitive]`
-* Except if the message: Includes these patterns in the message subject: `(SEC=OFFICIAL: Sensitive)`
-* ExceptIfSubjectMatchesPatterns: `(SEC=OFFICIAL: Sensitive)`
-* FromScope: `InOrganization`
-* HeaderContainsMessageHeader: `msip_labels`
-* HeaderContainsWords: `MSIP_Label_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX_Enabled=true`
-* Mode: `Enforce`
-* Name: `OFFICIAL: Sensitive`
-* PrependSubject: `[SEC=OFFICIAL: Sensitive]`
-* Priority: `2`
-* SentToScope: `InOrganization`
-* State: `Enabled`
-
-#### PROTECTED - prepend subject
-
-Note, the PSPF recommends the append of the subject text rather than the prepend, at time of writing there is no transport rule for 'append'. If the Agency has the ability to transform mail messages using a gateway appliance then this is the recommended approach.
-
-To find the `MSIP_Label` "guid" IDs for each sensitivity label use the [Security & Compliance Center PowerShell Modules](https://docs.microsoft.com/en-us/powershell/exchange/scc-powershell?view=exchange-ps).
-
-```powershell
-Connect-IPPSSession -UserPrincipalName <admin>@<agency>.onmicrosoft.com
-
-Get-label | where{$_.Name -eq "P"} |select name,guid
-```
-
-* If the message: Is sent to `Inside the organization` **and** `msip_labels` header contains `MSIP_Label_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX_Enabled=true` **and** Is received from `Inside the organization`
-* Take the following actions: Prepend the subject with `[SEC=PROTECTED]`
-* Except if the message: Includes these patterns in the message subject: `(SEC=PROTECTED)`
-* ExceptIfSubjectMatchesPatterns: `(SEC=PROTECTED)`
-* FromScope: `InOrganization`
-* HeaderContainsMessageHeader: `msip_labels`
-* HeaderContainsWords: `MSIP_Label_XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX_Enabled=true`
-* Mode: `Enforce`
-* Name: `PROTECTED`
-* PrependSubject: `[SEC=PROTECTED]`
-* Priority: `3`
-* SentToScope: `InOrganization`
-* State: `Enabled`
-
-#### Double classification
-
-* If the message: Includes these patterns in the message subject: `\[SEC\=.*\].*\[SEC\=.*\]` **and** The sender is located `Inside the organization`
-* Take the following actions: reject the message and include the explanation `Multiple Security Classifications in Subject Line`
-* ExceptIfSubjectMatchesPatterns: -
-* FromScope: `InOrganization`
-* HeaderContainsMessageHeader: -
-* HeaderContainsWords: -
-* Mode: `Enforce`
-* Name: `Double classification`
-* PrependSubject: -
-* Priority: `4`
-* SentToScope: -
 * State: `Enabled`
 
 #### Apply Disclaimer
 
-Note, the disclaimer text is provided as an example only.
+Note, the disclaimer text is provided as an example only and is typically unique across Agencies.
 
 * Apply this rule if: The recipient is located `Outside the organization`
 * Do the following actions: Append the message with the disclaimer
@@ -836,7 +738,7 @@ Note, the disclaimer text is provided as an example only.
 * Mode: `Enforce`
 * Name: `Disclaimer`
 * PrependSubject: -
-* Priority: `5`
+* Priority: `1`
 * SentToScope: `NotInOrganization`
 * State: `Enabled`
 
@@ -1679,6 +1581,7 @@ The ABAC settings for the initial Data Loss Prevention configuration for all imp
   * Policy settings:
     * Low volume: `Low volume of content detected Australia Privacy Act (default template)`
     * High volume: `High volume of content detected Australia Privacy Act (default template)`
+  
 * Name: `Australia Personally Identifiable Information (PII) Data`
   * Status: `On`
   * Description: `Helps detect the presence of information commonly considered to be personally identifiable information (PII) in Australia, like tax file number and driver's license.`
@@ -1691,6 +1594,7 @@ The ABAC settings for the initial Data Loss Prevention configuration for all imp
   * Policy settings:
     * Low volume: `Low volume of content detected Australia Personally Identifiabl (default template)`
     * High volume: `High volume of content detected Australia Personally Identifiab (default template)`
+  
 * Name: `Australia Health Records Act (HRIP Act)`
   * Status: `On`
   * Description: `Helps detect the presence of information commonly considered to be subject to the Health Records and Information Privacy (HRIP) act in Australia, like medical account number and tax file number.`
@@ -1703,6 +1607,7 @@ The ABAC settings for the initial Data Loss Prevention configuration for all imp
   * Policy settings:
     * Low volume: `Low volume of content detected Australia Health Records Act (HR (default template)`
     * High volume: `High volume of content detected Australia Health Records Act (H (default template)`
+  
 * Name: `Australian Financial Data`
   * Status: `On`
   * Workload: `Helps detect the presence of information commonly considered to be financial data in Australia, including credit cards, and SWIFT codes.`
@@ -1715,6 +1620,7 @@ The ABAC settings for the initial Data Loss Prevention configuration for all imp
   * Policy settings:
     * Low volume: `Low volume of content detected Australia Financial Data (default template)`
     * High volume: `High volume of content detected Australia Financial Data (default template)`
+  
 * Name: `PROTECTED Data`
   * Status: `On`
   * Description: `Custom DLP policy to detect the sharing of data with PROTECTED sensitivity labels applied.`
@@ -1723,6 +1629,31 @@ The ABAC settings for the initial Data Loss Prevention configuration for all imp
     * SharePoint site: `All, no exclusions`
     * OneDrive accounts: `All, no exclusions`
   * Policy settings: `PROTECTED Data Shared (custom rule)`
+  
+* Name: `<classification> Append Subject` Note, create a single DLP policy for each classification or DLM published
+  * Status: `On`
+  * Description: `Custom DLP policy to detect the sharing of data with PROTECTED sensitivity labels applied.`
+  * Content Types: `Sensitivy info type for <classification>`  
+  * Locations to apply the policy:
+    * Exchange
+  * Policy settings: `Actions`
+    * Modify the Subject: `Replacement text: [SEC=<Classification>]`
+    * Replacement strategy: `append`
+    * Patterns: `\[SEC=.*?\]`
+
+### Auto-labelling policy
+
+The ABAC settings for the initial Auto-labeling configuration for all implementation types can be found below. The baseline configuration specifies a single auto-labeling policy per classification (sensitivity label).
+
+* Name: `<classification> Inbound Marking` Note, create an auto-labelling policy for each classification or DLM published
+  * Status: `On`
+  * Description: `Custom auto-labelling policy to detect the email marked with <clasification> and add the appropriate Senstivity label.`
+  * Locations to apply the policy:
+    * Exchange
+  * Policy rules: `Conditions`
+    * Recipient domain is `agency.gov.au`
+    * Header matches patterns `\SEC=<classification>`
+  * Choose label to auto-apply: `<Classification>`
 
 ## Microsoft 365 Defender
 

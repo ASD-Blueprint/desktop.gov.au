@@ -107,29 +107,22 @@ Sensitivity labels create a protective marking within the message header. When c
 
 AIP (with the unified labelling client) can offer labelling capabilities outside of the native Microsoft 365 products. The blueprint favours using native M365 labelling capabilities where possible. Labels created in Microsoft Information Protection can be utilised with AIP.
 
-Microsoft Information Protection labelling does not offer a method to format email headers in a manner consistent with the requirements of the Protective Security Policy Framework (PSPF) and requires additional configuration.
+Microsoft Information Protection labelling does not offer a method to format email headers in a manner that is fully compliant with the requirements of the Protective Security Policy Framework (PSPF):
 
-Email gateway rules are available in the network configuration ABAC artefact. 
+* Sensitivity labels, Exchange Transport rules or DLP, cannot set the `X-Protective-Marking` header *Origin* parameter prescribed in the PSPF.
+* When using DLP or Auto Labeling policies to set a  `X-Protective-Marking` header:
+  * certain characters prescribed in the PSPF are not supported (such as `:` and `,`) 
+  * a character limit of 64 characters is the maximum
+  * Exchange Transport rules do not have these character limitations
+* When downgrading a sensitivity label, the downgrade cannot be prevented, only forcing the user to justify the downgrade. 
+* Sensitivity labels are not available within calendar invites.
 
-For organisations that send Protected emails through a GovLink mail gateway, the labelling product, and the gateway itself, must support the inspection of the email headers.
-
-For organisations that do not need to send Protected emails (and do not need to send emails through GovLink), the blueprint recommends Microsoft sensitivity labels. However, agencies should decide for themselves on an approach that:
-
-* meets the requirements of the Protective Security Policy Framework (PSPF)
-* best suits operational requirements. 
+Future releases of the blueprint will capture developments on these limitations.
 
 The blueprint provides guidance about applying Microsoft sensitivity labels. The unified labelling client that underpins Microsoft sensitivity labels is built into Office 365. The sensitivity labels are available for use in:
 
-* emails (thick client and Outlook Web Access)
+* emails (thick client and Outlook Web Access and mobile platforms)
 * documents (all office documents, including the web versions of the applications).
-
-It’s not possible to force some clients to apply sensitivity labels to documents, even if this option is selected in the policy. This is a known issue and current workarounds include:
-
-* assigning a default label (users must then select the correct label)
-* using a third-party product to provide labelling and classifications in line with the PSPF
-* undergoing a business change and user training program to ensure that classifications are applied. 
-
-Future releases of the blueprint will capture developments on this issue.
 
 Labelling for Microsoft Teams has recently been released for general availability and will be covered in the next release of the blueprint. This will ensure that labels can be applied to Microsoft Teams, Microsoft 365 groups and SharePoint sites.
 

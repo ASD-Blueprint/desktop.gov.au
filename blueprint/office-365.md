@@ -1289,7 +1289,7 @@ Retention Labels | Enabled | Labels are recommended to be applied to automate re
 Labelling Policy | Enabled | Users will apply labels manually initially. 
 Subject line modification | Configured | DLP policies are available to modify the subject line in accordance with PSPF guidance based on matching sensitivity labels. 
 Auto-labeling | Configured | Automatic Label (auto-labeling) polices will be configured to add the correct sensitivity label to inbound emails when an email is configured with a classification outside of the Agency's tenant or through a 3rd party marking tool. 
-Protected Marking Header | Agency Decision | Agencies can best determine the method to set the `x-protective-marking` header based on their requirements. At time of writing, the most effective method natively is using Exchange Transport rules in conjunction with the gateway rules (for hybrid or PROTECTED deployments) due to character limitations. 
+Protected Marking Header | Agency Decision | Agencies can best determine the method to set the `x-protective-marking` header based on their requirements. As of February 2022, the most effective method natively is using Exchange Transport rules in conjunction with the gateway rules (for hybrid or PROTECTED deployments) due to character limitations. 
 
 ### Retention policies
 

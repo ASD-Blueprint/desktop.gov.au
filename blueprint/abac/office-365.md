@@ -700,7 +700,7 @@ The following mail flow rules have been configured for all implementation types.
 
 Note 1, the `x-protective-marking` rules listed here are not exhaustive and are an example that can be used for each classification used within the Agency.
 
-Note 2, at time of writing the ability to add the `ORIGIN=user@agency.gov.au` parameter is not possible using a transport rule. If the Agency has the ability to transform mail messages using a gateway appliance then this is the current recommended approach for updating header values.
+Note 2, as of February 2022 the ability to add the `ORIGIN=user@agency.gov.au` parameter is not possible using a transport rule. If the Agency has the ability to transform mail messages using a gateway appliance then this is the current recommended approach for updating header values.
 
 To find the `MSIP_Label` "guid" IDs for each sensitivity label use the [Security & Compliance Center PowerShell Modules](https://docs.microsoft.com/en-us/powershell/exchange/scc-powershell?view=exchange-ps).
 

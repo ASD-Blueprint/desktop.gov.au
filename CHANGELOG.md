@@ -12,6 +12,7 @@ You can find published releases at [https://github.com/govau/desktop.gov.au/rele
 * Updates to Cloud Storage settings in Teams Meeting Policy [#180]
 * Added Viva Learning [#179]
 * Review and update Incident Response Plans [#181]
+* Updates to PSPF labelling features (auto-labelling, append subject field, etc) [#185]
 
 ## December 2021
 

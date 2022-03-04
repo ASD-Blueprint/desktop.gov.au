@@ -2299,9 +2299,9 @@ The following ABAC settings outlines the Microsoft Defender for Endpoint policy 
   * Select operating system to start offboarding process: `Windows 10`
   * Deployment method: `Intune`
 
-### Microsoft Cloud App Security
+### Microsoft Defender for Cloud Apps
 
-The following ABAC settings outlines the Microsoft Cloud App Security configuration for all implementation types.
+The following ABAC settings outlines the Microsoft Defender for Cloud Apps configuration for all implementation types.
 
 `https://portal.cloudappsecurity.com/ > Settings`
 
@@ -2322,7 +2322,7 @@ The following ABAC settings outlines the Microsoft Cloud App Security configurat
     * Report name: `Application Group`
       * Comment: `This report captures information on the User Group Application (Cloud App Security)`
       * Data sources: `All data sources`
-      * Filters: `User Group > Application (Cloud App Security)`
+      * Filters: `User Group > Application (Defender for Cloud Apps)`
     * Report name: `External Users`
       * Comment: `This report captures information on the External Users group`
       * Data sources: `All data sources`
@@ -2345,15 +2345,16 @@ The following ABAC settings outlines the Microsoft Cloud App Security configurat
   * App tags
     * Sanctioned:
     ```
-    Microsoft Skype for Business
-    Microsoft SharePoint Online
-    Office 365
     Microsoft Exchange Online
     Microsoft Teams
+    Microsoft SharePoint Online
+    Microsoft Skype for Business
+    Office 365
     Microsoft Power BI
     Microsoft OneDrive for Business
-    Microsoft Cloud App Security
+    Microsoft Defedner for Cloud Apps
     Microsoft Azure
+    Active Directory
     ```
     * Unsanctioned: `Not configured`
     * Monitored: `Not configured`
@@ -2369,7 +2370,7 @@ The following ABAC settings outlines the Microsoft Cloud App Security configurat
   * Azure AD Identity Protection: `Checked`
   * App Governance: `Not configured`
 * Information Protection
-  * Admin quarantine folder location: `https://<Agency>.sharepoint.com/sites/mcas`
+  * Admin quarantine folder location: `https://<Agency>.sharepoint.com/sites/quarantine`
   * User notification: `Not configured`
   * Microsoft Information Protection
     * Automatically scan new files for Microsoft Information Protection classification labels and content inspection warnings: `Checked`
@@ -2393,9 +2394,9 @@ The following ABAC settings outlines the Microsoft Cloud App Security configurat
 
 | User                               | Type      | Source app | Status                |
 | ---------------------------------- | --------- | ---------- | --------------------- |
-| Office 365 (Default) administrator | Automatic | Office 365 | Imported successfully |
+| Office 365 administrator           | Automatic | Office 365 | Imported successfully |
 | External users                     | Automatic | All apps   | Imported successfully |
-| Application (Cloud App Security)   | Automatic | All apps   | Imported successfully |
+| Application (Defender for Cloud Apps)   | Automatic | All apps   | Imported successfully |
 
 `Settings (Cog) > App connectors`
 
@@ -2409,46 +2410,6 @@ The following ABAC settings outlines the Microsoft Cloud App Security configurat
 * API tokens: `Not configured`
 * External DLP: `Not configured`
 * Playbooks: `Not configured`
-
-`Home > Discover > Cloud app catalog`
-
-```
-Microsoft Volume Licensing
-Microsoft Graph
-Microsoft Intune
-Microsoft App Source
-Microsoft Support
-Microsoft Tech Community
-Microsoft 365 Admin Center
-Microsoft Project
-Microsoft Secure Score
-Microsoft Dynamics
-Microsoft Project Portal
-Microsoft Word Online
-Microsoft Excel Online
-Microsoft PowerPoint Online
-Microsoft Outlook Online
-Microsoft Skype for Business
-Microsoft Office Online
-Microsoft Defender Security Center
-Microsoft Visual Studio
-OneDrive Admin Center
-Microsoft SharePoint Online
-Microsoft Office 365 Planner
-Office 365
-Microsoft Office 365 Admin Center
-Office Help & Training
-Microsoft Stream
-Microsoft Exchange Online
-Microsoft PowerApps
-Microsoft Flow
-Microsoft Teams
-Microsoft Power BI
-Microsoft OneDrive for Business
-Microsoft Cloud App Security
-Security and Compliance
-Microsoft Azure
-```
 
 `Home > Control > Policy`
 

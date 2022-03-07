@@ -54,7 +54,7 @@ Table 1 Microsoft Management Portals
 Portal | URL
 --- | ---
 Microsoft 365 Defender portal | [https://security.microsoft.com](https://security.microsoft.com)
-Cloud App Security portal | [https://portal.cloudappsecurity.com](https://portal.cloudappsecurity.com)
+Defender for Cloud Apps portal | [https://portal.cloudappsecurity.com](https://portal.cloudappsecurity.com)
 Azure portal (including Azure AD) | [https://portal.azure.com](https://portal.azure.com)
 Microsoft 365 compliance portal | [https://compliance.microsoft.com](https://compliance.microsoft.com)
 Microsoft 365 admin center | [https://admin.microsoft.com/](https://admin.microsoft.com/)
@@ -69,7 +69,7 @@ Multiple detection methods are available to the Agency’s cyber security person
 * Defender for Office 365 alerts and reports for each of the configured capabilities including Safe Attachments, Safe Links, Safe Attachments for SharePoint, OneDrive and Microsoft Teams, and Anti-phishing in Defender for Office 365 protection.
 * Microsoft Defender for Endpoint including the Security Operations, Incidents, and Alerts Queue dashboards which provide tailored information and actions for cyber security personnel.
 * Defender for Identity provides User Entity Behavioural Analytics (UEBA) by monitoring authentication requests to on-premises Active Directory (AD) Domain Controllers (DCs). 
-* Microsoft Cloud App Security (MCAS) Threat Detection, Privileged Accounts, and Access Control dashboards spanning the whole Microsoft 365 deployment, along with configurable email alerts and automatic response capabilities.
+* Microsoft Defender for Cloud Apps Threat Detection, Privileged Accounts, and Access Control dashboards spanning the whole Microsoft 365 deployment, along with configurable email alerts and automatic response capabilities.
 * Local Windows 10 events logs written to each Windows 10 endpoint including authentication attempts, firewall activities, and Windows Defender Application Control (WDAC) events.
 
 Due to its containment, eradication and recovery capabilities in addition to its detection and analysis functionality, Microsoft Defender for Endpoint is the primarily incident response tool for the hybridsystem and is described in further detail in the section below.
@@ -108,7 +108,7 @@ The alerts captured in the Microsoft 365 Defender portal should be leveraged by 
 
 Within the Microsoft 365 Defender portal there are two capabilities that should be utilised by Agency cyber security personnel for the purpose of detection and analysis of incidents on a day-to-day basis.
 
-* Incidents lists all automatically generated incidents detected by Defender for Endpoint - along with Defender for Office 365, Defender for Idenity and MCAS, including the severity of the incident, the machines and users involved, last activity, assignment of the incident, et cetera. All incidents should be assigned as they are generated and managed based on the Agency’s operating procedures by cyber security personnel.
+* Incidents lists all automatically generated incidents detected by Defender for Endpoint - along with Defender for Office 365, Defender for Idenity and Defender for Cloud Apps, including the severity of the incident, the machines and users involved, last activity, assignment of the incident, et cetera. All incidents should be assigned as they are generated and managed based on the Agency’s operating procedures by cyber security personnel.
 * Alerts queue lists all alerts based on the alert type not the incident case that is generated, this can be supremely helpful when attempting to identify patterns of behaviour. This alerts queue will also sort by severity, which incident it is related to, status, and investigation state.
 
 For both the Incidents and Alerts queue Agency cyber security personnel can select individual records to access detailed information on the specific activity.

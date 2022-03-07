@@ -268,7 +268,7 @@ An unauthorised user attempts to access data hosted within Microsoft’s Office 
   * Conditional Access enforces MFA for all users and administrators
   * Office 365 audit logging enabled to provide the ability to audit actions undertaken within the Office 365 services
   * Microsoft Defender for Office 365 Safe Links, Safe Attachments, Safe Documents, and Anti-Phishing capabilities enabled to reduce the likelihood of malicious code infiltrating the environment
-  * Microsoft Cloud App Security (MCAS) enabled and app connectors and policies configured to detect risky behaviours, violations, or suspicious data points and activities within Office 365
+  * Microsoft Defender for Cloud Apps enabled and app connectors and policies configured to detect risky behaviours, violations, or suspicious data points and activities within Office 365
   * Sender Policy Framework (SPF), Domain based Message Authentication, Reporting and Conformance (DMARC), and DomainKeys Identified Mail (DKIM) records are configured to mitigate spoofing of emails being sent into the organisation
   * Office 365 services are only utilised within Australian regions
   * Credential Guard is enabled and credential theft is blocked through Microsoft Defender Exploit Guard
@@ -721,7 +721,7 @@ An intrusion is not detected leading to a threat of malicious activity and possi
   * Microsoft’s Cyber Defence Operations Centre helps protect, detect, and respond to Office 365 cloud service threats in real time
 * CloudSystem treatments
   * Microsoft Defender for Endpoint is enabled to provide reporting, pre-breach protection, post-breach detection, automation, and response on Windows 10 endpoints
-  * MCAS enabled and app connectors and policies configured to detect risky behaviours, violations, or suspicious data points and activities within Office 365
+  * Defender for Cloud Apps enabled and app connectors and policies configured to detect risky behaviours, violations, or suspicious data points and activities within Office 365
   * Microsoft 365 audit logging is enabled
   * All Azure AD and Office 365 logs are centralised into a single Log Analytics workspace
   * Credential Guard is enabled and credential theft is blocked through Microsoft Defender Exploit Guard
@@ -1416,7 +1416,7 @@ An administrator enables a cloud service - or new feature within an existing clo
   * As new services become available the Agency will undertake a risk assessment of the service and establish if the risk is within the Agency’s tolerance before engaging the new service offering
 * CloudSystem treatments
   * Leverages built-in Azure AD / Office 365 Role Groups to implement a robust RBAC model minimising the number of users that can onboard a new service or enable additional features
-  * MCAS is configured to log activity by all users including Global Admins providing an audit trail for new services
+  * Defender for Cloud Apps is configured to log activity by all users including Global Admins providing an audit trail for new services
   * Azure AD PIM is enabled and requires Global Admins to provide a reason when requesting elevated privileges 
   * Azure AD PIM logs the start time and end time of elevated privileges
   * Data transfer logs are retained

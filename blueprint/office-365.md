@@ -20,6 +20,7 @@ Microsoft Defender for Office 365 | Microsoft Defender for Office 365 is a cloud
 Microsoft Whiteboard | Microsoft Whiteboard is a digital whiteboard that facilitates collaboration between users. It has integrations with the Office 365 suite and physical endpoints such as the Microsoft Surface hub.
 Microsoft Forms | Microsoft Forms is an online survey and form tool.
 Microsoft Planner | Microsoft Planner is a planning application with integrations into other components of the Office 365 suite.
+Viva Learning | Viva Learning provides various content sources for user training.
 
 For each component within the document there is a brief description of the contents of the section, a commentary on the items that have been considered in determining the decisions and the design decisions themselves.
 
@@ -1171,7 +1172,7 @@ Telstra calling for Office 365 | Security Assessment | Agencies wishing to use T
 
 ## Power platform
 
-Power Platform combines the power of PowerApps, Power BI, and Microsoft Flow into one business application platform. This enables quick and easy app building and data insights.
+Power Platform combines the power of PowerApps, Power BI, and Power Automate (formerly Microsoft Flow) into one business application platform. This enables quick and easy app building and data insights.
 
 ### Power Apps and Power Automate
 
@@ -1255,7 +1256,7 @@ Classification labels which is located under the Microsoft 365 Security & Compli
 * Sensitivity labels – Allow label specific protection policy settings to be enforced.
 * Retention labels – Allow label specific retention policy settings to be enforced.
 
-Sensitivity labels can be applied in the supported Office applications either in Microsoft 365 Apps for enterprise, Office Online or using the Microsoft Information Protection unified labelling client.
+Sensitivity labels can be applied in the supported Office applications either in Microsoft 365 Apps for enterprise, Office for the Web or using the Microsoft Information Protection unified labelling client.
 
 Classification labels are published to users using Label Policies. Label Policies define the users who can utilise the label and the locations within Office 365 where it can be used. Classification labels can be applied in the following ways:
 

@@ -456,7 +456,7 @@ The HybridSystem provides a role-based access control implementation and associa
 * Intune configures an AppLocker blocklist to prevent administrators from launching web browsers and email clients.
 * Azure AD logs are forwarded to a Log Analytics workspace for long-term secure retention.
 * The HybridSystem provides emergency access or ‘break-glass’ accounts to be used in emergency situations to restore access to an environment or tenant.
-* The HybridSystem provides Microsoft Cloud App Security (MCAS) policy monitoring to monitor the activity of the break-glass accounts.
+* The HybridSystem provides Microsoft Defender for Cloud Apps policy monitoring to monitor the activity of the break-glass accounts.
 
 ### Residual controls to be addressed by the Agency
 
@@ -1180,7 +1180,7 @@ The HybridSystem is designed to primarily run on-premises but also be able to us
 * The Agency is responsible for implementing security controls within their email gateway.
 * The Agency is responsible for managing servers used as part of the HybridSystem.
 * The Agency is responsible for ensuring that they segregate their network from that of service providers.
-* The Agency is responsible for reviewing alerts from MCAS and Azure AD Identity Protection.
+* The Agency is responsible for reviewing alerts from  Defender for Cloud Apps and Azure AD Identity Protection.
 * The Agency is responsible for ensuring that outbound traffic to anonymity networks is blocked.
 
 ### Wireless networks

@@ -445,7 +445,7 @@ The CloudSystem provides a role-based access control implementation and associat
 * Intune configures an AppLocker blocklist to prevent administrators from launching web browsers and email clients.
 * Azure AD logs are forwarded to a Log Analytics workspace for long-term secure retention.
 * The CloudSystem provides emergency access or ‘break-glass’ accounts to be used in emergency situations to restore access to an environment or tenant.
-* The CloudSystem provides Microsoft Cloud App Security (MCAS) policy monitoring to monitor the activity of the break-glass accounts.
+* The CloudSystem provides Microsoft Defender for Cloud Apps policy monitoring to monitor the activity of the break-glass accounts.
 
 ### Residual controls to be addressed by the Agency
 
@@ -1151,7 +1151,7 @@ The CloudSystem is designed to run using the public internet. All security contr
 * The Agency is responsible for the management of network devices used in relation to the CloudSystem.
 * The Agency is responsible for implementing security controls within their email gateway.
 * The Agency is responsible for ensuring that they segregate their network from that of service providers.
-* The Agency is responsible for reviewing alerts from MCAS and Azure AD Identity Protection.
+* The Agency is responsible for reviewing alerts from Defender for Cloud Apps and Azure AD Identity Protection.
 * The Agency is responsible for ensuring that outbound traffic to anonymity networks is blocked.
 
 ### Wireless networks

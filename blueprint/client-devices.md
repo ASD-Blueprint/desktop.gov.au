@@ -795,7 +795,7 @@ Microsoft 365 Apps Update channel | Monthly Enterprise | Provides the latest fea
 
 ### Office features
 
-The Office 365 ProPlus features include the application set that will be provided to the users.
+The Microsoft 365 Apps for Enterprise - formerly Office 365 ProPlus - features include the application set that will be provided to the users.
 
 The Microsoft Office feature section includes the details of the following components:
 
@@ -1454,7 +1454,7 @@ Telemetry Level | 2 – Enhanced | Microsoft recommend Enhanced Limited for Desk
 
 ### Microsoft Office hardening
 
-The following design components apply to the hardening of Microsoft Office 365 ProPlus.
+The following design components apply to the hardening of Microsoft 365 Apps for Enterprise.
 
 The Microsoft Office security settings detailed in this section are based on Microsoft best practice and the ACSC [Hardening Microsoft 365, Office 2021, Office 2019 and Office 2016 (Oct-2021)](https://www.cyber.gov.au/acsc/view-all-content/publications/hardening-microsoft-365-office-2021-office-2019-and-office-2016) guidance.
 

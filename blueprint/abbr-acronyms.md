@@ -80,7 +80,6 @@ LSA | Local Security Authority
 LTSC | Long-Term Servicing Channel
 MAK | Multiple Activation Key
 MAM | Mobile Application Management
-MCAS | Microsoft Cloud App Security
 MDM | Mobile Device Management
 MECM | Microsoft Endpoint Configuration Manager
 MEM | Microsoft Endpoint Manager

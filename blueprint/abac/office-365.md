@@ -938,6 +938,20 @@ The following table describes the Teams policy configuration settings for all im
 | Description             | Not configured            |
 | Create private channels | True                      |
 
+### Teams apps
+
+`Microsoft Teams admin center > Teams apps > Permission policies`
+
+The following table describes the Teams apps configuration settings for all implementation types.
+
+| Item                    | Configuration             |
+| ----------------------- | ------------------------- |
+| Name                    | Global (Org-wide default) |
+| Description             | Not configured            |
+| Microsoft apps          | Allow all apps            |
+| Third-party apps        | Block all apps            |
+| Custom apps             | Block all apps            |
+
 ### Calling policy
 
 `Microsoft Teams admin center > Voice > Calling policies`

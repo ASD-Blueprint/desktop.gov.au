@@ -125,7 +125,7 @@ Services and Add-ins Design Decisions for all agencies and implementation types.
 
 Decision Point        | Design Decision | Justification
 ---                   | ---             | ---
-Azure Speech Services | Disabled        | Enabling the organization-wide language model allows Azure speech service to gather data from emails and other locations to improve M365 applications that use Azure Speech Services. There is no requirement for text to speech in the blueprint and should be evaluated further if there is an agency requirement. 
+Azure Speech Services | Enabled        | Enabling the organization-wide language model allows Azure Speech service to gather data from emails and other locations to improve M365 applications that use Azure Speech services. The Azure Speech service has been IRAP assessed as part of Azure and enables greater accessibility features as part of the Blueprint. 
 Bookings              | Disabled        | Exposes a public web page that provides access to user calendars for 3rd parties. There is no requirement to enable the feature as other methods of collaboration are in use. 
 ‎Briefing‎ email from ‎Microsoft Viva‎	| Enabled | Enabled by default to improve productivitiy, individual users can unsubscribe if desired.
 Calendar              | Disabled        | External sharing is disabled to prevent potential data spills.
@@ -140,7 +140,7 @@ Microsoft 365 Group  | Enabled | External collaboration will be conducted in Mic
 Modern Authentication | Enabled | Modern authentication is a group of technologies that combines authentication, authorisation and conditional access policies to secure an Office 365 tenant. Enabling of Modern Authentication provides ability to use Multi Factor Authentication.
 News                 | Disabled        | To prevent the display of Office 365 content and external news articles together in Edge.
 ‎Office‎ installation options | Enabled  | To manage the update and deployment of Office updates and components.
-Office on the web    | Disabled        | Do not allow users to open files in third party storage services in Office on the web as this may introduce risk of information disclosure or malicious content. 
+Office on the web    | Third-party storage services: Disabled        | Do not allow users to open files in third-party storage services in Office on the web as this may introduce risk of information disclosure or malicious content. 
 Office Scripts       | Disabled        | To prevent the execution of unapproved code.
 Reports              | Disabled        | Disable data reporting to Microsoft on Office 365 usage.
 SharePoint           | Enabled         | New and Existing guests must sign in or provide a verification code when accessing SharePoint data.
@@ -924,7 +924,7 @@ Legacy Features Design Decisions for all agencies and implementation types.
 Decision Point | Design Decision | Justification
 --- | --- | ---
 InfoPath | Not configured | InfoPath is going to be deprecated and it is recommended that InfoPath forms to be redeveloped into PowerApps in Office 365. 
-Records Management | Not configured | Records Management administrative screen provides configuration settings to route files from a SharePoint Document Library to a centralised SharePoint Records Management site. This is to support the traditional Centralised records management system in SharePoint.
+Records Management | Not configured | Records Management administrative screen provides configuration settings to route files from a SharePoint Document Library to a centralised SharePoint Records Management site. This is to support the traditional Centralised records management system in SharePoint.<br>Note, this is a separate feature from [records management in Microsoft 365](https://docs.microsoft.com/en-au/microsoft-365/compliance/records-management).
 Secure Store Settings | Not Configured | Secure Store in SharePoint Online provides a key vault to store all sensitive information in SharePoint. This is primarily used by InfoPath to store sensitive keys and passwords. It is recommended to use Azure Key Vault to store sensitive information. 
 Business Connectivity Settings | Not configured | Business Connectivity Settings provides SharePoint on-premises ability to consume information from third party OData Information store.<br>It is recommended to use Power BI to consume third party data and publish it to SharePoint Online.
 Search | Not configured | Search provides legacy support on crawled properties, managed properties and custom configuration required. 

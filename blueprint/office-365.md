@@ -125,7 +125,7 @@ Services and Add-ins Design Decisions for all agencies and implementation types.
 
 Decision Point        | Design Decision | Justification
 ---                   | ---             | ---
-Azure Speech Services | Disabled        | Enabling the organization-wide language model allows Azure speech service to gather data from emails and other locations to improve M365 applications that use Azure Speech Services. There is no requirement for text to speech in the blueprint and should be evaluated further if there is an agency requirement. 
+Azure Speech Services | Enabled        | Enabling the organization-wide language model allows Azure Speech service to gather data from emails and other locations to improve M365 applications that use Azure Speech services. The Azure Speech service has been IRAP assessed as part of Azure and enables greater accessibility features as part of the Blueprint. 
 Bookings              | Disabled        | Exposes a public web page that provides access to user calendars for 3rd parties. There is no requirement to enable the feature as other methods of collaboration are in use. 
 ‎Briefing‎ email from ‎Microsoft Viva‎	| Enabled | Enabled by default to improve productivitiy, individual users can unsubscribe if desired.
 Calendar              | Disabled        | External sharing is disabled to prevent potential data spills.
@@ -140,7 +140,7 @@ Microsoft 365 Group  | Enabled | External collaboration will be conducted in Mic
 Modern Authentication | Enabled | Modern authentication is a group of technologies that combines authentication, authorisation and conditional access policies to secure an Office 365 tenant. Enabling of Modern Authentication provides ability to use Multi Factor Authentication.
 News                 | Disabled        | To prevent the display of Office 365 content and external news articles together in Edge.
 ‎Office‎ installation options | Enabled  | To manage the update and deployment of Office updates and components.
-Office on the web    | Disabled        | Do not allow users to open files in third party storage services in Office on the web as this may introduce risk of information disclosure or malicious content. 
+Office on the web    | Third-party storage services: Disabled        | Do not allow users to open files in third-party storage services in Office on the web as this may introduce risk of information disclosure or malicious content. 
 Office Scripts       | Disabled        | To prevent the execution of unapproved code.
 Reports              | Disabled        | Disable data reporting to Microsoft on Office 365 usage.
 SharePoint           | Enabled         | New and Existing guests must sign in or provide a verification code when accessing SharePoint data.
@@ -924,7 +924,7 @@ Legacy Features Design Decisions for all agencies and implementation types.
 Decision Point | Design Decision | Justification
 --- | --- | ---
 InfoPath | Not configured | InfoPath is going to be deprecated and it is recommended that InfoPath forms to be redeveloped into PowerApps in Office 365. 
-Records Management | Not configured | Records Management administrative screen provides configuration settings to route files from a SharePoint Document Library to a centralised SharePoint Records Management site. This is to support the traditional Centralised records management system in SharePoint.
+Records Management | Not configured | Records Management administrative screen provides configuration settings to route files from a SharePoint Document Library to a centralised SharePoint Records Management site. This is to support the traditional Centralised records management system in SharePoint.<br>Note, this is a separate feature from [records management in Microsoft 365](https://docs.microsoft.com/en-au/microsoft-365/compliance/records-management).
 Secure Store Settings | Not Configured | Secure Store in SharePoint Online provides a key vault to store all sensitive information in SharePoint. This is primarily used by InfoPath to store sensitive keys and passwords. It is recommended to use Azure Key Vault to store sensitive information. 
 Business Connectivity Settings | Not configured | Business Connectivity Settings provides SharePoint on-premises ability to consume information from third party OData Information store.<br>It is recommended to use Power BI to consume third party data and publish it to SharePoint Online.
 Search | Not configured | Search provides legacy support on crawled properties, managed properties and custom configuration required. 
@@ -1131,7 +1131,7 @@ Team Policy | Configured<br>Disable private channels | Team policy will be left 
 Meeting Policies | Configured<br>Global policy:<br>Automatically admit people – Everyone in your organisation<br>Cloud Recording – Enabled with automatic deletion | Meeting policy dictates how audio, videos and applications that are used in a team meeting.<br>Require external participants to be admitted to a meeting to prevent unauthorised entrance.<br>Enables meetings to be recorded while reducing storage consumption.
 Live events Policies | Configured<br>Who can join live events:<br>Everyone in Organisation | Live events is configured to prevent users outside of the organisation (guest and external users) cannot attend these meeting.
 Messaging Policy | Configured | Messaging policy dictates how messaging is used in Teams. These includes usage of Giphy, Memes and stickers in messages.
-Teams app | Configured<br>Global Policy:<br>Block specific app from Microsoft Apps<br>* Forms<br>* Yammer<br>Block all Third-Party Apps<br>Block all Tenant Apps | Microsoft Forms and Yammer are hosted in United States. This will cause data sovereignty issue for the Agency. <br>All Third-Party Apps are blocked. These Third-Party apps needs to be evaluated individually.<br>Tenant Apps are custom developed applications created by the Agency. This should be enabled if it is required. 
+Teams apps | Configured<br>Global Policy:<br>Allow all Microsoft apps<br>Block all third-party apps<br>Block all custom apps | All third-party apps are blocked by the blueprint by default. The use of third-party apps should be risk assessed by Agencies individually.<br>Custom apps are custom developed applications created by the Agency. These should be enabled as required. 
 
 ### Unified communication
 
@@ -1698,7 +1698,7 @@ Microsoft Forms is capable of capturing the names of the organisational users wh
 
 Surveys and forms can be leveraged for potentially malicious purposes. Phishing protection for Microsoft Forms scans forms for common phishing questions. If they are detect, the form is prevented from being distributed or shared. Phishing protection only protects internal organisation forms.
 
-At time of writing, Microsoft Forms processes and stores data for Australian tenants within the [United States](https://docs.microsoft.com/en-us/microsoft-365/enterprise/o365-data-locations?view=o365-worldwide), it is recommended to not process sensitive information using Microsoft Forms.
+At time of writing, Microsoft Forms processes and stores data for Australian tenants within the [United States](https://docs.microsoft.com/en-au/microsoft-365/enterprise/o365-data-locations?view=o365-worldwide#australia), it is recommended to not process sensitive information using Microsoft Forms.
 
 Microsoft Forms Design Decisions for all agencies and implementation types.
 

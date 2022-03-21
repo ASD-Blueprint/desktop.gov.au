@@ -103,7 +103,7 @@ The following table describes the Microsoft 365 Services settings for all implem
 
 | Item                                      | Configuration                                                |
 | ----------------------------------------- | ------------------------------------------------------------ |
-| Azure Speech Services                     | Disabled                                                     |
+| Azure Speech Services                     | Enabled                                                      |
 | Bookings                                  | Disabled                                                     |
 | ‎Briefing‎ email from ‎Microsoft Viva‎        | Enabled                                                      |
 | Calendar                                  | Disabled                                                     |
@@ -120,7 +120,7 @@ The following table describes the Microsoft 365 Services settings for all implem
 | Modern Authentication                     | Turn on modern authentication for Outlook 2013 for Windows and later (recommended): Checked<br>Allow access to basic authentication protocols: Unchecked (All)                                 |
 | News                                      | Disabled                                                     |
 | ‎Office‎ installation options               | Once a month (Monthly Enterprise Channel)<br>Apps for Windows and mobile devices: Office (includes Skype for Business)<br>Apps for Mac: Office                                               |
-| Office on the web                         | Disabled                                                     |
+| Office on the web (third-party storage services) | Disabled                                                     |
 | Office Scripts                            | Disabled                                                     |
 | Reports                                   | Disabled                                                     |
 | SharePoint                                | Users can share with: New and existing guests - guests must sign in or provide a verification code |
@@ -938,6 +938,20 @@ The following table describes the Teams policy configuration settings for all im
 | Description             | Not configured            |
 | Create private channels | True                      |
 
+### Teams apps
+
+`Microsoft Teams admin center > Teams apps > Permission policies`
+
+The following table describes the Teams apps configuration settings for all implementation types.
+
+| Item                    | Configuration             |
+| ----------------------- | ------------------------- |
+| Name                    | Global (Org-wide default) |
+| Description             | Not configured            |
+| Microsoft apps          | Allow all apps            |
+| Third-party apps        | Block all apps            |
+| Custom apps             | Block all apps            |
+
 ### Calling policy
 
 `Microsoft Teams admin center > Voice > Calling policies`
@@ -1002,6 +1016,7 @@ Note, policies that are not configurable are not included below.
 | Whiteboard                                      | On                                                           |
 | Shared notes                                    | On                                                           |
 | Select video filters                            | All filters                                                  |
+| Let anonymous people join a meeting             | Off                                                          |
 | Let anonymous people start a meeting            | Off                                                          |
 | Roles that have presenter rights in meetings    | Everyone, but user can override                              |
 | Automatically admit people                      | People in my organization                                    |

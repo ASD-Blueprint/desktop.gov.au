@@ -14,6 +14,7 @@ You can find published releases at [https://github.com/govau/desktop.gov.au/rele
 * Review and update Incident Response Plans [#181]
 * Updates to PSPF labelling features (auto-labelling, append subject field, etc) [#185]
 * Updates to reflect Microsoft Product name changes [#188]
+* Updates based on Microsoft feedback [#190]
 
 ## December 2021
 

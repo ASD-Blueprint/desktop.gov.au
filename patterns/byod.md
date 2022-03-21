@@ -22,7 +22,7 @@ This pattern suggests **two BYOD access options** dependent on the risk appetite
 
 Agencies adopting BYOD should perform their own risk assessments and follow ACSC guidance in regards to the requirements surrounding the platform and adequate separation between private and corporate data.
 
-It is not recommended to process or store sensitive data on non-corporately managed devices. For commonwealth entities, non-sensitive data is marked as OFFICIAL.
+It is not recommended to process or store sensitive or classified (OFFICIAL:Sensitive and above) data on non-corporately managed devices. For commonwealth entities, non-sensitive data is marked as OFFICIAL.
 
 This pattern does not discuss Agency policy surrounding the use of personally/privately-owed devices. The following guidance from the ACSC for OFFICIAL and PROTECTED BYOD implementation is:
 
@@ -36,16 +36,16 @@ The technical controls that are described in this document have been grouped int
 **Mobile device access**
 
 * Allows access to some Microsoft 365 applications from personal mobile devices
-* Granular control of user policies, session controls using Microsoft Defender for Cloud Apps when protecting browser apps (requires E5 license level)
-* Intune Application Protection policies to enforce secure containerisation for company data  (available at E3 license level)
+* Granular control of user policies, session controls using Microsoft Defender for Cloud Apps when protecting browser apps
+* Intune Application Protection policies to enforce secure containerisation for company data
 * Conditional Access enforced Agency approved apps for Mobile Devices
 * Suits personas for ad-hoc access to Teams, SharePoint and Outlook on Android and iOS phone or tablet devices
 * Agencies to risk assess for their environment and data classification
-* This BYOD option is not recommended for use cases involving access to sensitive information.
+* This BYOD option is not recommended for use cases involving access to sensitive or classified information.
 
 **Virtual desktop**
 
-* Available for use with Microsoft 365 E3 or E5 licensing levels (requires Azure subscription)
+* Azure virtual desktop requires an Azure subscription
 * Uses Azure Virtual Desktop (AVD) to provide a desktop experience that closely matches the corporate desktop, including legacy application access
 * Supports any client device able to access AVD
 * Lower security risk approach compared to mobile device, but offers greater use cases
@@ -59,12 +59,9 @@ The technical controls that are described in this document have been grouped int
 
 The following represent the assumptions when considering to deploy either BYOD options into an existing blueprint deployment:
 
-* Protected Utility blueprint deployed in a cloud-only or hybrid pattern.
-* For enhanced security, the mobile device option requires Defender for Cloud Apps, which requires Microsoft 365 E5.
-* Licensing is available for Windows 10 Enterprise multi-session, Windows 10 Enterprise and FSLogix profile management.
-  * Microsoft 365 E3, E5
-  * Windows E3, E5
-  * Azure subscription
+* Protected Utility blueprint deployed in a cloud-only or hybrid pattern
+* Licensing as per the DTA PROTECTED utility
+* Azure Virtual Desktop requires a suitable Azure subscription
 
 ## Prerequisites
 
@@ -88,8 +85,8 @@ Hybrid:
 
 Options | Use-Cases | Complexity to implement | Risk considerations 
 --- | --- | ---| ---
- Mobile device access (Option 1) | Provides ad-hoc access on the road and in the office to email, Teams and SharePoint from personally owned mobile devices such as iOS and Android devices. <br />Use-case provides some offline access if connectivity is limited.<br /><br />Not suitable for sensitive data. | Easiest             | Inability to enforce device security controls<br /><br />Limited ability to check compliance for zero trust<br /><br />Lost phone, potential inability to remote data wipe as phone is not fully managed 
- Virtual desktop (Option 2) | Provided through the Azure Virtual Desktop service, this provides a full Windows working environment similar to the corporate desktop. Access is available from a user's personal Windows or Mac device to access the virtual desktop.<br /><br />Remote working within another government Agency or partner environment.<br /><br />Legacy or non-cloud corporate applications (hybrid) can operate with this use-case.<br /><br />Use case requires always-on Internet connection. | More difficult | Greater compliance with PROTECTED-level ISM controls and the Essential Eight<br /><br />Underlying device used to access AVD, screen scraping and physical security 
+ Mobile device access (Option 1) | Provides ad-hoc access on the road and in the office to email, Teams and SharePoint from personally owned mobile devices such as iOS and Android devices. <br />Use-case provides some offline access if connectivity is limited.<br /><br />Not suitable for OFFICIAL:Sensitve and above (sensitive or classified data). | Easiest             | Inability to enforce device security controls<br /><br />Limited ability to check compliance for zero trust<br /><br />Lost phone, potential inability to remote data wipe as phone is not fully managed 
+ Virtual desktop (Option 2) | Provided through the Azure Virtual Desktop service, this provides a full Windows working environment similar to the corporate desktop. Access is available from a user's personal Windows or Mac device to access the virtual desktop.<br /><br />Remote working within another government Agency or partner environment.<br /><br />Legacy or non-cloud corporate applications (hybrid) can operate with this use-case.<br /><br />Use case requires always-on Internet connection. | More difficult | Greater compliance with PROTECTED-level ISM controls and the Essential Eight<br /><br />Screen shot/scraping and physical security (e.g. taking picture of the screen) is a residual risk 
 
 The following process can be followed to determine which pattern option to follow.
 
@@ -126,13 +123,13 @@ Note, refer to the [System Security Plan](https://desktop.gov.au/blueprint/secur
 | 0705    | When accessing an organisation system via a VPN connection, split tunnelling is disabled. | Not applicable                                               | Not applicable                                               |
 | 1082    | A mobile device usage policy is developed and implemented.   | Agency to address                                            | Agency to address                                            |
 | 1083    | Personnel are advised of the sensitivity or classification permitted for voice and data communications when using mobile devices. | Agency to address                                            | Agency to address                                            |
-| 0240    | Paging, Multimedia Message Service, Short Message Service or instant messaging apps are not used to communicate sensitive or classified data. | Implemented                                                  | Not applicable                                               |
+| 0240    | Paging, Multimedia Message Service, Short Message Service or instant messaging apps are not used to communicate sensitive or classified data. | Implemented through MAM-WE, cannot share data with native apps | Not applicable                                               |
 | 0866    | Sensitive or classified data is not viewed or communicated in public locations unless care is taken to reduce the chance of the screen of a mobile device being observed. | Agency to address                                            | Agency to address                                            |
 | 1644    | Sensitive or classified phone calls are not conducted in public locations unless care is taken to reduce the chance of conversations being overheard. | Agency to address                                            | Agency to address                                            |
 | 0871    | Mobile devices are kept under continual direct supervision when being actively used. | Agency to address                                            | Agency to address                                            |
 | 0870    | Mobile devices are carried or stored in a secured state when not being actively used. | Agency to address<br />Protection via inactivity lockouts is implemented | Agency to address<br />Protection via inactivity lockouts is implemented |
-| 1084    | If unable to apply encryption to mobile devices that is suitable for them to be carried through areas not authorised to process the data stored on them, they are physically transferred in a security briefcase or an approved multi-use satchel, pouch or transit bag. | Implemented (data is encrypted in container and protected via credential) | Not applicable (data not stored outside of AVD session)      |
-| 0701    | A mobile device emergency sanitisation process, and supporting mobile device emergency sanitisation procedures, is developed and implemented. | Agency to develop SOP to selectively wipe container when required | Not applicable, no data on mobile device                     |
+| 1084    | If unable to apply encryption to mobile devices that is suitable for them to be carried through areas not authorised to process the data stored on them, they are physically transferred in a security briefcase or an approved multi-use satchel, pouch or transit bag. | Implemented (data is encrypted in container and protected via credential) | Data not stored outside of AVD session but screenshot to physical device is possible |
+| 0701    | A mobile device emergency sanitisation process, and supporting mobile device emergency sanitisation procedures, is developed and implemented. | Agency to develop SOP to selectively wipe container when required. Refer to [How to Selective Wipe](https://docs.microsoft.com/en-us/mem/intune/apps/apps-selective-wipe) | Not applicable, no data on mobile device                     |
 | 1298    | Personnel are advised of privacy and security risks when travelling overseas with mobile devices. | Agency to address                                            | Not applicable                                               |
 | 1554    | If travelling overseas with mobile devices to high/extreme risk countries, personnel are:<br />issued with newly provisioned accounts and devices from a pool of dedicated travel devices which are - used solely for work-related activities<br />- advised on how to apply and inspect tamper seals to key areas of devices<br />- advised to avoid taking any personal devices, especially if rooted or jailbroken. | Agency to address, MAM policy to prevent jailbreak/rooted    | Not applicable                                               |
 | 1555    | Before travelling overseas with mobile devices, personnel take the following actions:<br />- record all details of the devices being taken, such as product types, serial numbers and International Mobile Equipment Identity numbers<br />- update all applications and operating systems<br />- remove all non-essential accounts, applications and data<br />- apply security configuration settings, such as lock screens<br />- configure remote locate and wipe functionality<br />- enable encryption, including for any media used<br />- backup all important data and configuration settings. | Agency to address<br /> Selective wipe available when required<br />O/S version control available<br />Screenlock and mandatory passcodes enforced with MFA | Not applicable                                               |
@@ -461,7 +458,7 @@ The following updates are required for managed application on iOS and Android.
 | PIN for access                                           | Require                                                      |
 | PIN type                                                 | Passcode                                                     |
 | Simple PIN                                               | Block                                                        |
-| Select minimum PIN length                                | 8                                                            |
+| Select minimum PIN length                                | 14                                                           |
 | Touch ID instead of PIN for access                       | Allow                                                        |
 | Override biometrics with PIN after timeout               | Require                                                      |
 | Timeout                                                  | 30 minutes                                                   |
@@ -475,7 +472,7 @@ The following updates are required for managed application on iOS and Android.
 | Offline grace period                                     | 720 minutes (Block access)                                   |
 | Offline grace period                                     | 30 days  (Wipe data)                                         |
 | Jailbroken/rooted devices                                | Block access                                                 |
-| Min OS version                                           | 14.0 (Block access)                                          |
+| Min OS version                                           | 15.0 (Block access)<br />Note: define latest version at time of configure |
 | Disabled account                                         | Block access                                                 |
 | **Assignments**                                          |                                                              |
 | Included groups                                          | rol-Agency-MAMUsers                                          |
@@ -526,7 +523,7 @@ The following updates are required for managed application on iOS and Android.
 | Offline grace period                                     | 720 minutes (Block access)                                   |
 | Offline grace period                                     | 30 days  (Wipe data)                                         |
 | Jailbroken/rooted devices                                | Block access                                                 |
-| Min OS version                                           | 12.0 (Block access)                                          |
+| Min OS version                                           | 12.0 (Block access)<br />Note: define latest version at time of configure |
 | Disabled account                                         | Block access                                                 |
 | **Assignments**                                          |                                                              |
 | Included groups                                          | rol-Agency-MAMUsers                                          |

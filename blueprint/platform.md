@@ -1592,9 +1592,9 @@ Retention policies are created that ensure that data is retained forever for:
 * Teams channel messages
 * Teams chats.
 
-Workstation configuration is stored in Intune. (AutoPilot rebuild).
+Workstation configuration is stored in Intune (Autopilot rebuild).
 
-Cloud based native Office 365 tools will not meet an agency's requirement for on-premises and cloud backups. Agencies will need to investigate third party backup solutions which can backup data either to a designated physical location or cloud backup/storage service.
+Agencies should review the native Microsoft 365 capabilities and determine if they meet their data preservation requirements, or if a third-party backup solution is required.
 
 RPO, RTO and Retention Periods Design Decisions for all agencies and implementation types.
 
@@ -1627,22 +1627,17 @@ Retention Policies | At discretion of Agency | Retention policies for the backup
 
 ### Data availability
 
-Microsoft Azure services are available globally and provides geographical, regional, data centre, virtual infrastructure, and application resiliency. This allows the Microsoft Azure platform and Office 365 to combat and minimise potential disasters such as customers loss of connectivity to data or loss of data.
+Microsoft Azure services are available globally and provides geographical, regional, data centre, virtual infrastructure, and application resiliency. This allows the Microsoft Azure platform and Microsoft 365 to combat and minimise potential disasters such as customers loss of connectivity to data or loss of data.
 
-Data availability is an important part of making sure that end users have access to the data when they require it. The cloud-based service of Microsoft Office 365 will replicate and store Agency's data in multiple data centres which are geographically dispersed  (see [Exchange data resiliency](https://docs.microsoft.com/en-us/office365/enterprise/office-365-exchange-data-resiliency) and [Office 365 data resiliency](https://docs.microsoft.com/en-us/office365/Enterprise/office-365-data-resiliency-overview)). The Office 365 applications that provide this data availability are:
+Data availability is an important part of making sure that end users have access to the data when they require it. The cloud-based service of Microsoft 365 will replicate and store Agency's data in multiple data centres which are geographically dispersed  (see [Exchange Online data resiliency in Microsoft 365](https://docs.microsoft.com/en-au/compliance/assurance/assurance-exchange-data-resiliency) and [Data resiliency in Microsoft 365](https://docs.microsoft.com/en-au/compliance/assurance/assurance-data-resiliency-overview)). 
 
-* Exchange
-* SharePoint
-* OneDrive
-* Teams.
-
-The data availability and resiliency of Office 365 cloud service is in-built and managed by Microsoft.
+The data availability and resiliency of Microsoft 365 cloud service is in-built and managed by Microsoft.
 
 Data Availability Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Data Availability | Configured | Microsoft have in-built data availability into the Office 365 cloud services.
+Data Availability | Configured | Microsoft have in-built data availability into the Microsoft 365 cloud services.
 
 ## System administration
 

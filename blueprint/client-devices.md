@@ -321,7 +321,7 @@ Universal Windows Platform Application configuration applicable to all agencies 
 
 Configuration | Value | Description
 --- | --- | ---
-Alarms and Clock | Removed | A versatile combination of alarm clock app, world clock, timer, and stopwatch.
+Alarms and Clock | Provisioned | A versatile combination of alarm clock app, world clock, timer, and stopwatch.
 Bing | Removed | Weather and News. 
 Calculator | Provisioned | A calculator that includes standard, scientific, and programmer modes, as well as a unit converter.
 Camera | Removed | The redesigned Camera is faster and simpler than ever before.
@@ -1192,6 +1192,7 @@ Windows 10 Hardening Design Decisions for all agencies and implementation types.
   * Restrict Unauthenticated RPC clients: Enabled (RPC Runtime Unauthenticated Client Restriction to Apply: Authenticated)
 * Reporting system information
   * Justification: To align with the ACSC Windows 10 hardening guidance.
+  Note, additional telemetry is required for [Desktop Analytics](/blueprint/client-devices.html#telemetry-collection) and Agencies may choose to enable it to aid in Microsoft Support troubleshooting.
   * Microsoft Support Diagnostic Tool:
     * Turn on MSDT interactive communication with support provider: Disabled
   * Turn off Inventory Collector: Enabled
@@ -1382,8 +1383,8 @@ Decision Point | Design Decision | Justification
 Guest Account (Local) | Disabled | To align with the ACSC Windows 10 hardening guidance. 
 Guest Account Name | Renamed | To align with the ACSC Windows 10 hardening guidance.
 Microsoft Accounts | Disabled | To align with the ACSC Windows 10 hardening guidance.
-Windows Hello for Business | Disabled | Does not meet security requirements.
-Windows Hello for Business Configuration Method | Disabled | Does not meet security requirements.
+Windows Hello for Business | Agency decision | As per the ACSC Windows 10 hardening guidance, Agencies may consider if Windows Hello for Business is suitable for their environment.
+Windows Hello for Business Configuration Method | Agency decision | As per the ACSC Windows 10 hardening guidance, Agencies may consider if Windows Hello for Business is suitable for their environment.
 
 Additional Identity Providers Design Decisions for cloud native implementations
 

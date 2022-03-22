@@ -1109,7 +1109,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 External Access | Configured:<br>(Example) Allow dta.gov.au | Allow only dta.gov.au and deny sharing to external users. This will prevent users from setting up meetings with users that are not setup as a Guest of the Agency.
 Guest Access | Configured:<br>Guest Access: Enabled | Allows people outside of the agency to access teams and channels.
-Teams Setting | Configured<br>Disable all third-party file storage | This is to ensure departmental users do not save file outside of the Office 365 tenant.
+Teams Setting | Configured<br>Disable all third-party file storage | This is to ensure departmental users do not save file outside of the Microsoft 365 tenant. 
 
 ### Policies & settings
 
@@ -1127,7 +1127,7 @@ Policies and Settings Design Decisions for all agencies and implementation types
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Team Policy | Configured<br>Disable private channels | Team policy will be left as default settings.<br>Discovered private teams.<br>Create private channels. 
+Team Policy | Configured<br>Enable private channels | Team policy will be left as default settings.<br>Discovered private teams.<br>Create private channels. 
 Meeting Policies | Configured<br>Global policy:<br>Automatically admit people – Everyone in your organisation<br>Cloud Recording – Enabled with automatic deletion | Meeting policy dictates how audio, videos and applications that are used in a team meeting.<br>Require external participants to be admitted to a meeting to prevent unauthorised entrance.<br>Enables meetings to be recorded while reducing storage consumption.
 Live events Policies | Configured<br>Who can join live events:<br>Everyone in Organisation | Live events is configured to prevent users outside of the organisation (guest and external users) cannot attend these meeting.
 Messaging Policy | Configured | Messaging policy dictates how messaging is used in Teams. These includes usage of Giphy, Memes and stickers in messages.
@@ -1157,9 +1157,16 @@ Individual and group chat | Configured | Default functionality.
 
 Enables agencies to make calls to landlines or mobiles within Microsoft Teams.
 
-Telstra Calling for Office 365 avoids the complexity of separate collaboration systems.
+Voice calling can be configured in a number of ways depending on the requirements of the Agency, and whether a telephony system is already in place:
 
-The following image describes how connectivity is achieved between Microsoft Teams and Telstra.
+* VoIP calling: Available within Teams by default without any configuration required. Users can call voice or video each other and collaborate over the internet outside of the PSTN (Public Switched Telephone Network) system. PSTN users outside of Teams can dial in using the provided PSTN dial in conference number to VoIP meetings where this is enabled.
+
+* Operator Connect: Operator connect enables a simple PSTN connection method which enables agencies to connect to a PSTN provider of their choice if they participate in the Operator Connect program. The PSTN integration is managed as a service by the chosen operator.
+
+* Calling Plan via Telstra Calling for Office 365: Telstra Calling avoids the complexity of separate collaboration systems and can be enabled within Teams. Similar to Operator Connect, this method provides a fully managed service by Telstra for Teams calling to PSTN systems.
+* Direct Routing: Direct Routing enables hybrid agencies to connect their on-premises telephony infrastructure to Microsoft Teams through a series of supported on-premises Session Border Controllers (SBC). This method provides the Agency a self managed service for Teams calling to PSTN systems.
+
+The following image describes how connectivity is achieved between Microsoft Teams and Telstra, for the Telstra calling for Office 365 service.
 
 ![Telstra Calling for Office 365](/assets/images/o365-voice.png)
 
@@ -1167,8 +1174,8 @@ Voice Calling Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Telstra calling for Office 365 | Not configured | Agencies may require dial in and dial out functionality. This arrangement will need to be organised, paid for and configured by agencies that require this functionality. The configuration will not be covered in this blueprint.
-Telstra calling for Office 365 | Security Assessment | Agencies wishing to use Telstra Calling for Office 365 or another similar services should undertake a security assessment to ensure that the product addresses their security requirements.
+Calling solution | Agency decision | The Agency should assess their requirements for calling in order to select the right calling solution for Teams. 
+Security Assessment | Agency to risk assess | As the calling options are hosted outside Microsoft system boundary by third parties, they should be suitably risk assessed. 
 
 ## Power platform
 

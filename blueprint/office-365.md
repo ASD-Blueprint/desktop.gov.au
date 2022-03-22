@@ -1174,7 +1174,7 @@ Voice Calling Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Calling solution | Agency decision | The Agency should assess their requirements for calling in order to select the right calling solution for Teams. 
+Voice Calling solution | Agency decision | The Agency should assess their requirements for calling in order to select the right calling solution for Teams. 
 Security Assessment | Agency to risk assess | As the calling options are hosted outside Microsoft system boundary by third parties, they should be suitably risk assessed. 
 
 ## Power platform

@@ -1159,12 +1159,10 @@ Enables agencies to make calls to landlines or mobiles within Microsoft Teams.
 
 Voice calling can be configured in a number of ways depending on the requirements of the Agency, and whether a telephony system is already in place:
 
-* VoIP calling: Available within Teams by default without any configuration required. Users can call voice or video each other and collaborate over the internet outside of the PSTN (Public Switched Telephone Network) system. PSTN users outside of Teams can dial in using the provided PSTN dial in conference number to VoIP meetings where this is enabled.
-
-* Operator Connect: Operator connect enables a simple PSTN connection method which enables agencies to connect to a PSTN provider of their choice if they participate in the Operator Connect program. The PSTN integration is managed as a service by the chosen operator.
-
+* VoIP calling: Available within Teams by default without any configuration required. Users can make voice or video calls to each other and collaborate over the internet outside of the PSTN (Public Switched Telephone Network) system. PSTN users outside of Teams can dial in using the provided PSTN dial in conference number to VoIP meetings where this is enabled.
+* Operator Connect: Operator Connect enables a simple PSTN connection method which enables Agencies to connect to a PSTN provider of their choice if they participate in the Operator Connect program. The PSTN integration is managed as a service by the chosen operator.
 * Calling Plan via Telstra Calling for Office 365: Telstra Calling avoids the complexity of separate collaboration systems and can be enabled within Teams. Similar to Operator Connect, this method provides a fully managed service by Telstra for Teams calling to PSTN systems.
-* Direct Routing: Direct Routing enables hybrid agencies to connect their on-premises telephony infrastructure to Microsoft Teams through a series of supported on-premises Session Border Controllers (SBC). This method provides the Agency a self managed service for Teams calling to PSTN systems.
+* Direct Routing: Direct Routing enables hybrid Agencies to connect their on-premises telephony infrastructure to Microsoft Teams through a series of supported on-premises Session Border Controllers (SBC). This method provides the Agency a self-managed service for Teams calling to PSTN systems.
 
 The following image describes how connectivity is achieved between Microsoft Teams and Telstra, for the Telstra calling for Office 365 service.
 
@@ -1175,7 +1173,7 @@ Voice Calling Design Decisions for all agencies and implementation types.
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Voice Calling solution | Agency decision | The Agency should assess their requirements for calling in order to select the right calling solution for Teams. 
-Security Assessment | Agency to risk assess | As the calling options are hosted outside Microsoft system boundary by third parties, they should be suitably risk assessed. 
+Security Assessment | Agency to risk assess | As the calling options are hosted outside of the M365 system boundary by third party providers they should be risk assessed to determine suitability. 
 
 ## Power platform
 

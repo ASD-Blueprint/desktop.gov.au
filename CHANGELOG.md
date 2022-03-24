@@ -15,6 +15,7 @@ You can find published releases at [https://github.com/govau/desktop.gov.au/rele
 * Updates to PSPF labelling features (auto-labelling, append subject field, etc) [#185]
 * Updates to reflect Microsoft Product name changes [#188]
 * Updates based on Microsoft feedback [#190]
+* Microsoft Teams update to include additional calling options [#193]
 
 ## December 2021
 

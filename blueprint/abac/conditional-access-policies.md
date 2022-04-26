@@ -521,6 +521,8 @@ This global policy forces Terms of Use on all authentications.
     * Device platforms:
       * Configure: `No`
     * Locations:
+      * Configure: `No`
+    * Client apps
       * Configure: `Yes`
       * Browser: `True`
       * Mobile apps and desktop clients: `True`

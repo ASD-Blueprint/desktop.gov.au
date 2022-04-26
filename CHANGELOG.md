@@ -16,6 +16,8 @@ You can find published releases at [https://github.com/govau/desktop.gov.au/rele
 * Updates to reflect Microsoft Product name changes [#188]
 * Updates based on Microsoft feedback [#190]
 * Microsoft Teams update to include additional calling options [#193]
+* Update to Conditional Access Policy ABAC [#196]
+* BYOD guidance pattern [#184]
 
 ## December 2021
 

@@ -56,16 +56,16 @@ The purpose of this System Security Plan (SSP) is to describe the security imple
 
 This document is deliberately written using descriptive and explanatory language to assist an Agency to understand how the CloudSystem operates securely, the security controls it provides, and the residual controls that must be addressed by an Agency.
 
-For detailed information on how the CloudSystem addresses specific controls in the ISM (September 2021 update), refer to the ‘DTA - Cloud-Only Blueprint - System Security Plan Annex (September 2021)’.
+For detailed information on how the CloudSystem addresses specific controls in the ISM (March 2022 update), refer to the ‘DTA - Cloud-Only Blueprint - System Security Plan Annex (March 2022)’.
 
 ### Overarching security policies
 
 The security policies that the CloudSystem has been designed to comply with are listed below:
 
-* The Australian Government ISM (September 2021) controls.
+* The Australian Government ISM (March 2022) controls.
 * The Australian Cyber Security Centre (ACSC) Strategies to Mitigate Cyber Security Incidents, including the Essential Eight Maturity Model.
 * The ACSC Security Configuration Guide - Apple iOS 14 Devices (October 2021).
-* The Protective Security Policy Framework (PSPF) .
+* The Protective Security Policy Framework (PSPF).
 * Hardening Microsoft Windows 10 version 21H1 Workstation (October 2021).
 
 ### Related security documentation
@@ -77,12 +77,12 @@ In accordance with the requirements of the ISM, the following security documenta
 * DTA – Blueprint – Platform Design
 * DTA – Blueprint – Office 365 Design
 * DTA – Cloud-Native Blueprint – System Security Plan (this document)
-* DTA – Cloud-Native Blueprint – System Security Plan Annex (September 2021)
+* DTA – Cloud-Native Blueprint – System Security Plan Annex (March 2022)
 * DTA – Cloud-Native Blueprint – Security Risk Management Plan
 * DTA – Cloud-Native Blueprint – Security Standard Operating Procedures
 * DTA – Cloud-Native Blueprint – Incident Response Plan
 
-The suite of documentation produced to support ACSC’s certification of Azure and Office 365 for PROTECTED have also been leveraged in the development of the CloudSystem, and includes the following :
+The IRAP reports for the assessment of Azure and Office 365 at PROTECTED have also been leveraged in the development of the CloudSystem, and includes the following:
 
 * 2020 Microsoft Azure IRAP - Azure Security Fundamentals and Cloud Services Assessment
 * Office 365 Security Fundamentals and Cloud Services IRAP Assessment Report 2020
@@ -135,13 +135,13 @@ Guidelines for Cyber Security Incidents | Not Applicable | The Agency is respons
 Guidelines for Outsourcing | Applicable | Shared responsibility between the CloudSystem and the Agency consuming it.
 Guidelines for Security Documentation | Applicable | The CloudSystem provides system-specific documentation to be read in conjunction with the Agency’s cyber security strategy.
 Guidelines for Physical Security | Not Applicable | The CloudSystem inherits the physical security controls which are implemented by Microsoft for Azure and Office 365 components.
-Guidelines for Personnel Security | Not Applicable | The Agency is responsible for the personnel security as it relates to users of the CloudSystem.
+Guidelines for Personnel Security | Applicable | The CloudSystem implements technical controls to assist the Agency with managing personnel security.
 Guidelines for Communications Infrastructure | Not Applicable | The Agency is responsible for communications infrastructure leveraged by the CloudSystem.
 Guidelines for Communications Systems | Applicable | The CloudSystem includes Microsoft Teams which provides video conferencing functionality.
 Guidelines for Enterprise Mobility | Applicable | The CloudSystem includes the management and use of mobile devices.
 Guidelines for Evaluated Products | Applicable | The CloudSystem includes Windows 10 which has been evaluated. Additionally, the CloudSystem leverages Office 365 services which include evaluated products.
 Guidelines for ICT Equipment Management | Not Applicable | The security of the Azure and Office 365 hosting equipment is the responsibility of Microsoft.
-Guidelines for Media | Applicable | The CloudSystem is responsible for restricting the use of unapproved media.
+Guidelines for Media | Applicable | The CloudSystem is responsible for encrypting removeable media.
 Guidelines for System Hardening | Applicable | Hardening of operating systems and applications included in the CloudSystem is applicable.
 Guidelines for System Management | Applicable | Management of CloudSystem system components is applicable.
 Guidelines for System Monitoring | Applicable | Monitoring of CloudSystem system components is applicable.
@@ -271,7 +271,7 @@ The CloudSystem leverages Microsoft Azure and Office 365, which have been IRAP a
 
 Azure AD is defined as a non-regional service, but [hosts identity data in Australian datacentres](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-data-storage-australia) for customers that provide an Australian or New Zealand address. This includes Azure AD Directory Management and Authentication functions. Other Azure AD functions, including Azure MFA, store data in global datacentres.
 
-Where possible the CloudSystem leverages services located in Australia, otherwise the United States is selected. Microsoft Cloud App Security is available in the Europe or United States regions. If the Azure AD tenant is in Australia, then the [United States is automatically selected](https://docs.microsoft.com/en-us/cloud-app-security/cas-compliance-trust). [Microsoft Defender for Endpoint](https://docs.microsoft.com/en-au/microsoft-365/security/defender-endpoint/data-storage-privacy) is available in Europe, United Kingdom, or in the United States. The United States is selected as part of the service creation for the CloudSystem.
+Where possible the CloudSystem leverages services located in Australia, otherwise the United States is selected. Microsoft Defender for Cloud Apps is available in the United Kingdom, Europe or United States regions. If the Azure AD tenant is in Australia, then the [United States is automatically selected](https://docs.microsoft.com/en-au/defender-cloud-apps/cas-compliance-trust). [Microsoft Defender for Endpoint](https://docs.microsoft.com/en-au/microsoft-365/security/defender-endpoint/data-storage-privacy) is available in Europe, United Kingdom, or in the United States. The United States is selected as part of the service creation for the CloudSystem.
 
 #### Security controls provided by the CloudSystem
 
@@ -313,7 +313,7 @@ Overall, the Agency is deemed accountable for any technology platform when in us
 
 A suggested high-level shared responsibility matrix for the technology stack across the platform, Microsoft Office 365 and client devices has been tabled below. There are three defined stakeholders who share the responsibility to maintain the Agency’s security capabilities.
 
-* **Agency**: Australian government agency adapting and implementing the DTA cloud native blueprint.
+* **Agency**: Australian government Agency adapting and implementing the DTA cloud native blueprint.
 * **Microsoft**: Cloud Service Provider who provide and/or manage the defined technology platforms.
 * **Product Vendors**: external product vendors (such as Apple for iOS) that provide or manage platforms within the Agency’s ecosystem that are not performed by Microsoft. 
 
@@ -371,7 +371,7 @@ The CloudSystem provides security documentation that an Agency can review, appro
 #### Security controls provided by the CloudSystem
 
 * All security documentation produced by DTA for the CloudSystem has been updated within the last year and include the 'last updated' date.
-* DTA provide updates to documentation via the Protected Utility website at [desktop.gov.au](https://desktop.gov.au/). Release logs and change sets between versions can be obtained at [Github](https://github.com/govau/desktop.gov.au).
+* DTA provide updates to documentation via the Protected Utility website at [desktop.gov.au](https://desktop.gov.au/). Release logs and change sets between versions can be obtained at [GitHub](https://github.com/govau/desktop.gov.au).
 
 #### Residual controls to be addressed by the Agency
 
@@ -430,28 +430,28 @@ This section does not include specific subsections as the information is the sam
 
 ### Applicability to CloudSystem
 
-Not applicable to the CloudSystem as this is an Agency’s responsibility. An Agency’s implementation of personnel security controls should cover the CloudSystem system.
+Technical controls relating to personnel security are applicable to the CloudSystem. An Agency’s implementation of personnel security controls should include the CloudSystem.
 
 ### CloudSystem compliance approach
 
-The CloudSystem provides a role-based access control implementation and associated operations guide to enable an Agency to easily and securely control access, including privileged and emergency access, to Azure and Office 365 services.
+The CloudSystem provides a role-based access control implementation and associated operations guide to enable an Agency to easily and securely control access, including privileged and emergency access, to Azure and Office 365 services. The CloudSystem leverages in-built authentication logging provided by the platform, and centralises logs to prevent unauthorised modification and deletion.
 
 ### Security controls provided by the CloudSystem
 
-* The CloudSystem provides a framework for identity and access management for Azure and Office 365 resources.
-* The CloudSystem includes automation to disable inactive accounts after 45 days.
+* All unprivileged access attempts are logged in Azure AD Sign-ins. Azure AD logs are forwarded to a Log Analytics workspace for long-term secure retention.
+* Intune configures an AppLocker blocklist to prevent administrators from launching web browsers and email clients.
 * The CloudSystem leverages Azure AD Privileged Identity Management (PIM) to provide Just-in-time administration.
 * Changes to privileged accounts and groups are logged in the Azure AD Audit Log.
-* Intune configures an AppLocker blocklist to prevent administrators from launching web browsers and email clients.
 * Azure AD logs are forwarded to a Log Analytics workspace for long-term secure retention.
-* The CloudSystem provides emergency access or ‘break-glass’ accounts to be used in emergency situations to restore access to an environment or tenant.
-* The CloudSystem provides Microsoft Defender for Cloud Apps policy monitoring to monitor the activity of the break-glass accounts.
+* The CloudSystem includes automation to disable inactive Azure AD accounts after 45 days.
+* Microsoft Defender for Cloud Apps policy monitoring is implemented to monitor activity of break glass accounts. The use of break glass accounts are also logged in Azure AD Sign-ins. 
 
 ### Residual controls to be addressed by the Agency
 
 * The Agency is responsible for ensuring that personnel undergo pre-employment checks and hold the appropriate level of security clearance, as well as providing cyber security awareness training to staff and contractors.
 * The Agency is responsible establishing processes for the creation, maintenance and decommissioning of accounts created within the system in accordance with the controls within the annex.
 * The Agency is responsible for documenting and testing emergency access procedures. 
+* The Agency is responsible for monitoring and actioning cyber security events that are centralised to Log Analytics.
 
 ## Communications infrastructure
 
@@ -605,7 +605,7 @@ The CloudSystem includes Windows 10 which has been evaluated and therefore the c
 
 ### CloudSystem compliance approach
 
-A Protection Profile (PP) evaluation has been performed on Windows 10 and Microsoft publish deployment and administration guides for each [evaluated operating system](https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-platform-common-criteria). The CloudSystem implements the recommendations for the latest evaluated version of Windows 10 (November 2019 Update). This includes sourcing installation media directly from Microsoft and implementing configuration hardening.
+A Protection Profile (PP) evaluation has been performed on Windows 10 and Microsoft publish deployment and administration guides for each [evaluated operating system](https://docs.microsoft.com/en-au/windows/security/threat-protection/windows-platform-common-criteria). The CloudSystem implements the recommendations for the latest evaluated version of Windows 10 (2004). This includes sourcing installation media directly from Microsoft and implementing configuration hardening.
 
 ### Security controls provided by the CloudSystem
 
@@ -647,13 +647,10 @@ This section is applicable as removable media may be connected to CloudSystem en
 
 #### CloudSystem compliance approach
 
-The CloudSystem implements technical controls to restrict access to removeable media devices that may be connected to CloudSystem endpoints.
+The CloudSystem implements technical controls to protect the confidentiality and integrity of data written to removeable media devices that may be connected to CloudSystem endpoints.
 
 #### Security controls provided by the CloudSystem
 
-* Autorun is disabled for removable media via Microsoft Endpoint Manager policies.
-* Only authorised devices that are permitted in Intune policies can be connected to CloudSystem endpoints. Unauthorised devices will not be mounted to the operating system.
-* External connections relying on Direct Memory Access (DMA) will be disabled via Intune policies
 * Removable media is encrypted via BitLocker using AES-256.
 
 #### Residual controls to be addressed by the Agency
@@ -736,43 +733,49 @@ Enhanced Mitigation Experience Toolkit (EMET) is not supported by the latest rel
 
 PowerShell hardening and logging is configured via Intune for the Windows 10 SOE. As the blueprint does not include Public Key Infrastructure (PKI) the Protected Event Logging feature for PowerShell is not included. 
 
-Windows Defender Firewall is enabled as part of the CloudSystem Windows 10 Standard Operating Environment (SOE) and configured by Intune policies. Windows Defender Antivirus and Microsoft Defender for Endpoint provide antivirus including signature, reputation and heuristic-based detection. 
+Windows Defender Firewall is enabled as part of the CloudSystem Windows 10 Standard Operating Environment (SOE) and configured by Intune policies. Windows Defender Antivirus and Microsoft Defender for Endpoint provide antivirus including signature, reputation and heuristic-based detection. Controlled folder access is also enabled to provide additional ransomware protection.
 
 Scanning frequency for both quick scans and full scans is determined by the policies and occurs for fixed and removable drives.
 
-Endpoint Device Control will be configured by Intune policies restricting usage to only permitted devices.
+Endpoint Device Control will be configured by Intune policies restricting usage to only permitted devices. This includes disabling Direct Memory Access (DMA).
 
 #### Security controls provided by the CloudSystem
 
+* Microsoft have made a commit to support Windows 10 and provide security updates in accordance with the document lifecycle for the operating system.
 * Windows 10 Semi-Annual Channel (SAC) is used as the SOE for the CloudSystem.
 * The 64-bit version of Windows 10 is used as the SOE for the CloudSystem.
-* The Windows 10 SOE has been hardened in accordance with ACSC guidance using Intune.
+* The Windows 10 SOE has been hardened in accordance with ACSC 'Hardening Microsoft Windows 10 version 21H1 Workstations' guidance.
+* Only required software and components are included in the SOE. Default accounts are disabled.
 * The default administrator and guest accounts have been disabled and renamed.
+* Autorun is disabled for removable media via Intune policies.
 * Internet Explorer 11 is disabled as part of the Windows 10 SOE.
 * .NET Framework 3.5 and any previous versions are disabled as part of the Windows 10 SOE.
+* The 'Exploit protection' feature is enabled as part of the CloudSystem Windows 10 SOE.
+* Early Launch Antimalware (ELAM), Secure Boot and Trusted Boot are enabled as part of the Windows 10 SOE.
 * CloudSystem standard users do not have sufficient permissions to modify security functions on Windows 10 devices.
 * A combination of WDAC and AppLocker policies prevent the use of script execution engines.
-* RBAC policy defines separate domain and local administrator roles. Standard users do not have permissions to install or uninstall software.
+* Standard (unprivileged) users do not have sufficient permissions to install or uninstall applications on Windows 10 devices.
 * WDAC provides application control functionality. A combination of hash, publisher certificate and path rules will be used by WDAC for control of applications. Both publisher and product names are used by WDAC for control of applications. WDAC writes to the local event log. Standard users cannot disable application control within the system.
 * File permissions prevent standard users from writing to locations that are whitelisted using path rules.
 * [Microsoft recommended block rules](https://docs.microsoft.com/en-au/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-block-rules) and [Microsoft recommended driver block rules](https://docs.microsoft.com/en-au/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-driver-block-rules) to prevent known WDAC bypasses are implemented.
-* The 'Exploit protection' feature is enabled as part of the CloudSystem Windows 10 SOE.
 * PowerShell v2 is disabled in the Windows 10 SOE.
 * PowerShell is configured to run in Constrained Language Mode (CLM).
 * PowerShell logging is enabled as per the ACSC Windows 10 hardening guide.
 * Microsoft Defender Exploit Guard and Defender for Endpoint provide HIPS functionality as part of the CloudSystem Windows 10 SOE.
 * Windows Defender Firewall is enabled as part of the CloudSystem Windows 10 SOE.
-* Microsoft Defender Antivirus and Defender for Endpoint provide antivirus including signature and heuristic-based detection.
-* Reputation rating features are enabled in Defender.
+* Microsoft Defender Antivirus and Defender for Endpoint provide antivirus including signature and heuristic-based detection. Virus definitions are set to automatically update. Controlled folder access (ransomware protection) is also configured.  
 * Intune provides device access control by DeviceID or Device Class.
+* Only authorised devices in Intune policies can be connected. Unauthorised devices will not be mounted to the operating system.
 * External connections relying on DMA will be disabled via Intune policies.
+* Defender for Endpoint centrally stores Endpoint Detection and Response (EDR) logs for all Windows 10 blueprint devices.
 
 #### Residual controls to be addressed by the Agency
 
-* Where Agencies utilise SOE developed by third parties, the Agency must ensure that the SOE is scanned for malicious content and configurations before being used and that the design is reviewed and updated at least annually.
+* Where Agencies utilise a SOE developed by third parties, the Agency must ensure that the SOE is scanned for malicious content and configurations before being used and that the design is reviewed and updated at least annually.
 * The Agency must validate cryptographic hash rules, publisher certificate rules and path rules used for application control at least annually.
 * The Agency is responsible for collecting and storing WDAC and PowerShell logs in a centralised logging facility/SIEM as this capability is not included in the blueprint.
 * The Agency is responsible for configuration of Protected Event Logging functionality if required.
+* The Agency is responsible for monitoring and actioning cyber security events from the EDR logs.
 
 ### Application hardening
 
@@ -795,21 +798,20 @@ Office macros sourced from the internet are blocked and only signed macros will 
 #### Security controls provided by the CloudSystem
 
 * All applications are supplied by Microsoft which has made a commitment to secure development. The CloudSystem does not include any third-party applications.
-* The latest version of Microsoft Office 365 is installed. 
+* The latest version of Microsoft Office 365 and Microsoft Edge are installed. No third-party applications are installed.
+* ACSC guidance has been implemented to harden Office and built-in web browsers.
+* Unrequired functionality, such as Microsoft Access, has been removed.
+* The Windows 10 SOE restricts the use of add-ons to only those deployed via Intune.
 * The Windows 10 SOE does not include Java.
 * Native Microsoft Edge advertisement blocking is enabled. 
 * Internet Explorer 11 is disabled as part of the Windows 10 SOE.
 * Attack Surface Reduction rules are configured for Microsoft Office in accordance with the ACSC hardening guides for Windows 10 and Office 365.
 * Object Linking and Embedding (OLE) is blocked for Microsoft Office.
-* ACSC guidance has been implemented to harden Office and built-in web browsers.
-* Unrequired functionality, such as Microsoft Access, has been removed.
-* The Windows 10 SOE restricts the use of add-ons to only those deployed via Intune.
-* Microsoft's Attack Surface Reduction Rules are implemented in the configuration controlled by Intune.
 * Only Office macros that have been digitally signed by a trusted publisher can execute.
 * All macros downloaded from the internet are disabled.
 * Antivirus scanning is enabled for Office macros.
 * Users cannot change macro settings.
-* Defender for Endpoint centrally stores Endpoint Detection & Response (EDR) logs for all Windows 10 blueprint devices.
+* Defender for Endpoint centrally stores EDR logs for all Windows 10 blueprint devices.
 
 #### Residual controls to be addressed by the Agency
 
@@ -830,9 +832,9 @@ The CloudSystem utilises RBAC, automation and policy controls to restrict access
 
 The CloudSystem provides security controls and an identity management framework that can be utilised to manage system access for systems deployed within the CloudSystem. The CloudSystem enforces multi-factor authentication through Conditional Access policies, creates recovery (emergency access) accounts for maintaining access to resources and enforces password policies for accounts created directly in Azure AD. The CloudSystem uses a soft-token - the Microsoft Authenticator app - to reduce the need for purchase, distribution and management of hard-tokens.
 
-The Microsoft Authenticator app cannot be centrally managed to require the enforcement of a PIN or biometric unlock, and is not considered verifier impersonation resistant.
+The Microsoft Authenticator app cannot be centrally managed to require the enforcement of a PIN or biometric unlock. It is also not currently considered verifier impersonation resistant.
 
-The Protected User security group is not available in Azure AD and is therefore not used by the Cloudsystem.
+The Protected User security group is not available in Azure AD and is therefore not used by the CloudSystem.
 
 The CloudSystem utilises Azure AD to store groups utilised for RBAC and provides process and administration documentation for managing access to Azure resources.
 
@@ -852,6 +854,7 @@ To minimise potential user impact, Windows 10 laptops are not rebooted daily. In
 * Credentials are stored within Azure AD.
 * Standard Windows & iOS functionality is to obscure passwords during logon.
 * Windows Defender Credential Guard is enabled for the Windows 10 SOE. Remote Credential Guard is not applicable as the CloudSystem does not include servers.
+* Only one previous logon is cached for the Windows 10 SOE.
 * The CloudSystem Windows 10 SOE is configured with a screen saver after 15 minutes which requires users to re-authenticate.
 * The CloudSystem Windows 10 SOE is configured with a logon banner provided by the Agency.
 
@@ -897,7 +900,7 @@ All administration of the CloudSystem is performed through a web browser to a nu
 
 Portal | URL
 --- | ---
-Cloud App Security portal | [https://portal.cloudappsecurity.com](https://portal.cloudappsecurity.com)
+Defender for Cloud Apps portal | [https://portal.cloudappsecurity.com](https://portal.cloudappsecurity.com)
 Azure portal (including Azure AD) | [https://portal.azure.com](https://portal.azure.com)
 Microsoft 365 Compliance Center | [https://compliance.microsoft.com](https://compliance.microsoft.com)
 Microsoft 365 Defender | [https://security.microsoft.com](https://security.microsoft.com)
@@ -929,9 +932,9 @@ System patching of endpoint devices is required, and this is accomplished via In
 
 The CloudSystem compliance approach is to primarily utilise native cloud capabilities that are patched as part of the service. 
 
-The CloudSystem uses Intune to automatically deploy operating system, application, driver, and firmware (where supported) updates to Windows 10 SOE devices. 
+The CloudSystem uses Intune to automatically deploy operating system, application, driver, and firmware (where supported) updates to Windows 10 SOE devices. Microsoft Defender for Endpoint provide a vulnerability management capability to aid Agencies in detecting missing patches and insecure configurations.
 
-The blueprint does not include third-party applications or any unsupported software.
+The blueprint does not include third-party applications or any unsupported software. The patching of other ICT equipment is not in scope of the CloudSystem.
 
 #### Security controls provided by the CloudSystem
 
@@ -940,6 +943,7 @@ The blueprint does not include third-party applications or any unsupported softw
 * Intune provides a centralised and managed approach to patching.
 * Windows Update verifies the integrity of patches before installing them.
 * Microsoft Defender for Endpoint provides a continuous vulnerability management capability for all Windows 10 devices.
+* The blueprint does not include the use of unsupported software.
 
 #### Residual controls to be addressed by the Agency
 
@@ -1204,7 +1208,7 @@ The CloudSystem leverages cryptography provided by Microsoft to encrypt both dat
 
 Microsoft’s implementation of cryptography, including TLS 1.2 which is an ASD Approved Cryptographic Protocol (AACP), has been assessed as part of the IRAP assessments for Azure and Office 365. However, an ASD Cryptographic Evaluation (ACE) has not been performed on Microsoft’s cryptographic software.
 
-At the time of writing Microsoft does not support the latest version of TLS – version 1.3. Microsoft have previously stated that versions 1.0 and 1.1 are not supported and were to become deprecated for Office 365 services from June 2020, however this has since been delayed due to world events. See [Preparing for TLS 1.2 in Office 365 and Office 365 GCC](https://docs.microsoft.com/en-us/office365/troubleshoot/security/prepare-tls-1.2-in-office-365).
+At the time of writing Microsoft does not support the latest version of TLS – version 1.3. Microsoft have previously stated that versions 1.0 and 1.1 are not supported and were to become deprecated for Office 365 services from June 2020, however this has since been delayed due to world events. See [Preparing for TLS 1.2 in Office 365 and Office 365 GCC](https://docs.microsoft.com/en-au/microsoft-365/compliance/prepare-tls-1.2-in-office-365).
 
 #### Security controls provided by the CloudSystem
 
@@ -1236,9 +1240,8 @@ The CloudSystem leverage’s Microsoft’s implementation of AACAs in Azure and 
 * Microsoft Azure and Office 365 services use a 256-bit key where possible for Elliptic Curve Diffie-Hellman (ECDH).
 * Microsoft Azure and Office 365 services use a 2048-bit key for Rivest–Shamir–Adleman (RSA).
 * Microsoft Azure and Office 365 services use separate RSA key pairs for these purposes.
-* Microsoft Azure and Office 365 services use Secure Hash Algorithm (SHA)-256 for hashing.
-* Microsoft Azure and Office 365 services do not use Electronic Codebook Mode (ECM).
-* Microsoft Azure and Office 365 services do not use Triple Data Encryption Standard (3DES).
+* SHA-384 is the preferred hashing algorithm used as part of TLS for Office 365 components.
+* AES-256 is used for BitLocker encryption.
 
 #### Residual controls to be addressed by the Agency
 
@@ -1256,7 +1259,7 @@ The CloudSystem leverage’s Microsoft’s implementation of AACPs in Azure and 
 
 #### Security controls provided by the CloudSystem
 
-* Microsoft Azure and Office 365 services implement AACAs where possible.
+* Microsoft Azure and Office 365 services implement AACPs where possible.
 
 #### Residual controls to be addressed by the Agency
 
@@ -1484,7 +1487,7 @@ The controls relating to content filtering are applicable to the CloudSystem.
 
 The CloudSystem leverages Office 365 capabilities including Defender for Office 365 and EOP to inspect and manage email traffic. 
 
-The blueprint does not include content validation, conversion, and sanitisation capabilities.
+The blueprint does not include content validation, conversion, and sanitisation capabilities, and digital signatures/checksums are not validated when files are imported.
 
 #### Security controls provided by the CloudSystem
 

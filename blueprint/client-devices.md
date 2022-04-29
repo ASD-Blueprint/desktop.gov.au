@@ -94,6 +94,7 @@ Two important Firmware capabilities are detailed below:
 
 * UEFI - Unified Extensible Firmware Interface (UEFI) is a replacement for the older Basic Input / Output System (BIOS) firmware interface and the Extensible Firmware Interface (EFI) 1.10 specifications.
 * Secure Boot - Secure Boot ensures that the device boots using only software that is trusted by the PC manufacturer. When the PC starts, the firmware checks the signature of each piece of boot software, including firmware drivers (Option ROMs) and the operating system. If the signatures are valid, the PC boots, and the firmware gives control to the operating system.
+* Trusted Boot - Trusted Boot provides an additional level of protection for the Windows kernel by verifying its digital signature. Once the signature is verified the kernel is loaded, which then in turn verifies the remaining components of the Windows startup process. These components include boot drivers, startup files, and Early Launch Anti-Malware (ELAM).
 
 Firmware that meets the UEFI 2.3.1 or newer specifications provides the following benefits:
 
@@ -118,6 +119,7 @@ Decision Point | Design Decision | Justification
 UEFI version | At least 2.3.1 | This is minimum UEFI version required for Device Guard. 
 Secure Boot | Enabled | Secure Boot is a requirement for the use of Windows Credential Guard and provides greater security protection for users. 
 Secure Boot Configuration Method | Configured via MEM or MECM | To align with the ACSC Windows 10 hardening guidance.
+Trusted Boot | Enabled | To provide additional protection from rootkits.
 
 ### Trusted platform module
 

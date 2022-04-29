@@ -489,12 +489,15 @@ Malicious code introduced to the environment by one or more vectors leading to t
   * EOP provides built-in protection for Exchange Online mailboxes
   * Microsoft’s Cyber Defence Operations Centre helps protect, detect, and respond to Office 365 cloud service threats in real time
 * CloudSystem treatments
+  * Microsoft Defender Antivirus provides signature and heuristic-based detection
+  * Controlled folder access configured to prevent unauthorised applications to writing to specified directories
   * Microsoft Defender for Endpoint is enabled to provide reporting, pre-breach protection, post-breach detection, automation, and response on Windows 10 endpoints
   * Microsoft Defender for Office 365 Safe Links, Safe Attachments, Safe Documents, and Anti-Phishing capabilities enabled to reduce the likelihood of malicious code infiltrating the environment
   * Windows Defender Application Control (WDAC) provides application control functionality to block unauthorised executables from running
   * Windows Defender Exploit Guard (WDEG) ‘exploit protection’ feature is enabled
   * Hardening of Windows 10 endpoints including application control in accordance with ACSC guidance
   * Attack Surface Reduction rules are enabled for Windows 10 and Office 365 in accordance with ACSC guidance
+  * Early Launch Antimalware (ELAM), Secure Boot and Trusted Boot are enabled as part of the Windows 10 SOE
   * Data transfer logs are retained
 
 #### Residual likelihood
@@ -1254,6 +1257,7 @@ Administration of the system is undertaken by authorised privileged users by con
   * Conditional Access enforces MFA for all privileged users
   * Azure AD Identity Protection enabled to alert on detected User and Sign-in risks
   * Credential Guard is enabled and credential theft is blocked through Microsoft Defender Exploit Guard
+  * Only one previous logon is cached for the Windows 10 SOE
 
 #### Residual likelihood
 

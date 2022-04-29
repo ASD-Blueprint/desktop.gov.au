@@ -122,7 +122,7 @@ Decision Point | Design Decision | Justification
 Identity Source | Azure AD | As this is a cloud only implementation Azure AD will be the source of identity.
 Password Reset | Configured | For self-service password reset, users will need to provide an alternate email address, mobile app and phone number during registration. To reset their password, they will need to provide two methods of verification.
 Identity Format | Configured | Usernames will conform to firstname.lastname{sequence number}<br>Note: The sequence number is only required if duplicate names would be created.
-Display Name | Fistname Lastname | Agencies should avoid using the "Lastname, Firstname" format within the directory as this can cause display issues within Microsoft 365 applications. 
+Display Name | Firstname Lastname | Agencies should avoid using the "Lastname, Firstname" format within the directory as this can cause display issues within Microsoft 365 applications. 
 
 Additional Azure AD Design Decisions for hybrid implementations.
 

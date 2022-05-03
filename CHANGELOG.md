@@ -19,6 +19,7 @@ You can find published releases at [https://github.com/govau/desktop.gov.au/rele
 * Update to Conditional Access Policy ABAC [#196]
 * BYOD guidance pattern [#184]
 * March 2022 ISM Update [#198]
+* Update to PIM Role Names [#200]
 
 ## December 2021
 

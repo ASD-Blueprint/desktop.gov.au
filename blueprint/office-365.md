@@ -181,7 +181,7 @@ Role Based and Access Control Design Decisions for all agencies and implementati
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-PIM | Configured | PIM provides time-based and approval-based role activation to mitigate the risks of excessive, unnecessary, or misused access permissions on resources that you care about. PIM
+PIM | Configured | PIM provides time-based and approval-based role activation to mitigate the risks of excessive, unnecessary, or misused access permissions on resources that you care about.
 Office 365 administrative sub-roles | Not Configured | Office 365 administrative sub-roles will not be configured in favour of PIM. This ensures Azure is the location to manage Role Base Access Control permission for the Agency tenant.
 
 ### Customer Lockbox

@@ -823,8 +823,6 @@ Examples of the Conditional Access App Control policies that can be configured t
 * Block access – based on specific risk factors can prevent users and/or devices from accessing specific resources across one or all connected apps.
 * Block custom activities – application-specific events can be blocked if they increase the risk of data leakage or exfiltration.
 
-Note, to use Conditional Access App Control an Azure AD Premium P1 license is required in addition to the Defender for Cloud Apps license.
-
 Conditional Access App Control Protection Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
@@ -926,7 +924,7 @@ SIEM agents Design Decisions for cloud native implementations.
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Microsoft Sentinel integration | Configured | To support integration between Defender for Cloud Apps and Microsoft cloud native SIEM solution.
-Microsoft Sentinel license | Yes | To enable Microsoft Sentinel integration an Microsoft Sentinel license is required.
+Microsoft Sentinel license | Yes | To enable Microsoft Sentinel integration a Microsoft Sentinel license is required. 
 
 SIEM agents Design Decisions for hybrid implementations.
 
@@ -989,7 +987,6 @@ Defender for Identity Design Decisions for hybrid implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-License | Enterprise Mobility + Security 5 (EMS E5) | An Enterprise Mobility + Security 5 (EMS E5) license is required for Defender for Identity.
 Number of Defender for Identity instances | One | A single Defender for Identity instance can monitor multiple AD DS forests.
 Defender for Identity instance name | {agency-instance-name}.atp.azure.com | The Defender for Identity cloud service will be given an Defender for Identity instance name which will be used to access the Defender for Identity portal.
 Forests and domains to be monitored by Defender for Identity | {agency}.gov.au | Nominated agency forests and domains.
@@ -1178,7 +1175,6 @@ Office 365 and other enterprise SaaS applications that use Azure AD as their ide
 
 Azure AD tenant restrictions prerequisites are as follows:
 
-* A minimum of M365 E3 licensing (Azure AD Premium 1).
 * The agency's web filtering service supports TLS interception, HTTP header insertion, URL and FQDN filtering.
 * Endpoints must trust the web filtering services PKI certificate chain for TLS communications.  
 

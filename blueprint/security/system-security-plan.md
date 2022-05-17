@@ -84,8 +84,8 @@ In accordance with the requirements of the ISM, the following security documenta
 
 The IRAP reports for the assessment of Azure and Office 365 at PROTECTED have also been leveraged in the development of the CloudSystem, and includes the following:
 
-* 2020 Microsoft Azure IRAP - Azure Security Fundamentals and Cloud Services Assessment
-* Office 365 Security Fundamentals and Cloud Services IRAP Assessment Report 2020
+* Azure Security Fundamentals and Cloud Services IRAP Assessment Report 2021
+* Office 365 Security Fundamentals and Cloud Services IRAP Assessment Report 2021
 
 These documents are available from the [Microsoft Service Trust Portal](https://servicetrust.microsoft.com/ViewPage/Australia).
 

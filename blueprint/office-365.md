@@ -45,32 +45,32 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Office 365 Region | Australia | Aligns with ACSC guidance of utilising cloud services located in Australia.
 
-### License
+### Licence
 
-Microsoft licenses access to Office 365 and its security offerings through user-based licensing.
+Microsoft licences access to Office 365 and its security offerings through user-based licensing.
 
 Microsoft offers several enterprise licencing options for Office 365, Enterprise Mobility and Security (EMS), and Windows.
 
 These licencing options are summarised below:
 
-* Microsoft 365 E5 (recommended for this blueprint) – Top level Enterprise Plan. Microsoft 365 E5 includes everything inside Microsoft 365 E3 plus additional features and services (largely security and compliance related). In the case of Office 365 E5, the capabilities in Microsoft Defender for Office 365 suite as well as other services such as Office 365 Advanced Compliance are increased.
-* Microsoft 365 E3 - Mid range Enterprise Plan. Microsoft 365 E3 provides access to core products with enhanced features and security features. In the case of Office 365 E3, the Office client suite is included, and the service limits are increased.
+* Microsoft 365 E5 (recommended for this blueprint). Microsoft 365 E5 includes everything inside Microsoft 365 E3 plus additional features and services (largely security and compliance related). In the case of Office 365 E5, the capabilities in Microsoft Defender for Office 365 suite as well as other services such as Office 365 Advanced Compliance are increased.
+* Microsoft 365 E3. Microsoft 365 E3 provides access to core products with enhanced features and security features. In the case of Office 365 E3, the Office client suite is included, and the service limits are increased.
 
-To grant access to the services a license is assigned to an individual user account. A license can be assigned by an administrator at the time of the user account is created or through Azure AD group-based licensing. Azure AD group-based licensing allows an Administrator to associate a license to a group. Any members within the group will be assigned that license automatically. When a user is removed from the group the license is removed.
+To grant access to the services a licence is assigned to an individual user account. A licence can be assigned by an administrator at the time of the user account is created or through Azure AD group-based licensing. Azure AD group-based licensing allows an Administrator to associate a licence to a group. Any members within the group will be assigned that licence automatically. When a user is removed from the group the licence is removed.
 
 Licensing Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Products Licensed | Microsoft 365 E5 | Microsoft 365 E5 licences combines Office 365 E5, EMS E5, and Windows 10 E5 are required to ensure that Office 365 tenant can be rated up to Protected. 
-License Allocation Method | Automated | Dynamic Security Groups in Azure AD will be used to automatically assign licences and reduce the management overhead associated with licensing.
+Products Licenced | Microsoft 365 E5 | Microsoft 365 E5 licences combines Office 365 E5, EMS E5, and Windows 10 E5 are required to ensure that Office 365 tenant can be rated up to Protected. 
+Licence Allocation Method | Automated | Dynamic Security Groups in Azure AD will be used to automatically assign licences and reduce the management overhead associated with licensing. 
 
 Licensing Configuration for all agencies and implementation types.
 
 Configuration | Value | Description
 --- | --- | ---
-Admin License Group | `rol-AgencyName-Administrator` | This is the group that the Agency administrators belong to.
-User License Groups | `rol-AgencyName-Users` | This is the group that the Agency non-administrator users belong to.
+Admin Licence Group | `rol-AgencyName-Administrator` | This is the group that the Agency administrators belong to.
+User Licence Groups | `rol-AgencyName-Users` | This is the group that the Agency non-administrator users belong to.
 
 ### Self service purchase
 
@@ -154,8 +154,6 @@ Role Based Access Control (RBAC) defines what a user or administrator has access
 
 Privileged Identity Management (PIM) can be leveraged to enhance the RBAC model for Azure Active Directory role-based management access, and parts of other Microsoft services like Office 365 and Microsoft Endpoint Manager. PIM requests are made through the Azure portal for elevated access only when they are required, and access is expired after a specified period.
 
-PIM requires an Azure AD Premium P2 license which is included with Microsoft 365 E5 licensing or E5 Security Step-up licensing.
-
 The following Office 365 roles can be assigned via PIM:
 
 * Exchange administrator.
@@ -181,7 +179,7 @@ Role Based and Access Control Design Decisions for all agencies and implementati
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-PIM | Configured | PIM provides time-based and approval-based role activation to mitigate the risks of excessive, unnecessary, or misused access permissions on resources that you care about. PIM
+PIM | Configured | PIM provides time-based and approval-based role activation to mitigate the risks of excessive, unnecessary, or misused access permissions on resources that you care about.
 Office 365 administrative sub-roles | Not Configured | Office 365 administrative sub-roles will not be configured in favour of PIM. This ensures Azure is the location to manage Role Base Access Control permission for the Agency tenant.
 
 ### Customer Lockbox
@@ -189,8 +187,6 @@ Office 365 administrative sub-roles | Not Configured | Office 365 administrative
 Customer lockbox provides a time-boxed, secure mechanism for Microsoft Support Engineers to assist in customers support query in Office 365. Microsoft Support engineers will have to request authorisation from the Agency to access the underlying data in Office 365 tenant.
 
 Customer Lockbox address situations where Microsoft Engineers require access to client data within Office 365 to resolve an incident. All access requests are recorded for auditing purpose.
-
-Customer Lockbox requires Microsoft 365 E5 licensing or E5 Compliance licensing.
 
 Customer Lockbox Design Decisions for all agencies and implementation types.
 
@@ -556,7 +552,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Disable IMAP | Configured | IMAP will be disabled to meet ACSC guidance to disable unneeded features.
 Disable POP | Configured | POP will be disabled to meet ACSC guidance to disable unneeded features.
-Exchange Mailbox Size | 100GB per user | Included with Office 365 E3 / E5 licencing.
+Exchange Mailbox Size | 100GB per user | Maximum mailbox size available. 
 Language | English | The default language is English, users will have the ability to adjust this if required.
 Default time zone | GMT +10 | The default time zone is GMT +10 however this will be adjusted based on user location.
 Exchange Message Size Limits | Up to 90MB | Default setting. Note that message limits may be smaller when sending messages to external mail recipients (can be as low as 10MB).
@@ -1267,7 +1263,7 @@ Classification labels are published to users using Label Policies. Label Policie
 
 * Manually - The label is applied manually by the end-user.
 * Automatically applied based on the location of the document - Labels can be configured to automatically apply based on the location of the document. For example, SharePoint.
-* Automatically applied based on detected Sensitive Information Type - Labels can be configured to automatically apply based on the type of sensitive information found. For example, documents containing Australian drivers license numbers.
+* Automatically applied based on detected Sensitive Information Type - Labels can be configured to automatically apply based on the type of sensitive information found. For example, documents containing Australian drivers licence numbers.
 
 At the time of writing, sensitivity labels cannot be configured to satisfy all of the requirements listed in the Protective Security Policy Framework (PSPF). Some of these limitations are:
 
@@ -1377,7 +1373,7 @@ A DLP policy can be configured to:
 
 At the time of writing Office 365 has over 200 prebuilt sensitive information types (Australian Passport Numbers etc.). In addition to the prebuilt sensitive information types custom types can be created. These custom types look for strings, patterns, or key words.
 
-Note, endpoint DLP requires onboarding of those devices into Microsoft Defender for Endpoint and requires an E5 license. Agencies should consider the use of Endpoint DLP as part of a unified DLP strategy.
+Note, endpoint DLP requires onboarding of those devices into Microsoft Defender for Endpoint. Agencies should consider the use of Endpoint DLP as part of a unified DLP strategy.
 
 Data Loss Prevention Design Decisions for all agencies and implementation types.
 
@@ -1623,7 +1619,7 @@ Do not let users click through safe links to original URL  | Checked | If end-us
 
 The Safe Attachments feature checks email attachments after the email is received but before it is delivered to the user mailbox.
 
-When an Safe Attachments policy is in place and an end-user who is covered by that policy views their email in Office 365, their email attachments are checked, and appropriate actions are taken, based on the configured policies. To deploy this feature, an Office 365 E5 subscription or an Advanced Threat Protection licence is required.
+When an Safe Attachments policy is in place and an end-user who is covered by that policy views their email in Office 365, their email attachments are checked, and appropriate actions are taken, based on the configured policies.
 
 Safe Attachments Design Decisions for all agencies and implementation types.
 

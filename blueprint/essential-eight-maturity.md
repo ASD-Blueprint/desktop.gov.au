@@ -64,12 +64,7 @@ Maturity level: 3
 
 Microsoft (first party) application updates are automatically deployed and installed on blueprint devices via MEM. This includes the Edge internet browser and Microsoft Office productivity suite. By default, the blueprint does not include any third-party applications. If required, MEM can also be used to deploy third-party application packages, including manually packaged patches.
 
-Microsoft Defender for Endpoint provides an [automated vulnerability management capability](https://docs.microsoft.com/en-au/microsoft-365/security/defender-endpoint/next-gen-threat-and-vuln-mgt?view=o365-worldwide). Application vulnerabilities, such as missing patches, are reported to the Microsoft 365 Defender portal and email alerts can be configured to notify cyber security personnel of newly detected vulnerabilities. Note, Microsoft Defender for Endpoint requires one of the following [licenses](https://docs.microsoft.com/en-au/microsoft-365/security/defender-endpoint/minimum-requirements):
-
-* Windows 10 Enterprise E5
-* Microsoft 365 E5 (M365 E5)
-* Microsoft 365 E5 Security
-* Microsoft Defender for Endpoint
+Microsoft Defender for Endpoint provides an [automated vulnerability management capability](https://docs.microsoft.com/en-au/microsoft-365/security/defender-endpoint/next-gen-threat-and-vuln-mgt?view=o365-worldwide). Application vulnerabilities, such as missing patches, are reported to the Microsoft 365 Defender portal and email alerts can be configured to notify cyber security personnel of newly detected vulnerabilities.
 
 The blueprint does not include any unsupported or legacy applications.
 
@@ -169,14 +164,9 @@ Maturity level: 3
 
 Windows 10 operating system updates are automatically deployed and installed on blueprint devices using Windows Update for Business which is configured via MEM. For hybrid deployments, patches may be deployed to blueprint devices via Microsoft Endpoint Configuration Manager (MECM) or Windows Server Update Services (WSUS) rather than downloaded from the internet directly.
 
-Microsoft Defender for Endpoint provides an automated [vulnerability management capability](https://docs.microsoft.com/en-au/microsoft-365/security/defender-endpoint/next-gen-threat-and-vuln-mgt?view=o365-worldwide). Operating system vulnerabilities, such as missing patches, are reported to the Microsoft 365 Defender portal and email alerts can be configured to notify cyber security personnel of newly detected vulnerabilities. Note, Microsoft Defender for Endpoint requires one of the following [licenses](https://docs.microsoft.com/en-au/microsoft-365/security/defender-endpoint/minimum-requirements):
+Microsoft Defender for Endpoint provides an automated [vulnerability management capability](https://docs.microsoft.com/en-au/microsoft-365/security/defender-endpoint/next-gen-threat-and-vuln-mgt?view=o365-worldwide). Operating system vulnerabilities, such as missing patches, are reported to the Microsoft 365 Defender portal and email alerts can be configured to notify cyber security personnel of newly detected vulnerabilities.
 
-* Windows 10 Enterprise E5
-* Microsoft 365 E5 (M365 E5)
-* Microsoft 365 E5 Security
-* Microsoft Defender for Endpoint
-
-The Windows 10 blueprint SOE is built using the 21H1 Semi-Annual Channel (SAC) release of Windows 10, which at the time of writing is the [latest version](https://docs.microsoft.com/en-au/windows/release-health/release-information).
+The Windows 10 blueprint SOE is built using the 21H1 Semi-Annual Channel (SAC) release of Windows 10.
 
 The blueprint does not include any unsupported or legacy operating systems.
 

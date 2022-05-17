@@ -166,7 +166,7 @@ Windows 10 operating system updates are automatically deployed and installed on 
 
 Microsoft Defender for Endpoint provides an automated [vulnerability management capability](https://docs.microsoft.com/en-au/microsoft-365/security/defender-endpoint/next-gen-threat-and-vuln-mgt?view=o365-worldwide). Operating system vulnerabilities, such as missing patches, are reported to the Microsoft 365 Defender portal and email alerts can be configured to notify cyber security personnel of newly detected vulnerabilities.
 
-The Windows 10 blueprint SOE is built using the 21H1 Semi-Annual Channel (SAC) release of Windows 10, which at the time of writing is the latest version assessed by the ACSC.
+The Windows 10 blueprint SOE is built using the 21H1 Semi-Annual Channel (SAC) release of Windows 10.
 
 The blueprint does not include any unsupported or legacy operating systems.
 

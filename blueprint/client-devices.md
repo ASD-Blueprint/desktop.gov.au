@@ -244,7 +244,7 @@ Windows 10 Build | 21H1 | At the time of the latest update to this design, build
 
 ### Activation and licencing
 
-License keys and activation processes are leveraged by Microsoft to ensure that the device or user is eligible to use the feature or run the product (i.e. Windows 10).
+Licence keys and activation processes are leveraged by Microsoft to ensure that the device or user is eligible to use the feature or run the product (i.e. Windows 10).
 
 Windows 10 licensing has evolved significantly since the initial release by Microsoft. In addition to the traditional activation methods for on premises networks (KMS, MAK and AD Based Activation) it is also possible to use Windows 10 Subscription Activation. The evolution of Windows 10 activation is described below:
 
@@ -255,33 +255,11 @@ Office 365 products require licensing to enable full functionality and support. 
 
 * Office 365 based activation - Office 365 is Microsoft's productivity solution in the cloud. Office 365 has two sets of suites: one for the small and medium business segment and one for the enterprise segment. These suites are sold across different channels and programs designed to meet each segment's needs. Products are assigned to users and then activated through the online Microsoft Office 365 licensing service.
 
-For agencies looking to alternate licensing arrangements, at a minimum, Microsoft recommends the following licensing in addition to the VSA 4 Common Cloud Commitment:
-
-* Microsoft 365 E5 Security.
-* Microsoft 365 E5 Compliance.
-
-The VSA 4 Common Cloud Commitment consists of:
-
-* Windows 10 E3.
-* Office 365 E3.
-* Enterprise Mobility and Security E3.
-* Productivity server licences (Exchange Server, SharePoint Server, Lync/Skype Server).
-* Office Device licences.
-
-These recommendations require a minimum subscription requirement of Microsoft 365 E3, Enterprise Mobility and Security E5 and Microsoft 365 E5 Compliance with one licence required for each user.
-
-This alternate configuration will not provide access to Azure Active Directory Premium P2 licencing meaning that the following components would need to be removed from the blueprint:
-
-* Azure Active Directory Identity Protection.
-* Azure Active Directory Privileged Identity Management (PIM).
-
-While this meets the Microsoft minimum guidance and will comply with the requirements of the ISM, the exclusion of these two features reduces the effectiveness of the security controls. Specifically, the Just-In-Time administrative access provided by PIM and the automated responses to detected suspicious activities will not be available.
-
 Activation and Licencing Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Licensing for Microsoft Windows 10 Enterprise <br>Microsoft Office 365 E5 | Microsoft 365 E5 which includes Windows 10 E5, Office 365 E5 and EM+S E5 per user | For agencies to meet their obligations under the ISM, PSPF, and ACSC cloud guidance as they relate to PROTECTED security classification. It is recommended in this design that agencies purchase a Microsoft 365 E5 licence for each user.
+Licencing for Microsoft Windows 10 Enterprise <br>Microsoft Office 365 E5 | Microsoft 365 E5 which includes Windows 10 E5, Office 365 E5 and EM+S E5 per user | For agencies to meet their obligations under the ISM, PSPF, and ACSC cloud guidance as they relate to PROTECTED security classification. It is recommended in this design that agencies purchase a Microsoft 365 E5 licence for each user. 
 Windows Activation Method | Windows 10 Subscription | All devices will meet the requirements for Subscription Activation (a supported [Windows 10 version](https://docs.microsoft.com/en-us/windows/release-health/release-information) and internet access), as this is the simplest solution to implement and manage as part of the licensing entitlement. 
 Office Activation Method | Office 365 Subscription | All devices meet the requirement for Office 365 activation (internet access) as this is the simplest solution to implement and manage as part of the licensing entitlement. 
 
@@ -354,7 +332,7 @@ The Microsoft Public Store is the central location for browsing the library of a
 
 The Microsoft Store for Business (private store) allows organisations to purchase applications in larger volumes and customise which applications are available to users. Applications which are made available can either be distributed directly from the store or through a managed distribution approach. Applications which have been developed within the organisation can also be added and distributed as required.
 
-Licensing can also be managed through the Microsoft Store for Business and administrators can reclaim and reuse application licenses.
+Licencing can also be managed through the Microsoft Store for Business and administrators can reclaim and reuse application licences.
 
 Microsoft Store Design Decisions for all agencies and implementation types.
 
@@ -786,7 +764,7 @@ Microsoft 365 Apps for enterprise provides there feature update channels for cus
 * Monthly Enterprise Channel: new office features are released in a predictable monthly schedule.
 * Semi-annual Enterprise Channel: new Office features are released twice a year. 
 
-Microsoft Project and Visio (365 and 2019) are available as click-to-run editions that can be either licensed through Microsoft 365 or through hybrid licensing. Regardless of the license type, they can be installed through Intune or MECM (for hybrid deployments). The installation media is configured using the [Office Deployment Tool (ODT)](https://www.microsoft.com/download/details.aspx?id=49117) which generates the installer and configuration options for the deployment. Microsoft Office 365 E3/E5 licensing does not include the rights to use these applications. There are some caveats to what combination of Office versions are supported alongside Project and Visio, please see the [supported scenarios](https://docs.microsoft.com/en-us/deployoffice/install-different-office-visio-and-project-versions-on-the-same-computer).
+Microsoft Project and Visio (365 and 2019) are available as click-to-run editions that can be either licenced through Microsoft 365 or through hybrid licensing. Regardless of the licence type, they can be installed through Intune or MECM (for hybrid deployments). The installation media is configured using the [Office Deployment Tool (ODT)](https://www.microsoft.com/download/details.aspx?id=49117) which generates the installer and configuration options for the deployment. Microsoft Office 365 E3/E5 licensing does not include the rights to use these applications. There are some caveats to what combination of Office versions are supported alongside Project and Visio, please see the [supported scenarios](https://docs.microsoft.com/en-us/deployoffice/install-different-office-visio-and-project-versions-on-the-same-computer).
 
 Microsoft Office Edition Design Decisions for all agencies and implementation types.
 
@@ -1729,7 +1707,7 @@ MDM provides the capability to configure iOS devices. These devices must be conf
 * Branding – The Agencies branding for lock screen, wallpapers, and reporting if the device is lost can be configured.
 * Device features – Configures device features, for example, AirDrop and Bluetooth pairing, within iOS devices.
 
-Using Intune together with Apple Business Manager provides the ability to restrict applications deployed to iOS devices. They improve the user experience during the onboarding process and remove the requirement for an Apple ID and the public Apple App Store. When restricting application deployments, the App Store is blocked and all application management is completed through the Intune Company Portal. All applications must be licensed within Apple Business Manager and use device based licensing. 
+Using Intune together with Apple Business Manager provides the ability to restrict applications deployed to iOS devices. They improve the user experience during the onboarding process and remove the requirement for an Apple ID and the public Apple App Store. When restricting application deployments, the App Store is blocked and all application management is completed through the Intune Company Portal. All applications must be licenced within Apple Business Manager and use device based licensing. 
 
 Securing iOS devices Design Decisions for all agencies and implementation types.
 
@@ -1737,7 +1715,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Mobile Device Management | Mobile devices will be managed using Intune | Leveraging the capabilities already available in the licensing agreement. Intune and Apple Business Manager will be adopted to manage mobile devices.
 Security policies and hardening requirements | Security policies will be enforced on all mobile devices managed by the Agency | Security policies will be configured in line with the ACSC Security Configuration Guide – Apple iOS 14 Devices.
-Apple Business Manager Enrollment Token App Delivery | Agency licensed apps purchased under the Volume Purchase Program (VPP) are installed directly to devices, without needing an Apple ID on the device | Configured inline with ACSC iOS hardening guidance, simplifies management and improves user experience with device onboarding. 
+Apple Business Manager Enrollment Token App Delivery | Agency licenced apps purchased under the Volume Purchase Program (VPP) are installed directly to devices, without needing an Apple ID on the device | Configured inline with ACSC iOS hardening guidance, simplifies management and improves user experience with device onboarding. 
 Public App Store access | Disabled | Configured inline with ACSC iOS hardening guidance. Applications are installed under the VPP.
 Device Features | Configured | Device features configured in line with ACSC hardening guidance. 
 

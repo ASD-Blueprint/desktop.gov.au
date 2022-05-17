@@ -66,6 +66,21 @@ Blueprint artefacts provide guidance on integration between MECM and Intune for 
 
 The blueprint is based on a principle of 'engineered to Protected' to enhance the cyber security postures of adopting agencies. It is suitable for agencies aiming for Protected and below.
 
+The blueprint design and configuration at Protected assumes the agency has available the licencing level of Microsoft 365 E5, or the equivalent Microsoft 365 E3 with Microsoft 365 E5 security and compliance add-ons.
+
+The VSA 4 Common Cloud Commitment consists of:
+
+* Windows 10 E3.
+* Office 365 E3.
+* Enterprise Mobility and Security E3.
+* Productivity server licences (Exchange Server, SharePoint Server, Lync/Skype Server).
+* Office Device licences.
+
+At a minimum, Microsoft recommends the following licensing in addition to the VSA 4 Common Cloud Commitment to satisfy Protected level requirements:
+
+* Microsoft 365 E5 Security.
+* Microsoft 365 E5 Compliance.
+
 Agencies that implement the blueprint at a Protected level will need to configure some components differently to enable connectivity to supporting systems. 
 
 Components that transfer Protected information outside of an agency's environment include:

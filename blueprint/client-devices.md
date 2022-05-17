@@ -255,11 +255,11 @@ Office 365 products require licensing to enable full functionality and support. 
 
 * Office 365 based activation - Office 365 is Microsoft's productivity solution in the cloud. Office 365 has two sets of suites: one for the small and medium business segment and one for the enterprise segment. These suites are sold across different channels and programs designed to meet each segment's needs. Products are assigned to users and then activated through the online Microsoft Office 365 licensing service.
 
-Activation and Licensing Design Decisions for all agencies and implementation types.
+Activation and Licencing Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Licensing for Microsoft Windows 10 Enterprise <br>Microsoft Office 365 E5 | Microsoft 365 E5 which includes Windows 10 E5, Office 365 E5 and EM+S E5 per user | For agencies to meet their obligations under the ISM, PSPF, and ACSC cloud guidance as they relate to PROTECTED security classification. It is recommended in this design that agencies purchase a Microsoft 365 E5 licence for each user. 
+Licencing for Microsoft Windows 10 Enterprise <br>Microsoft Office 365 E5 | Microsoft 365 E5 which includes Windows 10 E5, Office 365 E5 and EM+S E5 per user | For agencies to meet their obligations under the ISM, PSPF, and ACSC cloud guidance as they relate to PROTECTED security classification. It is recommended in this design that agencies purchase a Microsoft 365 E5 licence for each user. 
 Windows Activation Method | Windows 10 Subscription | All devices will meet the requirements for Subscription Activation (a supported [Windows 10 version](https://docs.microsoft.com/en-us/windows/release-health/release-information) and internet access), as this is the simplest solution to implement and manage as part of the licensing entitlement. 
 Office Activation Method | Office 365 Subscription | All devices meet the requirement for Office 365 activation (internet access) as this is the simplest solution to implement and manage as part of the licensing entitlement. 
 
@@ -332,7 +332,7 @@ The Microsoft Public Store is the central location for browsing the library of a
 
 The Microsoft Store for Business (private store) allows organisations to purchase applications in larger volumes and customise which applications are available to users. Applications which are made available can either be distributed directly from the store or through a managed distribution approach. Applications which have been developed within the organisation can also be added and distributed as required.
 
-Licensing can also be managed through the Microsoft Store for Business and administrators can reclaim and reuse application licences.
+Licencing can also be managed through the Microsoft Store for Business and administrators can reclaim and reuse application licences.
 
 Microsoft Store Design Decisions for all agencies and implementation types.
 

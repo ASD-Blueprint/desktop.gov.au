@@ -21,6 +21,7 @@ You can find published releases at [https://github.com/govau/desktop.gov.au/rele
 * March 2022 ISM Update [#198]
 * Update to PIM Role Names [#200]
 * Generalise individual licence requirements [#205]
+* Updates to Microsoft IRAP reports [#207]
 
 ## December 2021
 

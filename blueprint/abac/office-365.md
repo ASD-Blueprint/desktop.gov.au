@@ -688,7 +688,7 @@ The following table describes the mailbox archive settings for all implementatio
 | Item                | Configuration                                                |
 | ------------------- | ------------------------------------------------------------ |
 | Mailbox Auditing    | Enabled for organisation by default                          |
-| Centralized Logging | Not configured<br>E5 subscriptions log search is via the Microsoft 365 compliance center. |
+| Centralized Logging | Not configured<br>E5 subscriptions log search is via the Microsoft 365 Purview. |
 
 ### Mail flow rules
 

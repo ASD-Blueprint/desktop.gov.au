@@ -240,7 +240,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Windows 10 Edition | Windows 10 Enterprise 64-bit | Enterprise is required to support BitLocker.<br>The 64-bit edition of Windows is required to support security such as BitLocker and Windows Defender Application Control (WDAC) as specified by ACSC Windows 10 hardening guide.
 Windows 10 Servicing Channels | General Availability Channel | General Availability Channel is the recommended ring to deploy to most enterprise clients, especially those with Office 365. 
-Windows 10 Build | 21H2 | At the time of the latest update to this design, build 21H1 is the latest build with an accompaning hardneing guide from the ACSC, this design recommends 21H2. Please refer to ([Windows 10 - release information](https://docs.microsoft.com/en-us/windows/release-health/release-information)). At the time of writing build 1909 remains the most recent version to have undergone formal evaluation (refer to [Common Criteria evaluations](https://www.commoncriteriaportal.org/products/)). 
+Windows 10 Build | 21H2 | Microsoft recommends deploying the latest General Availability version, please refer to ([Windows 10 - release information](https://docs.microsoft.com/en-us/windows/release-health/release-information)). Note, at the time of the latest update to this design, build 21H1 is the latest build with an accompanying hardening guide from the ACSC and 1909 remains the most recent version to have undergone formal evaluation (refer to [Common Criteria evaluations](https://www.commoncriteriaportal.org/products/)). 
 
 ### Activation and licencing
 

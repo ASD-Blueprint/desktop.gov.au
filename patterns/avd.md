@@ -270,7 +270,7 @@ Each user group will utilise a desktop (Session Host) or RemoteApp based on an u
 
 Users are provided access to RemoteApps or desktops based on group memberships permissions and business function.
 
-The Azure VM generation (version) can limit what operating system features are available such as UEFI (Unified Extensible Firmware Interface) support. Generation 2 is now available within Australian regions and should be used for Azure Virtual Desktops. The following Windows 10 features are supported with under [Trusted Launch](https://docs.microsoft.com/en-us/azure/virtual-machines/trusted-launch):
+The Azure VM generation (version) can limit what operating system features are available such as UEFI (Unified Extensible Firmware Interface) support. Generation 2 is now available within Australian regions and should be used for Azure Virtual Desktops. The following Windows 10 features are supported with [Trusted Launch](https://docs.microsoft.com/en-us/azure/virtual-machines/trusted-launch):
 
 * Secure boot
 * vTPM
@@ -320,8 +320,8 @@ Session Host Configuration table:
 Decision Point | Design Decision | Justification
 --- | --- | ---
 VM Size | Dependant on user persona type selected | Dependant on user persona type selected.
-Azure VM Generation | Generation 2 | Generation 2 should be selected to support security features such as UEFI
-Trusted Launch | Configured | To increase the security posture of the virtual machine
+Azure VM Generation | Generation 2 | Generation 2 should be selected to support security features such as UEFI.
+Trusted Launch | Configured | To increase the security posture of the virtual machine.
 Name Prefix | `<agn><os><shg><nnn>` | To meet the requirements of this design. App Group naming will be configured as follows:<br><br>`<agn>` = Agency Name<br>`<os>` = Windows Version<br>`<shg>` = Session Host Group<br>`<nnn>` = Numerical Iteration<br><br>e.g. agnwin10acc001
 Domain | [Agency Domain] | As per agencies domain name.
 AAD DS / AD DS Domain Join Account | svc_domjoin@[Agency Domain] | Service account in the agencies domain.

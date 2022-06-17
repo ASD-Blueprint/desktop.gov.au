@@ -230,8 +230,8 @@ Windows 10 is available in several editions these include:
 
 Servicing of Windows 10 falls into three distinct channels or rings:
 
-* Windows Insider Program – Windows Insider Program receive feature updates immediately allowing pilot machines to evaluate early builds than the semi-annual channel. A business must opt-in for this service and install a specific Windows Insider Program for Business Preview build.
-* Semi-Annual Channel – Semi-Annual Channel receives feature update releases twice per year and is designed for the broad population of general-purpose devices within an organisation. The Semi-Annual Channel is the default servicing channel for all Windows 10 devices with the exception of Long Term Servicing Branch (LTSB) edition of Windows 10 Enterprise.
+* Windows Insider Program – Windows Insider Program receive feature updates immediately allowing pilot machines to evaluate early builds than the General Availability channel. A business must opt-in for this service and install a specific Windows Insider Program for Business Preview build.
+* General Availability – General Availability Channel receives feature update annually and is designed for the broad population of general-purpose devices within an organisation. The General Availability Channel is the default servicing channel for all Windows 10 devices with the exception of Long Term Servicing Branch (LTSB) edition of Windows 10 Enterprise.
 * Long-Term Servicing Channel – Long-Term Servicing Channel (LTSC) receives releases much more gradually (expected every 2 - 3 years) and is designed for special purpose devices such as those used in Point of Sale (POS) systems or controlling factory or medical equipment, and those machines without Microsoft Office. Additionally, a number of applications are not supported on LTSC Windows devices, for example Microsoft Edge, Microsoft Store, and Microsoft Mail, amongst others.
 
 Operating System Design Decisions for all agencies and implementation types.
@@ -239,8 +239,8 @@ Operating System Design Decisions for all agencies and implementation types.
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Windows 10 Edition | Windows 10 Enterprise 64-bit | Enterprise is required to support BitLocker.<br>The 64-bit edition of Windows is required to support security such as BitLocker and Windows Defender Application Control (WDAC) as specified by ACSC Windows 10 hardening guide.
-Windows 10 Servicing Channels | Semi-Annual Channel | Semi-Annual Channel is the recommended ring to deploy to most enterprise clients, especially those with Office 365. 
-Windows 10 Build | 21H1 | At the time of the latest update to this design, build 21H1 is the latest Semi-annual Channel release and recommended by Microsoft ([Windows 10 - release information](https://docs.microsoft.com/en-us/windows/release-health/release-information)). At the time of writing build 1909 remains the most recent version to have undergone formal evaluation (refer to [Common Criteria evaluations](https://www.commoncriteriaportal.org/products/)). 
+Windows 10 Servicing Channels | General Availability Channel | General Availability Channel is the recommended ring to deploy to most enterprise clients, especially those with Office 365. 
+Windows 10 Build | 21H2 | Microsoft recommends deploying the latest General Availability version, please refer to ([Windows 10 - release information](https://docs.microsoft.com/en-us/windows/release-health/release-information)). Note, at the time of the latest update to this design, build 21H1 is the latest build with an accompanying hardening guide from the ACSC and 1909 remains the most recent version to have undergone formal evaluation (refer to [Common Criteria evaluations](https://www.commoncriteriaportal.org/products/)). 
 
 ### Activation and licencing
 

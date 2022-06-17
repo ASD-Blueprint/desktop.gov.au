@@ -1223,7 +1223,7 @@ Intune Design Decisions for cloud native implementations.
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Co-management | Disabled | Co-Management is disabled as this is not a function that is used in a cloud only solution.
-Enrolled Device Types | Windows 10: 21H1 / 10.0.19043.100 (minimum)<br>iOS: 14.7 (minimum)<br><br>The following platforms will be prevented from enrolling:<br>macOS<br>Android | As per the Client Devices design.
+Enrolled Device Types | Windows 10: 21H2 / 10.0.19044.100 (minimum)<br>iOS: 14.7 (minimum)<br><br>The following platforms will be prevented from enrolling:<br>macOS<br>Android | As per the Client Devices design.
 Device Compliance | Enabled | Device Compliance is enabled. All devices will be Intune enrolled and have a custom set of compliance policies applied.
 Device Enrolment | Enabled | All users must be enrolled to ensure device compliance.
 Company Portal | Enabled | The Company Portal is enabled for application deployment. Applications to be deployed will be set by requirements.
@@ -1315,7 +1315,7 @@ Resource Access policies controlled by | Intune preferred | Resources in this in
 Office Click-to-Run policies controlled by | Intune preferred | Office Click-to-Run application deployment and updates to be managed through Intune. Staged migration to be completed from MECM if previously in use.
 Windows Update policies controlled by | Intune preferred | Windows 10 updates will be managed via Intune update rings. Staged migration to be completed from MECM if previously in use.
 MECM minimum version | At least MECM update 1802 | Compatible with co-management and determined by the Agency.
-Enrolled Device Types | Windows 10: 21H1 / 10.0.19043.100 (minimum) | As per the Client Devices design.<br>Note: iOS is permitted but controlled by Intune only.
+Enrolled Device Types | Windows 10: 21H2 / 10.0.19044.100 (minimum) | As per the Client Devices design.<br>Note: iOS is permitted but controlled by Intune only.
 Device Compliance | Enabled | Device Compliance is enabled. All devices will be Intune enrolled and have a custom set of compliance policies applied.
 User Enrolment | Enabled | All users must be enrolled to ensure device compliance.
 Company Portal | Enabled | The Company Portal is enabled for application deployment. Applications to be deployed will be set by Agency requirements.
@@ -1441,7 +1441,7 @@ Software Updates Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Servicing Channel | Semi-Annual Channel | Aligns with ACSC guidance for Operating System updates.
+Servicing Channel | General Availability | Aligns with ACSC guidance for Operating System updates.
 Microsoft Product updates | Allow | Aligns with ACSC guidance for product updates.
 Windows Drivers | Allow | Aligns with ACSC guidance for driver updates.
 Quality Deferral period | 0 days | Aligns with general ACSC guidance for updates.

@@ -10,15 +10,16 @@ The following lists the Windows 10 update ring profiles, and iOS update profiles
 
 `Microsoft Endpoint Manager > Devices > Updates rings for Windows 10 and later`
 
-* Name: `Semi Annual Channel Ring`
+* Name: `General Availabilty`
 * Description: -
 * Update ring settings
-  * Servicing channel: `Semi-Annual Channel`
   * Microsoft product updates: `Allow`
   * Windows drivers: `Allow`
   * Quality update deferral period (days): `0`
   * Feature update deferral period (days): `0`
+  * Update Windows 10 devices to Latest Windows 11 release: `No`
   * Set feature update uninstall period (2 - 60 days): `10`
+  * Enable pre-release builds: `Not Configured`
 * User experience settings
   * Automatic update behavior: `Auto install at maintenance time`
   * Active hours start: `8 AM`

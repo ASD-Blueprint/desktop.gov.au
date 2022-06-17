@@ -22,6 +22,9 @@ You can find published releases at [https://github.com/govau/desktop.gov.au/rele
 * Update to PIM Role Names [#200]
 * Generalise individual licence requirements [#205]
 * Updates to Microsoft IRAP reports [#207]
+* Microsoft 365 Purview (Advanced Audit) [#208]
+* AVD Trusted Launch [#211]
+* Windows 10 21H2 Update [#212]
 
 ## December 2021
 

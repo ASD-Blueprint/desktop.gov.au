@@ -2843,7 +2843,7 @@ The following configuration is required for Intune Co-management is for Hybrid i
 
 * Version: `2107`
 * SOE Name: `Intune Auto Enrolment`
-* Enrolled Device Types: `Windows 10 | Version 21H1 | Build 19043`
+* Enrolled Device Types: `Windows 10 | Version 21H2 | Build 19044`
 
 `MECM admin console > Administration > Overview > Cloud Services > Co-management`
 

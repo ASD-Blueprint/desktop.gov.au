@@ -611,14 +611,14 @@ Mailbox Archive Policy  | Enabled | The use of automated archive mailbox policie
 
 Mailbox Auditing provides visibility into the access and modification of user mailboxes by owners, delegates, and administrators.
 
-Once enabled on a user's mailbox, the activities subject to audit appear within the Office 365 audit log. This information is then available for security to review and run analysis. It is recommended that this audit log be exported to a centralised logging service. The Microsoft Purview Audit (Premium) service requires a the "Microsoft 365 Advanced Auditing" license allocated to each user in the tenant.
+Once enabled on a user's mailbox, the activities subject to audit appear within the Office 365 audit log. This information is then available for security to review and run analysis. It is recommended that this audit log be exported to a centralised logging service. The Microsoft Purview Audit (Premium) service requires the "Microsoft 365 Advanced Auditing" license allocated to each user in the tenant.
 
 Mailbox Auditing Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Mailbox Auditing | Configured | An event log auditing process, and supporting event log auditing procedures, is developed and implemented covering the scope and schedule of audits, what constitutes a violation of security policy, and actions to be taken when violations are detected, including reporting requirements.
-Centralised Logging Facility | Not Configured | Agencies should consider their operational and security requirements around the use of a SIEM separately to the implementation of the blueprint. <br>This design will implement Microsoft Purview Audit (Premium) which can retain Exchange, SharePoint, and Azure Active Directory audit records up to ten years with audit log retention. These technologies also send alert emails to Global Administrators and selected Office 365 administrators.
+Centralised Logging Facility | Not Configured | Agencies should consider their operational and security requirements around the use of a SIEM separately to the implementation of the blueprint. <br>This design will implement Microsoft Purview Audit (Premium) which can retain Exchange, SharePoint and Azure Active Directory audit records for up to ten years with audit log retention. These technologies also send alert emails to Global Administrators and selected Office 365 administrators.
 
 Mailbox Auditing configuration applicable to all agencies and implementation types.
 
@@ -1432,7 +1432,7 @@ Content type | *Classification* sensitivity labels (Any of these) | The types of
 
 The Microsoft 365 Compliance Center provides the ability to monitor and review user and administrator activities across the Microsoft 365 applications from the past 90 days.
 
-Audit logs are kept by default for 90 days but are configurable up to 10 years using an Audit retention policy Microsoft Purview Audit (Premium).
+Audit logs are kept by default for 90 days but are configurable up to 10 years using an Audit retention policy with Microsoft Purview Audit (Premium).
 
 When an event occurs for the respective application it will take anywhere from 30 minutes up to 24 hours before it can be viewed in the audit log search.
 
@@ -1458,7 +1458,7 @@ Microsoft Forms | x | x | 30 minutes
 Azure Active Directory |  | x | 24 hours
 eDiscovery activities in Office 365 Security & Compliance Center | x | x | 30 minutes
 
-Audit logging is not enabled by default and must be turned on first in the Microsoft 365 Compliance Center (Micrsofot Purview) before user or administrator activities can be audited.
+Audit logging is not enabled by default and must be turned on first in Microsoft Purview (formerly Microsoft 365 Compliance Center) before user or administrator activities can be audited.
 
 Auditing and Logging Design Decisions for all agencies and implementation types.
 

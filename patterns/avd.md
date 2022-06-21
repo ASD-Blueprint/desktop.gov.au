@@ -207,7 +207,7 @@ The table below describes the AVD Control Plane design decisions for the solutio
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-AVD Control Plane | West US | Metadata will be stored in Azure geography associated with West US. <br><br>AVD Control Planes are not currently available in Australia, and therefore a US region has been selected. <br><br>Note: This is not the location where virtual desktops are hosted, this will be within the Azure spoke in the Australia Central regions. <br><br>The stored information is encrypted at rest, and geo-redundant mirrors are maintained within the geography. Customer data, such as app settings and user data, resides in the location the customer chooses and isn't managed by the service. For further information, see [Data locations for Azure Virtual Desktop - Azure Microsoft Docs](https://docs.microsoft.com/en-us/azure/virtual-desktop/data-locations).
+AVD Control Plane | Australia East | Metadata will be stored in Azure geography located in Australia. <br><br>Note, at time of writing the Australia East location for AVD metadata is in public preview. <br><br>Note: This is not the location where virtual desktops are hosted, this will be within the Azure landing zone in the Australian regions selected when creating the desktops. <br><br>The stored information is encrypted at rest, and geo-redundant mirrors are maintained within the geography. Customer data, such as app settings and user data, resides in the location the customer chooses and isn't managed by the service. For further information, see [Data locations for Azure Virtual Desktop - Azure Microsoft Docs](https://docs.microsoft.com/en-us/azure/virtual-desktop/data-locations).
 Azure License Entitlement | Microsoft 365 E3/E5 <br>Windows 10 Enterprise E3/E5 | Any of these licensing entitlements will provide access to AVD. <br><br>Note: AVD can be accessed from non-Windows Pro endpoints if a Microsoft 365 E3/E5 or Windows 10 VDA per user license is available.
 Windows 10 Enterprise and Windows 10 Enterprise Multi Session License Entitlements | Microsoft 365 E3/E5 <br>Windows E3/E5 | Any of these licensing entitlements will provide access to Windows 10 and Windows 10 Multisession on Azure.
 Encryption | TLS 1.2 | [TLS 1.2 is used for all connections](https://docs.microsoft.com/en-us/azure/virtual-desktop/network-connectivity) initiated from the clients and session hosts to the Azure Virtual Desktop infrastructure components.
@@ -243,7 +243,7 @@ The table below describes the Host Pool design decisions for the solution.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Metadata | West US | Metadata will be stored in Azure geography associated with (US) West US. For further information, see [Control plane](#control-plane) section.
+Metadata | Australia East | Metadata will be stored in Azure geography associated in Australia East. For further information, see [Control plane](#control-plane) section.
 Host Pool Types | Pooled | Pooled is the preferred selection to ensure consistency.
 Load Balancing Method | Breadth-First | User sessions to be distributed evenly across the session hosts in a host pool.
 Number of Host Pools | Dependant on User Personas | The number of host pools will be aligned to the number and size of the user personas, and the VM-types assigned.
@@ -350,7 +350,7 @@ The table below describes the App Group design decisions for the solution.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Azure Region | West US | Metadata will be stored in Azure geography associated with (US) West US. For further information, see [Control plane](#control-plane) section.
+Azure Region | Australia East | Metadata will be stored in Azure geography associated with Australia East. For further information, see [Control plane](#control-plane) section.
 Number of App Groups | Aligned to unique images required | App groups will be created as per unique images required.
 App Group Type | Desktop (one per host pool) <br>RemoteApp (multiple as required per host pool) | Desktop provides the full desktop experience, only one created per host pool. RemoteApp provides published apps, multiple can be created per host pool.
 App Group Configuration | Refer to App Group Configuration table | To meet the requirements of this design.

@@ -25,6 +25,9 @@ You can find published releases at [https://github.com/govau/desktop.gov.au/rele
 * Microsoft 365 Purview (Advanced Audit) [#208]
 * AVD Trusted Launch [#211]
 * Windows 10 21H2 Update [#212]
+* AVD metadata update [#214]
+* June 2022 ISM Update [#215]
+* Disable of Facebook in OWA policy [#216]
 
 ## December 2021
 

@@ -56,13 +56,13 @@ The purpose of this System Security Plan (SSP) is to describe the security imple
 
 This document is deliberately written using descriptive and explanatory language to assist an Agency to understand how the CloudSystem operates securely, the security controls it provides, and the residual controls that must be addressed by an Agency.
 
-For detailed information on how the CloudSystem addresses specific controls in the ISM (March 2022 update), refer to the ‘DTA - Cloud-Only Blueprint - System Security Plan Annex (March 2022)’.
+For detailed information on how the CloudSystem addresses specific controls in the ISM (June 2022 update), refer to the ‘DTA - Cloud-Only Blueprint - System Security Plan Annex (June 2022)’.
 
 ### Overarching security policies
 
 The security policies that the CloudSystem has been designed to comply with are listed below:
 
-* The Australian Government ISM (March 2022) controls.
+* The Australian Government ISM (June 2022) controls.
 * The Australian Cyber Security Centre (ACSC) Strategies to Mitigate Cyber Security Incidents, including the Essential Eight Maturity Model.
 * The ACSC Security Configuration Guide - Apple iOS 14 Devices (October 2021).
 * The Protective Security Policy Framework (PSPF).
@@ -77,7 +77,7 @@ In accordance with the requirements of the ISM, the following security documenta
 * DTA – Blueprint – Platform Design
 * DTA – Blueprint – Office 365 Design
 * DTA – Cloud-Native Blueprint – System Security Plan (this document)
-* DTA – Cloud-Native Blueprint – System Security Plan Annex (March 2022)
+* DTA – Cloud-Native Blueprint – System Security Plan Annex (June 2022)
 * DTA – Cloud-Native Blueprint – Security Risk Management Plan
 * DTA – Cloud-Native Blueprint – Security Standard Operating Procedures
 * DTA – Cloud-Native Blueprint – Incident Response Plan
@@ -1148,6 +1148,7 @@ The CloudSystem is designed to run using the public internet. All security contr
 
 * The Office 365 design includes a high level network diagram showing the components that are considered in scope.
 * The Office 365 design which includes the high level network design has a last updated date.
+* All communication between CloudSystem Windows 10 endpoints and Office 365 components is encrypted by TLS.
 * The blueprint uses Conditional Access policies to restrict access to only specified geographic regions within Australia. The blueprint also uses Azure AD Identity Protection to analyse sign-in logs to identify and notify administrators when users are identified as originating from anonymous proxy IP addresses. 
 
 #### Residual controls to be addressed by the Agency
@@ -1157,6 +1158,7 @@ The CloudSystem is designed to run using the public internet. All security contr
 * The Agency is responsible for ensuring that they segregate their network from that of service providers.
 * The Agency is responsible for reviewing alerts from Defender for Cloud Apps and Azure AD Identity Protection.
 * The Agency is responsible for ensuring that outbound traffic to anonymity networks is blocked.
+* The Agency is responsible for implementing a protective DNS service as part of their gateway.
 
 ### Wireless networks
 
@@ -1218,6 +1220,7 @@ At the time of writing Microsoft does not support the latest version of TLS – 
 
 #### Residual controls to be addressed by the Agency
 
+* The Agency is responsible for the management of cryptographic keys used in relation to the CloudSystem other than those managed by Microsoft as part of the Microsoft 365 cloud services.
 * The Agency is responsible for informing users of their responsibilities in relation to the management encrypted devices.
 
 ### ASD approved cryptographic algorithms

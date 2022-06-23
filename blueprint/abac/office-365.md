@@ -551,7 +551,7 @@ The following table describes the Authentication Policy configuration settings f
 
 ### Outlook Web Access policy
 
-Please note, Outlook web access policies can be retrieved (or set) through Exchange Online PowerShell. The policy object is Exchange Online out of box policy, that requires minimal edit.
+Please note, Outlook Web Access policies can be retrieved (or set) through Exchange Online PowerShell. The policy object is Exchange Online out of box policy, that requires minimal edit.
 
 ```powershell
 Get-OwaMailboxPolicy -identity OwaMailboxPolicy-Default
@@ -631,6 +631,7 @@ The following table describes the Outlook Web Access Policy configuration settin
 | Allow Copy Contacts To Device Address Book                 | True                     |
 | Predicted Actions Enabled                                  | False                    |
 | User Diagnostic Enabled                                    | False                    |
+| Facebook Enabled                                           | False                    |
 | LinkedIn Enabled                                           | False                    |
 | Wac External Services Enabled                              | True                     |
 | Wac OMEX Enabled                                           | False                    |

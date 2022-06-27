@@ -47,7 +47,7 @@ timeline:
     
     * Prepare and communicate strategic messages
     * Adopt the business change and support staff with training
-    * Assess [change readiness](/assets/files/pdf/dta-change-impact-assessment.xlsx)
+    * Assess [change readiness](/assets/files/pdf/dta-business-readiness-assessment.xlsx)
     * Understand your [benefits](/assets/files/pdf/dta-benefits-assessment-toolkit.pdf)
     * Training and skills analysis
     * Engage staff and realise benefits iteratively

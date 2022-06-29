@@ -60,8 +60,8 @@ The following Microsoft Endpoint Manager - Intune (Intune) compliance settings c
     * Jailbroken devices: `Block`
     * Require the device to be at or under the Device Threat Level: `Medium`
   * Device Properties
-    * Minimum OS version: `14.7`
-    * Minimum OS build version: `16G70`
+    * Minimum OS version: `14.8.1`
+    * Minimum OS build version: `18H107`
   * Microsoft Defender for Endpoint
     * Require the device to be at or under the machine risk score: `Medium`
   * System Security:

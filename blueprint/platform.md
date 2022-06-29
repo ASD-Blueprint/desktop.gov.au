@@ -114,6 +114,7 @@ Licences | Configured | Configured to assign Microsoft 365 licences to user grou
 Custom Domain Names | Configured | {agency}.onmicrosoft.com<br>{agency}.gov.au 
 Mobility (MDM and MAM) | Not Configured | Default settings.
 Company Branding | Configured | Agency specific logos will be required to provide a corporate look and feel. The agency specific logon banner text is provided under the "Sign-in page text" area of company branding to remind users of their security responsibilities. 
+Keep Me Signed In (KMSI) | Disabled | To prevent users from being offer the 'Stay signed in?' option during authentication.
 
 Additional Azure AD Design Decisions for cloud native implementations.
 
@@ -303,8 +304,9 @@ GRANT - Guest Access | Approved apps that guest users can access (requires MFA).
 GRANT - Intune Enrolment | Devices can authenticate to Intune for enrolment.
 GRANT - iOS Device Access | Grants access to managed iOS devices that are enrolled and compliant in Intune. An approved Microsoft app is required on iOS. 
 GRANT - Terms of Use | This global policy forces Terms of Use on all authentications. Terms of Use is a one-off acceptance, it is used for users to accept their security responsibilities before access is granted. 
-GRANT - Windows Device Access | Grants access to managed Windows devices that are Intune enrolled and/or Hybrid Azure AD Joined (joined to an on-premises AD and Azure AD). Note, Hybrid Azure AD join only applies to Hybrid implementation types. 
-SESSION - Admin Sign-in Frequency | Enforces a sign-in frequency to ensure administrators sessions do not remain active when keep me signed In (KMSI) is enabled on the tenant. 
+GRANT - Windows Device Access | Grants access to managed Windows devices that are Intune enrolled and compliant and/or Hybrid Azure AD Joined (joined to an on-premises AD and Azure AD). Note, Hybrid Azure AD join only applies to Hybrid implementation types. This policy also enforces MFA to access resources.
+SESSION - Admin Sign-in Frequency | Enforces a sign-in frequency to ensure administrators sessions do not remain active for longer than 4 hours. 
+SESSION - User Sign-in Frequency | Enforces a sign-in frequency to ensure non-privileged users are required to complete an MFA prompt daily.
 
 ###  Active Directory
 

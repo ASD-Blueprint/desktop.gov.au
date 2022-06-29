@@ -611,7 +611,7 @@ Grants access to managed Windows devices that are enrolled and compliant.
 
 ### SESSION - Admin Sign-in Frequency
 
-This global policy enforces a sign-in frequency to ensure administrators sessions do not remain active when keep me signed In (KMSI) is enabled on the tenant. 
+Enforces a sign-in frequency to ensure administrators sessions do not remain active for longer than 4 hours. 
 
 * Name: `SESSION - Admin Sign-in Frequency`
 * Assignments
@@ -663,3 +663,56 @@ This global policy enforces a sign-in frequency to ensure administrators session
     * Persistent browser session: `False`
 * Enable policy: `On`
 
+### SESSION - User Sign-in Frequency
+
+Enforces a sign-in frequency to ensure non-privileged users are required to complete an MFA prompt daily.
+
+* Name: `SESSION - User Sign-in Frequency`
+* Assignments
+  * Users and groups
+    * Include: `All users`
+    * Exclude
+      * All guest and external users: `False`
+      * Directory roles: `False`
+      * Users and groups: `False`
+  * Users and groups: `True`
+      * Users and groups: `True`
+        * Excluded users and groups: `grp-Conditional_Access_Exclude`
+  * Cloud apps or actions
+    * Select what policy this applies to: `Cloud apps`
+    * Include: `All cloud apps`
+    * Exclude: `None`
+  * Conditions
+    * Sign-in risk
+      * Configure: `No`
+    * Device platforms
+      * Configure: `No`
+    * Locations
+      * Configure: `No`
+    * Client apps
+      * Configure: `Yes`
+      * Browser: `True`
+      * Mobile apps and desktop clients: `True`
+      * Exchange ActiveSync clients: `False`
+      * Apply policy only to supported platforms: `False`
+      * Other clients: `True`
+    * Device state
+      * Configure: `No`
+* Access controls
+  * Grant
+    * Block access: `No`
+    * Grant access: `Yes`
+    * Require multi-factor authentication: `True`
+    * Require device to be marked as compliant: `False`
+    * Require Hybrid Azure AD joined device: `False`
+    * Require approved client app: `False`
+    * Require app protection policy: `False`
+    * Terms of Use: `False`
+    * Require all the selected controls: `Yes`
+    * Require one of the selected controls: `No`
+  * Session
+    * Use app enforced restrictions: `N/A`
+    * Use Conditional Access App Control: `False`
+    * Sign-in frequency: `12 hours`
+    * Persistent browser session: `False`
+* Enable policy: `On`

@@ -2,6 +2,10 @@
 
 You can find published releases at [https://github.com/govau/desktop.gov.au/releases](https://github.com/govau/desktop.gov.au/releases) where you can more easily compare between versions.
 
+## Next version
+
+* TBC
+
 ## June 2022
 
 * Update both cloud-native and hybrid System Security Plans to incorporate all changes to December 2021 [#168]

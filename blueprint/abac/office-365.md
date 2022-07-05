@@ -7,7 +7,7 @@ menu: abac
 
 The ABAC settings for the Agency organisation for all implementation types can be found below. This includes Residency, Licensing and Licensing Manual Groups, Theme, Add-ins and Security and Privacy settings.
 
-Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting.
+Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting
 
 `Microsoft 365 Admin center > Settings > Org settings > Organization profile > Organization information`
 

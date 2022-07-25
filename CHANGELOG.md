@@ -32,10 +32,11 @@ You can find published releases at [https://github.com/govau/desktop.gov.au/rele
 * AVD metadata update [#214]
 * June 2022 ISM Update [#215]
 * Disable of Facebook in OWA policy [#216]
-* Update Windows 11 FAQ [#220]
 * Update change readiness assessment link [#218]
-* Conditional Access Update - User sign in frequency [#225]
+* Update Windows 11 FAQ [#220]
 * iOS Version Update [#224]
+* Conditional Access Update - User sign in frequency [#225]
+* Windows 10 security updates [#230]
 
 ## December 2021
 

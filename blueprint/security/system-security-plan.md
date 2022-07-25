@@ -727,6 +727,8 @@ The CloudSystem will harden the operating system configuration using Intune poli
 
 The potential attack surface will be minimised by only including required components and apps, removing and disabling the components that aren’t needed. Standard users will be prevented from running all script execution engines. The CloudSystem will install applications via Intune and not allow standard users the ability to install applications.
 
+Available firmware security controls are configured to protect Windows 10 devices from boot time threats. This includes Early Launch Antimalware (ELAM), Secure Boot and Trusted Boot. Measured boot is not configured as it requires an attestation server that is not in scope of the blueprint.
+
 The CloudSystem will use Windows Defender Application Control (WDAC) to perform application control. WDAC is the latest capability from Microsoft for application control and works in a very similar manner to AppLocker. In addition to the enforceable file types available from AppLocker, WDAC also supports driver files (.sys), and kernel mode policies as well as user mode enforcement.
 
 Enhanced Mitigation Experience Toolkit (EMET) is not supported by the latest release of Windows 10 and all functionality of EMET has been incorporated into Windows Defender Exploit Guard which is fully configured.
@@ -751,7 +753,7 @@ Endpoint Device Control will be configured by Intune policies restricting usage 
 * Internet Explorer 11 is disabled as part of the Windows 10 SOE.
 * .NET Framework 3.5 and any previous versions are disabled as part of the Windows 10 SOE.
 * The 'Exploit protection' feature is enabled as part of the CloudSystem Windows 10 SOE.
-* Early Launch Antimalware (ELAM), Secure Boot and Trusted Boot are enabled as part of the Windows 10 SOE.
+* ELAM, Secure Boot and Trusted Boot are enabled as part of the Windows 10 SOE.
 * CloudSystem standard users do not have sufficient permissions to modify security functions on Windows 10 devices.
 * A combination of WDAC and AppLocker policies prevent the use of script execution engines.
 * Standard (unprivileged) users do not have sufficient permissions to install or uninstall applications on Windows 10 devices.

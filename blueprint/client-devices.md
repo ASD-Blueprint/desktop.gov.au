@@ -90,11 +90,12 @@ Bluetooth Restrictions | Configured | The agency should define a list of approve
 
 The firmware is the software that provides the interface between the hardware and the operating system. Firmware configuration and capabilities can directly influence the security features of an operating system.
 
-Two important Firmware capabilities are detailed below:
+Important firmware security capabilities are detailed below:
 
 * UEFI - Unified Extensible Firmware Interface (UEFI) is a replacement for the older Basic Input / Output System (BIOS) firmware interface and the Extensible Firmware Interface (EFI) 1.10 specifications.
 * Secure Boot - Secure Boot ensures that the device boots using only software that is trusted by the PC manufacturer. When the PC starts, the firmware checks the signature of each piece of boot software, including firmware drivers (Option ROMs) and the operating system. If the signatures are valid, the PC boots, and the firmware gives control to the operating system.
 * Trusted Boot - Trusted Boot provides an additional level of protection for the Windows kernel by verifying its digital signature. Once the signature is verified the kernel is loaded, which then in turn verifies the remaining components of the Windows startup process. These components include boot drivers, startup files, and Early Launch Anti-Malware (ELAM).
+* Measured Boot - Measured Boot provides a capability to detect if the firmware, bootloader, or boot drivers have been modified by comparing their hashes to those stored in the TPM. Measured Boot uses a trusted server - known as an attestation server - to determine if a client is healthy and can be permitted to access network resources or should be placed in a quarantine zone.
 
 Firmware that meets the UEFI 2.3.1 or newer specifications provides the following benefits:
 
@@ -120,6 +121,11 @@ UEFI version | At least 2.3.1 | This is minimum UEFI version required for Device
 Secure Boot | Enabled | Secure Boot is a requirement for the use of Windows Credential Guard and provides greater security protection for users. 
 Secure Boot Configuration Method | Configured via MEM or MECM | To align with the ACSC Windows 10 hardening guidance.
 Trusted Boot | Enabled | To provide additional protection from rootkits.
+Measured Boot | Not configured | Requires an attestation server that is not in scope of the blueprint.
+UEFI Password | Configured | To align with the ACSC Windows 10 hardening guidance.
+USB Boot | Disabled | To align with the ACSC Windows 10 hardening guidance.
+SD Card Boot | Disabled | To align with the ACSC Windows 10 hardening guidance.
+Allow boot locations other than the internal hard disk drive | Require password | To align with the ACSC Windows 10 hardening guidance.
 
 ### Trusted platform module
 
@@ -248,7 +254,7 @@ Licence keys and activation processes are leveraged by Microsoft to ensure that 
 
 Windows 10 licensing has evolved significantly since the initial release by Microsoft. In addition to the traditional activation methods for on premises networks (KMS, MAK and AD Based Activation) it is also possible to use Windows 10 Subscription Activation. The evolution of Windows 10 activation is described below:
 
-* Starting from from Windows 10 Pro version 1703, Windows 10 Subscription Activation feature enables a step up from Windows 10 Pro edition to Windows 10 Enterprise for those with a qualifying Windows 10 or Microsoft 365 subscription.
+* Starting from Windows 10 Pro version 1703, Windows 10 Subscription Activation feature enables a step up from Windows 10 Pro edition to Windows 10 Enterprise for those with a qualifying Windows 10 or Microsoft 365 subscription.
 * Azure Active Directory (Azure AD) available for identity management.
 
 Office 365 products require licensing to enable full functionality and support. The available activation methods are:
@@ -624,7 +630,7 @@ The following support components are available to support Windows 10:
 * Intune – Intune can remotely wipe, reset and remove a device from Azure AD. These functions are controlled by role-based administration, permitting only certain administrators to control these settings.
 * Windows Remote Management (WinRM) – WinRM is the Microsoft implementation of the WS-Management Protocol, a standard Simple Object Access Protocol (SOAP) based, firewall-friendly protocol that allows hardware and Operating Systems from different vendors to interoperate.
 * WS-Management protocol - The WS-Management protocol specification provides a common way for systems to access and exchange management information across an IT infrastructure. WinRM and Intelligent Platform Management Interface (IPMI), along with the Event Collector are components of the Windows Hardware Management features.
-* Windows Remote Assistance – Windows Remote Assistance in Windows 10 uses the Remote Desktop Protocol (RDP) protocol to provide a remote desktop connection that is interactive between the locally logged on user and a remote user.
+* Windows Remote Assistance – Windows Remote Assistance in Windows 10 uses the Remote Desktop Protocol (RDP) protocol to provide a Remote Desktop connection that is interactive between the locally logged on user and a remote user.
 * Remote Desktop – Remote Desktop enables a user to remotely logon interactively to a workstation from another computer with a supported Remote Desktop client.
 * Remote Control – Remote control options are limited to the following:
   * TeamViewer which is a paid service that fully integrates in Intune.
@@ -638,8 +644,8 @@ Decision Point | Design Decision | Justification
 Intune | Enabled | Intune management functions cannot be disabled when a device is enrolled in Intune and Azure AD.
 WinRM | Enabled | To meet operating support requirements for the Agency. Consideration should be made to harden the use of WinRM in the agency environment to increase the security of Windows 10 endpoints.
 Windows Remote Assistance | Disabled | To align with the ACSC Windows 10 hardening guidance and reduces the attack surface.
-Remote Desktop | Enabled | To meet operating support requirements for the Agency. Access is granted via Active Directory Groups. 
-Remote Desktop Client | Enabled | Remote Desktop will be enabled for Windows 10 devices. 
+Remote Desktop | Disabled | To align with ACSC recommendations and reduce the risk of unauthorised access by a malicious actor. 
+Remote Desktop Client | Enabled | The Remote Desktop Client will be enabled for Windows 10 devices to enable access to remote services (e.g., servers).
 Remote Control via Teams | Enabled | Users can share the desktop within the Microsoft Teams application. 
 
 ### Windows update and patching
@@ -1299,7 +1305,7 @@ Web advertisements may be used by threat actors to deliver malicious code or to 
 
 The ACSC recommends blocking web advertisements at the browser level. Microsoft Edge's native web advertisement capability is limited and does not provide an effective mitigation against the risk of malicious web advertisement. Edge supports third-party add-ons to provide greater web advertisement blocking with examples including uBlock Origin and Ad Block Plus. However, please note that the DTA does not explicitly recommend either product or other third-party add-ons. Instead, agencies should perform their own risk based assessment prior to using them as part of a blueprint deployment.
 
-If supported by their existing proxy implementations, agencies may also implement web advertisement at the proxy level for additional protection against web advertisement-based threats.
+If supported by their existing proxy implementations, agencies may also implement web advertisement blocking at the proxy level for additional protection against web advertisement-based threats.
 
 Web Advertisement Blocking Design Decisions for all agencies and implementation types.
 

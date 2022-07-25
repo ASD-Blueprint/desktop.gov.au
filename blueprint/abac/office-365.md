@@ -7,7 +7,7 @@ menu: abac
 
 The ABAC settings for the Agency organisation for all implementation types can be found below. This includes Residency, Licensing and Licensing Manual Groups, Theme, Add-ins and Security and Privacy settings.
 
-Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting.
+Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting
 
 `Microsoft 365 Admin center > Settings > Org settings > Organization profile > Organization information`
 
@@ -147,7 +147,7 @@ The following table describes the Microsoft 365 Security and Privacy settings fo
 
 ## Exchange Online
 
-The ABAC settings for the Agencies Exchange Online instance can be found below. This includes connectors, Mail Exchange (MX) records, SPF, DMARC, DKIM, Remote Domains, User mailbox configurations, Authentication Policies, Outlook on the Web policies, Mailbox Archiving, and Address lists.
+The ABAC settings for the Agencies Exchange Online instance can be found below. This includes connectors, Mail Exchange (MX) records, SPF, DMARC, DKIM, Remote Domains, User mailbox configurations, Authentication Policies, Outlook on the Web policies, Mailbox Archiving, and Address lists
 
 Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting. 
 

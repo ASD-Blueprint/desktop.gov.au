@@ -127,7 +127,7 @@ Decision Point        | Design Decision | Justification
 ---                   | ---             | ---
 Azure Speech Services | Enabled        | Enabling the organization-wide language model allows Azure Speech service to gather data from emails and other locations to improve M365 applications that use Azure Speech services. The Azure Speech service has been IRAP assessed as part of Azure and enables greater accessibility features as part of the Blueprint. 
 Bookings              | Disabled        | Exposes a public web page that provides access to user calendars for 3rd parties. There is no requirement to enable the feature as other methods of collaboration are in use. 
-‎Briefing‎ email from ‎Microsoft Viva‎	| Enabled | Enabled by default to improve productivitiy, individual users can unsubscribe if desired.
+‎Briefing‎ email from ‎Microsoft Viva‎	| Enabled | Enabled by default to improve productivity, individual users can unsubscribe if desired.
 Calendar              | Disabled        | External sharing is disabled to prevent potential data spills.
 Cortana               | Disabled        | To align with ACSC Windows 10 hardening guidance to disable Windows web results and Cortana, to limit the risk of accidental disclosure of sensitive information. 
 ‎Microsoft‎ communication to users	| Disabled | To prevent communication from Microsoft directly rather than via the Agency's IT team.

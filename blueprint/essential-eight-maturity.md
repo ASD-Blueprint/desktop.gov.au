@@ -199,6 +199,8 @@ As the blueprint's implementation of MFA is not considered verifier impersonatio
 
 It is recommended agencies review Azure AD sign-in logs and MCAS alerts to detect potentially malicious authentication attempts.
 
+Agencies utilising Microsoft Authenticator should configure [Azure AD Multi-Factor Authentication settings](https://learn.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-mfasettings) to enable fraud alerts and notifications to allow users to report fraudulent MFA verification requests.
+
 Agencies seeking to reach maturity level 3 should consider alternative authentication methods not currently included in the blueprint.
 
 ## Regular backups

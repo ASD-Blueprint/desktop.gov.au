@@ -888,46 +888,47 @@ The following table outlines the settings within the policy.
 
 | Item                                                         | Configuration                   |
 | ------------------------------------------------------------ | ------------------------------- |
-| **Cloud protection**                                         |                                 |
-| Turn on cloud-delivered protection                           | Yes                             |
-| Cloud-delivered protection level                             | High                            |
-| Defender Cloud Extended Timeout In Seconds                   | 50                              |
-| **Microsoft Defender Antivirus Exclusions**                  |                                 |
-| Disable local admin merge                                    | Yes                             |
-| Defender Processes To Exclude                                | Agency to define (if required)  |
-| File extensions to exclude from scans and  real-time protection | 0 items                      |
-| Defender Files and Folders to Exclude                        | Agency to define (if required)  |
-| **Real-time protection**                                     |                                 |
-| Turn on real-time protection                                 | Yes                             |
-| Enable on access protection                                  | Yes                             |
-| Monitoring for incoming and outgoing files                   | Monitor all files               |
-| Turn on behavior monitoring                                  | Yes                             |
-| Turn on intrusion protection                                 | Yes                             |
-| Enable network protection                                    | Enabled                         |
-| Scan all downloaded files and attachments                    | Yes                             |
-| Scan scripts that are used in Microsoft browsers             | Yes                             |
-| Scan network files                                           | Yes                             |
-| Scan emails                                                  | Yes                             |
-| **Remediation**                                              |                                 |
-| Number of days (0-90) to keep quarantined  malware           | 0                               |
-| Submit samples consent                                       | Send all samples automatically  |
-| Action to take on potentially unwanted apps                  | Enable                          |
-| **Scan**                                                     |                                 |
-| Scan archive files                                           | Yes                             |
-| Use low CPU priority for scheduled scans                     | Yes                             |
-| Disable catch-up full scan                                   | No                              |
-| Disable Catchup Quick Scan                                   | No                              |
-| CPU usage limit per scan                                     | 50                              |
-| Scan mapped network drives during full scan                  | Yes                             |
-| Run daily quick scan at                                      | 2 AM                            |
-| Scan type                                                    | Quick scan                      |
-| Check for signature updates before running  scan             | Yes                             |
-| **Updates**                                                  |                                 |
-| Enter how often (0-24 hours) to check for  security intelligence updates | 1                   |
-| Define file shares for downloading  definition updates       | 0 items                         |
-| Define the order of sources for downloading  definition updates | 0 items                      |
-| **User experience**                                          |                                 |
-| Allow user access to Microsoft Defender app                  | Yes                             |
+| **Defender**                                                 |                                 |
+| Allow Archive Scanning | Allowed. Scans the archive files.|
+| Allow Behavior Monitoring | Allowed. Turns on real-time behavior monitoring.|
+| Allow Cloud Protection | Allowed. Turns on Cloud Protection.|
+| Allow Email Scanning | Allowed. Turns on email scanning.|
+| Allow Full Scan On Mapped Network Drives | Allowed. Scans mapped network drives.|
+| Allow Full Scan Removable Drive Scanning | Allowed. Scans removable drives.|
+| Allow Intrusion Prevention System | Allowed. |
+| Allow scanning of all downloaded files and attachments | Allowed. |
+| Allow Realtime Monitoring | Allowed. Turns on and runs the real-time monitoring service.|
+| Allow Scanning Network Files | Allowed. Scans network files.   |
+| Allow Script Scanning | Allowed. |
+| Allow User UI Access | Allowed. Lets users access UI.  |
+| Avg CPU Load Factor | 50 |
+| Check For Signatures Before Running Scan | Enabled |
+| Cloud Block Level | High Plus |
+| Cloud Extended Timeout | 50 |
+| Days To Retain Cleaned Malware | 0 |
+| Disable Catchup Full Scan | Disabled |
+| Disable Catchup Quick Scan | Disabled |
+| Enable Low CPU Priority | Enabled |
+| Enable Network Protection | Enabled (block mode) |
+| Excluded Extensions | Not configured |
+| Excluded Paths | Not configured |
+| Excluded Processes | Not configured |
+| PUA Protection | PUA Protection on. Detected items are blocked. They will show in history along with other threats. |
+| Real Time Scan Direction | Monitor all files (bi-directional). |
+| Scan Parameter | Quick scan |
+| Schedule Quick Scan Time | 120 |
+| Schedule Scan Day | Every day |
+| Schedule Scan Time | Not configured |
+| Signature Update Fallback Order | Not configured |
+| Signature Update File Shares Sources | Not configured |
+| Signature Update Interval | 1 |
+| Submit Samples Consent | Send safe samples automatically. |
+| Disable Local Admin Merge | Disable Local Admin Merge |
+| Allow On Access Protection | Allowed. |
+| Remediation action for Severe threats | Quarantine. Moves files to quarantine. |
+| Remediation action for Moderate severity threats | Quarantine. Moves files to quarantine. |
+| Remediation action for Low severity threats | Quarantine. Moves files to quarantine. |
+| Remediation action for High severity threats | Quarantine. Moves files to quarantine. |
 
 #### Windows Security
 
@@ -937,7 +938,7 @@ The following table outlines the policy is created for all implementation types.
 
 | Item               | Configuration                  |
 | ------------------ | ------------------------------ |
-| Policy Name        | ACSC - Windows Security        |
+| Policy Name        | ACSC - Windows Security Experience |
 | Profile            | Windows Security experience    |
 | Platform supported | Windows 10 and later           |
 | Groups excluded    | 0                              |
@@ -948,10 +949,27 @@ The following table outlines the settings within the policy.
 
 | Item                                                         | Configuration                   |
 | ------------------------------------------------------------ | ------------------------------- |
-| **Windows Security**                                         |                                 |
-| Enable tamper protection to prevent Microsoft Defender being disabled | Enable                 |
-| Windows Security app notifications                           | Block non-critical notifications|
-| Disable the Clear TPM option in the Windows Security app     | Yes                             |
+| **Defender**                                                 |                                 |
+| TamperProtection (Device) | On |
+| **Windows Defender Security Center**                         |                                 |
+| Disable Account Protection UI | Not configured |
+| Disable App Browser UI | Not configured |
+| Disable Clear Tpm Button | (Enabled) The security processor troubleshooting page will not show a button to initiate the process to clear the security processor (TPM) |
+| Disable Device Security UI | Not configured |
+| Disable Family UI | Not configured |
+| Disable Health UI | Not configured |
+| Disable Network UI | Not configured |
+| Disable Enhanced Notifications | (Enable) Windows Defender Security Center only display notifications which are considered critical on clients. |
+| Disable Tpm Firmware Update Warning | Not configured | 
+| Disable Virus UI | Not configured |
+| Hide Ransomware Data Recovery | Not configured |
+| Hide Windows Security Notification Area Control | Not configured |
+| Enable Customized Toasts | Not configured |
+| Enable In App Customization | Not configured |
+| Company Name | Not configured |
+| Email | Not configured |
+| Phone | Not configured |
+| URL | Not configured |
 
 #### Disk Encryption
 
@@ -973,10 +991,10 @@ The following table outlines the settings within the policy.
 | Item                                                         | Configuration                              |
 | ------------------------------------------------------------ | ------------------------------------------ |
 | **BitLocker - Base Settings**                                |                                            |
-| Enable full disk encryption for OS and fixed  data drives    | Yes                                        |
+| Enable full disk encryption for OS and fixed data drives     | Yes                                        |
 | Hide prompt about third-party encryption                     | Yes                                        |
 | Allow standard users to enable encryption during Autopilot   | Yes                                        |
-| Configure client-driven recovery password  rotation          | Enable rotation on Azure AD-joined devices |
+| Configure client-driven recovery password rotation           | Enable rotation on Azure AD-joined devices |
 | **BitLocker - Fixed Drive Settings**                         |                                            |
 | BitLocker fixed drive policy                                 | Configure                                  |
 | Fixed drive recovery                                         | Configure                                  |
@@ -987,7 +1005,7 @@ The following table outlines the settings within the policy.
 | Hide recovery options during BitLocker setup                 | Yes                                        |
 | Enable BitLocker after recovery information to store         | Yes                                        |
 | Block write access to fixed data-drives not protected by BitLocker | Yes                                  |
-| Configure encryption method for fixed  data-drives           | AES 256bit XTS                             |
+| Configure encryption method for fixed data-drives            | AES 256bit XTS                             |
 | **BitLocker - OS Drive Settings**                            |                                            |
 | BitLocker system drive policy                                | Configure                                  |
 | Startup authentication required                              | Yes                                        |
@@ -998,17 +1016,17 @@ The following table outlines the settings within the policy.
 | System drive recovery                                        | Configure                                  |
 | Recovery key file creation                                   | Allowed                                    |
 | Configure BitLocker recovery package                         | Password and key                           |
-| Require device to back up recovery  information to Azure AD  | Yes                                        |
+| Require device to back up recovery information to Azure AD   | Yes                                        |
 | Recovery password creation                                   | Allowed                                    |
 | Hide recovery options during BitLocker setup                 | Yes                                        |
-| Enable BitLocker after recovery information  to store        | Yes                                        |
+| Enable BitLocker after recovery information to store         | Yes                                        |
 | Minimum PIN length                                           | 14                                         |
 | Configure encryption method for fixed  data-drives           | AES 256bit XTS                             |
 | **BitLocker - Removable Drive Settings**                     |                                            |
 | BitLocker removable drive policy                             | Configure                                  |
 | Configure encryption method for removable  data-drives       | AES 256bit XTS                             |
 | Block write access to removable data-drives not protected by BitLocker | Yes                              |
-| Block write access to devices configured in  another organization | Yes                                   |
+| Block write access to devices configured in another organization | Yes                                    |
 
 #### Firewall
 
@@ -1021,11 +1039,61 @@ The following table outlines the policy is created for all implementation types.
 | Policy Name        | ACSC - Defender Firewall       |
 | Profile            | Microsoft Defender Firewall    |
 | Platform supported | Windows 10 and later           |
-| Groups excluded    | 1                              |
+| Groups excluded    | 0                              |
 | Assigned           | Yes                            |
 | Groups assigned    | `grp-agency-windows10-dynamic` |
 
-The following table outlines the settings within the policy.
+The following table outlines the settings within the policy. 
+
+Note, this policy does not block outbound connections (Default Outbound Action = Allow), deviating from the Client Devices design. This is to prevent organisations using this policy from potentially isolating Intune-managed devices. It is recommended organisations create and thoroughly test firewall rules before changing the Default Outbound Action to Block.
+
+| Item                                                         | Configuration  |
+| ------------------------------------------------------------ | -------------- |
+| **Auditing**                                                 |                |
+| Object Access Audit Filtering Platform Connection | Success+ Failure |
+| Object Access Audit Filtering Platform Packet Drop | Success+ Failure |
+| **Firewall**                                                 |                |
+| Disable Stateful Ftp | False |
+| Enable Domain Network Firewall | True |
+| Global Ports Allow User Pref Merge | True |
+| Default Inbound Action for Domain Profile | Block |
+| Disable Stealth Mode Ipsec Secured Packet Exemption | False |
+| Allow Local Ipsec Policy Merge | False |
+| Auth Apps Allow User Pref Merge | False | 
+| Shielded | False |
+| Default Outbound Action | Allow |
+| Disable Inbound Notifications | True |
+| Disable Stealth Mode | False |
+| Disable Unicast Responses To Multicast Broadcast | True |
+| Allow Local Policy Merge | True |
+| Enable Packet Queue | Not configured |
+| Enable Private Network Firewall | True |
+| Disable Stealth Mode Ipsec Secured Packet Exemption | False |
+| Disable Inbound Notifications | True |
+| Shielded | False | 
+| Allow Local Policy Merge | True |
+| Default Outbound Action | Allow |
+| Global Ports Allow User Pref Merge | True |
+| Default Inbound Action for Private Profile | Block |
+| Disable Unicast Responses To Multicast Broadcast | True |
+| Disable Stealth Mode | False |
+| Allow Local Ipsec Policy Merge | False |
+| Auth Apps Allow User Pref Merge | False |
+| Enable Public Network Firewall | True |
+| Disable Stealth Mode | False |
+| Disable Stealth Mode Ipsec Secured Packet Exemption | False |
+| Shielded | False |
+| Allow Local Policy Merge | True |
+| Default Outbound Action | Allow |
+| Disable Inbound Notifications | True |
+| Auth Apps Allow User Pref Merge | False |
+| Default Inbound Action for Public Profile | Block |
+| Disable Unicast Responses To Multicast Broadcast | True |
+| Global Ports Allow User Pref Merge | True |
+| Allow Local Ipsec Policy Merge | False |
+| Preshared Key Encoding | UTF8 |
+| Security association idle time | 300 |
+
 
 | Item                                                         | Configuration  |
 | ------------------------------------------------------------ | -------------- |

@@ -321,6 +321,7 @@ The following Microsoft Endpoint Manager - Intune (Intune) applications can be f
 * App suite configuration
   * Apps to be installed as part of the suite: `Excel, Outlook, PowerPoint, Publisher, Teams, Word`
   * Architecture: `64-bit`
+  * Default file format: `Office Open XML Format`
   * Update channel: `Monthly Enterprise Channel`
   * Remove other versions: `Yes`
   * Version to install: `Latest`

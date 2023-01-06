@@ -444,7 +444,7 @@ The following ABAC settings outlines the MFA configuration for all implementatio
 
 * Enable and Target: `Enable`
 * Include: `All users`
-* Authentication mode: `Any`
+* Authentication mode: `Push`
 * Allow use of Microsoft Authenticator OTP: `Yes`
 * Require number matching for push notifications: `Enabled, All users`
 * Show application name in push and passwordless notifications: `Enabled, All users`

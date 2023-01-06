@@ -258,11 +258,6 @@ Azure MFA provides multiple verification methods, such as:
 
 Azure MFA integrates with Azure AD Conditional Access policies, including the Trusted IP feature to determine under what circumstances and user's physical location, a challenge for additional authentication is required. Conditional Access policies are the recommended method to determine MFA conditions.
 
-To further enhance the security of Azure MFA, the following capabilities can be enabled for Microsoft Authenticator via Authentication methods in Azure AD:
-
-* Number matching - Rather than receiving a push notification with the traditional Approve and Deny options, instead the user is prompted to enter a two-digital number presented by the service/application attempting to authenticate to Azure AD (e.g., from the browser). 
-* Additional context - Presents the user with additional information within Microsoft Authenticator, including the app attempting to authenticate and the location of the authentication request, to enable them to determine if the request is legitimate and should be approved.
-
 Azure AD Multi-Factor Authentication Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
@@ -270,6 +265,21 @@ Decision Point | Design Decision | Justification
 MFA | Configured – Mobile App (Push and OTP) | To enforce MFA for third-party internet-facing services (M365), administrators, and important data repositories.
 Hardware Token Support | Allowed (supported OATH tokens only) | Hardware token support is required to support specific use cases, such as working locations that may not allow mobile phones, or users may have a specific physical token, biometrics, or smartcard justification. 
 Trusted IP | Not configured | MFA is required regardless of the location the authentication request is originating from.
+
+#### Microsoft Authenticator
+
+To further enhance the security of Azure MFA, the following capabilities can be enabled for Microsoft Authenticator via Authentication methods in Azure AD:
+
+* Number matching - Rather than receiving a push notification with the traditional Approve and Deny options, instead the user is prompted to enter a two-digital number presented by the service/application attempting to authenticate to Azure AD (e.g., from the browser). 
+* Additional context - Presents the user with additional information within Microsoft Authenticator, including the app attempting to authenticate and the location of the authentication request, to enable them to determine if the request is legitimate and should be approved.
+
+Microsoft Authenticator can also be used to enable users to perform passwordless authentication.
+
+Note, as of January 2023, Microsoft Authenticator is not considered phishing-resistant/verifier impersonation resistant. Microsoft have stated that [Microsoft Authenticator native phishing resistance is in development](https://learn.microsoft.com/en-au/azure/active-directory/standards/memo-22-09-multi-factor-authentication). 
+
+Decision Point | Design Decision | Justification
+--- | --- | ---
+Authentication mode | Push | To enable enhanced MFA capabilities without enabling passwordless authentication.
 Number matching | Enabled | To reduce the risk of push notification MFA fatigue attacks.
 Additional context | Enabled | To assist users in identifying legitimate MFA requests.
 

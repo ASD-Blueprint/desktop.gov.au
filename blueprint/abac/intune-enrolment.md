@@ -10,8 +10,8 @@ menu: abac
 
 Item | Configuration
 --- | ---
-MDM user scope | Some - rol-Agency-users 
-Groups | 1 Group selected
+MDM user scope | Some 
+Groups | rol-Agency-users
 MDM terms of use URL | `https://portal.manage.microsoft.com/TermsofUse.aspx`
 MDM discovery URL | `https://enrolment.manage.microsoft.com/enrolmentserver/discovery.svc`
 MDM Compliance URL | `https://portal.manage.microsoft.com/?portalAction=Compliance`
@@ -147,22 +147,22 @@ Use security keys for sign-in | Not configured
 
 ## Enrolment restrictions
 
-`Microsoft Endpoint Manager > Devices > Enroll devices > Enrollment restrictions`
+`Microsoft Endpoint Manager > Devices > Enroll devices > Enrollment device platform restrictions`
 
 * Device type restrictions
-  * Name: `Organisation Restrictions`
-    * Priority: `3`
+  * Name: `All Users`
+    * Priority: `Default`
     * Assigned: `Yes`
     * Platform settings
       * Type: `Windows (MDM)`
         * Platform: `Allow`
-          * Minimum Version: `10.0.19043	`
+          * Minimum Version: `10.0.19045`
         * Maximum Version: -
         * Personally owned: `Block`
         * Block manufacturers: `N/A`
       * Type: `iOS/iPadOS`
         * Platform: `Allow`
-        * Minimum Version: `14.7`
+        * Minimum Version: `14.8`
         * Maximum Version: -
         * Personally owned: `Block`
         * Block manufacturers: `N/A`

@@ -240,13 +240,13 @@ Sign-in risk policy | Enabled | Azure AD analyses each sign-in of a user. The ob
 
 Authentication is a primary security control to protect both information assets - ranging from logging into a Windows device, to sending an email or collaborating on a document. When deploying Microsoft 365, the identity for each individual staff member is either in the cloud or both in the cloud and on-premises. Employing multiple authentication factors present a significant challenge for attackers gaining access to a system. Traditional authentication methods rely purely on something the user knows, such as a password. Note, a username does not technically count as an authentication factor. A user enters a username to only claim an identity, then must provide an authentication factor to validate this claim (identification vs authentication). Multi-Factor Authentication (MFA) is recommended by the ACSC for all users to prove a user's identity before being granted access.
 
-Multi-factor authentication is any combination of two or more authentication sources from the following categories. Biometrics are yet to be accepted as part of the industry standard definition of an authentication factor.
+Multi-factor authentication is any combination of two or more authentication sources from the following categories:
 
 * Something a user knows (such as a password or PIN).
 * Something a user has (such as a specific hardened device).
 * Something a user is (such as biometric trait, for example a fingerprint).
 
-Azure MFA provides additional security by requiring a second form of authentication and delivers strong authentication via a range of easy to use authentication methods.
+Azure MFA provides additional security by requiring a second form of authentication and delivers strong authentication via a range of easy-to-use authentication methods.
 
 Azure MFA provides multiple verification methods, such as:
 
@@ -256,19 +256,32 @@ Azure MFA provides multiple verification methods, such as:
 * Text message to phone – Sends a text message that contains a verification code that is used as the authentication token. The user is prompted to enter the verification code into the sign-in interface. This process is called one-way SMS.
 * OAuth hardware token verification code – OATH is an open standard that specifies how one-time password (OTP) codes are generated. Various vendor tokens are supported.
 
-Azure MFA integrates with Azure AD Conditional Access policies, or the Trusted IP ranges feature to determine under what circumstances and user's physical location a challenge for additional authentication is required . Conditional Access policies are the recommended method to determine MFA conditions.
+Azure MFA integrates with Azure AD Conditional Access policies, including the Trusted IP feature to determine under what circumstances and user's physical location, a challenge for additional authentication is required. Conditional Access policies are the recommended method to determine MFA conditions.
 
-Azure AD Multifactor Authentication Design Decisions for all agencies and implementation types.
+Azure AD Multi-Factor Authentication Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-MFA | Configured – Mobile App – soft token code | Native Azure MFA will be configured to secure access to applications and desktops from outside of the environment, and any system administration functions. Use of a mobile app for verification instead of SMS message or phone call reduces any possibility of hack by cloning or swapping a sim card.<br> The ACSC recommends implementing soft tokens without push notifications.
-Hardware Token Support | Allowed (supported OATH tokens only)  | The default method will be to use soft tokens which will meet maturity level 2 of the Essential Eight, although hardware tokens will be allowed. Hardware token support is required to support some use cases. Some working locations may not allow mobile phones, or users may have a specific physical token, biometrics or smartcard justification. Having tokens that are "verifier impersonation resistant" is a requirement to achieve Essential Eight maturity level 3 for MFA. 
-Trusted IP | Not configured | Conditional Access policies will be used in place of the legacy 'Trusted IP' feature. Trusted egress IP addresses (if required) will be defined by Conditional Access. 
-MFA for Administration | Configured | Administration through the Azure Portal and other Cloud Apps will require MFA.
-MFA for User Apps | Configured | MFA is required.
+MFA | Configured – Mobile App (Push and OTP) | To enforce MFA for third-party internet-facing services (M365), administrators, and important data repositories.
+Hardware Token Support | Allowed (supported OATH tokens only) | Hardware token support is required to support specific use cases, such as working locations that may not allow mobile phones, or users may have a specific physical token, biometrics, or smartcard justification. 
+Trusted IP | Not configured | MFA is required regardless of the location the authentication request is originating from.
 
-Note: OATH tokens are to be purchased separately if required.
+#### Microsoft Authenticator
+
+To further enhance the security of Azure MFA, the following capabilities can be enabled for Microsoft Authenticator via Authentication methods in Azure AD:
+
+* Number matching - Rather than receiving a push notification with the traditional Approve and Deny options, instead the user is prompted to enter a two-digital number presented by the service/application attempting to authenticate to Azure AD (e.g., from the browser). 
+* Additional context - Presents the user with additional information within Microsoft Authenticator, including the app attempting to authenticate and the location of the authentication request, to enable them to determine if the request is legitimate and should be approved.
+
+Microsoft Authenticator can also be used to enable users to perform passwordless authentication.
+
+Note, as of January 2023, Microsoft Authenticator is not considered phishing-resistant/verifier impersonation resistant. Microsoft have stated that [Microsoft Authenticator native phishing resistance is in development](https://learn.microsoft.com/en-au/azure/active-directory/standards/memo-22-09-multi-factor-authentication). 
+
+Decision Point | Design Decision | Justification
+--- | --- | ---
+Authentication mode | Push | To enable enhanced MFA capabilities without enabling passwordless authentication.
+Number matching | Enabled | To reduce the risk of push notification MFA fatigue attacks.
+Additional context | Enabled | To assist users in identifying legitimate MFA requests.
 
 ### Conditional Access
 
@@ -471,7 +484,7 @@ Uniquely Identifying Users | Users are represented only once across all director
 Azure AD Attributes | Default – All attributes | Default configuration. All attributes to be synchronised.
 Synchronisation Interval | 30 minutes | Default synchronisation interval.<br>Note: Password resets and new accounts are synchronised immediately.
 
-### Authentication method
+#### Authentication method
 
 Authentication is the process of verifying one's identity. Active Directory allows for the authentication of directory objects within the corporate network using a number of protocols such as LDAP and Kerberos.
 

@@ -127,7 +127,7 @@ The following table describes the Microsoft 365 Services settings for all implem
 | Sway                                      | Disabled                                                     |
 | User consent to apps                      | Disabled                                                     |
 | User owned apps and services              | Disabled                                                     |
-| Viva Learning                             | Diagnostic data: Unchecked<br>LinkedIn Learning: Unchecked<br>Microsoft Learn: Unchecked<br>Microsoft 365 Training: Unchecked<br>SharePoint: Unchecked |
+| Viva Learning                             | Custom Uploads: Checked<br>LinkedIn Learning: Unchecked<br>Microsoft Learn: Unchecked<br>Microsoft 365 Training: Unchecked<br>SharePoint: Unchecked<br>Required Diagnostic Data: Checked<br>Optional Diagnostic Data: Unchecked |
 | Whiteboard                                | Turn on Whiteboard for everyone in your org: Checked<br>Level of diagnostic data to send to Microsoft: Neither<br>Allow the use of optional connected experiences in Whiteboard: Unchecked<br>Enable easy sharing of Whiteboard from Surface Hub: Unchecked<br>Enable storing new whiteboards in OneDrive: Unchecked |
 
 ### Security and privacy
@@ -846,7 +846,7 @@ The following table describes the Connection filter policy configuration setting
 | Implementation | Name                               | IP Allow List                                          | IP Block List | Enable Safe List | Directory Based Edge Block Mode |
 | -------------- | ---------------------------------- | ------------------------------------------------------ | ------------- | ---------------- | ------------------------------- |
 | Cloud-native   | Connection filter policy (Default) |                                                        |               | True             | Default                         |
-| Hybird         | Connection filter policy (Default) | `<agency smtp gateway IP adddresses for skip listing>` |               | True             | Default                         |
+| Hybrid         | Connection filter policy (Default) | `<agency smtp gateway IP adddresses for skip listing>` |               | True             | Default                         |
 
 The following tables describe the Anti-spam policies for all implementation types.
 
@@ -887,7 +887,7 @@ The following table describes the Malware Filter configuration settings for all 
 | Item                                       | Configuration                       |
 | ------------------------------------------ | ----------------------------------- |
 | Name                                       | Default (Default)                   |
-| Enable the common attachements filter      | Checked                             |
+| Enable the common attachments filter       | Checked                             |
 | Filter file types                          | ace,ani,app,exe,jar,reg,scr,vbe,vbs |
 | Enable zero-hour auto purge for malware    | Checked                             |
 | Admin notifications (internal senders)     | Checked                             |

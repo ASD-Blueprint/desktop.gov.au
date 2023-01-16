@@ -17,8 +17,8 @@ The following Microsoft Endpoint Manager - Intune (Intune) compliance settings c
     * Require Secure Boot to be enabled on the device: `Require`
     * Require code integrity: `Require`
   * Device Properties
-    * Minimum OS version: `10.0.19043.10000`
-    * Minimum OS version for mobile devices: `10.0.19043.10000`
+    * Minimum OS version: `10.0.19045`
+    * Minimum OS version for mobile devices: `10.0.19045`
   * System Security
     * Require a password to unlock mobile devices: `Require`
     * Simple passwords: `Block`

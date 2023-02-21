@@ -6,7 +6,7 @@ permalink: /blueprint/index.html
 
 The Protected Utility blueprint is a design to secure Microsoft 365 desktops, developed with Microsoft and tested with independent security assessors.
 
-Note that the blueprint has not been updated since June 2022. The DTA recommends taking care when using the bluepprint. This website will be updated with further information on updates to the blueprint when available.
+Note that the blueprint has not been updated since June 2022. The DTA recommends taking care when using the blueprint. This website will be updated with further information on updates to the blueprint when available.
 
 The blueprint offers 4 main artefacts to support agencies with implementation.
 

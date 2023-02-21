@@ -22,7 +22,7 @@ To help understand users and their needs, we've developed [6 different personas]
 
 The blueprint was originally developed by the DTA's Protected Utility Program, which operated from December 2017 to June 2021 and helped agencies transition to cloud-based capability and adopt the blueprint. Post-June 2021, the DTA will still continue to support and develop the blueprint on an ongoing basis.
 
-From June 2021 to June 2022, the DTA continued to support the blueprint with regular updates. As of July 2022, there has been a pause in blueprint updates with further information to come on updates t othe blueprint when available.
+From June 2021 to June 2022, the DTA continued to support the blueprint with regular updates. As of July 2022, there has been a pause in blueprint updates with further information to come on updates to the blueprint when available.
 
 Through the Program, the DTA partnered with agencies to assess their cloud readiness and support their transition to the blueprint. This included establishing cloud connectivity, training, security advice and assurance, as well as change management support, so agencies could successfully implement a modern workplace. We also provided a range of tools and a community of practice. Additionally, we delivered training to Australian Government and industry staff in Microsoft 365 and Azure, with over 3,000 registrations for the end user training and over 2,000 registrations for the APS digital professional specialist courses.
 

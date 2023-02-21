@@ -6,6 +6,8 @@ permalink: /blueprint/index.html
 
 The Protected Utility blueprint is a design to secure Microsoft 365 desktops, developed with Microsoft and tested with independent security assessors.
 
+Note that the blueprint has not been updated since June 2022. The DTA recommends taking care when using the bluepprint. This website will be updated with further information on updates to the blueprint when available.
+
 The blueprint offers 4 main artefacts to support agencies with implementation.
 
 * The **Solution overview** provides a non-technical overview of the blueprint and maps blueprint solutions to the Essential Eight security strategies.
@@ -29,3 +31,5 @@ There are 2 deployment types covered in this blueprint:
 * **hybrid** – where an agency adopts the Microsoft 365 offerings, while continuing to leverage some new or existing on-premises infrastructure in a 'hybrid' configuration. 
 
 In many cases, design decisions are common across both deployment methods. Where specific elements differ for cloud and hybrid deployments, the blueprint provides the common components applicable to all deployments. It then offers further guidance for each deployment type.
+
+For further information on the blueprint get in touch with us at digitalpolicy@dta.gov.au

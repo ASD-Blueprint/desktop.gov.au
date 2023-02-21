@@ -41,7 +41,7 @@ body {
 
 #dta-initiative {
     img {
-        max-width: 72px;
+        max-height: 3rem;
     }
 }
 
@@ -248,8 +248,7 @@ header .logo {
 
 body.home {
     #benefits {
-        background: rgb(252,255,243);
-        background: linear-gradient(121deg, rgba(252,255,243,1) 20%, rgba(212,248,255,1) 75%);
+        background: #f0f0f0;
         padding: 3em 0;
     
         .col-sm-6 {

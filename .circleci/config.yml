@@ -12,6 +12,8 @@ references:
       command: |
         sudo gem update --system
         gem install bundler
+        pwd
+        ls
         bundle config --local path vendor/bundle
         bundle install
   integrate_search: &integrate_search

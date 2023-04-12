@@ -19,6 +19,7 @@ For each component within the document there is a brief description of the conte
 
 * The Microsoft Endpoint Manager (MEM) Console is the preferred method to manage all settings regardless of a cloud native or hybrid implementation. Although a combination of the Microsoft Endpoint Configuration Manager (MECM) Console and Group Policy Objects (GPOs) would be able to achieve the same settings in a hybrid environment, this blueprint does not include MECM and GPOs example configurations due to the level of dissimilarities and per agency customisation in existing MECM and GPOs configurations across Commonwealth entities.
 * Minimum version of MECM 1710 is required for co-management, recommended minimum version at is 2002 update version. See [support for Configuration Manager current branch versions.](https://learn.microsoft.com/en-au/mem/configmgr/core/servers/manage/current-branch-versions-supported)
+* Minimum version of MECM 2211 is required for management of Windows 11 devices. See [support for Windows 11 in Configuration Manager.](https://learn.microsoft.com/en-au/mem/configmgr/core/plan-design/configs/support-for-windows-11)
 
 ## Windows hardware
 
@@ -123,13 +124,13 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 UEFI version | At least 2.3.1 | This is minimum UEFI version required for Device Guard. 
 Secure Boot | Enabled | Secure Boot is a requirement for the use of Windows Credential Guard and provides greater security protection for users. 
-Secure Boot Configuration Method | Configured via MEM or MECM | To align with the ACSC Windows 10/11 hardening guidance.
+Secure Boot Configuration Method | Configured via MEM or MECM | To align with the ACSC Windows hardening guidance.
 Trusted Boot | Enabled | To provide additional protection from rootkits.
 Measured Boot | Not configured | Requires an attestation server that is not in scope of the blueprint.
-UEFI Password | Configured | To align with the ACSC Windows 10/11 hardening guidance.
-USB Boot | Disabled | To align with the ACSC Windows 10/11 hardening guidance.
-SD Card Boot | Disabled | To align with the ACSC Windows 10/11 hardening guidance.
-Allow boot locations other than the internal hard disk drive | Require password | To align with the ACSC Windows 10/11 hardening guidance.
+UEFI Password | Configured | To align with the ACSC Windows hardening guidance.
+USB Boot | Disabled | To align with the ACSC Windows hardening guidance.
+SD Card Boot | Disabled | To align with the ACSC Windows hardening guidance.
+Allow boot locations other than the internal hard disk drive | Require password | To align with the ACSC Windows hardening guidance.
 
 ### Trusted platform module
 
@@ -144,7 +145,7 @@ Trusted Platform Module Design Decisions for all agencies and implementation typ
 Decision Point | Design Decision | Justification
 --- | --- | ---
 TPM | Enabled in BIOS/UEFI from hardware vendor or manually configured | Required for Windows 10/11 and BitLocker. 
-TPM Version | 2.0 | To align with the ACSC Windows 10/11 hardening guidance and support Windows 11. 
+TPM Version | 2.0 | To align with the ACSC Windows hardening guidance and support Windows 11. 
 
 ## Windows deployment & management
 

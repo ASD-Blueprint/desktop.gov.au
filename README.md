@@ -83,17 +83,17 @@ Content are Markdown files and normally end in `.md`. For help with Markdown syn
 
 ### Site search
 
-Site search is provided by Luner Search and is available on the website. 
+Site search is provided by Lunr Search and is available on the website. 
 
 ### Frequently asked questions
 
 #### What is this website built on?
 
-The blueprint uses MkDocs desktop.gov.au uses [MkDocs](https://www.mkdocs.org/) with some custom CSS to generate a static site and is hosted by oobe. 
+The blueprint uses [MkDocs](https://www.mkdocs.org/) with some custom CSS to generate a static site and is hosted by oobe. 
 
 #### Can I contribute?
 
-Yes of course, you'll need a Github account.
+Yes of course, you'll need a GitHub account.
 
 The easiest method is to first view our [list of issues](https://github.com/oobecomau/theblueprint/issues), add to the ticket if a similar one exists or [create a new issue](https://github.com/oobecomau/theblueprint/issues/new) if not. Try to place as much detail as possible to help us identify what the problem is and don't forget to include the page you were on that has the issue.
 

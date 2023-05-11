@@ -1,0 +1,52 @@
+- title: About
+  url: /about/index.html
+
+  subitems:
+    - title: Business change guide
+      url: /about/business-change-guide.html
+    
+    - title: Case study
+      url: /about/case-study.html
+
+    - title: Operations model
+      url: /about/operations-model.html
+
+    - title: User personas
+      url: /about/personas.html
+
+    - title: FAQs
+      url: /about/faqs.html
+    
+- title: Blueprint
+  url: /blueprint/index.html
+  
+  subitems:
+    - title: Solution overview
+      url: /blueprint/overview.html
+    
+    - title: Essential Eight maturity
+      url: /blueprint/essential-eight-maturity.html
+
+    - title: Platform
+      url: /blueprint/platform.html
+
+    - title: Office 365
+      url: /blueprint/office-365.html
+
+    - title: Client devices
+      url: /blueprint/client-devices.html
+
+    - title: As Built As Configured
+      url: /blueprint/abac.html
+    
+    - title: Security
+      url: /blueprint/security.html 
+
+    - title: Automation
+      url: /blueprint/automation.html 
+
+    - title: Abbreviations and Acronyms
+      url: /blueprint/abbr-acronyms.html 
+
+- title: Patterns
+  url: /patterns/index.html

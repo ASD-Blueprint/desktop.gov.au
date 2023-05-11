@@ -1,0 +1,35 @@
+# Welcome to Jekyll!
+#
+
+# Site settings
+title: Protected Utility
+description: > # this means to ignore newlines until "baseurl:"
+  
+baseurl: "" # the subpath of your site, e.g. /blog
+
+markdown: kramdown
+
+sass:
+  style: compressed
+
+timezone: Australia/Sydney
+
+# Build settings
+exclude:
+  - Dockerfile
+  - docker-compose.yml
+  - Gemfile
+  - package.json
+  - CHANGELOG.md
+  - README.md
+  - LICENSE.md
+  - assets/sass
+  - vendor
+  - Staticfile
+  - .jekyll-cache
+  - .git
+  - .circleci
+
+# Plugin settings
+plugins:
+   - jekyll-last-modified-at

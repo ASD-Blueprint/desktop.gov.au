@@ -1,10 +1,10 @@
 # Changelog
 
-You can find published releases at [https://github.com/govau/desktop.gov.au/releases](https://github.com/govau/desktop.gov.au/releases) where you can more easily compare between versions.
+The News articles at blueprint.oobe.com.au will be the source of truth moving forward, but this log will be updated intermittently. 
 
-## Next version
+## The blueprint
 
-* TBC
+* oobe forks to the blueprint March 2023 and adds Win 11 and Enhance MFA content
 
 ## June 2022
 

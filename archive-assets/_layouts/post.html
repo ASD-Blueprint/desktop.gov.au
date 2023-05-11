@@ -1,0 +1,27 @@
+{% include header.html %}
+{%- assign post_date = page.date | date: '%-d %B %Y' -%}
+{%- assign updated_date = page.last_modified_at | date: '%-d %B %Y' -%}
+
+<main class="main" id="content" aria-label="Content">
+    <section class="au-body">
+        <div class="container">
+            <div class="row mt-2">
+                <div class="col-md-9">
+                    <div id="content-area">
+                        <h1>{{ page.title }}</h1>
+                        <div class="metadata">
+                            <ul>
+                                <li>{% include reading-time.html %}</li>
+                                <li>{{ post_date }}
+                                    {%- if post_date != updated_date %} (updated {{ updated_date }}){% endif -%}</li>
+                            </ul>
+                        </div>
+                        {{ content }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+{% include footer.html %}

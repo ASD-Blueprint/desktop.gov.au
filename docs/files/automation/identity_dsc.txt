@@ -1,0 +1,555 @@
+param (
+    [parameter()]
+    [System.Management.Automation.PSCredential]
+    $GlobalAdminAccount,
+    [parameter()]
+    [array]$trustedIP,
+    [parameter()]
+    [string]$agency,
+    [parameter()]
+    [string]$agencyprefix,
+    [parameter()]
+    [string]$technicalcontactemail,
+    [parameter()]
+    [array]$technicalcontactphone
+)
+
+Configuration M365TenantConfig
+{
+    param (
+        [parameter()]
+        [System.Management.Automation.PSCredential]
+        $GlobalAdminAccount,
+        [parameter(Mandatory)]
+        [array]$trustedIP,
+        [parameter(Mandatory)]
+        [string]$agency,
+        [parameter()]
+        [string]$agencyprefix,
+	[parameter()]
+        [string]$technicalcontactemail,
+	[parameter()]
+        [array]$technicalcontactphone
+    )
+    if ($null -eq $GlobalAdminAccount)
+    {
+        <# Credentials #>
+        $Credsglobaladmin = Get-Credential -Message "Global Admin credentials"
+
+    }
+    else
+    {
+        $Credsglobaladmin = $GlobalAdminAccount
+    }
+
+    $OrganizationName = $Credsglobaladmin.UserName.Split('@')[1]
+    $alternatecontact = "Office365_Group_Expiration@"+$agency+".gov.au"
+    $namingpolicy = $agencyprefix+"_[GroupName]"
+    Import-DscResource -ModuleName 'Microsoft365DSC' -Moduleversion "1.21.1027.1"
+
+    Node localhost
+    {
+        AADGroup ATPUsers
+        {
+            Credential           = $Credsglobaladmin;
+            Description          = "rol-ATPUsers";
+            DisplayName          = "rol-ATPUsers";
+            Ensure               = "Present";
+            GroupTypes           = @();
+            MailEnabled          = $False;
+            MailNickname         = "M365DSC";
+            SecurityEnabled      = $True;
+        }
+
+        AADGroup AgencyAdministrators
+        {
+            Credential           = $Credsglobaladmin;
+            Description          = "rol-Agency-administrators";
+            DisplayName          = "rol-Agency-administrators";
+            Ensure               = "Present";
+            GroupTypes           = @();
+            MailEnabled          = $False;
+            MailNickname         = "M365DSC";
+            SecurityEnabled      = $True;
+        }
+
+        AADGroup AgencyLogAdmin
+        {
+            Credential           = $Credsglobaladmin;
+            Description          = "rol-Agency-log-admin";
+            DisplayName          = "rol-Agency-log-admin";
+            Ensure               = "Present";
+            GroupTypes           = @();
+            MailEnabled          = $False;
+            MailNickname         = "M365DSC";
+            SecurityEnabled      = $True;
+        }
+
+        AADGroup CAExclude
+        {
+            Credential           = $Credsglobaladmin;
+            Description          = "grp-Conditional_Access_Exclude";
+            DisplayName          = "grp-Conditional_Access_Exclude";
+            Ensure               = "Present";
+            GroupTypes           = @();
+            IsAssignableToRole   = $True;
+            MailEnabled          = $False;
+            MailNickname         = "M365DSC";
+            SecurityEnabled      = $True;
+            Visibility           = "Private";
+        }
+
+        AADGroup ATPViewers
+        {
+            Credential           =$Credsglobaladmin;
+            Description          = "rol-ATPViewers";
+            DisplayName          = "rol-ATPViewers";
+            Ensure               = "Present";
+            GroupTypes           = @();
+            MailEnabled          = $False;
+            MailNickname         = "M365DSC";
+            SecurityEnabled      = $True;
+        }
+
+        AADGroup GroupCreators
+        {
+            Credential           = $Credsglobaladmin;
+            Description          = "rol-Agency-o365groupcreators";
+            DisplayName          = "rol-Agency-o365groupcreators";
+            Ensure               = "Present";
+            GroupTypes           = @();
+            MailEnabled          = $False;
+            MailNickname         = "M365DSC";
+            SecurityEnabled      = $True;
+        }
+
+	AADGroup AgencyUsers
+        {
+            Credential           = $Credsglobaladmin;
+            Description          = "rol-Agency-users";
+            DisplayName          = "rol-Agency-users";
+            Ensure               = "Present";
+            GroupTypes           = @();
+            MailEnabled          = $False;
+            MailNickname         = "M365DSC";
+            SecurityEnabled      = $True;
+        }
+
+        AADNamedLocationPolicy CompanyNetwork
+        {
+            Credential         = $Credsglobaladmin;
+	    DisplayName        = "$agency Internal Network";
+            Ensure             = "Present";
+            IpRanges           = $trustedIP;
+            IsTrusted          = $True;
+            OdataType          = "#microsoft.graph.ipNamedLocation";
+            TenantId           = $ConfigurationData.NonNodeData.TenantId;
+        }
+        
+        AADNamedLocationPolicy AllowedCountries
+        {
+            Credential         		      = $Credsglobaladmin;
+	    CountriesAndRegions               = @("AU");
+            DisplayName                       = "Allowed Countries";
+            Ensure                            = "Present";
+            IncludeUnknownCountriesAndRegions = $False;
+            OdataType                         = "#microsoft.graph.countryNamedLocation";
+            TenantId                          = $ConfigurationData.NonNodeData.TenantId;
+        }
+
+        AADConditionalAccessPolicy BLOCKGuestB2B
+        {
+            ApplicationEnforcedRestrictionsIsEnabled = $False;
+            BuiltInControls                          = @("block");
+            ClientAppTypes                           = @("browser","mobileAppsAndDesktopClients");
+            CloudAppSecurityIsEnabled                = $False;
+            CloudAppSecurityType                     = "";
+            Credential	         		     = $credsGlobalAdmin;
+            DisplayName                              = "BLOCK - Guest Access (B2B)";
+            Ensure                                   = "Present";
+            ExcludeApplications                      = @();
+            ExcludeDevices                           = @();
+            ExcludeGroups                            = @();
+            ExcludeLocations                         = @();
+            ExcludePlatforms                         = @();
+            ExcludeRoles                             = @();
+            ExcludeUsers                             = @();
+            GrantControlOperator                     = "OR";
+            IncludeApplications                      = @("Office365");
+            IncludeDevices                           = @();
+            IncludeGroups                            = @();
+            IncludeLocations                         = @();
+            IncludePlatforms                         = @();
+            IncludeRoles                             = @();
+            IncludeUserActions                       = @();
+            IncludeUsers                             = @("GuestsOrExternalUsers");
+            PersistentBrowserIsEnabled               = $False;
+            PersistentBrowserMode                    = "";
+            SignInFrequencyIsEnabled                 = $False;
+            SignInFrequencyType                      = "";
+            SignInRiskLevels                         = @();
+            State                                    = "disabled";
+            UserRiskLevels                           = @();
+        }
+
+        AADConditionalAccessPolicy BLOCKHighRisk
+        {
+            ApplicationEnforcedRestrictionsIsEnabled = $False;
+            BuiltInControls                          = @("block");
+            ClientAppTypes                           = @("browser","mobileAppsAndDesktopClients");
+            CloudAppSecurityIsEnabled                = $False;
+            CloudAppSecurityType                     = "";
+            Credential	         		     = $credsGlobalAdmin;
+            DisplayName                              = "BLOCK - High-Risk Sign-Ins";
+            Ensure                                   = "Present";
+            ExcludeApplications                      = @();
+            ExcludeDevices                           = @();
+            ExcludeGroups                            = @("grp-Conditional_Access_Exclude");
+            ExcludeLocations                         = @();
+            ExcludePlatforms                         = @();
+            ExcludeRoles                             = @();
+            ExcludeUsers                             = @();
+            GrantControlOperator                     = "OR";
+            IncludeApplications                      = @("All");
+            IncludeDevices                           = @();
+            IncludeGroups                            = @();
+            IncludeLocations                         = @();
+            IncludePlatforms                         = @();
+            IncludeRoles                             = @();
+            IncludeUserActions                       = @();
+            IncludeUsers                             = @("All");
+            PersistentBrowserIsEnabled               = $False;
+            PersistentBrowserMode                    = "";
+            SignInFrequencyIsEnabled                 = $False;
+            SignInFrequencyType                      = "";
+            SignInRiskLevels                         = @("high");
+            State                                    = "disabled";
+            UserRiskLevels                           = @();
+        }
+        
+	AADConditionalAccessPolicy BLOCKLegacyAuth
+        {
+            ApplicationEnforcedRestrictionsIsEnabled = $False;
+            BuiltInControls                          = @("block");
+            ClientAppTypes                           = @("exchangeActiveSync","other");
+            CloudAppSecurityIsEnabled                = $False;
+            CloudAppSecurityType                     = "";
+            Credential	         		     = $credsGlobalAdmin;
+            DisplayName                              = "BLOCK - Legacy Authentication";
+            Ensure                                   = "Present";
+            ExcludeApplications                      = @();
+            ExcludeDevices                           = @();
+            ExcludeGroups                            = @();
+            ExcludeLocations                         = @();
+            ExcludePlatforms                         = @();
+            ExcludeRoles                             = @();
+            ExcludeUsers                             = @();
+            GrantControlOperator                     = "OR";
+            IncludeApplications                      = @("All");
+            IncludeDevices                           = @();
+            IncludeGroups                            = @();
+            IncludeLocations                         = @();
+            IncludePlatforms                         = @();
+            IncludeRoles                             = @();
+            IncludeUserActions                       = @();
+            IncludeUsers                             = @("All");
+            PersistentBrowserIsEnabled               = $False;
+            PersistentBrowserMode                    = "";
+            SignInFrequencyIsEnabled                 = $False;
+            SignInFrequencyType                      = "";
+            SignInRiskLevels                         = @();
+            State                                    = "disabled";
+            UserRiskLevels                           = @();
+        }
+        
+	AADConditionalAccessPolicy GRANTWindows
+        {
+            ApplicationEnforcedRestrictionsIsEnabled = $False;
+            BuiltInControls                          = @("mfa","compliantDevice");
+            ClientAppTypes                           = @("browser","mobileAppsAndDesktopClients");
+            CloudAppSecurityIsEnabled                = $False;
+            CloudAppSecurityType                     = "";
+            Credential	         		     = $credsGlobalAdmin;
+            DisplayName                              = "GRANT - Windows Device Access";
+            Ensure                                   = "Present";
+            ExcludeApplications                      = @("0000000a-0000-0000-c000-000000000000","d4ebce55-015a-49b5-a083-c84d1797ae8c");
+            ExcludeDevices                           = @();
+            ExcludeGroups                            = @();
+            ExcludeLocations                         = @();
+            ExcludePlatforms                         = @();
+            ExcludeRoles                             = @();
+            ExcludeUsers                             = @();
+            GrantControlOperator                     = "AND";
+            IncludeApplications                      = @("All");
+            IncludeDevices                           = @();
+            IncludeGroups                            = @();
+            IncludeLocations                         = @();
+            IncludePlatforms                         = @("windows");
+            IncludeRoles                             = @();
+            IncludeUserActions                       = @();
+            IncludeUsers                             = @("All");
+            PersistentBrowserIsEnabled               = $False;
+            PersistentBrowserMode                    = "";
+            SignInFrequencyIsEnabled                 = $False;
+            SignInFrequencyType                      = "";
+            SignInRiskLevels                         = @();
+            State                                    = "disabled";
+            UserRiskLevels                           = @();
+        }
+        
+	AADConditionalAccessPolicy GRANTiOS
+        {
+            ApplicationEnforcedRestrictionsIsEnabled = $False;
+            BuiltInControls                          = @("mfa","compliantDevice","approvedApplication");
+            ClientAppTypes                           = @("browser","mobileAppsAndDesktopClients");
+            CloudAppSecurityIsEnabled                = $False;
+            CloudAppSecurityType                     = "";
+            Credential	         		     = $credsGlobalAdmin;
+            DisplayName                              = "GRANT - iOS Device access";
+            Ensure                                   = "Present";
+            ExcludeApplications                      = @("0000000a-0000-0000-c000-000000000000","d4ebce55-015a-49b5-a083-c84d1797ae8c");
+            ExcludeDevices                           = @();
+            ExcludeGroups                            = @("grp-Conditional_Access_Exclude");
+            ExcludeLocations                         = @();
+            ExcludePlatforms                         = @();
+            ExcludeRoles                             = @();
+            ExcludeUsers                             = @();
+            GrantControlOperator                     = "AND";
+            Id                                       = "f9a2a4d7-7ce1-4737-ba00-8f20d019587b";
+            IncludeApplications                      = @("00000002-0000-0ff1-ce00-000000000000");
+            IncludeDevices                           = @();
+            IncludeGroups                            = @();
+            IncludeLocations                         = @();
+            IncludePlatforms                         = @("iOS");
+            IncludeRoles                             = @();
+            IncludeUserActions                       = @();
+            IncludeUsers                             = @("All");
+            PersistentBrowserIsEnabled               = $False;
+            PersistentBrowserMode                    = "";
+            SignInFrequencyIsEnabled                 = $False;
+            SignInFrequencyType                      = "";
+            SignInRiskLevels                         = @();
+            State                                    = "disabled";
+            UserRiskLevels                           = @();
+        }
+        
+	AADConditionalAccessPolicy GRANTTermsofUse
+        {
+            ApplicationEnforcedRestrictionsIsEnabled = $False;
+            BuiltInControls                          = @();
+            ClientAppTypes                           = @("browser","mobileAppsAndDesktopClients");
+            CloudAppSecurityIsEnabled                = $False;
+            CloudAppSecurityType                     = "";
+            Credential	         		     = $credsGlobalAdmin;
+            DisplayName                              = "GRANT - Terms of Use";
+            Ensure                                   = "Present";
+            ExcludeApplications                      = @();
+            ExcludeDevices                           = @();
+            ExcludeGroups                            = @();
+            ExcludeLocations                         = @();
+            ExcludePlatforms                         = @();
+            ExcludeRoles                             = @();
+            ExcludeUsers                             = @();
+            GrantControlOperator                     = "OR";
+            IncludeApplications                      = @("All");
+            IncludeDevices                           = @();
+            IncludeGroups                            = @();
+            IncludeLocations                         = @("All");
+            IncludePlatforms                         = @();
+            IncludeRoles                             = @();
+            IncludeUserActions                       = @();
+            IncludeUsers                             = @("All");
+            PersistentBrowserIsEnabled               = $False;
+            PersistentBrowserMode                    = "";
+            SignInFrequencyIsEnabled                 = $False;
+            SignInFrequencyType                      = "";
+            SignInRiskLevels                         = @();
+            State                                    = "disabled";
+            UserRiskLevels                           = @();
+        }
+        
+	AADConditionalAccessPolicy BLOCKCountries
+        {
+            ApplicationEnforcedRestrictionsIsEnabled = $False;
+            BuiltInControls                          = @("block");
+            ClientAppTypes                           = @("all");
+            CloudAppSecurityIsEnabled                = $False;
+            CloudAppSecurityType                     = "";
+            Credential	         		     = $credsGlobalAdmin;
+            DisplayName                              = "BLOCK - Countries Not Allowed";
+            Ensure                                   = "Present";
+            ExcludeApplications                      = @();
+            ExcludeDevices                           = @();
+            ExcludeGroups                            = @("grp-Conditional_Access_Exclude");
+            ExcludeLocations                         = @("Allowed Countries");
+            ExcludePlatforms                         = @();
+            ExcludeRoles                             = @();
+            ExcludeUsers                             = @();
+            GrantControlOperator                     = "OR";
+            IncludeApplications                      = @("All");
+            IncludeDevices                           = @();
+            IncludeGroups                            = @();
+            IncludeLocations                         = @("All");
+            IncludePlatforms                         = @();
+            IncludeRoles                             = @();
+            IncludeUserActions                       = @();
+            IncludeUsers                             = @("All");
+            PersistentBrowserIsEnabled               = $False;
+            PersistentBrowserMode                    = "";
+            SignInFrequencyIsEnabled                 = $False;
+            SignInFrequencyType                      = "";
+            SignInRiskLevels                         = @();
+            State                                    = "disabled";
+            UserRiskLevels                           = @();
+        }
+        
+	AADConditionalAccessPolicy GRANTIntune
+        {
+            ApplicationEnforcedRestrictionsIsEnabled = $False;
+            BuiltInControls                          = @("mfa");
+            ClientAppTypes                           = @("all");
+            CloudAppSecurityIsEnabled                = $False;
+            CloudAppSecurityType                     = "";
+            Credential	         		     = $credsGlobalAdmin;
+            DisplayName                              = "GRANT - Intune Enrolment";
+            Ensure                                   = "Present";
+            ExcludeApplications                      = @();
+            ExcludeDevices                           = @();
+            ExcludeGroups                            = @("grp-Conditional_Access_Exclude");
+            ExcludeLocations                         = @();
+            ExcludePlatforms                         = @();
+            ExcludeRoles                             = @();
+            ExcludeUsers                             = @();
+            GrantControlOperator                     = "OR";
+            IncludeApplications                      = @("0000000a-0000-0000-c000-000000000000","d4ebce55-015a-49b5-a083-c84d1797ae8c");
+            IncludeDevices                           = @();
+            IncludeGroups                            = @();
+            IncludeLocations                         = @();
+            IncludePlatforms                         = @("iOS","windows");
+            IncludeRoles                             = @();
+            IncludeUserActions                       = @();
+            IncludeUsers                             = @("All");
+            PersistentBrowserIsEnabled               = $False;
+            PersistentBrowserMode                    = "";
+            SignInFrequencyIsEnabled                 = $False;
+            SignInFrequencyType                      = "";
+            SignInRiskLevels                         = @();
+            State                                    = "disabled";
+            UserRiskLevels                           = @();
+        }
+        
+	AADConditionalAccessPolicy GRANTGuestB2B
+        {
+            ApplicationEnforcedRestrictionsIsEnabled = $False;
+            BuiltInControls                          = @("mfa");
+            ClientAppTypes                           = @("all");
+            CloudAppSecurityIsEnabled                = $False;
+            CloudAppSecurityType                     = "";
+            Credential	         		     = $credsGlobalAdmin;
+            DisplayName                              = "GRANT - Guest Access (B2B)";
+            Ensure                                   = "Present";
+            ExcludeApplications                      = @();
+            ExcludeDevices                           = @();
+            ExcludeGroups                            = @();
+            ExcludeLocations                         = @();
+            ExcludePlatforms                         = @();
+            ExcludeRoles                             = @();
+            ExcludeUsers                             = @();
+            GrantControlOperator                     = "OR";
+            IncludeApplications                      = @("Office365");
+            IncludeDevices                           = @();
+            IncludeGroups                            = @();
+            IncludeLocations                         = @();
+            IncludePlatforms                         = @();
+            IncludeRoles                             = @();
+            IncludeUserActions                       = @();
+            IncludeUsers                             = @("GuestsOrExternalUsers");
+            PersistentBrowserIsEnabled               = $False;
+            PersistentBrowserMode                    = "";
+            SignInFrequencyIsEnabled                 = $False;
+            SignInFrequencyType                      = "";
+            SignInRiskLevels                         = @();
+            State                                    = "disabled";
+            UserRiskLevels                           = @();
+        }
+
+        AADConditionalAccessPolicy SESSIONAdminSignIn
+        {
+            ApplicationEnforcedRestrictionsIsEnabled = $False;
+            BuiltInControls                          = @("mfa");
+            ClientAppTypes                           = @("browser","mobileAppsAndDesktopClients","other");
+            CloudAppSecurityIsEnabled                = $False;
+            CloudAppSecurityType                     = "";
+            Credential	         		     = $credsGlobalAdmin;
+            DisplayName                              = "SESSION - Admin Sign-in Frequency";
+            Ensure                                   = "Present";
+            ExcludeApplications                      = @();
+            ExcludeDevices                           = @();
+            ExcludeGroups                            = @("grp-Conditional_Access_Exclude");
+            ExcludeLocations                         = @();
+            ExcludePlatforms                         = @();
+            ExcludeRoles                             = @();
+            ExcludeUsers                             = @("break.glass_priv1@$OrganizationName","break.glass_priv2@$OrganizationName");
+            GrantControlOperator                     = "OR";
+            IncludeApplications                      = @("All");
+            IncludeDevices                           = @();
+            IncludeGroups                            = @();
+            IncludeLocations                         = @();
+            IncludePlatforms                         = @("all");
+            IncludeRoles                             = @("Application Administrator","Application Developer","Attack Payload Author","Attack Simulation Administrator","Attribute Assignment Administrator","Attribute Assignment Reader","Attribute Definition Administrator","Attribute Definition Reader","Authentication Administrator","Authentication Policy Administrator","Azure DevOps Administrator","Azure Information Protection Administrator","B2C IEF Keyset Administrator","B2C IEF Policy Administrator","Billing Administrator","Cloud App Security Administrator","Cloud Application Administrator","Cloud Device Administrator","Compliance Administrator","Compliance Data Administrator","Conditional Access Administrator","Customer LockBox Access Approver","Desktop Analytics Administrator","Directory Readers","Directory Synchronization Accounts","Directory Writers","Domain Name Administrator","Dynamics 365 Administrator","Edge Administrator","Exchange Administrator","Exchange Recipient Administrator","External ID User Flow Administrator","External ID User Flow Attribute Administrator","External Identity Provider Administrator","Global Administrator","Global Reader","Groups Administrator","Guest Inviter","Helpdesk Administrator","Hybrid Identity Administrator","Identity Governance Administrator","Insights Administrator","Insights Business Leader","Intune Administrator","Kaizala Administrator","Knowledge Administrator","Knowledge Manager","License Administrator","Message Center Privacy Reader","Message Center Reader","Network Administrator","Office Apps Administrator","Password Administrator","Power BI Administrator","Power Platform Administrator","Printer Administrator","Privileged Authentication Administrator","Printer Technician","Azure AD Joined Device Local Administrator","Reports Reader","Search Administrator","Search Editor","Security Administrator","Privileged Role Administrator","Security Operator","Security Reader","Service Support Administrator","SharePoint Administrator","Skype for Business Administrator","Teams Administrator","Teams Communications Administrator","Teams Communications Support Engineer","Teams Communications Support Specialist","Teams Devices Administrator","Usage Summary Reports Reader","User Administrator","Windows 365 Administrator","Windows Update Deployment Administrator");
+            IncludeUserActions                       = @();
+            IncludeUsers                             = @();
+            PersistentBrowserIsEnabled               = $False;
+            PersistentBrowserMode                    = "";
+            SignInFrequencyIsEnabled                 = $True;
+            SignInFrequencyType                      = "hours";
+            SignInFrequencyValue                     = 4;
+            SignInRiskLevels                         = @();
+            State                                    = "disabled";
+            UserRiskLevels                           = @();
+        }
+
+	AADGroupLifecyclePolicy GroupLifecyclePolicy
+        {
+            AlternateNotificationEmails = @($alternatecontact);
+            Credential                  = $Credsglobaladmin;
+            Ensure                      = "Present";
+            GroupLifetimeInDays         = 365;
+            IsSingleInstance            = "Yes";
+            ManagedGroupTypes           = "All";
+        }
+	
+	AADGroupsSettings ADGroupsSettingsConfig
+        {
+            AllowGuestsToAccessGroups = $False;
+            AllowGuestsToBeGroupOwner = $False;
+            AllowToAddGuests          = $False;
+            Credential                = $Credsglobaladmin;
+            EnableGroupCreation       = $False;
+            Ensure                    = "Present";
+            GuestUsageGuidelinesUrl   = "";
+            IsSingleInstance          = "Yes";
+            UsageGuidelinesUrl        = "";
+        }
+
+        AADGroupsNamingPolicy GroupsNamingPolicy
+        {
+            CustomBlockedWordsList        = @();
+            Credential            = $credsGlobalAdmin;
+            IsSingleInstance              = "Yes";
+            PrefixSuffixNamingRequirement = $namingpolicy;
+            Ensure                        = "Present";
+        }
+	
+	AADTenantDetails TenantDetails
+        {
+            TechnicalNotificationMails             = $technicalcontactemail+"@"+$agency+".gov.au";
+            SecurityComplianceNotificationPhones   = $technicalcontactphone;
+            SecurityComplianceNotificationMails    = $technicalcontactemail+"@"+$agency+".gov.au";
+            MarketingNotificationEmails            = $technicalcontactemail+"@"+$agency+".gov.au";
+            Credential			           = $credsGlobalAdmin;
+            IsSingleInstance                       = 'Yes';
+        }
+    }
+}
+M365TenantConfig -ConfigurationData .\ConfigurationData.psd1 -GlobalAdminAccount $GlobalAdminAccount -trustedIP $trustedIP -agency $agency -agencyprefix $agencyprefix

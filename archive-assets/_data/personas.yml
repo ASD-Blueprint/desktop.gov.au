@@ -1,0 +1,71 @@
+- title: The hopper
+  desc: I like my job, but would like to experience working for another agency to further my skills
+  age: 27
+  img: /assets/images/hopper.png
+  url: hopper.html
+  internet: 4
+  devices: 
+    - corporate-laptop
+    - personal-mobile
+  cyber: 3
+
+- title: The traveller
+  desc: The nature of my work requires me to constantly move, so I need to be able to quickly access the information I need while I am on the move
+  age: 41
+  img: /assets/images/traveller.png
+  url: traveller.html
+  internet: 2
+  devices: 
+    - corporate-laptop
+    - corporate-mobile
+    - corporate-tablet
+  cyber: 3
+
+- title: The uniter
+  desc: I believe we can achieve better outcomes if we stop working in siloes and start collaborating with other teams and agencies
+  age: 54
+  img: /assets/images/uniter.png
+  url: uniter.html
+  internet: 3
+  devices: 
+    - corporate-laptop
+    - corporate-mobile
+    - corporate-tablet
+  cyber: 1
+
+- title: The nomad
+  desc: I like moving across different areas in government in order to continue to grow my skills and be exposed to new experiences
+  age: 33
+  img: /assets/images/nomad.png
+  url: nomad.html
+  internet: 5
+  devices: 
+    - corporate-laptop
+    - personal-laptop
+    - personal-mobile
+    - personal-tablet
+  cyber: 4
+
+- title: The gadgeteer
+  desc: Some projects require me to be able to access tools that are not available to everyone else in the Department, and I want to be able to access these when I need them
+  age: 35
+  img: /assets/images/gadgeteer.png
+  url: gadgeteer.html
+  internet: 5
+  devices: 
+    - corporate-laptop
+    - corporate-desktop
+    - personal-mobile
+    - personal-tablet
+  cyber: 4
+
+- title: The resistance
+  desc: I come to work, do my job, and go home. The current system works for me and I feel like any new tech will kill my efficiency. Plus technology is killing the way we communicate with each other, what's wrong with picking up the phone or meeting face to face?
+  age: 48
+  img: /assets/images/resistance.png
+  url: resistance.html
+  internet: 3
+  devices: 
+    - corporate-desktop
+    - personal-mobile
+  cyber: 1

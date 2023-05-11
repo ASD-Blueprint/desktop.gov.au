@@ -1,0 +1,106 @@
+<RuleCollection Type="Exe" EnforcementMode="Enabled">
+<FilePublisherRule Id="b9074440-e9fc-4335-9955-07ba41ddba76" Name="BRAVE.EXE, in BRAVE BROWSER, from O=BRAVE SOFTWARE, INC., L=SAN FRANCISCO, S=CALIFORNIA, C=US" Description="" UserOrGroupSid="S-1-5-32-544" Action="Deny">
+<Conditions>
+<FilePublisherCondition PublisherName="O=BRAVE SOFTWARE, INC., L=SAN FRANCISCO, S=CALIFORNIA, C=US" ProductName="BRAVE BROWSER" BinaryName="BRAVE.EXE">
+<BinaryVersionRange LowSection="*" HighSection="*" />
+</FilePublisherCondition>
+</Conditions>
+</FilePublisherRule>
+<FilePublisherRule Id="e3495d3f-fa9a-449a-8d52-26a594b722f5" Name="IEXPLORE.EXE, in INTERNET EXPLORER, from O=MICROSOFT CORPORATION, L=REDMOND, S=WASHINGTON, C=US" Description="" UserOrGroupSid="S-1-5-32-544" Action="Deny">
+<Conditions>
+<FilePublisherCondition PublisherName="O=MICROSOFT CORPORATION, L=REDMOND, S=WASHINGTON, C=US" ProductName="INTERNET EXPLORER" BinaryName="IEXPLORE.EXE">
+<BinaryVersionRange LowSection="*" HighSection="*" />
+</FilePublisherCondition>
+</Conditions>
+</FilePublisherRule>
+<FilePublisherRule Id="d8b6500e-d8b1-4dec-b901-0af121756a2e" Name="CHROME.EXE, in GOOGLE CHROME, from O=GOOGLE LLC, L=MOUNTAIN VIEW, S=CA, C=US" Description="" UserOrGroupSid="S-1-5-32-544" Action="Deny">
+<Conditions>
+<FilePublisherCondition PublisherName="O=GOOGLE LLC, L=MOUNTAIN VIEW, S=CA, C=US" ProductName="GOOGLE CHROME" BinaryName="CHROME.EXE">
+<BinaryVersionRange LowSection="*" HighSection="*" />
+</FilePublisherCondition>
+</Conditions>
+</FilePublisherRule>
+<FilePublisherRule Id="42391018-2688-4f15-a75f-5b425cf3c1bb" Name="FIREFOX.EXE, in FIREFOX, from O=MOZILLA CORPORATION, L=MOUNTAIN VIEW, S=CALIFORNIA, C=US" Description="" UserOrGroupSid="S-1-5-32-544" Action="Deny">
+<Conditions>
+<FilePublisherCondition PublisherName="O=MOZILLA CORPORATION, L=MOUNTAIN VIEW, S=CALIFORNIA, C=US" ProductName="FIREFOX" BinaryName="FIREFOX.EXE">
+<BinaryVersionRange LowSection="*" HighSection="*" />
+</FilePublisherCondition>
+</Conditions>
+</FilePublisherRule>
+<FilePublisherRule Id="f097f3ee-bce9-4a11-9a71-c1fcfd6618a8" Name="PALEMOON.EXE, in PALE MOON, from O=MARK STRAVER, L=TRANÃ…S, S=JÃ–NKÃ–PINGSLÃ„N, C=SE" Description="" UserOrGroupSid="S-1-5-32-544" Action="Deny">
+<Conditions>
+<FilePublisherCondition PublisherName="O=MARK STRAVER, L=TRANÃ…S, S=JÃ–NKÃ–PINGSLÃ„N, C=SE" ProductName="PALE MOON" BinaryName="PALEMOON.EXE">
+<BinaryVersionRange LowSection="*" HighSection="*" />
+</FilePublisherCondition>
+</Conditions>
+</FilePublisherRule>
+<FilePublisherRule Id="34b85f92-6226-49db-ab59-adffb0b7c230" Name="MAXTHON.EXE, in MX5, from O=MAXTHON TECHNOLOGY CO, LTD., L=åŒ—äº¬, S=åŒ—äº¬, C=CN" Description="" UserOrGroupSid="S-1-5-32-544" Action="Deny">
+<Conditions>
+<FilePublisherCondition PublisherName="O=MAXTHON TECHNOLOGY CO, LTD., L=åŒ—äº¬, S=åŒ—äº¬, C=CN" ProductName="MX5" BinaryName="MAXTHON.EXE">
+<BinaryVersionRange LowSection="*" HighSection="*" />
+</FilePublisherCondition>
+</Conditions>
+</FilePublisherRule>
+<FilePublisherRule Id="b22e6ba1-1f09-4b59-947b-934fae1f9032" Name="VIVALDI.EXE, in VIVALDI, from O=VIVALDI TECHNOLOGIES AS, L=OSLO, C=NO" Description="" UserOrGroupSid="S-1-5-32-544" Action="Deny">
+<Conditions>
+<FilePublisherCondition PublisherName="O=VIVALDI TECHNOLOGIES AS, L=OSLO, C=NO" ProductName="VIVALDI" BinaryName="VIVALDI.EXE">
+<BinaryVersionRange LowSection="*" HighSection="*" />
+</FilePublisherCondition>
+</Conditions>
+</FilePublisherRule>
+<FilePublisherRule Id="99234b15-f63a-47f9-9444-133a37383370" Name="OUTLOOK.EXE, in MICROSOFT OUTLOOK, from O=MICROSOFT CORPORATION, L=REDMOND, S=WASHINGTON, C=US" Description="" UserOrGroupSid="S-1-5-32-544" Action="Deny">
+<Conditions>
+<FilePublisherCondition PublisherName="O=MICROSOFT CORPORATION, L=REDMOND, S=WASHINGTON, C=US" ProductName="MICROSOFT OUTLOOK" BinaryName="OUTLOOK.EXE">
+<BinaryVersionRange LowSection="*" HighSection="*" />
+</FilePublisherCondition>
+</Conditions>
+</FilePublisherRule>
+<FilePathRule Id="e16ce5e4-67f2-4ebf-ad01-c81fc8f28cd5" Name="All Files" Description="" UserOrGroupSid="S-1-5-32-544" Action="Allow">
+<Conditions>
+<FilePathCondition Path="*" />
+</Conditions>
+</FilePathRule>
+<FilePathRule Id="9eb15b2e-f9c2-42d4-8692-ad1a0f6a0722" Name="All files" Description="Allows user to run files execpt POWERSHELL, POWERSHELL_ISE, CMD and REGEDIT" UserOrGroupSid="S-1-1-0" Action="Allow">
+<Conditions>
+<FilePathCondition Path="*" />
+</Conditions>
+<Exceptions>
+<FilePublisherCondition PublisherName="O=MICROSOFT CORPORATION, L=REDMOND, S=WASHINGTON, C=US" ProductName="MICROSOFT® WINDOWS® OPERATING SYSTEM" BinaryName="CMD.EXE">
+<BinaryVersionRange LowSection="*" HighSection="*" />
+</FilePublisherCondition>
+<FilePublisherCondition PublisherName="O=MICROSOFT CORPORATION, L=REDMOND, S=WASHINGTON, C=US" ProductName="MICROSOFT® WINDOWS® OPERATING SYSTEM" BinaryName="POWERSHELL.EXE">
+<BinaryVersionRange LowSection="*" HighSection="*" />
+</FilePublisherCondition>
+<FilePublisherCondition PublisherName="O=MICROSOFT CORPORATION, L=REDMOND, S=WASHINGTON, C=US" ProductName="MICROSOFT® WINDOWS® OPERATING SYSTEM" BinaryName="POWERSHELL_ISE.EXE">
+<BinaryVersionRange LowSection="*" HighSection="*" />
+</FilePublisherCondition>
+<FilePublisherCondition PublisherName="O=MICROSOFT CORPORATION, L=REDMOND, S=WASHINGTON, C=US" ProductName="MICROSOFT® WINDOWS® OPERATING SYSTEM" BinaryName="REGEDT32.EXE">
+<BinaryVersionRange LowSection="*" HighSection="*" />
+</FilePublisherCondition>
+<FilePublisherCondition PublisherName="O=MICROSOFT CORPORATION, L=REDMOND, S=WASHINGTON, C=US" ProductName="MICROSOFT® WINDOWS® OPERATING SYSTEM" BinaryName="REGEDIT.EXE">
+<BinaryVersionRange LowSection="*" HighSection="*" />
+</FilePublisherCondition>
+</Exceptions>
+</FilePathRule>
+<FilePublisherRule Id="ec2f73b0-e2ad-4f78-a10d-ba14008bc34c" Name="MSEDGE.EXE, in MICROSOFT EDGE, from O=MICROSOFT CORPORATION, L=REDMOND, S=WASHINGTON, C=US" Description="" UserOrGroupSid="S-1-5-32-544" Action="Deny">
+<Conditions>
+<FilePublisherCondition PublisherName="O=MICROSOFT CORPORATION, L=REDMOND, S=WASHINGTON, C=US" ProductName="MICROSOFT EDGE" BinaryName="MSEDGE.EXE">
+<BinaryVersionRange LowSection="*" HighSection="*" />
+</FilePublisherCondition>
+</Conditions>
+</FilePublisherRule>
+<FilePublisherRule Id="37fadfa7-e0d5-4f82-a7a4-702af5e3d5f0" Name="LAUNCHER.EXE, in OPERA INTERNET BROWSER, from O=OPERA SOFTWARE AS, L=OSLO, C=NO" Description="" UserOrGroupSid="S-1-5-32-544" Action="Deny">
+<Conditions>
+<FilePublisherCondition PublisherName="O=OPERA SOFTWARE AS, L=OSLO, C=NO" ProductName="OPERA INTERNET BROWSER" BinaryName="*">
+<BinaryVersionRange LowSection="*" HighSection="*" />
+</FilePublisherCondition>
+</Conditions>
+</FilePublisherRule>
+<FilePublisherRule Id="c9c08eed-8318-47f0-b4f4-97d8a04a304b" Name="THUNDERBIRD.EXE, in THUNDERBIRD, from O=MOZILLA CORPORATION, L=MOUNTAIN VIEW, S=CALIFORNIA, C=US" Description="" UserOrGroupSid="S-1-5-32-544" Action="Deny">
+<Conditions>
+<FilePublisherCondition PublisherName="O=MOZILLA CORPORATION, L=MOUNTAIN VIEW, S=CALIFORNIA, C=US" ProductName="THUNDERBIRD" BinaryName="THUNDERBIRD.EXE">
+<BinaryVersionRange LowSection="*" HighSection="*" />
+</FilePublisherCondition>
+</Conditions>
+</FilePublisherRule>
+</RuleCollection>

@@ -8,7 +8,7 @@
 
 ## Organisation 
 
-The ABAC settings for the Agency organisation for all implementation types can be found below. This includes Residency, Licensing and Licensing Manual Groups, Theme, Add-ins and Security and Privacy settings.
+The ABAC settings for the organisation for all implementation types can be found below. This includes Residency, Licensing and Licensing Manual Groups, Theme, Add-ins and Security and Privacy settings.
 
 Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting
 
@@ -18,14 +18,14 @@ The following table describes the Office 365 Organization profile settings for a
 
 | Item               | Configuration         |
 | ------------------ | --------------------- |
-| Name               | Agency Name           |
-| Street address     | Agency defined        |
-| City               | Agency defined        |
-| State              | Agency defined        |
-| ZIP or postal code | Agency defined        |
+| Name               | Organisation          |
+| Street address     | Organisation defined  |
+| City               | Organisation defined  |
+| State              | Organisation defined  |
+| ZIP or postal code | Organisation defined  |
 | Country or region  | Australia             |
-| Phone              | Agency defined        |
-| Technical Contact  | Agency defined        |
+| Phone              | Organisation defined  |
+| Technical Contact  | Organisation defined  |
 | Preferred Language | English               |
 
 ### Licensing
@@ -50,8 +50,8 @@ The following table describes the configuration for the manual allocation of Mic
 
 | Name                      | State  |
 | ------------------------- | ------ |
-| rol-Agency-Administrators | Active |
-| rol-Agency-Users          | Active |
+| rol-Organisation-Administrators | Active |
+| rol-Organisation-Users          | Active |
 
 
 ### Theme
@@ -62,29 +62,29 @@ The following table describes the Custom Theme settings for all implementation t
 
 | Item                                      | Configuration                                                |
 | ----------------------------------------- | ------------------------------------------------------------ |
-| Use a custom logo image                   | Agency supplied                                              |
-| Use an image from a URL                   | Agency supplied                                              |
-| Make the logo clickable                   | Agency supplied                                              |
-| Select background image                   | Agency supplied                                              |
-| Navigation bar colour                     | Agency supplied                                              |
-| Text and icon colour                      | Agency supplied                                              |
-| Accent colour                             | Agency supplied                                              |
+| Use a custom logo image                   | Organisation supplied                                        |
+| Use an image from a URL                   | Organisation supplied                                        |
+| Make the logo clickable                   | Organisation supplied                                        |
+| Select background image                   | Organisation supplied                                        |
+| Navigation bar colour                     | Organisation supplied                                        |
+| Text and icon colour                      | Organisation supplied                                        |
+| Accent colour                             | Organisation supplied                                        |
 | Prevent users from overriding their theme | Enabled                                                      |
 | Show the user’s display name              | Enabled                                                      |
 
 `Endpoint Manager admin center > Tenant administration > Customization`
 
 - Branding
-  - Organization name: `<Agency Name>`
-  - Theme color: Agency supplied
+  - Organization name: `<Organisation Name>`
+  - Theme color: Organisation supplied
   - Show in header: `Organization logo only`
-  - Upload logo for theme color background: Agency supplied
-  - Upload logo for theme color light background: Agency supplied
-  - Upload brand image: Agency supplied
+  - Upload logo for theme color background: Organisation supplied
+  - Upload logo for theme color light background: Organisation supplied
+  - Upload brand image: Organisation supplied
 - Support information
-  - Contact name: `<Agency Acronym> IT Service Desk`
-  - Phone number: `<Agency Support Telephone Number>`
-  - Email address: `ITServiceDesk@Agency.gov.au`
+  - Contact name: `<Organisation Acronym> IT Service Desk`
+  - Phone number: `<Organisation Support Telephone Number>`
+  - Email address: `ITServiceDesk@Organisation.com.au`
   - Website name: -
   - Website URL: -
   - Additional information: -
@@ -144,7 +144,7 @@ The following table describes the Microsoft 365 Security and Privacy settings fo
 | ‎Bing‎ data collection        | Disabled       |
 | Customer lockbox            | Enabled        |
 | Password expiration policy  | Enabled<br>Days before passwords expire: 365<br>Days before a user is notified about expiration: 14|
-| Privacy profile             | Enabled (Agency to define) |
+| Privacy profile             | Enabled (Organisation to define) |
 | Privileged access           | Enabled        |
 | Sharing                     | Disabled       |
 
@@ -190,7 +190,7 @@ The following table describes the Exchange Online inbound mail connectors for a 
 | Status                                               | On                                                           |
 | Retain internal Exchange email headers (recommended) | Enable                                                       |
 | How to identify your organization                    | Identify the organization by verifying that messages are coming Inbound from xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
-| Security restrictions                                | Reject messages if they aren’t encrypted using Transport Layer Security ‎(TLS)‎, or the subject name on the certificate that the organization uses to authenticate with Office 365 doesn’t‎ match this domain name: `*.Agency.gov.au` |
+| Security restrictions                                | Reject messages if they aren’t encrypted using Transport Layer Security ‎(TLS)‎, or the subject name on the certificate that the organization uses to authenticate with Office 365 doesn’t‎ match this domain name: `*.Organisation.com.au` |
 
 The following table describes the Exchange Online outbound mail connectors for a Hybrid implementation type.
 
@@ -203,8 +203,8 @@ The following table describes the Exchange Online outbound mail connectors for a
 | Retain internal Exchange email headers (recommended) | Enable                                                       |
 | How to identify your organization                    | Identify the organization by verifying that messages are going outbound from xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx |
 | When to use the connector                            | Only when email messages are sent to these domains: *        |
-| Routing method                                       | Route email messages through these smart hosts: Agency.gov.au |
-| Security restrictions                                | Always use Transport Layer Security ‎(TLS)‎ and connect only if the recipient’s email server certificate is issued by a trusted certificate authority ‎(CA)‎, and the subject name matches this domain: `mail.Agency.gov.au` |
+| Routing method                                       | Route email messages through these smart hosts: Organisation.com.au |
+| Security restrictions                                | Always use Transport Layer Security ‎(TLS)‎ and connect only if the recipient’s email server certificate is issued by a trusted certificate authority ‎(CA)‎, and the subject name matches this domain: `mail.organisation.com.au` |
 
 ### MX records
 
@@ -218,49 +218,49 @@ The following table describes the MX records that have been configured per imple
 
 | Implementation | Domain        | MX Preferences | Mail Exchanger                              |
 | -------------- | ------------- | -------------- | ------------------------------------------- |
-| Cloud-native   | Agency.gov.au | `10`           | `Agency-gov-au.mail.protection.outlook.com` |
-| Hybrid         | Agency.gov.au | `10`           | `<agency mx provider>`                      |
+| Cloud-native   | Organisation.com.au | `10`           | `Organisation-com-au.mail.protection.outlook.com` |
+| Hybrid         | Organisation.com.au | `10`           | `<Organisation mx provider>`                      |
 
 ### SPF and DMARC records
 
-Note, SPF and DMARC DNS records are configured through the agency's DNS provider. DMARC and SPF configuration is unique to the agency. The following configuration are included as examples.
+Note, SPF and DMARC DNS records are configured through the organisation's DNS provider. DMARC and SPF configuration is unique to the organisation. The following configuration are included as examples.
 
 The following table describes the SPF records have been configured per implementation type.
 
 | Implementation | Domain        | SPF Record                                         | DMARC Policy                                                 |
 | -------------- | ------------- | -------------------------------------------------- | ------------------------------------------------------------ |
-| Cloud-native   | Agency.gov.au | `"v=spf1 include:spf.protection.outlook.com -all"` | `"v=DMARC1; p=reject; pct=100; rua=mailto:<rua reporting address>; ruf=mailto:<ruf reporting address>; fo=1"` |
-| Hybrid         | Agency.gov.au | Specific to gateway provider                       | `"v=DMARC1; p=reject; pct=100; rua=mailto:<rua reporting address>; ruf=mailto:<ruf reporting address>; fo=1"` |
+| Cloud-native   | Organisation.com.au | `"v=spf1 include:spf.protection.outlook.com -all"` | `"v=DMARC1; p=reject; pct=100; rua=mailto:<rua reporting address>; ruf=mailto:<ruf reporting address>; fo=1"` |
+| Hybrid         | Organisation.com.au | Specific to gateway provider                       | `"v=DMARC1; p=reject; pct=100; rua=mailto:<rua reporting address>; ruf=mailto:<ruf reporting address>; fo=1"` |
 
 ### DKIM records
 
-Note, DKIM DNS selector records are configured through the agency's DNS provider. Cloud-native configuration assumes DKIM signing is handled by Exchange Online Protection and not a third-party selector.
+Note, DKIM DNS selector records are configured through the organisation's DNS provider. Cloud-native configuration assumes DKIM signing is handled by Exchange Online Protection and not a third-party selector.
 
 The following table describes the DKIM records configuration settings per implementation type. 
 
 | Implementation | Type  | Domain        | Host name                     | TTL      | Points to address or value                                   |
 | -------------- | ----- | ------------- | ----------------------------- | -------- | ------------------------------------------------------------ |
-| Cloud-native   | CNAME | Agency.gov.au | `selector1._domainkey `       | `5 Min.` | `selector1-agency-gov-au._domainkey.<agencyinitialdomain>.onmicrosoft.com.` |
-| Cloud-native   | CNAME | Agency.gov.au | `selector2._domainkey `       | `5 Min.` | `selector2-agency-gov-au._domainkey.<agencyinitialdomain>.onmicrosoft.com.` |
-| Hybrid         | CNAME | Agency.gov.au | `<gateway provided selector>` | `5 Min.` | `<gateway provided selector>`                                |
+| Cloud-native   | CNAME | Organisation.com.au | `selector1._domainkey `       | `5 Min.` | `selector1-Organisation-com-au._domainkey.<Organisationinitialdomain>.onmicrosoft.com.` |
+| Cloud-native   | CNAME | Organisation.com.au | `selector2._domainkey `       | `5 Min.` | `selector2-Organisation-com-au._domainkey.<Organisation>.onmicrosoft.com.` |
+| Hybrid         | CNAME | Organisation.com.au | `<gateway provided selector>` | `5 Min.` | `<gateway provided selector>`                                |
 
 ### DNS records
 
-Note, the Autodiscover service external DNS entry is specific to the Hybrid implementation of the Agency. Once all mailboxes have been migrated to Office 365 within a Hybrid configuration this can be pointed as an alias to the Office 365 Autodiscover service using `autodiscover.outlook.com`.
+Note, the Autodiscover service external DNS entry is specific to the Hybrid implementation of the organisation. Once all mailboxes have been migrated to Office 365 within a Hybrid configuration this can be pointed as an alias to the Office 365 Autodiscover service using `autodiscover.outlook.com`.
 
 Hybrid implementation types will require additional external DNS records depending on the hybrid implementation (classic or modern). The additional certificate requirements for hybrid can be located at - [certificate requirements for hybrid deployments](https://docs.microsoft.com/en-us/exchange/certificate-requirements).
 
-The following table describes the DNS record settings for Agency.gov.au (default) per implementation type. 
+The following table describes the DNS record settings for Organisation.com.au (default) per implementation type. 
 
 | Implementation | Type  | Priority | Host name                     | Points to address or value                              | TTL    |
 | -------------- | ----- | -------- | ----------------------------- | ------------------------------------------------------- | ------ |
-| Cloud-native   | MX    | `10`     | Agency Domain                 | `Agency-gov-au.mail.protection.outlook.com`             | 1 hour |
-| Hybrid         | MX    | `10`     | Agency Domain                 | Agency mx provider address.                             | 1 hour |
-| Hybrid         | CNAME | -        | Agency Edge Transport address | Agency edge transport gateway address.                  | 1 hour |
-| Hybrid         | CNAME | -        | Agency CAS/EWS NAT address    | Agency CAS/EWS NAT when using hybrid classic full.      | 1 hour |
-| All            | TXT   | -        | Agency Domain                 | Text string provided by Office 365 domain setup wizard. | 1 hour |
-| Cloud-native   | CNAME | -        | Autodiscover.Agency.gov.au    | `autodiscover.outlook.com`                              | 1 hour |
-| Hybrid         | CNAME | -        | Autodiscover.Agency.gov.au    | Agency autodiscover NAT address.                        | 1 hour |
+| Cloud-native   | MX    | `10`     | Organisation Domain                 | `Organisation-com-au.mail.protection.outlook.com`             | 1 hour |
+| Hybrid         | MX    | `10`     | Organisation Domain                 | Organisation mx provider address.                             | 1 hour |
+| Hybrid         | CNAME | -        | Organisation Edge Transport address | Organisation edge transport gateway address.                  | 1 hour |
+| Hybrid         | CNAME | -        | Organisation CAS/EWS NAT address    | Organisation CAS/EWS NAT when using hybrid classic full.      | 1 hour |
+| All            | TXT   | -        | Organisation Domain                 | Text string provided by Office 365 domain setup wizard.       | 1 hour |
+| Cloud-native   | CNAME | -        | Autodiscover.Organisation.gov.au    | `autodiscover.outlook.com`                                    | 1 hour |
+| Hybrid         | CNAME | -        | Autodiscover.Organisation.gov.au    | Organisation autodiscover NAT address.                        | 1 hour |
 
 ### Accepted domains
 
@@ -270,9 +270,9 @@ The following table describes the Accepted Domains settings for all implementati
 
 | Name                        | Accepted Domain             | Domain Type   |
 | --------------------------- | --------------------------- | ------------- |
-| Agency.gov.au (default)     | Agency.gov.au               | Authoritative |
-| Agency.onmicrosoft.com      | Agency.onmicrosoft.com      | Authoritative |
-| Agency.mail.onmicrosoft.com | Agency.mail.onmicrosoft.com | Authoritative |
+| Organisation.com.au (default)     | Organisation.com.au               | Authoritative |
+| Organisation.onmicrosoft.com      | Organisation.onmicrosoft.com      | Authoritative |
+| Organisation.mail.onmicrosoft.com | Organisation.mail.onmicrosoft.com | Authoritative |
 
 ### Remote domains
 
@@ -507,7 +507,7 @@ The following describes the Mailbox attribute that have been configured.
 
 `Exchange Admin Center > Recipients > Mailboxes > <username> > email address`
 
-- Custom Primary SMTP Addressing: `FirstName.LastName@<Agency>.gov.au`
+- Custom Primary SMTP Addressing: `FirstName.LastName@<Organisation>.com.au`
 - Language: `English (en-au)`
 - Default Time Zone: `GMT +10 (AUS Eastern Standard Time)`
 - Exchange Online PowerShell
@@ -530,14 +530,14 @@ Set-AuthenticationPolicy -Identity "BlockBasic<number>" -AllowBasicAuthOutlookSe
 If a new custom policy is created that blocks the specific parameters, then it can be set as a default for the whole organisation using the following PowerShell command.
 
 ```powershell
-Set-OrganizationConfig -DefaultAuthenticationPolicy "Agency Authentication Policy"
+Set-OrganizationConfig -DefaultAuthenticationPolicy "Organisation Authentication Policy"
 ```
 
 The following table describes the Authentication Policy configuration settings for all implementation types.
 
 | Item                                              | Configuration                |
 | ------------------------------------------------- | ---------------------------- |
-| Name                                              | Agency Authentication Policy |
+| Name                                              | Organisation Authentication Policy |
 | Allow Basic Authentication ActiveSync             | False                        |
 | Allow Basic Authentication Autodiscover           | False                        |
 | Allow Basic Authentication IMAP                   | False                        |
@@ -702,14 +702,14 @@ The following mail flow rules have been configured for all implementation types.
 
 #### Outgoing X-Protective-Marker (multiple rules)
 
-Note 1, the `x-protective-marking` rules listed here are not exhaustive and are an example that can be used for each classification used within the Agency.
+Note 1, the `x-protective-marking` rules listed here are not exhaustive and are an example that can be used for each classification used within the Organisation.
 
-Note 2, as of February 2022 the ability to add the `ORIGIN=user@agency.gov.au` parameter is not possible using a transport rule. If the Agency has the ability to transform mail messages using a gateway appliance then this is the current recommended approach for updating header values.
+Note 2, as of February 2022 the ability to add the `ORIGIN=user@organisation.com.au` parameter is not possible using a transport rule. If the Organisation has the ability to transform mail messages using a gateway appliance then this is the current recommended approach for updating header values.
 
 To find the `MSIP_Label` "guid" IDs for each sensitivity label use the [Security & Compliance Center PowerShell Modules](https://docs.microsoft.com/en-us/powershell/exchange/scc-powershell?view=exchange-ps).
 
 ```powershell
-Connect-IPPSSession -UserPrincipalName <admin>@<agency>.onmicrosoft.com
+Connect-IPPSSession -UserPrincipalName <admin>@<organisation>.onmicrosoft.com
 
 Get-label | where{$_.Name -eq "U"} |select name,guid
 ```
@@ -778,28 +778,28 @@ The following table describes the Mailbox Retention settings within the "Default
 
 `Exchange Online Admin Centre > Recipients > Groups`
 
-- Display name: `grp-<Agency Acronym>O365-Outlook`
-  - Group email address: `grp-<Agency Acronym>0365-outlook@<Agency>.gov.au`
+- Display name: `grp-<organisation Acronym>O365-Outlook`
+  - Group email address: `grp-<Organisation Acronym>0365-outlook@<organisation>.com.au`
   - Privacy: `Private – Only members can see content`
   - Language: `English (Australia)`
   - Subscribe new members: `Enabled`
   - Let people outside the organization send email to the group: `Disabled`
-  - Owners: `<Agency Owner> (Admin)`
-  - Members: `<Agency Owner> (Admin)`
+  - Owners: `<Organisation Owner> (Admin)`
+  - Members: `<Organisation Owner> (Admin)`
   - Delivery Management
     - Accept messages from: `All senders`
     - Reject message from: `No senders`
   - Group Delegation
     - Send As: `None`
     - Send on Behalf: `None`
-- Display name: `Grp-<Agency Acronym>O365-Teams`
-  - Group email address: `Grp-<Agency Acronym>0365-Teams@<Agency>.gov.au`
+- Display name: `Grp-<organisation Acronym>O365-Teams`
+  - Group email address: `Grp-<organisation Acronym>0365-Teams@<organisation>.com.au`
   - Privacy: `Private – Only members can see content`
   - Language: `English (Australia)`
   - Subscribe new members: `Disabled`
   - Let people outside the organization send email to the group: `Disabled`
-  - Owners: `<Agency Owner> (Admin)`
-  - Members: `<Agency Owner> (Admin)`
+  - Owners: `<Organisation Owner> (Admin)`
+  - Members: `<Organisation Owner> (Admin)`
   - Delivery Management
     - Accept messages from: `All senders`
     - Reject message from: `No senders`
@@ -833,12 +833,12 @@ The following table describes the Address List configuration settings for all im
 
 `Exchange Online Admin Centre > recipients > groups > <three dots> > Configure group naming policy`
 
-- Group Naming Policy: `<as per agency group naming standard>`
+- Group Naming Policy: `<as per organisation group naming standard>`
 - Blocked words: `None`
 
 ## Exchange Online Protection
 
-The ABAC settings for the Agency Exchange Online Protection instance can be found below. This includes the Connection Filtering, Anti-Malware, Policy Filtering, and Content Filtering configuration. Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting.
+The ABAC settings for the organisation Exchange Online Protection instance can be found below. This includes the Connection Filtering, Anti-Malware, Policy Filtering, and Content Filtering configuration. Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting.
 
 ### Anti-spam
 
@@ -849,7 +849,7 @@ The following table describes the Connection filter policy configuration setting
 | Implementation | Name                               | IP Allow List                                          | IP Block List | Enable Safe List | Directory Based Edge Block Mode |
 | -------------- | ---------------------------------- | ------------------------------------------------------ | ------------- | ---------------- | ------------------------------- |
 | Cloud-native   | Connection filter policy (Default) |                                                        |               | True             | Default                         |
-| Hybird         | Connection filter policy (Default) | `<agency smtp gateway IP adddresses for skip listing>` |               | True             | Default                         |
+| Hybird         | Connection filter policy (Default) | `<organisation smtp gateway IP adddresses for skip listing>` |               | True             | Default                         |
 
 The following tables describe the Anti-spam policies for all implementation types.
 
@@ -895,7 +895,7 @@ The following table describes the Malware Filter configuration settings for all 
 | Enable zero-hour auto purge for malware    | Checked                             |
 | Admin notifications (internal senders)     | Checked                             |
 | Admin notifications (external senders)     | Checked                             |       
-| Admin email address                        | Agency defined                      |       
+| Admin email address                        | Organisation defined                      |       
 
 ## Microsoft Teams
 
@@ -917,7 +917,7 @@ The following table describes the Teams configuration settings for all implement
 | Let custom tags to be created                                | On                                     |
 | Allow Shifts app to apply tags                               | On                                     |
 | Allow users to send emails to a channel email address        | On                                     |
-| Accept channel email from these SMTP domains                 | Agency defined                         |
+| Accept channel email from these SMTP domains                 | Organisation defined                   |
 | Citrix files                                                 | Off                                    |
 | DropBox                                                      | Off                                    |
 | Box                                                          | Off                                    |
@@ -1081,7 +1081,7 @@ The following table describes the External access configuration settings for all
 | Item                                                         | Configuration                               |
 | ------------------------------------------------------------ | ------------------------------------------- |
 | Teams and Skype for Business users in external organizations | Allow only specific external domains        |
-| Add a domain (Allowed domains)                               | *Agency allowed list of domains*            |
+| Add a domain (Allowed domains)                               | *Organisation allowed list of domains*            |
 | Allow users in my organization to communicate with Skype users. | On                                       |
 
 ### Guest access settings
@@ -1107,7 +1107,7 @@ The following table describes the External access configuration settings for all
 
 ## SharePoint Online & OneDrive
 
-The ABAC settings for the Agency SharePoint Online and OneDrive instances can be found below for all implementation types. This includes the Sharing configuration, Access Control and SharePoint & OneDrive settings. Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting.
+The ABAC settings for the organisation SharePoint Online and OneDrive instances can be found below for all implementation types. This includes the Sharing configuration, Access Control and SharePoint & OneDrive settings. Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting.
 
 ### Sharing
 
@@ -1120,7 +1120,7 @@ The ABAC settings for the Agency SharePoint Online and OneDrive instances can be
   ```
 - Limit external sharing by domain:
   ```
-  <Agency>.gov.au
+  <organisation>.com.au
   <other trusted Agencies>
   ```
 - Allow only users in specific security groups to share externally: `False`
@@ -1209,7 +1209,7 @@ Note, restrictions for unmanaged devices are defined by Conditional Access polic
 
 ## Security and compliance
 
-The ABAC settings for the Agency Office 365 Security and Compliance instance can be found below. This includes the Alerts, Labels, Data Loss Prevention, Retention Policies, Audit Logging, and Customer Key configuration. Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting.
+The ABAC settings for the organisation Office 365 Security and Compliance instance can be found below. This includes the Alerts, Labels, Data Loss Prevention, Retention Policies, Audit Logging, and Customer Key configuration. Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting.
 
 ### Audit logging
 
@@ -1285,7 +1285,7 @@ Not configured.
 
 `Microsoft 365 compliance > Information protection > Labels`
 
-The following tables describe the sensitivity label configuration settings for all implementation types. Only create and publish labels that are required for the agency.
+The following tables describe the sensitivity label configuration settings for all implementation types. Only create and publish labels that are required for the organisation.
 
 The sensitivity labels in this ABAC can be deployed through M365DSC automation. The process can be found within the [automation](../../blueprint/automation) guide. 
 
@@ -1567,7 +1567,7 @@ The following table lists the sensitivity sub label configuration for PROTECTED/
 
 ### Sensitivity label policy
 
-Please note, the user may only need to publish the sensitivity labels (sensitivity, security classification, information management markers and caveats) that are required for the organisation or agency.
+Please note, the user may only need to publish the sensitivity labels (sensitivity, security classification, information management markers and caveats) that are required for the organisation or organisation.
 
 `Microsoft 365 compliance > Information protection > Label policies`
 
@@ -1584,7 +1584,7 @@ The following table lists the Sensitivity label policy configuration for all imp
 
 ### Data Loss Prevention (DLP) compliance policy
 
-The ABAC settings for the initial Data Loss Prevention configuration for all implementation types can be found below. Additional Sensitive information types and policies specific to the Agency's requirements should be configured, the following are a baseline configuration.
+The ABAC settings for the initial Data Loss Prevention configuration for all implementation types can be found below. Additional Sensitive information types and policies specific to the organisation's requirements should be configured, the following are a baseline configuration.
 
 `Microsoft 365 compliance > Data loss prevention > Policies`
 
@@ -1670,7 +1670,7 @@ The ABAC settings for the initial Auto-labeling configuration for all implementa
   - Locations to apply the policy:
     - Exchange
   - Policy rules: `Conditions`
-    - Recipient domain is `agency.gov.au`
+    - Recipient domain is `organisation.com.au`
     - Header matches patterns `\SEC=<classification>`
   - Choose label to auto-apply: `<Classification>`
 
@@ -1697,7 +1697,7 @@ Please note, if a setting is not mentioned below, it should be assumed to have b
 - Users and domains:
   - Users: `Not Configured`
   - Groups: `Not Configured`
-  - Domains: `All Agency domains`
+  - Domains: `All organisation domains`
 - Protection Settings:
   - Select the action for unknown potentially malicious URLs in messages: `On - URLs will be rewritten and checked against a list of known malicious links when user clicks on the link`
   - Select the action for unknown or potentially malicious URLs within Microsoft Teams: `On - Microsoft Teams will check against a list of known malicious links when user clicks on the link; URLs will not be rewritten`
@@ -1728,11 +1728,11 @@ Please note, if a setting is not mentioned below, it should be assumed to have b
 - Users and domains:
   - Users: `Not Configured`
   - Groups: `Not Configured`
-  - Domains: `All Agency domains`
+  - Domains: `All organisation domains`
 - Settings:
   - Safe Attachments unknown malware response: `Block - Block current and future messages and attachments with detected malware`
   - Enable Redirect: `Disabled`
-    - Send messages that contain blocked, monitored, or replaced attachments to the specified email address: `Agency defined`
+    - Send messages that contain blocked, monitored, or replaced attachments to the specified email address: `organisation defined`
   - Apply the Safe Attachments detection response if scanning can't complete (timeout or errors): `Enabled`
 
 ### Anti-phishing
@@ -1741,7 +1741,7 @@ Please note, if a setting is not mentioned below, it should be assumed to have b
 
 - Name: `Office365 AntiPhish Default (Default)`
 - Phishing email threshold: `2 - Aggressive`
-- Enable users to protect: `Configured - Agency executives added`
+- Enable users to protect: `Configured - organisation executives added`
 - Enabled domains to protect: `Enabled`
   - Include domains I own: `Enabled`
   - Include custom domains: `Disabled`

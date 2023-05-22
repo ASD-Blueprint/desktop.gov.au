@@ -79,9 +79,9 @@ The following table outlines the configuration settings within the profile.
 | Maximum  minutes of inactivity until screen locks            | 15  Minutes                                                  |
 | Password  expiration (days)                                  | 60                                                           |
 | Prevent  reuse of previous passwords                         | 24                                                           |
-| Require  password when device returns from idle state (Mobile and Holographic) | Require                                                      |
+| Require  password when device returns from idle state (Mobile and Holographic) | Require                                    |
 | Simple  passwords                                            | Block                                                        |
-| Preferred  Azure AD tenant domain                            | AGENCY.gov.au                                                |
+| Preferred  Azure AD tenant domain                            | ORGANISATION.com.au                                          |
 | **Reporting and Telemetry**                                  |                                                              |
 | Share  usage data                                            | Diagnostic  data off                                         |
 | **Search**                                                   |                                                              |
@@ -118,23 +118,23 @@ The following table outlines the settings within the profile.
 | ------------------------------------------------------------ | ------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Allow user-level native messaging hosts (installed   without admin permissions) | Device | \Microsoft Edge\Native Messaging                             | Disabled                                                     |
 | Allow users to proceed from  the HTTPS warning page          | Device | \Microsoft Edge                                              | Disabled                                                     |
-| Enable saving passwords to  the password manager             | Device | \Microsoft Edge\Password  manager and protection             | Disabled                                                     |
+| Enable saving passwords to  the password manager             | Device | \Microsoft Edge\Password manager and protection              | Disabled                                                     |
 | Intranet Sites: Include all  network paths (UNCs)            | Device | \Windows Components\Internet  Explorer\Internet Control Panel\Security Page | Disabled                                                     |
 | Ads setting for sites with  intrusive ads                    | Device | \Microsoft Edge                                              | Enabled – Block ads on sites  with intrusive ads. (Default value) |
 | Block access to a list of  URLs                              | Device | \Microsoft Edge                                              | Enabled AGENCY to configure                                  |
 | Block all ads on Bing search  results                        | Device | \Microsoft Edge                                              | Enabled                                                      |
 | Configure Do Not Track                                       | Device | \Microsoft Edge                                              | Enabled                                                      |
-| Configure Microsoft Defender  SmartScreen                    | Device | \Microsoft Edge\SmartScreen  settings                        | Enabled                                                      |
-| Configure Microsoft Defender  SmartScreen to block potentially unwanted apps | Device | \Microsoft Edge\SmartScreen  settings                        | Enabled                                                      |
+| Configure Microsoft Defender  SmartScreen                    | Device | \Microsoft Edge\SmartScreen settings                         | Enabled                                                      |
+| Configure Microsoft Defender  SmartScreen to block potentially unwanted apps | Device | \Microsoft Edge\SmartScreen settings         | Enabled                                                      |
 | Control where developer  tools can be used                   | Device | \Microsoft Edge                                              | Enabled – Don’t allow using  the developer tools             |
 | Control which extensions are  installed silently             | Device | \Microsoft Edge\Extensions                                   | Enabled – AGENCY to configure                                |
 | Control which extensions  cannot be installed                | Device | \Microsoft Edge\Extensions                                   | Enabled                                                      |
 | Default Adobe Flash setting  (obsolete)                      | Device | \Microsoft Edge\Content  settings                            | Enabled – Block the Adobe  Flash plugin                      |
 | Enable site isolation for  every site                        | Device | \Microsoft Edge                                              | Enabled                                                      |
-| Force Microsoft Defender  SmartScreen checks on downloads from trusted sources | Device | \Microsoft Edge\SmartScreen  settings                        | Enabled                                                      |
+| Force Microsoft Defender  SmartScreen checks on downloads from trusted sources | Device | \Microsoft Edge\SmartScreen settings       | Enabled                                                      |
 | Minimum TLS version enabled  (deprecated)                    | Device | \Microsoft Edge                                              | Enabled – TLS 1.2                                            |
-| Prevent bypassing Microsoft  Defender SmartScreen prompts for sites | Device | \Microsoft Edge\SmartScreen  settings                        | Enabled                                                      |
-| Prevent bypassing of  Microsoft Defender SmartScreen warnings about downloads | Device | \Microsoft Edge\SmartScreen  settings                        | Enabled                                                      |
+| Prevent bypassing Microsoft  Defender SmartScreen prompts for sites | Device | \Microsoft Edge\SmartScreen settings                  | Enabled                                                      |
+| Prevent bypassing of  Microsoft Defender SmartScreen warnings about downloads | Device | \Microsoft Edge\SmartScreen settings        | Enabled                                                      |
 | Prevent downloading of  enclosures                           | Device | \Windows Components\RSS  Feeds                               | Enabled                                                      |
 | Supported authentication  schemes                            | Device | \Microsoft Edge\HTTP  authentication                         | Enabled - ntlm,negotiate                                     |
 | Default pop-up window  setting                               | Device | \Microsoft Edge\Content  settings                            | Enabled: Do not allow any  site to show popups               |
@@ -1023,7 +1023,7 @@ The following table outlines the policy is created for all implementation types.
 | Policy Name        | ACSC - Defender Firewall       |
 | Profile            | Microsoft Defender Firewall    |
 | Platform supported | Windows 10 and later           |
-| Groups excluded    | 1                              |
+| Groups excluded    | 0                              |
 | Assigned           | Yes                            |
 | Groups assigned    | All Devices                    |
 
@@ -1078,7 +1078,7 @@ Each firewall rule policy can contain up to 150 individual rules. Guidance on cr
 | Policy Name        | ACSC - Defender Firewall Rules  #(number) |
 | Profile            | Microsoft Defender Firewall Rules|
 | Platform supported | Windows 10 and later           |
-| Groups excluded    | 1                              |
+| Groups excluded    | 0                              |
 | Assigned           | Yes                            |
 | Groups assigned    | All Devices                    |
 
@@ -1095,7 +1095,7 @@ The following table outlines the policy is created for all implementation types.
 | Policy Name        | ACSC - Endpoint Detection and Response |
 | Profile            | Endpoint Detection and Response        |
 | Platform supported | Windows 10 and later                   |
-| Groups excluded    | 1                                      |
+| Groups excluded    | 0                                      |
 | Assigned           | Yes                                    |
 | Groups assigned    | All Devices                            |
 
@@ -1121,7 +1121,7 @@ The following table outlines the policy is created for all implementation types.
 | Policy Name        | ACSC - Attack Surface Reduction |
 | Profile            | Attack surface reduction rules  |
 | Platform supported | Windows 10 and later            |
-| Groups excluded    | 1                               |
+| Groups excluded    | 0                               |
 | Assigned           | Yes                             |
 | Groups assigned    | All Devices                     |
 
@@ -1158,7 +1158,7 @@ The following table outlines the policy is created for all implementation types.
 | Policy Name        | ACSC - Device Control           |
 | Profile            | Device Control                  |
 | Platform supported | Windows 10 and later            |
-| Groups excluded    | 1                               |
+| Groups excluded    | 0                               |
 | Assigned           | Yes                             |
 | Groups assigned    | All Devices                     |
 
@@ -1189,7 +1189,7 @@ The following table outlines the policy is created for all implementation types.
 | Policy Name        | ACSC - Application Guard        |
 | Profile            | App and browser isolation       |
 | Platform supported | Windows 10 and later            |
-| Groups excluded    | 1                               |
+| Groups excluded    | 0                               |
 | Assigned           | Yes                             |
 | Groups assigned    | All Devices                     |
 
@@ -1210,7 +1210,7 @@ The following table outlines the policy is created for all implementation types.
 | Policy Name        | ACSC - Exploit Protection       |
 | Profile            | Exploit protection              |
 | Platform supported | Windows 10 and later            |
-| Groups excluded    | 1                               |
+| Groups excluded    | 0                               |
 | Assigned           | Yes                             |
 | Groups assigned    | All Devices                     |
 
@@ -1232,7 +1232,7 @@ The following table outlines the policy is created for all implementation types.
 | Policy Name        | ACSC - Account Protection      |
 | Profile            | Account protection (preview)   |
 | Platform supported | Windows 10 and later           |
-| Groups excluded    | 1                              |
+| Groups excluded    | 0                              |
 | Assigned           | Yes                            |
 | Groups assigned    | All Devices                    |
 

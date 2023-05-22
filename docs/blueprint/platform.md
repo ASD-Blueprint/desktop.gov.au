@@ -261,17 +261,28 @@ Azure MFA provides multiple verification methods, such as:
 
 Azure MFA integrates with Azure AD Conditional Access policies, or the Trusted IP ranges feature to determine under what circumstances and user's physical location a challenge for additional authentication is required . Conditional Access policies are the recommended method to determine MFA conditions.
 
-Azure AD Multifactor Authentication Design Decisions for all agencies and implementation types.
+Decision Point | Design Decision | Justification
+--- | --- | ---
+MFA | Configured – Mobile App (Push and OTP) | To enforce MFA for third-party internet-facing services (M365), administrators, and important data repositories.
+Hardware Token Support | Allowed (supported OATH tokens only) | Hardware token support is required to support specific use cases, such as working locations that may not allow mobile phones, or users may have a specific physical token, biometrics, or smartcard justification. 
+Trusted IP | Not configured | MFA is required regardless of the location the authentication request is originating from.
+
+#### Microsoft Authenticator
+
+To further enhance the security of Azure MFA, the following capabilities can be enabled for Microsoft Authenticator via Authentication methods in Azure AD:
+
+- Number matching - Rather than receiving a push notification with the traditional Approve and Deny options, instead the user is prompted to enter a two-digital number presented by the service/application attempting to authenticate to Azure AD (e.g., from the browser). 
+- Additional context - Presents the user with additional information within Microsoft Authenticator, including the app attempting to authenticate and the location of the authentication request, to enable them to determine if the request is legitimate and should be approved.
+
+Microsoft Authenticator can also be used to enable users to perform passwordless authentication.
+
+Note, as of January 2023, Microsoft Authenticator is not considered phishing-resistant/verifier impersonation resistant. Microsoft have stated that [Microsoft Authenticator native phishing resistance is in development](https://learn.microsoft.com/en-au/azure/active-directory/standards/memo-22-09-multi-factor-authentication). 
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-MFA | Configured – Mobile App – soft token code | Native Azure MFA will be configured to secure access to applications and desktops from outside of the environment, and any system administration functions. Use of a mobile app for verification instead of SMS message or phone call reduces any possibility of hack by cloning or swapping a sim card.<br> The ACSC recommends implementing soft tokens without push notifications.
-Hardware Token Support | Allowed (supported OATH tokens only)  | The default method will be to use soft tokens which will meet maturity level 2 of the Essential Eight, although hardware tokens will be allowed. Hardware token support is required to support some use cases. Some working locations may not allow mobile phones, or users may have a specific physical token, biometrics or smartcard justification. Having tokens that are "verifier impersonation resistant" is a requirement to achieve Essential Eight maturity level 3 for MFA. 
-Trusted IP | Not configured | Conditional Access policies will be used in place of the legacy 'Trusted IP' feature. Trusted egress IP addresses (if required) will be defined by Conditional Access. 
-MFA for Administration | Configured | Administration through the Azure Portal and other Cloud Apps will require MFA.
-MFA for User Apps | Configured | MFA is required.
-
-Note: OATH tokens are to be purchased separately if required.
+Authentication mode | Push | To enable enhanced MFA capabilities without enabling passwordless authentication.
+Number matching | Enabled | To reduce the risk of push notification MFA fatigue attacks.
+Additional context | Enabled | To assist users in identifying legitimate MFA requests.
 
 ### Conditional Access
 

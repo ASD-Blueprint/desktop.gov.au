@@ -431,6 +431,27 @@ The following ABAC settings outlines the multifactor authentication configuratio
 - Automatically block users who report fraud: `On`
 - Code to report fraud during initial greeting: `0`
 
+`Azure Active Directory > Security > Authentication methods`
+
+* FIDO2 security key: `Not configured`
+* Microsoft Authentication: `Enabled`
+* SMS (preview): `Not configured`
+* Temporary Access Pass: `Not configured`
+* Third-party software OATH tokens (preview): `Not configured`
+* Voice call (preview): `Not configured`
+* Email OTP (preview): `Not configured`
+* Certificate-based authentication: `Not configured`
+
+`Azure Active Directory > Security > Authentication methods > Microsoft Authentication`
+
+* Enable and Target: `Enable`
+* Include: `All users`
+* Authentication mode: `Push`
+* Allow use of Microsoft Authenticator OTP: `Yes`
+* Require number matching for push notifications: `Enabled, All users`
+* Show application name in push and passwordless notifications: `Enabled, All users`
+* Show geographic location in push and passwordless notifications: `Enabled, All users` 
+
 ### Hybrid Identity - Azure AD Connect (hybrid implementation types only)
 
 The following ABAC settings outlines the Azure AD connect configuration for hybrid implementation types only.

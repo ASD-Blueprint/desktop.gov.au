@@ -27,7 +27,7 @@ The following table outlines the profile is created for all implementation types
 | Platform supported | Windows 10 and later           |
 | Groups excluded    | 0                              |
 | Assigned           | Yes                            |
-| Groups assigned    | `grp-agency-windows10-dynamic` |
+| Groups assigned    | All Devices                    |
 
 The following table outlines the OMA-URI settings within the profile.
 
@@ -47,7 +47,7 @@ The following table outlines the profile is created for all implementation types
 | Platform supported | Windows 10 and later           |
 | Groups excluded    | 0                              |
 | Assigned           | Yes                            |
-| Groups assigned    | `grp-agency-windows10-dynamic` |
+| Groups assigned    | All Devices                    |
 
 The following table outlines the configuration settings within the profile.
 
@@ -110,7 +110,7 @@ The following table outlines the profile is created for all implementation types
 | Platform supported | Windows 10 and later           |
 | Groups excluded    | 0                              |
 | Assigned           | Yes                            |
-| Groups assigned    | `grp-agency-windows10-dynamic` |
+| Groups assigned    | All Devices                    |
 
 The following table outlines the settings within the profile.
 
@@ -153,7 +153,7 @@ The following table outlines the profile is created for all implementation types
 | Platform supported | Windows 10 and later           |
 | Groups excluded    | 0                              |
 | Assigned           | Yes                            |
-| Groups assigned    | `grp-agency-windows10-dynamic` |
+| Groups assigned    |  All Devices                   |
 
 The following table outlines the configuration settings within the profile.
 
@@ -354,7 +354,7 @@ The following table outlines the profile is created for all implementation types
 | Platform supported | Windows 10 and later                                         |
 | Groups excluded    | 0                                                            |
 | Assigned           | Yes                                                          |
-| Groups assigned    | `grp-agency-windows10-dynamic, rol-Agency-Administrators, rol-Agency-users` |
+| Groups assigned    | `All Devices, rol-Agency-Administrators, rol-Agency-users`   |
 
 The following table outlines the settings within the profile.
 
@@ -431,7 +431,7 @@ The following table outlines the profile is created for all implementation types
 | Platform supported | Windows 10 and later            |
 | Groups excluded    | 0                               |
 | Assigned           | Yes                             |
-| Groups assigned    | `grp-agency-windows10-dynamic`  |
+| Groups assigned    | All Devices                     |
 
 The following table outlines the OMA-URI settings within the profile.
 
@@ -485,7 +485,7 @@ The following table outlines the profile is created for all implementation types
 | Platform supported | Windows 10 and later                    |
 | Groups excluded    | 0                                       |
 | Assigned           | Yes                                     |
-| Groups assigned    | `grp-agency-windows10-dynamic`          |
+| Groups assigned    | All Devices                             |
 
 The following table outlines the configuration settings within the profile.
 
@@ -516,7 +516,7 @@ The following table outlines the profile is created for all implementation types
 | Platform supported | Windows 10 and later               |
 | Groups excluded    | 0                                  |
 | Assigned           | Yes                                |
-| Groups assigned    | `grp-agency-windows10-dynamic`     |
+| Groups assigned    | All Devices                        |
 
 The following table outlines the configuration settings within the profile.
 
@@ -528,14 +528,14 @@ The following table outlines the configuration settings within the profile.
 
 The following table outlines the profile is created for all implementation types.
 
-| Item               | Configuration                                          |
-| ------------------ | ------------------------------------------------------ |
-| Profile Name       | Blueprint - OneDrive Device                      |
-| Profile type       | Administrative templates                               |
-| Platform supported | Windows 10 and later                                   |
-| Groups excluded    | 0                                                      |
-| Assigned           | Yes                                                    |
-| Groups assigned    | `grp-agency-windows10-dynamic` |
+| Item               | Configuration                      |
+| ------------------ | -----------------------------------|
+| Profile Name       | Blueprint - OneDrive Device        |
+| Profile type       | Administrative templates           |
+| Platform supported | Windows 10 and later               |
+| Groups excluded    | 0                                  |
+| Assigned           | Yes                                |
+| Groups assigned    |  All Devices                       |
 
 The following table outlines the settings within the profile.
 
@@ -554,12 +554,12 @@ The following table outlines the profile is created for all implementation types
 
 | Item               | Configuration                                       |
 | ------------------ | --------------------------------------------------- |
-| Profile Name       | Blueprint - OneDrive User                     |
+| Profile Name       | Blueprint - OneDrive User                           |
 | Profile type       | Administrative templates                            |
 | Platform supported | Windows 10 and later                                |
 | Groups excluded    | 0                                                   |
 | Assigned           | Yes                                                 |
-| Groups assigned    | `rol-Agency-users, rol-Agency-Administrators` |
+| Groups assigned    | `rol-Agency-users, rol-Agency-Administrators`       |
 
 The following table outlines the settings within the profile.
 
@@ -574,12 +574,12 @@ The following table outlines the profile is created for all implementation types
 
 | Item               | Configuration                               |
 | ------------------ | ------------------------------------------- |
-| Profile Name       | Custom - Desktop Configuration CSP |
+| Profile Name       | Custom - Desktop Configuration CSP          |
 | Profile type       | Custom                                      |
 | Platform supported | Windows 10 and later                        |
 | Groups excluded    | 0                                           |
 | Assigned           | Yes                                         |
-| Groups assigned    | `grp-agency-windows10-dynamic`              |
+| Groups assigned    | All Devices                                 |
 
 The following table outlines the OMA-URI settings within the profile.
 
@@ -594,12 +594,12 @@ The following table outlines the profile is created for all implementation types
 
 | Item               | Configuration                         |
 | ------------------ | ------------------------------------- |
-| Profile Name       | Custom - Device Restrictions |
+| Profile Name       | Custom - Device Restrictions          |
 | Profile type       | Device Restrictions                   |
 | Platform supported | Windows 10 and later                  |
 | Groups excluded    | 0                                     |
 | Assigned           | Yes                                   |
-| Groups assigned    | `grp-agency-windows10-dynamic`        |
+| Groups assigned    | All Devices                           |
 
 The following table outlines the configuration settings within the profile.
 
@@ -618,12 +618,12 @@ The following table outlines the profile is created for all implementation types
 
 | Item               | Configuration                                                |
 | ------------------ | ------------------------------------------------------------ |
-| Profile Name       | Custom - Edge Browser                               |
+| Profile Name       | Custom - Edge Browser                                        |
 | Profile type       | Administrative templates                                     |
 | Platform supported | Windows 10 and later                                         |
 | Groups excluded    | 0                                                            |
 | Assigned           | Yes                                                          |
-| Groups assigned    | `grp-agency-windows10-dynamic, rol-Agency-Administrators, rol-Agency-users` |
+| Groups assigned    | `All Devices, rol-Agency-Administrators, rol-Agency-users`   |
 
 The following table outlines the settings within the profile.
 
@@ -648,12 +648,12 @@ The following table outlines the profile is created for all implementation types
 
 | Item               | Configuration                                  |
 | ------------------ | ---------------------------------------------- |
-| Profile Name       | Custom - Interactive Logon Banner CSP |
+| Profile Name       | Custom - Interactive Logon Banner CSP          |
 | Profile type       | Custom                                         |
 | Platform supported | Windows 10 and later                           |
 | Groups excluded    | 0                                              |
 | Assigned           | Yes                                            |
-| Groups assigned    | `grp-agency-windows10-dynamic`                 |
+| Groups assigned    | All Devices                                    |
 
 The following table outlines the OMA-URI settings within the profile.
 
@@ -668,12 +668,12 @@ The following table outlines the profile is created for all implementation types
 
 | Item               | Configuration                                              |
 | ------------------ | ---------------------------------------------------------- |
-| Profile Name       | Custom - Windows Defender Application Control CSP |
+| Profile Name       | Custom - Windows Defender Application Control CSP          |
 | Profile type       | Custom                                                     |
 | Platform supported | Windows 10 and later                                       |
 | Groups excluded    | 0                                                          |
 | Assigned           | Yes                                                        |
-| Groups assigned    | `grp-agency-windows10-dynamic`                             |
+| Groups assigned    | All Devices                                                |
 
 The following table outlines the OMA-URI settings within the profile.
 
@@ -884,7 +884,7 @@ The following table outlines the policy is created for all implementation types.
 | Platform supported | Windows 10 and later           |
 | Groups excluded    | 0                              |
 | Assigned           | Yes                            |
-| Groups assigned    | `grp-agency-windows10-dynamic` |
+| Groups assigned    | All Devices                    |
 
 The following table outlines the settings within the policy.
 
@@ -944,7 +944,7 @@ The following table outlines the policy is created for all implementation types.
 | Platform supported | Windows 10 and later           |
 | Groups excluded    | 0                              |
 | Assigned           | Yes                            |
-| Groups assigned    | `grp-agency-windows10-dynamic` |
+| Groups assigned    | All Devices                    |
 
 The following table outlines the settings within the policy.
 
@@ -968,7 +968,7 @@ The following table outlines the policy is created for all implementation types.
 | Platform supported | Windows 10 and later           |
 | Groups excluded    | 0                              |
 | Assigned           | Yes                            |
-| Groups assigned    | `grp-agency-windows10-dynamic` |
+| Groups assigned    | All Devices                    |
 
 The following table outlines the settings within the policy.
 
@@ -1025,7 +1025,7 @@ The following table outlines the policy is created for all implementation types.
 | Platform supported | Windows 10 and later           |
 | Groups excluded    | 1                              |
 | Assigned           | Yes                            |
-| Groups assigned    | `grp-agency-windows10-dynamic` |
+| Groups assigned    | All Devices                    |
 
 The following table outlines the settings within the policy.
 
@@ -1080,7 +1080,7 @@ Each firewall rule policy can contain up to 150 individual rules. Guidance on cr
 | Platform supported | Windows 10 and later           |
 | Groups excluded    | 1                              |
 | Assigned           | Yes                            |
-| Groups assigned    | `grp-agency-windows10-dynamic` |
+| Groups assigned    | All Devices                    |
 
 The exact firewall rules imported are specific to the agency reference computer and will vary depending on Windows version and build.
 
@@ -1097,7 +1097,7 @@ The following table outlines the policy is created for all implementation types.
 | Platform supported | Windows 10 and later                   |
 | Groups excluded    | 1                                      |
 | Assigned           | Yes                                    |
-| Groups assigned    | `grp-agency-windows10-dynamic`         |
+| Groups assigned    | All Devices                            |
 
 The following table outlines the settings within the policy.
 
@@ -1123,7 +1123,7 @@ The following table outlines the policy is created for all implementation types.
 | Platform supported | Windows 10 and later            |
 | Groups excluded    | 1                               |
 | Assigned           | Yes                             |
-| Groups assigned    | `grp-agency-windows10-dynamic`  |
+| Groups assigned    | All Devices                     |
 
 The following table outlines the settings within the policy.
 
@@ -1160,7 +1160,7 @@ The following table outlines the policy is created for all implementation types.
 | Platform supported | Windows 10 and later            |
 | Groups excluded    | 1                               |
 | Assigned           | Yes                             |
-| Groups assigned    | `grp-agency-windows10-dynamic`  |
+| Groups assigned    | All Devices                     |
 
 The following table outlines the settings within the policy.
 
@@ -1191,7 +1191,7 @@ The following table outlines the policy is created for all implementation types.
 | Platform supported | Windows 10 and later            |
 | Groups excluded    | 1                               |
 | Assigned           | Yes                             |
-| Groups assigned    | `grp-agency-windows10-dynamic`  |
+| Groups assigned    | All Devices                     |
 
 The following table outlines the settings within the policy.
 
@@ -1212,7 +1212,7 @@ The following table outlines the policy is created for all implementation types.
 | Platform supported | Windows 10 and later            |
 | Groups excluded    | 1                               |
 | Assigned           | Yes                             |
-| Groups assigned    | `grp-agency-windows10-dynamic`  |
+| Groups assigned    | All Devices                     |
 
 The following table outlines the settings within the policy.
 
@@ -1234,7 +1234,7 @@ The following table outlines the policy is created for all implementation types.
 | Platform supported | Windows 10 and later           |
 | Groups excluded    | 1                              |
 | Assigned           | Yes                            |
-| Groups assigned    | `grp-agency-windows10-dynamic` |
+| Groups assigned    | All Devices                    |
 
 The following table outlines the settings within the policy.
 
@@ -1282,5 +1282,5 @@ Scripts can be found within the following console node  `Microsoft Endpoint Mana
   - Run script in 64 bit PowerShell Host: `No`
 - Scope tags: `Default`
 - Assignments
-  - Included groups: ``grp-agency-windows10-dynamic``
+  - Included groups: ``All Devices``
   - Excluded groups: -

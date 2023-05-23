@@ -14,6 +14,11 @@
     --md-accent-bg-color: #fff;
     --md-accent-bg-color--light: #ffffffb3;
 }
+/* Underline for Links */
+article * a {
+    cursor: pointer;
+    text-decoration: underline;
+}
 /* Align Markdown - Image Center */
 img[src*='#center'] {
     display: block;

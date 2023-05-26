@@ -16,8 +16,8 @@ Item | Value
 --- | ---
 Windows Edition | Windows 10 Enterprise
 System Type | 64-bit Operating System
-Windows Servicing Channel | Semi-Annual
-Windows Version | 21H1 
+Windows Servicing Channel | General Availability
+Windows Version | 21H2 
 
 ## Task sequence prerequisites
 

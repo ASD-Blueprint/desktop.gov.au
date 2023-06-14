@@ -890,7 +890,7 @@ The following table describes the Malware Filter configuration settings for all 
 | Item                                       | Configuration                       |
 | ------------------------------------------ | ----------------------------------- |
 | Name                                       | Default (Default)                   |
-| Enable the common attachements filter      | Checked                             |
+| Enable the common attachments filter       | Checked                             |
 | Filter file types                          | ace,ani,app,exe,jar,reg,scr,vbe,vbs |
 | Enable zero-hour auto purge for malware    | Checked                             |
 | Admin notifications (internal senders)     | Checked                             |

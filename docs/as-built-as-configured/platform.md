@@ -16,11 +16,11 @@ The following ABAC settings outlines the Azure Active Directory configuration fo
 
 `Azure Active Directory > Properties`
 
-- Name: `<Agency Name>`
+- Name: `<Organisation Name>`
 - Country or Region: `Australia`
 - Location: `Australian datacenters`
 - Notification language: `English`
-- Technical Contact: `<username>@<Agency>.gov.au`
+- Technical Contact: `<username>@organisation.com.au`
 - Global privacy contact: `Not configured`
 - Privacy Statement URL: `Not configured`
 - Access management for Azure Resources: `No`
@@ -60,7 +60,7 @@ The following ABAC settings outlines the Azure Active Directory configuration fo
 - Collaboration restrictions
   - Allow invitations only to the specified domains (most restrictive): `Selected`
   - Target domains:
-    - `<Agency>.gov.au`
+    - `organisation.com.au`
 
 `Azure Active Directory > External Identities > Configured identity providers `
 
@@ -80,7 +80,7 @@ The following ABAC settings outlines the Azure Active Directory configuration fo
 `Azure Active Directory > Groups > Expiration`
 
 - Group lifetime (in days): `365`
-- Email contact for groups with no owners: `Office365_Group_Expiration@<Agency>.gov.au`
+- Email contact for groups with no owners: `Office365_Group_Expiration@organisation.com.au`
 - Enable expiration for these Microsoft 365 groups: `All`
 
 `Azure Active Directory > Groups > Naming policy`
@@ -89,16 +89,16 @@ The following ABAC settings outlines the Azure Active Directory configuration fo
 
 `Azure Active Directory > Custom domain names`
 
-- `<Agency>.gov.au (Primary)`
-- `<Agency>.onmicrosoft.com`
+- `organisation.com.au (Primary)`
+- `organisation.onmicrosoft.com`
 
 `Azure Active Directory > Company branding`
 
 - Locale: `Default`
   - Sign-in Page background image (1920x1080px):	Generic Australian Government Background
   - Banner logo (280x60px): Generic Australian Government Logo
-  - Username hint: `user@agency.gov.au`
-  - Sign-in page text: `<insert agency logon banner/disclaimer warning message>`
+  - Username hint: `user@Organisation.gov.au`
+  - Sign-in page text: `<insert Organisation logon banner/disclaimer warning message>`
     Note: User terms are configured using Conditional Access Policies.
   - Sign-in page background color: -
   - Square logo image (240x240px): Generic Australian Government Logo
@@ -120,7 +120,7 @@ The following ABAC settings outlines the Azure Active Directory configuration fo
 `Azure Active Directory > Password reset > Properties`
 
 - Self-service password reset enabled: `Selected`
-- Select group: `rol-Agency-Users`
+- Select group: `rol-Organisation-Users`
 
 `Azure Active Directory > Password reset > Authentication methods`
 
@@ -168,52 +168,52 @@ The following ABAC settings outlines the Microsoft 365 groups configuration for 
 
 `Azure Active Directory > Groups > Naming policy`
 
-- Group naming policy: `Agency to define`
+- Group naming policy: `Organisation to define`
 
 `Azure Active Directory > Groups > Expiration`
 
 - Group lifetime (in days): `365`
-- Email contact for groups with no owners: `Office365_Group_Expiration@<Agency>.gov.au`
+- Email contact for groups with no owners: `Office365_Group_Expiration@organisation.com.au`
 - Enable expiration for these Microsoft 365 groups: `All`
 
 `Azure Active Directory > Groups`
 
-- Group Name: `grp-<Agency Acronym>O365-Outlook`
+- Group Name: `grp-<Organisation Acronym>O365-Outlook`
   - Implementation types: `all`
   - Membership type: `Assigned`
   - Source: `Cloud`
   - Type: `Office`
-  - Email: `grp-<Agency Acronym>o365-outlook@<Agency>.gov.au`
-  - Members: `<Agency User>`
-  - Owners: `<Agency User>`
+  - Email: `grp-<Organisation Acronym>o365-outlook@organisation.com.au`
+  - Members: `<Organisation User>`
+  - Owners: `<Organisation User>`
   - Group membership: `None`
   - Applications: `None`
   - Licenses: `None`
   - Azure role assignment: `None`
-- Group Name: `grp-<Agency Acronym>o365-Teams`
+- Group Name: `grp-<Organisation Acronym>o365-Teams`
   - Implementation types: `all`
   - Membership type: `Assigned`
   - Source: `Cloud`
   - Type: `Office`
-  - Email: `grp-<Agency Acronym>o365-teams@<Agency>.gov.au`
-  - Members: `<Agency User>`
-  - Owners: `<Agency User>`
+  - Email: `grp-<Organisation Acronym>o365-teams@organisation.com.au`
+  - Members: `<Organisation User>`
+  - Owners: `<Organisation User>`
   - Group membership: `None`
   - Applications: `None`
   - Licenses: `None`
   - Azure role assignment: `None`
-- Group Name: `rol-Agency-administrators`
+- Group Name: `rol-Organisation-administrators`
   - Implementation types: `all`
   - Membership type: `Assigned`
   - Source: `Cloud`
   - Type: `Security`
   - Members: `None admin accounts`
-  - Owners: `<Agency Owner> (Admin)`
+  - Owners: `<Organisation Owner> (Admin)`
   - Group membership: `None`
   - Applications: `None`
   - Licenses: `Microsoft 365 E5`
   - Azure role assignment: `None`
-- Group Name: `rol-Agency-users`
+- Group Name: `rol-Organisation-users`
   - Implementation types: `Hybrid`
   - Membership type: `Assigned`
   - Source: `Windows server AD` 
@@ -224,7 +224,7 @@ The following ABAC settings outlines the Microsoft 365 groups configuration for 
   - Applications: `None`
   - Licenses: `Microsoft 365 E5`
   - Azure role assignment: `None`
-- Group Name: `rol-Agency-users`
+- Group Name: `rol-Organisation-users`
   - Implementation types: `Cloud`
   - Membership type: `Assigned`
   - Source: `Cloud ` 
@@ -266,11 +266,11 @@ The following ABAC settings outlines the Microsoft 365 groups configuration for 
   - Applications: `None`
   - Licenses: `None`
   - Azure role assignment: `None
-- Group Name: `rol-AgencyName-o365groupcreators`
+- Group Name: `rol-OrganisationName-o365groupcreators`
   - Membership type: `Assigned`
   - Source: `Cloud`
   - Type: `Security`
-  - Members: `<Agency User>`
+  - Members: `<Organisation User>`
   - Owners: `None`
   - Group membership: `None`
   - Applications: `None`
@@ -280,7 +280,7 @@ The following ABAC settings outlines the Microsoft 365 groups configuration for 
   - Membership type: `Assigned`
   - Source: `Cloud`
   - Type: `Security`
-  - Members: `<Agency User>`
+  - Members: `<Organisation User>`
   - Owners: `None`
   - Group membership: `None`
   - Applications: `None`
@@ -290,17 +290,17 @@ The following ABAC settings outlines the Microsoft 365 groups configuration for 
   - Membership type: `Assigned`
   - Source: `Cloud`
   - Type: `Security`
-  - Members: `<Agency User>`
+  - Members: `<Organisation User>`
   - Owners: `None`
   - Group membership: `None`
   - Applications: `None`
   - Licenses: `None`
   - Azure role assignment: `None`
-- Group Name: `rol-Agency-log-admin`
+- Group Name: `rol-Organisation-log-admin`
   - Membership type: `Assigned`
   - Source: `Cloud`
   - Type: `Security`
-  - Members: `<Agency User>`
+  - Members: `<Organisation User>`
   - Owners: `None`
   - Group membership: `None`
   - Applications: `None`
@@ -312,7 +312,7 @@ The following ABAC settings outlines the Microsoft 365 groups configuration for 
 Delegation of 365 Group creation is set through [Azure AD (preview module) PowerShell for Graph](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). For reference see [manage creation of groups](https://docs.microsoft.com/en-us/microsoft-365/solutions/manage-creation-of-groups?view=o365-worldwide).
 
 ```powershell
-$GroupName = "rol-<AgencyName>-o365groupcreators"
+$GroupName = "rol-<OrganisationName>-o365groupcreators"
 $AllowGroupCreation = $False
 
 Connect-AzureAD
@@ -357,12 +357,12 @@ The following ABAC settings outlines the emergency access admin (break glass) ac
 
 `Azure Active Directory > Users > Break Glass > Groups`
 
-- Name: `Excluded from CA`, `rol-Agency-administrators`, `<Agency Name>`, `All Users`
+- Name: `Excluded from CA`, `rol-Organisation-administrators`, `<Organisation Name>`, `All Users`
 
 `Azure Active Directory > Users > Break Glass > Licenses`
 
 - Products: `None`
-- Assignment Paths: `Inherited (rol-Agency-administrators)`
+- Assignment Paths: `Inherited (rol-Organisation-administrators)`
 
 ### Azure Active Directory Identity Protection
 
@@ -390,8 +390,8 @@ The following ABAC settings outlines the Identity Protection configuration for a
 
   | Implementation | Accounts to exclude                                          |
   | -------------- | ------------------------------------------------------------ |
-  | Cloud-native   | `break.glass_priv1@<Agency>.onmicrosoft.com`<br>`break.glass_priv2@<Agency>.onmicrosoft.com` |
-  | Hybrid         | `break.glass_priv1@<Agency>.onmicrosoft.com`<br>`break.glass_priv2@<Agency>.onmicrosoft.com`<br>`Sync_<account_1>_<account guid>@<Agency>.onmicrosoft.com`<br>`Sync_<account_2>_<account guid>@<Agency>.onmicrosoft.com` |
+  | Cloud-native   | `break.glass_priv1@organisation.onmicrosoft.com`<br>`break.glass_priv2@organisation.onmicrosoft.com` |
+  | Hybrid         | `break.glass_priv1@organisation.onmicrosoft.com`<br>`break.glass_priv2@organisation.onmicrosoft.com`<br>`Sync_<account_1>_<account guid>@organisation.onmicrosoft.com`<br>`Sync_<account_2>_<account guid>@organisation.onmicrosoft.com` |
 
   Sign-in risk settings: `Medium and above`
 
@@ -406,8 +406,8 @@ The following ABAC settings outlines the Identity Protection configuration for a
 
   | Implementation | Accounts to exclude                                          |
   | -------------- | ------------------------------------------------------------ |
-  | Cloud-native   | `break.glass_priv1@<Agency>.onmicrosoft.com`<br>`break.glass_priv2@<Agency>.onmicrosoft.com` |
-  | Hybrid         | `break.glass_priv1@<Agency>.onmicrosoft.com`<br>`break.glass_priv2@<Agency>.onmicrosoft.com`<br>`Sync_<account_1>_<account guid>@<Agency>.onmicrosoft.com`<br>`Sync_<account_2>_<account guid>@<Agency>.onmicrosoft.com` |
+  | Cloud-native   | `break.glass_priv1@organisation.onmicrosoft.com`<br>`break.glass_priv2@organisation.onmicrosoft.com` |
+  | Hybrid         | `break.glass_priv1@organisation.onmicrosoft.com`<br>`break.glass_priv2@organisation.onmicrosoft.com`<br>`Sync_<account_1>_<account guid>@organisation.onmicrosoft.com`<br>`Sync_<account_2>_<account guid>@organisation.onmicrosoft.com` |
 
   User risk setting: `Medium and above`
 
@@ -460,8 +460,8 @@ Primary Azure AD Connect settings
 
 - Installation Mode: `Custom`
 - SQL Mode: `Local DB`
-- Directory to connect to: `<Agency>.gov.au`
-- Source of truth for account information: `On-Premises Active Directory (<Agency>.gov.au)`
+- Directory to connect to: `organisation.com.au`
+- Source of truth for account information: `On-Premises Active Directory (organisation.com.au)`
 - User sign-in method
 ```
 Selected - Pass-through authentication
@@ -471,12 +471,12 @@ Not selected – Federation with PingFederate
 ```
 - Enable Single Sign-on: `Enabled`
 - Directory Type: `Active Directory`
-- Forest for Configured Directories: `<agency_forest_name>.local`
-- Active Directory UPN Suffix: `<Agency>.gov.au`
+- Forest for Configured Directories: `<Organisation_forest_name>.local`
+- Active Directory UPN Suffix: `organisation.com.au`
 - Azure AD Domain: `Verified`
 - Attribute used for login: `userPrincipalName   (User ID)`
 - Domain and OU filtering
-  - Directory: `<agency_forest_name>.local`
+  - Directory: `<Organisation_forest_name>.local`
   - Sync selected domains and OUs:
   ```
   Department
@@ -513,7 +513,7 @@ Not selected – Federation with PingFederate
 
 Standby Azure AD Connect settings:
 
-- Source of truth for account information: `On-Premises Active Directory (<Agency>.gov.au)`
+- Source of truth for account information: `On-Premises Active Directory (organisation.com.au)`
 - User sign-in method
 ```
 Selected - Pass-through authentication
@@ -523,12 +523,12 @@ Not selected – Federation with PingFederate
 ```
 - Enable Single Sign-on: `Enabled`
 - Directory Type: `Active Directory`
-- Forest for Configured Directories: `<agency_forest_name>.local`
-- Active Directory UPN Suffix: `<Agency>.gov.au`
+- Forest for Configured Directories: `<Organisation_forest_name>.local`
+- Active Directory UPN Suffix: `organisation.com.au`
 - Azure AD Domain: `Verified`
 - Attribute used for login: `userPrincipleName   (User ID)`
 - Domain and OU filtering
-  - Directory \| `<agency_forest_name>.local`
+  - Directory \| `<Organisation_forest_name>.local`
   - Sync selected domains and OUs
   ```
   Department
@@ -753,7 +753,7 @@ The following ABAC settings outlines the AD Connect authentication method config
 
 ## Privileged identity management
 
-The ABAC settings for the Agency Privileged Identity Management for all implementations types can be found below. This includes Authentication Administrator, Azure Information Protection Administrator, Global Administrator, Exchange Administrator, Helpdesk Administrator, Intune Administrator, Office Apps Administrator, Power BI Administrator, Power Platform, Privileged Role Administrator, Security Administrator, Security Operator, SharePoint Administrator, Teams Communications Administrator, Teams Communications Support Engineer, Teams Communications Support Specialist, Teams Service Administrator and User Administrator settings. Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting.
+The ABAC settings for the Organisation Privileged Identity Management for all implementations types can be found below. This includes Authentication Administrator, Azure Information Protection Administrator, Global Administrator, Exchange Administrator, Helpdesk Administrator, Intune Administrator, Office Apps Administrator, Power BI Administrator, Power Platform, Privileged Role Administrator, Security Administrator, Security Operator, SharePoint Administrator, Teams Communications Administrator, Teams Communications Support Engineer, Teams Communications Support Specialist, Teams Service Administrator and User Administrator settings. Please note, if a setting is not mentioned in the below, it should be assumed to have been left at its default setting.
 
 ### Authentication administrator
 
@@ -1873,7 +1873,7 @@ The ABAC settings for the Agency Privileged Identity Management for all implemen
 
 ### Licensing
 
-The following table describes the user (`rol-Agency-users`) licensing settings for all implementation types that are configured within the tenant available at `Azure Active Directory > Groups > All groups > rol-Agency-users > Licenses > Microsoft 365 E5`
+The following table describes the user (`rol-Organisation-users`) licensing settings for all implementation types that are configured within the tenant available at `Azure Active Directory > Groups > All groups > rol-Organisation-users > Licenses > Microsoft 365 E5`
 
 | Item                                             | Configuration |
 | ------------------------------------------------ | ------------- |
@@ -1944,9 +1944,9 @@ The following table describes the user (`rol-Agency-users`) licensing settings f
 | Windows Update for Business Deployment Service   | On            |
 | Yammer Enterprise                                | Off           |
 
-The following table describes the admin (`rol-Agency-administrators`) licensing settings for all implementation types that are configured within the tenant.
+The following table describes the admin (`rol-Organisation-administrators`) licensing settings for all implementation types that are configured within the tenant.
 
-`Azure Active Directory | Groups | All groups > rol-Agency-administrators | Licenses > Microsoft 365 E5`
+`Azure Active Directory | Groups | All groups > rol-Organisation-administrators | Licenses > Microsoft 365 E5`
 
 | Item                                             | Configuration |
 | ------------------------------------------------ | ------------- |
@@ -2057,14 +2057,14 @@ The following ABAC settings outlines the application protection policy configura
   - Exempt apps: -
 - Required settings
   - Windows Information Protection mode: `Block`
-  - Corporate identity: `<Agency>.gov.au`
+  - Corporate identity: `organisation.com.au`
 - Advanced settings
   - Network perimeter
     - Type: `Cloud resources`
     - Name: `Office365`
     - Value:
     ```
-    Agency.sharepoint.com|Agency-my.sharepoint.com|Agency-files.sharepoint.com|tasks.office.com|protection.office.com|meet.lync.com|teams.microsoft.com|www.yammer.com|yammer.com|persona.yammer.com|outlook.office.com|outlook.office365.com|attachments.office.net|Agency.crm.dynamics.com|Agency.visualstudio.com|Agency.powerbi.com
+    Organisation.sharepoint.com|Organisation-my.sharepoint.com|Organisation-files.sharepoint.com|tasks.office.com|protection.office.com|meet.lync.com|teams.microsoft.com|www.yammer.com|yammer.com|persona.yammer.com|outlook.office.com|outlook.office365.com|attachments.office.net|Organisation.crm.dynamics.com|Organisation.visualstudio.com|Organisation.powerbi.com
     ```
     - Enterprise Proxy Servers list is authoritative (do not auto-detect): `Off`
     - Enterprise IP Ranges list is authoritative (do not auto-detect): `Off`
@@ -2077,7 +2077,7 @@ The following ABAC settings outlines the application protection policy configura
     - Allow Windows Search Indexer to search encrypted items: `On`
     - Encrypted file extensions: -
 - Assignments
-  - Included groups: `rol-Agency-administrators`, `rol-Agency-users`
+  - Included groups: `rol-Organisation-administrators`, `rol-Organisation-users`
   - Excluded groups: -
 - Scope tags: `Default`
 
@@ -2162,7 +2162,7 @@ The following ABAC settings outlines the application protection policy configura
 | Min OS version            | 12.0  | Block access           |
 
 - Assignments
-  - Included groups: `rol-Agency-administrators`, `rol-Agency-users`
+  - Included groups: `rol-Organisation-administrators`, `rol-Organisation-users`
   - Excluded groups: `grp-Windows-10-Devices`
 - Scope tags: `Default`
 
@@ -2215,13 +2215,13 @@ The following ABAC settings outlines the Microsoft Defender for Endpoint policy 
 
 - Roles
   - Microsoft Defender for Endpoint administrator (default)
-    - Assigned user groups: `rol-Agency-security-defenderatp-admins`
+    - Assigned user groups: `rol-Organisation-security-defenderatp-admins`
   - Microsoft Defender for Endpoint Viewer
     - Description: `Viewer privileges`
     - View Data
       - Security operations
       - Threat and vulnerability management
-    - Assigned user groups: `rol-Agency-security-defenderatp-viewer`
+    - Assigned user groups: `rol-Organisation-security-defenderatp-viewer`
   - Microsoft Defender for Endpoint Remediation
     - Description: `Investigate and remediate alerts`
     - View Data
@@ -2234,25 +2234,25 @@ The following ABAC settings outlines the Microsoft Defender for Endpoint policy 
     - Alerts investigation
     - Live response capabilities
       - Advanced
-    - Assigned user groups: `rol-Agency-security-defenderatp-remediation`
+    - Assigned user groups: `rol-Organisation-security-defenderatp-remediation`
 - Device groups
   - Device group name: `Windows 10`
     - Rank: `1`
     - Automation level: `Full - Remediate threats automatically`
     - Members:
     ```
-    Name Starts with <Agency 3 characters>
+    Name Starts with <Organisation 3 characters>
     And Domain Starts with <Not configured>
     And Tag: Starts with <Not configured>
     And OS In <Not configured>
     ```
     - User access
-      - Azure AD user groups with access to this machine group: `rol-Agency-security-defenderatp-admins`, `rol-Agency-security-defenderatp-viewer`, `rol-Agency-security-defenderatp-remediation`
+      - Azure AD user groups with access to this machine group: `rol-Organisation-security-defenderatp-admins`, `rol-Organisation-security-defenderatp-viewer`, `rol-Organisation-security-defenderatp-remediation`
   - Device group name: `Ungrouped devices (default)`
     - Rank: `Last`
     - Automation level: `Full - Remediate threats automatically`
     - User access
-      - Azure AD user groups with access to this machine group: `rol-Agency-security-defenderatp-admins`, `rol-Agency-security-defenderatp-viewer`, `rol-Agency-security-defenderatp-remediation`  
+      - Azure AD user groups with access to this machine group: `rol-Organisation-security-defenderatp-admins`, `rol-Organisation-security-defenderatp-viewer`, `rol-Organisation-security-defenderatp-remediation`  
 
 #### APIs
 
@@ -2263,7 +2263,7 @@ The following ABAC settings outlines the Microsoft Defender for Endpoint policy 
     - Authorisation server URL: `https://login.windows.net/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/oauth2/token`
     - Resource: `https://graph.windows.net`
     - Client secret: `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`
-    - Choose the SIEM you want to configure and download details to file.: `<Agency SIEM>`
+    - Choose the SIEM you want to configure and download details to file.: `<Organisation SIEM>`
 
 #### Rules
 
@@ -2330,9 +2330,9 @@ The following ABAC settings outlines the Microsoft Defender for Cloud Apps confi
 
 - System
   - Organization details
-    - Organizations display name: `AGENCY`
-    - Environment name: `AGENCY ENVIRONMENT NAME`
-    - Managed Domains: `<Agency>.onmicrosoft.com`, `<Agency>.gov.au`
+    - Organizations display name: `Organisation`
+    - Environment name: `Organisation ENVIRONMENT NAME`
+    - Managed Domains: `organisation.onmicrosoft.com`, `organisation.com.au`
   - Mail settings
     - Email sender identity: `Default settings`
   - Export settings
@@ -2393,7 +2393,7 @@ The following ABAC settings outlines the Microsoft Defender for Cloud Apps confi
   - Azure AD Identity Protection: `Checked`
   - App Governance: `Not configured`
 - Information Protection
-  - Admin quarantine folder location: `https://<Agency>.sharepoint.com/sites/quarantine`
+  - Admin quarantine folder location: `https://organisation.sharepoint.com/sites/quarantine`
   - User notification: `Not configured`
   - Microsoft Information Protection
     - Automatically scan new files for Microsoft Information Protection classification labels and content inspection warnings: `Checked`
@@ -2408,8 +2408,8 @@ The following ABAC settings outlines the Microsoft Defender for Cloud Apps confi
 
 `Settings (Cog) > Manage admin access`
 
-- User: `<Agency User>`
-- Email: `<agency_username>@<Agency>.gov.au`
+- User: `<Organisation User>`
+- Email: `<Organisation_username>@organisation.com.au`
 - Role: `Global Admin`
 - Permission: `Full access`
 
@@ -2442,8 +2442,8 @@ The following ABAC settings outlines the Microsoft Defender for Cloud Apps confi
   - Policy name: `Break Glass Account 1 Activity`
   - Policy severity: `Medium`
   - Category: `Privileged accounts`
-  - Description: `This policy monitors break glass account called "break.glass_priv1@<Agency>.onmicrosoft.com" for all logon activity`
-  - Account to monitor: `break.glass_priv1@<Agency>.onmicrosoft.com`
+  - Description: `This policy monitors break glass account called "break.glass_priv1@organisation.onmicrosoft.com" for all logon activity`
+  - Account to monitor: `break.glass_priv1@organisation.onmicrosoft.com`
   - Act on activity: `Single activity`
   - Policy Filters
     - Office 365
@@ -2573,8 +2573,8 @@ The following ABAC settings outlines the Microsoft Defender for Cloud Apps confi
   - Policy name: `Break Glass Account 2 Activity`
   - Policy severity: `Medium`
   - Category: `Privileged accounts`
-  - Description: `This policy monitors break glass account called "break.glass_priv2@<Agency>.onmicrosoft.com" for all logon activity`
-  - Account to monitor: `break.glass_priv2@<Agency>.onmicrosoft.com`
+  - Description: `This policy monitors break glass account called "break.glass_priv2@organisation.onmicrosoft.com" for all logon activity`
+  - Account to monitor: `break.glass_priv2@organisation.onmicrosoft.com`
   - Act on activity: `Single activity`
   - Policy Filters
     - Office 365
@@ -2783,7 +2783,7 @@ The following ABAC settings outlines the Microsoft Defender for Cloud Apps confi
 
 ### Log Analytics
 
-The following ABAC settings are required for Log Analytics log aggregation for Azure AD and Endpoint Manager. The Agency requires an Azure subscription to support this configuration.
+The following ABAC settings are required for Log Analytics log aggregation for Azure AD and Endpoint Manager. The Organisation requires an Azure subscription to support this configuration.
 
 `https://portal.azure.com/ > Log Analytics workspaces > Create Log Analytics Workspace  `
 
@@ -2791,11 +2791,11 @@ The following tables describe the Log Analytics settings that are configured wit
 
 | Item                            | Configuration                                    |
 | ------------------------------- | ------------------------------------------------ |
-| Workspace Name                  | agency-log-workspace                             |
-| Azure Subscription              | Agency subscription                              |
+| Workspace Name                  | Organisation-log-workspace                             |
+| Azure Subscription              | Organisation subscription                              |
 | Region                          | Australia Central                                |
 | Log retention                   | Retention Period: 1 year<br>Data Volume Cap: Off |
-| Log Analytics Contributor Group | rol-Agency-log-admin                             |
+| Log Analytics Contributor Group | rol-Organisation-log-admin                             |
 
 #### Microsoft Endpoint Manager
 
@@ -2805,7 +2805,7 @@ The following tables describe the Log Analytics settings that are configured wit
 | ----------------------- | ------------------------------------------------------------ |
 | Diagnostic Setting Name | Send to Log Analytics                                        |
 | Log                     | AuditLogs <br>SignInLogs <br>NonInteractiveUserSignInLogs <br>ServicePrincipalSignInLogs <br>ManagedIdentitySignInLogs <br>ProvisioningLogs |
-| Destination details     | Send to Log Analytics Workspace (agency-log-workspace)       |
+| Destination details     | Send to Log Analytics Workspace (Organisation-log-workspace)       |
 
 #### Azure Active Directory
 
@@ -2815,7 +2815,7 @@ The following tables describe the Log Analytics settings that are configured wit
 | ----------------------- | ------------------------------------------------------------ |
 | Diagnostic Setting Name | Send to Log Analytics                                        |
 | Log                     | AuditLogs <br>SignInLogs <br>NonInteractiveUserSignInLogs <br>ServicePrincipalSignInLogs <br>ManagedIdentitySignInLogs <br>ProvisioningLogs<br>RiskyUsers<br>UserRiskEvents |
-| Destination details     | Send to Log Analytics Workspace (agency-log-workspace)       |
+| Destination details     | Send to Log Analytics Workspace (Organisation-log-workspace)       |
 
 ## Client configuration
 
@@ -2841,7 +2841,7 @@ The following configuration is required for Intune Co-management is for Hybrid i
 
 `Microsoft Endpoint Manager > Quick Start > Account Details`
 
-- Account Name: `<Agency>.gov.au`
+- Account Name: `organisation.com.au`
 - Account status: `Active`
 - Account location: `Australia 0101`
 
@@ -2911,19 +2911,19 @@ The following table outlines the client internet access configuration scenarios 
 
 | Implementation | Item                              | Configuration                                                |
 | -------------- | --------------------------------- | ------------------------------------------------------------ |
-| All            | Internet Access Mechanism         | As per agency pattern for Internet access.                   |
-| All            | Web Proxy  Configuration          | Proxy can be configured in Intune via the NetworkProxyCSP: `*./Vendor/MSFT/NetworkProxy` or depending on the Agency internet access pattern. |
+| All            | Internet Access Mechanism         | As per Organisation pattern for Internet access.                   |
+| All            | Web Proxy  Configuration          | Proxy can be configured in Intune via the NetworkProxyCSP: `*./Vendor/MSFT/NetworkProxy` or depending on the Organisation internet access pattern. |
 | Cloud-native   | DNS Provider                      | Existing on-premises Active Directory DNS services will be utilised. |
-| Hybrid         | DNS Provider                      | As per agency pattern for DNS services.                      |
-| All            | Office 365 Endpoint connectivity  | As per agency pattern for internet browser connectivity. Optimisation of traffic is required and recommended, see [Office 365 URLs and IP address ranges](https://docs.microsoft.com/en-us/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide) for which categories are recommended for optimisation, and those that are compatible with ExpressRoute (if applicable). |
-| Cloud-native   | Office 365 Authentication Traffic | Configured to traverse the web proxy (if part of Agency pattern). Cloud-native implementation types without a proxy that supports SSL inspection will not be able to implement tenancy whitelisting feature. |
+| Hybrid         | DNS Provider                      | As per Organisation pattern for DNS services.                      |
+| All            | Office 365 Endpoint connectivity  | As per Organisation pattern for internet browser connectivity. Optimisation of traffic is required and recommended, see [Office 365 URLs and IP address ranges](https://docs.microsoft.com/en-us/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide) for which categories are recommended for optimisation, and those that are compatible with ExpressRoute (if applicable). |
+| Cloud-native   | Office 365 Authentication Traffic | Configured to traverse the web proxy (if part of Organisation pattern). Cloud-native implementation types without a proxy that supports SSL inspection will not be able to implement tenancy whitelisting feature. |
 | Hybrid         | Office 365 Authentication Traffic | Existing on-premises proxy will be utilised for Hybrid implementation types. |
 | Cloud          | Windows Updates                   | Client Devices will retrieve updates direct from Microsoft. Windows Update for Business Update Rings are configured in Intune as per the [Software Updates ABAC](../../as-built-as-configured/intune-software-updates). |
 | Hybrid         | Windows Updates                   | Existing MECM/WSUS solution will be utilised for update retrieval.<br>Hybrid Agencies may wish to transition over to Windows Update Rings in Intune (Windows Update for Business) by moving the Windows Update Policy slider to Intune. For more information on this configuration pattern see [Windows Update for Business with management solutions](https://docs.microsoft.com/en-us/windows/deployment/update/waas-integrate-wufb). |
 
 ## Application control
 
-The ABAC settings for the Agency Application Control can be found below. Please note, if a setting is not mentioned below, it should be assumed to have been left at its default setting.
+The ABAC settings for the Organisation Application Control can be found below. Please note, if a setting is not mentioned below, it should be assumed to have been left at its default setting.
 
 ### Windows Defender Application Control
 
@@ -2942,7 +2942,7 @@ The ABAC settings for MECM managed installer are applicable to hybrid implementa
   - Use incremental updates for this collection: `enabled`
   - Schedule a full update on this collection: `enabled`
 - Application Control Policy
-  - Name: `Agency-WDAC-ManagedInstaller`
+  - Name: `Organisation-WDAC-ManagedInstaller`
   - Description: -
   - Enforcement mode: `Enforcement enabled - Only allow trusted executables to run`
   - Authorize software that is trusted by the Intelligent Security Graph: `Disabled`

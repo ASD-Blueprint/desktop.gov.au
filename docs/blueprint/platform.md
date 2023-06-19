@@ -243,7 +243,7 @@ Sign-in risk policy | Enabled | Azure AD analyses each sign-in of a user. The ob
 
 Authentication is a primary security control to protect both information assets - ranging from logging into a Windows device, to sending an email or collaborating on a document. When deploying Microsoft 365, the identity for each individual staff member is either in the cloud or both in the cloud and on-premises. Employing multiple authentication factors present a significant challenge for attackers gaining access to a system. Traditional authentication methods rely purely on something the user knows, such as a password. Note, a username does not technically count as an authentication factor. A user enters a username to only claim an identity, then must provide an authentication factor to validate this claim (identification vs authentication). Multi-Factor Authentication (MFA) is recommended by the ACSC for all users to prove a user's identity before being granted access.
 
-Multi-factor authentication is any combination of two or more authentication sources from the following categories. Biometrics are yet to be accepted as part of the industry standard definition of an authentication factor.
+Multi-factor authentication is any combination of two or more authentication sources from the following categories:
 
 - Something a user knows (such as a password or PIN).
 - Something a user has (such as a specific hardened device).

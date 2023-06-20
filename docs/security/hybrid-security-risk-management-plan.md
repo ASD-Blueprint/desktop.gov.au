@@ -8,9 +8,9 @@
 
 This Security Risk Management Plan (SRMP) has been developed to demonstrate the reduction in risk that can be achieved by implementing the HybridSystem to secure access to Microsoft Office 365 services from Windows 10 endpoints and iOS mobile devices. 
 
-Each risk has been assessed in the context of the controls implemented by the HybridSystem directly, those implemented by Microsoft as part of the Office 365 service, as well as those that are expected to be implemented by Australian Government Agencies that will leverage the HybridSystem. The risk matrix, including definitions of likelihood and consequence, is provided at [Risk Matrix](../files/security/risk-matrix.pdf). Agencies leveraging the HybridSystem should review the risk ratings and align them to their internal risk management framework as applicable.
+Each risk has been assessed in the context of the controls implemented by the HybridSystem directly, those implemented by Microsoft as part of the Office 365 service, as well as those that are expected to be implemented by organisations that will leverage the HybridSystem. The risk matrix, including definitions of likelihood and consequence, is provided at [Risk Matrix](../files/security/risk-matrix.pdf). Organisations leveraging the HybridSystem should review the risk ratings and align them to their internal risk management framework as applicable.
 
-The residual risk to the Agency has been assessed as Medium. This can be further reduced to Medium-Low by implementing the additional treatments detailed in this document. It is an Agency’s responsibility to accept the risks and associated residual risk rating as described within this document.
+The residual risk to the organisation has been assessed as Medium. This can be further reduced to Medium-Low by implementing the additional treatments detailed in this document. It is an organisation’s responsibility to accept the risks and associated residual risk rating as described within this document.
 
 A summary of the identified risks and the assessed risk ratings are listed in Table 1.
 
@@ -44,13 +44,13 @@ R21 | Compromise of the SharePoint database | Medium | Medium | Medium
 
 ## Introduction
 
-This Security Risk Management (SRMP) has been prepared by the Digital Transformation Agency (DTA) to support Agencies planning to leverage the HybridSystem. The document demonstrates the controls implemented by the HybridSystem that reduce the risk of leveraging Office 365 up to and including PROTECTED security classified information.
+This Security Risk Management (SRMP) has been prepared to support organisations planning to leverage the HybridSystem. The document demonstrates the controls implemented by the HybridSystem that reduce the risk of leveraging Office 365 up to and including PROTECTED security classified information.
 
 PROTECTED is used thought the document to describe the maximum security classification of information able to be managed by the system. Where PROTECTED is used, the security markings described by the Protective Security Policy Framework (PSPF) such as OFFICIAL and OFFICIAL: Sensitive are inferred.
 
 ### Purpose
 
-The purpose of this SRMP is to identify the risks and the residual risk to an Agency implementing the HybridSystem.
+The purpose of this SRMP is to identify the risks and the residual risk to an organisation implementing the HybridSystem.
 
 ### Scope
 
@@ -58,7 +58,7 @@ The scope of this SRMP is limited to those threats and risks specific to the use
 
 The Microsoft Office 365 service is addressed in the Information Security Registered Assessors Program (IRAP) report (available in the [Service Trust Portal](https://servicetrust.microsoft.com/ViewPage/Australia)), therefore, risks specific to the underlying Office 365 service are not reassessed by this SRMP.
 
-Agencies should make themselves aware of any risks identified in the IRAP assessment that have been inherited by the HybridSystem.
+Organisations should make themselves aware of any risks identified in the IRAP assessment that have been inherited by the HybridSystem.
 
 ### Methodology
 
@@ -81,13 +81,13 @@ If a privileged account were to be compromised or system privileges were incorre
 #### Threat sources
 
 - Adversarial – Individual – Trusted Insider, Insider, Outsider
-- Unintentional – Agency system administrator
+- Unintentional – Organisation system administrator
 
 #### Threat events
 
 - Obtain unauthorised access to:
-  - Deny access to Agency information to authorised users
-  - Modify Agency information and making the integrity of the information unavailable or no longer trustworthy 
+  - Deny access to Organisation information to authorised users
+  - Modify Organisation information and making the integrity of the information unavailable or no longer trustworthy 
   - Obfuscate adversary actions
 - Obtain information by opportunistically stealing or scavenging information systems/components
 - Compromise organisational information systems to facilitate exfiltration of data/information
@@ -107,11 +107,11 @@ If a privileged account were to be compromised or system privileges were incorre
 
 #### Ongoing and completed treatments
 
-- Agency treatments
-  - Agency IT Security Policy for authorised staff to not provide privileged access to unauthorised staff and not allow logging in using service accounts
+- Organisation treatments
+  - Organisation IT Security Policy for authorised staff to not provide privileged access to unauthorised staff and not allow logging in using service accounts
   - Administrative break glass accounts will only be utilised when no other privileged account can be utilised
   - Approval process to obtain a privileged user account
-  - Training to Agency nominated system administrators 
+  - Training to Organisation nominated system administrators 
 - HybridSystem treatments
   - Conditional Access enforces Multi-Factor Authentication (MFA) for all privileged users
   - Azure AD Identity Protection enabled to alert on detected User and Sign-in risks
@@ -135,10 +135,10 @@ If a privileged account were to be compromised or system privileges were incorre
 
 #### Proposed treatments
 
-- An annual audit of privileged accounts is performed by the Agency leveraging Azure AD access reviews
+- An annual audit of privileged accounts is performed by the Organisation leveraging Azure AD access reviews
 - Forward logs to a Security Information and Event Management (SIEM) solution
 - Administrator training provided for specific technologies utilised within the HybridSystem
-- Agency training for security and system administrators for the use of Security Centre / Sentinel
+- Organisation training for security and system administrators for the use of Security Centre / Sentinel
 - Monitoring of events within Security Centre / Sentinel
 - Managed Service Accounts (MSAs), including group MSAs (gMSAs), are used where supported
 - Privileged accounts are added to the “Protected Users” security group
@@ -189,7 +189,7 @@ A user sends an OFFICIAL: Sensitive or PROTECTED classified mail/attachment, or 
 
 #### Ongoing and completed treatments
 
-- Agency treatments
+- Organisation treatments
   - All email transits via a gateway mail server which enforces email security classification label checking
   - User awareness training to staff
 - HybridSystem treatments
@@ -248,8 +248,8 @@ An unauthorised user attempts to access data hosted within Microsoft’s Office 
 - Compromise organisational information systems to facilitate exfiltration of data/information
 - Obtain sensitive and or classified information via exfiltration
 - Obtain unauthorised access to:
-  - Deny access to Agency information to authorised users
-  - Modify Agency information and making the integrity of the information unviable or no longer trustworthy
+  - Deny access to Organisation information to authorised users
+  - Modify Organisation information and making the integrity of the information unviable or no longer trustworthy
 
 #### Inherent likelihood
 
@@ -368,7 +368,7 @@ A malicious insider attempts to disable cloud-based security capabilities (e.g.,
 #### Proposed treatments
 
 - Forward logs to a SIEM solution
-- Agency training for security and system administrators for the use of Security Centre 
+- Organisation training for security and system administrators for the use of Security Centre 
 - Monitoring of events within Security Centre
 
 #### Target likelihood
@@ -439,7 +439,7 @@ An authorised administrator misconfigures services increasing the risk of furthe
 
 - Administrator training provided for specific technologies utilised within the HybridSystem
 - Forward logs to a SIEM solution
-- Agency training for security and system administrators for the use of Security Centre
+- Organisation training for security and system administrators for the use of Security Centre
 - Monitoring of events within Security Centre
 
 #### Target likelihood
@@ -524,7 +524,7 @@ Malicious code introduced to the environment by one or more vectors leading to t
 #### Proposed treatments
 
 - Forward logs to a SIEM solution
-- Agency training for security and system administrators for the use of Security Centre 
+- Organisation training for security and system administrators for the use of Security Centre 
 - Monitoring of events within Security Centre
 
 #### Target likelihood
@@ -561,8 +561,8 @@ An unauthorised user attempts to access email within mailboxes hosted in Exchang
 - Compromise organisational information systems to facilitate exfiltration of data/information
 - Obtain security classified and or sensitive information via exfiltration
 - Obtain unauthorised access to:
-  - Deny access to Agency information to authorised users
-  - Modify Agency information and making the integrity of the information unviable or no longer trustworthy
+  - Deny access to Organisation information to authorised users
+  - Modify Organisation information and making the integrity of the information unviable or no longer trustworthy
 - Commit CEO fraud and or Business Email Compromise (BEC)
 
 #### Inherent likelihood
@@ -583,7 +583,7 @@ An unauthorised user attempts to access email within mailboxes hosted in Exchang
   - Password complexity is enforced in line with ISM standards, and users are required to change passwords on first use
   - Conditional Access enforces MFA for all users and administrators
   - Conditional Access blocks access to Office 365 from external networks
-  - Service provider networks are segregated from Agency networks through the use of a Secure Internet Gateway (SIG)
+  - Service provider networks are segregated from Organisation networks through the use of a Secure Internet Gateway (SIG)
   - Legacy authentication blocked via Conditional Access policies
   - Credential Guard is enabled and credential theft is blocked through Microsoft Defender Exploit Guard
   - PTA is used with Azure AD Connect for authentication
@@ -604,7 +604,7 @@ An unauthorised user attempts to access email within mailboxes hosted in Exchang
 #### Proposed treatments
 
 - Forward logs to a SIEM solution
-- Agency training for security and system administrators for the use of Security Centre
+- Organisation training for security and system administrators for the use of Security Centre
 - Monitoring of events within Security Centre
 
 #### Target likelihood
@@ -628,7 +628,7 @@ An external attacker attempts to disrupt availability by launching a Denial of S
 #### Assets affected
 
 - All infrastructure (Azure AD, Office 365, on-premises servers, and endpoints)
-- Agency gateway (if utilised)
+- Organisation gateway (if utilised)
 
 #### Threat sources
 
@@ -656,8 +656,8 @@ An external attacker attempts to disrupt availability by launching a Denial of S
 
 #### Ongoing and completed treatments
 
-- Agency treatments
-  - Basic DoS protection is available within the Agency gateway
+- Organisation treatments
+  - Basic DoS protection is available within the Organisation gateway
 - Native Microsoft treatments
   - Microsoft provide an underlying [denial-of-service defense strategy](https://docs.microsoft.com/en-au/compliance/assurance/assurance-microsoft-dos-defense-strategy) for Microsoft 365
 
@@ -675,7 +675,7 @@ An external attacker attempts to disrupt availability by launching a Denial of S
 
 #### Proposed treatments
 
-- Enhance DoS/DDoS protection within the Agency’s gateway
+- Enhance DoS/DDoS protection within the Organisation’s gateway
 
 #### Target likelihood
 
@@ -712,8 +712,8 @@ An intrusion is not detected leading to a threat of malicious activity and possi
 - Compromise organisational information systems to facilitate exfiltration of data/information
 - Obtain sensitive information via exfiltration
 - Obtain unauthorised access to:
-  - Deny access to Agency information to authorised users
-  - Modify Agency information and making the integrity of the information unviable or no longer trustworthy
+  - Deny access to Organisation information to authorised users
+  - Modify Organisation information and making the integrity of the information unviable or no longer trustworthy
 - Coordinate a campaign that spreads attacks across organisational systems from existing presence
 
 #### Inherent likelihood
@@ -757,7 +757,7 @@ An intrusion is not detected leading to a threat of malicious activity and possi
 #### Proposed treatments
 
 - Forward logs to a SIEM solution
-- Agency training for security and system administrators for the use of Security Centre
+- Organisation training for security and system administrators for the use of Security Centre
 - Monitoring of events within Security Centre
 
 #### Target likelihood
@@ -792,7 +792,7 @@ The failure of backup procedures leading to the inability to restore critical sy
 
 #### Threat events
 
-- Availability of Agency information and systems
+- Availability of Organisation information and systems
 - Cause integrity loss by polluting or corrupting critical data
 - Cause integrity loss by injecting false but believable data into organisational information systems
 - Data corruption or accidental deletion
@@ -811,7 +811,7 @@ The failure of backup procedures leading to the inability to restore critical sy
 
 #### Ongoing and completed treatments
 
-- Agency treatments
+- Organisation treatments
   - Ongoing operational procedures to monitor backups
 - HybridSystem treatments
   - Configuration settings of Office 365 are backed up through the As-Built As-Configured (ABAC) documentation
@@ -889,8 +889,8 @@ Security vulnerabilities are discovered within the operating system versions uti
 
 #### Ongoing and completed treatments
 
-- Agency treatments
-  - The Agency’s support team will monitor patching and perform manual remediation as required
+- Organisation treatments
+  - The Organisation’s support team will monitor patching and perform manual remediation as required
 - HybridSystem treatments
   - Windows Update for Business and Microsoft Intune are enabled and configured to automatically update Windows 10 on endpoints
   - Multiple software update rings provide staged approach to updates
@@ -913,7 +913,7 @@ Security vulnerabilities are discovered within the operating system versions uti
 #### Proposed treatments
 
 - Forward logs to a SIEM solution
-- Agency training for security and system administrators for the use of Security Centre
+- Organisation training for security and system administrators for the use of Security Centre
 - Monitoring of events within Security Centre
 
 #### Target likelihood
@@ -966,8 +966,8 @@ Security vulnerabilities are discovered within applications utilised by the solu
 
 #### Ongoing and completed treatments
 
-- Agency treatments
-  - The Agency’s support team will monitor patching and perform manual remediation as required
+- Organisation treatments
+  - The Organisation’s support team will monitor patching and perform manual remediation as required
 - HybridSystem treatments
   - Intune or MECM used to patch applications on a regular basis
   - Windows Defender Firewall enabled for inbound connections
@@ -992,7 +992,7 @@ Security vulnerabilities are discovered within applications utilised by the solu
 #### Proposed treatments
 
 - Forward logs to a SIEM solution
-- Agency training for security and system administrators for the use of Security Centre
+- Organisation training for security and system administrators for the use of Security Centre
 - Monitoring of events within Security Centre
 
 #### Target likelihood
@@ -1066,7 +1066,7 @@ An attacker attempts to bypass the application controls enforced on endpoints.
 #### Proposed treatments
 
 - Forward logs to a SIEM solution
-- Agency training for security and system administrators for the use of Security Centre
+- Organisation training for security and system administrators for the use of Security Centre
 - Monitoring of events within Security Centre
 
 #### Target likelihood
@@ -1117,8 +1117,8 @@ An attacker attempts to gain access by attempting to logon using a number of dif
 
 #### Ongoing and completed treatments
 
-- Agency treatments
-  - Mandatory security awareness training by the Agency to educate users on the importance of using strong passwords or passphrases
+- Organisation treatments
+  - Mandatory security awareness training by the Organisation to educate users on the importance of using strong passwords or passphrases
 - HybridSystem treatments
   - Conditional Access enforces MFA for all users and administrators
   - Password complexity is enforced in line with ISM standards, and users are required to change passwords on first use
@@ -1141,7 +1141,7 @@ An attacker attempts to gain access by attempting to logon using a number of dif
 
 #### Proposed treatments
 
-- Agency training for security and system administrators for the use of Security Centre 
+- Organisation training for security and system administrators for the use of Security Centre 
 - Monitoring of events within Security Centre
 
 #### Target likelihood
@@ -1160,7 +1160,7 @@ An attacker attempts to gain access by attempting to logon using a number of dif
 
 #### Risk overview
 
-A major outage occurs to the cloud services causing the inability to provide services to the Agency.
+A major outage occurs to the cloud services causing the inability to provide services to the Organisation.
 
 #### Assets affected
 
@@ -1196,7 +1196,7 @@ A major outage occurs to the cloud services causing the inability to provide ser
   - Azure cloud services are available within multiple regions in Australia classified up to PROTECTED
   - Office 365 services are available within multiple regions in Australia classified up to PROTECTED. Failover of the Office 365 services will be dependent on Microsoft’s Service Level Agreement (SLA) for Office 365
 - HybridSystem treatments
-  - The services utilised are available within multiple Azure regions (except any third-party solutions utilised, e.g. Agency gateway and GovLink)
+  - The services utilised are available within multiple Azure regions (except any third-party solutions utilised, e.g. Organisation gateway and GovLink)
 
 #### Residual likelihood
 
@@ -1287,7 +1287,7 @@ Administration of the system is undertaken by authorised privileged users by con
 
 #### Proposed treatments
 
-- Agency system administrators to have separate administration account from their normal user account for the management of O365 and Azure.
+- Organisation system administrators to have separate administration account from their normal user account for the management of O365 and Azure.
 
 #### Target likelihood
 
@@ -1342,7 +1342,7 @@ Note, the HybridSystem does not include the use of personal iOS devices or devic
 
 #### Ongoing and completed treatments
 
-- Agency treatments
+- Organisation treatments
   - Policy governing the use and management of mobile devices used to access classified information
   - Awareness training for users with mobile devices
 - HybridSystem treatments
@@ -1407,8 +1407,8 @@ An administrator enables a cloud service - or new feature within an existing clo
 #### Threat events
 
 - Obtain unauthorised access to:
-  - Deny access to Agency information to authorised users
-  - Modify Agency information and making the integrity of the information unviable or no longer trustworthy Obfuscate adversary actions
+  - Deny access to Organisation information to authorised users
+  - Modify Organisation information and making the integrity of the information unviable or no longer trustworthy Obfuscate adversary actions
 - Obtain information by opportunistically stealing or scavenging information systems/components
 - Compromise organisational information systems to facilitate exfiltration of data/information
 - Obtain sensitive and or classified information via exfiltration
@@ -1427,11 +1427,11 @@ An administrator enables a cloud service - or new feature within an existing clo
 
 #### Ongoing and completed treatments
 
-- Agency treatments
-  - Agency IT Security Policy for authorised staff to not enable new cloud services or features
+- Organisation treatments
+  - Organisation IT Security Policy for authorised staff to not enable new cloud services or features
   - Approval process to obtain a privileged user account
-  - Training to Agency nominated system administrators
-  - As new services become available the Agency will undertake a risk assessment of the service and establish if the risk is within the Agency’s tolerance before engaging the new service offering
+  - Training to Organisation nominated system administrators
+  - As new services become available the Organisation will undertake a risk assessment of the service and establish if the risk is within the Organisation’s tolerance before engaging the new service offering
 - HybridSystem treatments
   - Leverages built-in Azure AD / Office 365 Role Groups to implement a robust RBAC model minimising the number of users that can onboard a new service or enable additional features
   - Defender for Cloud Apps is configured to log activity by all users including Global Admins providing an audit trail for new services
@@ -1505,8 +1505,8 @@ Sensitivity labels allow users to apply protective markings to emails to ensure 
 
 #### Ongoing and completed treatments
 
-- Agency treatments
-  - Training to Agency users on the appropriate measures for applying and changing protective markings
+- Organisation treatments
+  - Training to Organisation users on the appropriate measures for applying and changing protective markings
 - HybridSystem treatments
   - The solution has been configured to require users to provide a justification for changing a label
 
@@ -1570,7 +1570,7 @@ An unauthorised user (malicious) gains access to the database exposing the usern
 
 #### Ongoing and completed treatments
 
-- Agency treatments
+- Organisation treatments
   - Leverage server-side event logging to monitor login events and network traffic.
   - Enable multi-factor authentication on all domain accounts
   - Hardening of operating systems, applications and database systems to ACSC recommended practices
@@ -1635,7 +1635,7 @@ An unauthorised user (malicious) gains access to the database exposing configura
 
 #### Ongoing and completed treatments
 
-- Agency treatments
+- Organisation treatments
   - Leverage server-side event logging to monitor login events and network traffic.
   - Enable multi-factor authentication on all domain accounts
   - Hardening of operating systems, applications and database systems to ACSC recommended practices

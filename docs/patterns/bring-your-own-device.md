@@ -436,7 +436,7 @@ The following updates are required for managed application on iOS and Android.
 | -------------------------------------------------------- | ------------------------------------------------------------ |
 | Name                                                     | iOS MAM App Protection Policy                                |
 | Platform                                                 | iOS/iPadOS                                                   |
-| **Apps*-                                                 |                                                              |
+| **Apps**                                                 |                                                              |
 | Target Apps on all device types                          | No (Unmanaged)                                               |
 | Target policy to                                         | Selected Apps                                                |
 | Public Apps                                              | Microsoft Edge<br/>Microsoft Excel<br/>Microsoft Outlook<br/>Microsoft PowerPoint<br/>Microsoft Word<br/>Microsoft SharePoint<br/>Microsoft Teams<br/>Microsoft OneDrive |

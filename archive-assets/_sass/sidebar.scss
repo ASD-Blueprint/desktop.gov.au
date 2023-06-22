@@ -1,0 +1,126 @@
+aside.au-side-nav {
+    margin-bottom: 1.5em;
+}
+#sidebar-nav-container {
+    h3.au-sidenav__title {
+        a {
+            font-size: 1.1em;
+            text-decoration: none;
+            border: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    .sidenav-title {
+        font-size: 1.5em;
+    }
+
+    > ul {
+        > li {
+            border-bottom: none;
+        }
+    }
+    ul {
+        list-style-type: none;
+
+        ul {
+            margin: 0;
+            padding: 0;
+            margin-left: 1em;
+            border-left: 1px solid #ddd;
+
+            li {
+                a {
+                    font-size: 0.9em;
+                }
+            }
+        }
+
+        li {
+            a {
+                font-size: 1.1em;
+                display: block;
+                text-decoration: none;
+                border-left: 2px solid transparent;
+                padding: 5px 5px 5px 10px;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+
+                &:before {
+                    background: none;
+                }
+            }
+
+            &.active {
+                > a {
+                    border-left: 4px solid $primary-color;
+                    
+                }
+            }
+        }
+    }
+}
+
+#toc-container {
+    h2.au-sidenav__title {
+        font-size: 1em;
+        font-weight: 500;
+        margin-bottom: 0.5em;
+    }
+
+    & > ul {
+        margin: 0;
+        
+        ul {
+            list-style-type: none;
+            margin: 0;
+            margin-left: 1.5em;
+
+            ul {
+                a:before {
+                    background: none;
+                }
+            }
+        }
+        li {
+            border: none;
+
+            a {
+                padding: 4px;
+                padding-left: 1em;
+                border-left: 2px solid transparent;
+                font-size: 1em;
+            }
+            &.active {
+                display: block;
+
+                > ul > li {
+                    display: block;
+                }
+
+                > a {
+                    border-left-color: $primary-color;
+                    color: $primary-color;
+                }
+            }
+
+            li {
+                display: none;
+            }
+        }
+    }
+}
+
+
+/* sm */
+@media (min-width: 768px) {
+    #sidebar-nav-container {
+        h3.au-sidenav__title {
+            margin-bottom: 0.5em;
+        }
+    }
+}

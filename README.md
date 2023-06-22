@@ -8,7 +8,7 @@ Have a look around, and if you have a suggestion, feel free to drop us a line.
 
 **Table of contents**
 
-* [Desktop.gov.au](#desktopgovau)
+
 * [Style sheet for content](#style-sheet-for-content)
   * [Terms in body text](#terms-in-body-text)
   * [Capitalisation](#capitalisation)
@@ -98,3 +98,8 @@ Yes of course, you'll need a GitHub account.
 The easiest method is to first view our [list of issues](https://github.com/oobecomau/theblueprint/issues), add to the ticket if a similar one exists or [create a new issue](https://github.com/oobecomau/theblueprint/issues/new) if not. Try to place as much detail as possible to help us identify what the problem is and don't forget to include the page you were on that has the issue.
 
 Alternatively, you can suggest changes by making your amendments directly on Github. At the end of the process, you will submit a pull request which will allow us to provide feedback and incorporate it back into the repository. [Microsoft describes this method](https://github.com/MicrosoftDocs/microsoft-365-docs#overview) for updating their documentation which is highly relevant here.
+
+Some helpful links
+
+* [oobe.com.au](https://www.oobe.com.au/)
+* [Desktop.gov.au](https://desktop.gov.au/)

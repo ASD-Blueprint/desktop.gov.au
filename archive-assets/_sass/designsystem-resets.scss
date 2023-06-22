@@ -1,0 +1,51 @@
+.au-header {
+    padding-bottom: 0;
+}
+.au-header.au-header--dark,
+.au-footer.au-footer--dark {
+    background-color: $AU-color-background;
+    border: none;
+}
+.au-header.au-header--dark {
+    box-shadow: 0 0 5px 0 #7F7F7F;
+    position: relative;
+}
+footer.au-footer {
+    margin-top: 2em;
+}
+.au-main-nav.au-main-nav--dark {
+    &, .au-main-nav__menu, a:hover {
+        background-color: unset;
+    }
+
+    .active {
+        a {
+            &, &:hover {
+                border-color: #fff;
+            }
+        }
+    }
+}
+.au-footer--dark .au-footer__end {
+    border-top-color: $gray;
+}
+.au-header--dark .au-header__brand .au-header__brand-image+.au-header__text {
+    border-left: 1px solid $gray;
+}
+header.au-header {
+    div.col-md-12 {
+        text-align: center;
+    }
+    nav.au-main-nav div.col-md-12 {
+        text-align: left;
+    }
+}
+.au-header__brand-image {
+    margin: 0 auto;
+}
+
+@media (max-width: 767px) {
+    .au-header--dark .au-header__brand .au-header__brand-image+.au-header__text {
+        border-left: 0;
+    }
+}

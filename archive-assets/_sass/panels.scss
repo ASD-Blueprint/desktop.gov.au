@@ -1,0 +1,39 @@
+.panel {
+    margin-bottom: 3em;
+    width: 100%;
+    border: 1px solid #d4d4d4;
+    position: relative;
+    -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -25px;
+        width: 0;
+        height: 0;
+        border-top: solid 25px #d4d4d4;
+        border-left: solid 25px transparent;
+        border-right: solid 25px transparent;
+    }
+}
+
+.panel-title {
+    padding: 20px;
+    background-color:#f4f4f4;
+}
+
+.panel-body {
+    padding: 20px;
+    margin-bottom: 0;
+
+    ul {
+        padding-left: 1em;
+    }
+}
+
+.timeline .panel:last-of-type:after {
+    content: unset;
+}

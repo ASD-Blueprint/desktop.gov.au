@@ -4,7 +4,7 @@
 
 # Office 365
 
-<p id="date-and-time">105 minutes to read - 30 March 2023</p>
+<p id="date-and-time">105 minutes to read - 15 Septemnber 2023</p>
 
 This document covers the following topics.
 
@@ -59,14 +59,14 @@ These licencing options are summarised below:
 - Microsoft 365 E5 (recommended for this blueprint). Microsoft 365 E5 includes everything inside Microsoft 365 E3 plus additional features and services (largely security and compliance related). In the case of Office 365 E5, the capabilities in Microsoft Defender for Office 365 suite as well as other services such as Office 365 Advanced Compliance are increased.
 - Microsoft 365 E3. Microsoft 365 E3 provides access to core products with enhanced features and security features. In the case of Office 365 E3, the Office client suite is included, and the service limits are increased.
 
-To grant access to the services a licence is assigned to an individual user account. A licence can be assigned by an administrator at the time of the user account is created or through Azure AD group-based licensing. Azure AD group-based licensing allows an Administrator to associate a licence to a group. Any members within the group will be assigned that licence automatically. When a user is removed from the group the licence is removed.
+To grant access to the services a licence is assigned to an individual user account. A licence can be assigned by an administrator at the time of the user account is created or through Microsoft Entra ID group-based licensing. Microsoft Entra ID group-based licensing allows an Administrator to associate a licence to a group. Any members within the group will be assigned that licence automatically. When a user is removed from the group the licence is removed.
 
 Licensing Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Products Licenced | Microsoft 365 E5 | Microsoft 365 E5 licences combines Office 365 E5, EMS E5, and Windows 10 E5 are required to ensure that Office 365 tenant can be rated up to Protected. 
-Licence Allocation Method | Automated | Dynamic Security Groups in Azure AD will be used to automatically assign licences and reduce the management overhead associated with licensing. 
+Licence Allocation Method | Automated | Dynamic Security Groups in Microsoft Entra ID will be used to automatically assign licences and reduce the management overhead associated with licensing. 
 
 Licensing Configuration for all agencies and implementation types.
 
@@ -176,7 +176,7 @@ The following Office 365 roles can be assigned via PIM:
 - Security administrator.
 - Security reader.
 
-Note, using PIM for the SharePoint administrator role, the Device administrator role, and roles trying to access the Microsoft Security and Compliance Center might experience delays of up to a few hours after activating the role, see [PIM Roles](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-roles) for further information.
+Note, using PIM for the SharePoint administrator role, the Device administrator role, and roles trying to access the Microsoft Security and Compliance Center might experience delays of up to a few hours after activating the role, see [PIM Roles](https://learn.microsoft.com/en-au/azure/active-directory/privileged-identity-management/pim-roles) for further information.
 
 Role Based and Access Control Design Decisions for all agencies and implementation types.
 
@@ -199,7 +199,7 @@ Customer Lockbox | Enable | This is to ensure that Microsoft support engineers c
 
 ## Office 365 Connectivity
 
-Office 365 is a publicly facing SaaS offering and firewall ports are required to be opened to allow communication between infrastructure and desktops and Office 365. These ports configurations are updated frequently and are available online from [Microsoft](https://docs.microsoft.com/en-au/office365/enterprise/urls-and-ip-address-ranges).
+Office 365 is a publicly facing SaaS offering and firewall ports are required to be opened to allow communication between infrastructure and desktops and Office 365. These ports configurations are updated frequently and are available online from [Microsoft](https://learn.microsoft.com/en-au/microsoft-365/enterprise/urls-and-ip-address-ranges?view=o365-worldwide).
 
 It is important to note the traffic between the clients and the Office 365 offering is TLS 1.2 encrypted.
 
@@ -244,7 +244,7 @@ Note that Exchange Online Protection, a mail gateway may be required to interfac
 
 ### Optimisation
 
-Office 365 is a globally distributed service. The user experience with Office 365 involves connectivity through highly distributed service connection points that are scaled over many Microsoft locations worldwide. This section outlines two sets of design decisions, representing advice to achieve the highest level of maturity and adherence to existing Whole of Government policies and advice to maximise optimisation outside and user experience. The below information is to inform agencies, including on how best to maximise optimisation and user experience, however consideration should be given for the risk implications of implementing in such a way. While this approach of optimisation represents the current [best practice published by Microsoft](https://docs.microsoft.com/en-us/office365/enterprise/network-planning-and-performance) it is inconsistent with the previously referenced guidance of the ISM and PSPF relating to Secure Internet Gateways. We have provided configuration controls for both scenarios below.
+Office 365 is a globally distributed service. The user experience with Office 365 involves connectivity through highly distributed service connection points that are scaled over many Microsoft locations worldwide. This section outlines two sets of design decisions, representing advice to achieve the highest level of maturity and adherence to existing Whole of Government policies and advice to maximise optimisation outside and user experience. The below information is to inform agencies, including on how best to maximise optimisation and user experience, however consideration should be given for the risk implications of implementing in such a way. While this approach of optimisation represents the current [best practice published by Microsoft](https://learn.microsoft.com/en-au/microsoft-365/enterprise/network-planning-and-performance?view=o365-worldwide) it is inconsistent with the previously referenced guidance of the ISM and PSPF relating to Secure Internet Gateways. We have provided configuration controls for both scenarios below.
 
 To minimise latency, a customer network can route user requests to the closest Office 365 service entry point, rather than connecting to Office 365 through an egress point in a central location or region.
 
@@ -283,13 +283,13 @@ This section is only relevant for agencies implementing a hybrid solution that l
 
 Exchange Online can be used standalone (cloud only) or integrated with an on-premises Exchange Server(s) and Active Directory Domain Services, extending the organisation's messaging farm in a hybrid configuration.
 
-A Hybrid configuration provides administrators with added flexibility to transition users to the Cloud without isolating them from the on-premises resources. A Hybrid configuration can also assist with transport routing for compliance reasons (e.g. Govlink) when "centralized mail transport" is enabled. The [Edge Transport](https://docs.microsoft.com/en-us/exchange/edge-transport-servers) service may be deployed in scenarios where the organisation does not wish to expose Hybrid mail servers directly to Exchange Online Protection.
+A Hybrid configuration provides administrators with added flexibility to transition users to the Cloud without isolating them from the on-premises resources. A Hybrid configuration can also assist with transport routing for compliance reasons (e.g. Govlink) when "centralized mail transport" is enabled. The [Edge Transport](https://learn.microsoft.com/en-au/exchange/edge-transport-servers) service may be deployed in scenarios where the organisation does not wish to expose Hybrid mail servers directly to Exchange Online Protection.
 
-Agencies wishing to synchronise their existing on-premises Active Directory Domain Services for identity (hybrid identity) must maintain an on-premises Exchange server for recipient management purposes, this is because most of the user attributes cannot be managed from Exchange online due to directory synchronisation rules, for more information see [decommissioning on-premises Exchange servers](https://docs.microsoft.com/en-us/exchange/decommission-on-premises-exchange).
+Agencies wishing to synchronise their existing on-premises Active Directory Domain Services for identity (hybrid identity) must maintain an on-premises Exchange server for recipient management purposes, this is because most of the user attributes cannot be managed from Exchange online due to directory synchronisation rules, for more information see [decommissioning on-premises Exchange servers](https://learn.microsoft.com/en-au/exchange/decommission-on-premises-exchange).
 
 Establishing a hybrid deployment requires an Exchange hybrid server that is supported with your existing on-premises Exchange Server. Microsoft recommends the deployment of the newest Exchange Hybrid server for your environment to ensure the best compatibility with Exchange Online. 
 
-Exchange 2010 has reached [end of support](https://docs.microsoft.com/en-us/microsoft-365/enterprise/exchange-2010-end-of-support?view=o365-worldwide), agencies that wish to use retain a Hybrid configuration after the Hybrid migration method should migrate those Exchange server roles to a supported version of Exchange. Microsoft also recommend that agencies still on Exchange 2010 that have not started or completed their Hybrid migration, upgrade from 2010 to 2016 before commencing the hybrid configuration. 
+Exchange 2010 has reached [end of support](https://learn.microsoft.com/en-au/microsoft-365/enterprise/exchange-2010-end-of-support?view=o365-worldwide), agencies that wish to use retain a Hybrid configuration after the Hybrid migration method should migrate those Exchange server roles to a supported version of Exchange. Microsoft also recommend that agencies still on Exchange 2010 that have not started or completed their Hybrid migration, upgrade from 2010 to 2016 before commencing the hybrid configuration. 
 
 Exchange Hybrid Server Supported Configurations.
 
@@ -769,7 +769,7 @@ GAL and OAB | Generated | These will be generated so that users can send emails 
 
 Message Transfer Agent - Strict Transport Security (MTA-STS) enables the configuration of domain policies that define whether the receiving domain supports TLS. If the domain doesn't support TLS then the policy can be configured to prevent transmission. Outbound mail flow in Exchange Online supports MTA-STS. Configuration of MTA-STS requires a DNS TXT record and the hosting a of the policy file.
 
-Opportunistic TLS enables email traffic to be encrypted when both the sender and receiver domains support TLS without the need for an additional port for encrypted traffic. By default, Exchange Online always attempts to encrypt mail traffic using opportunistic TLS. Microsoft always uses TLS 1.2 when transferring mail between [Exchange Online customers](https://docs.microsoft.com/en-au/microsoft-365/compliance/exchange-online-uses-tls-to-secure-email-connections?view=o365-worldwide#how-exchange-online-uses-tls-between-exchange-online-customers). 
+Opportunistic TLS enables email traffic to be encrypted when both the sender and receiver domains support TLS without the need for an additional port for encrypted traffic. By default, Exchange Online always attempts to encrypt mail traffic using opportunistic TLS. Microsoft always uses TLS 1.2 when transferring mail between [Exchange Online customers](https://learn.microsoft.com/en-au/purview/exchange-online-uses-tls-to-secure-email-connections?view=o365-worldwide#how-exchange-online-uses-tls-between-exchange-online-customers). 
 
 Email Transport Security Design Decisions for all agencies and implementation types.
 
@@ -923,7 +923,7 @@ Legacy Features Design Decisions for all agencies and implementation types.
 Decision Point | Design Decision | Justification
 --- | --- | ---
 InfoPath | Not configured | InfoPath is going to be deprecated and it is recommended that InfoPath forms to be redeveloped into PowerApps in Office 365. 
-Records Management | Not configured | Records Management administrative screen provides configuration settings to route files from a SharePoint Document Library to a centralised SharePoint Records Management site. This is to support the traditional Centralised records management system in SharePoint.<br>Note, this is a separate feature from [records management in Microsoft 365](https://docs.microsoft.com/en-au/microsoft-365/compliance/records-management).
+Records Management | Not configured | Records Management administrative screen provides configuration settings to route files from a SharePoint Document Library to a centralised SharePoint Records Management site. This is to support the traditional Centralised records management system in SharePoint.<br>Note, this is a separate feature from [records management in Microsoft 365](https://learn.microsoft.com/en-au/purview/records-management).
 Secure Store Settings | Not Configured | Secure Store in SharePoint Online provides a key vault to store all sensitive information in SharePoint. This is primarily used by InfoPath to store sensitive keys and passwords. It is recommended to use Azure Key Vault to store sensitive information. 
 Business Connectivity Settings | Not configured | Business Connectivity Settings provides SharePoint on-premises ability to consume information from third party OData Information store.<br>It is recommended to use Power BI to consume third party data and publish it to SharePoint Online.
 Search | Not configured | Search provides legacy support on crawled properties, managed properties and custom configuration required. 
@@ -1054,14 +1054,14 @@ A Team in Microsoft Teams is a grouping of users who are working together to ach
 Microsoft Teams leverages most of the functionality of the Office 365 components. When a Team is created the following artefacts are created out of the box:
 
 - SharePoint Site - A new SharePoint site with the URL format of `/sites/<SiteTitle>`, with the `SiteTitle`'s spaces are stripped out.
-- Office 365 Group - A new Office 365 Group, which is added into the Azure AD tenant. This is created with the site title as the Group Name.
+- Office 365 Group - A new Office 365 Group, which is added into the Microsoft Entra ID tenant. This is created with the site title as the Group Name.
 - Teams email – A new email address per channel can be created. The email inbox is managed centrally by the Microsoft Team services. At the time of writing this document, the email address will have a domain of `<custom email inbox>@apac.teams.ms`. 
 
 Note: This email is not part of Microsoft Exchange Online.
 
 ### Access
 
-Access to a team is controlled using Microsoft 365 groups located in Azure AD.
+Access to a team is controlled using Microsoft 365 groups located in Microsoft Entra ID.
 
 When a Team is created, an Office 365 group will be created. Owners of the group are delegated to perform administrative actions across the team, while members can participate in the team but not undertake any administrative actions.
 
@@ -1071,13 +1071,13 @@ Microsoft Teams Access Design Decisions for all agencies and implementation type
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Team creation permission | `rol-OrganisationName-o365groupcreators` via restriction of 365 Group creation | Teams will be created by select administrators or users (via group) to ensure that Teams are created using a documented approval workflow, avoiding Team proliferation.<br>This setting is required as Azure AD group creation is restricted to delegated individuals which only allows administrators or delegated users to create 365 groups, and hence Teams. 
+Team creation permission | `rol-OrganisationName-o365groupcreators` via restriction of 365 Group creation | Teams will be created by select administrators or users (via group) to ensure that Teams are created using a documented approval workflow, avoiding Team proliferation.<br>This setting is required as Microsoft Entra ID group creation is restricted to delegated individuals which only allows administrators or delegated users to create 365 groups, and hence Teams. 
 Administrative action over Teams after creation | Team Owners | Team Owners will either be selected administrators (for Teams such as branches with many users) or managers and their delegates (such as in a section with relatively small user counts). Team owners will be assigned logically at creation time and updated as required.
 Team membership allocation | Manual by administrators or Team Owners | Team membership will be allocated manually initially with dynamic group allocation investigated in a future project phase when the logic for group membership is developed.
 
 ### Dynamic security group
 
-Dynamic Security Groups are Azure AD security groups that are populated based on device and/or user attributes.
+Dynamic Security Groups are Microsoft Entra ID security groups that are populated based on device and/or user attributes.
 
 Dynamic Security groups can be leveraged to control access to locations, services, and features.
 
@@ -1702,7 +1702,7 @@ Microsoft Forms is capable of capturing the names of the organisational users wh
 
 Surveys and forms can be leveraged for potentially malicious purposes. Phishing protection for Microsoft Forms scans forms for common phishing questions. If they are detect, the form is prevented from being distributed or shared. Phishing protection only protects internal organisation forms.
 
-At time of writing, Microsoft Forms processes and stores data for Australian tenants within the [United States](https://docs.microsoft.com/en-au/microsoft-365/enterprise/o365-data-locations?view=o365-worldwide#australia), it is recommended to not process sensitive information using Microsoft Forms.
+At time of writing, Microsoft Forms processes and stores data for Australian tenants within the [United States](https://learn.microsoft.com/en-au/microsoft-365/enterprise/o365-data-locations?view=o365-worldwide#australia), it is recommended to not process sensitive information using Microsoft Forms.
 
 Microsoft Forms Design Decisions for all agencies and implementation types.
 

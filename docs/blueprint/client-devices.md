@@ -1565,12 +1565,15 @@ The ACSC provides guidelines in securing systems against malicious macros and re
 
 Where trusted locations are used, ACSC recommends that when using trusted locations, only privileged users that are responsible for validating that the macros are free from malicious code can write to and modify contents within the trusted location. 
 
+Microsoft Office products can log macro execution attempts (both successful and failures) by enabling the Trust Center logging feature. This provides valuable information for incident response and digital forensics activities. The Trust Center logs are not written to the Windows Event Log but instead as an individual file per Microsoft Office product to the C:\Users\USERNAME\AppData\Local\Microsoft\Office\TCDiag directory.
+
 Office Macro Hardening Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Implementation approach | Only macros digitally signed by a trusted publisher are enabled | To align with the ACSC Microsoft Office Macro Security guidance and enable Agencies to leverage macros securely with the least business impact. 
-Configuration method | Organisation preference | Macro hardening can be configured via the Agencies existing Group Policies or Intune, as well as Attack Surface Reduction in Windows Defender Exploit Guard. 
+Implementation approach | Only macros digitally signed by a trusted publisher are enabled | To align with the ACSC Microsoft Office Macro Security guidance and enable organisations to leverage macros securely with the least business impact. 
+Macro execution logging | Enabled via Trust Center logging | To align with the Essential Eight and provide detailed logs in the event of an incident.
+Configuration method | Organisation preference | Macro hardening (including ASR rules) can be configured via either Group Policies or Intune. 
 Specific configuration | See below | To align with the ACSC Microsoft Office Macro Security guidance.
 
 - Microsoft Office Security Settings

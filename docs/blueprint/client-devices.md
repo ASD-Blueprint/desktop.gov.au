@@ -4,7 +4,7 @@
 
 # Client devices
 
-<p id="date-and-time">105 minutes to read - 17 April 2023</p>
+<p id="date-and-time">105 minutes to read - 15 September 2023</p>
 
 This document covers the following topics.
 
@@ -193,9 +193,9 @@ Management methods that can be used to manage Windows in a Microsoft 365 environ
 
 Microsoft 365 Implementation | MECM Implementation | Management Method for Windows | Benefits
 --- | --- | --- | ---
-Cloud native | MECM is not possible with cloud native | Intune | No on-premises infrastructure required for management. Well suited for Azure AD joined workstations for a full cloud solution. 
-Hybrid with Intune management | Suitable for:<br> * No MECM or<br>* MECM with co-management enabled and Workloads set to Intune | Intune | Existing on-premises MECM infrastructure with Hybrid Azure AD joined workstation. Well suited for an organisation that does not have MECM or does not want to use MECM to manage workstations.
-Hybrid with MECM management | MECM with co-management enabled and Workloads set to MECM | MECM | Existing on-premises MECM infrastructure with Hybrid Azure AD joined workstations. Well suited for an organisation that has a significant investment in MECM and requires a more gradual migration to Intune. Individual Workloads can be targeted and pilot-tested in Intune.
+Cloud native | MECM is not possible with cloud native | Intune | No on-premises infrastructure required for management. Well suited for Microsoft Entra ID joined workstations for a full cloud solution. 
+Hybrid with Intune management | Suitable for:<br> * No MECM or<br>* MECM with co-management enabled and Workloads set to Intune | Intune | Existing on-premises MECM infrastructure with Hybrid Microsoft Entra IDD joined workstation. Well suited for an organisation that does not have MECM or does not want to use MECM to manage workstations.
+Hybrid with MECM management | MECM with co-management enabled and Workloads set to MECM | MECM | Existing on-premises MECM infrastructure with Hybrid Microsoft Entra ID joined workstations. Well suited for an organisation that has a significant investment in MECM and requires a more gradual migration to Intune. Individual Workloads can be targeted and pilot-tested in Intune.
 
 The following image displays an overview diagram of MECM Co-Management.
 
@@ -238,8 +238,8 @@ The operating system allows software application to interface with the hardware.
 
 Windows 10 and 11 are available in several editions, including:
 
-- Home – minimal management and deployment features and cannot be joined to either an on-premises or Azure AD domain. It is targeted from home use only
-- Professional – this edition includes management and deployment features and can be joined to both an on-premises and Azure AD domain
+- Home – minimal management and deployment features and cannot be joined to either an on-premises or Microsoft Entra ID domain. It is targeted from home use only
+- Professional – this edition includes management and deployment features and can be joined to both an on-premises and Microsoft Entra ID domain
 - Enterprise – this edition has additional enterprise security features as well as the UE-V and App-V clients built in and only distributable through Microsoft's Volume Licensing Program
 
 Servicing of Windows 10 and 11 falls into three distinct channels (previously known as rings):
@@ -264,7 +264,7 @@ Licence keys and activation processes are leveraged by Microsoft to ensure that 
 Windows 10/11 licensing has evolved significantly since the initial release by Microsoft. In addition to the traditional activation methods for on-premises networks (KMS, MAK and AD Based Activation) it is also possible to use Windows Subscription Activation. The evolution of Windows 10 activation is described below:
 
 - Starting from Windows 10 Pro version 1703, Windows 10 Subscription Activation feature enables a step up from Windows 10 Pro edition to Windows 10 Enterprise for those with a qualifying Windows 10 or Microsoft 365 subscription.
-- Azure Active Directory (Azure AD) available for identity management.
+- Microsoft Entra ID available for identity management.
 
 Office 365 products require licensing to enable full functionality and support. The available activation methods are:
 
@@ -636,7 +636,7 @@ Windows 10/11 and supporting management tools offer various SOE support features
 
 The following support components are available to support Windows 10/11:
 
-- Intune – Intune can remotely wipe, reset and remove a device from Azure AD. These functions are controlled by role-based administration, permitting only certain administrators to control these settings.
+- Intune – Intune can remotely wipe, reset and remove a device from Microsoft Entra ID. These functions are controlled by role-based administration, permitting only certain administrators to control these settings.
 - Windows Remote Management (WinRM) – WinRM is the Microsoft implementation of the WS-Management Protocol, a standard Simple Object Access Protocol (SOAP) based, firewall-friendly protocol that allows hardware and Operating Systems from different vendors to interoperate.
 - WS-Management protocol - The WS-Management protocol specification provides a common way for systems to access and exchange management information across an IT infrastructure. WinRM and Intelligent Platform Management Interface (IPMI), along with the Event Collector are components of the Windows Hardware Management features.
 - Windows Remote Assistance – Windows Remote Assistance in Windows uses the Remote Desktop Protocol (RDP) protocol to provide a Remote Desktop connection that is interactive between the locally logged on user and a remote user.
@@ -650,7 +650,7 @@ Operational Support Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Intune | Enabled | Intune management functions cannot be disabled when a device is enrolled in Intune and Azure AD.
+Intune | Enabled | Intune management functions cannot be disabled when a device is enrolled in Intune and Microsoft Entra ID.
 WinRM | Enabled | To meet operating support requirements for the organisation. Consideration should be made to harden the use of WinRM in the organisation environment to increase the security of Windows 10/11 endpoints.
 Windows Remote Assistance | Disabled | To align with the ACSC Windows hardening guidance and reduces the attack surface.
 Remote Desktop | Disabled | To align with ACSC recommendations and reduce the risk of unauthorised access by a malicious actor. 
@@ -1370,8 +1370,8 @@ Windows 10/11 provides various user account types or identity providers. This se
 
 - Local Accounts - A local account is an account on a single Windows system. Local accounts are not replicated and cannot access to corporate resources. They allow access to local storage only. It may be desirable to disable, rename and scramble the passwords for the in-built local accounts.
 - Active Directory Domain - Domain identities are used to grant access to corporate resources and are implemented using Active Directory Domain Services. Administrators manage domain identities and ensure that users have access to the appropriate resources when group policies or any profile management solution is applied to the account. Domain identities are recommended if personalisation data will be stored in a corporate datacentre and will be synchronised to multiple corporate devices.
-- Azure Active Directory (Azure AD) - Azure AD is Microsoft's cloud directory and identity management service. Azure AD includes a full suite of identity management capabilities. Azure AD is a prerequisite for Microsoft Intune mobile device management including Conditional Access.
-- Microsoft Account - A Microsoft Account is an email address issued by or linked to a Microsoft authentication service. A Microsoft Account is a public version of an Azure Active Directory account. If this account is disabled certain features such as Windows Store cannot function.
+- Microsoft Entra ID - Microsoft Entra ID is Microsoft's cloud directory and identity management service. Microsoft Entra ID includes a full suite of identity management capabilities. Microsoft Entra ID is a prerequisite for Microsoft Intune mobile device management including Conditional Access.
+- Microsoft Account - A Microsoft Account is an email address issued by or linked to a Microsoft authentication service. A Microsoft Account is a public version of a Microsoft Entra IDy account. If this account is disabled certain features such as Windows Store cannot function.
 
 Identity Providers Design Decisions for all agencies and implementation types.
 
@@ -1387,14 +1387,14 @@ Additional Identity Providers Design Decisions for cloud native implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Azure Active Directory Accounts | Enabled | Machines will be Azure AD Joined. 
-Domain Accounts | Disabled | Machine will be Azure AD Joined. 
+Azure Active Directory Accounts | Enabled | Machines will be Microsoft Entra ID Joined. 
+Domain Accounts | Disabled | Machine will be Microsoft Entra ID Joined. 
 
 Additional Identity Providers Design Decisions for hybrid implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Azure Active Directory Accounts | Enabled | Machines will be Hybrid Azure AD Joined. 
+Azure Active Directory Accounts | Enabled | Machines will be Hybrid Microsoft Entra ID Joined. 
 Domain Accounts | Enabled | Users will log onto devices using credentials which originate in an on-premises domain.<br>Machines will also be joined to the organisation domain. 
 
 ### Desktop analytics
@@ -1703,7 +1703,7 @@ Jailbroken/rooted devices | Blocked | Prevents jail broken devices from accessin
 
 Device enrolment registers the iOS devices into the corporate device management solution and ensures the device is then able to be managed by administrators.
 
-Microsoft Intune provides a mechanism for enrolling devices into Azure AD. Once registered the device is populated into Intune policy groups using dynamic membership. This ensures that the device meets the compliance policy, monitored, and secured to the Agencies security requirements. 
+Microsoft Intune provides a mechanism for enrolling devices into Microsoft Entra ID. Once registered the device is populated into Intune policy groups using dynamic membership. This ensures that the device meets the compliance policy, monitored, and secured to the Agencies security requirements. 
 
 Microsoft Intune provides three separate experience in enrolling the iOS devices into the Agencies Azure Active directory. The enrolment experiences are: 
 

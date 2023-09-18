@@ -4,7 +4,7 @@
 
 # Platform
 
-<p id="date-and-time">116 minutes to read - 30 March 2023</p>
+<p id="date-and-time">116 minutes to read - 15 September 2023</p>
 
 The blueprint includes guidance for cloud native and hybrid deployments of Microsoft 365 technologies, configured to meet PROTECTED standards. It is designed to also be used for staged deployments that leverage hybrid configurations as a transition step to cloud native transformation.
 
@@ -32,7 +32,7 @@ The following tables in this section lists the components that are in scope for 
 
 Component | Inclusions
 --- | ---
-Azure Active Directory | Domains<br>User Accounts<br>Organisation Collaboration<br>Multifactor Authentication<br>Conditional Access
+Microsoft Entra ID | Domains<br>User Accounts<br>Organisation Collaboration<br>Multifactor Authentication<br>Conditional Access
 Active Directory | On premises for Hybrid solutions only
 Security | Microsoft for Cloud Apps<br>Microsoft Defender for Identity<br>Microsoft Defender for Endpoint<br>Security Information and Event Management<br>Monitoring
 Client Configuration | Intune<br>Microsoft Co-Management<br>Group Policy<br>Printing
@@ -62,7 +62,7 @@ Viva Learning | Viva Learning content sources
 
 Component | Inclusions
 --- | ---
-Windows 10 | Hardware<br>Deployment<br>Customisations<br>Security
+Windows 10 and 11 | Hardware<br>Deployment<br>Customisations<br>Security
 iOS | Enrolment<br>Security<br>Remote Wipe
 
 ## Assumptions
@@ -78,33 +78,33 @@ A directory service is responsible for the storage of identity information. Dire
 
 Identity and Access Management (IAM) is the framework upon which digital identities and access to resources are managed. Within a hybrid solution this framework needs to encompass both the on-premises and cloud components.
 
-### Azure Active Directory
+### Microsoft Entra ID
 
-Azure Active Directory (Azure AD) is a cloud-based directory service which stores identity information and offers Information and Access Management (IAM) for Microsoft cloud products, custom developed applications, and third-party applications. The identities within this directory service can be either cloud based or synchronised from an on-premises AD domain via the Azure AD Connect client.
+Microsoft Entra ID (formerly Azure Active Directory (Azure AD)) is a cloud-based directory service which stores identity information and offers Information and Access Management (IAM) for Microsoft cloud products, custom developed applications, and third-party applications. The identities within this directory service can be either cloud based or synchronised from an on-premises AD domain via the Azure AD Connect client.
 
-Azure AD allows users to sign in and access resources like Microsoft Office 365, the Azure management portal, and other SaaS (Software as a Service) applications. Azure AD also provides control over the following directory activities:
+Microsoft Entra ID allows users to sign in and access resources like Microsoft Office 365, the Azure management portal, and other SaaS (Software as a Service) applications. Microsoft Entra ID also provides control over the following directory activities:
 
-- Registration of applications – The registration of application controls whether users can grant permissions to applications and register them within Azure AD.
-- Restriction of the Azure AD administrative portal – The restriction of the Azure AD portal controls who can viewing of the contents of the Azure AD. The contents include user identity data.
+- Registration of applications – The registration of application controls whether users can grant permissions to applications and register them within Microsoft Entra ID.
+- Restriction of the Microsoft Entra ID administrative portal – The restriction of the Microsoft Entra ID portal controls who can viewing of the contents of the Microsoft Entra ID tenant. The contents include user identity data.
 - LinkedIn account connection – LinkedIn account connection allows users to link their work account to LinkedIn.
 - External user invitations – External user invitation controls who can be invited by users to collaborate within the tenant.
-- Azure AD preview features – Azure AD preview features control how new self-service features are made available to users.
+- Microsoft Entra ID preview features – Microsoft Entra ID preview features control how new self-service features are made available to users.
 
 Azure IAM is configured using:
 
 - Enterprise Applications - The registration of Microsoft and Third-party enterprise applications. The registration requires information regarding the name, publisher, permissions, authentication configuration and Redirect URIs (Uniform Resource Identifier) to be provided.
 - App Registrations – The registration of custom-built enterprise applications. The registration requires information regarding the name, Application Identifier (APP ID), permissions, authentication configuration and Redirect URIs (Uniform Resource Identifier) to be provided.
 
-Where an organisation has already determined that a HYBRID solution is required, [additional considerations](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/plan-hybrid-identity-design-considerations-overview) will apply and these should also be reviewed.
+Where an organisation has already determined that a HYBRID solution is required, [additional considerations](https://learn.microsoft.com/en-au/azure/active-directory/hybrid/common-scenarios) will apply and these should also be reviewed.
 
-Azure AD Design Decisions for all agencies and implementation types.
+Microsoft Entra ID Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Cloud Based Service Accounts | Configured | Break glass accounts are required to be cloud based to ensure access to the tenant if there are issues with authentication.
 Allow the registration of applications by users | Disabled | Only administrators can register applications.
 Allow self-service sign-up for email verified users | Disabled | Only administrators can create user accounts. 
-Restrict access to the Azure AD administrative portal | Enabled | Only administrators have access to the portal.
+Restrict access to the Microsoft Entra ID administrative portal | Enabled | Only administrators have access to the portal.
 Allow LinkedIn connections | Disabled | To meet the organisation's requirements not to share information with third party Agencies without approval.
 External Collaboration | Configured | As required by the organisation, provided the external Agencies are at the same classification.
 Group Management | Configured | Naming policies and expiration as required by the organisation.
@@ -119,24 +119,24 @@ Mobility (MDM and MAM) | Not Configured | Default settings.
 Company Branding | Configured | Organisation specific logos will be required to provide a corporate look and feel. The organisation specific logon banner text is provided under the "Sign-in page text" area of company branding to remind users of their security responsibilities. 
 Keep Me Signed In (KMSI) | Disabled | To prevent users from being offer the 'Stay signed in?' option during authentication.
 
-Additional Azure AD Design Decisions for cloud native implementations.
+Additional Microsoft Entra ID Design Decisions for cloud native implementations.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Identity Source | Azure AD | As this is a cloud only implementation Azure AD will be the source of identity.
+Identity Source | Microsoft Entra ID | As this is a cloud only implementation Microsoft Entra ID will be the source of identity.
 Password Reset | Configured | For self-service password reset, users will need to provide an alternate email address, mobile app and phone number during registration. To reset their password, they will need to provide two methods of verification.
 Identity Format | Configured | Usernames will conform to firstname.lastname{sequence number}<br>Note: The sequence number is only required if duplicate names would be created.
 Display Name | Firstname Lastname | Agencies should avoid using the "Lastname, Firstname" format within the directory as this can cause display issues within Microsoft 365 applications. 
 
-Additional Azure AD Design Decisions for hybrid implementations.
+Additional Microsoft Entra ID Design Decisions for hybrid implementations.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Identity Source | Windows Server Active Directory Domain Services (AD DS) | As this is a hybrid implementation, Active Directory will be the source of identity. 
-Synchronize to Active Directory | Configured | Cloud identities or Synchronised or Federated in accordance with organisation specific requirements.
+Synchronize to Active Directory | Configured | Cloud identities or Synchronised or Federated in accordance with agency specific requirements.
 Azure AD Connect | Configured | See Azure AD Connect section for details.
 Identity Format | Inherited | Usernames will be synchronised from the on-premises Active Directory and will inherit naming convention.
-Display Name | Inherited | Agencies should avoid using the "Lastname, Firstname" display name format within the directory as this can cause display issues within Microsoft 365 applications. 
+Display Name | Inherited | Agencies should avoid using the "Lastname, Firstname" display name format within the directory as this can cause display issues within Microsoft 365 applications.
 
 ### Microsoft 365 groups
 
@@ -144,7 +144,7 @@ Microsoft 365 Groups are an extension on the traditional mail Distribution Lists
 
 Microsoft 365 Groups allow members to collaborate with a group email, shared a workspace for conversations, files, calendar events, and a Planner. Unlike Shared Mailboxes, Microsoft 365 groups can be accessed via mobile applications. Microsoft 365 groups are also integrated with Microsoft Teams and Microsoft Planner and are created when a Team or Plan is created.
 
-Membership of an Microsoft 365 Group can be dynamically updated using user attributes available in Azure AD. This removes some of the management overhead involved with managing the traditional group structures.
+Membership of a Microsoft 365 Group can be dynamically updated using user attributes available in Microsoft Entra ID. This removes some of the management overhead involved with managing the traditional group structures.
 
 Management of Microsoft 365 Groups can be streamlined through the enforcement of a Naming Policy, Office 365 group expiry, and creation restrictions. An Office 365 Group Naming Policy allows the enforcement of a consistent naming strategy across Microsoft 365 Groups. It consists of two parts:
 
@@ -168,13 +168,13 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Microsoft 365 Group creation restrictions | Configured <br>Only administrators and select users can create/configure Microsoft 365 groups. | This will ensure that groups are approved before being created, ensuring all groups have a purpose.<br>This setting also affects Exchange, SharePoint, Microsoft Planner and Teams.
 Naming Policy | Organisation to determine | Naming can align to organisational team structure and help identify the working group or a project. The organisation should determine what naming policy meets their business requirements. 
-Group Expiration  | All groups - annually | Group Expiration is required to simplify the management overhead associated with groups and to limit Azure AD clutter.
+Group Expiration  | All groups - annually | Group Expiration is required to simplify the management overhead associated with groups and to limit Microsoft Entra ID clutter.
 
 ### Emergency access admin accounts
 
 Emergency access or 'break-glass' accounts are accounts used to restore access to an environment or tenant. Break-glass accounts are an option of last resort and should only be used when normal administrative accounts cannot be used to restore access. Example of this is where conditional access has malfunctioned and both users and administrative staff are unable to authenticate into the environment, or all privileged administrator accounts are comprised in another capacity.
 
-[Microsoft best practice](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-emergency-access) recommends that two break-glass accounts are configured. These accounts should be stored according to the standard break-glass procedures. Best practice is for these accounts to meet the following minimum requirements:
+[Microsoft best practice](https://learn.microsoft.com/en-au/azure/active-directory/roles/security-emergency-access) recommends that two break-glass accounts are configured. These accounts should be stored according to the standard break-glass procedures. Best practice is for these accounts to meet the following minimum requirements:
 
 - They are not to be associated with any individual user.
 - They will use a different authorisation mechanism than standard administrative accounts.
@@ -205,41 +205,39 @@ Conditional Access | At least one of the accounts is to be completely excluded f
 Physical access to account details | Account details will be stored on paper in an appropriate location. | It is strongly recommended that the accounts are stored on paper, in two or three separate parts, in secure, fireproof safes that are in disparate locations.
 Monitoring of accounts | Account usage will be monitored via Defender for Cloud Apps. | Use of these accounts is monitored and only used in genuine emergencies.
 
-### Azure AD Smart Lockout
+### Smart Lockout
 
-Azure AD Smart Lockout protects Azure AD accounts from brute force attacks such as password guessing by recognising legitimate sign-in attempts from authentications from unknown sources. Smart Lockout is always-on for Azure AD but allows customisation of the number of incorrect attempts and the lockout duration.
+Smart Lockout protects Microsoft Entra ID accounts from brute force attacks such as password guessing by recognising legitimate sign-in attempts from authentications from unknown sources. Smart Lockout is always-on for Microsoft Entra ID but allows customisation of the number of incorrect attempts and the lockout duration.
 
-Azure AD Smart Lockout Design Decisions for all agencies and implementation types.
+Smart Lockout Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Lockout threshold | 5 | To reduce the effectiveness of attempted password guessing attacks.
 Lockout duration in seconds | 30 | To minimise impact to users if accidently locked out.<br>Note, duration automatically increases with subsequent lockouts.
 
-### Azure AD Identity Protection
+### Identity Protection
 
-Azure AD Identity Protection is the function of provisioning access rights to a resource. Azure AD Identity Protection can take the form of an access policy. An access policy defines the business rules on whether authenticated user is granted or denied access to a resource. Azure AD utilises Conditional Access to define the access policies for Office 365 data. Azure AD using Identity Protection utilises analytics to further minimise the risk that access is provisioned to a compromised authenticated user.
+Identity Protection within Microsoft Entra ID utilises analytics to further minimise the risk that access is provisioned to a compromised authenticated user. Identity Protection enables configuration of automated responses to suspicious activities and actions related to user identities. With Identity Protection, risk-based policies can be configured that automatically respond to detected issues when a specified risk level has been reached.
 
-Azure AD Identity Protection enables configuration of automated responses to suspicious activities and actions related to user identities. With Azure AD Identity Protection, risk-based policies can be configured that automatically respond to detected issues when a specified risk level has been reached.
+These policies, in addition to other Conditional Access controls provided by Microsoft Entra ID, can either automatically block or initiate adaptive remediation actions including password resets and MFA enforcement.
 
-These policies, in addition to other conditional access controls provided by Azure AD, can either automatically block, Smart Lockout, or initiate adaptive remediation actions including password resets and MFA enforcement.
+Identity Protection uses the following mechanisms to detect anomalous activity within the environment:
 
-Azure AD Identity Protection uses the following mechanisms to detect anomalous activity within the environment:
+- Vulnerabilities – Identity Protection analyses identity configuration and detects vulnerabilities that can have an impact on user identities. Vulnerabilities can include items such as unmanaged cloud applications.
+- Risk Events – Microsoft Entra ID uses adaptive machine learning algorithms and heuristics to detect suspicious actions that are related to the user's identities. The system creates a record for each detected suspicious action. These records are also known as risk events and include activities such as Sign-ins from anonymous IP addresses, sign-ins from IP addresses previously detected as exhibiting suspicious activity, or unfamiliar locations.
 
-- Vulnerabilities – Azure AD Identity Protection analyses identity configuration and detects vulnerabilities that can have an impact on user identities. Vulnerabilities can include items such as unmanaged cloud applications.
-- Risk Events – Azure AD uses adaptive machine learning algorithms and heuristics to detect suspicious actions that are related to the user's identities. The system creates a record for each detected suspicious action. These records are also known as risk events and include activities such as Sign-ins from anonymous IP addresses, sign-ins from IP addresses previously detected as exhibiting suspicious activity, or unfamiliar locations.
+Identity Protection provides mechanisms for logging and reporting functionality that simplify investigation activities.
 
-Azure AD Identity Protection provides mechanisms for logging and reporting functionality that simplify investigation activities.
-
-Azure AD Identity Protection Design Decisions for all agencies and implementation types.
+Identity Protection Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Azure AD Identity Protection | Enable the sign-in risk policy and user risk policy within the Azure AD tenant. | Provide reporting of detected suspicious sign-in activity based on defined MFA, sign-in risk and user risk policies for increased security.
+Identity Protection | Enable the sign-in risk policy and user risk policy within the Microsoft Entra ID tenant. | Provide reporting of detected suspicious sign-in activity based on defined MFA, sign-in risk and user risk policies for increased security.
 User risk policy | Enabled | The user risk policy detects the probability that a user account has been compromised by detecting risk events that are a typical of a user's behaviour, alerting when high risk behaviour is detected.
-Sign-in risk policy | Enabled | Azure AD analyses each sign-in of a user. The objective of the analysis is to detect suspicious actions that come along with the sign-in. Automated actions will be configured to be taken when high risk behaviour is detected.
+Sign-in risk policy | Enabled | Microsoft Entra ID analyses each sign-in of a user. The objective of the analysis is to detect suspicious actions that come along with the sign-in. Automated actions will be configured to be taken when high risk behaviour is detected.
 
-### Azure AD Multi-Factor Authentication
+### Multi-Factor Authentication
 
 Authentication is a primary security control to protect both information assets - ranging from logging into a Windows device, to sending an email or collaborating on a document. When deploying Microsoft 365, the identity for each individual staff member is either in the cloud or both in the cloud and on-premises. Employing multiple authentication factors present a significant challenge for attackers gaining access to a system. Traditional authentication methods rely purely on something the user knows, such as a password. Note, a username does not technically count as an authentication factor. A user enters a username to only claim an identity, then must provide an authentication factor to validate this claim (identification vs authentication). Multi-Factor Authentication (MFA) is recommended by the ACSC for all users to prove a user's identity before being granted access.
 
@@ -259,7 +257,7 @@ Azure MFA provides multiple verification methods, such as:
 - Text message to phone – Sends a text message that contains a verification code that is used as the authentication token. The user is prompted to enter the verification code into the sign-in interface. This process is called one-way SMS.
 - OAuth hardware token verification code – OATH is an open standard that specifies how one-time password (OTP) codes are generated. Various vendor tokens are supported.
 
-Azure MFA integrates with Azure AD Conditional Access policies, or the Trusted IP ranges feature to determine under what circumstances and user's physical location a challenge for additional authentication is required . Conditional Access policies are the recommended method to determine MFA conditions.
+Azure MFA integrates with Conditional Access policies, or the Trusted IP ranges feature to determine under what circumstances and user's physical location a challenge for additional authentication is required . Conditional Access policies are the recommended method to determine MFA conditions.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -269,9 +267,9 @@ Trusted IP | Not configured | MFA is required regardless of the location the aut
 
 #### Microsoft Authenticator
 
-To further enhance the security of Azure MFA, the following capabilities can be enabled for Microsoft Authenticator via Authentication methods in Azure AD:
+To further enhance the security of Azure MFA, the following capabilities can be enabled for Microsoft Authenticator via Authentication methods in Microsoft Entra ID:
 
-- Number matching - Rather than receiving a push notification with the traditional Approve and Deny options, instead the user is prompted to enter a two-digital number presented by the service/application attempting to authenticate to Azure AD (e.g., from the browser). 
+- Number matching - Rather than receiving a push notification with the traditional Approve and Deny options, instead the user is prompted to enter a two-digital number presented by the service/application attempting to authenticate to Microsoft Entra ID (e.g., from the browser). 
 - Additional context - Presents the user with additional information within Microsoft Authenticator, including the app attempting to authenticate and the location of the authentication request, to enable them to determine if the request is legitimate and should be approved.
 
 Microsoft Authenticator can also be used to enable users to perform passwordless authentication.
@@ -293,9 +291,9 @@ When a user attempts to access an application or system from any device, one or 
 - User and location based – User and location based Conditional Access limits or blocks user access based on their geo-location or IP address.
 - Device based - Device based Conditional Access ensures only enrolled and approved devices can access corporate data.
 - Application based - Application based Conditional Access policies provide the ability to allow or block an application based on policy configuration.
-- Risk based - Risk based Conditional Access protects corporate data from malicious hackers based on a user's Sign-In risk. The sign-in risk is an indicator for the likelihood (high, medium, or low) that a sign-in attempt was not performed by the legitimate owner of a user account. Azure AD calculates the sign-in risk level during the sign-in of a user.
+- Risk based - Risk based Conditional Access protects corporate data from malicious hackers based on a user's Sign-In risk. The sign-in risk is an indicator for the likelihood (high, medium, or low) that a sign-in attempt was not performed by the legitimate owner of a user account. Microsoft Entra ID calculates the sign-in risk level during the sign-in of a user.
 - Session based – Session based Conditional Access policies enables the control of user sessions by redirecting the user through a reverse proxy instead of directly to the app. From then on, user requests and responses go through Defender for Cloud Apps rather than directly to the app.
-- Terms of Use - Terms of Use policy presents the user a one-off company legal disclaimer in order to access the system through the use of Conditional Access. Its purpose is to remind users of their security responsibilities before access is granted. Users are prompted to accept the policy on first use, or after the policy has changed. Their acceptance is recorded in Azure AD. As the Terms of Use is presented only once, the organisation's "Logon Banner" text should be presented on the desktop and Azure AD portal branding in addition to the Terms of Use.
+- Terms of Use - Terms of Use policy presents the user a one-off company legal disclaimer in order to access the system through the use of Conditional Access. Its purpose is to remind users of their security responsibilities before access is granted. Users are prompted to accept the policy on first use, or after the policy has changed. Their acceptance is recorded in Microsoft Entra ID. As the Terms of Use is presented only once, the organisation's "Logon Banner" text should be presented on the desktop and Microsoft Entra ID portal branding in addition to the Terms of Use.
 
 Based on the above conditions, the user will either be allowed, prompted for multi-factor authentication, or blocked.
 
@@ -303,7 +301,7 @@ Conditional Access Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Conditional Access Enabled| Device Based | To meet security and business requirements. This allows only approved and organisation issued devices access to the organisation's resources. Agencies should avoid using Trusted IPs where possible and leverage Intune compliance. Compliance status is reported back to Azure AD and is evaluated with Conditional Access. 
+Conditional Access Enabled| Device Based | To meet security and business requirements. This allows only approved and organisation issued devices access to the organisation's resources. Agencies should avoid using Trusted IPs where possible and leverage Intune compliance. Compliance status is reported back to Microsoft Entra ID and is evaluated with Conditional Access. 
 
 Conditional Access Policy Design Decisions for all agencies and implementation types.
 
@@ -311,14 +309,14 @@ Configuration | Description
 --- | ---
 BLOCK - Countries not Allowed | This global policy blocks all connections from countries not in the Allowed countries list.
 BLOCK - Guest Access | Deny all guest and external users by default.
-BLOCK - High-Risk Sign-Ins | This global policy blocks all high-risk authentications (requires Azure AD Premium P2).
+BLOCK - High-Risk Sign-Ins | This global policy blocks all high-risk authentications (requires Microsoft Entra ID Premium P2).
 BLOCK - Legacy Authentication | This global policy blocks all connections from insecure legacy protocols like ActiveSync, IMAP, POP3, etc.
 BLOCK - Unapproved Devices | Prevents access from device types not included in the blueprint (Android, Windows Phone and macOS)
 GRANT - Guest Access | Approved apps that guest users can access (requires MFA).
 GRANT - Intune Enrolment | Devices can authenticate to Intune for enrolment.
 GRANT - iOS Device Access | Grants access to managed iOS devices that are enrolled and compliant in Intune. An approved Microsoft app is required on iOS. 
 GRANT - Terms of Use | This global policy forces Terms of Use on all authentications. Terms of Use is a one-off acceptance, it is used for users to accept their security responsibilities before access is granted. 
-GRANT - Windows Device Access | Grants access to managed Windows devices that are Intune enrolled and compliant and/or Hybrid Azure AD Joined (joined to an on-premises AD and Azure AD). Note, Hybrid Azure AD join only applies to Hybrid implementation types. This policy also enforces MFA to access resources.
+GRANT - Windows Device Access | Grants access to managed Windows devices that are Intune enrolled and compliant and/or Hybrid Microsoft Entra ID Joined (joined to an on-premises AD and Microsoft Entra ID). Note, Hybrid Microsoft Entra ID join only applies to Hybrid implementation types. This policy also enforces MFA to access resources.
 SESSION - Admin Sign-in Frequency | Enforces a sign-in frequency to ensure administrators sessions do not remain active for longer than 4 hours. 
 SESSION - User Sign-in Frequency | Enforces a sign-in frequency to ensure non-privileged users are required to complete an MFA prompt daily.
 
@@ -342,7 +340,7 @@ User Identity Source | On-premises Active Directory | The on-premises Active Dir
 
 ### Domain
 
-When a new Azure AD tenant is created it is assigned a default domain name. This domain is internet routable and aligns to "{tenant name}.onmicrosoft.com". A second internet routable domain name is also provisioned if Exchange Online is activated within the tenant. The second internet routable domain aligns to "{tenant name}.mail.onmicrosoft.com".
+When a new Microsoft Entra ID tenant is created it is assigned a default domain name. This domain is internet routable and aligns to "{tenant name}.onmicrosoft.com". A second internet routable domain name is also provisioned if Exchange Online is activated within the tenant. The second internet routable domain aligns to "{tenant name}.mail.onmicrosoft.com".
 
 On-premises domains can also be registered to the tenant to be used by Azure and Exchange Online. These domains can then be used for receiving email and/or be utilised as the User Principal Name (UPN).
 
@@ -351,7 +349,7 @@ Domain Design Decisions for hybrid implementations
 Decision Point | Design Decision | Justification
 --- | --- | ---
 Registration of on-premises Domains | Configured | Required to utilise the on-premises identities.
-Azure AD Primary domain | Configured - {organisation}.com.au | Required to ensure that Azure created resources contain the organisation's Primary Domain.
+Microsoft Entra ID Primary domain | Configured - {organisation}.com.au | Required to ensure that Azure created resources contain the organisation's Primary Domain.
 
 ### Collaboration
 
@@ -370,7 +368,7 @@ Collaboration between organisations assessed and operating at the same security 
 
 ACSC provides guidance on connecting networks with differing security classifications available at [Fundamentals of Cross Domain solutions](https://www.cyber.gov.au/acsc/view-all-content/publications/fundamentals-cross-domain-solutions). At the time of writing, there are no automated options for external collaboration from a PROTECTED environment and user validation for external collaboration remains a manual process. This is particularly the case should an organisation adopting this service seek to collaborate from a PROTECTED environment to an environment that is operating at a lower classification. The ISM stipulates that all users of a PROTECTED environment must have a valid security clearance. It is recommended that users of the higher classification organisation collaborate into the lower classification organisation, and that unified labelling be configured as per the blueprints with PROTECTED content restricted to external sharing.
 
-For Agencies operating at a PROTECTED level seeking to collaborate, B2C collaboration is not suitable as it allows authentication through publicly accessible domains such as Google and Facebook. Azure AD Business-to-Business (B2B) allows authentication between Azure tenants which provides a higher level of assurance.
+For Agencies operating at a PROTECTED level seeking to collaborate, B2C collaboration is not suitable as it allows authentication through publicly accessible domains such as Google and Facebook. Microsoft Entra ID Business-to-Business (B2B) allows authentication between Azure tenants which provides a higher level of assurance.
 
 B2B allows the most secure sharing of organisation applications, services, and data with external guest users from other organisations, while maintaining maximal control over corporate data. The collaboration options between two or more organisations can use the following platforms:
 
@@ -379,15 +377,15 @@ B2B allows the most secure sharing of organisation applications, services, and d
 - SharePoint Online
 - OneDrive for Business.
 
-Azure AD supports several B2B access scenarios to enable users within external organisations to collaborate with a host organisation. Users will be authenticated using an external identity source (e.g., Azure AD tenant credentials) which then generates a linked guest account within the host Azure AD tenant.
+Microsoft Entra ID supports several B2B access scenarios to enable users within external organisations to collaborate with a host organisation. Users will be authenticated using an external identity source (e.g., Microsoft Entra ID tenant credentials) which then generates a linked guest account within the host Microsoft Entra ID tenant.
 
 When an external user is invited to collaborate, the following items are checked:
 
-- Is collaboration with the external domain allowed by B2B at the Azure AD level?
+- Is collaboration with the external domain allowed by B2B at the Microsoft Entra ID level?
 - Is guest access allowed by the application?
 - Is external access with the external domain allowed by the application?
 
-When the above are all true, the external user can be invited generating an invitation email. The user must accept the invitation by clicking on the link contained within the email causing a linked guest account to be created in the hosting Azure AD tenant. When the guest account has been created it is available for use by any of the applications that are configured to allow guest access.
+When the above are all true, the external user can be invited generating an invitation email. The user must accept the invitation by clicking on the link contained within the email causing a linked guest account to be created in the hosting Microsoft Entra ID tenant. When the guest account has been created it is available for use by any of the applications that are configured to allow guest access.
 
 B2B only requires a small amount of user information (name, and email), however it is recommended that CISOs consuming this document creates a process outside of technology that ensures organisation identity requirements are met. The identity requirements should include the properties listed in the table below and the external user's nationality and clearances held.
 
@@ -415,7 +413,7 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Conditional Access Policies | **BLOCK - Legacy Authentication**:<br>This global policy blocks all connections from unsecure legacy protocols like ActiveSync, IMAP, PO3, etc.<br>**BLOCK - Countries not Allowed:**<br>This global policy blocks all connections from countries not in the Allowed countries list. | Minimises the risk of the user in the partner organisation using credentials that have been compromised.
 
-Azure AD design decisions in relation to inter-organisation collaboration for all agencies and implementation types.
+Microsoft Entra ID design decisions in relation to inter-organisation collaboration for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
@@ -425,16 +423,16 @@ External Sharing | Disabled | The organisation is pursuing a PROTECTED-level cer
 
 ### Azure AD Connect
 
-Azure Active Directory Connect (AAD Connect) is a product designed to synchronise directory objects and changes between Active Directory and Azure AD. AAD Connect enables the on-premises directory service to be the source of truth for identities within the environment and ensures that changes are replicated to Azure AD.
+Azure Active Directory Connect (AAD Connect) is a product designed to synchronise directory objects and changes between Active Directory and Microsoft Entra ID. AAD Connect enables the on-premises directory service to be the source of truth for identities within the environment and ensures that changes are replicated to Microsoft Entra ID.
 
 AAD Connect can be deployed in several patterns. These patterns follow the guiding principles of:
 
-- Only one AAD Connect instance can be actively synchronising to an Azure AD tenant.
+- Only one AAD Connect instance can be actively synchronising to a Microsoft Entra ID tenant.
 - On-premises AD can only be synchronised to one Azure tenant unless directory synchronisation and Microsoft Identity Manager (MIM) are leveraged.
 
 As only one AAD Connect instance can be actively synchronising at a time, high availability is not possible. A warm standby can be configured using a second AAD Connect server in Staging mode.
 
-The following illustrates the user identity synchronisation between the organisation's on-premises AD to Azure AD.
+The following illustrates the user identity synchronisation between the organisation's on-premises AD to Microsoft Entra ID.
 
 ![AD Connect Identity Synchronisation](../img/platform-ad-connect-id-sync.png#center)
 
@@ -443,11 +441,11 @@ Within the AAD Connect client the synchronisation process can be customised in s
 - Group Filtering – Group filtering limits the scope of the synchronisation to the members of a group within the on-premises directory.
 - Organisational Unit (OU) Filtering – OU filtering limits the scope of the synchronisation to the objects in one or more OUs within the directory.
 - Attribute Filtering – Attribute filtering controls which attributes from an object are synchronised to the cloud.
-- Azure AD App Filtering – Azure AD app filtering assists in limiting the number of attributes synchronised to the cloud based on which Office 365 services are in use.
+- Microsoft Entra ID App Filtering – Microsoft Entra ID app filtering assists in limiting the number of attributes synchronised to the cloud based on which Office 365 services are in use.
 
-Each of the above customisations provide control over what directory information is synchronised to the cloud from the on-premises directory service. The AAD Connect client can also be leveraged to configure Single Sign-On (SSO) and Exchange Hybrid. AAD Connect must run on a domain joined Windows Server 2016 or later and can synchronise many Active Directory objects to Azure AD and hence there is a range of hardware requirements to consider based on the number of objects in Active Directory that will be synchronised (refer to the [Azure AD Connect Prerequisites](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-install-prerequisites)).
+Each of the above customisations provide control over what directory information is synchronised to the cloud from the on-premises directory service. The AAD Connect client can also be leveraged to configure Single Sign-On (SSO) and Exchange Hybrid. AAD Connect must run on a domain joined Windows Server 2016 or later and can synchronise many Active Directory objects to Microsoft Entra ID and hence there is a range of hardware requirements to consider based on the number of objects in Active Directory that will be synchronised (refer to the [Azure AD Connect Prerequisites](https://learn.microsoft.com/en-au/azure/active-directory/hybrid/connect/how-to-connect-install-prerequisites)).
 
-When AAD Connect is leveraged, a user would be created within the on-premises directory service (Active Directory) and then synchronised via the AAD Connect client into Azure AD (the cloud-based directory service).
+When AAD Connect is leveraged, a user would be created within the on-premises directory service (Active Directory) and then synchronised via the AAD Connect client into Microsoft Entra ID (the cloud-based directory service).
 
 The following illustrates a typical user account provisioning workflow for a hybrid configuration.
 
@@ -464,9 +462,9 @@ Attribute used for login | User ID | This attribute is commonly used for logins 
 Organisational unit filtering | Configured | To target only the required identities for synchronisation. Whole directory synchronisations are not recommended.
 Single Sign On | Configured | Single Sign-on.
 Staging Server | Configured | Best practice dictates a secondary staging server be in place to be used in disaster recovery scenarios.
-Password writeback | Organisation decision | Password writeback enables additional capabilities such as [Leaked Password Detection](https://docs.microsoft.com/en-us/azure/active-directory/identity-protection/concept-identity-protection-risks#password-hash-synchronization), however, it requires hashed passwords to be synchronised from on-premises AD DS to Azure AD.
+Password writeback | Organisation decision | Password writeback enables additional capabilities such as [Leaked Password Detection](https://learn.microsoft.com/en-au/azure/active-directory/identity-protection/concept-identity-protection-risks#password-hash-synchronization), however, it requires hashed passwords to be synchronised from on-premises AD DS to Microsoft Entra ID.
 Self Service Password Reset | Organisation decision | The Self-Service Password Reset feature requires activation of password writeback in the AAD Connect configuration.
-Azure AD App and attribute filtering | Configured | All Azure AD App and attribute filtering will be synchronised as recommended by Microsoft .
+Microsoft Entra ID App and attribute filtering | Configured | All Microsoft Entra ID App and attribute filtering will be synchronised as recommended by Microsoft .
 Exchange Hybrid | Configured | Exchange will be used in a hybrid configuration with Exchange Online, therefore this setting is required to be set as Configured.
 Exchange Mail Public Folders | Not Configured | The organisation does not leverage Public folders currently, therefore this setting is not required.
 Directory extension attribute synchronisation | Not Configured | Not required for this solution.
@@ -477,12 +475,12 @@ Configuration | Value | Description
 --- | --- | ---
 Installation Mode | Custom | The type of installation – Default or Custom. The Default install does not allow customisation of the filtering.
 SQL Mode | Local DB | The location of the AAD Connect database. Local DB is the default configuration and the simplest to manage. 
-Directory to Connect to | {organisation}.com.au | Azure AD Tenant of the organisation.
-On-premises attribute to use for Azure AD (used for logging in to Azure AD) | User ID  | This attribute is commonly used for logins as it will ensure that the same credentials are maintained for on-premises and in-cloud authentication.
+Directory to Connect to | {organisation}.com.au | Microsoft Entra ID Tenant of the organisation.
+On-premises attribute to use for Microsoft Entra ID (used for logging in to Microsoft Entra ID) | User ID  | This attribute is commonly used for logins as it will ensure that the same credentials are maintained for on-premises and in-cloud authentication.
 Alternate ID | Not required | This is required in scenarios where primary ID may be duplicated between users in the organisation.
-OU Filtering | Enabled <br>{TBA by the organisation} | OU filtering will be used to ensure that specific OUs containing entities such as service accounts are not synchronised with Azure AD. OU filtering will be finalised during deployment and documented in As-Built-As-Configured documentation.
+OU Filtering | Enabled <br>{TBA by the organisation} | OU filtering will be used to ensure that specific OUs containing entities such as service accounts are not synchronised with Microsoft Entra ID. OU filtering will be finalised during deployment and documented in As-Built-As-Configured documentation.
 Uniquely Identifying Users | Users are represented only once across all directories.<br>Let Azure manage the source anchor (ms-DS-ConsistencyGuid) | Default configuration. As users are not duplicated within the environment, this setting meets the solution requirements. The ms-DS-ConsistencyGuid is used when Azure manages the source anchor.
-Azure AD Attributes | Default – All attributes | Default configuration. All attributes to be synchronised.
+Microsoft Entra ID Attributes | Default – All attributes | Default configuration. All attributes to be synchronised.
 Synchronisation Interval | 30 minutes | Default synchronisation interval.<br>Note: Password resets and new accounts are synchronised immediately.
 
 ### Authentication method
@@ -492,15 +490,15 @@ Authentication is the process of verifying one's identity. Active Directory allo
 In a hybrid scenario, authentication support is required outside the corporate network. In a hybrid scenario, credential authentication support is required outside the corporate network. This can be achieved using either:
 
 - Cloud authentication – Cloud authentication utilises credentials stored within the cloud to authenticate users. The credentials can belong to cloud only accounts.
-- Password hash synchronisation (PHS) – PHS synchronises a hash of the hash of a user's on-premises password which has undergone a salting process before it is sent to Azure AD. If the user's hashed password matches the stored password, the user is then authenticated. This means the authentication method will be handled in the cloud.
-- Pass-through authentication (PTA) – This feature allows users to login to Azure services including Office 365 using their on-premises credentials. When authenticating, the user enters their credentials into an Azure authentication service. The service encrypts the credentials and place the request in a queue. The on-premises PTA agents read the queue and perform the decryption and validation against Active Directory. The outcome of the validation is sent via the PTA agent to the Azure authentication service to complete the user's authentication request. Through the process no credentials are stored within Azure AD.
-- Federation integration (AD FS) – Active Directory Federation Services (AD FS) allows users to login to Office 365 services using the organisations existing federation infrastructure. A federation trust is established between the corporate network and Azure AD with the authentication method being handled on-premises.
+- Password hash synchronisation (PHS) – PHS synchronises a hash of the hash of a user's on-premises password which has undergone a salting process before it is sent to Microsoft Entra ID. If the user's hashed password matches the stored password, the user is then authenticated. This means the authentication method will be handled in the cloud.
+- Pass-through authentication (PTA) – This feature allows users to login to Azure services including Office 365 using their on-premises credentials. When authenticating, the user enters their credentials into an Azure authentication service. The service encrypts the credentials and place the request in a queue. The on-premises PTA agents read the queue and perform the decryption and validation against Active Directory. The outcome of the validation is sent via the PTA agent to the Azure authentication service to complete the user's authentication request. Through the process no credentials are stored within Microsoft Entra ID.
+- Federation integration (AD FS) – Active Directory Federation Services (AD FS) allows users to login to Office 365 services using the organisations existing federation infrastructure. A federation trust is established between the corporate network and Microsoft Entra ID with the authentication method being handled on-premises.
 
 The following illustrates the pass-through authentication method and how it communicates across the network.
 
 ![Authentication Architecture](../img/platform-authentication-architecture.png#center)
 
-The following table describes the ports and protocols used in a hybrid configuration between on the PTA Agent and Azure AD. The hardware requirements for PTA agents are available in Appendix 1: AAD Connect and PTA agent hardware requirements.
+The following table describes the ports and protocols used in a hybrid configuration between on the PTA Agent and Microsoft Entra ID. The hardware requirements for PTA agents are available in Appendix 1: AAD Connect and PTA agent hardware requirements.
 
 Protocol | Port | Description
 --- | --- | ---
@@ -519,13 +517,13 @@ HTTPS | 443 (TCP/UDP) | Enable outbound HTTPS traffic for operations such as ena
 Information Technology (IT) Security refers to protection of networks, servers, intranets, data systems, data and computer systems. To protect these items, Microsoft Azure contains several security features and products which together:
 
 - Secure the Platform – Microsoft Azure and Office 365, through their features and products to enable security in depth.
-- Provide Risk Assessments – Azure AD Identity Protection, Defender for Identity, and Microsoft Defender for Endpoint utilise analytics and machine learning to detect and flag unusual/risky behaviour.
+- Provide Risk Assessments – Identity Protection, Defender for Identity, and Microsoft Defender for Endpoint utilise analytics and machine learning to detect and flag unusual/risky behaviour.
 - Provide Visibility into User Behaviour – Defender for Cloud Apps provides security operations dashboards which provide visibility into the activities being undertaken within the environment.
 - Control Data Exfiltration –Data Loss Prevention policies and Defender for Cloud Apps session policies control the flow and protection of information inside and outside of the environment.
 
 ### Microsoft Defender for Cloud App
 
-Microsoft Defender for Cloud App - formerly Microsoft Cloud App Security (MCAS) -  is part of Microsoft's Enterprise Mobility + Security (EM+S) suite of capabilities, providing cloud access security broker (CASB) functionality to reduce the risk of leveraging cloud services, including those offered by Microsoft and third-party providers such as Google, Amazon and Dropbox. To manage the risks presented using cloud services, Microsoft has defined a [cloud app security framework](https://docs.microsoft.com/en-us/cloud-app-security/what-is-cloud-app-security#the-cloud-app-security-framework) which Defender for Cloud Apps implements:
+Microsoft Defender for Cloud App - formerly Microsoft Cloud App Security (MCAS) -  is part of Microsoft's Enterprise Mobility + Security (EM+S) suite of capabilities, providing cloud access security broker (CASB) functionality to reduce the risk of leveraging cloud services, including those offered by Microsoft and third-party providers such as Google, Amazon and Dropbox. To manage the risks presented using cloud services, Microsoft has defined a [cloud app security framework](https://learn.microsoft.com/en-us/defender-cloud-apps/what-is-defender-for-cloud-apps) which Defender for Cloud Apps implements:
 
 - Discover and control the use of Shadow IT – Shadow IT includes cloud services that are in use by users but not assessed and approved by security, including Software-as-a-Service (SaaS), Platform-as-a-Service (PaaS), and Infrastructure-as-a-Service (IaaS) offerings. To protect users and their data these services must be identified so that their risk can be determined, and management controls can be implemented. Defender for Cloud Apps enables administrators to assess an extensive library of apps against a wide range of risks.
 - Protect your sensitive information anywhere in the cloud – Once data is uploaded to a cloud service it is harder to control and manage compared to traditional on-premises storage. Defender for Cloud Apps enables controls to be applied to data regardless of where it is stored leveraging automated processes and inbuilt policies to both classify and protect information.
@@ -536,7 +534,7 @@ Microsoft Defender for Cloud App - formerly Microsoft Cloud App Security (MCAS) 
 
 The architecture of Defender for Cloud Apps includes several integrated components to address each of the cloud app security framework requirements. The components include log collection and analysis capabilities to detect cloud apps, Application Programming Interface (API) connectors to interface with and control cloud app activity, and reserve proxy capability to enforce conditional access app control policies for authentication to cloud apps.
 
-An overview of these components and how they combine in Defender for Cloud Apps is illustrated below in Figure 5. Figure reproduced from [Defender for Cloud Apps overview](https://docs.microsoft.com/en-au/defender-cloud-apps/what-is-defender-for-cloud-apps).
+An overview of these components and how they combine in Defender for Cloud Apps is illustrated below in Figure 5. Figure reproduced from [Defender for Cloud Apps overview](https://learn.microsoft.com/en-au/defender-cloud-apps/what-is-defender-for-cloud-apps).
 
 ![Figure 5 - Defender for Cloud Apps Architecture](../img/platform-product-architecture.png#center)
 
@@ -544,11 +542,11 @@ Further details including configuration of each of these components is presented
 
 #### Data location
 
-At the time of writing Defender for Cloud Apps is hosted from Azure data centres in the [United States (US), United Kingdom (UK) and Europe](https://docs.microsoft.com/en-au/defender-cloud-apps/cas-compliance-trust#data-location). An Defender for Cloud Apps tenant account is automatically created in the closest 'Geo'. For Azure tenants located in Australia, Defender for Cloud Apps will use the US Geo.
+At the time of writing Defender for Cloud Apps is hosted from Azure data centres in the [United States (US), United Kingdom (UK) and Europe](https://learn.microsoft.com/en-au/defender-cloud-apps/cas-compliance-trust#data-location). An Defender for Cloud Apps tenant account is automatically created in the closest 'Geo'. For Azure tenants located in Australia, Defender for Cloud Apps will use the US Geo.
 
 #### Data retention
 
-The data retention period for information stored within Defender for Cloud Apps varies depending on the specific type of data.  The [four data types](https://docs.microsoft.com/en-au/defender-cloud-apps/cas-compliance-trust#data-retention) and their respective periods are listed below:
+The data retention period for information stored within Defender for Cloud Apps varies depending on the specific type of data. The [four data types](https://learn.microsoft.com/en-au/defender-cloud-apps/cas-compliance-trust#data-retention) and their respective periods are listed below:
 
 - Activity log – 180 days
 - Discovery data – 90 days
@@ -559,9 +557,9 @@ Note, all user activity and security alert information can be exported from Defe
 
 #### Administration
 
-Defender for Cloud Apps leverages Azure Active Directory (Azure AD) to provide RBAC for administration via the web portal. By default, only the Global Administrator and Security Administrator roles have full access to Defender for Cloud Apps. Other standard Azure AD roles that have at least read-only access to the portal include Compliance Administrator, Compliance Data Administrator, Security Operator, Security Reader, and Global Reader. 
+Defender for Cloud Apps leverages Microsoft Entra ID to provide RBAC for administration via the web portal. By default, only the Global Administrator and Security Administrator roles have full access to Defender for Cloud Apps. Other standard Microsoft Entra ID roles that have at least read-only access to the portal include Compliance Administrator, Compliance Data Administrator, Security Operator, Security Reader, and Global Reader. 
 
-In addition to the standard Azure AD roles, Defender for Cloud Apps also has its own service-specific roles that provide finer grained [RBAC](https://docs.microsoft.com/en-au/defender-cloud-apps/manage-admins). If required, Global and Security Administrators can also grant access to specific users within the Defender for Cloud Apps portal.
+In addition to the standard Microsoft Entra ID roles, Defender for Cloud Apps also has its own service-specific roles that provide finer grained [RBAC](https://learn.microsoft.com/en-au/defender-cloud-apps/manage-admins). If required, Global and Security Administrators can also grant access to specific users within the Defender for Cloud Apps portal.
 
 #### Cloud Discovery
 
@@ -574,12 +572,12 @@ There are two types of cloud discovery reports that are generated by Defender fo
 - Snapshot reports – generated by manually uploading a log export from a proxy or firewall device, provides on demand analysis at the time the log is uploaded.
 - Continuous reports – leverage native first and third-party integrations to provide ongoing data ingest and analysis without the need for user interaction.
 
-Continuous reports can be generated a few ways such as configuring one or more of the following [automated log upload capabilities](https://docs.microsoft.com/en-us/cloud-app-security/set-up-cloud-discovery):
+Continuous reports can be generated a few ways such as configuring one or more of the following [automated log upload capabilities](https://learn.microsoft.com/en-au/defender-cloud-apps/set-up-cloud-discovery):
 
 - Log collector – centralisation of logs from one or more proxy or firewall devices to a Docker-powered collector using Syslog and/or File Transfer Protocol (FTP).
 - Microsoft Defender for Endpoint integration – native integration with Defender for Endpoint logs directly from onboarded endpoint devices running, regardless of whether they connect to cloud services via a managed gateway or directly via the internet.
 
-Defender for Cloud Apps supports a wide range of [popular proxy and firewall vendors and products](https://docs.microsoft.com/en-us/cloud-app-security/set-up-cloud-discovery#supported-firewalls-and-proxies-) for both snapshot and continuous reports (via log collectors)  . A custom parser can also be configured for unsupported devices allowing manual attribute mapping.
+Defender for Cloud Apps supports a wide range of [popular proxy and firewall vendors and products](https://learn.microsoft.com/en-au/defender-cloud-apps/set-up-cloud-discovery#supported-firewalls-and-proxies) for both snapshot and continuous reports (via log collectors). A custom parser can also be configured for unsupported devices allowing manual attribute mapping.
 
 Once a cloud app has been discovered and its usage reviewed it can be either Sanctioned (approved) or Unsanctioned (prohibited) via the Discovered Apps tab. By default, tagging a cloud app as unsanctioned does not block access directly but allows for the generation of a block script that can be downloaded from Defender for Cloud Apps and imported into a proxy or firewall appliance. If Defender for Cloud Apps is integrated with Defender for Endpoint, app access enforcement can be enabled to block access to apps marked as Unsanctioned.
 
@@ -595,7 +593,7 @@ List of sanctioned and unsanctioned cloud apps | To be developed during build wi
 
 ##### Automatic log upload & Log collectors
 
-A log collector receives logs from supported firewall and proxy devices, providing processing and compression before uploading to Defender for Cloud Apps. The compression typically results in outbound traffic from the log collectors being 10% the size of received traffic. The steps to configure automatic log upload for continuous reports is available at [Configure automatic log upload for continuous reports](https://docs.microsoft.com/en-us/cloud-app-security/discovery-docker).
+A log collector receives logs from supported firewall and proxy devices, providing processing and compression before uploading to Defender for Cloud Apps. The compression typically results in outbound traffic from the log collectors being 10% the size of received traffic. The steps to configure automatic log upload for continuous reports is available at [Configure automatic log upload for continuous reports](https://learn.microsoft.com/en-au/defender-cloud-apps/discovery-docker).
 
 A log collector can receive logs via FTP - including FTP over Transport Layer Security (TLS) - and Syslog.
 
@@ -627,7 +625,7 @@ Custom tags | Configured on demand | Custom tags will be added to Cloud Discover
 Defender for Endpoint integration enables cloud app and service traffic to be sent from supported Windows 10 devices (1709 or later) to Defender for Cloud Apps to provide additional data for continuous reporting.
 
 This capability is enabled from within the Endpoints > Advanced Features settings within the Microsoft 365 Defender portal, as shown below in Figure 6. Figure reproduced from [Microsoft Defender for Endpoint integration with Microsoft Cloud App Security
-](https://docs.microsoft.com/en-au/cloud-app-security/mde-integration).
+](https://learn.microsoft.com/en-au/defender-cloud-apps/mde-integration).
 
 ![Figure 6 - Defender for Endpoint and Defender for Cloud Apps Integration](../img/platform-defender-mcas.png#center)
 
@@ -641,7 +639,7 @@ Microsoft Defender for Endpoint portal configuration | Microsoft Cloud App Secur
 
 ##### User enrichment
 
-To further enrich cloud discovery data Defender for Cloud Apps can integrate with Azure AD to replace users identified with Azure AD usernames.
+To further enrich cloud discovery data Defender for Cloud Apps can integrate with Microsoft Entra ID to replace users identified with Microsoft Entra ID usernames.
 
 This simplifies identification and investigation of user activity, as well as allowing correlation with API collected activities.
 
@@ -649,7 +647,7 @@ Cloud Discovery Enrichment Design Decisions for all agencies and implementation 
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-User enrichment | Enabled | To identify users by Azure AD username.
+User enrichment | Enabled | To identify users by Microsoft Entra ID username.
 
 ##### Anonymization
 
@@ -682,7 +680,7 @@ App connectors enable Defender for Cloud Apps to see and reach inside connected 
 
 To support multiple instances of a single cloud app, for example different teams owning and managing their own subscriptions, Defender for Cloud Apps supports connecting multiple instances of the same cloud app. However, multi-instance support is only provided for API connected apps and is not available for cloud discovered and proxy connected apps. Additionally, multi-instance support is not available for Azure and Office 365.
 
-At the time of writing, the following API app connectors are [available in Defender for Cloud Apps](https://docs.microsoft.com/en-us/cloud-app-security/enable-instant-visibility-protection-and-governance-actions-for-your-apps):
+At the time of writing, the following API app connectors are [available in Defender for Cloud Apps](https://learn.microsoft.com/en-au/defender-cloud-apps/enable-instant-visibility-protection-and-governance-actions-for-your-apps):
 
 - Amazon Web Services (AWS)
 - Azure
@@ -711,7 +709,7 @@ Decision Point | Design Decision | Justification
 Use of app connectors | Preferred for all supported cloud apps. | Provides the greatest available level of visibility and connect of the connected apps. 
 API administrator accounts | Dedicated account for Defender for Cloud Apps for each connected app that requires one. | Microsoft best practice to manage connected apps. 
 List of connected apps | Azure<br>Office 365 | All approved cloud apps that are supported will be connected to Defender for Cloud Apps via API. 
-Office 365 Connector Configuration | Selected Components:<br>Azure AD Users and Groups<br>Azure AD Management events<br>Azure AD Sign-in events<br>Azure AD Apps<br>Office 365 activities<br>Office 365 files | All components of Office 365 on which Cloud App Security can obtain information. 
+Office 365 Connector Configuration | Selected Components:<br>Microsoft Entra ID Users and Groups<br>Microsoft Entra ID Management events<br>Microsoft Entra ID Sign-in events<br>Microsoft Entra ID Apps<br>Office 365 activities<br>Office 365 files | All components of Office 365 on which Cloud App Security can obtain information. 
 
 Note, the Azure connector does not have any configurable settings.
 
@@ -747,7 +745,7 @@ The Defender for Cloud Apps Threat Protection design decisions can be found belo
 
 Microsoft Defender for Identity provides User Entity Behavioural Analytics (UEBA) by monitoring authentication requests to on-premises Active Directory (AD) Domain Controllers (DCs).
 
-Integrating Defender for Identity with Defender for Cloud Apps extends this capability to hybrid environments and presents all Defender for Identity Suspicious Activity (SA) alerts to the Defender for Cloud Apps dashboard, reducing the need for security analysts to monitor multiple consoles. To connect Defender for Identity to Defender for Cloud Apps the user enabling the setting must be an Azure AD Global Admin. Integration is enabled in the Defender for Cloud Apps console and does not require configuration from the Defender for Identity console.
+Integrating Defender for Identity with Defender for Cloud Apps extends this capability to hybrid environments and presents all Defender for Identity Suspicious Activity (SA) alerts to the Defender for Cloud Apps dashboard, reducing the need for security analysts to monitor multiple consoles. To connect Defender for Identity to Defender for Cloud Apps the user enabling the setting must be a Microsoft Entra ID Global Admin. Integration is enabled in the Defender for Cloud Apps console and does not require configuration from the Defender for Identity console.
 
 Defender for Identity integration Design Decisions for hybrid implementations.
 
@@ -755,17 +753,17 @@ Decision Point | Design Decision | Justification
 --- | --- | ---
 Defender for Identity integration | Enabled | To enable integration between security tools deployed within the organisation's environment.
 
-##### Azure AD Identity Protection integration
+##### Identity Protection integration
 
-Azure AD Identity Protection enables configuration of automated responses to suspicious activities and actions related to user identities.
+Identity Protection enables configuration of automated responses to suspicious activities and actions related to user identities.
 
-Integrating Azure AD Identity Protection with Defender for Cloud Apps provides a uniformed alerts view within Defender for Cloud Apps, and enables an enhanced investigation experience for identity alerts.
+Integrating Identity Protection with Defender for Cloud Apps provides a uniformed alerts view within Defender for Cloud Apps, and enables an enhanced investigation experience for identity alerts.
 
-Azure AD Identity Protection integration Design Decisions for all agencies and implementation types.
+Identity Protection integration Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Azure AD Identity Protection integration | Enabled | To enable integration between security tools deployed within the organisation's environment.
+Identity Protection integration | Enabled | To enable integration between security tools deployed within the organisation's environment.
 
 ##### App Governance
 
@@ -802,7 +800,7 @@ User notification | Default text – `This file was quarantined because it might
 
 Microsoft Information Protection (MIP) provides document and email classification labelling, and protections based on those labels, across hybrid environments. Defender for Cloud Apps can be configured to scan for MIP classification labels and content inspection warning when new files are detected in connected apps. Additionally, Defender for Cloud Apps can be configured to only scan labels and warning originating from its tenant, therefore ignoring labels from external tenants.
 
-To enable Defender for Cloud Apps to inspect the content of files that have been protected by MIP it must be granted that permission in Azure AD. This is done via a guided activity initiated from the Defender for Cloud Apps portal.
+To enable Defender for Cloud Apps to inspect the content of files that have been protected by MIP it must be granted that permission in Microsoft Entra ID. This is done via a guided activity initiated from the Defender for Cloud Apps portal.
 
 Microsoft Information Protection Design Decisions for all agencies and implementation types.
 
@@ -828,7 +826,7 @@ File monitoring | Enabled | Allow Defender for Cloud Apps to monitor files store
 
 The Conditional Access App Control Protection design decisions can be found below. Conditional Access App Control components include Default Behaviour, User Monitoring, Device Identification and App Onboarding/Maintenance.
 
-The Conditional Access App Control capability of Defender for Cloud Apps leverages Azure AD Conditional Access to enforce actions (such as blocking accessing) based on specific conditions (such as device compliance) by using a reverse proxy architecture. Users' cloud app sessions, including authentication, are proxied by Defender for Cloud Apps instead of going directly to the app. Defender for Cloud Apps does this by replacing the app's Uniform Resource Locators (URLs) and cookies, therefore not requiring an agent to be installed on the endpoints.
+The Conditional Access App Control capability of Defender for Cloud Apps leverages Conditional Access to enforce actions (such as blocking accessing) based on specific conditions (such as device compliance) by using a reverse proxy architecture. Users' cloud app sessions, including authentication, are proxied by Defender for Cloud Apps instead of going directly to the app. Defender for Cloud Apps does this by replacing the app's Uniform Resource Locators (URLs) and cookies, therefore not requiring an agent to be installed on the endpoints.
 
 Examples of the Conditional Access App Control policies that can be configured to monitor and control user app access and sessions in real time are listed below:
 
@@ -877,16 +875,16 @@ Defender for Cloud Apps and Conditional Access App Control can be utilised to id
 Defender for Cloud Apps and Conditional Access App Control support three methods to identified managed devices:
 
 - Microsoft Intune (specifically devices that are identified as Compliant).
-- Hybrid Azure AD joined devices.
+- Hybrid Microsoft Entra ID joined devices.
 - The presence of client certificates that are part of a trusted chain.
 
-A combination of multiple of these methods can be configured if required to identify devices within a diverse environment. Devices that are present in Intune, as well as those that are registered to Azure AD (hybrid joined), are automatically synchronised to Defender for Cloud Apps. To use client certificates to identify devices either a trusted root or intermediate certificate must be uploaded to Defender for Cloud Apps in Privacy-Enhanced Mail (PEM) format.
+A combination of multiple of these methods can be configured if required to identify devices within a diverse environment. Devices that are present in Intune, as well as those that are registered to Microsoft Entra ID (hybrid joined), are automatically synchronised to Defender for Cloud Apps. To use client certificates to identify devices either a trusted root or intermediate certificate must be uploaded to Defender for Cloud Apps in Privacy-Enhanced Mail (PEM) format.
 
 Device Identification Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Use of client certificates for device identification | Not configured | No requirement to use client certificates has been identified as the organisation will leverage Intune for compliant and Hybrid Azure AD devices.
+Use of client certificates for device identification | Not configured | No requirement to use client certificates has been identified as the organisation will leverage Intune for compliant and Hybrid Microsoft Entra ID devices.
 
 ##### App onboarding/maintenance
 
@@ -931,7 +929,7 @@ The Defender for Cloud Apps SIEM agent runs on a server – either on-premises o
 
 Note, if both Defender for Identity and Defender for Cloud Apps are configured to send alerts to the same SIEM duplicate alerts will be received with different alert IDs. It is recommended to only send these alerts from one source.
 
-At the time of writing the SIEM agent only supports Micro Focus ArcSight and generic [Common Event Format (CEF)](https://docs.microsoft.com/en-us/cloud-app-security/siem). Supported time formats include Request for Comment (RFC) 5424, 3164 and 3164 with year. The agent can be installed on either Windows or Linux operating systems and requires Java 8.
+At the time of writing the SIEM agent only supports Micro Focus ArcSight and generic [Common Event Format (CEF)](https://learn.microsoft.com/en-au/defender-cloud-apps/siem). Supported time formats include Request for Comment (RFC) 5424, 3164 and 3164 with year. The agent can be installed on either Windows or Linux operating systems and requires Java 8.
 
 In addition to the SIEM agent, Defender for Cloud Apps supports native integration with Microsoft Sentinel and the Microsoft Security Graph API. Microsoft Sentinel is Microsoft's cloud native SIEM offering, while the Security Graph API provides additional partner integration solutions, e.g. the Microsoft Graph Security API Add-On for Splunk.
 
@@ -984,7 +982,7 @@ The Defender for Identity architecture is composed of a Defender for Identity cl
 - Defender for Identity portal – Management interface where the Defender for Identity instance can be created, displays data collected by Defender for Identity sensors and is the central console for monitoring, managing and investigating threats.
 - Defender for Identity sensor – Sensors are installed on all domain controllers which monitor and collect domain controller traffic that is fed back to the Defender for Identity portal for analysis.
 
-A high-level illustration of Defender for Identity architecture is shown below in Figure 7. Figure reproduced from [https://docs.microsoft.com/en-au/defender-for-identity/prerequisites](https://docs.microsoft.com/en-au/defender-for-identity/prerequisites)
+A high-level illustration of Defender for Identity architecture is shown below in Figure 7. Figure reproduced from [Microsoft Defender for Identity prerequisites](https://learn.microsoft.com/en-au/defender-for-identity/prerequisites)
 
 ![Figure 7 - Microsoft Defender for Identity Architecture](../img/platform-defender-for-identity.png#center)
 
@@ -997,7 +995,7 @@ Defender for Identity relies on Network Name Resolution (NNR) to correlate betwe
 - RDP (TCP port 3389) – only the first packet of Client hello.
 - Queries the DNS server using reverse DNS lookup of the IP address (UDP 53).
 
-Microsoft recommends using all the above methods, however if this is not possible the organisation should use the DNS lookup method and at least one of the other methods available at [https://docs.microsoft.com/en-au/defender-for-identity/nnr-policy](https://docs.microsoft.com/en-au/defender-for-identity/nnr-policy).
+Microsoft recommends using all the above methods, however if this is not possible the organisation should use the DNS lookup method and at least one of the other methods available at [Network Name Resolution in Microsoft Defender for Identity](https://learn.microsoft.com/en-au/defender-for-identity/nnr-policy).
 
 Defender for Identity Design Decisions for hybrid implementations
 
@@ -1008,15 +1006,15 @@ Defender for Identity instance name | {organisation-instance-name}.atp.azure.com
 Forests and domains to be monitored by Defender for Identity | {organisation}.com.au | Nominated organisation forests and domains.
 Defender for Identity sensor deployment | To all DC's within the identified forests and domains. | Best practice to ensure all authentication traffic is monitored by Defender for Identity.
 Internet connectivity | Domain controllers must have internet connectivity | Domain controllers which will have Defender for Identity sensors installed, must have internet connectivity to the Defender for Identity Cloud Service. <br>Defender for Identity sensors support the use of a web proxy / WPAD for internet connectivity.
-Directory service accounts | A standard AD user account & password<br><br>A group Managed Service Account (gMSA) | If the organisation environment consists of Windows Server 2008 R2 SP1 domain controllers a standard AD user account and password is required with read access to all objects in the monitored domains.<br><br>If organisation environment consists of Windows Server 2012 or above domain controllers than a group Managed Service Account (gMSA) is required with read access to all objects in the monitored domain.<br><br>If the organisation environment consists of a mixture of domain controller operating system versions, then a combination of group Managed Service Account (gMSA) and Standard user account is required. See [Microsoft Defender for Identity prerequisites](https://docs.microsoft.com/en-au/defender-for-identity/prerequisites).
+Directory service accounts | A standard AD user account & password<br><br>A group Managed Service Account (gMSA) | If the organisation environment consists of Windows Server 2008 R2 SP1 domain controllers a standard AD user account and password is required with read access to all objects in the monitored domains.<br><br>If organisation environment consists of Windows Server 2012 or above domain controllers than a group Managed Service Account (gMSA) is required with read access to all objects in the monitored domain.<br><br>If the organisation environment consists of a mixture of domain controller operating system versions, then a combination of group Managed Service Account (gMSA) and Standard user account is required. See [Microsoft Defender for Identity prerequisites](https://learn.microsoft.com/en-au/defender-for-identity/prerequisites).
 Network Name Resolution (NNR) | Reverse DNS lookup and one other method (listed above) | This is the minimum NNR requirement for Defender for Identity. Microsoft recommends using all of the above-mentioned resolution methods available within organisation environment.
-Deleted Objects container permissions | Read-only | Microsoft recommends users should have read-only permissions assigned on the [Deleted objects container](https://docs.microsoft.com/en-au/defender-for-identity/prerequisites#before-you-start) to allow Defender for Identity to detect user deletions from the Agencies Active Directory.
+Deleted Objects container permissions | Read-only | Microsoft recommends users should have read-only permissions assigned on the [Deleted objects container](https://learn.microsoft.com/en-au/defender-for-identity/directory-service-accounts#permissions-required-for-the-dsa) to allow Defender for Identity to detect user deletions from the Agencies Active Directory.
 
 #### Role groups
 
 Defender for Identity provides security groups to allow the implementation of a RBAC model.
 
-Azure AD provides the basis for the Defender for Identity role groups. When Defender for Identity is enabled for the first time it automatically creates the three security groups in Azure AD, using the product's previous name - Azure ATP. The three Defender for Identity security groups are:
+Microsoft Entra ID provides the basis for the Defender for Identity role groups. When Defender for Identity is enabled for the first time it automatically creates the three security groups in Microsoft Entra ID, using the product's previous name - Azure ATP. The three Defender for Identity security groups are:
 
 - Azure ATP {Instance Name} Administrators – Provides full administrative access to the specific Defender for Identity instance including all configuration settings.
 - Azure ATP {Instance Name} Users – Able to modify configurations relating to suspicious activities (i.e. change status and add exclusions), alerts and scheduled reports, but not the configuration of Defender for Identity sensors or data sources.
@@ -1064,13 +1062,13 @@ Integration with Defender for Endpoint | Enabled | To integrate data feeds and a
 
 #### Firewall
 
-As Defender for Identity is reliant upon the Defender for Identity portal and the Defender for Identity sensors, firewall ports are required to be opened to allow communication between infrastructure (Domain Controllers and standalone servers) and Defender for Identity. These port configurations are updated frequently and are available online from Microsoft ([Configure endpoint proxy and Internet connectivity settings for your Microsoft Defender for Identity Sensor](https://docs.microsoft.com/en-au/defender-for-identity/configure-proxy), [Microsoft Defender for Identity prerequisites](https://docs.microsoft.com/en-au/defender-for-identity/prerequisites)).
+As Defender for Identity is reliant upon the Defender for Identity portal and the Defender for Identity sensors, firewall ports are required to be opened to allow communication between infrastructure (Domain Controllers and standalone servers) and Defender for Identity. These port configurations are updated frequently and are available online from Microsoft ([Configure endpoint proxy and Internet connectivity settings for your Microsoft Defender for Identity Sensor](https://learn.microsoft.com/en-au/defender-for-identity/configure-proxy), [Microsoft Defender for Identity prerequisites](https://learn.microsoft.com/en-au/defender-for-identity/prerequisites)).
 
 It is important to note the traffic between the client and the Defender for Identity portal offering is TLS1.2 encrypted. Configuration will occur on the proxy, external gateway and local infrastructure servers of the organisation as required.
 
 Firewall rules and proxy allow lists will be implemented as part of the Defender for Identity solution.
 
-- Defender for Identity service location – As mentioned previously, Defender for Identity data centres are deployed in the United States, Europe, and Asia. The organisation's Defender for Identity instance will be created in the data centre that is geographically closest to the organisation's Azure AD service. This will assist in determining which service location to utilise for generating allow lists. For Azure AD tenants located in Australia, Defender for Identity will be created in Asia.
+- Defender for Identity service location – As mentioned previously, Defender for Identity data centres are deployed in the United States, Europe, and Asia. The organisation's Defender for Identity instance will be created in the data centre that is geographically closest to the organisation's Microsoft Entra ID service. This will assist in determining which service location to utilise for generating allow lists. For Microsoft Entra ID tenants located in Australia, Defender for Identity will be created in Asia.
 - Maximal security and data privacy – Defender for Identity cloud services use certificate based mutual authentication for communication between Defender for Identity cloud backend and all Defender for Identity sensors. To make the authentication process seamless as possible if the organisation's environment utilises SSL inspection then the inspection should be configured for mutual authentication.
 
 Further details on the firewall configuration for the solution can be found in the [Hybrid - Network Configuration ABAC](../../as-built-as-configured/hybrid-network-configuration).
@@ -1079,7 +1077,7 @@ Further details on the firewall configuration for the solution can be found in t
 
 Defender for Cloud Apps is a Cloud Access Security Broker that provide visibility, control over data travel and powerful analytics to identify and deal with cyberthreats. Integrating Defender for Identity with Defender for Cloud Apps extends this capability to hybrid environments and presents all Defender for Identity Suspicious Activity (SA) alerts to the Defender for Cloud Apps dashboard, reducing the need for security analysts to monitor multiple consoles.
 
-To connect Defender for Identity to Defender for Cloud Apps the administrator enabling the setting must be an Azure AD Global Admin. Integration is enabled in the Defender for Cloud Apps console and does not require configuration from the Defender for Identity console. Defender for Cloud Apps allows Agencies to access the Defender for Identity data within a single monitoring and management portal reducing the number of monitoring consoles required, however the following needs to be considered:
+To connect Defender for Identity to Defender for Cloud Apps the administrator enabling the setting must be a Microsoft Entra ID Global Admin. Integration is enabled in the Defender for Cloud Apps console and does not require configuration from the Defender for Identity console. Defender for Cloud Apps allows Agencies to access the Defender for Identity data within a single monitoring and management portal reducing the number of monitoring consoles required, however the following needs to be considered:
 
 - Alerts – Defender for Cloud Apps can display Defender for Identity alerts within the Alerts queue. Defender for Cloud Apps also provides additional alert filtering not available within Defender for Identity.
 - Alerts management – Management of alerts can be performed in both Defender for Cloud Apps and Defender for Identity portals. Closing alerts in one portal will not necessarily close the same alert in the other portal. It is recommended to choose which portal will be used to manage and remediate alerts to avoid duplicate effort.
@@ -1151,7 +1149,7 @@ Log Analytics Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Log Analytics Workspace | Deployed | The Log Analytics workspace will primarily be used to store log data for Microsoft Endpoint Manager managed workloads and Azure AD sign in logs.
+Log Analytics Workspace | Deployed | The Log Analytics workspace will primarily be used to store log data for Microsoft Endpoint Manager managed workloads and Microsoft Entra ID sign in logs.
 Pricing mode | Per GB | Log Analytics pricing is based on data consumed.
 Incurs Subscription Cost? | Yes | Log Analytics pricing is based on data consumed. Data Volume could be reduced to 90 days if the organisation has an existing SIEM for further custom log analysis.
 
@@ -1163,7 +1161,7 @@ Workspace Name | organisation-log-workspace | Log workspace name to be confirmed
 Azure Subscription | Organisation subscription | Configured by Office 365. 
 Region | Australia Central | Closest location of Log Analytics to the organisation. 
 Log retention | Retention Period: 1 year<br>Data Volume Cap: Off | One year aligns with other data retention periods in this solution and meets the system requirements. 
-Enabled Diagnostic Settings | Microsoft Endpoint Manager, Azure AD | Ensures logs are ingested by log analytics. 
+Enabled Diagnostic Settings | Microsoft Endpoint Manager, Microsoft Entra ID | Ensures logs are ingested by log analytics. 
 Log Analytics Contributor Group | rol-organisation-log-admin | Log Analytics Contributor group name to be confirmed by the organisation. 
 
 ### Security Information and Event Management
@@ -1185,16 +1183,16 @@ SIEM Solution | Not Configured | SIEM Solution configuration is custom to each o
 Azure log ingestion | Not Configured | SIEM Solution configuration is custom to each organisation based on its specific requirements. This blueprint does not specify a SIEM and as such does not offer configuration guidance, however Agencies should consider their operational requirements in this area. This blueprint provides guidance on Azure logs, Defender for Endpoint and Defender for Office 365 which audit most Azure, Defender, including M365 logs for up to ten years with Microsoft Purview Audit (Premium). These technologies are also configured to send alert emails to Global Administrators and selected Office 365 administrators.
 Office 365 log ingestion | Not Configured | SIEM Solution configuration is custom to each organisation based on its specific requirements. This blueprint does not specify a SIEM and as such does not offer configuration guidance, however Agencies should consider their operational requirements in this area. This blueprint provides guidance on Azure logs, Defender for Endpoint and Defender for Office 365 which audit most Azure, Defender, including M365 logs for up to ten years with Microsoft Purview Audit (Premium). These technologies are also configured to send alert emails to Global Administrators and selected Office 365 administrators.
 
-### Azure AD tenant restrictions
+### Microsoft Entra ID tenant restrictions
 
-Office 365 and other enterprise SaaS applications that use Azure AD as their identity provider all share URLs with common domain names like `outlook.office.com` and `login.microsoftonline.com`. Blocking these internet addresses to prevent users from accessing other third-party Office 365 tenancies and services would also prevent users from accessing the organisation's own Office 365 tenancy. With Azure AD tenant restrictions, agencies with a supported web filtering (proxy) system can specify the list of approved Azure AD tenants that their users are permitted to access (e.g. GovTeams). Azure AD then only grants access to these permitted tenants.
+Office 365 and other enterprise SaaS applications that use Microsoft Entra ID as their identity provider all share URLs with common domain names like `outlook.office.com` and `login.microsoftonline.com`. Blocking these internet addresses to prevent users from accessing other third-party Office 365 tenancies and services would also prevent users from accessing the organisation's own Office 365 tenancy. With Microsoft Entra ID tenant restrictions, agencies with a supported web filtering (proxy) system can specify the list of approved Microsoft Entra ID tenants that their users are permitted to access (e.g. GovTeams). Microsoft Entra ID then only grants access to these permitted tenants.
 
-Azure AD tenant restrictions prerequisites are as follows:
+Microsoft Entra ID tenant restrictions prerequisites are as follows:
 
 - The organisation's web filtering service supports TLS interception, HTTP header insertion, URL and FQDN filtering.
 - Endpoints must trust the web filtering services PKI certificate chain for TLS communications.  
 
-For more detail on Azure AD tenant restrictions, see [use tenant restrictions to manage access to SaaS apps](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/tenant-restrictions).
+For more detail on Microsoft Entra ID tenant restrictions, see [use tenant restrictions to manage access to SaaS apps](https://learn.microsoft.com/en-au/azure/active-directory/manage-apps/tenant-restrictions).
 
 Tenant restrictions Design Decisions for all agencies and implementation types.
 
@@ -1206,13 +1204,13 @@ Tenant restrictions Design Decisions for all agencies and implementation types.
 
 ### Microsoft Endpoint Manager - Intune
 
-Microsoft Endpoint Manager - Intune (Intune) is an Microsoft 365 service that provides Mobile Device Management (MDM) and Mobile Application Management (MAM) capabilities for Apple iOS, Google Android and Microsoft Windows devices to enhance security and protection.
+Microsoft Endpoint Manager - Intune (Intune) is a Microsoft 365 service that provides Mobile Device Management (MDM) and Mobile Application Management (MAM) capabilities for Apple iOS, Google Android and Microsoft Windows devices to enhance security and protection.
 
 Intune manages which devices can access corporate data, protects company information by controlling the way data is shared, and enforces device configuration to ensure security requirements are met. It does this via:
 
 - Device Enrolment Profiles – Prior to managing devices in Intune they must be enrolled as either Personal or Corporate devices. These can either be self-enrolled or automatically enrolled.
 - Device Compliance Policies – Device Compliance Policies are rules, such as device PIN length or encryption requirements, that can be applied to devices. These rules must be met before a device is considered compliant. Device Compliance can then be used by services such as Conditional Access.
-- Device Configuration Profiles - Device Configuration Profiles provide the ability to control settings and features on supported endpoints. These include, device and user settings, browser settings and hardware settings. Device Configuration Profiles can be deployed to specific users or devices in Azure AD groups.
+- Device Configuration Profiles - Device Configuration Profiles provide the ability to control settings and features on supported endpoints. These include, device and user settings, browser settings and hardware settings. Device Configuration Profiles can be deployed to specific users or devices in Microsoft Entra ID groups.
 - Device Security Baselines – Security baselines are pre-configured groups of Windows settings that are recommended by Microsoft security teams. The security baselines are templates and are used to create a profile that is specific to the environment for deployment.
 - Client Applications – Client applications can be delivered to devices registered in Intune based on device type and group membership. Application types that can be distributed include store apps, MS Office suite, MS Edge browser, web links, line of business and Win32 applications. Monitoring of application distribution is provided.
 - Software Updates – Software update policies store the configuration of updates without the updates themselves. This prevents the need to approve individual updates allowing for a faster turnaround time. Individual policies can be created and targeted to different groups of devices.
@@ -1221,7 +1219,7 @@ When devices are enrolled into Intune, authorised administrators are able to vie
 
 Additionally, Intune can present a customised Company Portal to end users which can be used to install and launch applications or websites via single sign-on (SSO) authentication.
 
-Intune is a component of EMS and integrates with other EMS components such as Azure AD and Microsoft Information Protection (MIP) natively. This allows for total granular visibility of all endpoints within the Enterprise Mobility Management sphere and simplifies the approach for management.
+Intune is a component of EMS and integrates with other EMS components such as Microsoft Entra ID and Microsoft Information Protection (MIP) natively. This allows for total granular visibility of all endpoints within the Enterprise Mobility Management sphere and simplifies the approach for management.
 
 To complement this visibility, an Intune Data Warehouse can be deployed to capture and create custom reports from Intune data using a reporting service. This can assist in gaining insight into which users are using Intune, what licences are being used, operating system and device breakdowns, and compliance trends. The Data Warehouse also has the capability to export directly to Power BI and create interactive & dynamic reports.
 
@@ -1284,9 +1282,9 @@ Applications Managed | Microsoft Information Protection<br>Microsoft Corporate P
 
 ### Intune - Enrolment
 
-Device enrolment registers the Windows 10 and iOS devices into the corporate device management solution and ensures the device is then able to be managed by administrators.
+Device enrolment registers the Windows 10, Wiindows 11 and iOS devices into the corporate device management solution and ensures the device is then able to be managed by administrators.
 
-Microsoft Intune provides a mechanism for enrolling devices into Azure AD. Once registered the device is populated into Intune policy groups using dynamic membership. This ensures that the device meets the compliance policy, monitored, and secured to the organisation's security requirements. 
+Microsoft Intune provides a mechanism for enrolling devices into Microsoft Entra ID. Once registered the device is populated into Intune policy groups using dynamic membership. This ensures that the device meets the compliance policy, monitored, and secured to the organisation's security requirements. 
 
 Microsoft Intune provides three separate experience in enrolling the iOS devices into the organisation's Azure Active directory. The enrolment experiences are:
 
@@ -1305,7 +1303,7 @@ iOS Enrolment | Configured | iOS devices must be enrolled in Intune prior to man
 
 Co-management provides the ability to manage devices via MECM and Intune. 
 
-For a deployment to be enabled for co-management, devices must be Azure AD joined, be enrolled in Intune and have the MECM client installed.
+For a deployment to be enabled for co-management, devices must be Microsoft Entra ID joined, be enrolled in Intune and have the MECM client installed.
 
 Once co-management is enabled, management tasks such as compliance policies, Windows Update policies, resource access policies, and endpoint protection, can be moved from MECM management over to Intune as required.
 
@@ -1315,7 +1313,7 @@ Intune deploys and manages first-party Microsoft applications in a simple manner
 
 Intune also provides a patching mechanism which simplifies the deployment of Microsoft first-party updates for applications and Windows 10 but does not allow granular control over patches.
 
-The following figure provides an overview of co-management. Figure reproduced from https://docs.microsoft.com/en-us/mem/configmgr/comanage/overview
+The following figure provides an overview of co-management. Figure reproduced from [What is co-management?](https://learn.microsoft.com/en-au/mem/configmgr/comanage/overview)
 
 ![Co-management overview](../img/platform-intune-comgmt.png#center)
 
@@ -1345,7 +1343,7 @@ Windows Autopilot provides the ability to set up and pre-configure new devices w
 
 Windows Autopilot provides the ability to:
 
-- Automatically join devices – Azure Active Directory (Azure AD).
+- Automatically join devices – Microsoft Entra ID.
 - Auto-enrol devices – Auto-enrol MDM services, such as Microsoft Intune.
 - Restrict the Administrator – Restrict administrator account creation.
 - Create and auto-assign devices – Auto assign to configuration groups based on a device's profile.
@@ -1356,7 +1354,7 @@ Intune Windows AutoPilot Design Decisions for cloud native implementations
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Automatically Join Devices | Azure Active Directory (Azure AD) | Devices will automatically join the Azure Active Directory. 
+Automatically Join Devices | Microsoft Entra ID | Devices will automatically join the Azure Active Directory. 
 Auto-enrol devices | Configured | Enrolled automatically into Intune MDM.
 Restrict the Local Administrator Account | Configured | Aligns with the ACSC Hardening guide for Windows 10.
 Create and auto-assign devices | Configured | For ease of management and enrolment for devices within organisation.
@@ -1386,7 +1384,7 @@ Compliance Assessment | Configured | Since mobile devices routinely leave the of
 
 ### Intune - Device configuration
 
-Device Configuration Profiles provide the ability to control settings and features on supported endpoints. These include, device and user settings, browser settings, and hardware settings. Device Configuration Profiles can be deployed to specific users or devices by using Azure AD groups.
+Device Configuration Profiles provide the ability to control settings and features on supported endpoints. These include, device and user settings, browser settings, and hardware settings. Device Configuration Profiles can be deployed to specific users or devices by using Microsoft Entra ID groups.
 
 There are many supported platforms, each of which have several profile sub-types that they offer configuration for, at the time of writing, the following platforms are supported:
 
@@ -1641,7 +1639,7 @@ Retention Policies | At discretion of organisation | Retention policies for the 
 
 Microsoft Azure services are available globally and provides geographical, regional, data centre, virtual infrastructure, and application resiliency. This allows the Microsoft Azure platform and Microsoft 365 to combat and minimise potential disasters such as customers loss of connectivity to data or loss of data.
 
-Data availability is an important part of making sure that end users have access to the data when they require it. The cloud-based service of Microsoft 365 will replicate and store organisation's data in multiple data centres which are geographically dispersed  (see [Exchange Online data resiliency in Microsoft 365](https://docs.microsoft.com/en-au/compliance/assurance/assurance-exchange-data-resiliency) and [Data resiliency in Microsoft 365](https://docs.microsoft.com/en-au/compliance/assurance/assurance-data-resiliency-overview)). 
+Data availability is an important part of making sure that end users have access to the data when they require it. The cloud-based service of Microsoft 365 will replicate and store organisation's data in multiple data centres which are geographically dispersed  (see [Exchange Online data resiliency in Microsoft 365](https://learn.microsoft.com/en-au/compliance/assurance/assurance-exchange-data-resiliency) and [Data resiliency in Microsoft 365](https://learn.microsoft.com/en-au/compliance/assurance/assurance-data-resiliency-overview)). 
 
 The data availability and resiliency of Microsoft 365 cloud service is in-built and managed by Microsoft.
 
@@ -1659,7 +1657,7 @@ System Administration is the process of managing, troubleshooting, and maintaini
 
 To manage and configure the solution, administrators will use various administrative consoles. These consoles are a mixture of server based and web-based consoles that exist internally or in the cloud.
 
-Web based administrative consoles are provided by Microsoft however the URLs for these consoles constantly change (refer to [Microsoft Security Portals](https://docs.microsoft.com/en-us/microsoft-365/security/mtp/portals?view=o365-worldwide)). The consoles listed below are correct at the time of writing.
+Web based administrative consoles are provided by Microsoft however the URLs for these consoles constantly change (refer to [Microsoft Security Portals](https://learn.microsoft.com/en-au/microsoft-365/security/defender/portals?view=o365-worldwide)). The consoles listed below are correct at the time of writing.
 
 Administration consoles Design Decisions for all agencies and implementation types.
 
@@ -1677,7 +1675,7 @@ Defender for Identity Portal | Available from web console | The console is avail
 
 RBAC defines what an end user or administrator can do. In relation to system administration, RBAC provides various roles each of which can only perform certain tasks. For example, help desk staff may be able to only view certain resources, whereas system administrators could view, create, and delete those resources.
 
-Privileged Identity Management (PIM) can be leveraged to enhance the RBAC model available in Azure AD. PIM is an implementation of Just-in-time (JIT) access. JIT access ensures that an administrative account only has privileges when required to complete a function. JIT aligns to the principal of Zero Standing Privilege. Group assignment of Azure AD roles is also supported with PIM.
+Privileged Identity Management (PIM) can be leveraged to enhance the RBAC model available in Microsoft Entra ID. PIM is an implementation of Just-in-time (JIT) access. JIT access ensures that an administrative account only has privileges when required to complete a function. JIT aligns to the principal of Zero Standing Privilege. Group assignment of Microsoft Entra ID roles is also supported with PIM.
 
 Each PIM role assignment can have the following attributes:
 
@@ -1687,22 +1685,22 @@ Each PIM role assignment can have the following attributes:
 - Incident Request Ticket - the Incident Request Ticket attribute specifies that the approver add an incident ticket number to the approval request.
 - Multi-factor Authentication - the Multi-factor Authentication attribute specifies whether MFA is required for activation.
 
-Azure AD roles can be assigned via PIM to various scope types, depending on the specific role being assigned. The scope types include:
+Microsoft Entra ID roles can be assigned via PIM to various scope types, depending on the specific role being assigned. The scope types include:
 
-- Directory - Roles that apply permissions across the entire Azure AD tenant.
-- Administrative unit - Configurable by administrators to segregate permissions within organisation into specific business units or locations.  Note only [specific Azure AD roles](https://docs.microsoft.com/en-au/azure/active-directory/roles/admin-units-assign-roles#roles-that-can-be-assigned-with-administrative-unit-scope) can be assigned with administrative unit scope.
-- Application - A specific application registered to Azure AD. These are listed under [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) in the Azure portal.
+- Directory - Roles that apply permissions across the entire Microsoft Entra ID tenant.
+- Administrative unit - Configurable by administrators to segregate permissions within organisation into specific business units or locations.  Note only [specific Microsoft Entra ID roles](https://learn.microsoft.com/en-au/azure/active-directory/roles/admin-units-assign-roles#roles-that-can-be-assigned-with-administrative-unit-scope) can be assigned with administrative unit scope.
+- Application - A specific application registered to Microsoft Entra ID. These are listed under [App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) in the Azure portal.
 - Service principal - Including registered applications, managed identities and legacy apps.
 
-Note: the product name for Microsoft Information Protection is still referred to as Azure Information Protection within the defined Azure AD Roles.
+Note: the product name for Microsoft Information Protection is still referred to as Azure Information Protection within the defined Microsoft Entra ID Roles.
 
 RBAC Design Decisions for all agencies and implementation types.
 
 Decision Point | Design Decision | Justification
 --- | --- | ---
-Azure AD Role Based Management | Least Privilege, using PIM | PIM will be utilised to provide Just-in-Time role-based management to ensure elevated access is only provided when required.
+Microsoft Entra IDD Role Based Management | Least Privilege, using PIM | PIM will be utilised to provide Just-in-Time role-based management to ensure elevated access is only provided when required.
 PIM Roles | Authentication Administrator<br>Azure Information Protection Administrator<br>Global Administrator<br>Exchange Administrator<br>Helpdesk Administrator<br>Intune Administrator<br>Office Apps Administrator<br>Power BI Administrator<br>Power Platform Administrator<br>Privileged Role Administrator<br>Security Administrator<br>Security Operator<br>SharePoint Administrator<br>Teams Communications Administrator<br>Teams Communications Support Engineer<br>Teams Communications Support Specialist<br>Teams Administrator<br>User Account Administrator | The configured PIM roles align to the services utilised within the solution.
 PIM approval | Automatic approval for all roles except for Global Administrator | Approval will only be required for Global Administrators.
-PIM assignment type | Eligible (for supported roles) | Roles should be assigned as "eligible" for supported roles as per the ACSC Essential Eight guidance for restricting administrative privilege (just-in-time administration). Note, some roles such as SharePoint Administrators and Device Administrators [can experience some delays in applying using PIM](https://docs.microsoft.com/en-au/azure/active-directory/privileged-identity-management/pim-roles#what-about-microsoft-365-admin-roles). 
+PIM assignment type | Eligible (for supported roles) | Roles should be assigned as "eligible" for supported roles as per the ACSC Essential Eight guidance for restricting administrative privilege (just-in-time administration). Note, some roles such as SharePoint Administrators and Device Administrators [can experience some delays in applying using PIM](https://learn.microsoft.com/en-au/azure/active-directory/privileged-identity-management/pim-roles#what-about-microsoft-365-admin-roles). 
 PIM assignment period | 12 Months | Assignment of all roles within PIM for a maximum of 12 months as per the ACSC Essential Eight guidance for restricting administrative privilege. 
 Activation duration | 8 hours | The activation duration will be one workday to ensure that administrative actions are not impeded.

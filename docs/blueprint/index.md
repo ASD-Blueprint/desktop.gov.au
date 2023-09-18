@@ -5,14 +5,14 @@ title: Blueprint
 
 # Blueprint
 
-<p id="date-and-time">2 minutes to read - 30 March 2023</p>
+<p id="date-and-time">2 minutes to read - 15 September 2023</p>
 
 The blueprint is a design to secure Microsoft 365 desktops, developed with Microsoft and tested with independent security assessors.
 
 The blueprint offers 4 main artefacts to support agencies with implementation.
 
 - The **Solution Overview** provides a non-technical overview of the blueprint and maps blueprint solutions to the Essential Eight security strategies.
-- The **Platform Design** covers all supporting components for the Windows 10, iOS and Office 365 (including Microsoft Endpoint Manager).
+- The **Platform Design** covers all supporting components for the Windows 10 and 11, iOS and Office 365 (including Microsoft Endpoint Manager).
 - The **Client Devices Design** includes Windows 10 and iOS components only.
 - The **Office 365 Design** includes Exchange Online, SharePoint Online, OneDrive for Business and Teams.
 

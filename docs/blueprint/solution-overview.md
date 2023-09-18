@@ -4,7 +4,7 @@
 
 # Solution overview
 
-<p id="date-and-time">14 minutes to read - 30 March 2023</p>
+<p id="date-and-time">14 minutes to read - 15 September 2023</p>
 
 This overview covers the blueprint's purpose, its components, and design considerations and decisions.
 
@@ -186,7 +186,7 @@ PAW and jump host solutions for cloud native may comprise of:
 
 - **Separate credentials** are provided for non-privileged and privileged duties
 - **Hardened PAW** (Windows operating system) enrolled into Intune and coupled with conditional access polices to provide a zero trust entry point into the associated cloud apps to administer. Local administrative privileges should be restricted on the PAW, it is used to access the jump server solution or direct access to cloud admin portals
-- **Web filtering system** to restrict privileged accounts to the set of agency approved admin portals only. This product could be a risk assessed cloud platform or built as an infrastructure as a service server. The web filtering solution should be mandatory on the jump host or PAWs. [Tenant restrictions](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/tenant-restrictions) should be implemented to prevent misuse or data exfiltration to other Microsoft tenancies
+- **Web filtering system** to restrict privileged accounts to the set of agency approved admin portals only. This product could be a risk assessed cloud platform or built as an infrastructure as a service server. The web filtering solution should be mandatory on the jump host or PAWs. [Tenant restrictions](https://learn.microsoft.com/en-au/azure/active-directory/manage-apps/tenant-restrictions) should be implemented to prevent misuse or data exfiltration to other Microsoft tenancies
 - **Virtual jump host** solution may be built leveraging Azure Virtual Desktop (AVD) session hosts, which seamlessly provides Multifactor Authentication (MFA) through Conditional Access policies. This jump host may be the trusted location where admin portals are used, as well as a secure place to administer other hybrid assets. Network security groups can be used to restrict management traffic flows to these jump hosts only
 - **Restriction of management traffic flows** limited to only critical assets should be implemented where possible. This could be achieved by utilising the Windows Defender native firewall functionality, web filtering, network security groups on cloud hosted jump hosts, and Conditional Access policies.
 
@@ -226,8 +226,8 @@ Design Decisions for all agencies and implementation types.
 
 Decision point | Design decision | Justification
 --- | --- | ---
-Azure AD Identity Protection | Configured | Azure AD Identity Protection is a tool that allows organisations to accomplish 3 key tasks:<br><br>- automate the detection and remediation of identity-based risks.<br>- investigate risks using data in the portal.<br>- export risk detection data to a utility for further analysis.
-Azure AD Multi-Factor Authentication (MFA) | Configured | Azure AD MFA will be enabled to meet ACSC hardening and Essential Eight compliance. This is discussed in the Platform design artefact.
+Identity Protection | Configured | Identity Protection is a tool that allows organisations to accomplish 3 key tasks:<br><br>* automate the detection and remediation of identity-based risks.<br>* investigate risks using data in the portal.<br>* export risk detection data to a utility for further analysis.
+Multi-Factor Authentication (MFA) | Configured | MFA will be enabled to meet ACSC hardening and Essential Eight compliance. This is discussed in the Platform design artefact.
 Enterprise collaboration | Teams and SharePoint Online | Teams and SharePoint Online will be used for enterprise collaboration.
 Enterprise email | Exchange Online | Exchange Online and Microsoft Outlook will be deployed for the enterprise email solution.
 Enterprise file storage | SharePoint Online / OneDrive | SharePoint Online and OneDrive will be deployed for enterprise file storage.
@@ -241,7 +241,7 @@ Addition design decisions for cloud native implementations.
 
 Decision point | Design decision | Justification
 --- | --- | ---
-Identity | Azure Active Directory (Azure AD) | Azure AD will be the identity source. No on-premises active directory exists.
+Identity | Microsoft Entra ID | Microsoft Entra ID will be the identity source. No on-premises Active Directory exists.
 Device standard operating environment deployment | Configured | Device configuration will be deployed using Microsoft Autopilot and ongoing configuration will be controlled using Intune.
 Workstation policy management | Configured | Workstation policy will be deployed and managed using Microsoft Intune.
 Windows updates and patches | Configured | Configuration of Windows and third-party updates will be managed using Microsoft Intune.

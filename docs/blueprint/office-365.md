@@ -4,7 +4,7 @@
 
 # Office 365
 
-<p id="date-and-time">105 minutes to read - 15 Septemnber 2023</p>
+<p id="date-and-time">105 minutes to read - 15 September 2023</p>
 
 This document covers the following topics.
 

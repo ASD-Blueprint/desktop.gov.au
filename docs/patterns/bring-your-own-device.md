@@ -99,7 +99,7 @@ Introducing BYOD carries some risk for the Agency. While some controls can be ad
 
 The following controls while not exhaustive should be a focus while assessing the risk for BYOD under an enterprise mobility strategy. 
 
-Note, refer to the [System Security Plan](../security/system-security-plan) for full traceability against all controls for the Protected Utility blueprint outside of this pattern.
+Note, refer to the [System Security Plan](../../security/system-security-plan) for full traceability against all controls for the Protected Utility blueprint outside of this pattern.
 
 #### ISM Controls
 
@@ -196,7 +196,7 @@ Conditional Access | Conditional Access will be configured with exception group 
 Defender for Cloud Apps | Cloud App security Session policies will restrict access to data within browser sessions | Provides a Zero Trust method to restrict access to leaking of data. 
 Intune app protection policies | App protection polices will be deployed to the MAM identity groups without enrollment required (MAM-WE) | Provides some protection against Agency data within a managed app. Protection will require a passcode within the app, control sharing of data between apps and prevent copy of data to personal locations. This allows separation between corporate and personal data to address the intent of ISM security control 1400. 
 Azure AD Identity Protection | Blueprint configuration will remain in place enabling Enable the sign-in risk policy and user risk policy within the Azure AD tenant | Provide reporting of detected suspicious sign-in activity based on defined MFA, sign-in risk and user risk policies for increased security and automated remediation steps such as requiring a password change or MFA challenge when authentication is suspicious. 
-Multi Factor Authentication | Multi Factor authentication for this use-case will always be enforced. | As per the blueprint baselines defined within the [platform design](../blueprint/platform). 
+Multi Factor Authentication | Multi Factor authentication for this use-case will always be enforced. | As per the blueprint baselines defined within the [platform design](../../blueprint/platform). 
 
 #### BYOD Option 1 configuration guide
 
@@ -542,7 +542,7 @@ The outcome will allow the end user to:
 - Access all other corporate applications, from within the virtual desktop only
 - Prevent copy, paste, saving of files and printing on the Mobile Device.
 
-The recommendation to implement this option is to utilise the [Azure Virtual Desktop blueprint](./azure-virtual-desktop) pattern. The solution requires architectural decisions to be made that are outside the scope of this pattern. This BYOD option is more difficult to implement than the MAM BYOD option 1, but offers a less complex implementation than other virtual desktop solutions.
+The recommendation to implement this option is to utilise the [Azure Virtual Desktop blueprint](../azure-virtual-desktop) pattern. The solution requires architectural decisions to be made that are outside the scope of this pattern. This BYOD option is more difficult to implement than the MAM BYOD option 1, but offers a less complex implementation than other virtual desktop solutions.
 
 The pattern recommends the following:
 
@@ -577,4 +577,4 @@ Decision Point | Design Decision | Justification
 
 #### BYOD Option 2 configuration guide
 
-Further implementation advice is provided in the Protected Utility blueprint [Azure Virtual Desktop pattern](./azure-virtual-desktop). This guide is a bolt-on pattern to the Protected Utility blueprint.
+Further implementation advice is provided in the Protected Utility blueprint [Azure Virtual Desktop pattern](../azure-virtual-desktop). This guide is a bolt-on pattern to the Protected Utility blueprint.

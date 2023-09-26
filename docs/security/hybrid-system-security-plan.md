@@ -576,11 +576,11 @@ Bluetooth is enabled as it allows users to pair devices they may require to perf
 
 Users can reset certain security settings in Personal Hotspot and Passcode for situations where the passcode/password may have been compromised. 
 
-The HybridSystem does not include the use of a full VPN on mobile devices, and therefore a direct connection to the internet is used. It is recommended Agencies consider implementing a VPN for mobile devices in accordance with the ACSC's recommendation for iOS devices. The blueprint includes suggested [per app VPN configuration](../as-built-as-configured/intune-configuration#ios-per-app-vpn), however the selection and configuration of a VPN server is the responsibility of the Agency.
+The HybridSystem does not include the use of a full VPN on mobile devices, and therefore a direct connection to the internet is used. It is recommended Agencies consider implementing a VPN for mobile devices in accordance with the ACSC's recommendation for iOS devices. The blueprint includes suggested [per app VPN configuration](../../as-built-as-configured/intune-configuration#ios-per-app-vpn), however the selection and configuration of a VPN server is the responsibility of the Agency.
 
 Applications are installed from the App Store using the Volume Purchasing Program (VPP) tokens through Apple Business Manager Enrollment. This provides application control for iOS mobile devices, and removes the need for users having to install applications from the App Store through an Apple ID.
 
-The risk of non-compliance with controls relating to iOS devices is addressed in the ‘[Hybrid Blueprint - Security Risk Management Plan](./hybrid-security-risk-management-plan/)’ at [R17](./hybrid-security-risk-management-plan#r17-mobile-device-compromised).
+The risk of non-compliance with controls relating to iOS devices is addressed in the ‘[Hybrid Blueprint - Security Risk Management Plan](../hybrid-security-risk-management-plan/)’ at [R17](../hybrid-security-risk-management-plan#r17-mobile-device-compromised).
 
 #### Security controls provided by the HybridSystem
 

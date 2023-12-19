@@ -1,4 +1,8 @@
-## Desktop.gov.au
+# Deprecated
+
+This Repository is no longer supported. A new repository for the ASD Blueprint for Secure Cloud can be found [here](https://github.com/ASD-Blueprint/ASD-Blueprint-for-Secure-Cloud)
+
+### Desktop.gov.au
 
 A website for Protected Utility with all blueprint documents.
 
